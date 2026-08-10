@@ -33,7 +33,7 @@ for (const id of firstUsablePath) {
 }
 
 for (const page of pages) {
-  if (["planned", "outlined"].includes(page.status)) errors.push(`${page.id} exposes an incomplete page on the public surface`);
+  if (["planned", "outlined", "blocked"].includes(page.status)) errors.push(`${page.id} exposes an incomplete page on the public surface`);
   for (const dependency of page.prerequisites) {
     if (!byId.has(dependency)) errors.push(`${page.id} references unknown prerequisite ${dependency}`);
     if ((byId.get(dependency)?.order ?? 999) >= page.order) errors.push(`${page.id} prerequisite ${dependency} must appear earlier`);

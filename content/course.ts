@@ -26,7 +26,7 @@ export type TutorialPage = {
   order: number;
   title: string;
   type: "概念" | "跟做" | "诊断" | "参考" | "项目";
-  status: "planned" | "outlined" | "desk-researched" | "fixture-tested";
+  status: "planned" | "outlined" | "blocked" | "desk-researched" | "fixture-tested";
   duration: string;
   summary: string;
   why: string;
@@ -982,7 +982,7 @@ export const catalogPages: TutorialPage[] = [
   status: page.id === "TD-F01" || page.id.startsWith("TD-AP") || page.id.startsWith("TD-P") ? page.status : "outlined",
 }));
 
-const incompleteStatuses = new Set<TutorialPage["status"]>(["planned", "outlined"]);
+const incompleteStatuses = new Set<TutorialPage["status"]>(["planned", "outlined", "blocked"]);
 
 // Public course data is a fail-closed projection of the internal curriculum catalog.
 // Incomplete topics remain in catalogPages for research planning but never reach learners.
