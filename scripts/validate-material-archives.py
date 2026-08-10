@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import argparse
 import shutil
 import subprocess
 import sys
@@ -127,6 +128,17 @@ def validate_quality_platform_lab(temp: Path) -> None:
 
 
 def main() -> int:
+    global MATERIALS
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "materials_root",
+        nargs="?",
+        type=Path,
+        default=MATERIALS,
+        help="Material directory containing bundle folders and matching zip archives.",
+    )
+    args = parser.parse_args()
+    MATERIALS = args.materials_root.resolve()
     try:
         validate_syntax()
         for bundle in BUNDLES:
