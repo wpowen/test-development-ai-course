@@ -118,7 +118,29 @@ export default function Home() {
           <h1>{current.title}</h1>
           <p className="lead">{current.summary}</p>
 
+          <section className="outcome-card">
+            <div><span>学完能做到</span><ul>{current.outcomes.map((item) => <li key={item}>{item}</li>)}</ul></div>
+            <div><span>本页必须交付</span><strong>{current.artifact}</strong><small>不是“看懂”就算完成，要留下能被下游使用和检查的工件。</small></div>
+          </section>
+
           <section className="why-card"><b>为什么测试开发需要这一页</b><p>{current.why}</p></section>
+
+          {current.architecture && <section className="architecture-card">
+            <p className="eyebrow">架构 / 流程</p>
+            <h2>{current.architecture.title}</h2>
+            <div className="architecture-flow">{current.architecture.nodes.map((node, index) => <div className="architecture-step" key={node}><b>{String(index + 1).padStart(2, "0")}</b><span>{node}</span></div>)}</div>
+            <p>{current.architecture.caption}</p>
+          </section>}
+
+          {current.materials && current.materials.length > 0 && <section className="materials-card">
+            <div><p className="eyebrow">随课物料</p><h2>页面里提到的脚本和配置，都在这里</h2></div>
+            <div className="material-grid">{current.materials.map((material) => <a href={material.href} key={material.href} target="_blank" rel="noreferrer">
+              <span>{material.kind} · {material.validation === "fixture-tested" ? "已跑夹具" : "静态复核"}</span>
+              <b>{material.title}</b>
+              <p>{material.description}</p>
+              <i>打开物料 →</i>
+            </a>)}</div>
+          </section>}
 
               {current.prerequisites.length > 0 && <section className="prerequisites"><b>前置页面</b>{current.prerequisites.map((id) => {
                 const page = pages.find((item) => item.id === id);

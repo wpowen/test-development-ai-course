@@ -5,6 +5,8 @@ import { qualitySystemPages } from "./modules/quality-system.ts";
 import { agentPerformancePages } from "./modules/agent-performance.ts";
 import { requirementsTestingLifecyclePages } from "./modules/requirements-testing-lifecycle.ts";
 import { professionRealityPage } from "./modules/profession-reality.ts";
+import { professionalSpecializationPages } from "./modules/professional-specializations.ts";
+import { qualityPlatformSpecializationPages } from "./modules/quality-platform-specializations.ts";
 
 export type TutorialBlock = {
   title: string;
@@ -38,6 +40,18 @@ export type TutorialPage = {
   completion: string[];
   sourceIds: string[];
   evidenceBoundary: string;
+  architecture?: {
+    title: string;
+    caption: string;
+    nodes: string[];
+  };
+  materials?: Array<{
+    title: string;
+    description: string;
+    href: string;
+    kind: "script" | "config" | "fixture" | "guide" | "evidence" | "archive";
+    validation: "static-reviewed" | "fixture-tested";
+  }>;
 };
 
 export const modules = [
@@ -962,9 +976,140 @@ const corePages: TutorialPage[] = [
   },
 ];
 
+function deliverySupport(page: TutorialPage): Pick<TutorialPage, "architecture" | "materials"> {
+  if (page.id === "TD-F01") {
+    return {
+      architecture: {
+        title: "测试开发职业价值链",
+        caption: "AI 只能进入明确的工作节点；输入、工件、决定和反馈缺一项，就无法证明提效。",
+        nodes: ["触发事件", "输入与依赖", "风险与工程活动", "可审计工件", "发布/质量决定", "生产反馈回流"],
+      },
+      materials: [{
+        title: "职业现实地图模板",
+        description: "用最近一次需求、发布或事故还原真实流程，再决定 AI 的权限和人工门禁。",
+        href: "materials/career-reality-map.md",
+        kind: "guide",
+        validation: "static-reviewed",
+      }],
+    };
+  }
+  if (/^TD-P\d+$/.test(page.id)) {
+    return {
+      architecture: {
+        title: "需求到发布证据的可执行链",
+        caption: "每一阶段都消费上游的版本化工件；文档冲突、无来源规则或已知缺陷会分别触发 BLOCKED 或 FAIL。",
+        nodes: ["PRD/技术方案", "Basis Gate", "需求契约", "风险与 TestPackage", "自动化执行", "Run Manifest", "发布证据"],
+      },
+      materials: [
+        {
+          title: "下载完整 Requirements-to-Evidence 实验包",
+          description: "包含脚本、输入、状态、报告和说明；解压后按 README 运行。",
+          href: "materials/requirements-to-evidence.zip",
+          kind: "archive",
+          validation: "fixture-tested",
+        },
+        {
+          title: "离线实验说明",
+          description: "完整跑通基线、文档冲突、代码缺陷和修复流程，预期退出码包含 0/2/1/0。",
+          href: "materials/requirements-to-evidence/README.md",
+          kind: "guide",
+          validation: "fixture-tested",
+        },
+        {
+          title: "可运行 Pipeline",
+          description: "Python 标准库实现的需求依据、契约、测试包和证据门禁脚本。",
+          href: "materials/requirements-to-evidence/pipeline.py",
+          kind: "script",
+          validation: "fixture-tested",
+        },
+        {
+          title: "基线需求契约",
+          description: "可替换成脱敏项目数据的结构化输入示例。",
+          href: "materials/requirements-to-evidence/seed/requirement-contract.json",
+          kind: "fixture",
+          validation: "fixture-tested",
+        },
+        {
+          title: "故障报告样例",
+          description: "已知产品缺陷被门禁发现后的机器可读结果。",
+          href: "materials/requirements-to-evidence/reports/mutation.json",
+          kind: "evidence",
+          validation: "fixture-tested",
+        },
+      ],
+    };
+  }
+  if (page.id.startsWith("TD-AP")) {
+    return {
+      architecture: {
+        title: "Agent 性能与稳定性观测链",
+        caption: "从业务任务到模型与工具调用，再回到成功任务、尾延迟、调用放大、成本和 SLO；只看 HTTP RPS 会漏掉真正的失败。",
+        nodes: ["工作负载模型", "并发/到达率", "Agent 编排", "模型·RAG·工具", "Trace 与资源指标", "质量·性能·成本门禁", "容量/降级决定"],
+      },
+      materials: [
+        {
+          title: "下载完整 Agent 负载实验包",
+          description: "包含模拟器、三组配置、Trace 和红绿报告；解压后无需 API Key 即可运行。",
+          href: "materials/agent-load-stability.zip",
+          kind: "archive",
+          validation: "fixture-tested",
+        },
+        {
+          title: "Agent 负载实验说明",
+          description: "无需 API Key，跑出正常、重试风暴和修复后的 0/1/0 证据。",
+          href: "materials/agent-load-stability/README.md",
+          kind: "guide",
+          validation: "fixture-tested",
+        },
+        {
+          title: "负载与故障模拟器",
+          description: "生成任务级指标、调用放大、尾延迟和预算结果的本地脚本。",
+          href: "materials/agent-load-stability/agent_load_lab.py",
+          kind: "script",
+          validation: "fixture-tested",
+        },
+        {
+          title: "重试风暴配置",
+          description: "有意制造无边界重试和失败放大的红灯配置。",
+          href: "materials/agent-load-stability/configs/retry-storm.json",
+          kind: "config",
+          validation: "fixture-tested",
+        },
+        {
+          title: "修复后配置",
+          description: "限制重试、并发和退避后的对照配置。",
+          href: "materials/agent-load-stability/configs/repaired.json",
+          kind: "config",
+          validation: "fixture-tested",
+        },
+        {
+          title: "重试风暴红灯报告",
+          description: "保存了 p95、排队、重试放大和门禁失败字段的机器可读证据。",
+          href: "materials/agent-load-stability/reports/retry-storm/summary.json",
+          kind: "evidence",
+          validation: "fixture-tested",
+        },
+        {
+          title: "修复后绿灯报告",
+          description: "使用同一工作负载与门禁复跑后的恢复证据，可和红灯报告直接对比。",
+          href: "materials/agent-load-stability/reports/repaired/summary.json",
+          kind: "evidence",
+          validation: "fixture-tested",
+        },
+      ],
+    };
+  }
+  return {};
+}
+
+const validatedSpecializationPageIds = new Set(professionalSpecializationPages.map((page) => page.id));
+const validatedQualityPlatformPageIds = new Set(qualityPlatformSpecializationPages.map((page) => page.id));
+
 export const catalogPages: TutorialPage[] = [
   professionRealityPage,
   ...requirementsTestingLifecyclePages,
+  ...professionalSpecializationPages,
+  ...qualityPlatformSpecializationPages,
   ...professionalPages.filter((page) => page.id.startsWith("TD-S")),
   ...foundationPages.slice(1),
   ...professionalPages.filter((page) => page.id.startsWith("TD-A")),
@@ -978,8 +1123,9 @@ export const catalogPages: TutorialPage[] = [
   ...agentPerformancePages,
 ].map((page, index) => ({
   ...page,
+  ...deliverySupport(page),
   order: index + 1,
-  status: page.id === "TD-F01" || page.id.startsWith("TD-AP") || page.id.startsWith("TD-P") ? page.status : "outlined",
+  status: page.id === "TD-F01" || page.id.startsWith("TD-AP") || /^TD-P\d+$/.test(page.id) || validatedSpecializationPageIds.has(page.id) || validatedQualityPlatformPageIds.has(page.id) ? page.status : "outlined",
 }));
 
 const incompleteStatuses = new Set<TutorialPage["status"]>(["planned", "outlined", "blocked"]);
@@ -1074,6 +1220,16 @@ export const sourceNotes: Record<string, { title: string; url: string }> = {
   S90: { title: "UK Government Digital and Data Test Engineer Framework", url: "https://ddat-capability-framework.service.gov.uk/role/test-engineer" },
   S91: { title: "GitLab SET Career Framework and Role Transition", url: "https://handbook.gitlab.com/handbook/engineering/careers/matrix/quality/software-engineer-in-test/intermediate/" },
   S92: { title: "QA Career Ladder Practitioner Discussion", url: "https://www.reddit.com/r/softwaretesting/comments/1q9yva6/qa_career_ladder/" },
+  S93: { title: "Jira Cloud Webhooks", url: "https://developer.atlassian.com/cloud/jira/platform/webhooks/" },
+  S94: { title: "Jira Cloud REST API v3 Issues", url: "https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/" },
+  S95: { title: "GitLab Pipelines API", url: "https://docs.gitlab.com/api/pipelines/" },
+  S96: { title: "GitLab Merge Requests API", url: "https://docs.gitlab.com/api/merge_requests/" },
+  S97: { title: "GitLab Unit Test Reports", url: "https://docs.gitlab.com/ci/testing/unit_test_reports/" },
+  S98: { title: "Kubernetes RBAC", url: "https://kubernetes.io/docs/reference/access-authn-authz/rbac/" },
+  S99: { title: "Kubernetes Network Policies", url: "https://kubernetes.io/docs/concepts/services-networking/network-policies/" },
+  S100: { title: "Kubernetes TTL-after-finished Controller", url: "https://kubernetes.io/docs/concepts/workloads/controllers/ttlafterfinished/" },
+  S101: { title: "Kubernetes Auditing", url: "https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/" },
+  S102: { title: "CloudEvents Specification 1.0.2", url: "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md" },
 };
 
 export const firstUsablePath = [professionRealityPage.id, ...requirementsTestingLifecyclePages.map((page) => page.id)];

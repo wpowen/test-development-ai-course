@@ -1,7 +1,15 @@
 import { catalogPages, firstUsablePath, pages, publicModules, releaseScope, sourceNotes } from "../content/course.ts";
+import { existsSync, statSync } from "node:fs";
+import { resolve } from "node:path";
 
 const errors: string[] = [];
 const byId = new Map(pages.map((page) => [page.id, page]));
+
+for (const page of catalogPages.filter((candidate) => candidate.id.startsWith("TD-PS"))) {
+  if (page.materials?.some((material) => material.href.includes("requirements-to-evidence"))) {
+    errors.push(`${page.id} was incorrectly assigned requirements-lifecycle materials`);
+  }
+}
 
 if (catalogPages.length < 60) errors.push(`internal knowledge catalog must preserve the full topic map, found ${catalogPages.length}`);
 if (pages.length < 8) errors.push(`public tutorial needs at least 8 delivered pages, found ${pages.length}`);
@@ -47,6 +55,32 @@ for (const page of pages) {
   if (page.sourceIds.length < 3) errors.push(`${page.id} needs at least 3 source references`);
   for (const sourceId of page.sourceIds) if (!sourceNotes[sourceId]) errors.push(`${page.id} references unknown source ${sourceId}`);
   if (page.evidenceBoundary.length < 35) errors.push(`${page.id} evidence boundary is too thin`);
+  if (!page.architecture || page.architecture.nodes.length < 5 || page.architecture.caption.length < 30) {
+    errors.push(`${page.id} needs a substantive architecture or workflow diagram`);
+  }
+  if (!page.materials?.length) {
+    errors.push(`${page.id} must expose learner-facing materials`);
+  } else {
+    const hrefs = new Set<string>();
+    for (const material of page.materials) {
+      if (hrefs.has(material.href)) errors.push(`${page.id} repeats material ${material.href}`);
+      hrefs.add(material.href);
+      if (/^(?:https?:)?\/\//.test(material.href) || material.href.includes("..")) {
+        errors.push(`${page.id} material must be a repository-owned relative path: ${material.href}`);
+        continue;
+      }
+      const localPath = resolve("public", material.href);
+      if (!existsSync(localPath) || !statSync(localPath).isFile() || statSync(localPath).size === 0) {
+        errors.push(`${page.id} material does not exist or is empty: ${material.href}`);
+      }
+    }
+    if (page.status === "fixture-tested") {
+      const tested = page.materials.filter((material) => material.validation === "fixture-tested");
+      if (tested.length < 2 || !tested.some((material) => material.kind === "script")) {
+        errors.push(`${page.id} fixture-tested claim needs at least two tested materials including a script`);
+      }
+    }
+  }
   const learnerCopy = JSON.stringify({ summary: page.summary, why: page.why, blocks: page.blocks, practice: page.practice, completion: page.completion });
   for (const phrase of bannedGenericPhrases) {
     if (learnerCopy.includes(phrase)) errors.push(`${page.id} contains generic/template phrase: ${phrase}`);
