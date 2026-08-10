@@ -9,6 +9,20 @@ const payload = JSON.stringify({ firstUsablePath, modules: publicModules, pages,
   .replaceAll("<", "\\u003c")
   .replaceAll("\u2028", "\\u2028")
   .replaceAll("\u2029", "\\u2029");
+const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (character) => ({
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#39;",
+})[character] ?? character);
+const initialPage = pages.find((page) => page.id === firstUsablePath[0]) ?? pages[0];
+const initialModule = publicModules.find((module) => module.id === initialPage.moduleId);
+const initialContent = `<div class="crumb">${escapeHtml(initialModule?.title ?? "专业主路径")} › ${escapeHtml(initialPage.id)}</div>
+<div class="meta"><span>资料已审</span><span>${escapeHtml(initialPage.type)}</span><span>${escapeHtml(initialPage.duration)}</span></div>
+<h1>${escapeHtml(initialPage.title)}</h1><p class="lead">${escapeHtml(initialPage.summary)}</p>
+<section class="why"><b>为什么测试开发需要这一页</b><p>${escapeHtml(initialPage.why)}</p></section>
+<section class="practice"><b>完整目录和交互正在载入</b><p>首课正文已经可读；课程数据加载完成后会自动显示目录、脚本物料、架构流程与学习进度。</p></section>`;
 
 const html = String.raw`<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -20,7 +34,7 @@ const html = String.raw`<!doctype html>
 </style></head><body>
 <header class="top"><button class="menu" id="menu">目录</button><div class="brand">测试开发 × AI<small>从传统测试到 AI 质量工程</small></div><div class="progress"><span id="progressText"></span><div class="bar"><i id="progress-bar"></i></div></div></header>
 <aside class="side" id="side"><div class="summary"><div class="eyebrow">公开学习版</div><h2>测试开发 × AI 实战</h2><p>只展示已通过逐题研究、正文、实操与验证门禁的内容。</p><div class="stats" id="stats"></div></div><label class="search"><input id="tutorial-search" placeholder="搜索需求、执行证据、TTFT、Agent…"></label><nav class="nav" id="course-nav"></nav></aside>
-<main class="reader"><article class="inner" id="tutorial-content"></article><aside id="page-toc" hidden></aside></main>
+<main class="reader"><article class="inner" id="tutorial-content">${initialContent}</article><aside id="page-toc" hidden></aside></main>
 <script>const COURSE_DATA=${payload};const DATA=COURSE_DATA;
 const statusLabel={"desk-researched":"资料已审","fixture-tested":"实验已跑"};
 const esc=(v)=>String(v??"").replace(/[&<>\"']/g,(c)=>({"&":"&amp;","<":"&lt;",">":"&gt;",'\"':"&quot;","'":"&#39;"}[c]));
