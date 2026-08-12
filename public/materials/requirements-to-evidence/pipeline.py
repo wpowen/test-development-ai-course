@@ -22,6 +22,7 @@ SCHEMAS = ROOT / "schemas"
 RECEIPTS = ROOT / "receipts"
 PAGE_PROMPTS = ROOT / "page-prompts"
 PAGE_MANIFESTS = ROOT / "page-manifests"
+DIRECT_USE_MANIFEST = ROOT / "DIRECT-USE-MANIFEST.json"
 PAGE_IDS = tuple(f"TD-P0{index}" for index in range(1, 9))
 
 PAGE_FAILURES = {
@@ -66,7 +67,7 @@ def require_state():
 
 
 def validate_package(quiet: bool = False) -> tuple[int, dict]:
-    required = [INPUTS / "authority-policy.json", PROMPT_PACKAGE / "manifest.json", PROMPT_PACKAGE / "system-v1.md", PROMPT_PACKAGE / "task-v1.md", PROMPT_PACKAGE / "critic-v1.md", PROMPT_PACKAGE / "eval.json", PROMPT_PACKAGE / "mutation.json", SCHEMAS / "requirement-contract.schema.json"]
+    required = [INPUTS / "authority-policy.json", PROMPT_PACKAGE / "manifest.json", PROMPT_PACKAGE / "system-v1.md", PROMPT_PACKAGE / "task-v1.md", PROMPT_PACKAGE / "critic-v1.md", PROMPT_PACKAGE / "eval.json", PROMPT_PACKAGE / "mutation.json", SCHEMAS / "requirement-contract.schema.json", ROOT / "DIRECT-USE-GUIDE.md", ROOT / "ADAPTATION-CARD.md", DIRECT_USE_MANIFEST]
     for page_id in PAGE_IDS:
         required.extend([
             PAGE_MANIFESTS / f"{page_id}.json",
@@ -95,12 +96,34 @@ def validate_page_package(page_id: str) -> tuple[int, dict]:
     manifest = load(manifest_path)
     prompt_manifest = load(prompt_manifest_path)
     evaluation = load(prompt_dir / "eval.json")
+    prompt_text = (prompt_dir / "prompt-v1.md").read_text(encoding="utf-8")
     if manifest.get("owner_page_ids") != [page_id]:
         issues.append("page manifest must declare exactly one owner_page_id")
     if prompt_manifest.get("owner_page_ids") != [page_id]:
         issues.append("prompt manifest must declare exactly one owner_page_id")
     if prompt_manifest.get("provider") != "none" or prompt_manifest.get("model_status") != "NOT_RUN":
         issues.append("offline prompt package must keep provider none and model_status NOT_RUN")
+    if prompt_manifest.get("direct_use") is not True or prompt_manifest.get("copy_target") != "generic-ai-agent":
+        issues.append("prompt package must declare generic AI Agent direct use")
+    if len(prompt_manifest.get("editable_fields", [])) < 4:
+        issues.append("direct-use prompt needs at least four editable fields")
+    if len(prompt_manifest.get("expected_outputs", [])) < 3 or len(prompt_manifest.get("self_checks", [])) < 4:
+        issues.append("direct-use prompt needs expected outputs and self checks")
+    required_sections = (
+        "## 能做什么",
+        "## 使用前准备",
+        "## 直接复制到 AI Agent",
+        "## 修改这些字段就能复用",
+        "## 预期输出",
+        "## 结果自检",
+        "## 停止条件与边界",
+    )
+    missing_sections = [section for section in required_sections if section not in prompt_text]
+    if missing_sections:
+        issues.append(f"direct-use prompt missing sections: {missing_sections}")
+    for marker in ("[粘贴", "Evidence", "Inference", "Unknown", "BLOCKED", "source_ref", "不要编造"):
+        if marker not in prompt_text:
+            issues.append(f"direct-use prompt missing marker {marker}")
     if len(evaluation.get("items", [])) < 5 or len(evaluation.get("mutations", [])) < 3:
         issues.append("page eval must contain five checks and three negative controls")
     step_ids = {step.get("step_id") for step in manifest.get("steps", [])}

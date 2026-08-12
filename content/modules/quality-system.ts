@@ -1,4 +1,5 @@
 import type { TutorialPage } from "../course.ts";
+import { qualitySystemDeepBlocks } from "./quality-system-deep.ts";
 
 export type QualityBenchmarkSpec = {
   id: string;
@@ -205,4 +206,7 @@ const specs: QualityBenchmarkSpec[] = [
   },
 ];
 
-export const qualitySystemPages = specs.map(buildQualityBenchmarkPage);
+export const qualitySystemPages: TutorialPage[] = (specs.map(buildQualityBenchmarkPage) satisfies TutorialPage[]).map((page): TutorialPage => ({
+  ...page,
+  blocks: [...page.blocks, ...qualitySystemDeepBlocks(page.id)],
+}));

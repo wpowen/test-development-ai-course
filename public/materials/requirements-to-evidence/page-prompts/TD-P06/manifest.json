@@ -1,11 +1,33 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "owner_page_ids": [
     "TD-P06"
   ],
   "provider": "none",
   "model": "offline-deterministic",
   "model_status": "NOT_RUN",
+  "direct_use": true,
+  "copy_target": "generic-ai-agent",
+  "editable_fields": [
+    "adapter_type",
+    "test_package",
+    "system_contract",
+    "tool_environment",
+    "forbidden_side_effects"
+  ],
+  "expected_outputs": [
+    "case_review",
+    "adapter_contract",
+    "code_file_plan",
+    "red_green_commands"
+  ],
+  "self_checks": [
+    "oracle_unchanged",
+    "no_fake_green",
+    "raw_evidence",
+    "exact_cwd_exit_artifacts",
+    "meaningful_mutation"
+  ],
   "system_prompt": "prompt-v1.md",
   "task_prompt": "prompt-v1.md",
   "critic_prompt": "prompt-v1.md",
@@ -13,6 +35,9 @@
   "schema": "schema.json",
   "eval": "eval.json",
   "refusal_status": "BLOCKED",
-  "boundary": "versioned prompt contract; no model/API run"
+  "boundary": "versioned prompt contract; no model/API run",
+  "template_sha256": "76d4fd5d0c0165023b52b83b54749bfeb316dd99030cbc6145b8dd114d24d567",
+  "input_sha256": "7c1a76fbe1ce96ad2a56ac1c7416669b286c124011ed09ede2265243ec757801",
+  "output_schema_sha256": "59752978c2ddd2bc335942f16ac0a1db5e113c35b5f8d8e560810b1df76d4d35",
+  "evaluation_sha256": "cb61e060b6a3c103fde6d9dba5cddcc54957c74446494236644937d8e9d6b78f"
 }
-

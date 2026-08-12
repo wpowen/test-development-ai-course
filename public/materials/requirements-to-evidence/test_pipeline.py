@@ -33,6 +33,11 @@ class LifecycleFixtureTests(unittest.TestCase):
                 self.assertEqual(prompt_manifest["owner_page_ids"], [page_id])
                 self.assertEqual(prompt_manifest["provider"], "none")
                 self.assertEqual(prompt_manifest["model_status"], "NOT_RUN")
+                self.assertTrue(prompt_manifest["direct_use"])
+                self.assertEqual(prompt_manifest["copy_target"], "generic-ai-agent")
+                prompt = (ROOT / "page-prompts" / page_id / "prompt-v1.md").read_text(encoding="utf-8")
+                for marker in ("## 能做什么", "## 直接复制到 AI Agent", "## 修改这些字段就能复用", "## 结果自检", "## 停止条件与边界"):
+                    self.assertIn(marker, prompt)
                 result = self.run_pipeline("page-cycle", "--page", page_id, "--report", f"reports/{page_id}-cycle.json")
                 self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
                 report = json.loads((ROOT / "reports" / f"{page_id}-cycle.json").read_text(encoding="utf-8"))
@@ -48,6 +53,13 @@ class LifecycleFixtureTests(unittest.TestCase):
         self.assertEqual(receipt["receipt_type"], "deterministic-fixture")
         self.assertEqual(receipt["model_status"], "NOT_RUN")
         self.assertEqual(receipt["provider"], "none")
+
+    def test_direct_use_manifest_keeps_model_evidence_not_run(self) -> None:
+        manifest = json.loads((ROOT / "DIRECT-USE-MANIFEST.json").read_text(encoding="utf-8"))
+        self.assertEqual(manifest["page_ids"], PAGE_IDS)
+        self.assertEqual(manifest["prompt_count"], 8)
+        self.assertEqual(manifest["copy_target"], "generic-ai-agent")
+        self.assertEqual(manifest["model_status"], "NOT_RUN")
 
 
 if __name__ == "__main__":

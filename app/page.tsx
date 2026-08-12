@@ -99,7 +99,7 @@ export default function Home() {
                 className={`nav-page ${page.id === current.id ? "active" : ""}`}
                 onClick={() => setHash(page.id)}
               >
-                <span className="page-number">{String(page.order).padStart(2, "0")}</span>
+                <span className="page-number">{String(page.display_number).padStart(2, "0")}</span>
                 <span className="page-name">{page.title}<small>{page.type} · {statusLabel(page.status)}</small></span>
                 <span className={`status-dot ${completed.includes(page.id) ? "done" : page.status}`} />
               </button>)}
@@ -128,8 +128,14 @@ export default function Home() {
           {current.architecture && <section className="architecture-card">
             <p className="eyebrow">架构 / 流程</p>
             <h2>{current.architecture.title}</h2>
+            {current.architecture.visual && <figure className="course-visual">
+              <a href={current.architecture.visual.src} target="_blank" rel="noreferrer" aria-label={`打开高清原图：${current.architecture.visual.alt}`}>
+                <img src={current.architecture.visual.src} alt={current.architecture.visual.alt} loading="lazy" />
+              </a>
+              <figcaption>{current.architecture.caption} 手机端可在图内左右滑动，点击图片可打开高清原图。</figcaption>
+            </figure>}
             <div className="architecture-flow">{current.architecture.nodes.map((node, index) => <div className="architecture-step" key={node}><b>{String(index + 1).padStart(2, "0")}</b><span>{node}</span></div>)}</div>
-            <p>{current.architecture.caption}</p>
+            {!current.architecture.visual && <p>{current.architecture.caption}</p>}
           </section>}
 
           {current.materials && current.materials.length > 0 && <section className="materials-card">

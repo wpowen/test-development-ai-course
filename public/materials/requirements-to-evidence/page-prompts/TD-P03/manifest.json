@@ -1,11 +1,33 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "owner_page_ids": [
     "TD-P03"
   ],
   "provider": "none",
   "model": "offline-deterministic",
   "model_status": "NOT_RUN",
+  "direct_use": true,
+  "copy_target": "generic-ai-agent",
+  "editable_fields": [
+    "system_scope",
+    "source_authority",
+    "requirement_contract",
+    "technical_documents",
+    "operations_security"
+  ],
+  "expected_outputs": [
+    "component_map",
+    "interface_state_contract",
+    "failure_recovery_map",
+    "requirement_design_matrix"
+  ],
+  "self_checks": [
+    "technical_source_refs",
+    "retry_idempotency_pair",
+    "business_observability",
+    "conflicts_blocked",
+    "unknown_owner"
+  ],
   "system_prompt": "prompt-v1.md",
   "task_prompt": "prompt-v1.md",
   "critic_prompt": "prompt-v1.md",
@@ -13,6 +35,9 @@
   "schema": "schema.json",
   "eval": "eval.json",
   "refusal_status": "BLOCKED",
-  "boundary": "versioned prompt contract; no model/API run"
+  "boundary": "versioned prompt contract; no model/API run",
+  "template_sha256": "0f25482edcf6e44afb206de0ea562995e661fbe04ea6c2484bd16c06aae148e7",
+  "input_sha256": "375bb249b3cba5e60fa98d10bb7fedd4c857af6304e0d9ee01e131c5182960c5",
+  "output_schema_sha256": "e5efb396475a9adab80a274fbd1a78201e1aaa73f51fb4cc0f7b47c700504d58",
+  "evaluation_sha256": "3b922d25f09a3ea98fe543024964df4b5b2ec25df58cf6d57b329af390d71098"
 }
-

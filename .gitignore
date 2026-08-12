@@ -40,3 +40,6 @@ yarn-error.log*
 /.wrangler/
 /outputs/
 /work/
+
+# 本地浏览器会话截图与页面快照，属临时产物
+/.playwright-cli/

@@ -1,14 +1,17 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "impact-set.v1",
+  "title": "impact-and-release-evidence.v1.1",
   "type": "object",
   "required": [
     "page_id",
     "status",
-    "claims",
-    "decisions",
+    "change_set",
+    "impact_set",
+    "regression_set",
+    "evidence_pack",
+    "residual_risks",
     "unknowns",
-    "owner_questions"
+    "decision"
   ],
   "properties": {
     "page_id": {
@@ -17,79 +20,58 @@
     "status": {
       "enum": [
         "ACCEPTED",
+        "PASS",
+        "PARTIAL",
         "BLOCKED",
-        "UNKNOWN"
+        "UNKNOWN",
+        "RELEASE_CANDIDATE"
       ]
     },
-    "claims": {
+    "change_set": {
       "type": "array",
+      "description": "Professional output records for change_set",
       "items": {
-        "type": "object",
-        "required": [
-          "claim",
-          "source_refs"
-        ],
-        "properties": {
-          "claim": {
-            "type": "string"
-          },
-          "source_refs": {
-            "type": "array",
-            "minItems": 1,
-            "items": {
-              "type": "string"
-            }
-          }
-        }
+        "type": "object"
       }
     },
-    "decisions": {
+    "impact_set": {
       "type": "array",
+      "description": "Professional output records for impact_set",
       "items": {
-        "type": "object",
-        "required": [
-          "decision",
-          "owner"
-        ],
-        "properties": {
-          "decision": {
-            "type": "string"
-          },
-          "owner": {
-            "type": "string"
-          }
-        }
+        "type": "object"
+      }
+    },
+    "regression_set": {
+      "type": "array",
+      "description": "Professional output records for regression_set",
+      "items": {
+        "type": "object"
+      }
+    },
+    "evidence_pack": {
+      "type": "array",
+      "description": "Professional output records for evidence_pack",
+      "items": {
+        "type": "object"
+      }
+    },
+    "residual_risks": {
+      "type": "array",
+      "description": "Professional output records for residual_risks",
+      "items": {
+        "type": "object"
       }
     },
     "unknowns": {
       "type": "array",
+      "description": "Professional output records for unknowns",
       "items": {
-        "type": "string"
+        "type": "object"
       }
     },
-    "owner_questions": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [
-          "question",
-          "owner",
-          "close_with"
-        ],
-        "properties": {
-          "question": {
-            "type": "string"
-          },
-          "owner": {
-            "type": "string"
-          },
-          "close_with": {
-            "type": "string"
-          }
-        }
-      }
+    "decision": {
+      "type": "object"
     }
   },
   "additionalProperties": false
 }
-

@@ -1,4 +1,8 @@
 import type { TutorialPage } from "../course.ts";
+import { professionalSpecializationsDeepBlocks } from "./professional-specializations-deep.ts";
+import { qualitySystemDeepBlocks } from "./quality-system-deep.ts";
+import { ragQualityDeepBlocks } from "./rag-quality-deep.ts";
+import { agentWorkflowDeepBlocks } from "./agent-workflow-deep.ts";
 
 type GapSpec = {
   id: "TD-X602" | "TD-X101" | "TD-X501" | "TD-X502" | "TD-X601" | "TD-X603" | "TD-X604" | "TD-X805";
@@ -323,4 +327,7 @@ const specs: GapSpec[] = [
 ];
 
 export const advancedQualityGapPageIds = specs.map((spec) => spec.id);
-export const advancedQualityGapPages: TutorialPage[] = specs.map(makePage);
+export const advancedQualityGapPages: TutorialPage[] = specs.map(makePage).map((page): TutorialPage => ({
+  ...page,
+  blocks: [...page.blocks, ...agentWorkflowDeepBlocks(page.id), ...ragQualityDeepBlocks(page.id), ...qualitySystemDeepBlocks(page.id), ...professionalSpecializationsDeepBlocks(page.id)],
+}));

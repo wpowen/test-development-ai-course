@@ -1,4 +1,6 @@
 import type { TutorialBlock, TutorialPage } from "../course.ts";
+import { aiServingDeepBlocks } from "./ai-serving-deep.ts";
+import { careerEvolutionDeepBlocks } from "./career-evolution-deep.ts";
 
 type ServingPageId = "TD-A01" | "TD-A02" | "TD-A03" | "TD-A04" | "TD-A05" | "TD-A06" | "TD-C01";
 
@@ -166,7 +168,7 @@ const technicalBlocks = (page: PageContract): TutorialBlock[] => {
   ];
 };
 
-export const aiServingCareerPages: TutorialPage[] = contracts.map((page) => ({
+export const aiServingCareerPages: TutorialPage[] = (contracts.map((page) => ({
   id: page.id,
   moduleId: page.moduleId,
   order: 0,
@@ -194,4 +196,7 @@ export const aiServingCareerPages: TutorialPage[] = contracts.map((page) => ({
     { title: `${page.id} 运行 Manifest`, description: "页级 owners、Oracle、fault、required files 和 0/1/0 步骤。", href: `${bundle}/manifests/${page.id}.json`, kind: "config", validation: "fixture-tested" },
     ...sharedMaterials,
   ],
+})) satisfies TutorialPage[]).map((page): TutorialPage => ({
+  ...page,
+  blocks: [...page.blocks, ...careerEvolutionDeepBlocks(page.id), ...aiServingDeepBlocks(page.id)],
 }));

@@ -1,14 +1,17 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "run-manifest.v1",
+  "title": "run-evidence.v1.1",
   "type": "object",
   "required": [
     "page_id",
     "status",
-    "claims",
-    "decisions",
+    "run",
+    "results",
+    "attributions",
+    "defects",
+    "blocked",
     "unknowns",
-    "owner_questions"
+    "decision"
   ],
   "properties": {
     "page_id": {
@@ -17,79 +20,58 @@
     "status": {
       "enum": [
         "ACCEPTED",
+        "PASS",
+        "PARTIAL",
         "BLOCKED",
-        "UNKNOWN"
+        "UNKNOWN",
+        "RELEASE_CANDIDATE"
       ]
     },
-    "claims": {
+    "run": {
       "type": "array",
+      "description": "Professional output records for run",
       "items": {
-        "type": "object",
-        "required": [
-          "claim",
-          "source_refs"
-        ],
-        "properties": {
-          "claim": {
-            "type": "string"
-          },
-          "source_refs": {
-            "type": "array",
-            "minItems": 1,
-            "items": {
-              "type": "string"
-            }
-          }
-        }
+        "type": "object"
       }
     },
-    "decisions": {
+    "results": {
       "type": "array",
+      "description": "Professional output records for results",
       "items": {
-        "type": "object",
-        "required": [
-          "decision",
-          "owner"
-        ],
-        "properties": {
-          "decision": {
-            "type": "string"
-          },
-          "owner": {
-            "type": "string"
-          }
-        }
+        "type": "object"
+      }
+    },
+    "attributions": {
+      "type": "array",
+      "description": "Professional output records for attributions",
+      "items": {
+        "type": "object"
+      }
+    },
+    "defects": {
+      "type": "array",
+      "description": "Professional output records for defects",
+      "items": {
+        "type": "object"
+      }
+    },
+    "blocked": {
+      "type": "array",
+      "description": "Professional output records for blocked",
+      "items": {
+        "type": "object"
       }
     },
     "unknowns": {
       "type": "array",
+      "description": "Professional output records for unknowns",
       "items": {
-        "type": "string"
+        "type": "object"
       }
     },
-    "owner_questions": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [
-          "question",
-          "owner",
-          "close_with"
-        ],
-        "properties": {
-          "question": {
-            "type": "string"
-          },
-          "owner": {
-            "type": "string"
-          },
-          "close_with": {
-            "type": "string"
-          }
-        }
-      }
+    "decision": {
+      "type": "object"
     }
   },
   "additionalProperties": false
 }
-

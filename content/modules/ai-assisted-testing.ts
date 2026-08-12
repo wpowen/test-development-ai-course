@@ -1,4 +1,5 @@
 import type { TutorialPage } from "../course.ts";
+import { aiAssistedDeepBlocks } from "./ai-assisted-deep.ts";
 
 type AssistedSpec = {
   id: "TD-T05" | "TD-T06" | "TD-T07" | "TD-T08";
@@ -278,4 +279,7 @@ const specs: AssistedSpec[] = [
   },
 ];
 
-export const aiAssistedTestingPages = specs.map(makePage);
+export const aiAssistedTestingPages: TutorialPage[] = (specs.map(makePage)).map((page): TutorialPage => ({
+  ...page,
+  blocks: [...page.blocks, ...aiAssistedDeepBlocks(page.id)],
+}));

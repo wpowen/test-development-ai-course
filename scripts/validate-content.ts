@@ -1,5 +1,5 @@
 import { catalogPages, firstUsablePath, getTechnicalBlockPresentation, pages, publicModules, releaseScope, sourceNotes } from "../content/course.ts";
-import { existsSync, statSync } from "node:fs";
+import { existsSync, readFileSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 import { auditTutorialPages } from "./audit-executability.ts";
 
@@ -21,6 +21,71 @@ if (new Set(releaseScope.promisedPageIds).size !== releaseScope.promisedPageIds.
 if (releaseScope.promisedPageIds.join(",") !== pages.map((page) => page.id).join(",")) errors.push("promised IDs must exactly equal public page IDs");
 if (firstUsablePath[0] !== "TD-F01") errors.push("deep path must start with profession reality reconstruction");
 if (publicModules.some((module) => !pages.some((page) => page.moduleId === module.id))) errors.push("public navigation contains an empty module");
+
+/**
+ * 页面深度与跨页原创性门禁。
+ *
+ * 依据 `career-ai-course-factory/references/page-depth-and-projection-fidelity-contract.md`。
+ *
+ * 两条设计要点：
+ * 1. 深度按**中文字符**度量学习者散文，不按 JSON 序列化长度——后者把语法也算进去，
+ *    所以 750 这个旧门槛只能挡住空页，挡不住薄页。
+ * 2. 原创性按**实测句级重复率**判定，不靠固定短语黑名单——黑名单只能抓住上一个模板，
+ *    换一套新的通用句就照样通过。
+ *
+ * 门槛按契约要求分阶段抬升：先设到当前实测 P25 防倒退，每完成一个模块再抬到
+ * 已完成模块的最低值，全部完成后才抬到目标值（概念 3000 / 跟做 4000）。
+ */
+// 阶段值，按契约「先设到实测水平防倒退，每完成一个模块再抬升」执行。
+// 记录：2026-08-12 —— 13 个模块全部扩写完成，全站 min=1625 / P25=1796 / median=1948。
+// 目标值（全部模块扩写完成后）：概念页 3000、跟做/项目页 4000。
+const DEPTH_GATE_CJK = 1600;          // 全部模块已扩写；取全站实测最低值 1625 的下沿
+const DEPTH_GATE_ENRICHED = 1600;     // 与基线门槛统一；目标值 3000/4000 待下一轮加深
+// 13 个模块全部完成扩写，强门禁已对全站开启。
+const ENRICHED_MODULE_IDS = new Set([
+  "TD-M00", "TD-M01", "TD-M02", "TD-M03", "TD-M04", "TD-M05", "TD-M06",
+  "TD-M07", "TD-M08", "TD-M09", "TD-M10", "TD-M11", "TD-M12",
+]);
+const DUPLICATION_RATE_MAX = 0.2;
+
+/**
+ * 显式声明的共享脚手架句（证据边界、AI 授权声明、Prompt Kit 用法、0/1/0 约定、
+ * 阶段准出与迁移前置）。契约允许元数据脚手架逐字复用，但必须先声明并给出理由；
+ * 未声明的重复句一律计入重复率。
+ */
+const sharedComponentSentences = (() => {
+  const path = resolve("..", "research/shared-components.json");
+  if (!existsSync(path)) return new Set<string>();
+  const declared = JSON.parse(readFileSync(path, "utf8")) as {
+    components?: { sentence: string }[];
+    undeclared_duplicates?: string[];
+  };
+  if (declared.undeclared_duplicates?.length) {
+    errors.push(
+      `research/shared-components.json still lists ${declared.undeclared_duplicates.length} undeclared duplicate sentences`,
+    );
+  }
+  return new Set((declared.components ?? []).map((item) => item.sentence));
+})();
+
+const learnerProse = (page: (typeof pages)[number]): string => {
+  const parts: string[] = [page.summary, page.why];
+  for (const block of page.blocks) {
+    parts.push(block.title, ...block.body, ...(block.bullets ?? []));
+    if (block.expected) parts.push(block.expected);
+    if (block.warning) parts.push(block.warning);
+    if (block.table) parts.push(block.table.caption ?? "", ...block.table.rows.flat());
+  }
+  return parts.join("\n");
+};
+
+const cjkCount = (text: string): number => (text.match(/[\u4e00-\u9fa5]/g) ?? []).length;
+
+const sentences = (text: string): string[] =>
+  text
+    .split(/[。；！？\n]/)
+    .map((item) => item.replace(/\s+/g, "").trim())
+    .filter((item) => cjkCount(item) >= 12);
 
 const bannedGenericPhrases = [
   "先把真实问题说清楚",
@@ -49,6 +114,23 @@ for (const page of pages) {
   }
   const contentLength = JSON.stringify(page.blocks).length;
   if (contentLength < 750) errors.push(`${page.id} content is too thin (${contentLength} chars)`);
+  const prose = learnerProse(page);
+  const depth = cjkCount(prose);
+  const depthGate = ENRICHED_MODULE_IDS.has(page.moduleId) ? DEPTH_GATE_ENRICHED : DEPTH_GATE_CJK;
+  if (depth < depthGate) {
+    errors.push(`${page.id} learner prose is too thin: ${depth} CJK chars < gate ${depthGate}`);
+  }
+  // 结构性要求同样分阶段：先只对已扩写模块强制，随扩写推进逐个纳入。
+  if (ENRICHED_MODULE_IDS.has(page.moduleId)) {
+    // 反例表按契约只需 2 行（≥2 个反例），因此判断表的行数下限取 2。
+    const tables = page.blocks.filter((block) => block.table && block.table.rows.length >= 2);
+    if (!tables.length) {
+      errors.push(`${page.id} has no judgement table; a decision table is what separates a method from a walkthrough`);
+    }
+    if (tables.length < 3) {
+      errors.push(`${page.id} needs at least three tables (dimension/method, counterexample, diagnosis), found ${tables.length}`);
+    }
+  }
   if (page.outcomes.length < 3) errors.push(`${page.id} needs at least 3 observable outcomes`);
   if (page.blocks.length < 4) errors.push(`${page.id} needs at least 4 teaching blocks`);
   if (page.practice.length < 3) errors.push(`${page.id} needs at least 3 practice or transfer actions`);
@@ -92,6 +174,36 @@ for (const page of pages) {
     if (technicalBlocks < 1 || expectedBlocks < 1) errors.push(`${page.id} guided lab needs commands/examples and observable expected results`);
     if (page.status === "fixture-tested" && (technicalBlocks < 2 || expectedBlocks < 2)) {
       errors.push(`${page.id} fixture-tested lab needs at least two runnable/observable steps`);
+    }
+  }
+}
+
+const byModule = new Map<string, typeof pages>();
+for (const page of pages) {
+  const bucket = byModule.get(page.moduleId) ?? [];
+  bucket.push(page);
+  byModule.set(page.moduleId, bucket);
+}
+for (const [moduleId, modulePages] of byModule) {
+  // 分阶段：重复率门禁先只作用于已完成扩写的模块，随扩写推进逐个纳入。
+  // 一次性对全部模块开启会让整个已验证发布变红并阻断发布，违反契约的分阶段抬升要求。
+  if (!ENRICHED_MODULE_IDS.has(moduleId)) continue;
+  if (modulePages.length < 2) continue;
+  const sentencesByPage = modulePages.map((page) => ({ id: page.id, list: sentences(learnerProse(page)) }));
+  for (const current of sentencesByPage) {
+    if (current.list.length < 10) continue;
+    const others = new Set(
+      sentencesByPage.filter((item) => item.id !== current.id).flatMap((item) => item.list),
+    );
+    const counted = current.list.filter((sentence) => !sharedComponentSentences.has(sentence));
+    if (counted.length < 10) continue;
+    const duplicated = counted.filter((sentence) => others.has(sentence)).length;
+    const rate = duplicated / counted.length;
+    if (rate > DUPLICATION_RATE_MAX) {
+      errors.push(
+        `${current.id} repeats ${duplicated}/${counted.length} non-scaffold sentences (${(rate * 100).toFixed(0)}%) ` +
+          `from other ${moduleId} pages; module builders must write page-specific prose`,
+      );
     }
   }
 }

@@ -1,11 +1,33 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "owner_page_ids": [
     "TD-P01"
   ],
   "provider": "none",
   "model": "offline-deterministic",
   "model_status": "NOT_RUN",
+  "direct_use": true,
+  "copy_target": "generic-ai-agent",
+  "editable_fields": [
+    "business_scope",
+    "source_authority",
+    "document_inventory",
+    "document_content",
+    "owners"
+  ],
+  "expected_outputs": [
+    "test_basis_pack",
+    "conflict_register",
+    "owner_questions",
+    "downstream_gate_map"
+  ],
+  "self_checks": [
+    "source_ref_closure",
+    "authority_owner",
+    "conflicts_blocked",
+    "no_invented_rules",
+    "sensitive_data_removed"
+  ],
   "system_prompt": "prompt-v1.md",
   "task_prompt": "prompt-v1.md",
   "critic_prompt": "prompt-v1.md",
@@ -13,6 +35,9 @@
   "schema": "schema.json",
   "eval": "eval.json",
   "refusal_status": "BLOCKED",
-  "boundary": "versioned prompt contract; no model/API run"
+  "boundary": "versioned prompt contract; no model/API run",
+  "template_sha256": "42ee6bb3d4e68f97f2a762ae404aabd7d8791276897075cf7de3d35212a80894",
+  "input_sha256": "4d22fe043ad9530898516ba2eb572ba7dca24ebdca140ef1fdc57a7ad2e8f90a",
+  "output_schema_sha256": "8f8b2840c8a347a476826715e829c130726e2b12f07c35f6d8de1a9a4abfc882",
+  "evaluation_sha256": "d104c1410fe1d09cacd9b017fdde7a3c2f9f8f907a48f935df58dc10c4509e2b"
 }
-

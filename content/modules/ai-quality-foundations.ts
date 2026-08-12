@@ -1,4 +1,6 @@
 import type { TutorialPage } from "../course.ts";
+import { ragQualityDeepBlocks } from "./rag-quality-deep.ts";
+import { aiFoundationsDeepBlocks } from "./ai-foundations-deep.ts";
 
 type FoundationSpec = {
   id: string;
@@ -279,4 +281,7 @@ const specs: FoundationSpec[] = [
   },
 ];
 
-export const aiQualityFoundationPages: TutorialPage[] = specs.map(makePage);
+export const aiQualityFoundationPages: TutorialPage[] = (specs.map(makePage)).map((page): TutorialPage => ({
+  ...page,
+  blocks: [...page.blocks, ...aiFoundationsDeepBlocks(page.id), ...ragQualityDeepBlocks(page.id)],
+}));

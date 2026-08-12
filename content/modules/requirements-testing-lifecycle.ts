@@ -1,4 +1,5 @@
 import type { TechnicalBlock, TutorialBlock, TutorialPage } from "../course.ts";
+import { handbookMaterials, methodologyExtraBlocks, methodologyStageBlock } from "./methodology-handbook.ts";
 
 const commonBoundary = "本专题使用虚构的订单取消与退款资料包验证工件结构和离线流水线。它能证明流程可运行、冲突能阻断、预埋缺陷能被测试发现；不能证明模型能正确理解你公司的全部文档，也不能替代产品、研发、法务和发布责任人的确认。";
 
@@ -146,61 +147,58 @@ const rawRequirementsTestingLifecyclePages: TutorialPage[] = [
     id: "TD-P03",
     moduleId: "TD-M00",
     order: 0,
-    title: "需求评审不是让 AI 总结：要把歧义、冲突和不可测项逼出来",
+    title: "解析技术文档：把组件、接口、状态与失败恢复变成可测试契约",
     type: "诊断",
     status: "desk-researched",
     duration: "45 分钟",
-    summary: "让独立评审角色检查需求契约，形成带影响、责任人和关闭条件的 Review Question Pack。",
-    why: "测试最早产生价值的地方，是在代码提交前发现不可测试规则。泛泛的‘建议补充异常场景’不会推动决策，问题必须指向来源、失败影响和需要谁回答。",
+    summary: "把技术方案、OpenAPI、事件、数据与状态设计解析成可测试契约，并逐项检查它们是否支持已批准需求。",
+    why: "需求说明业务结果，技术文档说明结果如何发生和在哪里观察。只读 PRD 会漏掉重试、幂等、并发、异步、回滚和可观测性；只读设计又可能把实现选择误当业务规则。",
     prerequisites: ["TD-P02"],
-    outcomes: ["识别五类可测试性缺口", "生成可关闭的评审问题", "传播 BLOCKED 而不是强行生成用例"],
-    artifact: "review-questions.json 与评审决议记录",
+    outcomes: ["解析组件、接口、数据与状态", "建立需求—技术一致性矩阵", "识别重试、幂等、可观测性与恢复缺口"],
+    artifact: "technical-contract.json 与 requirement-design-matrix.json",
     blocks: [
       {
-        title: "五类问题要分开处理",
-        body: ["评审 Agent 不复述需求，而是检查：歧义、来源冲突、缺失分支、不可观察结果和未定义非功能要求。每个问题记录严重性、影响的需求、来源、回答人和关闭证据。"],
+        title: "先把技术文档拆成六类可测试对象",
+        body: ["技术解析不是把架构图翻译成文字，而是分别抽取组件责任、接口/事件、数据与状态、异步与失败恢复、安全权限、可观测证据。每条技术结论绑定 source_ref，并说明它服务哪个 requirement_id。"],
         table: {
-          headers: ["类型", "订单取消例子", "不解决的后果"],
+          headers: ["技术对象", "订单取消例子", "测试要观察什么"],
           rows: [
-            ["冲突", "SHIPPED 是否可取消", "同一版本出现相反断言"],
-            ["未知", "退款最晚何时完成", "无法设计时限与告警"],
-            ["不可观察", "‘取消成功’没有账本/事件定义", "只能断言 HTTP 200"],
-            ["副作用缺失", "重复请求是否重复退款", "资金损失"],
-            ["责任缺失", "谁批准退款例外", "Waiver 无人承担"],
+            ["组件与依赖", "订单服务、退款 Worker、支付网关", "责任边界与失败传播"],
+            ["接口与事件", "POST /cancel、refund.requested", "Schema、错误、兼容性"],
+            ["状态与数据", "PAID→CANCEL_PENDING→CANCELLED", "合法/非法转换与账本不变量"],
+            ["重试与幂等", "消息重投与重复取消", "至多一次副作用"],
+            ["可观测性", "trace_id、退款事件、审计记录", "受理、处理和最终结果"],
           ],
         },
       },
       {
-        title: "问题要能被回答和关闭",
-        body: ["‘请完善需求’没有用。一个合格问题包含：问题、冲突证据、业务影响、候选选项、不得由 AI 决定的部分、责任人、截止时间和关闭后的契约变更。"],
+        title: "用需求—技术矩阵找出实现缺口和越界实现",
+        body: ["矩阵要能看出每条需求落在哪个组件、接口、状态和观察点，也要暴露设计中存在但需求未授权的行为。缺少映射不能写成‘研发自行处理’，而要形成带 owner 和 close_with 的问题。"],
         code: `{
-  "question_id": "RQ-007",
-  "requirement_ids": ["REQ-CANCEL-001"],
-  "type": "SOURCE_CONFLICT",
-  "question": "订单进入 SHIPPED 后是否仍允许取消？",
-  "source_refs": ["PRD-v3#R17", "TECH-a13f#S04"],
-  "impact": "决定 409 拒绝用例、退款副作用与仓配状态回滚",
-  "owner": "product-owner-order",
-  "status": "OPEN",
-  "close_with": "批准后的 PRD 段落和 Requirement Contract 新版本"
+  "requirement_id": "REQ-CANCEL-001",
+  "technical_refs": ["TECH-a13f#S02", "OPENAPI-v7#/cancel"],
+  "components": ["order-service", "refund-worker"],
+  "states": ["PAID", "CANCEL_PENDING", "CANCELLED"],
+  "observations": ["refund.requested", "refund_count", "audit.cancel_id"],
+  "coverage": "PARTIAL",
+  "gap": "publisher retry exhaust 后的 safe terminal 未定义"
 }`,
       },
       {
-        title: "把评审角色与提取角色分开",
-        body: ["提取 Agent 容易延续自己的理解。评审角色只接收原始引用和契约，任务是找反例、缺失与越权字段。高风险问题交给产品、技术、数据或安全责任人，AI 不投票决定。"],
-        code: `你是需求可测试性审查员，不负责重写需求。
-逐项检查：来源冲突、状态缺口、异常与重试、幂等、副作用、权限、数据、NFR、可观察 Oracle。
-输出 ReviewQuestion[]。每个问题必须包含 source_refs、impact、owner、block_level、close_with。
-如果问题会改变关键 Oracle、资金、权限或发布判断，block_level=RELEASE_BLOCKER。`,
+        title: "技术文档解析必须连同失败和恢复一起问",
+        body: ["不要只问正常调用链。对同步/异步边界逐项检查超时、取消、重试、幂等、并发竞争、死信、补偿、回滚和最终状态；再确认日志、指标、Trace、事件或存储是否能区分这些结果。"],
+        code: `输入：已批准 Requirement Contract、技术方案、OpenAPI、事件 Schema、状态/数据设计。
+输出：组件依赖、接口/事件契约、状态转换、失败恢复、可观测性与需求—技术一致性矩阵。
+要求：每条结论有 source_ref；Evidence/Inference/Unknown 分开；重试与幂等一起分析；需求与设计冲突不得自动裁决；关键状态或副作用不可观察时 BLOCKED。`,
       },
       {
-        title: "关闭问题后要产生新版本，不能改掉历史",
-        body: ["评审决议生成新的 Requirement Contract 和 baseline_version，旧版本标成 SUPERSEDED。这样测试、执行报告和线上缺陷都能解释自己基于哪版规则。"],
-        expected: "关闭 RQ-007 后，REQ-CANCEL-001 v2 明确 SHIPPED 返回 409；旧契约仍可审计，但不能被新测试包引用。",
+        title: "技术缺口也必须成为可关闭的问题",
+        body: ["例如‘事件最多重试三次’仍不完整：还要确认退避、死信、重复投递、幂等身份、告警、人工恢复和 safe terminal。问题要记录影响的 requirement/risk、技术 owner 和关闭后的版本证据。"],
+        expected: "得到 requirement-design-matrix；缺少幂等、回滚或可观察点的关键路径为 BLOCKED，并能直接传给下一页风险与方法选择。",
       },
     ],
-    practice: ["从自己的文档中找一条不可观察的成功条件", "把‘请完善’改成有 owner 和关闭证据的问题", "检查关键问题未关闭时下游是否确实停止"],
-    completion: ["每个问题有来源、影响和责任人", "RELEASE_BLOCKER 不会被生成流程跳过", "关闭决议产生新版本而非覆盖历史"],
+    practice: ["给一个接口补齐超时、重试、幂等和最终状态", "画出一条异步链并标出每个可观察证据", "找一条设计超出需求授权的行为并 BLOCKED"],
+    completion: ["需求与组件/接口/状态/观察点双向可追踪", "失败恢复与幂等语义有 owner", "关键技术缺口会阻断风险和用例生成"],
     sourceIds: ["S41", "S42", "S81", "S82"],
     evidenceBoundary: commonBoundary,
   },
@@ -528,12 +526,89 @@ const commandLikeBlocks: Record<string, number[]> = {
 const pagePrompt = (pageId: string, content: string): TechnicalBlock => ({
   kind: "prompt",
   content,
-  version: "1.0.0",
+  version: "1.1.0",
   promptPath: `materials/requirements-to-evidence/page-prompts/${pageId}/prompt-v1.md`,
   manifestPath: `materials/requirements-to-evidence/page-prompts/${pageId}/manifest.json`,
   inputFixturePath: `materials/requirements-to-evidence/page-prompts/${pageId}/input.json`,
   outputSchemaPath: `materials/requirements-to-evidence/page-prompts/${pageId}/schema.json`,
   evaluationPath: `materials/requirements-to-evidence/page-prompts/${pageId}/eval.json`,
+});
+
+const directUsePromptTexts: Record<string, string> = {
+  "TD-P01": `你是证据优先的测试生命周期负责人。请建立 Test Basis Pack，不替团队决定业务规则。
+
+【业务范围】[填写本次要测试的能力]
+【来源权威】[填写每类文档的 owner、有效版本和冲突处理]
+【输入粘贴区】
+--- PRD/需求 ---\n[粘贴并保留标题/段落]\n--- 技术方案 ---\n[粘贴]\n--- API/事件/历史缺陷 ---\n[粘贴]
+
+先生成稳定 source_ref，再输出：1. 来源与版本清单；2. Evidence / Inference / Unknown；3. 冲突、影响、owner_question、close_with；4. 下游 Requirement Contract、技术解析、风险、Oracle、用例、执行、回归的入口状态。不要编造状态、阈值、权限、错误码或 SLA；关键来源缺失或冲突时 status=BLOCKED。`,
+  "TD-P02": `你是需求评审与解析专家。请把自然语言需求转为可测试 Requirement Contract，不替产品 owner 补规则。
+
+【评审目标】[填写功能/变更]
+【来源权威】[粘贴已确认规则]
+【输入粘贴区】\n[粘贴 PRD、用户故事、验收标准、术语]
+
+逐条输出 requirement_id、actor、preconditions、trigger、states、invariants、exceptions、side_effects、permissions、NFR、source_refs、status，并补 Given/When/Then/Oracle。检查歧义、冲突、缺失分支、重复、并发、权限、不可观察结果和未定义 NFR。结果分 Evidence / Inference / Unknown；没有 source_ref 不得 ACCEPTED，关键问题必须给 owner、block_level、close_with 并 BLOCKED。`,
+  "TD-P03": `你是测试开发与架构审查专家。请解析技术文档并检查其与需求一致性，不替架构师裁决冲突。
+
+【系统范围】[填写]
+【Requirement Contract】[粘贴已批准需求]
+【输入粘贴区】\n[粘贴技术方案、组件、OpenAPI、事件 Schema、数据/状态、重试/幂等/超时、可观测性、安全与回滚]
+
+输出组件依赖、接口/事件契约、状态转换、失败恢复、需求—技术一致性矩阵与 Review Questions。每条结论带 source_ref，并区分 Evidence / Inference / Unknown。重点检查组件、接口、状态、重试、幂等、并发、可观测性、权限和回滚；不要编造缺失 SLA/错误码/阈值，关键冲突或不可观察结果必须 BLOCKED。`,
+  "TD-P04": `你是风险驱动测试架构师。请先分析失败影响，再选择测试方法和层级，不按用例数量优化。
+
+【Requirement Contract】[粘贴]
+【技术解析】[粘贴]
+【风险口径】[粘贴组织定义；没有写未定义]
+【输入粘贴区】\n[粘贴历史缺陷、变更、环境和预算约束]
+
+输出 Risk Test Plan：risk_id、failure、impact、Evidence / Inference / Unknown、method、rationale、rejected_methods、test_level、independent oracle、data、monitoring、owner、residual risk。按输入形态选择等价类/边界值/决策表/状态/场景/契约/属性/变形；不要编造严重度与阈值。关键风险无 Oracle、监控或 owner 时 BLOCKED。`,
+  "TD-P05": `你是专业测试设计师。先建立独立 Oracle Registry，再生成测试条件和用例；不要从实现实际输出反推 expected。
+
+【Requirement Contract】[粘贴]
+【Risk Test Plan】[粘贴]
+【技术可观察点】[粘贴]
+【独立 Oracle 来源】[粘贴业务规则/Schema/公式/不变量及 owner]
+【输入粘贴区】\n[粘贴测试数据、环境和禁止副作用]
+
+输出 Oracle Registry、方法覆盖矩阵和 Test Cases。每条用例含 requirement_id、risk_id、method、oracle_id、preconditions、data、action、expected transport/state/event/audit、cleanup、evidence、status；覆盖正常、拒绝、边界、权限、并发、重试和恢复。分 Evidence / Inference / Unknown；缺规则/Oracle/环境时 BLOCKED_TEST，不要编造。`,
+  "TD-P06": `你是测试开发工程师。先审查 Test Package，再映射到自动化；不能改业务 Oracle，也不能用 skip、吞异常或无限重试假绿。
+
+【目标适配器】[API/契约/组件/UI/数据]
+【Test Package】[粘贴]
+【系统契约】[粘贴接口/locator/schema]
+【输入粘贴区】\n[粘贴框架版本、cwd、数据、凭据边界、禁止副作用]
+
+输出 REVIEW findings、Adapter Contract、代码/文件清单、baseline/fault/repair 命令与追踪图。命令必须有 cwd、exit code、artifacts；断言引用 oracle_id；错误向上传播；重试有界并保留每次结果。分 Evidence / Inference / Unknown；契约、凭据或安全控制缺失时 BLOCKED，不要编造字段。`,
+  "TD-P07": `你是测试执行与证据归因专家。请冻结 Run Manifest，并把失败分类为 PRODUCT_FAIL / TEST_FAIL / ENV_BLOCKED / DEPENDENCY_BLOCKED / UNKNOWN。
+
+【固定版本】[需求/代码/配置/数据/Test Package/hash]
+【运行命令】[cwd、命令、时间、exit code]
+【选择与跳过】[selected/skipped/not_run]
+【输入粘贴区】\n[按 test_id 粘贴 expected、actual、日志/trace/报告和每次重试]
+
+输出 Run Manifest、逐项归因、Evidence / Inference / Unknown、缺陷草稿、最小补证动作和决策摘要。PRODUCT_FAIL 必须有独立 Oracle 与原始 actual；证据不足保持 UNKNOWN。不要用最后一次 PASS 覆盖先前失败，也不要编造根因。`,
+  "TD-P08": `你是变更影响与回归负责人。请让受影响的旧 PASS 失效，选择可解释回归集并生成发布候选证据；你不能批准上线。
+
+【变更目标】[填写]
+【BEFORE / AFTER】[粘贴版本、diff、契约、配置、模型/Prompt hash]
+【追踪链】[source→requirement→risk→method→oracle→case→result]
+【输入粘贴区】\n[粘贴历史 receipt、发布门禁、risk/release/rollback owner]
+
+输出 Change Set、Impact Set、selected/not_selected Regression Set、Evidence Pack、residual risks 和 RELEASE_CANDIDATE / BLOCKED / UNKNOWN。分 Evidence / Inference / Unknown；默认不继承旧 PASS，模型/Prompt 变化的旧评测也视为 STALE，除非有版本桥接证据。不要编造覆盖率或风险接受。`,
+};
+
+const directUsePromptBlock = (pageId: string): TutorialBlock => ({
+  title: "直接复制到任意 AI Agent：先用快速版，再下载完整专业版",
+  body: [
+    "下面的快速版可以立即粘贴使用；方括号内容替换成你的材料。完整文件另外包含能做什么、准备项、字段改法、完整输出结构、自检与 BLOCKED 条件，适合正式工作留档。",
+    "AI 只负责提取、候选分析和结构化，不负责批准需求、裁决冲突、接受风险或决定发布。首次迁移先用脱敏的小范围资料，并人工抽查 source_ref 与 Oracle。",
+  ],
+  technical: pagePrompt(pageId, directUsePromptTexts[pageId]),
+  expected: "复制后替换输入粘贴区，得到带 source_ref、Evidence/Inference/Unknown、责任人和停止状态的候选工件；完整 Prompt 文件提供进一步的输出字段和自检。",
+  warning: "本包已通过静态合同和离线负控制；真实 AI provider/model 执行仍为 NOT_RUN，不能据此声称模型准确、企业可用或生产通过。",
 });
 
 const pageCycleNarratives: Record<string, { title: string; body: string[]; expected: string; warning: string }> = {
@@ -610,7 +685,7 @@ const migrateTechnicalBlock = (pageId: string, block: TutorialBlock, blockNumber
   if (promptBlocks[pageId]?.includes(blockNumber)) {
     return {
       ...base,
-      technical: pagePrompt(pageId, code),
+      technical: { kind: "pseudocode", content: code, verification: "本段解释 Prompt 权限或任务分解；可复制版本见本页“直接复制到任意 AI Agent”与完整 Prompt 文件。" },
       expected: base.expected ?? "按固定 input 生成符合 schema 的候选工件；eval 检查引用、authority、Unknown、独立 Oracle 与证据边界，真实模型保持 NOT_RUN。",
     };
   }
@@ -643,6 +718,9 @@ export const requirementsTestingLifecyclePages: TutorialPage[] = rawRequirements
   status: "fixture-tested",
   blocks: [
     ...page.blocks.map((block, index) => migrateTechnicalBlock(page.id, block, index + 1)),
+    ...(methodologyStageBlock(page.id) ? [methodologyStageBlock(page.id)!] : []),
+    ...methodologyExtraBlocks(page.id),
+    directUsePromptBlock(page.id),
     pageCycle(page.id),
   ],
   materials: [
@@ -657,7 +735,11 @@ export const requirementsTestingLifecyclePages: TutorialPage[] = rawRequirements
           validation: "fixture-tested" as const,
         }]),
     { title: `${page.id} 独立运行 Manifest`, description: "精确声明 owner、cwd、所需文件、baseline/fault/repair/cycle 命令、退出码与报告。", href: `materials/requirements-to-evidence/page-manifests/${page.id}.json`, kind: "config", validation: "fixture-tested" },
-    { title: `${page.id} 版本化 Prompt 包`, description: "包含 v1.0.0 Prompt、固定 input、JSON Schema、eval、mutation 和 NOT_RUN 模型边界。", href: `materials/requirements-to-evidence/page-prompts/${page.id}/manifest.json`, kind: "config", validation: "static-reviewed" },
+    { title: `${page.id} 版本化 Prompt 包`, description: "包含 v1.1.0 Prompt、固定 input、JSON Schema、eval、mutation 和 NOT_RUN 模型边界。", href: `materials/requirements-to-evidence/page-prompts/${page.id}/manifest.json`, kind: "config", validation: "static-reviewed" },
+    { title: `${page.id} 可直接复制的完整 Prompt`, description: "包含能做什么、准备项、输入粘贴区、可改字段、完整输出、自检和 BLOCKED 条件。", href: `materials/requirements-to-evidence/page-prompts/${page.id}/prompt-v1.md`, kind: "guide", validation: "static-reviewed" },
+    { title: "完整生命周期 Prompt Kit 使用指南", description: "按 P01→P08 说明先看什么、怎么复制、如何检查以及 AI 不能替你决定什么。", href: "materials/requirements-to-evidence/DIRECT-USE-GUIDE.md", kind: "guide", validation: "static-reviewed" },
+    { title: "业务迁移卡", description: "替换业务场景、来源权威、责任人和验证方法，同时保留追踪、独立 Oracle 与证据边界。", href: "materials/requirements-to-evidence/ADAPTATION-CARD.md", kind: "guide", validation: "static-reviewed" },
     { title: `${page.id} 0/1/0 收据`, description: "逐页离线负控制汇总；只证明 fixture-tested，不代表模型、集成或生产通过。", href: `materials/requirements-to-evidence/reports/${page.id}-cycle.json`, kind: "evidence", validation: "fixture-tested" },
+    ...handbookMaterials(page.id),
   ],
 }));

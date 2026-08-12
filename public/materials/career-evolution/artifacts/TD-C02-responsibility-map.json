@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "page_id": "TD-C02",
+  "state": "guided-execution",
+  "decision_rights": {"can_decide": [], "must_escalate": ["release threshold", "risk waiver"]},
+  "failure_cost": "UNKNOWN",
+  "artifact": "UNKNOWN",
+  "evidence_refs": [],
+  "reviewer": "UNKNOWN",
+  "unknowns": ["填入真实工件和具名复评者"]
+}

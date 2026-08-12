@@ -10,6 +10,8 @@ import { professionalSpecializationPages } from "./modules/professional-speciali
 import { qualityPlatformSpecializationPages } from "./modules/quality-platform-specializations.ts";
 import { aiServingCareerPages } from "./modules/ai-serving-career.ts";
 import { advancedQualityGapPageIds, advancedQualityGapPages } from "./modules/advanced-quality-gaps.ts";
+import { careerEvolutionPageIds, careerEvolutionPages } from "./modules/career-evolution.ts";
+import { agentArchitectureSystemPages } from "./modules/agent-architecture-system.ts";
 
 type TutorialBlockBase = {
   title: string;
@@ -184,6 +186,7 @@ export type TutorialPage = {
   id: string;
   moduleId: string;
   order: number;
+  display_number?: number;
   title: string;
   type: "概念" | "跟做" | "诊断" | "参考" | "项目";
   status: "planned" | "outlined" | "blocked" | "desk-researched" | "fixture-tested";
@@ -202,6 +205,11 @@ export type TutorialPage = {
     title: string;
     caption: string;
     nodes: string[];
+    visual?: {
+      src: string;
+      alt: string;
+      kind: "flow" | "architecture" | "decision" | "state" | "sequence" | "metric" | "career" | "evidence";
+    };
   };
   materials?: Array<{
     title: string;
@@ -225,6 +233,7 @@ export const modules = [
   { id: "TD-M07", title: "专业专题与 Capstone", subtitle: "按岗位路线组合工件，交付端到端 AI Quality Engineering 系统" },
   { id: "TD-M10", title: "职业演进", subtitle: "从测试执行转向质量信号、评测工程、平台工程与生产可靠性" },
   { id: "TD-M11", title: "Agent 性能与稳定性工程", subtitle: "从工作负载、指标、Trace、容量压测到生产 SLO、告警与故障处置" },
+  { id: "TD-M12", title: "Agent 测试架构", subtitle: "从 D0 评估可信到 D7 业务治理，用四证据环验证轨迹、协作、安全、可靠性与成本" },
 ] as const;
 
 type ProfessionalLesson = Pick<TutorialPage, "id" | "moduleId" | "title" | "type" | "duration" | "summary" | "why" | "prerequisites" | "outcomes" | "artifact" | "blocks" | "practice" | "completion" | "sourceIds" | "evidenceBoundary">;
@@ -232,6 +241,7 @@ type ProfessionalLesson = Pick<TutorialPage, "id" | "moduleId" | "title" | "type
 const delivered = (page: ProfessionalLesson): TutorialPage => ({
   ...page,
   order: 0,
+  display_number: 0,
   status: "desk-researched",
 });
 
@@ -1273,6 +1283,8 @@ const validatedBenchmarkCapstonePageIds = new Set(benchmarkCapstonePages.map((pa
 const validatedRequirementsLifecyclePageIds = new Set(requirementsTestingLifecyclePages.map((page) => page.id));
 const validatedAgentPerformancePageIds = new Set(agentPerformancePages.map((page) => page.id));
 const validatedAdvancedQualityGapPageIds = new Set(advancedQualityGapPageIds);
+const validatedCareerEvolutionPageIds = new Set(careerEvolutionPageIds);
+const validatedAgentArchitecturePageIds = new Set(agentArchitectureSystemPages.map((page) => page.id));
 const statusPreservedPageIds = new Set([
   professionRealityPage.id,
   ...validatedRequirementsLifecyclePageIds,
@@ -1286,6 +1298,8 @@ const statusPreservedPageIds = new Set([
   ...validatedBenchmarkCapstonePageIds,
   ...validatedAgentPerformancePageIds,
   ...validatedAdvancedQualityGapPageIds,
+  ...validatedCareerEvolutionPageIds,
+  ...validatedAgentArchitecturePageIds,
 ]);
 
 const advancedQualityPrerequisites: Record<(typeof advancedQualityGapPageIds)[number], string[]> = {
@@ -1301,6 +1315,7 @@ const advancedQualityPrerequisites: Record<(typeof advancedQualityGapPageIds)[nu
 
 const advancedQualityCatalogPages = advancedQualityGapPages.map((page) => ({
   ...page,
+  moduleId: page.id === "TD-X101" ? "TD-M08" : page.moduleId,
   prerequisites: advancedQualityPrerequisites[page.id as (typeof advancedQualityGapPageIds)[number]],
 }));
 
@@ -1324,7 +1339,9 @@ export const catalogPages: TutorialPage[] = [
   ...advancedQualityCatalogPages.filter((page) => page.id === "TD-X805"),
   ...benchmarkCapstonePages,
   ...aiServingCareerPages.filter((page) => page.id.startsWith("TD-C")),
+  ...careerEvolutionPages,
   ...agentPerformancePages,
+  ...agentArchitectureSystemPages,
 ].map((page, index) => {
   const support = deliverySupport(page);
   return {
@@ -1332,17 +1349,36 @@ export const catalogPages: TutorialPage[] = [
     architecture: page.architecture ?? support.architecture,
     materials: page.materials ?? support.materials,
     order: index + 1,
+    display_number: index + 1,
     status: statusPreservedPageIds.has(page.id) ? page.status : "outlined",
   };
 });
 
 const incompleteStatuses = new Set<TutorialPage["status"]>(["planned", "outlined", "blocked"]);
+const publicModuleOrder = new Map<string, number>(modules.map((module, index) => [module.id, index]));
 
 // Public course data is a fail-closed projection of the internal curriculum catalog.
 // Incomplete topics remain in catalogPages for research planning but never reach learners.
 export const pages: TutorialPage[] = catalogPages
   .filter((page) => !incompleteStatuses.has(page.status))
-  .map((page, index) => ({ ...page, order: index + 1 }));
+  .sort((left, right) => {
+    const moduleDelta = (publicModuleOrder.get(left.moduleId) ?? Number.MAX_SAFE_INTEGER)
+      - (publicModuleOrder.get(right.moduleId) ?? Number.MAX_SAFE_INTEGER);
+    return moduleDelta || left.order - right.order;
+  })
+  .map((page, index) => ({
+    ...page,
+    order: index + 1,
+    display_number: index + 1,
+    architecture: page.architecture ? {
+      ...page.architecture,
+      visual: page.architecture.visual ?? {
+        src: `visuals/course/${page.id}.svg`,
+        alt: `${page.title}的${page.architecture.title}，展示从输入、风险与方法到独立 Oracle、执行证据和下一步决定的关系。`,
+        kind: page.moduleId === "TD-M10" ? "career" : page.moduleId === "TD-M04" ? "architecture" : "flow",
+      },
+    } : undefined,
+  }));
 
 export const publicModules = modules.filter((module) =>
   pages.some((page) => page.moduleId === module.id),

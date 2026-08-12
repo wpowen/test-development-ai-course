@@ -1,4 +1,5 @@
 import type { TutorialBlock, TutorialPage } from "../course.ts";
+import { professionalSpecializationsDeepBlocks } from "./professional-specializations-deep.ts";
 
 const apiExecutableMaterials: NonNullable<TutorialPage["materials"]> = [
   { title: "API 专项完整实验包", description: "离线脚本、OpenAPI、事件夹具、配置、指南与红绿报告。", href: "materials/api-ai-automation.zip", kind: "archive", validation: "fixture-tested" },
@@ -69,7 +70,7 @@ const specialtyContractBlocks = (id: SpecialtyPageId, bundle: SpecialtyBundle): 
 // https://sre.google/sre-book/monitoring-distributed-systems/ | https://principlesofchaos.org/
 // https://docs.vllm.ai/en/stable/usage/metrics/ | https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/perf_benchmark/genai-perf-README.html
 
-export const professionalSpecializationPages: TutorialPage[] = [
+export const professionalSpecializationPages: TutorialPage[] = ([
   {
     id: "TD-PS01", moduleId: "TD-M08", order: 1, title: "API 业务契约：从 HTTP 结果到可验证副作用", type: "跟做", status: "desk-researched", duration: "55 分钟",
     summary: "以订单取消与退款 API 为业务场景，建立协议、Schema、业务不变量和副作用四层断言。",
@@ -186,7 +187,7 @@ export const professionalSpecializationPages: TutorialPage[] = [
     materials: [{ title: "TD-PS08 迁移输入夹具", description: "DDL、分片、高水位和守恒 Oracle 的离线场景。", href: "materials/api-ai-automation/fixtures/TD-PS08-input.json", kind: "fixture", validation: "fixture-tested" }, { title: "TD-PS08 迁移实验 Manifest", description: "具名 owner、baseline/fault/repair 与四项对账 Oracle。", href: "materials/api-ai-automation/manifests/TD-PS08.json", kind: "config", validation: "fixture-tested" }, ...apiExecutableMaterials],
   },
   {
-    id: "TD-PS09", moduleId: "TD-M09", order: 9, title: "性能与容量：到达率、尾延迟、Goodput 与单位成功成本", type: "诊断", status: "desk-researched", duration: "55 分钟",
+    id: "TD-PS09", moduleId: "TD-M08", order: 9, title: "性能与容量：到达率、尾延迟、Goodput 与单位成功成本", type: "诊断", status: "desk-researched", duration: "55 分钟",
     summary: "以客服 Agent 流式回答和工具调用为场景，建立按切片、尾延迟、质量和成本联合决策的性能指标体系。", why: "平均延迟变快可能伴随长输入质量下降、工具调用放大和 p99 恶化；AI 性能必须与任务成功绑定。", prerequisites: ["TD-PS03"], outcomes: ["定义 AI 请求阶段指标与分母", "区分 TTFT、TPOT、端到端和 Goodput", "用质量、SLO 和成本做 Pareto 决策"], artifact: "AI 性能 workload、指标卡和容量决策报告",
     blocks: [
       { title: "场景：客服回答不是单一模型调用", body: ["客服 Agent 先检索政策，再调用模型并可能查询订单。短 FAQ 与长退款对话的输入、工具数、输出长度和风险完全不同；性能报告必须保留这些切片。"] },
@@ -214,7 +215,7 @@ export const professionalSpecializationPages: TutorialPage[] = [
     materials: [{ title: "订单助手实验卡", description: "工具超时、429、空检索和停止条件。", href: "materials/reliability-chaos-observability/fixtures/order-assistant-chaos.yaml", kind: "fixture", validation: "static-reviewed" }, { title: "Chaos 授权与复验指南", description: "隔离、观察、回滚和残留清理。", href: "materials/reliability-chaos-observability/guides/chaos-experiment-sop.md", kind: "guide", validation: "static-reviewed" }, ...reliabilityExecutableMaterials],
   },
   {
-    id: "TD-PS11", moduleId: "TD-M09", order: 11, title: "线上可观测性：把 AI 质量、Trace、成本和 SLO 接成一条链", type: "概念", status: "desk-researched", duration: "50 分钟",
+    id: "TD-PS11", moduleId: "TD-M08", order: 11, title: "线上可观测性：把 AI 质量、Trace、成本和 SLO 接成一条链", type: "概念", status: "desk-researched", duration: "50 分钟",
     summary: "以生产客服 Agent 为场景，设计脱敏 Trace、指标、日志和质量回流，明确托管模型内部不可见时的未知项。", why: "没有输入、检索、工具、模型版本和最终结果的关联，线上质量下降只能靠猜；过度采集又会泄露敏感数据。", prerequisites: ["TD-PS10"], outcomes: ["定义 AI 观测字段和脱敏边界", "把质量事件连接到 Trace 与版本 Manifest", "建立告警、调查和回归回流路径"], artifact: "AI 可观测性字段契约、Dashboard 设计和事故样例",
     blocks: [
       { title: "场景：正确率下降但 Judge 没变", body: ["客服退款正确率连续下降，Judge 分数保持稳定，可能是知识库索引过期、输入分布变化、Judge 漂移或工具错误。需要同时查看质量切片、检索版本、Trace、成本和用户反馈。"] },
@@ -241,4 +242,7 @@ export const professionalSpecializationPages: TutorialPage[] = [
     architecture: { title: "退款助手安全信任边界", caption: "身份在 Gateway 校验，对象和功能在 API/工具边界重新授权，模型输出始终按不可信输入处理；审计证据自身也必须脱敏。", nodes: ["用户/token", "Gateway 身份校验", "Agent/Prompt 非可信输入", "对象与功能授权", "工具 allowlist/参数校验", "订单/退款账本", "脱敏 Trace 与安全门禁"] },
     materials: [{ title: "TD-PS12 安全输入夹具", description: "身份、对象、工具和秘密四类离线 abuse case。", href: "materials/reliability-chaos-observability/fixtures/TD-PS12-input.json", kind: "fixture", validation: "fixture-tested" }, { title: "TD-PS12 安全实验 Manifest", description: "具名 owner、baseline/fault/repair 与零副作用 Oracle。", href: "materials/reliability-chaos-observability/manifests/TD-PS12.json", kind: "config", validation: "fixture-tested" }, ...reliabilityExecutableMaterials],
   },
-];
+] satisfies TutorialPage[]).map((page): TutorialPage => ({
+  ...page,
+  blocks: [...page.blocks, ...professionalSpecializationsDeepBlocks(page.id)],
+}));

@@ -1,5 +1,27 @@
 import type { TutorialPage } from "../course.ts";
-import type { TopicSpec } from "./topic-page.ts";
+import { ragQualityDeepBlocks } from "./rag-quality-deep.ts";
+import { agentWorkflowDeepBlocks } from "./agent-workflow-deep.ts";
+/** 本模块自有的 spec 形状；不再依赖已退役的通用模板。 */
+type TopicSpec = {
+  id: string;
+  moduleId: string;
+  title: string;
+  type: TutorialPage["type"];
+  duration: string;
+  summary: string;
+  why: string;
+  prerequisites: string[];
+  outcomes: [string, string, string, ...string[]];
+  artifact: string;
+  problem: string;
+  workflow: [string, string, string, ...string[]];
+  scenario: string;
+  code?: string;
+  expected: string;
+  failure: string;
+  sourceIds: [string, string, string, ...string[]];
+  evidenceBoundary: string;
+};
 
 const specs: TopicSpec[] = [
   {
@@ -228,4 +250,7 @@ const buildLlmAgentPage = (spec: TopicSpec, index: number): TutorialPage => {
   };
 };
 
-export const llmAgentPages = specs.map(buildLlmAgentPage);
+export const llmAgentPages = specs.map(buildLlmAgentPage).map((page): TutorialPage => ({
+  ...page,
+  blocks: [...page.blocks, ...agentWorkflowDeepBlocks(page.id), ...ragQualityDeepBlocks(page.id)],
+}));

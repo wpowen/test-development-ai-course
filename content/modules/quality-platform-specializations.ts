@@ -1,4 +1,5 @@
 import type { TutorialPage } from "../course.ts";
+import { qualityPlatformDeepBlocks } from "./quality-platform-deep.ts";
 
 type QualityPlatformPageId = "TD-QP01" | "TD-QP02" | "TD-QP03" | "TD-QP04";
 
@@ -13,7 +14,7 @@ const qualityPlatformExecutableMaterials = (ownerPageId: QualityPlatformPageId):
   ];
 };
 
-export const qualityPlatformSpecializationPages: TutorialPage[] = [
+export const qualityPlatformSpecializationPages: TutorialPage[] = ([
   {
     id: "TD-QP01",
     moduleId: "TD-M07",
@@ -309,4 +310,7 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = [
       ...qualityPlatformExecutableMaterials("TD-QP04"),
     ],
   },
-];
+] satisfies TutorialPage[]).map((page): TutorialPage => ({
+  ...page,
+  blocks: [...page.blocks, ...qualityPlatformDeepBlocks(page.id)],
+}));
