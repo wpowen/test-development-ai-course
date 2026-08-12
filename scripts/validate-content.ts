@@ -46,6 +46,7 @@ const ENRICHED_MODULE_IDS = new Set([
   "TD-M00", "TD-M01", "TD-M02", "TD-M03", "TD-M04", "TD-M05", "TD-M06",
   "TD-M07", "TD-M08", "TD-M09", "TD-M10", "TD-M11", "TD-M12",
 ]);
+const ARCHREF_NODE_HEADER = "架构节点";
 const DUPLICATION_RATE_MAX = 0.2;
 
 /**
@@ -129,6 +130,27 @@ for (const page of pages) {
     }
     if (tables.length < 3) {
       errors.push(`${page.id} needs at least three tables (dimension/method, counterexample, diagnosis), found ${tables.length}`);
+    }
+    // 架构图与正文的交叉引用。
+    //
+    // 每页都配了架构图，但图渲染在独立的 architecture-card 里，正文从不引用它——
+    // 图是插图，不是骨架。archref 表要求逐个节点声明它对应正文哪一段、产出什么工件；
+    // 这里校验第一列的节点名逐字存在于 page.architecture.nodes，使图改了而正文没跟
+    // （或正文引用了一个图上根本没有的节点）会让构建失败，而不是静默漂移。
+    const archref = page.blocks.find((block) => block.table?.headers[0] === ARCHREF_NODE_HEADER);
+    if (archref?.table) {
+      const declared = new Set(page.architecture?.nodes ?? []);
+      for (const [node] of archref.table.rows.map((row) => row)) {
+        if (!declared.has(node)) {
+          errors.push(`${page.id} archref cites "${node}", which is not a node in its architecture diagram`);
+        }
+      }
+      const cited = new Set(archref.table.rows.map((row) => row[0]));
+      for (const node of declared) {
+        if (!cited.has(node)) {
+          errors.push(`${page.id} architecture node "${node}" is drawn but never explained in the archref table`);
+        }
+      }
     }
   }
   if (page.outcomes.length < 3) errors.push(`${page.id} needs at least 3 observable outcomes`);
