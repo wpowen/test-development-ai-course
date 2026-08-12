@@ -1,9 +1,17 @@
 import type { TutorialPage } from "../course.ts";
 
-const qualityPlatformExecutableMaterials: NonNullable<TutorialPage["materials"]> = [
-  { title: "质量控制平面完整实验包", description: "包含 Jira、GitLab、K8s、事件总线、审计与脱敏通知的离线材料。", href: "materials/quality-platform-integrations.zip", kind: "archive", validation: "fixture-tested" },
-  { title: "质量控制平面运行说明", description: "主模拟器与四个专题入口均可直接运行，完整路径预期退出码 0/1/0。", href: "materials/quality-platform-integrations/learner-materials/README.md", kind: "guide", validation: "fixture-tested" },
-];
+type QualityPlatformPageId = "TD-QP01" | "TD-QP02" | "TD-QP03" | "TD-QP04";
+
+const qualityPlatformBundleOwnerIds: readonly QualityPlatformPageId[] = ["TD-QP01", "TD-QP02", "TD-QP03", "TD-QP04"];
+
+const qualityPlatformExecutableMaterials = (ownerPageId: QualityPlatformPageId): NonNullable<TutorialPage["materials"]> => {
+  if (!qualityPlatformBundleOwnerIds.includes(ownerPageId)) return [];
+  return [
+    { title: "质量控制平面完整实验包", description: "包含 Jira、GitLab、K8s、事件总线、审计与脱敏通知的离线材料。", href: "materials/quality-platform-integrations.zip", kind: "archive", validation: "fixture-tested" },
+    { title: "质量控制平面运行说明", description: "主模拟器与四个专题入口均可直接运行，完整路径预期退出码 0/1/0。", href: "materials/quality-platform-integrations/learner-materials/README.md", kind: "guide", validation: "fixture-tested" },
+    { title: "共享材料精确 owner 清单", description: `共享 bundle 只归属 ${qualityPlatformBundleOwnerIds.join("、")}，不按模块或 ID 前缀继承。`, href: "materials/quality-platform-integrations/learner-materials/manifests/shared-bundle-owners.json", kind: "config", validation: "fixture-tested" },
+  ];
+};
 
 export const qualityPlatformSpecializationPages: TutorialPage[] = [
   {
@@ -12,7 +20,7 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = [
     order: 1,
     title: "Jira 需求事件：从 Basis Gate 到人工批准",
     type: "跟做",
-    status: "desk-researched",
+    status: "fixture-tested",
     duration: "60 分钟",
     summary: "把 Jira 需求事件变成有版本、有来源、有冲突状态的测试依据，再让 AI 生成候选方案与用例，最终由有权限的人批准执行。",
     why: "需求 webhook 只说明发生了变化，不说明当前事实是什么。没有回读、Basis Gate 和人工批准，AI 很容易把旧方案、缺失条件或冲突规则变成自动化门禁。",
@@ -36,6 +44,8 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = [
           "AI Assist 只输出结构化候选：需求摘要、风险、测试候选、假设、unknowns、source_refs、模型标识、提示词哈希和 schema 版本。候选只能进入 proposed；Review Console 记录 reviewer、scope、decision、reason 和 approved revision，未批准 revision 不得创建环境、触发 Pipeline 或写成功状态。",
         ],
         table: { headers: ["对象", "机器状态", "允许的副作用"], rows: [["Basis Pack", "ACCEPTED/BLOCKED", "仅 accepted 可生成候选"], ["AI candidate", "PROPOSED/REJECTED/SUPERSEDED", "不得直接改变业务状态"], ["Human review", "APPROVED/REJECTED", "approved 才能进入执行请求"]] },
+        expected: "固定输入、JSON Schema 和 eval 已绑定；模型 provider/model 仍为 NOT_RUN，首次真实运行必须另存 receipt。",
+        technical: { kind: "prompt", content: "读取固定 Jira 事件和当前快照；先校验身份、权限、revision 与 source_refs，再输出 fail-closed Basis Gate、unknowns 和需人工决定的候选。禁止自动批准。", version: "1.0.0", promptPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp01/task.md", manifestPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp01/manifest.json", inputFixturePath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp01/input.json", outputSchemaPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp01/output.schema.json", evaluationPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp01/eval.json" },
       },
       {
         title: "SOP：回读、校验、生成、评审、冻结",
@@ -44,7 +54,7 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = [
           "评审人逐项检查目标、非目标、风险、Oracle、依赖、故障模式、回滚条件和未知项；批准的 scope 必须明确哪些候选可进入执行，拒绝项必须保留原因。Jira 评论或 ChatOps 表情不能替代有身份和范围的批准记录。",
           "需求再次更新时停止旧 revision 的执行请求，建立 superseded 关系，并要求按当前 revision 重新评审；外部 API 不可用时保留 outbox，不人工补写成功状态。",
         ],
-        code: "unzip quality-platform-integrations.zip\ncd quality-platform-integrations/learner-materials\npython3 scripts/basis_gate_and_candidate_review.py",
+        technical: { kind: "command", content: "python3 scripts/basis_gate_and_candidate_review.py cycle --report-dir reports/td-qp01", manifestPath: "materials/quality-platform-integrations/learner-materials/manifests/td-qp01-lab.json", stepId: "cycle", workingDirectory: "materials/quality-platform-integrations/learner-materials", expectedExitCode: 0, expectedArtifacts: ["reports/td-qp01/baseline.json", "reports/td-qp01/fault.json", "reports/td-qp01/repair.json", "reports/td-qp01/cycle-summary.json"] },
         expected: "一次运行可以从 Jira 事件追到当前 source snapshot、Basis Gate、AI provenance、reviewer 和最终 revision；任一关键证据缺失都停在 BLOCKED 或 NOT_RUN。",
       },
       {
@@ -75,7 +85,7 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = [
       { title: "Jira 事件与评审配置", description: "定义 webhook 验签、去重、候选 provenance 和人工批准字段，供本页动作使用。", href: "materials/quality-platform-integrations/learner-materials/configs/jira-basis-gate.yaml", kind: "config", validation: "static-reviewed" },
       { title: "需求变更事件夹具", description: "包含当前 revision、changelog 和与旧技术方案冲突的脱敏 Jira 事件。", href: "materials/quality-platform-integrations/learner-materials/fixtures/jira-requirement-event.json", kind: "fixture", validation: "static-reviewed" },
       { title: "TD-QP01 Jira 评审 SOP", description: "指导回读、Basis Gate、候选评审、supersede、回滚和 NOT_RUN 记录。", href: "materials/quality-platform-integrations/learner-materials/guides/td-qp01-jira-review-sop.md", kind: "guide", validation: "static-reviewed" },
-      ...qualityPlatformExecutableMaterials,
+      ...qualityPlatformExecutableMaterials("TD-QP01"),
     ],
   },
   {
@@ -84,7 +94,7 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = [
     order: 2,
     title: "GitLab MR 与 Pipeline：把 JUnit 证据绑定到当前 SHA",
     type: "跟做",
-    status: "desk-researched",
+    status: "fixture-tested",
     duration: "65 分钟",
     summary: "将 MR、Pipeline、Job、JUnit 报告和外部质量状态绑定到同一个 commit SHA，聚合证据并以 fail-closed 方式阻断不完整结果。",
     why: "Pipeline 成功、测试报告存在和当前 MR 可合并不是同一件事。旧 SHA 的绿色状态、缺失 JUnit、没有 Pipeline 或必跑套件缺失，都不能被解释为当前代码通过。",
@@ -107,6 +117,8 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = [
           "JUnit 聚合器保存每条 testcase 的 suite、name、status、duration、attempt、producer、artifact_ref 和 SHA。重试 attempt 独立保留，最终计数规则固定；flaky、error、skipped 和缺失套件单独统计，不能把“最近一次通过”直接变成 overall passed。",
         ],
         table: { headers: ["绑定字段", "用途", "校验"], rows: [["project_id + mr_iid", "定位 MR", "项目与事件来源一致"], ["pipeline_id + commit_sha", "定位一次执行", "Pipeline ref/SHA 与 MR HEAD 回读一致"], ["run_id + suite_version", "定位质量运行", "Manifest、JUnit、artifact provenance 一致"]] },
+        expected: "固定输入必须输出 current-SHA 绑定与 fail-closed gate；provider/model 未运行，eval 状态保持 NOT_RUN。",
+        technical: { kind: "prompt", content: "读取固定 MR、Pipeline 和 JUnit；严格绑定 current SHA、pipeline_id、suite 与 artifact hash，证据缺失或旧 SHA 必须失败。", version: "1.0.0", promptPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp02/task.md", manifestPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp02/manifest.json", inputFixturePath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp02/input.json", outputSchemaPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp02/output.schema.json", evaluationPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp02/eval.json" },
       },
       {
         title: "SOP：探针、执行、收集、聚合、发布 gate",
@@ -115,7 +127,7 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = [
           "执行阶段创建唯一 run_id 并记录 current SHA；收集阶段按 pipeline_id 回读 Jobs、JUnit summary 和 artifact hash；聚合阶段检查所有必跑 suite、报告可读性、producer、时间范围、SHA 和 run 一致性；发布阶段再次回读 MR HEAD，再写 status。",
           "若聚合期间 HEAD 变化，旧 run 只能标记 superseded，必须为新 SHA 重新执行。GitLab API 429/5xx 只按幂等边界重试，超限进入 outbox/DLQ，并以 pending/failed 告警，不用人工评论补绿。",
         ],
-        code: "unzip quality-platform-integrations.zip\ncd quality-platform-integrations/learner-materials\npython3 scripts/gitlab_sha_junit_gate.py",
+        technical: { kind: "command", content: "python3 scripts/gitlab_sha_junit_gate.py cycle --report-dir reports/td-qp02", manifestPath: "materials/quality-platform-integrations/learner-materials/manifests/td-qp02-lab.json", stepId: "cycle", workingDirectory: "materials/quality-platform-integrations/learner-materials", expectedExitCode: 0, expectedArtifacts: ["reports/td-qp02/baseline.json", "reports/td-qp02/fault.json", "reports/td-qp02/repair.json", "reports/td-qp02/cycle-summary.json"] },
         expected: "相同 run 重复接收 webhook 或重复拉取报告只产生一个最终决策；任何证据不完整的路径都保留原因和重试上下文。",
       },
       {
@@ -146,7 +158,7 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = [
       { title: "MR/JUnit 门禁配置", description: "定义必跑套件、重试计数、flaky/error 口径、artifact hash 和 status 字段。", href: "materials/quality-platform-integrations/learner-materials/configs/gitlab-junit-gate.yaml", kind: "config", validation: "static-reviewed" },
       { title: "MR Pipeline JUnit 夹具", description: "覆盖当前 SHA、旧 SHA、缺报告、失败用例和必跑套件缺失的事件与报告引用。", href: "materials/quality-platform-integrations/learner-materials/fixtures/mr-pipeline-junit.json", kind: "fixture", validation: "static-reviewed" },
       { title: "TD-QP02 SHA/JUnit SOP", description: "指导探针、回读、聚合、status 写入、竞态诊断、回滚和 NOT_RUN 记录。", href: "materials/quality-platform-integrations/learner-materials/guides/td-qp02-sha-junit-sop.md", kind: "guide", validation: "static-reviewed" },
-      ...qualityPlatformExecutableMaterials,
+      ...qualityPlatformExecutableMaterials("TD-QP02"),
     ],
   },
   {
@@ -155,7 +167,7 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = [
     order: 3,
     title: "Kubernetes 临时测试环境：隔离、回收与审计",
     type: "跟做",
-    status: "desk-researched",
+    status: "fixture-tested",
     duration: "70 分钟",
     summary: "为每次 MR/测试运行设计短生命周期 namespace，落实 RBAC、ResourceQuota、NetworkPolicy、Job TTL、回收和 Kubernetes 审计。",
     why: "临时环境如果共享 namespace、默认读取 Secret、没有网络边界或没有 owner/TTL，就会把测试污染、越权访问和资源泄漏变成平台事故。",
@@ -179,6 +191,8 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = [
           "每个资源带 ownerReferences 或精确 run label；environment_id、namespace、policy_hash、expires_at、cleanup_status 写入平台状态和 audit，报告引用只传 artifact_ref，不把凭据塞进事件。",
         ],
         table: { headers: ["身份", "允许", "禁止"], rows: [["NamespaceProvisioner", "创建受控 namespace、绑定模板", "读 Secret、任意 RBAC、生产资源"], ["TestRunner", "本 namespace 测试资源", "跨 namespace、改策略、读 Secret"], ["CleanupWorker", "删除本 run 资源并记录结果", "模糊删除无 owner 资源"]] },
+        expected: "固定输入必须暴露身份越权、隔离与回收缺口；没有真实集群或模型证据时保持 NOT_RUN。",
+        technical: { kind: "prompt", content: "读取固定 namespace、身份、RBAC、Quota、NetworkPolicy、TTL 与 cleanup；越权、跨 namespace、残留或审计缺失均 fail-closed。", version: "1.0.0", promptPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp03/task.md", manifestPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp03/manifest.json", inputFixturePath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp03/input.json", outputSchemaPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp03/output.schema.json", evaluationPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp03/eval.json" },
       },
       {
         title: "SOP：预检、创建、执行、回收、复核",
@@ -187,7 +201,7 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = [
           "执行时只允许测试 Job 使用合成/脱敏数据，采集 JUnit、日志和 provenance；Job 完成后先上传不可变工件，再由 stop job 或 cleanup worker 删除带 owner 的资源。TTL 是兜底，不是精确回收 SLA。",
           "复核同时检查 namespace、Pod、Job、Service、ConfigMap 和可能残留的临时存储；按 environment_id、actor、action、resource、time、trace_id 和 policy_hash 关联 Kubernetes audit 与平台记录。",
         ],
-        code: "unzip quality-platform-integrations.zip\ncd quality-platform-integrations/learner-materials\npython3 scripts/ephemeral_namespace_cleanup.py",
+        technical: { kind: "command", content: "python3 scripts/ephemeral_namespace_cleanup.py cycle --report-dir reports/td-qp03", manifestPath: "materials/quality-platform-integrations/learner-materials/manifests/td-qp03-lab.json", stepId: "cycle", workingDirectory: "materials/quality-platform-integrations/learner-materials", expectedExitCode: 0, expectedArtifacts: ["reports/td-qp03/baseline.json", "reports/td-qp03/fault.json", "reports/td-qp03/repair.json", "reports/td-qp03/cycle-summary.json"] },
         expected: "一次 run 的创建、测试、失败、过期和删除都可回到同一 environment_id；任何未授权访问或残留资源都不被标记为清理成功。",
       },
       {
@@ -218,7 +232,7 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = [
       { title: "临时环境安全基线配置", description: "包含 namespace、RBAC、quota、默认拒绝 NetworkPolicy、ServiceAccount、资源限制和 Job TTL。", href: "materials/quality-platform-integrations/learner-materials/configs/ephemeral-namespace-baseline.yaml", kind: "config", validation: "static-reviewed" },
       { title: "K8s 失败与审计夹具", description: "记录 Secret/跨 namespace deny、quota 拒绝、网络拒绝、Job 失败和 cleanup 残留。", href: "materials/quality-platform-integrations/learner-materials/fixtures/k8s-isolation-audit.json", kind: "fixture", validation: "static-reviewed" },
       { title: "TD-QP03 临时环境 SOP", description: "指导集群预检、创建、运行、故障注入、TTL/stop 回收、审计复核和 NOT_RUN 记录。", href: "materials/quality-platform-integrations/learner-materials/guides/td-qp03-k8s-ephemeral-sop.md", kind: "guide", validation: "static-reviewed" },
-      ...qualityPlatformExecutableMaterials,
+      ...qualityPlatformExecutableMaterials("TD-QP03"),
     ],
   },
   {
@@ -227,7 +241,7 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = [
     order: 4,
     title: "跨系统事件总线：幂等、重放、脱敏通知与审计闭环",
     type: "项目",
-    status: "desk-researched",
+    status: "fixture-tested",
     duration: "75 分钟",
     summary: "用统一事件信封连接 Jira、GitLab、Kubernetes、证据存储和通知适配器，处理幂等/重放、回写、脱敏和跨系统审计闭环。",
     why: "跨系统集成最容易在重复、乱序、漏投、部分成功和敏感数据泄露时失真。Webhook、ChatOps 和单个系统的状态都不能单独证明质量平台已经完成一次运行。",
@@ -251,6 +265,8 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = [
           "Jira 缺陷用 fingerprint 幂等创建/更新并链接需求、MR、Pipeline、artifact；GitLab status 绑定当前 SHA 和 pipeline_id；K8s cleanup 只按 environment_id/owner 执行；通知 adapter 只接收 allowlist 字段并记录 delivery audit。",
         ],
         table: { headers: ["层", "关键键", "失败处理"], rows: [["Inbox", "source + event id", "重复抑制并记录 duplicate_suppressed"], ["Outbox", "effect type + run/fingerprint", "幂等重试，超限 DLQ"], ["Reconciliation", "current revision/SHA/environment", "回读事实，禁止旧状态覆盖新状态"]] },
+        expected: "固定输入必须拒绝重复副作用并给出对账/回滚计划；未执行真实消息系统或模型。",
+        technical: { kind: "prompt", content: "读取固定 CloudEvents 信封和副作用账本；核对 source+id、trace、重试、脱敏、reconciliation 与 rollback，重复副作用必须失败。", version: "1.0.0", promptPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp04/task.md", manifestPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp04/manifest.json", inputFixturePath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp04/input.json", outputSchemaPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp04/output.schema.json", evaluationPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp04/eval.json" },
       },
       {
         title: "SOP：验签、入站、编排、回写、通知、对账",
@@ -259,7 +275,7 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = [
           "编排阶段按状态机处理 approved requirement、current SHA、environment ready、results collected、gate evaluated 和 defect synced；每个动作先检查当前版本，再写目标系统。Jira/GitLab 返回 429/5xx 时只重试安全边界内的读或带幂等键的写；通知失败只进入通知 outbox。",
           "恢复阶段运行 reconciliation，比较平台状态与 Jira/GitLab/K8s 事实，补齐漏事件或标记人工处理；重放实验必须证明事件副作用只发生一次，旧事件只能产生 duplicate/superseded audit，不能回滚当前状态。",
         ],
-        code: "unzip quality-platform-integrations.zip\ncd quality-platform-integrations/learner-materials\npython3 scripts/event_replay_and_reconcile.py",
+        technical: { kind: "command", content: "python3 scripts/event_replay_and_reconcile.py cycle --report-dir reports/td-qp04", manifestPath: "materials/quality-platform-integrations/learner-materials/manifests/td-qp04-lab.json", stepId: "cycle", workingDirectory: "materials/quality-platform-integrations/learner-materials", expectedExitCode: 0, expectedArtifacts: ["reports/td-qp04/baseline.json", "reports/td-qp04/fault.json", "reports/td-qp04/repair.json", "reports/td-qp04/cycle-summary.json"] },
         expected: "给定一个 run_id，可以从首个 Jira 事件到最终 gate、缺陷、通知、环境回收和外部审计引用重建完整 causation graph。",
       },
       {
@@ -290,7 +306,7 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = [
       { title: "事件网关策略配置", description: "定义 CloudEvents 字段、验签时间窗、tenant allowlist、去重键、重试/DLQ 和脱敏字段。", href: "materials/quality-platform-integrations/learner-materials/configs/event-gateway-policy.yaml", kind: "config", validation: "static-reviewed" },
       { title: "跨系统质量事件夹具", description: "包含 Jira 需求、GitLab gate、K8s cleanup、重复/乱序事件和含敏感字段的通知输入。", href: "materials/quality-platform-integrations/learner-materials/fixtures/quality-event-envelope.json", kind: "fixture", validation: "static-reviewed" },
       { title: "TD-QP04 事件审计 SOP", description: "指导入站验签、幂等/重放、回写、脱敏通知、DLQ、对账、回滚和 NOT_RUN 记录。", href: "materials/quality-platform-integrations/learner-materials/guides/td-qp04-event-audit-sop.md", kind: "guide", validation: "static-reviewed" },
-      ...qualityPlatformExecutableMaterials,
+      ...qualityPlatformExecutableMaterials("TD-QP04"),
     ],
   },
 ];

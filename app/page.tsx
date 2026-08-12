@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { firstUsablePath, pages, publicModules, sourceNotes } from "../content/course";
+import { firstUsablePath, getTechnicalBlockPresentation, pages, publicModules, sourceNotes } from "../content/course";
 
 const statusLabel = (status: string) => status === "fixture-tested" ? "实验已跑" : "资料已审";
 
@@ -147,18 +147,28 @@ export default function Home() {
                 return <button key={id} onClick={() => setHash(id)}>{id} · {page?.title}</button>;
               })}</section>}
 
-              {current.blocks.map((block, index) => <section className="content-block" key={block.title} id={`section-${index}`}>
+              {current.blocks.map((block, index) => {
+                const technical = getTechnicalBlockPresentation(block);
+                const copyKey = `${current.id}-${index}`;
+                return <section className="content-block" key={block.title} id={`section-${index}`}>
                 <div className="section-index">{String(index + 1).padStart(2, "0")}</div>
                 <div className="section-body">
                   <h2>{block.title}</h2>
                   {block.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                   {block.bullets && <ul>{block.bullets.map((item) => <li key={item}>{item}</li>)}</ul>}
                   {block.table && <div className="table-wrap"><table><thead><tr>{block.table.headers.map((header) => <th key={header}>{header}</th>)}</tr></thead><tbody>{block.table.rows.map((row, rowIndex) => <tr key={`${block.title}-${rowIndex}`}>{row.map((cell, cellIndex) => <td key={`${rowIndex}-${cellIndex}`}>{cell}</td>)}</tr>)}</tbody></table>{block.table.caption && <small>{block.table.caption}</small>}</div>}
-                  {block.code && <div className="code-box"><button onClick={() => copy(block.code!, `${current.id}-${index}`)}>{copied === `${current.id}-${index}` ? "已复制" : "复制"}</button><pre>{block.code}</pre></div>}
+                  {technical && <div className="code-box" data-technical-kind={technical.kind}>
+                    <div><small>{technical.label}</small>{technical.workingDirectory && <small> · 工作目录：{technical.workingDirectory}</small>}</div>
+                    {technical.copyable
+                      ? <button onClick={() => copy(technical.content, copyKey)}>{copied === copyKey ? "已复制" : "复制使用"}</button>
+                      : <span aria-label="不可复制">不可复制</span>}
+                    <pre>{technical.content}</pre>
+                    <small>{technical.reason}</small>
+                  </div>}
                   {block.expected && <div className="expected"><b>预期结果</b><p>{block.expected}</p></div>}
                   {block.warning && <div className="warning"><b>常见误区</b><p>{block.warning}</p></div>}
                 </div>
-              </section>)}
+              </section>})}
 
               <section className="practice-card">
                 <p className="eyebrow">实操</p>

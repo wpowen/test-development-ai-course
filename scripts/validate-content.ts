@@ -1,6 +1,7 @@
-import { catalogPages, firstUsablePath, pages, publicModules, releaseScope, sourceNotes } from "../content/course.ts";
+import { catalogPages, firstUsablePath, getTechnicalBlockPresentation, pages, publicModules, releaseScope, sourceNotes } from "../content/course.ts";
 import { existsSync, statSync } from "node:fs";
 import { resolve } from "node:path";
+import { auditTutorialPages } from "./audit-executability.ts";
 
 const errors: string[] = [];
 const byId = new Map(pages.map((page) => [page.id, page]));
@@ -86,12 +87,19 @@ for (const page of pages) {
     if (learnerCopy.includes(phrase)) errors.push(`${page.id} contains generic/template phrase: ${phrase}`);
   }
   if (page.type === "跟做") {
-    const codeBlocks = page.blocks.filter((block) => block.code).length;
+    const technicalBlocks = page.blocks.filter((block) => getTechnicalBlockPresentation(block)).length;
     const expectedBlocks = page.blocks.filter((block) => block.expected).length;
-    if (codeBlocks < 1 || expectedBlocks < 1) errors.push(`${page.id} guided lab needs commands/examples and observable expected results`);
-    if (page.status === "fixture-tested" && (codeBlocks < 2 || expectedBlocks < 2)) {
+    if (technicalBlocks < 1 || expectedBlocks < 1) errors.push(`${page.id} guided lab needs commands/examples and observable expected results`);
+    if (page.status === "fixture-tested" && (technicalBlocks < 2 || expectedBlocks < 2)) {
       errors.push(`${page.id} fixture-tested lab needs at least two runnable/observable steps`);
     }
+  }
+}
+
+if (process.argv.includes("--with-executability")) {
+  const executability = auditTutorialPages(pages);
+  for (const page of executability.pages.filter((candidate) => candidate.verdict === "FAIL")) {
+    errors.push(`${page.pageId} executability failed: ${page.findings.join("; ")}`);
   }
 }
 

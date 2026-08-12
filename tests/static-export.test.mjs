@@ -1,21 +1,35 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { spawnSync } from "node:child_process";
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import path from "node:path";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 import vm from "node:vm";
 
+import { catalogPages, pages, releaseScope } from "../content/course.ts";
+
+const siteRoot = fileURLToPath(new URL("..", import.meta.url));
 const html = await readFile(new URL("../dist-github-pages/index.html", import.meta.url), "utf8");
 const courseSource = await readFile(new URL("../content/course.ts", import.meta.url), "utf8");
 
+function validateMaterials(...args) {
+  return spawnSync("python3", ["scripts/validate-material-archives.py", "--skip-labs", ...args], {
+    cwd: siteRoot,
+    encoding: "utf8",
+  });
+}
+
 test("static GitHub Pages export contains the professional curriculum", () => {
-  for (const id of ["TD-F01", "TD-P01", "TD-P02", "TD-P03", "TD-P04", "TD-P05", "TD-P06", "TD-P07", "TD-P08"]) assert.match(html, new RegExp(id));
-  for (const id of ["TD-AP01", "TD-AP02", "TD-AP03", "TD-AP04", "TD-AP05", "TD-AP06", "TD-AP07", "TD-AP08"]) assert.match(html, new RegExp(id));
-  for (const id of Array.from({ length: 12 }, (_, index) => `TD-PS${String(index + 1).padStart(2, "0")}`)) assert.match(html, new RegExp(id));
-  for (const id of ["TD-QP01", "TD-QP02", "TD-QP03", "TD-QP04"]) assert.match(html, new RegExp(id));
-  for (const id of ["TD-S03", "TD-A03", "TD-A06", "TD-C01", "TD-T12", "TD-B06"]) assert.doesNotMatch(html, new RegExp(`"id":"${id}"`));
+  assert.deepEqual(pages.map((page) => page.id), releaseScope.promisedPageIds);
+  for (const id of releaseScope.promisedPageIds) assert.match(html, new RegExp(`"id":"${id}"`));
+  for (const id of catalogPages.map((page) => page.id).filter((id) => !releaseScope.promisedPageIds.includes(id))) {
+    assert.doesNotMatch(html, new RegExp(`"id":"${id}"`));
+  }
   assert.match(html, /专业主路径已完成/);
   assert.match(html, /localStorage/);
   assert.match(html, /搜索需求、执行证据、TTFT/);
-  assert.equal((html.match(/"moduleId":"TD-/g) ?? []).length, 33);
+  assert.equal((html.match(/"moduleId":"TD-/g) ?? []).length, releaseScope.promisedPageIds.length);
   assert.doesNotMatch(html, /"status":"planned"/);
   assert.doesNotMatch(html, /"status":"outlined"|"status":"blocked"/);
   assert.doesNotMatch(html, /仅保留知识位置|本页尚未开发|本页尚未通过逐题研究|提纲\/待重写/);
@@ -27,6 +41,14 @@ test("static GitHub Pages export contains the professional curriculum", () => {
   assert.match(html, /event_replay_and_reconcile\.py/);
   assert.doesNotMatch(html, /本页完成后|你会带走|轮到你动手|你应该看到 \/ 得出|别踩这个坑/);
   assert.match(courseSource, /incompleteStatuses[^;]+planned[^;]+outlined[^;]+blocked/s);
+  assert.doesNotMatch(html, /"technicalPresentation":\{"kind":"legacy-untyped"/);
+  assert.doesNotMatch(html, /未分类技术内容（不可复制）/);
+  assert.match(html, /"technicalPresentation":\{"kind":"command"/);
+  assert.match(html, /"technicalPresentation":\{"kind":"prompt"/);
+  assert.match(html, /复制使用/);
+  assert.match(html, /不可复制/);
+  assert.match(html, /technicalPresentation\.content/);
+  assert.doesNotMatch(html, /clipboard\.writeText\(p\.blocks\[Number\(b\.dataset\.copy\)\]\.code\)/);
 });
 
 test("static export ships syntactically valid client JavaScript", () => {
@@ -37,4 +59,44 @@ test("static export ships syntactically valid client JavaScript", () => {
 
 test("static export does not include private Sites configuration", () => {
   assert.doesNotMatch(html, /hosting\.json|"project_id"\s*:|"account_id"\s*:/i);
+});
+
+test("static material folders and ZIPs exactly match the canonical public projection", () => {
+  const result = validateMaterials("--static-root", "dist-github-pages");
+  assert.equal(result.status, 0, `${result.stdout}\n${result.stderr}`);
+  assert.match(result.stdout, /canonical\/public projection/);
+  assert.match(result.stdout, /public\/static projection/);
+  assert.match(result.stdout, /ZIP member\/hash closure/);
+});
+
+test("an obsolete PASS release manifest fails explicitly as stale", async () => {
+  const releaseRoot = await mkdtemp(path.join(tmpdir(), "stale-course-release-"));
+  try {
+    await writeFile(
+      path.join(releaseRoot, "RELEASE-MANIFEST.json"),
+      JSON.stringify({ validation_verdict: "PASS", content_hash: "sha256:obsolete" }),
+    );
+    const result = validateMaterials("--skip-source", "--release-root", releaseRoot);
+    assert.notEqual(result.status, 0, "a legacy PASS manifest must not pass the current release contract");
+    assert.match(result.stderr, /stale release manifest/);
+    assert.match(result.stderr, /SOLUTION-MANIFEST\.json/);
+  } finally {
+    await rm(releaseRoot, { recursive: true, force: true });
+  }
+});
+
+test("material validation dynamically discovers a newly added bundle", async () => {
+  const materialsRoot = await mkdtemp(path.join(tmpdir(), "dynamic-material-bundle-"));
+  try {
+    const bundleRoot = path.join(materialsRoot, "future-bundle");
+    await mkdir(bundleRoot);
+    await writeFile(path.join(bundleRoot, "README.md"), "future bundle\n");
+    const archived = spawnSync("zip", ["-qr", "future-bundle.zip", "future-bundle"], { cwd: materialsRoot, encoding: "utf8" });
+    assert.equal(archived.status, 0, archived.stderr);
+    const result = validateMaterials("--skip-source", materialsRoot);
+    assert.equal(result.status, 0, `${result.stdout}\n${result.stderr}`);
+    assert.match(result.stdout, /1 dynamically discovered material bundle/);
+  } finally {
+    await rm(materialsRoot, { recursive: true, force: true });
+  }
 });

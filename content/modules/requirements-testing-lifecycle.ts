@@ -1,8 +1,8 @@
-import type { TutorialPage } from "../course.ts";
+import type { TechnicalBlock, TutorialBlock, TutorialPage } from "../course.ts";
 
 const commonBoundary = "本专题使用虚构的订单取消与退款资料包验证工件结构和离线流水线。它能证明流程可运行、冲突能阻断、预埋缺陷能被测试发现；不能证明模型能正确理解你公司的全部文档，也不能替代产品、研发、法务和发布责任人的确认。";
 
-export const requirementsTestingLifecyclePages: TutorialPage[] = [
+const rawRequirementsTestingLifecyclePages: TutorialPage[] = [
   {
     id: "TD-P01",
     moduleId: "TD-M00",
@@ -79,7 +79,7 @@ export const requirementsTestingLifecyclePages: TutorialPage[] = [
     order: 0,
     title: "把自然语言变成需求契约：让下游程序能直接消费",
     type: "跟做",
-    status: "desk-researched",
+    status: "fixture-tested",
     duration: "55 分钟",
     summary: "用受约束的模型输出 Requirement Contract，明确角色、状态、不变量、异常、副作用、非功能要求和未知项。",
     why: "一段‘需求摘要’不能直接生成可靠测试。下游需要稳定字段、可追溯引用和停止状态，才能判断哪些规则可测、哪些规则仍待确认。",
@@ -119,28 +119,26 @@ export const requirementsTestingLifecyclePages: TutorialPage[] = [
       {
         title: "可复制的提取任务",
         body: ["System Prompt 固定权限和失败语义；Task Prompt 只传当前 baseline、输出 schema 和待处理段落。不要把生成测试用例混在同一个调用里。"],
-        code: `任务：从 INPUT_SOURCES 提取 RequirementContract[]。
-
-输出要求：
-- 严格遵守 REQUIREMENT_CONTRACT_SCHEMA。
-- statement、preconditions、transitions、invariants、exceptions 的每一项都要绑定 source_refs。
-- 文档没有定义的 SLA、重试、金额、权限、状态不得推断；放入 unknowns。
-- 有效来源冲突时 status=BLOCKED，并输出 conflict_id、source_refs、impact、owner_needed。
-- 不生成测试用例，不建议产品规则，不修改原文。
-
-完成后再做一次自检：列出任何无法由引用支持的字段；若存在，将该字段删除或改为 UNKNOWN。`,
-        expected: "输出可以被校验器读取；缺引用、非法状态或静默补规则都会失败。",
+        code: "cd .\ncat prompt-package/system-v1.md\ncat prompt-package/task-v1.md\ncat prompt-package/critic-v1.md\ncat schemas/requirement-contract.schema.json",
+        expected: "看到已版本化的 system/task/critic、Schema 和失败语义；没有真实模型输出，manifest 保持 provider=none/model=offline-deterministic/status=NOT_RUN。",
       },
       {
         title: "用坏契约验证门禁有牙齿",
         body: ["教学夹具先验证已批准契约，再删除一条关键 source_ref。结构仍然是合法 JSON，但证据门禁应失败。"],
-        code: "python3 pipeline.py reset\npython3 pipeline.py validate-contract\npython3 pipeline.py inject-unsupported-rule\npython3 pipeline.py validate-contract",
-        expected: "第一次 PASS；注入后返回 BLOCKED，并指出 REQ-CANCEL-001 的 `refund_timeout_hours` 没有来源。",
+        code: "unzip requirements-to-evidence.zip\ncd requirements-to-evidence\npython3 pipeline.py reset\npython3 pipeline.py validate-package\npython3 pipeline.py validate-authority\npython3 pipeline.py validate-prompt-package\npython3 pipeline.py validate-trace\npython3 pipeline.py all --report reports/baseline.json",
+        expected: "解压后固定 cwd 执行；package/authority/prompt/trace 与 baseline 均 PASS。再运行 `python3 pipeline.py inject-unsupported-rule && python3 pipeline.py validate-contract`，退出 2 并指出 REQ-CANCEL-001 的 `refund_timeout_hours` 没有来源。",
         warning: "模型能输出正确 JSON，只说明传输契约成立；不能据此宣称需求已经正确。",
       },
     ],
     practice: ["为自己的业务补一条状态转换和一条不变量", "加入一个文档未定义的字段并确认校验失败", "让产品 owner 只评审关键业务语义而不是整段模型解释"],
     completion: ["Requirement Contract 能被程序读取", "每个关键规则有来源或明确 UNKNOWN", "结构通过与业务确认被分成两道门禁"],
+    architecture: { title: "需求到证据的可追溯转换链", caption: "版本化输入先经过 authority、schema、source/oracle、eval、mutation 和 trace 门禁；模型没有运行证据时保持 NOT_RUN。", nodes: ["PRD/Technical Design/OpenAPI", "Authority Policy", "Versioned Prompt + Schema", "Requirement Contract", "Independent Oracle + Eval", "Mutation Runner", "Traceability + Run Receipt"] },
+    materials: [
+      { title: "TD-P02 完整实验包", description: "下载后解压进入目录，包含输入、Prompt、Schema、eval、mutation、trace 与报告。", href: "materials/requirements-to-evidence.zip", kind: "archive", validation: "fixture-tested" },
+      { title: "TD-P02 pipeline", description: "固定 cwd 可运行 package/authority/schema/eval/mutation/trace 与 0/1/0 红绿门禁。", href: "materials/requirements-to-evidence/pipeline.py", kind: "script", validation: "fixture-tested" },
+      { title: "Prompt/Schema/Eval 工件", description: "查看 versioned system/task/critic、offline model manifest、八类 eval 与 mutation。", href: "materials/requirements-to-evidence/prompt-package/manifest.json", kind: "config", validation: "static-reviewed" },
+      { title: "实验运行说明", description: "解释下载、解压、baseline、注入、修复和 fixture-only 证据边界。", href: "materials/requirements-to-evidence/README.md", kind: "guide", validation: "fixture-tested" }
+    ],
     sourceIds: ["S41", "S66", "S81", "S85"],
     evidenceBoundary: commonBoundary,
   },
@@ -505,3 +503,161 @@ export const requirementsTestingLifecyclePages: TutorialPage[] = [
     evidenceBoundary: commonBoundary,
   },
 ];
+
+const promptBlocks: Record<string, number[]> = {
+  "TD-P01": [2],
+  "TD-P02": [3],
+  "TD-P03": [3],
+  "TD-P04": [3],
+  "TD-P05": [3],
+  "TD-P06": [2],
+};
+
+const diagramBlocks: Record<string, number[]> = {
+  "TD-P08": [1],
+};
+
+const commandLikeBlocks: Record<string, number[]> = {
+  "TD-P01": [4],
+  "TD-P02": [4],
+  "TD-P05": [4],
+  "TD-P07": [3],
+  "TD-P08": [2, 3, 4],
+};
+
+const pagePrompt = (pageId: string, content: string): TechnicalBlock => ({
+  kind: "prompt",
+  content,
+  version: "1.0.0",
+  promptPath: `materials/requirements-to-evidence/page-prompts/${pageId}/prompt-v1.md`,
+  manifestPath: `materials/requirements-to-evidence/page-prompts/${pageId}/manifest.json`,
+  inputFixturePath: `materials/requirements-to-evidence/page-prompts/${pageId}/input.json`,
+  outputSchemaPath: `materials/requirements-to-evidence/page-prompts/${pageId}/schema.json`,
+  evaluationPath: `materials/requirements-to-evidence/page-prompts/${pageId}/eval.json`,
+});
+
+const pageCycleNarratives: Record<string, { title: string; body: string[]; expected: string; warning: string }> = {
+  "TD-P01": {
+    title: "运行来源冲突门禁：旧技术设计不能覆盖已批准 PRD",
+    body: ["先把 PRD、技术设计与 OpenAPI 冻结为带 authority 的 Test Basis；再由资金/权限/状态风险选择方法和独立 Oracle，最后才允许 case 与 Prompt/Eval/Mutation 消费。fault 将相反规则同时提升为有效 authority，验证下游在 SOURCE_CONFLICT 时停止。"],
+    expected: "cycle 退出 0，内部 baseline/fault/repair=0/1/0；fault finding_id=SOURCE_CONFLICT，repair 通过新裁决版本恢复，而不是让模型选择规则。",
+    warning: "若只在接口响应不一致时失败，说明门禁放得太晚；本页应在测试依据阶段 BLOCKED。模型、从业者、企业集成、live 与 production 仍为 NOT_RUN。",
+  },
+  "TD-P02": {
+    title: "运行本页独立 baseline → fault → repair",
+    body: ["从材料目录运行 manifest 精确声明的命令。脚本先证明批准夹具为绿，再注入本页特有缺陷变红，最后修复回绿；真实模型和企业集成仍为 NOT_RUN。"],
+    expected: "退出 0；reports/TD-P02-cycle.json 内三相状态依次为 PASS、FAIL、PASS，evidence_status=fixture-tested，provider=none，model_status=NOT_RUN。",
+    warning: "该结果只证明离线确定性负控制可运行，不是模型、从业者、企业集成、线上或生产验证。",
+  },
+  "TD-P03": {
+    title: "运行无人负责的评审问题门禁",
+    body: ["需求与技术文档先暴露冲突和不可观察项；风险决定 block_level，批准规则形成独立 Oracle，关闭后的 question 才能更新 case。Prompt 只生成问题候选，Schema/Eval 强制 owner 与 close_with，Mutation 删掉二者验证 UNOWNED_BLOCKER。"],
+    expected: "cycle 退出 0，内部 0/1/0；fault finding_id=UNOWNED_BLOCKER，并指出问题缺少 accountable owner 或 close_with evidence。",
+    warning: "把 owner 默认成“团队”或把问题改成“请完善需求”是假修复；应补 locator、影响、具名回答人和关闭后的契约版本。",
+  },
+  "TD-P04": {
+    title: "运行关键风险缺少方法与 Oracle 的门禁",
+    body: ["PRD 提供损失和验收边界，技术设计提供并发、事件与重试机制；据此为资金、权限、状态风险选择属性、决策表、状态转换或契约测试。case/Prompt/Eval 都必须引用独立 Oracle，Mutation 删除关键风险的方法、监控和 residual owner。"],
+    expected: "cycle 退出 0，内部 0/1/0；fault finding_id=METHOD_GAP，明确关键风险没有 method、oracle、monitoring 或 residual-risk owner。",
+    warning: "增加 E2E 用例数量不能修复 METHOD_GAP；必须说明方法为何能检出该失败，并指定独立预期和剩余风险责任人。",
+  },
+  "TD-P05": {
+    title: "运行实现反推预期的自证 Oracle 门禁",
+    body: ["需求规则和技术可观察面先分离：风险决定测试方法，Oracle Registry 只接受批准规则、独立计算或不变量，case 再引用 oracle_id。Prompt/Schema/Eval 检查 TestPackage 的追踪关系，Mutation 把 expected_source 改成 implementation_output。"],
+    expected: "cycle 退出 0，内部 0/1/0；fault finding_id=SELF_CONFIRMING_ORACLE，指出 expected 来自被测实现；repair 恢复独立依据。",
+    warning: "同一模型生成 expected 再担任 Judge 仍可能共同失败；高风险金额和权限 Oracle 需要独立证据与具名 owner。",
+  },
+  "TD-P06": {
+    title: "运行吞断言或改 Oracle 的假绿自动化门禁",
+    body: ["生成器必须消费已批准的需求、技术契约、风险方法、Oracle 与 case，而不是直接从 PRD 猜 UI 脚本。版本化 Prompt 绑定 input/Schema/Eval/Mutation；adapter 只做实现映射，不能吞异常、skip 或按实际响应改写 expected。"],
+    expected: "cycle 退出 0，内部 0/1/0；fault finding_id=FAKE_GREEN_AUTOMATION，明确 adapter swallowed an assertion or changed the approved oracle。",
+    warning: "最终重试成功不等于门禁通过；selected、skipped、retries 与 assertion 传播必须进入报告。真实模型生成仍为 NOT_RUN。",
+  },
+  "TD-P07": {
+    title: "运行缺少固定输入与原始证据的归因门禁",
+    body: ["basis/package 版本固定后，风险方法决定 selected cases，独立 Oracle 决定 actual/expected 比较，Prompt/Eval/Mutation 的 hash 一并进入 Run Manifest。fault 删除 pinned input、selection、retry 或 raw evidence，验证运行不能被归因为产品失败。"],
+    expected: "cycle 退出 0，内部 0/1/0；fault finding_id=UNATTRIBUTABLE_RUN，明确缺少 pinned input、selection、retry 或 raw evidence。",
+    warning: "绿色截图和模型总结不能替代 Run Manifest；证据不足时保持 UNKNOWN，不允许 healer 猜根因或改断言转绿。",
+  },
+  "TD-P08": {
+    title: "运行新版本继承旧 PASS 的过期证据门禁",
+    body: ["需求或技术契约 diff 先传播到 risk/oracle/case，再决定 Prompt/Eval/Mutation 与回归选择；Impact Set 必须使受影响 receipt 失效。fault 让变更后的 409 契约继承旧 PASS，验证 Evidence Pack 拒绝 stale truth。"],
+    expected: "cycle 退出 0，内部 0/1/0；fault finding_id=STALE_EVIDENCE，指出 changed contract inherited an obsolete PASS receipt；repair 生成新版本证据。",
+    warning: "未受影响证据只能由依赖图和版本范围证明后复用；流水线只生成 RELEASE_CANDIDATE，不能替具名人类批准发布。",
+  },
+};
+
+const pageCycle = (pageId: string): TutorialBlock => {
+  const narrative = pageCycleNarratives[pageId];
+  if (!narrative) throw new Error(`Missing page-cycle narrative for ${pageId}`);
+  return {
+    ...narrative,
+    technical: {
+      kind: "command",
+      content: `python3 pipeline.py page-cycle --page ${pageId} --report reports/${pageId}-cycle.json`,
+      manifestPath: `materials/requirements-to-evidence/page-manifests/${pageId}.json`,
+      stepId: "cycle",
+      workingDirectory: "materials/requirements-to-evidence",
+      expectedExitCode: 0,
+      expectedArtifacts: [`reports/${pageId}-cycle.json`],
+    },
+  };
+};
+
+const migrateTechnicalBlock = (pageId: string, block: TutorialBlock, blockNumber: number): TutorialBlock => {
+  if (!("code" in block) || !block.code) return block;
+  const { code, ...base } = block;
+  if (promptBlocks[pageId]?.includes(blockNumber)) {
+    return {
+      ...base,
+      technical: pagePrompt(pageId, code),
+      expected: base.expected ?? "按固定 input 生成符合 schema 的候选工件；eval 检查引用、authority、Unknown、独立 Oracle 与证据边界，真实模型保持 NOT_RUN。",
+    };
+  }
+  if (diagramBlocks[pageId]?.includes(blockNumber)) {
+    return {
+      ...base,
+      technical: { kind: "diagram", content: code, verification: "解释性工件链，不可运行；以本页 manifest 的 0/1/0 cycle 验证链路。" },
+    };
+  }
+  if (commandLikeBlocks[pageId]?.includes(blockNumber)) {
+    return {
+      ...base,
+      technical: { kind: "pseudocode", content: code, verification: "保留原教学步骤用于解释，不直接复制；运行本页新增的 exact-manifest cycle 命令。", implementationPath: "materials/requirements-to-evidence/pipeline.py" },
+    };
+  }
+  return {
+    ...base,
+    technical: {
+      kind: "config",
+      content: code,
+      sourcePath: `materials/requirements-to-evidence/examples/${pageId}.json`,
+      format: "JSON",
+      consumer: `${pageId} learner artifact example`,
+    },
+  };
+};
+
+export const requirementsTestingLifecyclePages: TutorialPage[] = rawRequirementsTestingLifecyclePages.map((page) => ({
+  ...page,
+  status: "fixture-tested",
+  blocks: [
+    ...page.blocks.map((block, index) => migrateTechnicalBlock(page.id, block, index + 1)),
+    pageCycle(page.id),
+  ],
+  materials: [
+    ...(page.materials ?? []),
+    ...(page.materials?.some((material) => material.kind === "script" && material.validation === "fixture-tested")
+      ? []
+      : [{
+          title: `${page.id} 可运行 Pipeline`,
+          description: `已用于 ${page.id} baseline/fault/repair/cycle 的 Python 标准库实现；从公开材料工作目录按本页 manifest 运行。`,
+          href: "materials/requirements-to-evidence/pipeline.py",
+          kind: "script" as const,
+          validation: "fixture-tested" as const,
+        }]),
+    { title: `${page.id} 独立运行 Manifest`, description: "精确声明 owner、cwd、所需文件、baseline/fault/repair/cycle 命令、退出码与报告。", href: `materials/requirements-to-evidence/page-manifests/${page.id}.json`, kind: "config", validation: "fixture-tested" },
+    { title: `${page.id} 版本化 Prompt 包`, description: "包含 v1.0.0 Prompt、固定 input、JSON Schema、eval、mutation 和 NOT_RUN 模型边界。", href: `materials/requirements-to-evidence/page-prompts/${page.id}/manifest.json`, kind: "config", validation: "static-reviewed" },
+    { title: `${page.id} 0/1/0 收据`, description: "逐页离线负控制汇总；只证明 fixture-tested，不代表模型、集成或生产通过。", href: `materials/requirements-to-evidence/reports/${page.id}-cycle.json`, kind: "evidence", validation: "fixture-tested" },
+  ],
+}));

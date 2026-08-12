@@ -1,4 +1,5 @@
 import { aiAssistedTestingPages } from "./modules/ai-assisted-testing.ts";
+import { aiQualityFoundationPages } from "./modules/ai-quality-foundations.ts";
 import { benchmarkCapstonePages } from "./modules/benchmark-capstone.ts";
 import { llmAgentPages } from "./modules/llm-agent.ts";
 import { qualitySystemPages } from "./modules/quality-system.ts";
@@ -7,12 +8,13 @@ import { requirementsTestingLifecyclePages } from "./modules/requirements-testin
 import { professionRealityPage } from "./modules/profession-reality.ts";
 import { professionalSpecializationPages } from "./modules/professional-specializations.ts";
 import { qualityPlatformSpecializationPages } from "./modules/quality-platform-specializations.ts";
+import { aiServingCareerPages } from "./modules/ai-serving-career.ts";
+import { advancedQualityGapPageIds, advancedQualityGapPages } from "./modules/advanced-quality-gaps.ts";
 
-export type TutorialBlock = {
+type TutorialBlockBase = {
   title: string;
   body: string[];
   bullets?: string[];
-  code?: string;
   expected?: string;
   warning?: string;
   table?: {
@@ -20,6 +22,162 @@ export type TutorialBlock = {
     rows: string[][];
     caption?: string;
   };
+};
+
+type RepositoryTechnicalPath = string;
+
+export type TechnicalBlock =
+  | {
+      kind: "command";
+      content: string;
+      manifestPath: RepositoryTechnicalPath;
+      stepId: string;
+      workingDirectory: RepositoryTechnicalPath;
+      expectedExitCode: number;
+      expectedArtifacts: RepositoryTechnicalPath[];
+    }
+  | {
+      kind: "source-file";
+      content: string;
+      sourcePath: RepositoryTechnicalPath;
+      language: string;
+    }
+  | {
+      kind: "config";
+      content: string;
+      sourcePath: RepositoryTechnicalPath;
+      format: string;
+      consumer: string;
+      schemaPath?: RepositoryTechnicalPath;
+    }
+  | {
+      kind: "prompt";
+      content: string;
+      version: string;
+      promptPath: RepositoryTechnicalPath;
+      manifestPath: RepositoryTechnicalPath;
+      inputFixturePath: RepositoryTechnicalPath;
+      outputSchemaPath: RepositoryTechnicalPath;
+      evaluationPath: RepositoryTechnicalPath;
+    }
+  | {
+      kind: "formula" | "diagram" | "pseudocode";
+      content: string;
+      verification: string;
+      implementationPath?: RepositoryTechnicalPath;
+    };
+
+/**
+ * `code` is a temporary compatibility surface for unmigrated course modules.
+ * It is deliberately fail-closed: renderers never expose a copy action and the
+ * executability audit rejects it. New content must use `technical.kind`.
+ */
+export type TutorialBlock = TutorialBlockBase & (
+  | { technical: TechnicalBlock; code?: never }
+  | { technical?: never; code?: string }
+);
+
+export type TechnicalBlockPresentation = {
+  kind: TechnicalBlock["kind"] | "legacy-untyped";
+  content: string;
+  label: string;
+  copyable: boolean;
+  runnable: boolean;
+  reason: string;
+  workingDirectory?: string;
+};
+
+const hasText = (value: unknown): value is string => typeof value === "string" && value.trim().length > 0;
+const isRepositoryPath = (value: unknown): value is string => hasText(value)
+  && !/^(?:[a-z]+:)?\/\//i.test(value)
+  && !value.startsWith("/")
+  && !value.split("/").includes("..");
+
+export const getTechnicalBlockPresentation = (block: TutorialBlock): TechnicalBlockPresentation | undefined => {
+  if ("technical" in block && block.technical) {
+    const technical = block.technical;
+    if (technical.kind === "command") {
+      const complete = hasText(technical.content)
+        && isRepositoryPath(technical.manifestPath)
+        && hasText(technical.stepId)
+        && isRepositoryPath(technical.workingDirectory)
+        && Number.isInteger(technical.expectedExitCode)
+        && Array.isArray(technical.expectedArtifacts)
+        && !technical.content.includes("courses/")
+        && !technical.workingDirectory.includes("courses/");
+      return {
+        kind: technical.kind,
+        content: technical.content,
+        label: "可执行命令",
+        copyable: complete,
+        runnable: complete,
+        reason: complete ? "命令必须由公开 manifest 精确验证后使用" : "命令契约不完整，禁止复制运行",
+        workingDirectory: technical.workingDirectory,
+      };
+    }
+    if (technical.kind === "source-file") {
+      const complete = hasText(technical.content) && isRepositoryPath(technical.sourcePath) && hasText(technical.language);
+      return {
+        kind: technical.kind,
+        content: technical.content,
+        label: "版本化源码",
+        copyable: complete,
+        runnable: false,
+        reason: complete ? `来源：${technical.sourcePath}` : "源码缺少版本化仓库路径或语言声明",
+      };
+    }
+    if (technical.kind === "config") {
+      const complete = hasText(technical.content)
+        && isRepositoryPath(technical.sourcePath)
+        && hasText(technical.format)
+        && hasText(technical.consumer)
+        && (!technical.schemaPath || isRepositoryPath(technical.schemaPath));
+      return {
+        kind: technical.kind,
+        content: technical.content,
+        label: `${technical.format || "配置"} 配置`,
+        copyable: complete,
+        runnable: false,
+        reason: complete ? `由 ${technical.consumer} 读取` : "配置缺少版本化路径、格式或消费者",
+      };
+    }
+    if (technical.kind === "prompt") {
+      const complete = hasText(technical.content)
+        && hasText(technical.version)
+        && isRepositoryPath(technical.promptPath)
+        && isRepositoryPath(technical.manifestPath)
+        && isRepositoryPath(technical.inputFixturePath)
+        && isRepositoryPath(technical.outputSchemaPath)
+        && isRepositoryPath(technical.evaluationPath);
+      return {
+        kind: technical.kind,
+        content: technical.content,
+        label: `版本化 Prompt ${technical.version || ""}`.trim(),
+        copyable: complete,
+        runnable: false,
+        reason: complete ? "已绑定输入、Schema、评测与模型 manifest" : "Prompt 契约不完整，禁止复制使用",
+      };
+    }
+    return {
+      kind: technical.kind,
+      content: technical.content,
+      label: technical.kind === "formula" ? "公式（不可运行）" : technical.kind === "diagram" ? "图示（不可运行）" : "伪代码（不可运行）",
+      copyable: false,
+      runnable: false,
+      reason: technical.verification || "解释性内容，不是可执行实现",
+    };
+  }
+  if ("code" in block && hasText(block.code)) {
+    return {
+      kind: "legacy-untyped",
+      content: block.code,
+      label: "未分类技术内容（不可复制）",
+      copyable: false,
+      runnable: false,
+      reason: "Migrate this block to a typed technical block before publication",
+    };
+  }
+  return undefined;
 };
 
 export type TutorialPage = {
@@ -77,7 +235,8 @@ const delivered = (page: ProfessionalLesson): TutorialPage => ({
   status: "desk-researched",
 });
 
-const foundationPages: TutorialPage[] = [
+/** Historical pre-rebuild pages retained for source-fidelity audits; never published by catalogPages. */
+export const legacyFoundationPages: TutorialPage[] = [
   {
     id: "TD-F01",
     moduleId: "TD-M00",
@@ -519,7 +678,8 @@ const professionalPages: TutorialPage[] = [
   }),
 ];
 
-const corePages: TutorialPage[] = [
+/** Historical pre-rebuild core pages retained for source-fidelity audits; never published by catalogPages. */
+export const legacyCorePages: TutorialPage[] = [
   {
     id: "TD-T01",
     moduleId: "TD-M01",
@@ -1104,29 +1264,77 @@ function deliverySupport(page: TutorialPage): Pick<TutorialPage, "architecture" 
 
 const validatedSpecializationPageIds = new Set(professionalSpecializationPages.map((page) => page.id));
 const validatedQualityPlatformPageIds = new Set(qualityPlatformSpecializationPages.map((page) => page.id));
+const validatedAiQualityFoundationPageIds = new Set(aiQualityFoundationPages.map((page) => page.id));
+const validatedAiServingCareerPageIds = new Set(aiServingCareerPages.map((page) => page.id));
+const validatedAiAssistedTestingPageIds = new Set(aiAssistedTestingPages.map((page) => page.id));
+const validatedLlmAgentPageIds = new Set(llmAgentPages.map((page) => page.id));
+const validatedQualitySystemPageIds = new Set(qualitySystemPages.map((page) => page.id));
+const validatedBenchmarkCapstonePageIds = new Set(benchmarkCapstonePages.map((page) => page.id));
+const validatedRequirementsLifecyclePageIds = new Set(requirementsTestingLifecyclePages.map((page) => page.id));
+const validatedAgentPerformancePageIds = new Set(agentPerformancePages.map((page) => page.id));
+const validatedAdvancedQualityGapPageIds = new Set(advancedQualityGapPageIds);
+const statusPreservedPageIds = new Set([
+  professionRealityPage.id,
+  ...validatedRequirementsLifecyclePageIds,
+  ...validatedSpecializationPageIds,
+  ...validatedQualityPlatformPageIds,
+  ...validatedAiQualityFoundationPageIds,
+  ...validatedAiServingCareerPageIds,
+  ...validatedAiAssistedTestingPageIds,
+  ...validatedLlmAgentPageIds,
+  ...validatedQualitySystemPageIds,
+  ...validatedBenchmarkCapstonePageIds,
+  ...validatedAgentPerformancePageIds,
+  ...validatedAdvancedQualityGapPageIds,
+]);
+
+const advancedQualityPrerequisites: Record<(typeof advancedQualityGapPageIds)[number], string[]> = {
+  "TD-X101": ["TD-PS12"],
+  "TD-X602": ["TD-F04"],
+  "TD-X501": ["TD-T12"],
+  "TD-X502": ["TD-X501"],
+  "TD-X601": ["TD-X502", "TD-T17"],
+  "TD-X603": ["TD-T17"],
+  "TD-X604": ["TD-A06", "TD-T19"],
+  "TD-X805": ["TD-X604", "TD-T24"],
+};
+
+const advancedQualityCatalogPages = advancedQualityGapPages.map((page) => ({
+  ...page,
+  prerequisites: advancedQualityPrerequisites[page.id as (typeof advancedQualityGapPageIds)[number]],
+}));
 
 export const catalogPages: TutorialPage[] = [
   professionRealityPage,
   ...requirementsTestingLifecyclePages,
   ...professionalSpecializationPages,
   ...qualityPlatformSpecializationPages,
+  ...advancedQualityCatalogPages.filter((page) => page.id === "TD-X101"),
   ...professionalPages.filter((page) => page.id.startsWith("TD-S")),
-  ...foundationPages.slice(1),
-  ...professionalPages.filter((page) => page.id.startsWith("TD-A")),
-  ...corePages.filter((page) => ["TD-T01", "TD-T02", "TD-T03", "TD-T04"].includes(page.id)),
+  ...aiQualityFoundationPages.filter((page) => page.id.startsWith("TD-F")),
+  ...advancedQualityCatalogPages.filter((page) => page.id === "TD-X602"),
+  ...aiServingCareerPages.filter((page) => page.id.startsWith("TD-A")),
+  ...aiQualityFoundationPages.filter((page) => ["TD-T01", "TD-T02", "TD-T03", "TD-T04"].includes(page.id)),
   ...aiAssistedTestingPages,
-  ...corePages.filter((page) => ["TD-T09", "TD-T10", "TD-T11", "TD-T12"].includes(page.id)),
+  ...aiQualityFoundationPages.filter((page) => ["TD-T09", "TD-T10", "TD-T11", "TD-T12"].includes(page.id)),
+  ...advancedQualityCatalogPages.filter((page) => ["TD-X501", "TD-X502"].includes(page.id)),
   ...llmAgentPages,
+  ...advancedQualityCatalogPages.filter((page) => ["TD-X601", "TD-X603", "TD-X604"].includes(page.id)),
   ...qualitySystemPages,
+  ...advancedQualityCatalogPages.filter((page) => page.id === "TD-X805"),
   ...benchmarkCapstonePages,
-  ...professionalPages.filter((page) => page.id.startsWith("TD-C")),
+  ...aiServingCareerPages.filter((page) => page.id.startsWith("TD-C")),
   ...agentPerformancePages,
-].map((page, index) => ({
-  ...page,
-  ...deliverySupport(page),
-  order: index + 1,
-  status: page.id === "TD-F01" || page.id.startsWith("TD-AP") || /^TD-P\d+$/.test(page.id) || validatedSpecializationPageIds.has(page.id) || validatedQualityPlatformPageIds.has(page.id) ? page.status : "outlined",
-}));
+].map((page, index) => {
+  const support = deliverySupport(page);
+  return {
+    ...page,
+    architecture: page.architecture ?? support.architecture,
+    materials: page.materials ?? support.materials,
+    order: index + 1,
+    status: statusPreservedPageIds.has(page.id) ? page.status : "outlined",
+  };
+});
 
 const incompleteStatuses = new Set<TutorialPage["status"]>(["planned", "outlined", "blocked"]);
 

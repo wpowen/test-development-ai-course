@@ -1,4 +1,5 @@
-import { buildTopicPage, type TopicSpec } from "./topic-page.ts";
+import type { TutorialPage } from "../course.ts";
+import type { TopicSpec } from "./topic-page.ts";
 
 const specs: TopicSpec[] = [
   {
@@ -128,4 +129,103 @@ const specs: TopicSpec[] = [
   },
 ];
 
-export const llmAgentPages = specs.map(buildTopicPage);
+type PageControl = {
+  metric: string;
+  securityGate: string;
+  oracle: string;
+  rollback: string;
+  transfer: string;
+  nodes: string[];
+};
+
+const controls: Record<string, PageControl> = {
+  "TD-T13": { metric: "按风险切片比较 blocker rate、重复运行 win-rate 分布、p95 latency 和 unit-success cost；实验 owner 决定是否只对低风险切片放量。", securityGate: "A/B 两组使用相同数据权限和只读工具；任何可写 adapter 均关闭。", oracle: "manifest diff 必须只出现一个候选变量；退款 blocker 优先于平均分。", rollback: "恢复 A 的模型/Prompt/索引完整 manifest，不只改一个别名；保留 B 的逐条失败证据。", transfer: "迁移到文档问答时保持单变量、风险切片和重复运行，改动任务数据与 blocker 定义。", nodes: ["Versioned A/B manifests", "Frozen eval set", "Repeated runner", "Slice/Blocker Oracle", "Cost/Latency ledger", "Human release gate"] },
+  "TD-T14": { metric: "先算人人一致与分歧矩阵，再算 Judge-human agreement、position consistency、fact-blocker recall；阈值由评测 owner 按风险切片制定。", securityGate: "Judge 只读脱敏回答；不能调用业务工具，也不能批准自己生成的 reference 或期望。", oracle: "顺序翻转、长度扰动、事实错误和近邻反例必须分别保留结果；安全/权限 blocker 交人工。", rollback: "冻结该 Judge 版本，回到上一校准包并对受影响结论重新抽检。", transfer: "迁移到代码评审时替换 rubric 与人工专家，仍保留盲评、顺序翻转和独立 Oracle。", nodes: ["Double human labels", "Blind pair shuffle", "Versioned Judge", "Bias probes", "Disagreement matrix", "Human escalation"] },
+  "TD-T15": { metric: "分别报告 outcome pass、prohibited-step rate、trajectory completion、budget breach 和 trace completeness，禁止用一个总分吞掉 blocker。", securityGate: "先定义禁止副作用和授权边界，再允许 Agent 规划；最终文本正确不能覆盖越权调用。", oracle: "Outcome、Step、Trajectory 三层独立判定，允许安全替代路径但拒绝任何 prohibited tool call。", rollback: "撤销待执行动作、冻结当前 policy/agent 版本，并从最后安全 checkpoint 重放。", transfer: "迁移到采购 Agent 时保留三层结构，改写禁止动作、审批金额和合法替代路径。", nodes: ["Business outcome", "Tool step ledger", "State snapshots", "Trajectory graph", "Policy blockers", "Human decision"] },
+  "TD-T16": { metric: "统计 auth-before-action、wrong-tool、parameter-boundary、policy-denied、duplicate-effect 和 zero-write proof，按 tool/scope/tenant 分层。", securityGate: "用户身份、tenant、最小 scope、参数界限、幂等键与人类批准全部在 refund 写入之前执行。", oracle: "沙箱中越权、越界和重复调用必须被 policy 层拒绝；Prompt 拒绝不是权限控制。", rollback: "冻结写工具、撤销未提交 proposal、轮换受影响凭据并回放 policy receipt。", transfer: "迁移到发邮件 Agent 时保持 auth/least-privilege/idempotency/human-confirm，修改 recipient 与内容策略。", nodes: ["Identity verifier", "Tool registry", "Policy engine", "Sandbox adapter", "Idempotency store", "Human approval"] },
+  "TD-T17": { metric: "统计 injection reach rate、cross-tenant attempts、secret exposure、write attempts 与 layer-block rate；任何泄露/写入均为 blocker。", securityGate: "不可信网页/邮件/知识内容只作为数据；tenant enforcement 和工具授权在模型之外完整中介。", oracle: "即使模型服从恶意文档，工具仍须拒绝跨租户、秘密读取和写动作；输出过滤不能替代授权。", rollback: "停用受污染来源和写工具、撤销 token、隔离 trace，并由安全 owner 复核暴露范围。", transfer: "迁移到代码 Agent 时保持信任分区与最小权限，替换攻击载体、secret 类型和工具 allowlist。", nodes: ["Untrusted content", "Retrieval isolation", "Model boundary", "Tool authorization", "Output DLP", "Security review"] },
+  "TD-T18": { metric: "统计 risk-to-test trace、business-oracle coverage、known-mutation kill、flaky retry 和 trace completeness；UI 可见性不等于业务通过。", securityGate: "Browser Agent 只使用隔离账户和无写权限环境；生成代码进入人工 review 后才能合并。", oracle: "后端 auto_refunded 变异必须令 manual_review Oracle 变红；超时或 locator 错误不是业务检测力。", rollback: "拒绝生成候选、恢复 seed/fixture 和上一个测试版本，保留 Trace 与失败截图。", transfer: "迁移到订单审核页时保持风险 ID、业务状态 Oracle 与 mutation，修改页面 fixture 和状态机。", nodes: ["Risk/PRD", "Planner", "Generator", "Sandbox browser", "Business mutation", "Human test review"] },
+  "TD-T19": { metric: "统计 healer patch 类型、Oracle preservation、expected-value change、mutation survival 与 human reject rate。", securityGate: "healer 无代码合并和业务期望修改权限；写入候选 patch 前保存原 Trace、DOM、截图和 diff。", oracle: "locator-only 候选仍须杀死原业务变异；删除断言、跳步、改期望或无限等待立即拒绝。", rollback: "撤销 healer patch、恢复原测试与已知失败，冻结自动提交并升级人工诊断。", transfer: "迁移到 API schema 自愈时保持不可改 Oracle 与 mutation 回归，替换允许调整的非语义字段。", nodes: ["Failing test", "Evidence capture", "Healer candidate", "Anti-cheat diff", "Mutation rerun", "Human merge gate"] },
+  "TD-W01": { metric: "按组件统计 deterministic branch coverage、agent policy violations、worker redelivery/idempotency 和 orphan-state；术语不作为指标。", securityGate: "先按状态和副作用 owner 切分权限；Agent 不继承 Worker 或 Workflow 的写权限。", oracle: "下一步由代码、模型或队列决定，状态归谁持有，副作用在哪里提交，这三项共同决定测试类型。", rollback: "回到明确组件边界和独立身份，停止跨组件共享高权限 token。", transfer: "迁移到内容发布系统时保持控制权分类，替换 router、writer worker 与生成 Agent。", nodes: ["Deterministic router", "Autonomous agent loop", "Async queue", "Worker", "State stores", "Human owner"] },
+  "TD-W02": { metric: "统计 duplicate-effect rate、checkpoint recovery、handoff errors、orphan tasks、iteration/token/time budget breach 和 stop-reason completeness。", securityGate: "每次重试先校验身份、current state 和幂等 receipt；错误 handoff 不得扩大下游权限。", oracle: "重复 msg-42 只能产生一次 audit write；循环必须在 max_iterations 内留下 stop reason 和 owner。", rollback: "暂停消费者、恢复 checkpoint、按 idempotency ledger 对账并把孤儿任务交人工。", transfer: "迁移到订单履约流程时保持状态/重试/handoff/终止不变量，替换消息与补偿动作。", nodes: ["Workflow state", "Checkpoint", "Queue delivery", "Idempotent worker", "Budget guard", "Human handoff"] },
+  "TD-W03": { metric: "同模型、总 Token、工具、任务、重试和人工干预下比较成功率分布、blocker、延迟、coordination failure 与 unit-success cost。", securityGate: "两组都只给同一只读 scope；多 Agent 不因角色增加获得隐式权限或额外人工救场。", oracle: "任一预算、工具或干预不一致即 confounded；差异落在重复运行噪声内时输出 UNKNOWN。", rollback: "对无收益切片退回单 Agent，保留多 Agent 只在证据支持的复杂任务，并冻结实验 manifest。", transfer: "迁移到研究任务时保持公平预算与分布报告，替换任务集、成功 Oracle 和成本模型。", nodes: ["Frozen task set", "Single-agent arm", "Multi-agent arm", "Shared budget", "Repeated trials", "Architecture decision"] },
+};
+
+const architectures: Record<string, { title: string; caption: string }> = {
+  "TD-T13": {
+    title: "单变量 A/B 的可比性与发布证据链",
+    caption: "A/B manifest 先冻结数据、Prompt、检索、工具、Judge 与预算，重复运行后由风险切片 Oracle 和人工发布负责人决定候选是否可放量。",
+  },
+  "TD-T14": {
+    title: "Judge 校准、偏差探针与人工升级链",
+    caption: "双人标签先建立人工基准，盲化候选再做顺序与事实反例；分歧矩阵只辅助定位，事实和安全 blocker 最终交独立人工裁决。",
+  },
+  "TD-T15": {
+    title: "Outcome、Step、Trajectory 三层 Oracle",
+    caption: "业务最终状态、每次工具动作与完整轨迹分别判定；任一禁止副作用在 Step 层出现，都不能被正确的最终文本或轨迹解释抵消。",
+  },
+  "TD-T16": {
+    title: "工具调用的写前授权与幂等链",
+    caption: "身份、tenant、最小 scope、参数 Schema、幂等键与人工批准必须在工具执行前形成 receipt；模型只能提出候选调用，不能自行授予权限。",
+  },
+  "TD-T17": {
+    title: "不可信内容到模型外授权的安全边界",
+    caption: "网页、邮件和检索文本只进入数据通道，模型输出继续按不可信候选处理；tenant enforcement、工具授权与 DLP 在模型之外独立阻断泄露和写入。",
+  },
+  "TD-T18": {
+    title: "风险驱动的 Browser Agent 测试生成链",
+    caption: "需求风险先转成 Planner 场景与 Generator 候选，再在隔离浏览器执行；后端业务状态和已知 mutation 决定测试是否具有真实检测力。",
+  },
+  "TD-T19": {
+    title: "Healer 候选修复的反作弊审查链",
+    caption: "失败 Trace、DOM 与截图先固化，候选 diff 只能修改非语义表面；原业务 Oracle 与 mutation 回归共同阻止删断言、改 expected 或无限等待制造假绿。",
+  },
+  "TD-W01": {
+    title: "Agent、Worker、Workflow 控制权分类图",
+    caption: "下一步由代码、模型还是队列决定，状态由谁持有，副作用在哪里提交；这三项运行证据共同决定组件类别、测试 Oracle 和最小权限。",
+  },
+  "TD-W02": {
+    title: "可恢复 Workflow 的状态、重试与终止链",
+    caption: "每次投递从 checkpoint 与身份校验开始，幂等 Worker 只提交一次副作用；handoff 不扩权，预算守卫必须留下 stop reason 或转交人工。",
+  },
+  "TD-W03": {
+    title: "单 Agent 与多 Agent 的同预算对照链",
+    caption: "两组共享同一任务、模型、工具、总 Token、时间、重试和人工干预预算；重复运行的 blocker、成本与成功分布才交给架构负责人裁决。",
+  },
+};
+
+const ownerIds = specs.map((spec) => spec.id);
+
+const buildLlmAgentPage = (spec: TopicSpec, index: number): TutorialPage => {
+  const control = controls[spec.id];
+  const reportDir = `reports/${spec.id.toLowerCase()}`;
+  const command = `python3 scripts/agent_quality_lab.py --topic ${spec.id} --phase cycle --report-dir ${reportDir}`;
+  const promptBase = `materials/llm-agent-quality/learner-materials/prompts/${spec.id}`;
+  return {
+    id: spec.id, moduleId: spec.moduleId, order: index + 1, title: spec.title, type: spec.type,
+    status: "fixture-tested", duration: spec.duration, summary: spec.summary, why: spec.why,
+    prerequisites: spec.prerequisites, outcomes: spec.outcomes, artifact: spec.artifact,
+    blocks: [
+      { title: "专业问题、失败成本与决策权", body: [spec.problem, control.securityGate], warning: "安全、身份和权限检查必须先于任何可写副作用；被测模型、Judge 或 healer 不能批准自己的期望。" },
+      { title: "架构、输入契约与可观察证据", body: [spec.scenario, control.metric], bullets: spec.workflow, expected: `固定 input、Schema、eval 和 mutation 已绑定；模型执行仍为 NOT_RUN。`, technical: { kind: "prompt", content: `按 ${spec.id} 证据契约评价固定输入；缺少权限、版本、独立 Oracle 或人工权力时 fail-closed。`, version: "1.0.0", promptPath: `${promptBase}/task.md`, manifestPath: `${promptBase}/manifest.json`, inputFixturePath: `${promptBase}/input.json`, outputSchemaPath: `${promptBase}/output.schema.json`, evaluationPath: `${promptBase}/eval.json` } },
+      { title: "运行 baseline、故障与修复", body: [control.oracle, "命令依次保存 baseline、fault、repair 和 cycle-summary；只有内部退出语义精确为 0/1/0 时 cycle 才通过。"], expected: `${reportDir} 中四份 JSON；fault 有命名 failed_oracle_ids，repair 不覆盖 fault。`, technical: { kind: "command", content: command, manifestPath: `materials/llm-agent-quality/learner-materials/manifests/${spec.id}.json`, stepId: "cycle", workingDirectory: "materials/llm-agent-quality/learner-materials", expectedExitCode: 0, expectedArtifacts: [`${reportDir}/baseline.json`, `${reportDir}/fault.json`, `${reportDir}/repair.json`, `${reportDir}/cycle-summary.json`] } },
+      { title: "从症状定位到安全修复", body: [spec.failure, `回滚：${control.rollback}`], warning: "删除 Oracle、改变 expected、扩大权限、增加预算或无限重试都属于制造假绿。" },
+      { title: "人工门禁与迁移", body: [`决策 owner 检查原始输入、版本、failed Oracle、权限 receipt、成本和 residual risk；模型只能提供候选解释。`, control.transfer], bullets: ["来源上下文与目标上下文分开记录", "保持不变量，显式修改至少两项配置", "以故障仍能变红和零越权副作用作为成功标准"] },
+    ],
+    practice: [`运行 ${spec.id} 的 0/1/0 fixture 并解释命名 Oracle`, "检查 Prompt/Input/Schema/Eval/Mutation 的版本闭包", "写出一个不同业务对象的权限、故障和 rollback"],
+    completion: ["安全和权限先于可写副作用", "fault 稳定变红且 repair 重新变绿", "模型不批准自己的期望，人工 owner 和 NOT_RUN 边界明确"],
+    sourceIds: spec.sourceIds,
+    evidenceBoundary: `${spec.evidenceBoundary} 本页新增证据仅为确定性离线 fixture；真实模型、浏览器、工具、队列、组织审批和从业者评审均 NOT_RUN。`,
+    architecture: { title: architectures[spec.id].title, caption: architectures[spec.id].caption, nodes: control.nodes },
+    materials: [
+      { title: `${spec.id} 实验脚本`, description: "标准库确定性 runner，生成独立 baseline/fault/repair 报告。", href: "materials/llm-agent-quality/learner-materials/scripts/agent_quality_lab.py", kind: "script", validation: "fixture-tested" },
+      { title: `${spec.id} Lab Manifest`, description: "精确工作目录、命令、退出码、工件与 required files。", href: `materials/llm-agent-quality/learner-materials/manifests/${spec.id}.json`, kind: "config", validation: "fixture-tested" },
+      { title: `${spec.id} Prompt Manifest`, description: "system/task/critic、Input、Schema、Eval、Mutation 与 NOT_RUN 模型策略。", href: `${promptBase}/manifest.json`, kind: "config", validation: "static-reviewed" },
+      { title: `${spec.id} Mutation`, description: "主故障、缺引用、自批准与先写后授权负例。", href: `${promptBase}/mutation.json`, kind: "fixture", validation: "fixture-tested" },
+      { title: "共享 bundle 精确 Owners", description: `仅归属 ${ownerIds.join("、")}，禁止前缀继承。`, href: "materials/llm-agent-quality/learner-materials/owners.json", kind: "config", validation: "fixture-tested" },
+      { title: "LLM/Agent 质量完整离线包", description: "十页 Prompt、manifest、runner、测试和报告。", href: "materials/llm-agent-quality.zip", kind: "archive", validation: "fixture-tested" },
+    ],
+  };
+};
+
+export const llmAgentPages = specs.map(buildLlmAgentPage);
