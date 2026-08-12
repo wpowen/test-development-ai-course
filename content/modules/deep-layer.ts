@@ -86,15 +86,23 @@ const GATE_STAGE_LABEL = {
   acceptance: "第三段 · 风险接受（不是通过/失败，是具名决策）",
 } as const;
 
+/**
+ * 门禁表按「段」出一行，不按「条」出一行。
+ *
+ * 初版每条判据占一行，于是三个段标题与三条处置说明在同一页内重复 N 次、
+ * 在模块内重复 N × 页数 次，直接把跨页句级重复率推到 21%，被原创性门禁拦下。
+ * 那次拦截是对的：重复的是脚手架而非判断，读者每读一页就要跳过一遍相同的列。
+ * 现在三段各占一行，判据用换行分隔——重复量降到每页 6 句，且表更短更好读。
+ */
 const renderGate = (gate: NonNullable<DeepPageContent["gate"]>): TutorialBlock => ({
   title: gate.title,
   body: [gate.intro[0], gate.intro[1]],
   table: {
     headers: ["门禁段", "判据", "不满足时的处置"],
     rows: [
-      ...gate.redline.map((item) => [GATE_STAGE_LABEL.redline, item, "阻断发布，不进入后续两段"]),
-      ...gate.statistical.map((item) => [GATE_STAGE_LABEL.statistical, item, "样本量不足时结论为「证据不足」，不是「通过」"]),
-      ...gate.acceptance.map((item) => [GATE_STAGE_LABEL.acceptance, item, "由具名 owner 签字接受剩余风险后放行"]),
+      [GATE_STAGE_LABEL.redline, gate.redline.join("\n"), "阻断发布，不进入后续两段"],
+      [GATE_STAGE_LABEL.statistical, gate.statistical.join("\n"), "样本量不足时结论为「证据不足」，不是「通过」"],
+      [GATE_STAGE_LABEL.acceptance, gate.acceptance.join("\n"), "由具名 owner 签字接受剩余风险后放行"],
     ],
     caption: "三段顺序执行：红线不过不看统计，统计不过不进风险接受。第三段永远需要人，不能由脚本代签。",
   },
