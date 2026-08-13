@@ -55,8 +55,15 @@ const DUPLICATION_RATE_MAX = 0.2;
  * 未声明的重复句一律计入重复率。
  */
 const sharedComponentSentences = (() => {
-  const path = resolve("..", "research/shared-components.json");
-  if (!existsSync(path)) return new Set<string>();
+  const candidates = [
+    resolve("research/shared-components.json"),
+    resolve("..", "research/shared-components.json"),
+  ];
+  const path = candidates.find((candidate) => existsSync(candidate));
+  if (!path) {
+    errors.push("shared-components.json is missing; duplicate exemptions cannot be verified");
+    return new Set<string>();
+  }
   const declared = JSON.parse(readFileSync(path, "utf8")) as {
     components?: { sentence: string }[];
     undeclared_duplicates?: string[];
