@@ -1,5 +1,4 @@
 {
-  "page_id": "TD-P07",
   "baseline_id": "order-cancel-v2",
   "source_refs": [
     "PRD-v3#R17",
@@ -8,7 +7,18 @@
     "OPENAPI-v7#/cancel",
     "TECH-a13f#S04"
   ],
-  "authority_policy": "PRD business rules > OpenAPI transport/schema > technical design implementation context; conflicts BLOCKED",
-  "fixture_boundary": "synthetic offline teaching fixture"
+  "authority_policy": "synthetic fixture policy approved by product/technical owners; conflicts BLOCKED",
+  "fixture_boundary": "synthetic offline teaching fixture; replace every direct_use_inputs value before business use",
+  "page_id": "TD-P07",
+  "direct_use_inputs": {
+    "run_goal": "attribute cancellation fixture result",
+    "version_manifest": "page-manifests/TD-P07.json",
+    "command_cwd": "materials/requirements-to-evidence",
+    "selected_tests": [
+      "T-CANCEL-SHIPPED-01"
+    ],
+    "raw_evidence": [
+      "reports/TD-P07-cycle.json"
+    ]
+  }
 }
-

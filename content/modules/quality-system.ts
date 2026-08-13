@@ -1,4 +1,6 @@
-import type { TutorialPage } from "../course.ts";
+import type { TutorialBlock, TutorialPage } from "../course.ts";
+import { qualitySystemDeepBlocks } from "./quality-system-deep.ts";
+import { composeDeepPage } from "./deep-layer.ts";
 
 export type QualityBenchmarkSpec = {
   id: string;
@@ -25,6 +27,30 @@ export type QualityBenchmarkSpec = {
   boundary: string;
   architecture: string[];
 };
+
+const qualityWave2: Record<string, TutorialBlock> = {
+  "TD-T20": { title: "CI 门禁复盘：报告绿色不等于变更可放行", body: ["把 CI 当成质量控制面而不是报告搬运工。L0 先阻断 Schema、权限和 manifest 完整性，L1 用历史事故和高风险切片验证阻断，L2 才做重复运行与漂移，L3 才允许完整 release candidate。每层都必须有自己的输入、退出码、artifact owner 和失败动作；下层失败时上层不应继续执行。", "一个真实可复用的审查步骤是：先故意让 blocking_exit_propagated=false，再检查流水线是否仍显示绿色；然后让 high-risk-refund 发生一个错误承诺，确认总体平均不能抵消 blocker；最后核对报告上传成功但 promotion 仍停止。迁移到 RAG、Agent 或多模型评测时只替换风险切片和 Oracle，不改变‘红线先于统计、统计先于风险接受’的顺序。"], table: { headers: ["症状", "定位层", "下一步检查"], rows: [["报告有 FAIL 但 CI 绿", "退出码传播", "检查 job script、continue-on-error 和聚合器；让 blocker 触发 exit 1"], ["总分提升却高风险下降", "切片 Gate", "回链逐条结果与分母；高风险 blocker 立即停止 promotion"], ["nightly 覆盖 PR smoke", "Gate 分层", "拆分输入、预算和时限；下层失败不运行上层"], ["旧报告覆盖新 SHA", "版本 lineage", "强制 candidate/dataset/scorer hash 匹配，旧 receipt 失效"]], caption: "CI 的核心 Oracle 是失败能否传播到决策，而不是页面是否有绿色徽章。" } },
+  "TD-T22": { title: "Trace-to-Regression 复盘：事故闭环要留下可重放证据", body: ["生产 Trace 只有在脱敏、版本化并连接到业务风险后，才是可复用的回归输入。先定位首个违反不变量的 span，再记录当时的 Prompt、检索文档、工具权限、模型快照和外部响应；不要把最后一句错误回答直接复制成测试。新的 regression 必须能在 fixture 中稳定复现，并明确它要杀死的 mutation。", "修复时先证明原事故仍能变红，再在不改 Oracle 的前提下恢复绿色；若只是加更宽的阈值、删掉失败断言或屏蔽该样例，属于假修复。迁移到 Agent 轨迹时，将 span 替换成 action/observation 节点；迁移到性能事故时，将业务错误替换成 latency/cost breach，但仍保持 trace→risk→test→receipt 的 lineage。"], table: { headers: ["症状", "定位层", "下一步检查"], rows: [["回归用例无法重放", "Trace/Fixture 闭包", "核对脱敏输入、版本、工具响应与随机设置；缺字段则 UNKNOWN"], ["修复后旧事故不再变红", "Oracle/mutation", "重新注入原 fault；禁止通过删除断言或放宽 expected 修复"], ["只记录最终文本", "轨迹分层", "补齐首错 span、检索证据和 action 参数，区分 outcome 与 step"], ["事故样例泄露敏感数据", "数据治理", "脱敏并记录来源/许可；未完成隐私审查前不得进入公开 bundle"]], caption: "回归的价值来自可重放和可杀变异，而不是故事描述。" } },
+  "TD-T24": { title: "漂移诊断复盘：Waiver 必须可到期、可回滚", body: ["漂移不是单一分数下降，而是数据分布、引用新鲜度、Prompt/模型版本、工具延迟和 Judge 行为变化中的某一层发生变化。先把多信号告警分成质量、性能、数据和评测器四类，再沿诊断树定位首个变化；没有版本兼容和分母证据时，不应把漂移解释成模型退化。", "Waiver 只是一项具名的风险接受，不是删除失败。它必须包含 owner、理由、补偿控制、到期时间、受影响切片和回滚触发器；到期未续签自动阻断。回滚需恢复完整 manifest 与索引/Prompt/模型快照，并重跑事故 regression。迁移到新业务时替换信号和 owner，但保留‘冻结→诊断→短期接受→回滚/复基线’闭环。"], table: { headers: ["症状", "定位层", "下一步检查"], rows: [["整体分数下降但线上无变化", "评测器/版本", "比较 Judge、dataset、Prompt 和聚合版本；确认是否不可比"], ["引用命中率下降", "数据/索引", "检查文档更新时间、split 和检索参数；冻结高风险流量"], ["Waiver 长期未到期", "治理门禁", "检查 owner、expiry 和补偿控制；过期自动阻断"], ["回滚后仍有错误", "闭环/残余风险", "核对完整 manifest 与 regression 结果；必要时扩大隔离范围"]], caption: "漂移处理的出口必须是明确回滚或重新建立基线，不是无限延长观察期。" } },
+};
+
+const qualityWorkedCases: Record<string, TutorialBlock> = {
+  "TD-T20": { title: "分层 CI worked case", body: ["worked case：退款知识库改错后 L0 Schema 仍通过，L1 high-risk-refund 发现两条错误承诺。学员要提交 job graph、退出码传播证明、逐条失败 artifact 和停止 promotion 的 receipt；不能只截图绿色徽章。迁移到多模型评测时替换切片和 Oracle，保留红线先行。"], table: { headers: ["症状", "层", "复测"], rows: [["报告 FAIL CI 绿", "退出码", "禁用 continue-on-error"], ["高风险下降", "切片", "回链分母"], ["旧报告覆盖新 SHA", "lineage", "校验 hash"], ["上层继续执行", "依赖", "阻断 DAG"]], caption: "CI Gate 的工件必须支持交接。" } },
+  "TD-T22": { title: "事故回归 worked case", body: ["worked case：Trace 显示 Agent 在过期政策后调用 refund_order。学员提取最小输入、保留首错 span 和工具参数，脱敏后写成 regression，并让原 mutation 稳定变红；迁移到性能事故时替换为延迟 breach，保留 source hash、owner 和修复 receipt。"], table: { headers: ["问题", "层", "动作"], rows: [["无法重放", "fixture", "补版本响应"], ["修复不再变红", "Oracle", "重注入原 fault"], ["含 PII", "治理", "隔离脱敏"], ["只记最终文本", "Trace", "补首错 span"]], caption: "事故必须能回放、能杀变异。" } },
+  "TD-T24": { title: "漂移与 waiver worked case", body: ["worked case：引用命中率下降但模型版本未变；学员先查文档更新时间与索引构建，再判断是数据漂移而非模型退化。Waiver 需 owner、补偿控制、expiry 和回滚触发器；迁移到成本漂移只替换信号，保留冻结、诊断、回滚闭环。"], table: { headers: ["症状/问题", "疑似层", "下一步检查", "修复/重跑"], rows: [["分数下降线上不变", "评测器", "查 Judge 与版本", "重建可比基线"], ["引用下降", "索引", "查新鲜度与构建", "冻结高风险并重跑"], ["waiver 过期", "治理", "检查 expiry", "自动阻断并补 owner"], ["回滚仍错", "闭环", "查完整 manifest", "重跑 regression"]], caption: "Waiver 不能删除失败。" } },
+};
+
+const wave5QualityExtra: Record<string, TutorialBlock> = {
+  "TD-T20": { title: "CI 分层实操：交给值班工程师的发布卡", body: ["把退款知识库的错误承诺作为唯一故障，依次运行 L0、L1、L2。L0 只验证 schema、权限和版本闭包；L1 只看历史事故与 high-risk-refund；L2 才重复运行并计算区间。学员要把每一层的输入、退出码、artifact 路径、owner 和停止条件写进发布卡，另附一张‘报告上传成功但 promotion 必须停止’的证据截图说明。", "决策不是‘绿就发布’，而是先问 blocker 是否为零、分母是否完整、当前 SHA 是否与报告一致、是否存在未到期 waiver。任何一项缺失都输出 BLOCKED。迁移到 Agent 评测时，把 high-risk-refund 换成越权工具调用；迁移到 RAG 时换成引用过期，但必须保留退出码传播、风险切片优先和人工签字。", "失败修复要能复现：先保留 fault 报告，再修 CI 脚本的 exit code 或聚合逻辑，最后重跑同一个故障。不能把失败用例移出分母、把 job 改成 continue-on-error 或只展示成功阶段。学员交付 job graph、失败日志、修复 diff 和 rerun receipt，下一位工程师据此可独立复查。"], table: { headers: ["症状/问题", "疑似层", "下一步检查", "修复/重跑"], rows: [["L1 失败仍进入 L2", "DAG 依赖", "查 needs 与条件", "阻断上游后重跑"], ["报告有 blocker 但 exit 0", "退出码", "查聚合器返回值", "传播 exit 1"], ["高风险分母变小", "数据切片", "比对 case ledger", "恢复完整分母"], ["waiver 无到期日", "治理", "查 owner/expiry", "补偿控制后重跑"]], caption: "发布卡把质量结论变成可交接动作。" } },
+  "TD-T22": { title: "Trace-to-Regression 实操：从一条事故到稳定回归", body: ["取一条‘过期退款政策→错误工具候选’的合成 Trace，先复制 source_trace_hash，再标出首个违反不变量的 span。保留当时的 Prompt、检索文档版本、工具 schema、tenant 和外部响应；删除 PII、密钥和无关上下文后，生成最小输入与 expected policy。这个过程不是改写故事，而是保留触发机制。", "回归用例必须先杀死 fault：故意让检索返回过期文档，确认工具授权 blocker 变红；再修复索引版本或策略中介，确认同一 case 重新变绿。修复不能改变 expected、吞掉工具调用、提高阈值或把异常转为人工忽略。学员交脱敏前后字段表、最小 fixture、mutation receipt、owner 和 CI 入口。", "迁移到性能事故时，把首错 span 换成 latency/cost breach；迁移到 Browser Agent 时保留动作轨迹与账本状态。无生产日志、真实 PII 审批、真实模型或工具连接时，artifact 只能证明离线回归结构，不证明事故已在生产闭环。"], table: { headers: ["症状/问题", "疑似层", "下一步检查", "修复/重跑"], rows: [["Trace 无法重放", "版本闭包", "查输入/检索/工具 hash", "补齐 fixture 后重跑"], ["脱敏删掉触发条件", "最小化", "对比 fault 前后字段", "恢复必要字段"], ["修复后 mutation 不红", "Oracle", "重放原过期文档", "恢复 expected"], ["回归泄露 PII", "治理", "审计字段与访问", "隔离并重新脱敏"]], caption: "事故回归的最小单元是可重放触发条件。" } },
+};
+
+const wave6QualityExtra: Record<string, TutorialBlock> = {
+  "TD-T20": { title: "CI 门禁计算与迁移验收", body: ["worked calculation：若 L1 有 120 个高风险 case、2 个 blocker，即便总通过率为 98.3%，promotion 仍必须停止；blocker rate=2/120，不得被总体平均覆盖。学员将 case ledger、exit code、artifact hash 和停止理由拼成 decision evidence，repair 只修聚合器传播逻辑，再用同一 2 个 fault 重跑到 exit 1。", "迁移到 Agent 质量时，把 blocker 换成越权工具调用；迁移到 RAG 时换成过期引用。验收条件是：分母不变、风险切片可回链、exit 1 传播到 job、人工 owner 能复核 receipt。"], table: { headers: ["决策/故障", "层", "证据", "修复/验收"], rows: [["98.3% 仍阻断", "风险 Gate", "2/120 blocker ledger", "保留 blocker 重跑"], ["报告 FAIL job 绿", "退出码", "聚合器返回值", "exit 1 传播"], ["nightly 越过 PR", "DAG", "needs/条件", "上游失败即停"], ["迁移到 RAG", "Oracle", "引用版本与切片", "同分母验收"]], caption: "计算式证据使 Gate 可交接。" } },
+  "TD-T22": { title: "Trace 回归计算与迁移验收", body: ["worked calculation：一条 Trace 有 14 个 span，首个违反不变量在 span 6；回归 fixture 只需保留触发 span、前置身份、检索版本和工具参数，不应把 14 个 span 全量复制。学员比较脱敏前后字段，验证过期文档 mutation 使 policy Oracle 从 0 变 1，repair 后同一 hash 回到 0。", "迁移到性能事故时把首错 span 换成 p95 breach；迁移到 Browser Agent 时保留 action/observation。验收条件是 source_trace_hash 可回链、PII 已隔离、mutation 稳定变红、修复不改 expected、owner 能复跑。"], table: { headers: ["故障/决策", "层", "证据", "修复/验收"], rows: [["首错在 span 6", "Trace", "span 链与 hash", "最小化后重放"], ["过期引用变红", "Oracle", "policy mutation", "恢复索引重跑"], ["脱敏丢触发条件", "数据", "字段 diff", "补必要字段"], ["迁移性能事故", "Transfer", "p95/cost ledger", "同 lineage 验收"]], caption: "最小可重放触发条件比事故全文更可复用。" } },
+};
+
+const explicitBoundaryIds = new Set(["TD-T20", "TD-T21", "TD-T22", "TD-T24"]);
 
 const WORKING_DIRECTORY = "materials/ai-quality-benchmark";
 
@@ -106,11 +132,15 @@ export const buildQualityBenchmarkPage = (spec: QualityBenchmarkSpec): TutorialP
         },
         expected: `${reportRoot}/baseline.json 为 PASS；fault 为 FAIL；repair 恢复 PASS。三份报告均保留 model_execution=NOT_RUN。`,
       },
+      ...(qualityWave2[spec.id] ? [qualityWave2[spec.id]] : []),
+      ...(qualityWorkedCases[spec.id] ? [qualityWorkedCases[spec.id]] : []),
+      ...(wave5QualityExtra[spec.id] ? [wave5QualityExtra[spec.id]] : []),
+      ...(wave6QualityExtra[spec.id] ? [wave6QualityExtra[spec.id]] : []),
     ],
     practice: spec.practice,
     completion: spec.completion,
     sourceIds: spec.sources,
-    evidenceBoundary: spec.boundary,
+    evidenceBoundary: `${spec.boundary}${explicitBoundaryIds.has(spec.id) ? " 本页仅 fixture/static；真实 model/provider、enterprise integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN。" : ""}`,
     architecture: {
       title: `${spec.title} 的证据链与人工决策边界`,
       caption: "这张图分开版本化输入、运行系统、独立 Oracle、报告、Waiver/回滚和人工 Gate；离线 Fixture 不能替代模型、企业集成、从业者评审或生产运行。",
@@ -205,4 +235,7 @@ const specs: QualityBenchmarkSpec[] = [
   },
 ];
 
-export const qualitySystemPages = specs.map(buildQualityBenchmarkPage);
+export const qualitySystemPages: TutorialPage[] = (specs.map(buildQualityBenchmarkPage) satisfies TutorialPage[]).map((page): TutorialPage => ({
+  ...page,
+  blocks: composeDeepPage(page.blocks, qualitySystemDeepBlocks(page.id)),
+}));

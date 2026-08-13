@@ -89,8 +89,14 @@ test("every page in the current public release scope fits a 390px viewport witho
         const ids = ${JSON.stringify(pageIds)};
         const results = [];
         for (const id of ids) {
-          await page.goto(${JSON.stringify(baseUrl)} + "#" + id);
-          await page.waitForFunction(expected => location.hash === "#" + expected && document.querySelector(".block"), id);
+          await page.evaluate(expected => {
+            history.replaceState(null, "", "#" + expected);
+            window.renderAll();
+          }, id);
+          await page.waitForFunction(expected => {
+            const crumb = document.querySelector(".crumb")?.textContent ?? "";
+            return location.hash === "#" + expected && crumb.includes(expected) && document.querySelector(".block");
+          }, id, { timeout: 5_000 });
           await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
           results.push(await page.evaluate(pageId => {
             const viewportWidth = document.documentElement.clientWidth;

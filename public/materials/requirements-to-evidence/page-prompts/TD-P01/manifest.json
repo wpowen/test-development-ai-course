@@ -1,18 +1,123 @@
 {
-  "version": "1.0.0",
+  "schema_version": "professional-prompt-package.v1",
+  "package_id": "td-p01-lifecycle-prompt-package",
+  "version": "1.2.0",
+  "purpose": "把分散需求、技术与接口材料冻结为可追溯 Test Basis，并决定哪些输入可进入下游。",
+  "authority": "source-bound draft assistant; human owners retain decision authority",
   "owner_page_ids": [
     "TD-P01"
   ],
   "provider": "none",
   "model": "offline-deterministic",
+  "model_version": null,
   "model_status": "NOT_RUN",
-  "system_prompt": "prompt-v1.md",
-  "task_prompt": "prompt-v1.md",
-  "critic_prompt": "prompt-v1.md",
-  "input": "input.json",
-  "schema": "schema.json",
-  "eval": "eval.json",
-  "refusal_status": "BLOCKED",
-  "boundary": "versioned prompt contract; no model/API run"
+  "parameters": {},
+  "seed": null,
+  "tools": [],
+  "permissions": [
+    "read sanitized fixed input",
+    "produce draft JSON only"
+  ],
+  "privacy_level": "synthetic-teaching-fixture",
+  "direct_use": true,
+  "copy_target": "generic-ai-agent",
+  "assembly_order": [
+    {
+      "step": 1,
+      "file": "system-v1.md",
+      "placement": "system or instructions"
+    },
+    {
+      "step": 2,
+      "file": "task-v1.md",
+      "placement": "first user message"
+    },
+    {
+      "step": 3,
+      "file": "input.json",
+      "placement": "append to task message after adaptation"
+    },
+    {
+      "step": 4,
+      "file": "critic-v1.md",
+      "placement": "second review message after first JSON"
+    }
+  ],
+  "one_shot_copy_file": "prompt-v1.md",
+  "system_prompt": "system-v1.md",
+  "task_prompt": "task-v1.md",
+  "critic_prompt": "critic-v1.md",
+  "editable_fields": [
+    "business_scope",
+    "source_authority",
+    "documents",
+    "owners"
+  ],
+  "expected_outputs": [
+    "page_id",
+    "status",
+    "sources",
+    "claims",
+    "conflicts",
+    "unknowns",
+    "owner_questions",
+    "downstream_artifacts"
+  ],
+  "self_checks": [
+    "schema required fields close",
+    "critical claims carry source_ref or explicit Inference/Unknown",
+    "stop states are preserved without normalization",
+    "independent Oracle is not derived from generated output",
+    "model/provider and maturity claims remain NOT_RUN without receipts"
+  ],
+  "expected_statuses": [
+    "PASS_SCHEMA",
+    "PASS_SEMANTIC",
+    "BLOCKED",
+    "SOURCE_CONFLICT",
+    "UNSUPPORTED_RULE",
+    "SEMANTIC_UNKNOWN",
+    "SCHEMA_INVALID",
+    "REFUSED",
+    "INCOMPLETE"
+  ],
+  "stop_states": [
+    "BLOCKED",
+    "SOURCE_CONFLICT",
+    "UNSUPPORTED_RULE",
+    "SEMANTIC_UNKNOWN",
+    "SCHEMA_INVALID",
+    "REFUSED",
+    "INCOMPLETE"
+  ],
+  "review_owner": "independent test owner plus relevant business/technical owner",
+  "refusal_status": "REFUSED",
+  "superseded_package": "td-p01-single-prompt-v1.1.0",
+  "limitations": [
+    "static package only",
+    "model/provider NOT_RUN",
+    "enterprise integration NOT_RUN",
+    "practitioner and learner validation NOT_RUN"
+  ],
+  "artifact_sha256": {
+    "prompt-v1.md": "42ee6bb3d4e68f97f2a762ae404aabd7d8791276897075cf7de3d35212a80894",
+    "system-v1.md": "0a38d7bac2750c81568c625e84e142a95efa211a5dda3c8ded2b6ee72d5166a0",
+    "task-v1.md": "3ebf2173b287f3d4ef09bd0a29e72711370bc6f99d3b649d1f2410567db2aa40",
+    "critic-v1.md": "f517ae3c6e94aa724ef6b2c3a4a7521aba2dbc7b1e9a2236e8a615d8dfad2206",
+    "input.json": "4d22fe043ad9530898516ba2eb572ba7dca24ebdca140ef1fdc57a7ad2e8f90a",
+    "schema.json": "2c58d537dd274ac369dc14a82d4c37eaadf4579f5c1a7bed4d86596513f5899e",
+    "eval.json": "6145a705391c8ebccc967b9811501d6b66ecb28a2e95edf8daec7105880862b5",
+    "mutation.json": "be3b5a728e33fcbff9966ce9be602f93fca1cc9152ee002f3796d66f65aee5eb",
+    "adaptation-card.md": "708a42be7c7904ae7d7f12ca3997f8ba6112e6eb7e34ea144f24a99ec6d513bd",
+    "expected-output.json": "88988cba3756e511484cf3ecf66e784a662f3d65ca67773f92e98dcf09a5b787",
+    "receipt.json": "209b6158882a0e089ab872b17bce1a862f2563d355f95126c8164091b667b0ad"
+  },
+  "template_sha256": "42ee6bb3d4e68f97f2a762ae404aabd7d8791276897075cf7de3d35212a80894",
+  "input_sha256": "4d22fe043ad9530898516ba2eb572ba7dca24ebdca140ef1fdc57a7ad2e8f90a",
+  "output_schema_sha256": "2c58d537dd274ac369dc14a82d4c37eaadf4579f5c1a7bed4d86596513f5899e",
+  "evaluation_sha256": "6145a705391c8ebccc967b9811501d6b66ecb28a2e95edf8daec7105880862b5",
+  "mutation_sha256": "be3b5a728e33fcbff9966ce9be602f93fca1cc9152ee002f3796d66f65aee5eb",
+  "expected_output_sha256": "88988cba3756e511484cf3ecf66e784a662f3d65ca67773f92e98dcf09a5b787",
+  "receipt_sha256": "209b6158882a0e089ab872b17bce1a862f2563d355f95126c8164091b667b0ad",
+  "boundary": "versioned prompt package; no model/API run"
 }
-

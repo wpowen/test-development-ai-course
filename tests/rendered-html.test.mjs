@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { catalogPages, releaseScope } from "../content/course.ts";
+import { catalogPages, pages, releaseScope } from "../content/course.ts";
 
 async function render() {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -32,7 +32,16 @@ test("server-renders the test-development AI tutorial shell", async () => {
 test("ships only validated public pages without empty catalog placeholders", async () => {
   const response = await render();
   const html = await response.text();
-  assert.equal(releaseScope.promisedPageIds.length, 85);
+  assert.equal(
+    releaseScope.promisedPageIds.length,
+    new Set(releaseScope.promisedPageIds).size,
+    "the release scope must not contain duplicate page IDs",
+  );
+  assert.deepEqual(
+    releaseScope.promisedPageIds,
+    pages.map((page) => page.id),
+    "the release scope must equal the ordered delivered catalog projection",
+  );
   for (const id of releaseScope.promisedPageIds) assert.match(html, new RegExp(`data-page-id="${id}"`));
   for (const id of catalogPages.map((page) => page.id).filter((id) => !releaseScope.promisedPageIds.includes(id))) {
     assert.doesNotMatch(html, new RegExp(`data-page-id="${id}"`));

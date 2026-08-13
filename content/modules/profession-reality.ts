@@ -43,6 +43,11 @@ export const professionRealityPage: TutorialPage = {
     title: "从规则到生产证据的职业责任链",
     caption: "测试开发不替产品定义规则，也不替发布 owner 接受风险；它把依据、方法、执行和剩余风险连接成可审计决定。",
     nodes: ["需求规则", "技术设计", "权威裁决", "风险与方法", "独立 Oracle", "TestPackage", "执行与归因", "发布决定", "生产反馈"],
+    visual: {
+      src: "materials/career-evolution/visuals/career-role-comparison.svg",
+      alt: "传统软件测试、AI 测试开发和 AI 开发的职责对比图，三者共享工程底座，但业务规则和发布风险仍由具名责任人裁决。",
+      kind: "career",
+    },
   },
   blocks: [
     {
@@ -183,6 +188,35 @@ export const professionRealityPage: TutorialPage = {
       expected: "每个 AI 机会都应写出原流程基线、输入权限、可检查产出、人工门禁、新失败和成功指标。写不出来就先不做。",
     },
     {
+      title: "职业责任反例：看起来完成了，实际上谁也不能据此放行",
+      body: [
+        "反例一：测试开发把执行数量、代码覆盖率和模型置信度汇总成‘质量 98 分’，看起来很量化，却没有说明业务规则、独立 Oracle 和剩余风险，发布 owner 仍无法判断能否放行。反例二：AI 读完 PRD 与技术方案后直接选择‘更合理’的一条规则，输出很完整，却抹掉了来源冲突和真正应该裁决的人。",
+        "正确的职业动作是把责任拆开：业务 owner 确认规则，研发 owner 解释实现，测试开发建立可检出的证据，发布 owner 接受剩余风险，运行 owner 负责回滚和事故处置。一个人可以兼任角色，但每个决定仍要有具名 owner、版本和 close evidence。",
+      ],
+      table: {
+        headers: ["看起来合理的做法", "为什么它看起来是对的", "实际漏掉了什么"],
+        rows: [
+          ["用覆盖率/用例数代表质量", "数字整齐、容易汇报", "没有证明 Oracle 独立，也没有覆盖业务高损失失败"],
+          ["让 AI 自动合并 PRD 与技术方案冲突", "减少沟通、输出流畅", "静默改变业务规则，责任人和裁决证据消失"],
+        ],
+        caption: "两个与职业责任直接相关的反例；先问谁有权决定，再问 AI 能生成什么。",
+      },
+    },
+    {
+      title: "主题诊断树：职业链断在哪里，下一步查哪层",
+      body: ["遇到返工或事故时，不要先让 AI 重写用例。沿着责任链从依据、Oracle、执行证据到发布决定逐层排查；任何一层缺证据都保持 UNKNOWN/BLOCKED，并把下一实验写给真正的 owner。"],
+      table: {
+        headers: ["症状/问题", "疑似层", "下一检查与修复动作"],
+        rows: [
+          ["需求和技术设计给出相反规则", "authority", "定位两个 source_ref，标 SOURCE_CONFLICT，升级业务 owner"],
+          ["测试全绿但高损失缺陷逃逸", "oracle/method", "检查 expected 是否独立，并用 mutation 验证检测力"],
+          ["失败报告无法判断产品还是环境", "execution/trace", "冻结构建、数据、依赖、Trace 和每次重试，缺失则 UNKNOWN"],
+          ["发布材料没有人签字接受风险", "release governance", "补具名 owner、Waiver、回滚条件；AI 不得自动放行"],
+        ],
+        caption: "从职业责任而不是工具故障出发的四行诊断树。",
+      },
+    },
+    {
       title: "版本化 Prompt：先重建职业，再给 AI 权限",
       body: [
         "这段 Prompt 不是让模型扮演一个会拍脑袋的专家。它要求模型先还原工作链、区分需求和技术依据、暴露冲突与未知，再提出有边界的 AI 机会。",
@@ -256,6 +290,8 @@ export const professionRealityPage: TutorialPage = {
   sourceIds: ["S07", "S32", "S44", "S65", "S81", "S82", "S85", "S90", "S91", "S92"],
   evidenceBoundary: "公开职业框架、标准、雇主材料与社区讨论只支持共同职业结构和可迁移能力。确定性自测已通过 fixture 红绿修复，但 Prompt 的 provider=none、model_status=NOT_RUN；目标公司职责、权限、绩效、发布规则和真实效果仍为 INTERNAL-UNKNOWN。本页不构成 practitioner、integration、live、publication 或 production 证据。",
   materials: [
+    {title: "传统测试 / AI 测试 / AI 开发职责对比图", description: "来源专属 SVG；先理解职业边界，再判断 AI 可以辅助什么。", href: "materials/career-evolution/visuals/career-role-comparison.svg", kind: "guide", validation: "static-reviewed"},
+    {title: "职业发展九类视觉索引", description: "含 comparison、mindmap、pie、lifecycle、ladder、radar、gantt、path、quadrant 的来源定位、alt、关系和哈希。", href: "materials/career-evolution/source-visual-manifest.json", kind: "config", validation: "static-reviewed"},
     {title: "职业入口完整材料包", description: "含脚本、输入、Prompt/Schema/Eval、示例与 fixture 报告。", href: "materials/profession-reality.zip", kind: "archive", validation: "fixture-tested"},
     {title: "职业能力自测脚本", description: "离线运行 baseline/fault/repair，验证责任与 Oracle 边界。", href: "materials/profession-reality/profession_self_check.py", kind: "script", validation: "fixture-tested"},
     {title: "精确执行 manifest", description: "声明 TD-F01 独立 owner、公开工作目录、命令和预期工件。", href: "materials/profession-reality/manifest.json", kind: "config", validation: "fixture-tested"},

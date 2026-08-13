@@ -34,6 +34,12 @@ a { color: inherit; }
 .top-progress i { display: block; height: 100%; background: var(--forest); border-radius: inherit; transition: width .2s ease; }
 .mobile-menu { display: none; }
 
+/* 目录收起开关。桌面端目录固定占 340px，长时间阅读时这块宽度是纯负担；
+   收起后正文可用宽度增加约 340px。移动端已有 .mobile-menu，这里隐藏避免两套控件。 */
+.nav-toggle { flex: none; margin-left: 12px; width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 8px; background: white; color: var(--muted); font-size: 14px; line-height: 1; cursor: pointer; }
+.nav-toggle:hover { color: var(--ink); border-color: var(--forest); }
+.nav-toggle:focus-visible { outline: 2px solid var(--forest); outline-offset: 2px; }
+
 .sidebar { position: fixed; z-index: 40; top: 72px; bottom: 0; left: 0; width: 340px; overflow-y: auto; padding-bottom: 48px; border-right: 1px solid var(--line); background: var(--canvas); }
 .course-summary { padding: 25px 24px 20px; background: var(--forest-dark); color: white; }
 .eyebrow { margin: 0 0 8px; font-size: 11px; line-height: 1; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--forest); }
@@ -46,6 +52,59 @@ a { color: inherit; }
 .search-box { margin: 16px 18px 8px; display: flex; align-items: center; gap: 7px; padding: 9px 11px; border: 1px solid var(--line); border-radius: 9px; background: white; }
 .search-box span { color: var(--muted); font-size: 18px; }
 .search-box input { width: 100%; border: 0; outline: 0; background: transparent; font-size: 12px; }
+/* 术语表与设计思路没有右侧的本页导航，因此不需要给它留出 230px。 */
+.reader-wide { margin-right: 0; }
+
+/* 参考入口：术语表与设计思路。放在课程目录之上，因为第一次打开站点的人
+   往往先卡在术语上，而不是先卡在课程顺序上。 */
+.reference-nav { padding: 10px 12px 0; display: grid; gap: 6px; }
+.reference-nav button { width: 100%; padding: 9px 10px; display: block; text-align: left; border: 1px solid var(--line); border-radius: 8px; background: white; cursor: pointer; }
+.reference-nav button:hover { border-color: var(--forest); }
+.reference-nav button.active { border-color: var(--forest); box-shadow: inset 3px 0 0 var(--forest); }
+.reference-nav b { display: block; font-size: 12px; }
+.reference-nav small { display: block; margin-top: 2px; color: var(--muted); font-size: 10px; line-height: 1.45; }
+
+/* 术语表 */
+.glossary-controls { margin: 28px 0 14px; display: grid; gap: 12px; }
+.glossary-controls .search-box { margin: 0; }
+.glossary-filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.glossary-filters button { padding: 5px 11px; border: 1px solid var(--line); border-radius: 99px; background: white; font-size: 11px; cursor: pointer; }
+.glossary-filters button:hover { border-color: var(--forest); }
+.glossary-filters button.active { background: var(--forest); border-color: var(--forest); color: white; }
+.glossary-count { margin: 0 0 16px; color: var(--muted); font-size: 12px; }
+.glossary-list { display: grid; gap: 14px; }
+.glossary-entry { padding: 18px 20px; border: 1px solid var(--line); border-radius: 12px; background: white; }
+.glossary-entry.core { border-left: 3px solid var(--forest); }
+.glossary-entry h2 { margin: 0 0 8px; font-size: 16px; letter-spacing: -.01em; }
+.glossary-entry h2 small { margin-left: 8px; color: var(--muted); font-size: 11px; font-weight: 500; }
+.glossary-plain { margin: 0; font-size: 13px; line-height: 1.75; }
+.glossary-why { margin: 10px 0 0; padding: 10px 12px; border-radius: 8px; background: #f2f6f2; font-size: 12.5px; line-height: 1.75; }
+.glossary-why b { display: block; margin-bottom: 3px; font-size: 11px; color: var(--forest); }
+.glossary-pages { margin: 10px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 5px; color: var(--muted); font-size: 11px; }
+.glossary-pages button { padding: 2px 7px; border: 1px solid var(--line); border-radius: 6px; background: transparent; font: 650 10px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; cursor: pointer; }
+.glossary-pages button:hover { border-color: var(--forest); color: var(--forest); }
+.glossary-empty { padding: 30px; text-align: center; color: var(--muted); font-size: 13px; }
+
+/* 设计思路 */
+.design-section { margin: 34px 0; padding-top: 26px; border-top: 1px solid var(--line); }
+.design-section h2 { margin: 0 0 14px; font-size: 20px; letter-spacing: -.02em; }
+.design-section p { margin: 0 0 12px; font-size: 14px; line-height: 1.85; }
+.design-layers { margin: 16px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; counter-reset: layer; }
+.design-layers li { padding: 15px 18px; border: 1px solid var(--line); border-radius: 11px; background: white; }
+.design-layers b { display: block; font-size: 13px; }
+.design-layers > li > span { display: block; margin: 3px 0 7px; color: var(--forest); font-size: 12px; }
+.design-layers p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.7; }
+.design-sections { margin: 16px 0 0; display: grid; gap: 9px; }
+.design-sections div { display: grid; grid-template-columns: 118px minmax(0, 1fr); gap: 14px; padding-bottom: 9px; border-bottom: 1px dashed var(--line); }
+.design-sections dt { font-size: 12.5px; font-weight: 750; }
+.design-sections dd { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.7; }
+.design-paths { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.design-paths li { padding: 14px 17px; border: 1px solid var(--line); border-radius: 11px; background: white; }
+.design-paths b { display: block; margin-bottom: 5px; font-size: 13px; }
+.design-paths > li > span { font-size: 12.5px; line-height: 1.8; color: var(--muted); }
+.design-paths button { padding: 1px 6px; border: 1px solid var(--line); border-radius: 6px; background: transparent; font-size: 12px; color: var(--forest); cursor: pointer; }
+.design-paths button:hover { border-color: var(--forest); }
+
 .course-nav section { padding: 17px 12px 5px; }
 .course-nav h3 { margin: 0 8px 3px; font-size: 12px; font-weight: 800; }
 .course-nav section > p { margin: 0 8px 9px; color: var(--muted); font-size: 10px; line-height: 1.45; }
@@ -61,8 +120,8 @@ a { color: inherit; }
 .status-dot.outlined { border-color: #d29b44; background: #fff3db; }
 .status-dot.done { border: 0; background: #8fba26; box-shadow: 0 0 0 3px rgba(143,186,38,.15); }
 
-.reader { min-width: 0; margin-left: 340px; margin-right: 230px; padding-top: 72px; min-height: 100vh; }
-.reader-inner { min-width: 0; width: min(800px, calc(100% - 64px)); margin: 0 auto; padding: 52px 0 90px; }
+.reader { min-width: 0; margin-left: 340px; margin-right: 230px; padding-top: 72px; min-height: 100vh; overflow-x: clip; }
+.reader-inner { min-width: 0; width: min(800px, calc(100% - 64px)); margin: 0 auto; padding: 52px 0 90px; overflow-x: clip; }
 .breadcrumb { display: flex; gap: 8px; color: var(--muted); font-size: 12px; }
 .lesson-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 24px; color: var(--muted); font-size: 11px; }
 .lesson-meta > span:not(.status-badge) { padding-right: 8px; border-right: 1px solid var(--line); }
@@ -84,10 +143,14 @@ a { color: inherit; }
 .why-card { padding: 18px 20px; border-left: 4px solid var(--lime); background: #f5f8ed; }
 .why-card b { font-size: 12px; color: var(--forest); }
 .why-card p { margin: 7px 0 0; color: #4e5954; font-size: 14px; line-height: 1.7; }
-.architecture-card, .materials-card { margin: 28px 0; padding: 26px; border: 1px solid var(--line); border-radius: 14px; background: white; }
+.architecture-card, .materials-card { min-width: 0; max-width: 100%; margin: 28px 0; padding: 26px; border: 1px solid var(--line); border-radius: 14px; background: white; overflow: hidden; }
 .architecture-card h2, .materials-card h2 { margin: 0; font-size: 24px; letter-spacing: -.025em; }
 .architecture-card > p:last-child { margin: 16px 0 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
-.architecture-flow { display: flex; align-items: stretch; gap: 22px; margin-top: 20px; overflow-x: auto; padding: 4px 2px 10px; }
+.course-visual { min-width: 0; max-width: 100%; margin: 18px 0 8px; overflow: hidden; }
+.course-visual > a { display: block; width: 100%; max-width: 100%; overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: #f7faf8; }
+.course-visual img { display: block; width: 100%; height: auto; border: 0; border-radius: 11px; background: #f7faf8; }
+.course-visual figcaption { margin-top: 9px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.architecture-flow { display: flex; width: 100%; max-width: 100%; min-width: 0; align-items: stretch; gap: 22px; margin-top: 20px; overflow-x: auto; padding: 4px 2px 10px; }
 .architecture-step { position: relative; min-width: 112px; padding: 14px; border: 1px solid #cfdcd6; border-radius: 10px; background: #f5f9f7; }
 .architecture-step:not(:last-child)::after { content: "→"; position: absolute; right: -17px; top: 50%; transform: translateY(-50%); color: var(--forest); font-weight: 900; }
 .architecture-step b { display: block; color: #7c8a84; font: 700 10px/1 ui-monospace, SFMono-Regular, Menlo, monospace; }
@@ -169,6 +232,23 @@ a { color: inherit; }
 .route-card p { margin: 9px 0; font: 700 11px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; }
 .route-card small { color: #b7cbc4; font-size: 10px; line-height: 1.5; }
 
+/* 收起态只在桌面布局生效：760px 以下目录本来就是抽屉式，由 .sidebar.open 控制，
+   在那里再叠一层 translateX 会让抽屉打不开。 */
+@media (min-width: 761px) {
+  .sidebar, .reader, .brand { transition: transform .18s ease, margin-left .18s ease, width .18s ease; }
+  .app-shell.nav-collapsed .sidebar { transform: translateX(-100%); visibility: hidden; }
+  .app-shell.nav-collapsed .reader { margin-left: 0; }
+  .app-shell.nav-collapsed .brand { width: auto; padding-right: 20px; border-right: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar, .reader, .brand { transition: none; }
+}
+
+@media (max-width: 760px) {
+  .nav-toggle { display: none; }
+}
+
 @media (max-width: 1120px) {
   .right-rail { display: none; }
   .reader { margin-right: 0; }
@@ -189,6 +269,7 @@ a { color: inherit; }
   .outcome-card { grid-template-columns: 1fr; }
   .outcome-card > div + div { padding: 18px 0 0; border-left: 0; border-top: 1px solid rgba(255,255,255,.17); }
   .content-block { grid-template-columns: minmax(0, 1fr); }
+  .course-visual img { width: 760px; max-width: none; }
   .section-index { padding: 0; }
   .planned-grid, .page-nav, .material-grid { grid-template-columns: 1fr; }
   .page-nav .next { text-align: left; }

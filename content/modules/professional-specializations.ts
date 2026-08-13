@@ -1,4 +1,6 @@
 import type { TutorialBlock, TutorialPage } from "../course.ts";
+import { professionalSpecializationsDeepBlocks } from "./professional-specializations-deep.ts";
+import { composeDeepPage } from "./deep-layer.ts";
 
 const apiExecutableMaterials: NonNullable<TutorialPage["materials"]> = [
   { title: "API 专项完整实验包", description: "离线脚本、OpenAPI、事件夹具、配置、指南与红绿报告。", href: "materials/api-ai-automation.zip", kind: "archive", validation: "fixture-tested" },
@@ -69,7 +71,7 @@ const specialtyContractBlocks = (id: SpecialtyPageId, bundle: SpecialtyBundle): 
 // https://sre.google/sre-book/monitoring-distributed-systems/ | https://principlesofchaos.org/
 // https://docs.vllm.ai/en/stable/usage/metrics/ | https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/perf_benchmark/genai-perf-README.html
 
-export const professionalSpecializationPages: TutorialPage[] = [
+export const professionalSpecializationPages: TutorialPage[] = ([
   {
     id: "TD-PS01", moduleId: "TD-M08", order: 1, title: "API 业务契约：从 HTTP 结果到可验证副作用", type: "跟做", status: "desk-researched", duration: "55 分钟",
     summary: "以订单取消与退款 API 为业务场景，建立协议、Schema、业务不变量和副作用四层断言。",
@@ -83,7 +85,7 @@ export const professionalSpecializationPages: TutorialPage[] = [
       { title: "故障注入、诊断与 AI 边界", body: ["注入退款服务超时、事件重复和数据库只读，检查是否有有界重试、补偿和死信。诊断顺序是响应→Trace→服务日志→账本→事件消费；AI 只能聚类失败和提出候选根因，不能批准退款语义或替代账本 Oracle。"] },
       ...specialtyContractBlocks("TD-PS01", "api-ai-automation"),
     ],
-    practice: ["为取消接口补齐成功、拒绝、重放和依赖超时四组请求", "注入一次重复事件并证明账本不重复", "输出带 trace_id、状态前后值和发布结论的运行 Manifest"], completion: ["四层 Oracle 均有独立断言", "故障注入能稳定变红且诊断链完整", "报告明确阻断项、责任人和回滚条件"], sourceIds: ["S44", "S61", "S45"], evidenceBoundary: "页面方法依据 OpenAPI、HTTP 语义和 Pact 官方资料整理；接口、账本、事件和重试语义未在目标系统真实运行，阈值必须用目标业务风险校准。",
+    practice: ["为取消接口补齐成功、拒绝、重放和依赖超时四组请求", "注入一次重复事件并证明账本不重复", "输出带 trace_id、状态前后值和发布结论的运行 Manifest"], completion: ["四层 Oracle 均有独立断言", "故障注入能稳定变红且诊断链完整", "报告明确阻断项、责任人和回滚条件"], sourceIds: ["S44", "S61", "S45"], evidenceBoundary: "static OpenAPI/Pact 片段与离线取消、重放 fixture 只证明四层断言、幂等键和账本差异的判定结构；provider/model、真实 API/事件总线 integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN，不得据此声称目标退款链路可用。",
     architecture: { title: "取消请求的证据链", caption: "请求经过网关、领域服务和账本后，还必须证明事件副作用与最终状态；任一关键证据缺失都不能把响应 202 当成业务完成。", nodes: ["调用方与幂等键", "API Gateway", "订单领域服务", "订单/退款账本", "事件总线与消费者", "Trace/日志/指标", "发布门禁"] },
     materials: [{ title: "API 取消契约夹具", description: "订单取消 OpenAPI、错误模型和状态不变量。", href: "materials/api-ai-automation/fixtures/order-cancel.openapi.yaml", kind: "fixture", validation: "static-reviewed" }, { title: "API 运行 Manifest", description: "记录环境、数据、Trace 和副作用断言。", href: "materials/api-ai-automation/guides/api-run-manifest.md", kind: "guide", validation: "static-reviewed" }, ...apiExecutableMaterials],
   },
@@ -97,7 +99,7 @@ export const professionalSpecializationPages: TutorialPage[] = [
       { title: "指标：覆盖质量而不是样例数量", body: ["报告 Schema 分支覆盖、业务属性覆盖、错误模型覆盖、mutation 发现率、最小复现率和无效请求拒绝率。生成 1,000 个样例但 mutation 发现率为零，说明 Oracle 或测试层级有问题。"] },
       { title: "注入、诊断与 AI 边界", body: ["注入类型放宽、字段删除、错误码改写和跨字段规则删除；诊断顺序是规范 diff→请求样例→服务日志→业务状态。AI 可提出边界候选与解释 diff，但不得把合法 JSON 自动判为合法业务请求。"] },
       ...specialtyContractBlocks("TD-PS02", "api-ai-automation"),
-    ], practice: ["从一个 OpenAPI 操作生成并审查 10 个正反例", "删除一个 required 字段并验证 mutation 门禁失败", "把一个跨字段规则写成独立属性并生成最小重放"], completion: ["每个关键约束有业务 Oracle", "至少一种契约破坏会阻断", "报告区分结构、业务和环境失败"], sourceIds: ["S44", "S61", "S43"], evidenceBoundary: "OpenAPI 与 HTTP 来源支持规范和协议测试方法；Schema 变异、随机数据分布和服务业务规则没有在目标 API 上执行验证，教学样例不代表实际覆盖率。",
+    ], practice: ["从一个 OpenAPI 操作生成并审查 10 个正反例", "删除一个 required 字段并验证 mutation 门禁失败", "把一个跨字段规则写成独立属性并生成最小重放"], completion: ["每个关键约束有业务 Oracle", "至少一种契约破坏会阻断", "报告区分结构、业务和环境失败"], sourceIds: ["S44", "S61", "S43"], evidenceBoundary: "static schema/属性清单与支付意图 mutation fixture 只证明 required、跨字段约束及反例 shrink 的 Oracle 形状；provider/model、目标 API integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN，生成分布和业务覆盖率不能从样例推断。",
     architecture: { title: "规范到最小失败请求", caption: "Schema 只是入口，属性和状态才是业务证据；变异器制造坏契约，报告必须回链到最小请求和对应风险。", nodes: ["OpenAPI 版本", "例生成器", "Schema 校验器", "业务属性 Oracle", "被测 API", "Mutation 控制器", "报告与门禁"] },
     materials: [{ title: "支付意图规范夹具", description: "含边界、错误和跨字段约束的 OpenAPI 文件。", href: "materials/api-ai-automation/fixtures/payment-intent.openapi.yaml", kind: "fixture", validation: "static-reviewed" }, { title: "Schema Mutation 清单", description: "可审查的破坏性变更与预期失败。", href: "materials/api-ai-automation/configs/schema-mutations.yaml", kind: "config", validation: "static-reviewed" }, ...apiExecutableMaterials],
   },
@@ -111,7 +113,7 @@ export const professionalSpecializationPages: TutorialPage[] = [
       { title: "指标与诊断树", body: ["观察契约失败数、拒绝率、重复事件率、事件积压、端到端完成 p95、死信数和补偿成功率。若支付重复，先查 event_id 幂等存储；若库存延迟，沿 trace 查队列、消费者和下游，不先让 AI 猜根因。"] },
       { title: "故障注入与 AI 边界", body: ["注入消息重复、乱序、消费者超时、策略配置错误和 Schema 旧版本；验证有界重试、死信、补偿和人工升级。AI 可审查 diff、聚类 Trace 和生成候选契约，但不能授予租户权限、自动修改事件语义或关闭 blocker。"] },
       ...specialtyContractBlocks("TD-PS03", "api-ai-automation"),
-    ], practice: ["为一个消费者写出读取字段和错误契约", "注入跨租户 event 并验证拒绝无副作用", "重放乱序与重复事件并记录最终状态"], completion: ["提供者破坏性变更可在部署前失败", "鉴权负例和事件幂等均有证据", "补偿、死信和 Trace 诊断路径可执行"], sourceIds: ["S45", "S44", "S50"], evidenceBoundary: "Pact、OpenAPI 与 OWASP 官方资料支持契约和权限测试框架；消息中间件、策略引擎和补偿语义需在目标架构中实测，页面不宣称真实跨服务已运行。",
+    ], practice: ["为一个消费者写出读取字段和错误契约", "注入跨租户 event 并验证拒绝无副作用", "重放乱序与重复事件并记录最终状态"], completion: ["提供者破坏性变更可在部署前失败", "鉴权负例和事件幂等均有证据", "补偿、死信和 Trace 诊断路径可执行"], sourceIds: ["S45", "S44", "S50"], evidenceBoundary: "static Pact envelope、事件顺序和租户拒绝 fixture 只证明兼容矩阵、event_id 去重与零副作用 Oracle 的结构；provider/model、真实 broker/policy-engine integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN，不能把离线补偿判定当作跨服务运行证据。",
     architecture: { title: "事件契约与权限传播", caption: "身份策略、事件版本和幂等存储共同决定下游是否安全消费；任何一段断链都可能产生静默副作用。", nodes: ["Checkout API", "Auth/租户策略", "契约 Broker", "事件总线", "库存消费者", "支付消费者", "死信/补偿与 Trace"] },
     materials: [{ title: "结算事件契约", description: "包含版本、租户和幂等字段的事件 Fixture。", href: "materials/api-ai-automation/fixtures/checkout-events.json", kind: "fixture", validation: "static-reviewed" }, { title: "消费者兼容矩阵", description: "记录版本变更、消费者依赖和阻断规则。", href: "materials/api-ai-automation/guides/consumer-compatibility.md", kind: "guide", validation: "static-reviewed" }, ...apiExecutableMaterials],
   },
@@ -186,7 +188,7 @@ export const professionalSpecializationPages: TutorialPage[] = [
     materials: [{ title: "TD-PS08 迁移输入夹具", description: "DDL、分片、高水位和守恒 Oracle 的离线场景。", href: "materials/api-ai-automation/fixtures/TD-PS08-input.json", kind: "fixture", validation: "fixture-tested" }, { title: "TD-PS08 迁移实验 Manifest", description: "具名 owner、baseline/fault/repair 与四项对账 Oracle。", href: "materials/api-ai-automation/manifests/TD-PS08.json", kind: "config", validation: "fixture-tested" }, ...apiExecutableMaterials],
   },
   {
-    id: "TD-PS09", moduleId: "TD-M09", order: 9, title: "性能与容量：到达率、尾延迟、Goodput 与单位成功成本", type: "诊断", status: "desk-researched", duration: "55 分钟",
+    id: "TD-PS09", moduleId: "TD-M08", order: 9, title: "性能与容量：到达率、尾延迟、Goodput 与单位成功成本", type: "诊断", status: "desk-researched", duration: "55 分钟",
     summary: "以客服 Agent 流式回答和工具调用为场景，建立按切片、尾延迟、质量和成本联合决策的性能指标体系。", why: "平均延迟变快可能伴随长输入质量下降、工具调用放大和 p99 恶化；AI 性能必须与任务成功绑定。", prerequisites: ["TD-PS03"], outcomes: ["定义 AI 请求阶段指标与分母", "区分 TTFT、TPOT、端到端和 Goodput", "用质量、SLO 和成本做 Pareto 决策"], artifact: "AI 性能 workload、指标卡和容量决策报告",
     blocks: [
       { title: "场景：客服回答不是单一模型调用", body: ["客服 Agent 先检索政策，再调用模型并可能查询订单。短 FAQ 与长退款对话的输入、工具数、输出长度和风险完全不同；性能报告必须保留这些切片。"] },
@@ -195,7 +197,7 @@ export const professionalSpecializationPages: TutorialPage[] = [
       { title: "指标解释与诊断", body: ["TTFT 反映首 token 等待，TPOT 反映生成阶段节奏，Goodput 只计算满足质量与 SLO 的成功任务。若 TTFT 变差查队列和 Prefill，TPOT 变差查 Decode、并发和资源；成本异常查重试和工具放大。"] },
       { title: "故障注入与 AI 边界", body: ["注入限流、工具超时、重试风暴、长上下文和 GPU/队列饱和；观察指标是否按阶段暴露。AI 可帮助分析曲线和生成 workload 候选，但不能选择风险阈值、忽略失败请求成本或宣称托管服务内部 GPU 指标已知。"] },
       ...specialtyContractBlocks("TD-PS09", "api-ai-automation"),
-    ], practice: ["为 FAQ 与退款长对话定义两个 workload slice", "计算 TTFT、TPOT、Goodput 和 cost_per_success 的分母", "注入一次工具超时并解释重试对性能和成本的影响"], completion: ["指标按切片和分位数呈现", "质量底线先于速度优化", "报告包含回退条件与未知内部指标"], sourceIds: ["S51", "S52", "S54"], evidenceBoundary: "vLLM、GenAI-Perf 和 Prometheus 官方资料支持指标定义；页面未在目标模型、硬件或供应商服务上压测，所有容量、阈值和成本数字必须重新实测。",
+    ], practice: ["为 FAQ 与退款长对话定义两个 workload slice", "计算 TTFT、TPOT、Goodput 和 cost_per_success 的分母", "注入一次工具超时并解释重试对性能和成本的影响"], completion: ["指标按切片和分位数呈现", "质量底线先于速度优化", "报告包含回退条件与未知内部指标"], sourceIds: ["S51", "S52", "S54"], evidenceBoundary: "static workload 表、指标公式和离线到达账本 fixture 只证明 TTFT/TPOT、Goodput 分母及成本守恒的计算方法；provider/model、目标硬件与供应商 integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN，容量、阈值和价格必须另行实测。",
     architecture: { title: "AI 请求阶段指标链", caption: "从到达到首 token、连续生成、工具调用到任务成功，性能和质量必须在同一 trace 中关联。", nodes: ["Workload/到达率", "队列与调度", "Prefill/TTFT", "Decode/TPOT", "工具与检索", "质量/Goodput", "成本与容量门禁"] },
     materials: [{ title: "客服 Agent Workload", description: "输入长度、并发、工具比例和风险切片。", href: "materials/api-ai-automation/configs/ai-performance-workload.yaml", kind: "config", validation: "static-reviewed" }, { title: "AI 指标卡模板", description: "阶段指标、分母、分位数和联合门禁。", href: "materials/api-ai-automation/guides/ai-performance-metric-card.md", kind: "guide", validation: "static-reviewed" }, ...apiExecutableMaterials],
   },
@@ -209,12 +211,12 @@ export const professionalSpecializationPages: TutorialPage[] = [
       { title: "指标与传播诊断", body: ["关注错误率、延迟分位数、队列积压、重试次数、降级命中率、错误预算消耗和副作用计数。若错误扩大，沿调用图从根依赖查超时预算、重试策略和连接池，不能只看入口 5xx。"] },
       { title: "AI 边界", body: ["AI 可根据历史 Trace 提出实验候选、总结传播路径和生成复盘草稿；它不能自主向生产注入故障、修改停止阈值或判断资金副作用安全。实验结论必须由授权负责人确认。"] },
       ...specialtyContractBlocks("TD-PS10", "reliability-chaos-observability"),
-    ], practice: ["写一张工具超时 Chaos Experiment Card", "为重试风暴定义停止条件和副作用 Oracle", "恢复后验证队列、Feature Flag 和合成数据均清理"], completion: ["实验有明确授权和 blast radius", "故障后降级不越权且可观测", "恢复与同一回归集复验均有证据"], sourceIds: ["S48", "S60", "S47"], evidenceBoundary: "页面依据 Google SRE 与 Chaos Engineering 原则做 desk-researched 设计；未在任何 K8s 集群或生产环境运行故障注入，实验安全性和恢复时间必须先在授权隔离环境验证。",
+    ], practice: ["写一张工具超时 Chaos Experiment Card", "为重试风暴定义停止条件和副作用 Oracle", "恢复后验证队列、Feature Flag 和合成数据均清理"], completion: ["实验有明确授权和 blast radius", "故障后降级不越权且可观测", "恢复与同一回归集复验均有证据"], sourceIds: ["S48", "S60", "S47"], evidenceBoundary: "static Chaos Experiment Card、deadline/retry fixture 只证明超时预算、停止条件、降级和清理检查的设计可判定；provider/model、Kubernetes/依赖 integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN，恢复时间与 blast radius 不得写成实测结果。",
     architecture: { title: "故障传播与停止链", caption: "故障注入只对隔离依赖生效，停止条件同时观察用户 SLI、系统传播和不可逆副作用。", nodes: ["实验授权/隔离命名空间", "注入器", "模型/工具/检索依赖", "Agent 重试与降级", "订单 API/队列", "SLI/Trace/副作用", "自动停止与回滚"] },
     materials: [{ title: "订单助手实验卡", description: "工具超时、429、空检索和停止条件。", href: "materials/reliability-chaos-observability/fixtures/order-assistant-chaos.yaml", kind: "fixture", validation: "static-reviewed" }, { title: "Chaos 授权与复验指南", description: "隔离、观察、回滚和残留清理。", href: "materials/reliability-chaos-observability/guides/chaos-experiment-sop.md", kind: "guide", validation: "static-reviewed" }, ...reliabilityExecutableMaterials],
   },
   {
-    id: "TD-PS11", moduleId: "TD-M09", order: 11, title: "线上可观测性：把 AI 质量、Trace、成本和 SLO 接成一条链", type: "概念", status: "desk-researched", duration: "50 分钟",
+    id: "TD-PS11", moduleId: "TD-M08", order: 11, title: "线上可观测性：把 AI 质量、Trace、成本和 SLO 接成一条链", type: "概念", status: "desk-researched", duration: "50 分钟",
     summary: "以生产客服 Agent 为场景，设计脱敏 Trace、指标、日志和质量回流，明确托管模型内部不可见时的未知项。", why: "没有输入、检索、工具、模型版本和最终结果的关联，线上质量下降只能靠猜；过度采集又会泄露敏感数据。", prerequisites: ["TD-PS10"], outcomes: ["定义 AI 观测字段和脱敏边界", "把质量事件连接到 Trace 与版本 Manifest", "建立告警、调查和回归回流路径"], artifact: "AI 可观测性字段契约、Dashboard 设计和事故样例",
     blocks: [
       { title: "场景：正确率下降但 Judge 没变", body: ["客服退款正确率连续下降，Judge 分数保持稳定，可能是知识库索引过期、输入分布变化、Judge 漂移或工具错误。需要同时查看质量切片、检索版本、Trace、成本和用户反馈。"] },
@@ -237,8 +239,11 @@ export const professionalSpecializationPages: TutorialPage[] = [
       { title: "指标与安全决策", body: ["报告拒绝覆盖率、跨租户零副作用率、工具 allowlist 绕过数、敏感字段泄漏数、证据完整率和未验证控制。扫描数量、HTTP 4xx 数或模型拒答文字都不能替代对象级授权与账本 Oracle。"], table: { headers: ["控制", "Oracle", "阻断条件"], rows: [["身份", "issuer/audience/expiry 全部匹配", "任一无效 token 被接受"], ["授权", "subject-tenant-object-action 同时匹配", "跨租户读写非零"], ["工具/秘密", "allowlist 不可被 Prompt 扩大且输出脱敏", "未授权工具调用或秘密泄漏"]] } },
       { title: "故障注入、证据与 AI 边界", body: ["夹具注入对象 ID 替换、越权 token、Prompt 要求绕过 allowlist 和 bearer token 日志泄漏；每项只在离线/授权环境执行，要求拒绝发生在工具边界且跨租户读写为零。AI 可生成候选 abuse case 和报告摘要，不能运行生产攻击、扩大授权范围或接受剩余风险。"] },
       ...specialtyContractBlocks("TD-PS12", "reliability-chaos-observability"),
-    ], practice: ["画出退款助手从 token 到工具的信任边界和资产", "构造 BOLA、角色不足、Prompt 扩大 allowlist 与日志泄密四类 fault", "为每个拒绝用例同时证明 policy decision、read/write delta 和脱敏报告"], completion: ["身份、对象、功能和工具权限均有独立负例", "被拒绝路径的跨租户读写增量为零", "Prompt 注入不能扩大工具能力且所有证据经过秘密扫描"], sourceIds: ["S50", "S45", "S49"], evidenceBoundary: "OWASP ASVS/WSTG/API Security、OAuth RFC 与 NIST SSDF 支持控制设计；当前只运行离线 fixture，没有对目标 IdP、API、Agent、工具或生产环境进行渗透测试，授权范围、实际漏洞和剩余风险均为 UNKNOWN。",
+    ], practice: ["画出退款助手从 token 到工具的信任边界和资产", "构造 BOLA、角色不足、Prompt 扩大 allowlist 与日志泄密四类 fault", "为每个拒绝用例同时证明 policy decision、read/write delta 和脱敏报告"], completion: ["身份、对象、功能和工具权限均有独立负例", "被拒绝路径的跨租户读写增量为零", "Prompt 注入不能扩大工具能力且所有证据经过秘密扫描"], sourceIds: ["S50", "S45", "S49"], evidenceBoundary: "static threat model、BOLA/tool-allowlist/secret-scan fixture 只证明身份、对象、工具和日志脱敏的零增量 Oracle；provider/model、IdP/API/Agent integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN，授权范围、真实漏洞和风险接受仍为 UNKNOWN。",
     architecture: { title: "退款助手安全信任边界", caption: "身份在 Gateway 校验，对象和功能在 API/工具边界重新授权，模型输出始终按不可信输入处理；审计证据自身也必须脱敏。", nodes: ["用户/token", "Gateway 身份校验", "Agent/Prompt 非可信输入", "对象与功能授权", "工具 allowlist/参数校验", "订单/退款账本", "脱敏 Trace 与安全门禁"] },
     materials: [{ title: "TD-PS12 安全输入夹具", description: "身份、对象、工具和秘密四类离线 abuse case。", href: "materials/reliability-chaos-observability/fixtures/TD-PS12-input.json", kind: "fixture", validation: "fixture-tested" }, { title: "TD-PS12 安全实验 Manifest", description: "具名 owner、baseline/fault/repair 与零副作用 Oracle。", href: "materials/reliability-chaos-observability/manifests/TD-PS12.json", kind: "config", validation: "fixture-tested" }, ...reliabilityExecutableMaterials],
   },
-];
+] satisfies TutorialPage[]).map((page): TutorialPage => ({
+  ...page,
+  blocks: composeDeepPage(page.blocks, professionalSpecializationsDeepBlocks(page.id)),
+}));
