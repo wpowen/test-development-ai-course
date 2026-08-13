@@ -223,6 +223,46 @@ export const renderDeepBlocks = (content: DeepPageContent): DeepBlocks => ({
 });
 
 /**
+ * 只补四段的轻量补充层。
+ *
+ * TD-M00、TD-M12 与 TD-FP01 的正文是逐页手写的 TypeScript，不走内容源投影，
+ * 而且它们本来就是全站最厚的几个模块——把已经写好的方法、反例、诊断、演练
+ * 重写一遍进 JSON，收益是零。
+ *
+ * 但它们同样缺失失效点、架构索引、指标卡与三段式门禁这四段，也就同样躲开了
+ * 可落地性门禁。这个类型让它们以最小代价接入同一套校验：内容源里只写四段，
+ * 其余部分继续由页面自己的块承担。
+ */
+export type DeepSupplement = Pick<DeepPageContent, "failure" | "archref" | "metrics" | "gate">;
+
+export const renderSupplement = (content: DeepSupplement): DeepBlocks => ({
+  head: [
+    ...(content.failure
+      ? [{
+          title: content.failure.title,
+          body: [content.failure.intro[0], content.failure.intro[1]],
+          table: content.failure.table,
+        }]
+      : []),
+    ...(content.archref
+      ? [{
+          title: content.archref.title,
+          body: [content.archref.intro[0], content.archref.intro[1]],
+          table: content.archref.table,
+        }]
+      : []),
+    ...(content.metrics
+      ? [{
+          title: content.metrics.title,
+          body: [content.metrics.intro[0], content.metrics.intro[1]],
+          table: content.metrics.table,
+        }]
+      : []),
+  ],
+  tail: content.gate ? [renderGate(content.gate)] : [],
+});
+
+/**
  * 把页面自身的块夹在深度层的 head 与 tail 之间。
  *
  * 一个模块文件通常托管来自多个内容源的页面，因此这里接受任意多个解析结果；

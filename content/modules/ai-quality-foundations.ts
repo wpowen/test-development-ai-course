@@ -1,6 +1,7 @@
 import type { TutorialPage } from "../course.ts";
 import { ragQualityDeepBlocks } from "./rag-quality-deep.ts";
 import { composeDeepPage } from "./deep-layer.ts";
+import { promptFirstLessonSupplement } from "./prompt-first-lesson-supplement.ts";
 import { aiFoundationsDeepBlocks } from "./ai-foundations-deep.ts";
 
 type FoundationSpec = {
@@ -448,5 +449,5 @@ const specs: FoundationSpec[] = [
 
 export const aiQualityFoundationPages: TutorialPage[] = (specs.map(makePage)).map((page): TutorialPage => ({
   ...page,
-  blocks: [...composeDeepPage(page.blocks, aiFoundationsDeepBlocks(page.id), ragQualityDeepBlocks(page.id)), ...wave2FoundationRepairBlocks(page.id)],
+  blocks: [...composeDeepPage(page.blocks, aiFoundationsDeepBlocks(page.id), ragQualityDeepBlocks(page.id), promptFirstLessonSupplement(page.id)), ...wave2FoundationRepairBlocks(page.id)],
 }));

@@ -331,6 +331,25 @@ const technicalBlocks = (page: PageContract): TutorialBlock[] => {
   ];
 };
 
+const servingDiagnosisBlocks: Partial<Record<ServingPageId, TutorialBlock>> = {
+  "TD-A05": {
+    title: "Queue、Prefill、Decode、KV 与下游：四列诊断卡",
+    body: [
+      "诊断必须从可观测症状走到可证伪的下一检查，再给出保持 workload、模型、Prompt 与质量门禁不变的修复重跑。某一监控曲线与慢请求同时出现只能算相关信号；缺阶段 Trace 或 profiler 时应写 UNKNOWN。",
+    ],
+    table: {
+      headers: ["症状/问题", "疑似层", "下一步检查", "修复/重跑"],
+      rows: [
+        ["TTFT 上升且 queue_time 占比扩大", "Queue/Admission", "核对计划到达、实际到达、queued/dropped 与 batch 等待", "限制入口或调整 batch；用同一 workload hash 重跑"],
+        ["长上下文 TTFT 上升、GPU 利用未满", "Prefill", "按 input_tokens 切片并比较 prefill span 与缓存命中", "只改变上下文或 prefill 策略；保持输出长度重跑"],
+        ["TPOT 上升且 decode span 拉长", "Decode/GPU", "核对 output_tokens、decode 占用、抢占和功耗频率", "恢复资源或调度策略；以同一 Token 分布复测"],
+        ["长会话抖动伴随 eviction，或工具 span 独立变长", "KV Cache/Downstream", "区分 KV eviction、工具超时和重试放大；缺 profiler 时标 UNKNOWN", "分别改变缓存容量或下游依赖，只保留能推翻假设的单变量结果"],
+      ],
+      caption: "每一行都要求证据、反证与可重放修复，禁止从 GPU 曲线直接跳到扩容。",
+    },
+  },
+};
+
 export const aiServingCareerPages: TutorialPage[] = (contracts.map((page) => ({
   id: page.id,
   moduleId: page.moduleId,
@@ -347,6 +366,7 @@ export const aiServingCareerPages: TutorialPage[] = (contracts.map((page) => ({
   blocks: [
     { title: `${servingActions[page.id]}：职业场景与失败代价`, body: [page.scenario, page.why] },
     ...technicalBlocks(page),
+    ...(servingDiagnosisBlocks[page.id] ? [servingDiagnosisBlocks[page.id]!] : []),
     { title: `${servingActions[page.id]}：证据边界与迁移`, body: [page.boundary, page.id === "TD-C01" ? "岗位路径和自评只用于学习规划与作品复盘；任何招聘、晋升或薪资判断必须由具体组织基于当前岗位独立作出。" : page.id === "TD-A05" ? "迁移瓶颈诊断到真实 serving 前，必须重新取得 queue/prefill/decode trace、GPU/KV profiler、流量切片、阈值、owner、回滚和审批；本页 fixture 只演示如何推翻一个错误归因。" : "迁移到真实 serving 前必须重新锁定 API/SDK、模型、Prompt、硬件、流量、阈值、owner 和回滚；fixture 数值不得外推."], warning: page.boundary },
   ],
   practice: page.practice,

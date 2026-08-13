@@ -1,4 +1,5 @@
 import type { TechnicalBlock, TutorialBlock, TutorialPage } from "../course.ts";
+import { requirementsLifecycleSupplement } from "./requirements-lifecycle-supplement.ts";
 import { handbookMaterials, methodologyExtraBlocks, methodologyStageBlock } from "./methodology-handbook.ts";
 
 const commonBoundary = "本专题使用虚构的订单取消与退款资料包验证工件结构和离线流水线。它能证明流程可运行、冲突能阻断、预埋缺陷能被测试发现；不能证明模型能正确理解你公司的全部文档，也不能替代产品、研发、法务和发布责任人的确认。provider/model、真实集成、practitioner 盲审、learner 实际迁移、live、production 均为 NOT_RUN；fixture-only 结果不得升级为企业可用或发布证据。";
@@ -815,6 +816,8 @@ export const requirementsTestingLifecyclePages: TutorialPage[] = rawRequirements
   ...page,
   status: "fixture-tested",
   blocks: [
+    // 补充层 head：失效点 → 架构索引 → 指标卡，排在本页自有内容之前。
+    ...requirementsLifecycleSupplement(page.id).head,
     ...page.blocks.map((block, index) => migrateTechnicalBlock(page.id, block, index + 1)),
     ...(methodologyStageBlock(page.id) ? [methodologyStageBlock(page.id)!] : []),
     ...methodologyExtraBlocks(page.id),
@@ -828,6 +831,8 @@ export const requirementsTestingLifecyclePages: TutorialPage[] = rawRequirements
     ...(wave3DepthFinish[page.id] ?? []),
     ...(wave3FinalDepth2[page.id] ?? []),
     directUsePromptBlock(page.id),
+    // 补充层 tail：三段式门禁。
+    ...requirementsLifecycleSupplement(page.id).tail,
     pageCycle(page.id),
   ],
   materials: [

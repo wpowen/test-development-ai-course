@@ -1,4 +1,6 @@
 import type { TutorialPage } from "../course.ts";
+import { composeDeepPage } from "./deep-layer.ts";
+import { agentArchitectureSupplement } from "./agent-architecture-supplement.ts";
 import { agentDeepBlocks, agentDeepMaterials } from "./agent-architecture-deep.ts";
 
 type AgentArchitectureSpec = {
@@ -337,6 +339,13 @@ const wave6AgentOverview: Record<string, string[]> = {
     "总览工件：交付 agent-boundary-map.svg、d0-d7-risk-ledger.json、four-ring-entry-exit.md、owner-escalation.csv 和 unknown-register.md。迁移到代码、客服或金融 Agent 时只复用字段，不复用风险结论、阈值或 receipt。",
     "故障诊断：若图上所有风险都连接到模型输出，先检查是否遗漏工具参数、状态快照、权限、队列和人工决定；若四环都显示 PASS，检查是否把 fixture-only 写成 live。修复是补节点和边，再重跑最小 mutation，不是增加页面或综合分。",
     "小白复盘：用四句话解释测什么、谁判断、哪里停、下一份证据交给谁；再指出哪些结论只属于离线环。回答不了时写 UNKNOWN，并将下一步交给架构 owner、工具 owner 或业务 owner，而不是让模型自行批准。",
+    "架构评审演练：从客服 Agent 的一次退款请求开始，先在系统边界标出用户身份、会话状态、检索索引、模型推理、工具授权、队列 Worker、Judge 和业务账本；随后沿每条边写数据格式、权限、超时、幂等键与回滚。若输出文本正确但工具账本出现第二次退款，D1 结果和 D5 副作用门禁必须同时变红，D0 的 Judge 分不能抵消它。",
+    "总览验收不是背诵八个域，而是提交一张可复核的 cross-domain decision sheet：每个 D0–D7 域至少连接一个风险、一个观察点、一个独立 Oracle、一个 mutation、一个 stop state 和一个 owner。缺少真实工具、企业身份或线上人口时，相应节点保留 NOT_RUN；不得用离线 fixture 的箭头替代沙箱、影子或在线环证据。",
+  ],
+  "TD-AG-05": [
+    "D4 可靠性加深练习：准备四个风险不同的任务，每个任务在完整状态重置后运行五次，逐次保存 trajectory_id、seed/temperature、工具响应 hash、最终状态、首错位置、步数、耗时与成本。先从 raw ledger 计算单次成功率，再分别计算 pass@5 与 pass^5；两者分母和支持的发布决定必须写在 Metric Card 上，不能只呈现较好看的数值。",
+    "长时程曲线不能用一个平均成功率代替。将任务按短、中、长 horizon 分桶，记录在何处进入循环、预算耗尽、状态污染或错误恢复；对仍运行的任务保留删失状态，并把最大步骤、时间、Token、费用和人工接管条件写成 autonomy envelope。若长任务样本太少，结论为 EVIDENCE-INSUFFICIENT，而不是沿用短任务通过率。",
+    "可靠性故障修复必须保持任务、状态重置与 Oracle 不变。幂等缺陷用唯一 effect ledger 验证，循环缺陷用 stop_reason 与 checkpoint 验证，恢复缺陷用故障前后状态 diff 验证；repair 后重新运行同一风险切片，并在 decision card 说明哪些回归只属于 deterministic fixture。真实 provider/model、工具集成、影子人口和生产 SLO 仍分别 NOT_RUN。",
   ],
   "TD-AG-03": [
     "AG03 D2 handoff 决策：研究 Agent 只能交出经过签名的身份、政策版本、任务目标和预算；执行 Agent 只能看到完成任务所需的最小字段。任何额外记忆、未经验证的客户身份或旧政策都必须在 handoff Oracle 变红。",
@@ -423,4 +432,7 @@ const makePage = (spec: AgentArchitectureSpec): TutorialPage => {
   };
 };
 
-export const agentArchitectureSystemPages = specs.map(makePage);
+export const agentArchitectureSystemPages = specs.map(makePage).map((page) => ({
+  ...page,
+  blocks: composeDeepPage(page.blocks, agentArchitectureSupplement(page.id)),
+}));
