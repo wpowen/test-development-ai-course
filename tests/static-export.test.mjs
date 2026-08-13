@@ -30,6 +30,8 @@ test("static GitHub Pages export contains the professional curriculum", () => {
   assert.match(html, /localStorage/);
   assert.match(html, /搜索需求、执行证据、TTFT/);
   assert.equal((html.match(/"moduleId":"TD-/g) ?? []).length, releaseScope.promisedPageIds.length);
+  assert.match(html, new RegExp(`"validatedAt":"${releaseScope.validatedAt}"`));
+  assert.match(html, /DATA\.releaseScope\.validatedAt/);
   assert.doesNotMatch(html, /"status":"planned"/);
   assert.doesNotMatch(html, /"status":"outlined"|"status":"blocked"/);
   assert.doesNotMatch(html, /仅保留知识位置|本页尚未开发|本页尚未通过逐题研究|提纲\/待重写/);

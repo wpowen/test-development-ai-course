@@ -1482,5 +1482,5 @@ export const releaseScope = {
   mode: "pilot-path" as const,
   promisedPageIds: pages.map((page) => page.id),
   catalogComplete: false,
-  validatedAt: "2026-08-10",
+  validatedAt: "2026-08-13",
 };
