@@ -15,6 +15,9 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [completed, setCompleted] = useState<string[]>([]);
   const [mobileNav, setMobileNav] = useState(false);
+  // 目录默认展开；收起状态记在 localStorage，换页和刷新都保持不变。
+  // 初值固定为 false 而不是读 localStorage，避免服务端渲染与首帧不一致。
+  const [navCollapsed, setNavCollapsed] = useState(false);
   const [copied, setCopied] = useState<string | null>(null);
 
   useEffect(() => {
@@ -27,6 +30,7 @@ export default function Home() {
     const restoreTimer = window.setTimeout(() => {
       const saved = window.localStorage.getItem("career-ai-completed");
       if (saved) setCompleted(JSON.parse(saved));
+      setNavCollapsed(window.localStorage.getItem("career-ai-nav-collapsed") === "1");
     }, 0);
     window.addEventListener("hashchange", sync);
     return () => {
@@ -53,6 +57,12 @@ export default function Home() {
     window.localStorage.setItem("career-ai-completed", JSON.stringify(updated));
   };
 
+  const toggleNav = () => {
+    const next = !navCollapsed;
+    setNavCollapsed(next);
+    window.localStorage.setItem("career-ai-nav-collapsed", next ? "1" : "0");
+  };
+
   const copy = async (value: string, key: string) => {
     await navigator.clipboard.writeText(value);
     setCopied(key);
@@ -62,20 +72,30 @@ export default function Home() {
   const currentModule = publicModules.find((item) => item.id === current.moduleId)!;
 
   return (
-    <div className="app-shell">
+    <div className={`app-shell ${navCollapsed ? "nav-collapsed" : ""}`}>
       <header className="topbar">
         <button className="mobile-menu" onClick={() => setMobileNav(!mobileNav)} aria-label="打开课程目录">目录</button>
         <a className="brand" href={`#${firstUsablePath[0]}`}>
           <span className="brand-mark">QE</span>
           <span><b>测试开发 × AI</b><small>从会测试，到会验证 AI 系统</small></span>
         </a>
+        <button
+          className="nav-toggle"
+          onClick={toggleNav}
+          aria-expanded={!navCollapsed}
+          aria-controls="course-sidebar"
+          aria-label={navCollapsed ? "展开课程目录" : "收起课程目录"}
+          title={navCollapsed ? "展开课程目录" : "收起课程目录"}
+        >
+          <span aria-hidden="true">{navCollapsed ? "»" : "«"}</span>
+        </button>
         <div className="top-progress">
           <span>专业主路径已完成 {completed.filter((id) => firstUsablePath.includes(id)).length}/{firstUsablePath.length}</span>
           <div><i style={{ width: `${(completed.filter((id) => firstUsablePath.includes(id)).length / firstUsablePath.length) * 100}%` }} /></div>
         </div>
       </header>
 
-      <aside className={`sidebar ${mobileNav ? "open" : ""}`}>
+      <aside id="course-sidebar" className={`sidebar ${mobileNav ? "open" : ""}`} aria-hidden={navCollapsed}>
         <div className="course-summary">
           <p className="eyebrow">当前可用版本</p>
           <h2>从传统测试到 AI 质量工程</h2>

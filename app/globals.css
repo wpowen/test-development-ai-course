@@ -34,6 +34,12 @@ a { color: inherit; }
 .top-progress i { display: block; height: 100%; background: var(--forest); border-radius: inherit; transition: width .2s ease; }
 .mobile-menu { display: none; }
 
+/* 目录收起开关。桌面端目录固定占 340px，长时间阅读时这块宽度是纯负担；
+   收起后正文可用宽度增加约 340px。移动端已有 .mobile-menu，这里隐藏避免两套控件。 */
+.nav-toggle { flex: none; margin-left: 12px; width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 8px; background: white; color: var(--muted); font-size: 14px; line-height: 1; cursor: pointer; }
+.nav-toggle:hover { color: var(--ink); border-color: var(--forest); }
+.nav-toggle:focus-visible { outline: 2px solid var(--forest); outline-offset: 2px; }
+
 .sidebar { position: fixed; z-index: 40; top: 72px; bottom: 0; left: 0; width: 340px; overflow-y: auto; padding-bottom: 48px; border-right: 1px solid var(--line); background: var(--canvas); }
 .course-summary { padding: 25px 24px 20px; background: var(--forest-dark); color: white; }
 .eyebrow { margin: 0 0 8px; font-size: 11px; line-height: 1; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--forest); }
@@ -172,6 +178,23 @@ a { color: inherit; }
 .route-card b { color: var(--lime); font-size: 11px; }
 .route-card p { margin: 9px 0; font: 700 11px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; }
 .route-card small { color: #b7cbc4; font-size: 10px; line-height: 1.5; }
+
+/* 收起态只在桌面布局生效：760px 以下目录本来就是抽屉式，由 .sidebar.open 控制，
+   在那里再叠一层 translateX 会让抽屉打不开。 */
+@media (min-width: 761px) {
+  .sidebar, .reader, .brand { transition: transform .18s ease, margin-left .18s ease, width .18s ease; }
+  .app-shell.nav-collapsed .sidebar { transform: translateX(-100%); visibility: hidden; }
+  .app-shell.nav-collapsed .reader { margin-left: 0; }
+  .app-shell.nav-collapsed .brand { width: auto; padding-right: 20px; border-right: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar, .reader, .brand { transition: none; }
+}
+
+@media (max-width: 760px) {
+  .nav-toggle { display: none; }
+}
 
 @media (max-width: 1120px) {
   .right-rail { display: none; }
