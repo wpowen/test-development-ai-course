@@ -21,6 +21,9 @@ test("server-renders the test-development AI tutorial shell", async () => {
   const html = await response.text();
   assert.match(html, /测试开发 × AI/);
   assert.match(html, /从传统测试到 AI 质量工程/);
+  assert.match(html, />搜索课程</);
+  assert.match(html, /https:\/\/github\.com\/wpowen\/test-development-ai-tutorial/);
+  assert.match(html, /GitHub Star/);
   assert.match(html, /先重建测试开发这份工作，再判断 AI 应该改哪里/);
   assert.match(html, /图示（不可运行）/);
   assert.match(html, /aria-label="不可复制"/);
