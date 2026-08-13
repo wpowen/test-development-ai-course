@@ -52,6 +52,59 @@ a { color: inherit; }
 .search-box { margin: 16px 18px 8px; display: flex; align-items: center; gap: 7px; padding: 9px 11px; border: 1px solid var(--line); border-radius: 9px; background: white; }
 .search-box span { color: var(--muted); font-size: 18px; }
 .search-box input { width: 100%; border: 0; outline: 0; background: transparent; font-size: 12px; }
+/* 术语表与设计思路没有右侧的本页导航，因此不需要给它留出 230px。 */
+.reader-wide { margin-right: 0; }
+
+/* 参考入口：术语表与设计思路。放在课程目录之上，因为第一次打开站点的人
+   往往先卡在术语上，而不是先卡在课程顺序上。 */
+.reference-nav { padding: 10px 12px 0; display: grid; gap: 6px; }
+.reference-nav button { width: 100%; padding: 9px 10px; display: block; text-align: left; border: 1px solid var(--line); border-radius: 8px; background: white; cursor: pointer; }
+.reference-nav button:hover { border-color: var(--forest); }
+.reference-nav button.active { border-color: var(--forest); box-shadow: inset 3px 0 0 var(--forest); }
+.reference-nav b { display: block; font-size: 12px; }
+.reference-nav small { display: block; margin-top: 2px; color: var(--muted); font-size: 10px; line-height: 1.45; }
+
+/* 术语表 */
+.glossary-controls { margin: 28px 0 14px; display: grid; gap: 12px; }
+.glossary-controls .search-box { margin: 0; }
+.glossary-filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.glossary-filters button { padding: 5px 11px; border: 1px solid var(--line); border-radius: 99px; background: white; font-size: 11px; cursor: pointer; }
+.glossary-filters button:hover { border-color: var(--forest); }
+.glossary-filters button.active { background: var(--forest); border-color: var(--forest); color: white; }
+.glossary-count { margin: 0 0 16px; color: var(--muted); font-size: 12px; }
+.glossary-list { display: grid; gap: 14px; }
+.glossary-entry { padding: 18px 20px; border: 1px solid var(--line); border-radius: 12px; background: white; }
+.glossary-entry.core { border-left: 3px solid var(--forest); }
+.glossary-entry h2 { margin: 0 0 8px; font-size: 16px; letter-spacing: -.01em; }
+.glossary-entry h2 small { margin-left: 8px; color: var(--muted); font-size: 11px; font-weight: 500; }
+.glossary-plain { margin: 0; font-size: 13px; line-height: 1.75; }
+.glossary-why { margin: 10px 0 0; padding: 10px 12px; border-radius: 8px; background: #f2f6f2; font-size: 12.5px; line-height: 1.75; }
+.glossary-why b { display: block; margin-bottom: 3px; font-size: 11px; color: var(--forest); }
+.glossary-pages { margin: 10px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 5px; color: var(--muted); font-size: 11px; }
+.glossary-pages button { padding: 2px 7px; border: 1px solid var(--line); border-radius: 6px; background: transparent; font: 650 10px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; cursor: pointer; }
+.glossary-pages button:hover { border-color: var(--forest); color: var(--forest); }
+.glossary-empty { padding: 30px; text-align: center; color: var(--muted); font-size: 13px; }
+
+/* 设计思路 */
+.design-section { margin: 34px 0; padding-top: 26px; border-top: 1px solid var(--line); }
+.design-section h2 { margin: 0 0 14px; font-size: 20px; letter-spacing: -.02em; }
+.design-section p { margin: 0 0 12px; font-size: 14px; line-height: 1.85; }
+.design-layers { margin: 16px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; counter-reset: layer; }
+.design-layers li { padding: 15px 18px; border: 1px solid var(--line); border-radius: 11px; background: white; }
+.design-layers b { display: block; font-size: 13px; }
+.design-layers > li > span { display: block; margin: 3px 0 7px; color: var(--forest); font-size: 12px; }
+.design-layers p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.7; }
+.design-sections { margin: 16px 0 0; display: grid; gap: 9px; }
+.design-sections div { display: grid; grid-template-columns: 118px minmax(0, 1fr); gap: 14px; padding-bottom: 9px; border-bottom: 1px dashed var(--line); }
+.design-sections dt { font-size: 12.5px; font-weight: 750; }
+.design-sections dd { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.7; }
+.design-paths { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.design-paths li { padding: 14px 17px; border: 1px solid var(--line); border-radius: 11px; background: white; }
+.design-paths b { display: block; margin-bottom: 5px; font-size: 13px; }
+.design-paths > li > span { font-size: 12.5px; line-height: 1.8; color: var(--muted); }
+.design-paths button { padding: 1px 6px; border: 1px solid var(--line); border-radius: 6px; background: transparent; font-size: 12px; color: var(--forest); cursor: pointer; }
+.design-paths button:hover { border-color: var(--forest); }
+
 .course-nav section { padding: 17px 12px 5px; }
 .course-nav h3 { margin: 0 8px 3px; font-size: 12px; font-weight: 800; }
 .course-nav section > p { margin: 0 8px 9px; color: var(--muted); font-size: 10px; line-height: 1.45; }

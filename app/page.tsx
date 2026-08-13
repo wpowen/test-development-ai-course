@@ -2,8 +2,16 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { firstUsablePath, getTechnicalBlockPresentation, pages, publicModules, sourceNotes } from "../content/course";
+import { DesignView, GlossaryView } from "./reference-views";
 
 const statusLabel = (status: string) => status === "fixture-tested" ? "实验已跑" : "资料已审";
+
+/**
+ * 术语表与设计思路不是课程页面：它们不在 102 页的交付清单里，也不参与页面深度门禁。
+ * 用同一套 hash 路由承载，是为了让它们和课程页一样可被链接、可被浏览器前进后退。
+ */
+const REFERENCE_VIEWS = ["glossary", "design"] as const;
+type ReferenceView = (typeof REFERENCE_VIEWS)[number];
 
 function setHash(id: string) {
   window.location.hash = id;
@@ -18,12 +26,18 @@ export default function Home() {
   // 目录默认展开；收起状态记在 localStorage，换页和刷新都保持不变。
   // 初值固定为 false 而不是读 localStorage，避免服务端渲染与首帧不一致。
   const [navCollapsed, setNavCollapsed] = useState(false);
+  const [view, setView] = useState<"lesson" | ReferenceView>("lesson");
   const [copied, setCopied] = useState<string | null>(null);
 
   useEffect(() => {
     const sync = () => {
       const id = window.location.hash.replace("#", "");
-      setCurrentId(pages.some((page) => page.id === id) ? id : firstUsablePath[0]);
+      if ((REFERENCE_VIEWS as readonly string[]).includes(id)) {
+        setView(id as ReferenceView);
+      } else {
+        setView("lesson");
+        setCurrentId(pages.some((page) => page.id === id) ? id : firstUsablePath[0]);
+      }
       setMobileNav(false);
     };
     sync();
@@ -56,6 +70,10 @@ export default function Home() {
     setCompleted(updated);
     window.localStorage.setItem("career-ai-completed", JSON.stringify(updated));
   };
+
+  // 术语表里的「出现在 TD-xxx」和设计思路里的路径按钮都走这里。
+  // 特例 __glossary__ 让设计思路能把读者送去术语表，而不必让它知道 hash 的写法。
+  const openFromReference = (pageId: string) => setHash(pageId === "__glossary__" ? "glossary" : pageId);
 
   const toggleNav = () => {
     const next = !navCollapsed;
@@ -106,6 +124,14 @@ export default function Home() {
           <span>⌕</span>
           <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索 RAG、Agent、CI…" />
         </label>
+        <nav className="reference-nav" aria-label="参考">
+          <button className={view === "glossary" ? "active" : ""} onClick={() => setHash("glossary")}>
+            <b>术语表</b><small>336 条 · 不懂的词先查这里</small>
+          </button>
+          <button className={view === "design" ? "active" : ""} onClick={() => setHash("design")}>
+            <b>设计思路</b><small>内容凭什么可信、页面为什么这样排</small>
+          </button>
+        </nav>
         <nav className="course-nav" aria-label="课程目录">
           {publicModules.map((group) => {
             const groupPages = visiblePages.filter((page) => page.moduleId === group.id);
@@ -128,6 +154,10 @@ export default function Home() {
         </nav>
       </aside>
 
+      {view === "glossary" && <GlossaryView onOpenPage={openFromReference} />}
+      {view === "design" && <DesignView onOpenPage={openFromReference} />}
+
+      {view === "lesson" && <>
       <main className="reader">
         <div className="reader-inner">
           <div className="breadcrumb"><span>{currentModule.title}</span><span>›</span><span>{current.id}</span></div>
@@ -226,6 +256,7 @@ export default function Home() {
         {current.blocks.map((block, index) => <button key={block.title} onClick={() => document.getElementById(`section-${index}`)?.scrollIntoView({ behavior: "smooth" })}>{index + 1}. {block.title}</button>)}
         <div className="route-card"><b>当前深度路径</b><p>{firstUsablePath.join(" → ")}</p><small>测试依据 → 需求契约 → 评审 → 风险 → Oracle → 自动化 → 执行证据 → 变更回归</small></div>
       </aside>
+      </>}
     </div>
   );
 }
