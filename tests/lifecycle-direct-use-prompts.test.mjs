@@ -10,8 +10,22 @@ import { pages } from "../content/course.ts";
 const siteRoot = fileURLToPath(new URL("..", import.meta.url));
 const packageRoot = path.resolve(siteRoot, "..");
 const courseLab = path.join(packageRoot, "courses/td-ai-011-requirements-to-evidence/lab");
+const publicMaterials = path.join(siteRoot, "public/materials/requirements-to-evidence");
 const pageIds = Array.from({ length: 8 }, (_, index) => `TD-P0${index + 1}`);
 const sha256 = (content) => createHash("sha256").update(content).digest("hex");
+const packageFiles = [
+  "system-v1.md",
+  "task-v1.md",
+  "critic-v1.md",
+  "input.json",
+  "schema.json",
+  "eval.json",
+  "mutation.json",
+  "manifest.json",
+  "adaptation-card.md",
+  "expected-output.json",
+  "receipt.json",
+];
 
 const requiredSections = [
   "## 能做什么",
@@ -70,6 +84,48 @@ test("P01-P08 prompts are beginner-facing direct-use packages, not abstract task
   }
 });
 
+test("P01-P08 expose complete versioned Prompt Packages with hash-pinned static receipts", async () => {
+  for (const pageId of pageIds) {
+    const directory = path.join(courseLab, "page-prompts", pageId);
+    const fileBytes = new Map();
+    for (const filename of packageFiles) fileBytes.set(filename, await readFile(path.join(directory, filename)));
+
+    const manifest = JSON.parse(fileBytes.get("manifest.json").toString("utf8"));
+    const schema = JSON.parse(fileBytes.get("schema.json").toString("utf8"));
+    const expected = JSON.parse(fileBytes.get("expected-output.json").toString("utf8"));
+    const evaluation = JSON.parse(fileBytes.get("eval.json").toString("utf8"));
+    const mutation = JSON.parse(fileBytes.get("mutation.json").toString("utf8"));
+    const receipt = JSON.parse(fileBytes.get("receipt.json").toString("utf8"));
+    const adaptation = fileBytes.get("adaptation-card.md").toString("utf8");
+
+    assert.deepEqual(manifest.owner_page_ids, [pageId]);
+    assert.equal(manifest.provider, "none");
+    assert.equal(manifest.model_status, "NOT_RUN");
+    assert.deepEqual(
+      manifest.assembly_order.map((step) => step.file),
+      ["system-v1.md", "task-v1.md", "input.json", "critic-v1.md"],
+    );
+    assert.equal(manifest.one_shot_copy_file, "prompt-v1.md");
+    for (const [filename, digest] of Object.entries(manifest.artifact_sha256)) {
+      assert.equal(digest, sha256(await readFile(path.join(directory, filename))), `${pageId} hash drift: ${filename}`);
+    }
+
+    assert.deepEqual(new Set(Object.keys(expected)), new Set(schema.required));
+    assert.equal(expected.page_id, pageId);
+    assert.equal(new Set(evaluation.cases.map((item) => item.case_type)).size, 8);
+    assert.ok(evaluation.cases.every((item) => item.result === "NOT_RUN"));
+    assert.ok(mutation.mutations.length >= 6);
+    assert.ok(mutation.mutations.every((item) => item.result === "NOT_RUN"));
+    assert.equal(receipt.receipt_type, "static-package-build-receipt");
+    assert.equal(receipt.model_status, "NOT_RUN");
+    assert.deepEqual(receipt.raw_output_refs, []);
+    assert.deepEqual(receipt.raw_output_sha256, []);
+    assert.match(receipt.claim_boundary, /没有调用模型/);
+    for (const marker of ["组合顺序", "system-v1.md", "task-v1.md", "critic-v1.md", "prompt-v1.md", "NOT_RUN"])
+      assert.ok(adaptation.includes(marker), `${pageId} adaptation card missing ${marker}`);
+  }
+});
+
 test("the first three prompts explicitly cover lifecycle control, requirements review, and technical-document analysis", async () => {
   const p01 = await readFile(path.join(courseLab, "page-prompts/TD-P01/prompt-v1.md"), "utf8");
   const p02 = await readFile(path.join(courseLab, "page-prompts/TD-P02/prompt-v1.md"), "utf8");
@@ -105,5 +161,24 @@ test("prompt kit has a novice guide, adaptation card, and exact eight-page manif
   assert.equal(manifest.packages?.length, 8);
   for (const item of manifest.packages) {
     assert.ok(item.prompt_sha256 && item.input_sha256 && item.schema_sha256 && item.eval_sha256);
+  }
+});
+
+test("public material projection preserves every complete Prompt Package byte-for-byte", async () => {
+  for (const filename of ["DIRECT-USE-GUIDE.md", "DIRECT-USE-MANIFEST.json", "README.md", "build_direct_use_contracts.py", "pipeline.py"]) {
+    assert.deepEqual(
+      await readFile(path.join(publicMaterials, filename)),
+      await readFile(path.join(courseLab, filename)),
+      `public projection drift: ${filename}`,
+    );
+  }
+  for (const pageId of pageIds) {
+    for (const filename of [...packageFiles, "prompt-v1.md"]) {
+      assert.deepEqual(
+        await readFile(path.join(publicMaterials, "page-prompts", pageId, filename)),
+        await readFile(path.join(courseLab, "page-prompts", pageId, filename)),
+        `public projection drift: ${pageId}/${filename}`,
+      );
+    }
   }
 });

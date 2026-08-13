@@ -9,6 +9,10 @@ import { pages } from "../content/course.ts";
 const siteRoot = fileURLToPath(new URL("..", import.meta.url));
 const publicRoot = path.join(siteRoot, "public");
 const pageIds = Array.from({ length: 11 }, (_, index) => `TD-AG-${String(index).padStart(2, "0")}`);
+const visibleVisualByPage = {
+  "TD-AG-00": "AG-DIM-ARCHITECTURE.svg",
+  "TD-AG-09": "AG-DIM-FOUR-RINGS.svg",
+};
 
 const requiredSvgTerms = {
   "TD-AG-00": ["D0", "D1", "D2", "D3", "D4", "D5", "D6", "D7", "离线 CI", "沙箱回放", "影子", "在线持续", "护栏", "反馈"],
@@ -28,7 +32,7 @@ test("all Agent architecture pages use their professional visual, not the generi
   const agentPages = pages.filter((page) => pageIds.includes(page.id));
   assert.deepEqual(agentPages.map((page) => page.id), pageIds);
   for (const page of agentPages) {
-    assert.equal(page.architecture?.visual?.src, `materials/agent-architecture-system/visuals/${page.id}.svg`);
+    assert.equal(page.architecture?.visual?.src, `materials/agent-architecture-system/visuals/${visibleVisualByPage[page.id] ?? `${page.id}.svg`}`);
     assert.match(page.architecture?.visual?.alt ?? "", /风险|证据|边界|门禁|轨迹|架构/);
     assert.ok(page.architecture?.caption.includes("不代表"), `${page.id} caption must preserve maturity boundary`);
   }

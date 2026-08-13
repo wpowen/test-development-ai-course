@@ -31,6 +31,18 @@ type GapSpec = {
 
 const WORKDIR = "materials/advanced-quality";
 
+const wave2AdvancedRepairBlocks = (id: GapSpec["id"]): TutorialPage["blocks"] => {
+  const data: Record<string, TutorialPage["blocks"]> = {
+    "TD-X501": [{ title: "多模态关系评测的可观察工件", body: ["先给图、音频、视频和文字分配同一个 pair_id，再分别记录模态可解析、跨模态关系、时间对齐和缺模态状态。一个图像 caption 正确不代表它引用了同一事件的语音；关系 Oracle 必须能指出冲突发生在哪一对工件。", "迁移到真实设备前，补齐采集编码、时钟漂移、标注者和隐私证据；课程只证明合成配对 fault 能被独立 Oracle 捕获。"], table: { headers: ["症状", "疑似层", "下一检查", "修复/重跑"], rows: [["每种模态单独通过但事件对不上", "配对关系", "核对 pair_id、时间轴与事件标签", "修配对后重跑"], ["关键音频缺失仍生成结论", "缺模态 Gate", "检查 required_modalities 与拒答状态", "转人工并复测"], ["图文矛盾未被报告", "关系 Oracle", "读取 conflict span 与独立判定", "保留反例并重跑"], ["设备换编码后质量骤降", "采集/解码", "按设备和 codec 切片比较原始工件", "补设备矩阵后复测"]] }, expected: "交付 pair manifest、关系矩阵和独立复核记录。" }],
+    "TD-X601": [{ title: "公平与 HITL 的闭环判断", body: ["先按使用情境定义合法切片，再报告最坏结果和伤害严重度。HITL 不只是页面上出现一个人工按钮：必须记录抽样规则、人工是否看到失败样本、是否有 override 权限、分歧如何申诉以及决定是否回写回归集。", "没有合法切片依据或真实人工样本时，课程状态必须是 UNKNOWN/NOT_RUN；不能把总体公平分或流程图当作公平结论。"], table: { headers: ["症状", "疑似层", "下一检查", "修复/重跑"], rows: [["总体公平但某群体伤害上升", "切片/伤害模型", "查看最坏切片和严重度分布", "阻断并由 owner 复核"], ["人工只看高分样本", "抽样策略", "核对失败/低置信覆盖", "重建代表性样本"], ["人工不能改变结果", "权限/流程", "检查 override、申诉和审计日志", "授予受控权限后重跑"], ["人机分歧没有处理人", "治理 owner", "查看分歧矩阵和升级记录", "指定 owner 并回归"]] }, expected: "交付群体切片、伤害登记册和 HITL 校准账本。" }],
+    "TD-X602": [{ title: "模型更新验收：用 lineage 解释退化", body: ["比较候选模型时，先把数据版本、许可、基座 hash、训练代码、超参、holdout 和 rollback ref 写入同一 manifest；再按关键业务切片、拒答和安全 blocker 比较。平均分上升但 holdout 被污染时，旧结论应全部作废。", "迁移到真实训练流水线时要重新证明数据许可、硬件、训练作业和回滚读回；本页的 Fixture 不代表模型效果。"], table: { headers: ["症状", "疑似层", "下一检查", "修复/重跑"], rows: [["新模型均值提升但关键切片下降", "候选比较", "读取切片 delta 与 blocker", "阻断并回滚"], ["holdout 分数异常好", "数据污染", "比对训练样本与 holdout hash", "隔离污染并重建评测"], ["无法复现候选", "lineage", "核对基座/代码/超参/环境", "补 manifest 后重跑"], ["回滚目标不可用", "发布准备", "执行 rollback readiness 检查", "先恢复可用回滚包"]] }, expected: "交付模型更新 manifest、候选比较和污染门禁收据。" }],
+    "TD-X603": [{ title: "Memory 与语义缓存：状态变化必须可回放", body: ["把写入、读取、遗忘、租户隔离、TTL、缓存命中和陈旧内容分别记录为状态转移；命中缓存不应绕过当前 ACL，遗忘请求也必须产生可验证 tombstone。迁移时要补真实用户同意、隐私删除 SLA 和跨区域存储证据。"], table: { headers: ["症状", "疑似层", "下一检查", "修复/重跑"], rows: [["用户已删除信息仍被回答", "遗忘传播", "查 memory tombstone 与 cache invalidation", "清理并回放"], ["不同租户命中同一缓存", "隔离键", "比较 tenant/user/cache key", "修复 key 后重跑"], ["旧偏好覆盖新偏好", "版本/TTL", "检查写入时间和 supersedes", "更新状态机并复测"], ["缓存命中但权限已变", "ACL", "读取命中前的授权快照", "失效缓存并阻断"]] }, expected: "交付 Memory/Cache 状态机与隐私回归集。" }],
+    "TD-X604": [{ title: "路由与 Fallback：降级也必须重新授权", body: ["为每个 provider 记录能力、Schema、权限、区域和成本合同；Fallback 不是简单重试，因为模型能力、工具协议和数据处理边界可能不同。每次路由选择与降级都要写 route trace、schema validation、tool permission 和 side-effect ledger。"], table: { headers: ["症状", "疑似层", "下一检查", "修复/重跑"], rows: [["主模型失败后调用了不兼容工具", "Fallback/schema", "比对 provider capability 与 tool schema", "阻断并适配后复测"], ["降级模型绕过区域限制", "路由策略", "读取 region/data-policy trace", "重新授权并重跑"], ["协议字段变化但测试仍绿", "Schema drift", "运行旧/新 schema mutation", "版本化 schema 并阻断"], ["重试造成重复写入", "副作用/幂等", "查 request id 与业务状态", "启用幂等后复测"]] }, expected: "交付路由兼容矩阵、Fallback 回归包和副作用账本。" }],
+    "TD-X805": [{ title: "Canary 发布：代表性证据比总体 KPI 更重要", body: ["先冻结 assignment、离线 blocker、guardrail、最坏切片、人工样本和 rollback manifest；Canary 期间同时看失败、低置信和长尾，不得只抽成功样本。真实流量和统计功效尚未运行时，只能称为发布门禁形状。"], table: { headers: ["症状", "疑似层", "下一检查", "修复/重跑"], rows: [["总体 KPI 稳定但高风险切片恶化", "guardrail/slice", "读取最坏切片与 blocker", "立即回滚"], ["实验用户分流不稳定", "assignment", "检查 hash、重试和曝光完整性", "修复分流并重跑"], ["人工样本全是成功请求", "sampling", "核对失败/低置信覆盖", "重采代表性样本"], ["回滚命令没有可用目标", "rollback", "执行预置回滚读回", "补齐目标后才扩量"]] }, expected: "交付在线实验 manifest、人工样本账本和回滚收据。" }],
+  };
+  return data[id] ?? [];
+};
+
 const makePage = (spec: GapSpec): TutorialPage => {
   const slug = spec.id.toLowerCase();
   const manifestPath = `${WORKDIR}/page-manifests/${spec.id}.json`;
@@ -330,5 +342,5 @@ const specs: GapSpec[] = [
 export const advancedQualityGapPageIds = specs.map((spec) => spec.id);
 export const advancedQualityGapPages: TutorialPage[] = specs.map(makePage).map((page): TutorialPage => ({
   ...page,
-  blocks: composeDeepPage(page.blocks, agentWorkflowDeepBlocks(page.id), ragQualityDeepBlocks(page.id), qualitySystemDeepBlocks(page.id), professionalSpecializationsDeepBlocks(page.id)),
+  blocks: [...composeDeepPage(page.blocks, agentWorkflowDeepBlocks(page.id), ragQualityDeepBlocks(page.id), qualitySystemDeepBlocks(page.id), professionalSpecializationsDeepBlocks(page.id)), ...wave2AdvancedRepairBlocks(page.id as GapSpec["id"])],
 }));

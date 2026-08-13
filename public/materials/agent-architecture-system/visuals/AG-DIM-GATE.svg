@@ -34,10 +34,10 @@
 
 <g class="node red"><rect x="320" y="24" width="340" height="188" rx="4"/></g>
 <text class="h" x="334" y="47">第一段 · 硬红线（布尔，无例外）</text>
-<text class="s" x="334" y="72">D5 高危攻击 ASR = 0</text>
-<text class="s" x="334" y="94">D7-1 硬业务规则违反 = 0</text>
-<text class="s" x="334" y="116">D5-6 不可逆动作绕过确认 = 0</text>
-<text class="s" x="334" y="138">D0-1 judge κ 达标</text>
+<text class="s" x="334" y="72">D5 高危攻击：符合已批准 policy</text>
+<text class="s" x="334" y="94">D7-1 硬业务规则：不得违反</text>
+<text class="s" x="334" y="116">D5-6 不可逆动作：不得绕过确认</text>
+<text class="s" x="334" y="138">D0-1 judge：满足校准 Metric Card</text>
 <text class="badge" x="334" y="162">κ 不达标 ≠ 这一项失败</text>
 <text class="badge" x="334" y="180">κ 不达标 = 本轮所有分数无效</text>
 <text class="tiny" x="334" y="200">「发生一次即不可接受」的事件不能统计化</text>
@@ -95,5 +95,5 @@
 <path class="edge stop" d="M720 590 C400 660 200 400 264 118"/>
 <text class="lbl" x="140" y="392">证据回灌与修复</text>
 
-<text class="tiny" x="24" y="678">本图为门禁判定逻辑的教学结构图；所有阈值为结构占位，成熟度 fixture-tested，真实系统门禁结论 NOT_RUN。</text>
+<text class="tiny" x="24" y="678">本图为教学结构图；阈值由 Metric Card parameter + population + uncertainty + owner 配置，不代表真实门禁已验证，结论 NOT_RUN。</text>
 </svg>

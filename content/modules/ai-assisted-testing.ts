@@ -1,4 +1,4 @@
-import type { TutorialPage } from "../course.ts";
+import type { TutorialBlock, TutorialPage } from "../course.ts";
 import { aiAssistedDeepBlocks } from "./ai-assisted-deep.ts";
 import { composeDeepPage } from "./deep-layer.ts";
 
@@ -37,6 +37,26 @@ const assistedActions: Record<AssistedSpec["id"], string> = {
   "TD-T08": "保留原始失败，再提出候选簇",
 };
 
+const wave3T06Block = (): TutorialBlock => ({
+  title: "TD-T06 工作示例：从一个业务守卫到可复用 Mutation 报告",
+  body: [
+    "订单取消案例的独立 Oracle 规定：已激活数字商品不得自动退款。先在批准实现上运行 baseline，记录 case_id、oracle_id、expected_source、构建 hash 和报告路径；再只反转这个守卫。目标用例必须因为 actual 与 independent expected 不同而 KILLED，不能因为无关超时而变红。",
+    "如果 mutation survived，逐项区分 no coverage、弱断言、不可达或等价 mutation。若生成器为了让 fault 变绿而修改 expected，说明 Oracle 被污染；正确修复是恢复批准实现或补充能命中守卫的断言，然后用相同 fixture 重放 0→1→0。",
+    "迁移到支付、搜索或 Agent 工具调用时，只替换 mutation operator、独立 Oracle 和副作用约束，保留 selected cases、raw actual、seed、环境和 reviewer 处置。学员应交付一份 mutation matrix、一条 killed 证据、一条 survived 处置和新的回归 case，而不是只报杀死率。",
+    "失败诊断顺序是 baseline 是否冻结、目标 mutation 是否可达、断言是否引用正确 Oracle、失败是否来自目标行为、报告是否保存原始证据。真实模型候选、真实仓库 mutation 成本和从业者复核仍需另行运行。",
+  ],
+  table: {
+    headers: ["观察结果", "判定", "修复/重跑"],
+    rows: [
+      ["目标守卫被特定断言击中", "KILLED，记录 detection evidence", "保留 case 与 mutation receipt"],
+      ["没有执行到目标路径", "NO_COVERAGE，不算通过", "补前置/数据并重跑"],
+      ["无关超时导致失败", "UNKNOWN 或工具错误", "隔离环境，不计入杀死率"],
+      ["expected 被改成实现输出", "SELF_CONFIRMING_ORACLE", "恢复独立 Oracle 后重跑"],
+    ],
+    caption: "TD-T06 的工作证据必须能回答：哪条业务守卫、哪条断言、哪份独立 Oracle 杀死了哪一个变异。",
+  },
+});
+
 const makePage = (spec: AssistedSpec): TutorialPage => {
   const action = assistedActions[spec.id];
   const topic = spec.id.toLowerCase();
@@ -62,6 +82,7 @@ const makePage = (spec: AssistedSpec): TutorialPage => {
         body: spec.problem,
         warning: "AI 输出始终是候选。需求、Oracle、权限、因果结论与发布决定必须来自独立证据和具名 owner；缺证据时保留 UNKNOWN/BLOCKED。",
       },
+      ...(spec.id === "TD-T06" ? [wave3T06Block()] : []),
       {
         title: `${action}：证据如何流转与停止`,
         body: spec.mechanism,

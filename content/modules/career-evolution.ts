@@ -6,6 +6,38 @@ type CareerPageId = "TD-C02" | "TD-C03" | "TD-C04" | "TD-F05" | "TD-T26" | "TD-R
 
 const bundle = "materials/career-evolution";
 
+const pageVisuals: Record<CareerPageId, { src: string; alt: string; kind: "career" }> = {
+  "TD-C02": { src: `${bundle}/visuals/career-responsibility-ladder.svg`, alt: "以可观察责任、决定权和证据为台阶的职业责任梯；P5-P9 与年限保持组织内部未知。", kind: "career" },
+  "TD-C03": { src: `${bundle}/visuals/career-evidence-radar.svg`, alt: "用证据成熟度比较当前能力与目标任务的雷达图；数值仅为可替换示例。", kind: "career" },
+  "TD-C04": { src: `${bundle}/visuals/career-capability-allocation.svg`, alt: "来源能力权重示例图；30/25/25/15/5 仅保留比较功能，真实组织权重必须由 owner 参数化。", kind: "career" },
+  "TD-F05": { src: `${bundle}/visuals/career-capability-mindmap.svg`, alt: "五维 AI 测试能力思维导图，每一维连接工件、故障证据、reviewer 和项目决定。", kind: "career" },
+  "TD-T26": { src: `${bundle}/visuals/career-evidence-lifecycle.svg`, alt: "能力主张、证据、变异、评审、应用和反馈组成的证据生命周期。", kind: "career" },
+  "TD-R01": { src: `${bundle}/visuals/career-background-paths.svg`, alt: "测试背景、开发背景和零基础三条入口最终汇合到同一可运行项目和责任证据。", kind: "career" },
+};
+
+const extraVisuals: Partial<Record<CareerPageId, Array<{ title: string; description: string; href: string }>>> = {
+  "TD-C03": [
+    { title: "可参数化证据窗口甘特图", description: "30/60/90 只是可编辑示例窗口，不是晋升期限。", href: `${bundle}/visuals/career-evidence-gantt.svg` },
+    { title: "能力优先级四象限", description: "按任务重要性和当前证据成熟度选择下一步，不用自信或职级贴标签。", href: `${bundle}/visuals/career-priority-quadrant.svg` },
+  ],
+};
+
+const reusableArtifactMaterials: Partial<Record<CareerPageId, Array<{ title: string; description: string; href: string; kind: "guide" | "fixture" }>>> = {
+  "TD-C02": [
+    { title: "职责边界已填写示例", description: "用同一场景演示 owner、输入、决策权、出口工件、失败探针与 Unknown；示例值不能直接当成组织事实。", href: `${bundle}/artifacts/TD-C02-responsibility-map.json`, kind: "fixture" },
+    { title: "职责边界空白模板", description: "复制后逐项填写角色、交接证据、reviewer、失败动作和适用范围。", href: `${bundle}/artifacts/templates/TD-C02-responsibility-map.blank.json`, kind: "fixture" },
+  ],
+  "TD-C03": [
+    { title: "能力证据自评已填写示例", description: "示范如何以工件和可复核证据定位能力，不用年限或自我打分替代事实。", href: `${bundle}/artifacts/TD-C03-capability-self-assessment.json`, kind: "fixture" },
+    { title: "能力证据自评空白模板", description: "复制后为每个能力声明填写 evidence_ref、复核状态、缺口路径和 Unknown。", href: `${bundle}/artifacts/templates/TD-C03-capability-self-assessment.blank.json`, kind: "fixture" },
+    { title: "90 天证据计划示例", description: "把能力缺口转成可检查的阶段工件；日期和节奏需按个人与组织重新配置。", href: `${bundle}/artifacts/TD-C03-90-day-evidence-plan.md`, kind: "guide" },
+  ],
+  "TD-R01": [
+    { title: "资源索引已填写示例", description: "四条仓库内可复核资源，包含版本、适用层级、用途、限制、fallback 与出口工件。", href: `${bundle}/artifacts/TD-R01-resource-index.json`, kind: "fixture" },
+    { title: "资源索引空白模板", description: "复制后只录入能说明版本、检查日期、限制和退出产物的资源；未知项保持 Unknown。", href: `${bundle}/artifacts/templates/TD-R01-resource-index.blank.json`, kind: "fixture" },
+  ],
+};
+
 type CareerContract = {
   id: CareerPageId;
   title: string;
@@ -51,7 +83,7 @@ const contracts: CareerContract[] = [
     expected: "每个状态都有一个真实文件引用；没有证据的字段明确写 UNKNOWN，并能指出下一份应交付的工件。",
     failure: "把工作年限或证书数量填入能力等级，且 evidence_refs 为空；门禁必须失败。",
     repair: "删除年限结论，补上 artifact、decision_rights、failure_cost、evidence_refs 和 reviewer；缺失项保持 UNKNOWN。",
-    boundary: "责任证据梯是跨组织可迁移的学习合同；P5–P9、年限和晋升规则必须由组织适配器配置，当前不构成职级结论。",
+    boundary: "本页仅为 static/fixture-tested 责任合同；provider、model、integration、practitioner、learner、live、production、publication 均 NOT_RUN。P5–P9、年限和晋升规则必须由组织适配器配置，当前不构成职级、招聘或薪资结论。",
     practice: ["把一次普通 API 测试分别写成四种责任状态", "为每种状态补一个禁止动作和升级 owner", "用一个 seeded fault 验证证据梯不是自我评价"],
     completion: ["能说清四个责任状态的区别", "每个能力主张有 evidence_ref 或 UNKNOWN", "责任地图包含决策权、失败代价、工件和 reviewer"],
     sourceIds: ["S23", "S60", "S62"],
@@ -185,7 +217,79 @@ const contracts: CareerContract[] = [
   },
 ];
 
+const careerWave4Expansion: Record<string, string[]> = {
+  "TD-C02": [
+    "责任判定案例：小李接到支付退款需求，第一次只按既有脚本执行并把失败交给导师，属于 guided-execution；第二次他自己补充高风险权限切片、定义禁止副作用 Oracle、注入越权 mutation，并能在 reviewer 质疑时解释停止条件，才形成 independent-scoped-ownership。学习者要把每个状态写成可观察动作，而不是给自己贴标签。",
+    "证据包必须分层：输入需求与风险登记是起点，责任地图记录可决定/必须升级的事项，baseline/fault/repair receipt 证明检测力，reviewer 记录证明解释和交接，复评日期证明不是一次性演示。若只有截图、课程完成数或工具清单，状态不得升级，字段写 UNKNOWN 并路由到下一件工件。",
+    "反例演练：一个人能独立修改 Playwright 脚本，却把数据库写入、阈值调整和生产回滚都直接决定；这不是更高责任，而是权限越界。学员要在责任地图标出决策 owner、失败成本、撤销路径和通知对象，再设计一个最小实验让越权动作在 Oracle 中变红，修复后重新复评。",
+    "组织适配：将公共四状态交给两个不同团队时，测试平台团队可能要求先审查框架变更，支付团队则要求先审查资金风险；同一工件不能自动映射同一 band。迁移时重新填写 policy source_ref、effective_from、审批人、风险阈值和复评周期；没有内部证据就保持 INTERNAL-UNKNOWN。",
+    "小白复盘卡：先用一句话回答“我现在替谁承担什么结果”，再列三项可独立决定和三项必须升级；为每项决定附 evidence_ref、failure_cost 与 reviewer。最后运行一次命名 fault，记录哪里变红、如何修复、下一次何时复评。若无法回答，停止写职级结论，交付一张缺口清单。",
+    "迁移验收：新项目只可复用 responsibility-map 的字段和四状态逻辑，不可复制原退款结论。验收者随机抽一项主张，必须从输入、Oracle、raw receipt 走到决定和责任人；任何一环打不开即 BLOCKED。当前 provider/model/integration/practitioner/learner/live/production/publication 仍 NOT_RUN。",
+  ],
+  "TD-C03": [
+    "自评案例：一名 UI 自动化工程师把“会写断言”拆成五条 claim：能解释需求风险、能构造 AI 任务数据、能选独立 Oracle、能运行 mutation、能向业务解释损失。30 天只交 Metric Card 和一条可运行 fixture，60 天交一次故障复盘，90 天由不同 reviewer 复评；每项都记录 evidence_ref、状态和下一步。",
+    "缺口路由不是推荐书单。若 claim 缺少原始证据，JSON 必须输出 UNKNOWN、gap_reason、route_page、next_artifact、owner 和 review_date；若证据只有模型生成文本，先路由到人工复核或确定性 runner。学习者要模拟一条过期链接和一条无法访问的材料，验证 fallback 会改变计划而不是静默标记完成。",
+    "计划对照：把同一能力在第 0、30、60、90 天保存快照，比较 accepted 工件、独立复评、失败成本解释和迁移范围，而不是比较学习时长。若 60 天的 mutation 未打红，90 天不能用新增页面数抵消，应回到 Oracle 或测试数据修复，并保留失败收据。",
+    "评审分歧：学习者认为自己达到 independent-scoped-ownership，reviewer 只认可 guided-execution。双方必须逐字段对照 decision_rights、failure_cost、evidence_ref 和复评结果；不能通过修改成熟度枚举解决争议。最终输出可以是 UNKNOWN 或待补工件，并明确下一次复评入口。",
+    "职业实验：将 30/60/90 计划交给一个真实但低风险的测试任务，先锁定输入 hash、责任边界和停止条件，再做 baseline→fault→repair。报告分别列 Evidence、Inference、Unknown，并说明哪些结论只适用于 fixture。没有 provider/model/integration/practitioner/learner/live/production/publication 证据时全部保持 NOT_RUN。",
+    "小白可复用模板：复制 claim、evidence_refs、gap_route、next_artifact、reviewer、review_date、failure_action 七列，换成自己的业务名和错误成本；不要复制示例成熟度或就业承诺。完成标准是别人能按你的 JSON 找到工件、复现失败、知道谁复评，而不是你填满了所有格子。",
+  ],
+  "TD-T26": [
+    "提效案例：同一退款需求与 12 条风险，人工 baseline 产出 8 条可运行用例，AI candidate 产出 40 条但含 15 条重复。双方都必须通过同一 Schema、编译、运行和六个 mutation；最终比较 accepted-test、mutation kill、人工修复分钟数、Token 成本和 unique defect yield，绝不比较候选总数。",
+    "故障设计：先注入权限越界、金额边界、重复提交三个正向 mutation，再注入无效断言、错误 fixture、过期字段三个负向 mutation。独立 Oracle 只消费业务不变量和结果账本；若 AI 自己修改 expected 或删除弱断言后变绿，实验立即 BLOCKED，并记录被篡改字段。",
+    "对照纪律：baseline 与 AI 必须使用相同需求版本、风险人口、环境、完成定义、运行预算和 reviewer 角色。每条候选保存 prompt/input/schema/eval/mutation hash；一次实验只改变生成策略，不能同时换模型、测试框架和数据集，否则 time-to-accepted 的差异没有归因。",
+    "修复复盘：当 AI 用例编译通过却杀不死金额 mutation，先定位是数据、Oracle、断言还是步骤缺失，再只修一个环节并重放。repair 不能把 mutation 删除或降低阈值；报告要保留 baseline、fault、repair 三份 raw receipt，并把失败归因交给测试 owner。",
+    "决策卡：若 accepted-test 增长但 cost-per-kill 上升，结论不是提效；若 mutation kill 提升但人工审查时间翻倍，应进入有限试点；只有质量、时间、成本和维护风险都满足预声明门禁，才允许建议扩大使用。当前真实模型、live 流量、practitioner 团队复核、learner 完成和 production ROI 均 NOT_RUN。",
+    "迁移工件：复制 Productivity Experiment Manifest 时，只替换 editable_fields：需求输入、风险切片、Oracle、mutation、baseline owner、预算和复评日期。学习者要让同伴只读报告重新计算 accepted、kill 和缺陷收益；分母对不上就保持 UNKNOWN，不用生成数量补齐。",
+  ],
+};
+
+const careerWave5Expansion: Record<string, string[]> = {
+  "TD-C03": [
+    "worked decision：把“我会 AI 测试”拆成可拒绝的 claim。输入基线记录传统 API/UI 能力、数据处理能力和风险沟通经验；决策表分别判断 guided-execution、independent-scoped-ownership、system-cross-team-leverage。每项 claim 必须有 artifact、evidence_ref、reviewer 和复评日期，没有证据就不能升级。",
+    "故障诊断：当自评 JSON 全部 PASS，却找不到原始运行记录，先检查 evidence_refs 是否可打开、是否包含版本 hash、是否由独立 Oracle 评判。若只有模型生成摘要，故障点是证据来源而非文字质量；repair 是补 receipt、重跑 mutation、更新 UNKNOWN，而不是修改 maturity 枚举。",
+    "计划迁移：30 天交 Metric Card 与数据集切片，60 天交 RAG 检索 fault 和证据支持报告，90 天交跨页面复评与 reviewer disagreement 处理。每阶段写继续/停止/回退条件，记录失败成本与 owner；不能把完成页面数、学习小时或证书换算成岗位等级。",
+    "复评工件：交付 capability-self-assessment.json、gap-routing.json、30-60-90-evidence-plan.md 和 reviewer-diff.md。editable_fields 包括业务场景、风险人口、Oracle、reviewer、policy source_ref、复评日期和下一件工件；组织 policy 缺失时输出 INTERNAL-UNKNOWN。",
+    "小白演练：同伴只读你的 JSON，必须能回答当前能决定什么、下一步做什么、坏版本如何变红、失败交给谁。若无法从字段找到命令、输入或原始结果，记录 BLOCKED 并补最小证据；不要用解释性段落替代可重放工件。",
+    "迁移边界：把计划换到 Agent、Serving 或传统自动化时重建数据、Oracle、失败成本和责任人。当前 provider/model/integration/practitioner/learner/live/production/publication 均 NOT_RUN，计划只证明学习路线可执行，不证明招聘、晋升、薪资或生产能力。",
+  ],
+  "TD-T26": [
+    "worked decision：同一需求和风险集建立人工 baseline 与 AI candidate 对照。候选数量只作为输入，决策依赖 accepted-test、编译/运行通过、mutation kill、重复率、人工修复分钟、Token 成本和 unique defect yield；分母与完成定义先冻结，才能比较是否提效。",
+    "故障诊断：AI 用例编译通过却杀不死金额边界 mutation，沿 Input→Schema→Oracle→Assertion→Data 逐层定位。若弱断言被删除后变绿，判为 Oracle 篡改；repair 只能修断言、数据或生成约束并重放同一 mutation，不能删除缺陷或降低阈值。",
+    "实验迁移：正向 mutation 覆盖权限、边界、重复提交，负向 mutation 覆盖错字段、无效 fixture、过期需求。baseline 与 AI 使用同一环境、风险人口、预算、reviewer 和版本；一次只改生成策略，避免模型、框架、数据集同时变化导致归因 UNKNOWN。",
+    "决策工件：交付 productivity-manifest.json、candidate-ledger.jsonl、mutation-report.md、reviewer-acceptance.json 和 cost-per-kill-card.md。每条结论回链 prompt/input/schema/eval/mutation hash；accepted 增长但 cost-per-kill 上升时必须给出 LIMITED-PILOT 或 BLOCKED，而不是写十倍提效。",
+    "小白复盘：让同伴只看 raw ledger 重算 accepted、kill、重复率和单位成本；分母不一致就保持 UNKNOWN。报告还要说明哪些用例需要人工修订、哪些缺陷是新增、哪些只是重复覆盖，以及失败后下一轮修改哪个 editable_field。",
+    "迁移边界：复制实验包到 Playwright、Cypress、接口巡检或 Agent 流程时，重建需求 Basis、Oracle、mutation、baseline owner、预算和复评日期。真实模型、live 流量、practitioner 团队复核、learner 完成和 production ROI 均 NOT_RUN。",
+  ],
+};
+
+const careerWave6Expansion: Record<string, string[]> = {
+  "TD-C03": [
+    "Wave6 worked decision：将一条自评 claim 从“我会做 RAG 测试”拆成任务、责任、输入、Oracle、失败成本和复评者。若只能展示 prompt 或最终答案，状态仍为 guided-execution；只有能独立选择数据切片、注入 retrieval fault、解释停止条件并交接报告，才可申请 project 级复评。",
+    "故障诊断：自评表显示 PASS 但 reviewer 找不到原始数据，沿 claim→evidence_ref→manifest→receipt→reviewer 逐层检查。修复动作是补可打开路径、版本 hash、失败收据和复评日期；不能把“我记得做过”写成 Evidence。缺失字段传播为 UNKNOWN，并路由到下一件最小工件。",
+    "决策分叉：30 天若数据集切片未覆盖高风险语言，选择“停止并补样本”；60 天若 mutation 未打红，选择“回退到 Oracle 设计”；90 天若跨页面复评分歧仍大，选择“升级导师/业务 owner”。三种选择都要写触发证据、成本、负责人和截止日期，而不是继续堆学习材料。",
+    "迁移工件：交付 claim-ledger.jsonl、evidence-gap-report.md、reviewer-replay.md 和 30-60-90-decision-log.md。字段包括 source_ref、input_hash、oracle_id、failure_action、reviewer、policy_version、next_review；迁移到 Agent、Serving 或传统自动化时重建这些值，不能复制成熟度结论。",
+    "小白复盘：同伴删掉一条 evidence_ref 后，你应能指出哪一个 claim 降级、哪个页面补课、何时重新运行。若一份计划没有停止条件、回退入口或责任 owner，它只是学习愿望清单，不是可以交给导师或团队执行的项目计划。",
+  ],
+  "TD-T26": [
+    "Wave6 worked decision：把“AI 生成 40 条用例”拆成候选、可运行、可接受、杀死缺陷和维护成本五层。baseline 与 AI 必须共享需求版本、风险人口、Oracle、mutation、预算和 reviewer；只有 accepted-test 与 unique defect yield 同时改善，才可提出有限试点。",
+    "故障诊断：当 accepted-test 上升但 mutation kill 下降，先检查风险遗漏、弱断言、错误 fixture 和重复用例；当 kill 上升但人工修复分钟翻倍，检查维护成本与 reviewer 负担。每次只修一个层级并重放相同 mutation，保留前后 ledger，不能删除难测缺陷。",
+    "决策分叉：候选数量增加但 cost-per-kill 超门禁时停止扩展；质量改善且成本持平时进入 sandbox；质量、成本、维护和审查都通过才进入有限组织试点。每个分叉绑定分母、样本量、失败成本、批准人和回滚，不用“节省时间”单独宣布提效。",
+    "迁移工件：交付 accepted-ledger.jsonl、mutation-diagnosis.md、reviewer-load-card.json 和 pilot-entry-contract.yaml。换到 Playwright、Cypress、接口巡检或 Agent 时重建 schema、编译器、Oracle、数据、mutation 和 owner；模型、live、practitioner、learner、production ROI 继续 NOT_RUN。",
+    "小白复盘：让同伴从原始 ledger 重算 accepted、kill、重复率、修复分钟和成本；若公式对不上，状态为 BLOCKED。报告要说明新增缺陷、重复覆盖、人工返工和下一次最小改动，不能只展示生成速度或漂亮仪表盘。",
+  ],
+};
+
 const technicalBlocks = (page: CareerContract): TutorialBlock[] => [
+  ...(careerWave6Expansion[page.id] ? [{ title: `${page.id} Wave6 主题决策与故障诊断`, body: careerWave6Expansion[page.id] }] : []),
+  ...(careerWave5Expansion[page.id] ? [{ title: `${page.id} Wave5 专属 worked decision`, body: careerWave5Expansion[page.id] }] : []),
+  ...(careerWave4Expansion[page.id] ? [{ title: `${page.id} Wave4 责任案例与复评`, body: careerWave4Expansion[page.id] }] : []),
+  { title: `${page.id} 作品集案例与迁移实验`, body: [
+    `${page.id} 不以“学过什么”作为完成标准，而以一件可展示作品证明责任：输入基线、风险假设、独立 Oracle、命名 fault、raw receipt、reviewer 和下一次复评。${page.workedExample} 是示例路径，不是就业、晋升或组织职级结论。`,
+    `把 Evidence、Inference、Unknown 分三栏：Evidence 必须能打开；Inference 只描述当前样本支持的有限判断；Unknown 明确哪些模型、组织、live 或 production 条件未运行。没有 evidence_ref 的能力项保持 UNKNOWN。`,
+    `迁移时用自己的业务重新填写错误成本、数据权限、owner、版本、回滚和可复用出口；先预测 ${page.id} 的 fault，再完成 0→1→0，并让 reviewer 独立检查结果。`,
+    `小白的复盘顺序是：我能决定什么→哪个工件证明它→坏版本如何变红→失败后交给谁。页面完成数量、证书数量和工具清单都不能替代责任证据。`,
+  ] },
   { title: `${page.action}：先用白话建立模型`, body: [...page.definitions, page.workedExample, page.counterexample], expected: page.expected },
   { title: `${page.action}：把决策写成可检查模型`, body: [page.control, "不要把年限、工具名称或生成数量当作能力/质量的替代证据。"], technical: { kind: "diagram", content: page.diagram, verification: `图中每个节点必须能回链到 ${page.id} 的输入、工件、Oracle 或 reviewer；缺失回链时保持 BLOCKED。`, implementationPath: `${bundle}/diagrams/${page.id}.mmd` } },
   { title: `${page.action}：版本化 Prompt/Eval/Mutation`, body: [`本页 Prompt 只生成 ${page.id} 的结构化候选，不替代 owner、Oracle 或组织政策。`, `输出必须保留 UNKNOWN、NOT_RUN、BLOCKED 和适用范围。`], technical: { kind: "prompt", content: `读取 ${page.id} 的批准 fixture，输出符合 Schema 的候选工件；不得猜测职级、阈值、就业或生产结论。`, version: "1.0.0", promptPath: `${bundle}/prompts/${page.id}/task-v1.md`, manifestPath: `${bundle}/prompts/${page.id}/manifest.json`, inputFixturePath: `${bundle}/fixtures/${page.id}-input.json`, outputSchemaPath: `${bundle}/schemas/${page.id}-output.schema.json`, evaluationPath: `${bundle}/evals/${page.id}-eval.json` }, expected: "Prompt 结果必须可回链；模型执行状态保持 NOT_RUN。" },
@@ -211,8 +315,12 @@ export const careerEvolutionPages = (contracts.map((page) => ({
   completion: page.completion,
   sourceIds: page.sourceIds,
   evidenceBoundary: page.boundary,
-  architecture: { title: `${page.title} 学习证据链`, caption: `${page.control} 任一关键证据缺失时保持 UNKNOWN/BLOCKED。`, nodes: page.nodes },
+  architecture: { title: `${page.title} 学习证据链`, caption: `${page.control} 任一关键证据缺失时保持 UNKNOWN/BLOCKED。`, nodes: page.nodes, visual: pageVisuals[page.id] },
   materials: [
+    { title: `${page.id} 来源专属主图`, description: "保留用户材料中的独立视觉教学功能，并显式标注参数与证据边界。", href: pageVisuals[page.id].src, kind: "guide", validation: "static-reviewed" },
+    ...(extraVisuals[page.id] ?? []).map((visual) => ({ ...visual, kind: "guide" as const, validation: "static-reviewed" as const })),
+    { title: "职业视觉语义 Manifest", description: "九类专图的来源定位、节点关系、alt、caption、参数化边界与 SHA-256。", href: `${bundle}/source-visual-manifest.json`, kind: "config", validation: "static-reviewed" },
+    ...(reusableArtifactMaterials[page.id] ?? []).map((material) => ({ ...material, validation: "static-reviewed" as const })),
     { title: `${page.id} 确定性 Runner`, description: "实际运行本页 baseline/fault/repair 的标准库脚本，内部退出码严格为 0/1/0。", href: `${bundle}/scripts/career_evolution_lab.py`, kind: "script", validation: "fixture-tested" },
     { title: `${page.id} 输入夹具`, description: "版本化、可脱敏、fixture-only 的学习输入。", href: `${bundle}/fixtures/${page.id}-input.json`, kind: "fixture", validation: "fixture-tested" },
     { title: `${page.id} 运行 Manifest`, description: "声明 owner、Oracle、故障变异和 0/1/0 步骤。", href: `${bundle}/manifests/${page.id}.json`, kind: "config", validation: "fixture-tested" },

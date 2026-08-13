@@ -4,6 +4,36 @@
   "python": "3.9.6",
   "runs": [
     {
+      "topic_id": "TD-FP01",
+      "phase": "baseline",
+      "expected_exit_code": 0,
+      "actual_exit_code": 0,
+      "stdout": "{\"topic_id\": \"TD-FP01\", \"phase\": \"baseline\", \"verdict\": \"PASS\", \"report\": \"reports/TD-FP01/baseline.json\"}",
+      "report": "reports/TD-FP01/baseline.json",
+      "report_sha256": "73eeea0a2ec17e926cc6481a6fa7f02a90191a3c145db2eab795626d0409cf6b",
+      "model_execution": "NOT_RUN"
+    },
+    {
+      "topic_id": "TD-FP01",
+      "phase": "fault",
+      "expected_exit_code": 1,
+      "actual_exit_code": 1,
+      "stdout": "{\"topic_id\": \"TD-FP01\", \"phase\": \"fault\", \"verdict\": \"FAIL\", \"report\": \"reports/TD-FP01/fault.json\"}",
+      "report": "reports/TD-FP01/fault.json",
+      "report_sha256": "9540cb50e12b8c893abe4dd05400caf144496998ae4daff82b2ac5658e421c1e",
+      "model_execution": "NOT_RUN"
+    },
+    {
+      "topic_id": "TD-FP01",
+      "phase": "repair",
+      "expected_exit_code": 0,
+      "actual_exit_code": 0,
+      "stdout": "{\"topic_id\": \"TD-FP01\", \"phase\": \"repair\", \"verdict\": \"PASS\", \"report\": \"reports/TD-FP01/repair.json\"}",
+      "report": "reports/TD-FP01/repair.json",
+      "report_sha256": "d95d428da6cba7dfa4f6e1b8de4c16472c18a0a234763450a78f093f485afe2e",
+      "model_execution": "NOT_RUN"
+    },
+    {
       "topic_id": "TD-F02",
       "phase": "baseline",
       "expected_exit_code": 0,

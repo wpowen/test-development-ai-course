@@ -2,7 +2,7 @@
  * 站点术语表（生成产物，请勿直接编辑）。
  *
  * 由 scripts/build-glossary.mjs 从两处合并：
- *   · methodology/glossary-core.json —— 39 个核心词，写给第一次见到它的人
+ *   · methodology/glossary-core.json —— 45 个核心词，写给第一次见到它的人
  *   · methodology/dimensions/_sources/*.json 的 terms 表 —— 297 个逐页术语
  *
  * 改术语请改上述来源后重新生成。
@@ -22,6 +22,128 @@ export type GlossaryEntry = {
 };
 
 export const glossary: GlossaryEntry[] = [
+  {
+    "term": "AI（人工智能）",
+    "category": "AI 基础",
+    "plain": "让机器完成原本需要人类判断、识别、生成或决策的任务的技术集合。大模型只是其中一种实现，不等于全部 AI。",
+    "why": "先确认被测对象是规则、传统机器学习、大模型还是多组件系统，才能选择正确的数据、Oracle、指标和失败注入。",
+    "kind": "core",
+    "pages": [
+      "TD-A03",
+      "TD-A05",
+      "TD-AP01",
+      "TD-AP02",
+      "TD-AP04",
+      "TD-B02",
+      "TD-PS08",
+      "TD-PS09",
+      "TD-T01",
+      "TD-T04",
+      "TD-X602"
+    ]
+  },
+  {
+    "term": "LLM（大语言模型）",
+    "aka": "Large Language Model、大模型",
+    "category": "AI 基础",
+    "plain": "根据已有上下文预测并逐个生成 Token 的模型。它产出的是候选结果，不自带事实正确、权限正确或业务批准。",
+    "why": "同一问题可能受模型版本、Prompt、Context、解码和服务端实现影响；测试必须固定可见变量并保留 UNKNOWN。",
+    "kind": "core",
+    "pages": [
+      "TD-A03",
+      "TD-A05",
+      "TD-AP01",
+      "TD-AP02",
+      "TD-AP04",
+      "TD-B02",
+      "TD-PS08",
+      "TD-PS09",
+      "TD-T01",
+      "TD-T04",
+      "TD-X602"
+    ]
+  },
+  {
+    "term": "Prompt（提示词）",
+    "aka": "系统提示、任务提示",
+    "category": "AI 基础",
+    "plain": "交给模型的指令、目标、上下文与输出约束。专业 Prompt 应与输入、Schema、评价规则、变异和运行收据一起版本化。",
+    "why": "只复制一句指令无法复现结果，也无法判断失败来自输入、规则还是模型。Prompt Package 把这些责任拆开。",
+    "kind": "core",
+    "pages": [
+      "TD-A03",
+      "TD-A05",
+      "TD-AP01",
+      "TD-AP02",
+      "TD-AP04",
+      "TD-B02",
+      "TD-PS08",
+      "TD-PS09",
+      "TD-T01",
+      "TD-T04",
+      "TD-X602"
+    ]
+  },
+  {
+    "term": "Token",
+    "category": "AI 基础",
+    "plain": "模型读写文本时使用的离散单位；它不等于一个汉字或一个英文单词。",
+    "why": "Context 上限、延迟和费用通常按 Token 计算，字符数测试不能替代真实 Token 边界测试。",
+    "kind": "core",
+    "pages": [
+      "TD-A03",
+      "TD-A05",
+      "TD-AP01",
+      "TD-AP02",
+      "TD-AP04",
+      "TD-B02",
+      "TD-PS08",
+      "TD-PS09",
+      "TD-T01",
+      "TD-T04",
+      "TD-X602"
+    ]
+  },
+  {
+    "term": "Context（上下文）",
+    "category": "AI 基础",
+    "plain": "一次生成时模型实际能够读取的输入集合，包括 system、用户消息、历史、检索片段和工具结果。",
+    "why": "报告只保存用户问题会丢失真正输入；顺序、截断、冲突和不可信内容都可能改变输出。",
+    "kind": "core",
+    "pages": [
+      "TD-A03",
+      "TD-A05",
+      "TD-AP01",
+      "TD-AP02",
+      "TD-AP04",
+      "TD-B02",
+      "TD-PS08",
+      "TD-PS09",
+      "TD-T01",
+      "TD-T04",
+      "TD-X602"
+    ]
+  },
+  {
+    "term": "Embedding（向量表示）",
+    "category": "AI 基础",
+    "plain": "把文本等对象转换成数值向量，使系统可以按相似度寻找候选内容。",
+    "why": "换模型、维度、归一化或切块策略都会改变检索空间；索引和查询必须版本匹配并可回滚。",
+    "kind": "core",
+    "pages": [
+      "TD-A03",
+      "TD-A05",
+      "TD-AP01",
+      "TD-AP02",
+      "TD-AP04",
+      "TD-B02",
+      "TD-PS08",
+      "TD-PS09",
+      "TD-T01",
+      "TD-T04",
+      "TD-X602"
+    ]
+  },
   {
     "term": "Oracle（判据）",
     "aka": "测试预言、判定依据",
@@ -110,7 +232,7 @@ export const glossary: GlossaryEntry[] = [
     "aka": "一致性系数",
     "category": "评测可信度",
     "plain": "衡量两个评判者的判断一致到什么程度，并且扣除了「碰巧一致」的部分。取值 0 到 1。",
-    "why": "当你用模型给模型打分时，这个分数可信到什么程度，上限就是这个 κ。κ ≥ 0.7 是通行的可用门槛（来自 Landis-Koch 分级中 substantial 的下沿）；低于它时，打出来的分不足以支撑发布决策。",
+    "why": "当你用模型给模型打分时，先用当前任务、样本与评分规则校准一致性。可接受区间必须由具名质量 owner 在 Metric Card 中声明；课程不把某个经验分界当作所有场景的发布阈值。",
     "kind": "core",
     "pages": [
       "TD-A03",
@@ -192,7 +314,7 @@ export const glossary: GlossaryEntry[] = [
     "term": "金标集（gold set）",
     "category": "评测可信度",
     "plain": "一批由人工仔细标注过正确答案的样本，用来校准自动评判器。",
-    "why": "它是判断 Judge 准不准的唯一参照。建集时如果多个标注员之间就对不齐（κ < 0.7），说明评分标准本身有歧义——此时该改的是标准，不是 Judge。",
+    "why": "它是校准 Judge 的重要人工参照。若标注一致性低于本场景预声明的门槛，先修订评分标准、培训标注者并复标；没有 owner、样本和门槛依据时结论保持 UNKNOWN。",
     "kind": "core",
     "pages": [
       "TD-A03",
@@ -233,7 +355,7 @@ export const glossary: GlossaryEntry[] = [
     "term": "数据污染（contamination）",
     "category": "数据",
     "plain": "评测用的题目出现在了模型的训练数据里，或者出现在了本该独立的另一个数据集里。",
-    "why": "被污染的评测集会给出虚高且无法察觉的分数。它的可接受值是 0，不设容忍区间——因为一旦污染存在，排名结论就直接不可用。",
+    "why": "被污染的评测集会给出虚高分。政策目标通常是不允许已知重叠，但检测本身存在覆盖边界；必须披露检测方法、疑似/已知重叠和处置 owner，是否阻断由具体评测合同预先声明。",
     "kind": "core",
     "pages": [
       "TD-A03",
@@ -3519,6 +3641,7 @@ export const glossary: GlossaryEntry[] = [
 ];
 
 export const glossaryCategories = [
+  "AI 基础",
   "评测基础",
   "可靠性",
   "统计",

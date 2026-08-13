@@ -24,6 +24,20 @@ PAGE_PROMPTS = ROOT / "page-prompts"
 PAGE_MANIFESTS = ROOT / "page-manifests"
 DIRECT_USE_MANIFEST = ROOT / "DIRECT-USE-MANIFEST.json"
 PAGE_IDS = tuple(f"TD-P0{index}" for index in range(1, 9))
+PAGE_PROMPT_PACKAGE_FILES = (
+    "prompt-v1.md",
+    "system-v1.md",
+    "task-v1.md",
+    "critic-v1.md",
+    "input.json",
+    "schema.json",
+    "eval.json",
+    "mutation.json",
+    "adaptation-card.md",
+    "expected-output.json",
+    "receipt.json",
+    "manifest.json",
+)
 
 PAGE_FAILURES = {
     "TD-P01": ("SOURCE_CONFLICT", "Test Basis contains contradictory authorities"),
@@ -71,11 +85,7 @@ def validate_package(quiet: bool = False) -> tuple[int, dict]:
     for page_id in PAGE_IDS:
         required.extend([
             PAGE_MANIFESTS / f"{page_id}.json",
-            PAGE_PROMPTS / page_id / "manifest.json",
-            PAGE_PROMPTS / page_id / "prompt-v1.md",
-            PAGE_PROMPTS / page_id / "input.json",
-            PAGE_PROMPTS / page_id / "schema.json",
-            PAGE_PROMPTS / page_id / "eval.json",
+            *(PAGE_PROMPTS / page_id / filename for filename in PAGE_PROMPT_PACKAGE_FILES),
         ])
     missing = [str(path.relative_to(ROOT)) for path in required if not path.exists()]
     result = {"status": "BLOCKED" if missing else "PASS", "missing": missing}
@@ -89,13 +99,15 @@ def validate_page_package(page_id: str) -> tuple[int, dict]:
     manifest_path = PAGE_MANIFESTS / f"{page_id}.json"
     prompt_dir = PAGE_PROMPTS / page_id
     prompt_manifest_path = prompt_dir / "manifest.json"
-    required = [manifest_path, prompt_manifest_path, prompt_dir / "prompt-v1.md", prompt_dir / "input.json", prompt_dir / "schema.json", prompt_dir / "eval.json"]
+    required = [manifest_path, *(prompt_dir / filename for filename in PAGE_PROMPT_PACKAGE_FILES)]
     issues = [f"missing {path.relative_to(ROOT)}" for path in required if not path.is_file() or path.stat().st_size == 0]
     if issues:
         return 2, {"status": "BLOCKED", "issues": issues}
     manifest = load(manifest_path)
     prompt_manifest = load(prompt_manifest_path)
     evaluation = load(prompt_dir / "eval.json")
+    mutation = load(prompt_dir / "mutation.json")
+    receipt = load(prompt_dir / "receipt.json")
     prompt_text = (prompt_dir / "prompt-v1.md").read_text(encoding="utf-8")
     if manifest.get("owner_page_ids") != [page_id]:
         issues.append("page manifest must declare exactly one owner_page_id")
@@ -124,8 +136,26 @@ def validate_page_package(page_id: str) -> tuple[int, dict]:
     for marker in ("[粘贴", "Evidence", "Inference", "Unknown", "BLOCKED", "source_ref", "不要编造"):
         if marker not in prompt_text:
             issues.append(f"direct-use prompt missing marker {marker}")
-    if len(evaluation.get("items", [])) < 5 or len(evaluation.get("mutations", [])) < 3:
-        issues.append("page eval must contain five checks and three negative controls")
+    assembly_files = [step.get("file") for step in prompt_manifest.get("assembly_order", [])]
+    if assembly_files != ["system-v1.md", "task-v1.md", "input.json", "critic-v1.md"]:
+        issues.append("prompt package assembly_order must preserve system, task, input, critic roles")
+    if prompt_manifest.get("one_shot_copy_file") != "prompt-v1.md":
+        issues.append("prompt package must retain prompt-v1.md as the one-shot beginner path")
+    artifact_hashes = prompt_manifest.get("artifact_sha256", {})
+    for filename in PAGE_PROMPT_PACKAGE_FILES:
+        if filename == "manifest.json":
+            continue
+        expected_hash = artifact_hashes.get(filename)
+        if expected_hash != digest(prompt_dir / filename):
+            issues.append(f"prompt package hash drift: {filename}")
+    eval_types = {item.get("case_type") for item in evaluation.get("cases", [])}
+    required_eval_types = {"positive", "boundary", "conflict", "missing", "unauthorized", "refusal", "truncation", "locale"}
+    if eval_types != required_eval_types or any(item.get("result") != "NOT_RUN" for item in evaluation.get("cases", [])):
+        issues.append("page eval must define eight NOT_RUN case classes")
+    if len(mutation.get("mutations", [])) < 6 or any(item.get("result") != "NOT_RUN" for item in mutation.get("mutations", [])):
+        issues.append("page mutation set must define at least six NOT_RUN negative controls")
+    if receipt.get("provider") != "none" or receipt.get("model_status") != "NOT_RUN" or receipt.get("raw_output_refs") or receipt.get("raw_output_sha256"):
+        issues.append("static package receipt must preserve empty raw outputs and model NOT_RUN")
     step_ids = {step.get("step_id") for step in manifest.get("steps", [])}
     if not {"baseline", "fault", "repair", "cycle"}.issubset(step_ids):
         issues.append("page manifest must expose baseline, fault, repair, and cycle")

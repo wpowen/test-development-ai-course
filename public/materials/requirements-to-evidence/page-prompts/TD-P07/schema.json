@@ -24,7 +24,17 @@
         "PARTIAL",
         "BLOCKED",
         "UNKNOWN",
-        "RELEASE_CANDIDATE"
+        "RELEASE_CANDIDATE",
+        "NOT_RUN",
+        "PASS_SCHEMA",
+        "PASS_SEMANTIC",
+        "FAIL",
+        "SCHEMA_INVALID",
+        "REFUSED",
+        "INCOMPLETE",
+        "SOURCE_CONFLICT",
+        "UNSUPPORTED_RULE",
+        "SEMANTIC_UNKNOWN"
       ]
     },
     "run": {

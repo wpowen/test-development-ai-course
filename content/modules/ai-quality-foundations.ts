@@ -34,6 +34,136 @@ type FoundationSpec = {
 
 const WORKING_DIRECTORY = "materials/ai-foundations-eval";
 
+const PROMPT_KIT_DIRECTORY = "materials/requirements-to-evidence/page-prompts/TD-P02";
+
+/** Wave-2 repair: page-specific learner material that is deliberately kept next to
+ * the source page, rather than injected by course.ts.  Each entry names its own
+ * decision, observable artefact and failure path so the projection can be audited. */
+const wave2FoundationRepairBlocks = (id: string): TutorialPage["blocks"] => {
+  const blocks: Record<string, TutorialPage["blocks"]> = {
+    "TD-FP01": [{ title: "从复制到复用：需求评审 Prompt 的适配演练", body: ["把需求评审包迁移到支付退款场景时，先保留 system 的 Evidence/Inference/Unknown 规则，再替换业务目标、权威文档 locator、风险 owner 和输出消费者。学习者应提交一份 input.json、一份结构化候选和一张差异表；差异表逐项说明哪些字段只是换值，哪些字段必须重新定义 Oracle。", "判断标准不是回答是否流畅，而是每个结论能否回到输入证据、每个未知项是否仍然可见、每个 blocker 是否触发停止。若模型把“预计 7 天到账”写成确定规则，修复动作是补充权威条款并重跑，而不是把它加入示例答案。"], table: { headers: ["可观察工件", "检查问题", "未通过时动作"], rows: [["input.json + locator", "每条事实能回到版本化来源吗？", "标 UNKNOWN 并找 owner"], ["expected-output.json", "业务规则与推断分栏了吗？", "退回重写，不接受模型自评"], ["receipt.json", "provider/model/原始输出真实吗？", "无调用写 NOT_RUN"], ["adaptation-card.md", "迁移字段和不变量是否列全？", "暂停复用并补卡"]] }, expected: "完成一次脱敏需求迁移，并能解释哪些内容可复制、哪些必须重新评审。" }],
+    "TD-T01": [{ title: "Eval Contract 的落地诊断：从发布问题反推证据", body: ["给定“是否允许客服助手进入 10% Canary”这一问题，先写允许/拒绝的决策表，再倒推需要的切片、黄金集、Oracle、阈值依据和 waiver owner。不要先抄 Recall 或平均 Judge 分；每个指标必须回答一个风险问题，并指定失败后的停止或回滚动作。", "学习者应把同一份合同交给需求方和测试方各看一次：需求方确认业务后果，测试方确认数据和执行可行性。两者意见不一致时保留 SOURCE_CONFLICT，不能用一个总分消解。"], table: { headers: ["症状", "疑似层", "下一检查", "修复/重跑"], rows: [["分数很高但没人能批准", "决策合同", "检查 decision、owner、阈值依据", "补齐合同后重算"], ["关键退款样例没有结论", "数据切片", "核对 gold、分母和 holdout", "补样例并重跑"], ["不同版本分数无法比较", "Manifest", "比较 model/prompt/index/scorer hash", "冻结变量后配对运行"], ["失败被平均分掩盖", "Oracle/Gate", "查 blocker 是否独立计数", "先执行阻断再聚合"]] }, expected: "输出一份可供发布评审直接使用的 Eval Contract，而不是一张脱离决策的指标表。" }],
+    "TD-T03": [{ title: "Composite Oracle 的取舍：先挡住不可接受的错", body: ["用“未验证身份却触发退款工具”作为高风险样例：Schema 可以通过，语义 Judge 也可能给出高分，但权限规则必须先阻断。再用语气自然度作为低风险样例，说明它可以进入连续评分而不应覆盖权限 blocker。", "学习者要保存两名人工对同一反例的分歧、Judge rubric 版本和升级决定。没有领域双标时，正确状态是 UNKNOWN，不是把 Judge 的自信当作校准证据。"], table: { headers: ["症状", "疑似层", "下一检查", "修复/重跑"], rows: [["最终答案正确但工具越权", "权限 Oracle", "读取完整 trajectory 和身份状态", "阻断副作用并重跑"], ["Judge 对短答案偏低", "语义 rubric", "按长度/语言切片看校准样本", "更新 rubric 后重新盲评"], ["规则与人工意见冲突", "业务不变量", "找 owner 确认政策版本", "记录冲突，不平均"], ["所有 case 都由模型自评通过", "Oracle 独立性", "检查 scorer 与 SUT 是否同源", "换独立规则/人工复核"]] }, expected: "能为四类风险指定主 Oracle、失败动作和升级责任人。" }],
+    "TD-T04": [{ title: "重复运行的解释：不要把波动当成回归", body: ["对同一 case 做配对运行时，先固定模型、Prompt、Context、索引和服务配置，只改变一个候选变量；每次保存 run_id、raw output hash、seed 或不可用原因。随后按风险切片查看通过分布，不能只挑最好一次。", "如果候选 B 的总体均值更高但高风险切片出现一次越权，发布结论仍应阻断。学习者提交 run ledger、配对差异表和一段外推限制，明确这是固定题集描述还是对任务总体的推断。"], table: { headers: ["症状", "疑似层", "下一检查", "修复/重跑"], rows: [["一次成功、再次失败", "运行波动", "核对 raw output 与配置 hash", "增加重复并报告分布"], ["A/B 差异无法解释", "实验设计", "检查是否同时改了索引/Prompt", "恢复单变量配对"], ["均值提升但 blocker 出现", "聚合逻辑", "单独读取 blocker ledger", "阻断并做根因修复"], ["样本量写死为五次", "统计目标", "询问要估计的 estimand 和误差", "由风险/成本重新设计"]] }, expected: "提交可回链的重复运行报告，并区分固定集合结论与总体外推限制。" }],
+    "TD-T10": [{ title: "检索 miss 的逐层排查：从 query 到 ranking", body: ["先用一条退款查询建立 gold 文档与查询切片，再保存原始 query、rewrite、filters、候选 doc_id、score、索引版本和最终 top-k。若 gold 不在候选，优先查语料、chunk、embedding、rewrite 或 ACL；若 gold 在候选但位次低，才检查 ranking；只有 Context 正确而回答错误，才进入生成层。", "迁移到新领域时，不能直接复制 Recall@3 阈值。需要先确定漏召回成本、Context 预算和人工升级能力，再让业务 owner 批准切片阈值。争议标注应保留并从分母中单独标注，而不是悄悄改 gold。"], table: { headers: ["症状", "疑似层", "下一检查", "修复/重跑"], rows: [["gold 文档不在 top-k", "语料/召回", "查索引版本、chunk lineage、query rewrite", "修索引或改写后重跑"], ["gold 在 top-k 但排名靠后", "排序", "比较 scores、reranker 与过滤", "调整排序并复测"], ["top-k 正确但答案无依据", "生成/引用", "读取最终 Context 与 claim-evidence", "修生成或拒答"], ["某租户 Recall 突然下降", "ACL/切片", "比较 tenant filter 与权限版本", "隔离租户并重跑"]] }, expected: "交付一份带 miss reason 的检索报告，能把故障定位到召回、排序、过滤或生成。" }],
+    "TD-T12": [{ title: "端到端 RAG Gate：已知、无答案与越权必须分开", body: ["项目至少准备 known、no-answer、source-conflict、cross-tenant 和 injection 五类 case。known 要求证据支持；no-answer 要求拒答或 Handoff；cross-tenant 即使答案正确也必须阻断；injection 不能改变 ACL 或工具策略。每类 case 都要保存 doc IDs、tenant、policy reason、side-effect ledger 和人工责任人。", "完成 Fixture 后写迁移清单：真实租户身份、向量库、模型、工具副作用、人工 SLA 和安全演练都必须重新取证。课程的 0→1→0 只证明 Gate 能捕获注入故障，不能证明线上租户隔离。"], table: { headers: ["症状", "疑似层", "下一检查", "修复/重跑"], rows: [["无答案却生成确定结论", "no-answer Gate", "核对 gold、retrieval empty 与 refusal policy", "拒答/升级并重跑"], ["引用来自其他租户", "ACL", "检查 tenant context 与 filter trace", "隔离跨租户读并复测"], ["回答正确但写入工具已执行", "副作用", "读取 tool trace 与业务状态", "撤销权限并验证零副作用"], ["Prompt injection 绕过规则", "信任边界", "比较外部内容与 system policy", "隔离不可信输入并重跑"]] }, expected: "完成一个可审计的 RAG Gate Runbook，并明确真实集成证据仍为 NOT_RUN。" }],
+  };
+  if (id === "TD-FP01") blocks["TD-FP01"].push({ title: "Prompt Package 迁移检查：把一次练习变成可复用资产", body: ["选择一个新的技术文档片段，先在适配卡中写清文档版本、段落 locator、目标消费者和不能推断的字段，再逐项替换 input/context。不要直接改 system 的权限句，也不要把示例中的业务阈值复制到新场景。迁移后保留原包和新包的 manifest hash，让评审者能看到哪些变化来自输入，哪些变化改变了判断合同。", "然后做一次对照：同一输入分别删除 source_ref、把 Unknown 改成确定结论、混入一条外部指令。三个负例应分别命中追踪性、状态完整性和信任边界检查。学习者提交差异表、三份失败报告和一份修复后的 receipt；这些工件比一段漂亮回答更能证明掌握。", "最后写交接说明：哪些内容由离线确定性检查证明，哪些只是在静态包中存在，哪些仍需真实 provider、人工复核或业务 owner 决策。没有 raw model output 时，receipt 的输出引用必须为空或明确为示例，不能把示例业务值冒充运行事实。"], table: { headers: ["迁移阶段", "必须观察的工件", "判断与下一步"], rows: [["替换输入", "input.json、版本、locator、Unknown", "缺证据就 BLOCKED，不补写"], ["运行负例", "mutation report、failed_check", "每个故障点名独立 Oracle"], ["恢复合同", "repair report、manifest diff", "expected 不得随 fault 改变"], ["交接复核", "receipt、owner、边界清单", "provider/model 未运行写 NOT_RUN"]] }, expected: "学习者能从空白业务输入重新组装 Prompt Package，并交付可重放的差异与负控制证据。" });
+  if (id === "TD-T12") blocks["TD-T12"].push({ title: "RAG Gate 项目交付：把拒答也当作可验证产物", body: ["项目验收不以回答数量为目标，而以每类风险都有正确终态为目标。为 known、no-answer、source-conflict、cross-tenant、prompt-injection 各准备一条脱敏样例，记录 tenant、检索结果、引用 claim、拒答原因、Handoff owner 和 side-effect ledger。known 需要证据支持；no-answer 需要安全拒答；冲突需要升级；越权和注入必须阻断，即使答案表面正确。", "在 baseline→fault→repair 中只改变一个合同字段，例如让 ACL 过滤失效。Fault 报告必须显示检索到哪份文档、哪条权限规则被违反、是否产生工具副作用以及最终业务状态。Repair 只能恢复权限过滤或隔离输入，不能删除攻击样例、降低阈值或把 expected 改成允许越权。", "项目移交真实系统时，把 fixture 证据逐项映射到待补证据：真实租户身份、向量数据库读回、provider/model raw output、工具副作用回读、人工 SLA、安全演练和生产回滚。任何一项没跑都保留 NOT_RUN；publication 也必须排在独立审计和人工批准之后。"], table: { headers: ["交付物", "它证明什么", "它不能证明什么"], rows: [["case matrix + Trace", "各风险有输入、状态和证据", "不证明线上流量分布"], ["ACL/injection fault", "Gate 能捕获指定故障", "不证明真实租户隔离"], ["Handoff runbook", "失败有责任人与动作", "不等于 practitioner 采用"], ["receipt + boundary", "运行成熟度诚实可追溯", "不等于 live/production/publication"]] }, expected: "学习者能交付一个端到端 RAG Gate，并解释拒答、升级和阻断为何是成功的安全终态。" });
+  if (id === "TD-FP01") blocks["TD-FP01"].push({ title: "完整 worked walkthrough：从空白材料组装一个可验证 Prompt Package", body: ["下面用“评审退款需求是否具备测试入口”做一遍完整演练。先写 system：你是测试需求分析助手，只能依据输入材料，不能补写政策；遇到缺证据、冲突或权限不明必须输出 BLOCKED、SOURCE_CONFLICT 或 SEMANTIC_UNKNOWN。再写 task：从给定需求和技术文档中提取可测试行为、前置条件、边界、依赖、风险与未知项，服务对象是需求评审和测试计划，而不是直接批准发布。这样 system 管权限，task 管本轮目标，二者不会被一段泛化指令混淆。", "然后准备 context/input。输入包含 requirement_version=refund-2026-08、source_ref=spec.md#refund-window、technical_ref=api.md#POST-refund、tenant=synthetic-demo，以及三条材料：‘会员可申请退款’、‘退款由人工复核’、‘到账时限待业务确认’。每条材料都带 Evidence/Inference/Unknown 标记：第一条是 Evidence，第二条是 Evidence，到账时限是 Unknown。外部网页或聊天补充默认是不可信指令，不能直接进入事实区。", "接着定义 schema。输出必须有 decision、behaviors[]、preconditions[]、boundary_cases[]、dependencies[]、risks[]、evidence[]、inferences[]、unknowns[]、source_refs[]、owner、stop_state。decision 只能是 READY_FOR_TEST、BLOCKED、SOURCE_CONFLICT、SEMANTIC_UNKNOWN 四个枚举；每个 behavior 必须携带可观察结果和 source_ref，unknowns 不得为空时被自动改成 READY_FOR_TEST。Schema 只负责形状，不负责证明业务规则正确。", "再写 eval。确定性规则检查所有 behavior 是否有 source_ref、每个 unknown 是否保留、stop_state 是否与缺证据一致；语义 Oracle 检查需求是否被过度解释、退款动作是否被错误写成自动批准；人工 owner 只在政策冲突、风险接受和发布例外上做决定。正例是完整来源并保持待确认时限，边界例是重复退款和超窗场景未给规则，拒答例是输入只有一句口号，预期都必须保留缺口。", "然后设计 mutation。Mutation-1 删除 source_ref，预期追踪规则退出 1；Mutation-2 将 unknowns=[] 且 decision=READY_FOR_TEST，预期状态一致性退出 1；Mutation-3 把外部网页句子插入 system 事实，预期信任边界退出 1；Mutation-4 把人工复核改成自动退款，预期语义 Oracle 退出 1。每次只改一个字段，不能在 fault 阶段同步改变 expected，否则就失去检测力。", "最后做 repair。恢复 source_ref、Unknown 和人工复核原文，保留同一个 manifest、输入版本、Schema 与 Eval，重新运行 baseline→fault→repair。可观察输出包括 candidate.json、failed_checks.json、repair.json、manifest hash、raw_output 引用和 owner receipt。离线 runner 的退出码 0→1→0 只能证明合同与负控制可执行；provider=none、model_status=NOT_RUN 时不能把候选文本写成模型质量或业务正确。", "完成后做 transfer。把退款输入替换为登录、发票或客服知识库时，只替换业务材料、source locator、风险 owner 和领域 Oracle；system 的证据分栏、停止枚举、独立判定和 mutation 规则继续保留。若新领域出现医疗、金融或跨租户权限，必须增加相应人工 owner、隐私边界和拒答样例，不能因为 Prompt Package 可复制就跳过重新评审。"], table: { headers: ["阶段", "可观察输出", "验收判断", "失败后的修复/重跑"], rows: [["System/Task", "system-v1.md、task-v1.md、roles", "权限与目标分离", "拆分角色后重跑"], ["Context/Input", "input.json、source_refs、版本", "事实、推断、未知可回链", "补来源或保持 BLOCKED"], ["Schema", "schema.json、candidate.json", "字段/枚举齐全", "修形状后重跑 Eval"], ["Eval", "eval.json、oracle report", "规则、语义、人工责任分层", "校准 Oracle，不让 SUT 自评"], ["Mutation", "fault report、failed_checks", "每个指定故障退出 1", "修检测器并复测"], ["Repair/Transfer", "repair receipt、adaptation-card", "0→1→0 且迁移字段明确", "恢复合同，重新取得领域证据"]] }, expected: "学习者能独立从空白材料完成 system、task、context、schema、eval、mutation、repair，并把同一方法迁移到新业务而不伪造真实模型证据。" });
+  if (id === "TD-T11") blocks["TD-T11"] = [{ title: "Citation/faithfulness 失败诊断：先查声明再查引用", body: ["把回答拆成原子声明后，逐条核对 supporting span、contradicting span、no-evidence 与 citation resolve。一个引用 ID 能打开，只能证明可解析，不能证明它支持声明。", "诊断表中的下一步必须读取原始 Context、claim-evidence matrix、scorer 版本和人工分歧；不要只看总分。修复后用同一反例重跑，确认关键 unsupported claim 仍会阻断。"], table: { headers: ["症状/问题", "疑似层", "下一步检查", "修复/重跑"], rows: [["引用可打开但声明无依据", "claim-evidence 对齐", "读取 supporting span 与原始 Context", "删除无依据承诺并重跑"], ["引用来自旧版政策", "source/version", "比对 document_version、effective_date、supersedes", "隔离旧来源后重建报告"], ["Judge 给高分但人工判错", "rubric/calibration", "检查盲评样本、rubric 版本和分歧矩阵", "校准 Judge 并复跑反例"], ["关键声明被非关键句稀释", "aggregation/blocker", "查看 atomic claim 分母和严重度", "将关键 unsupported claim 独立阻断"]] }, expected: "输出 claim-evidence matrix、citation report 和可定位到下一层的 repair receipt。" }];
+  if (id === "TD-FP01") blocks["TD-FP01"].push({ title: "逐字段复盘：初学者怎样判断每一层是否真的完成", body: ["先复盘 system。问自己：这段规则是否明确限制了资料来源、权限和停止条件？如果把一个不可信的网页片段贴进 context，system 是否仍然要求把它当作数据而不是指令？如果答案是否定的，先修 trust boundary，不要继续调输出格式。再复盘 task：它是否只有一个可验证目标，是否写明了下游消费者，是否避免同时要求分析、写代码和批准发布？目标过多时拆成不同任务包，避免模型在一轮里互相冲突。", "再复盘 context/input。每个事实必须带版本、locator、租户或数据范围；推断要说明是由哪些事实得到；未知要说明缺口由谁补。初学者常犯的错误是把“文档没有提到”写成“规则不存在”，或把模型常识写成 Evidence。正确做法是在输出中保留 Unknown，并为它安排 owner、补证据动作和预计重跑条件。", "复盘 schema 时，不要只检查 JSON 能否解析。确认状态枚举足够表达 BLOCKED、SOURCE_CONFLICT 和 SEMANTIC_UNKNOWN，确认数组字段能容纳多个证据与冲突，确认每个行为都有 source_ref、expected_observation 和 failure_action。若 Schema 只有 title、summary、answer 三个字段，它适合展示，不适合作为测试资产。", "复盘 eval 和 mutation。对每一条业务规则写一个正例、一个边界例、一个拒答例和一个会误导模型的反例；再问独立检查器是否真的读取这些字段。若删掉 source_ref 仍退出 0，问题在 checker 而不在 Prompt；若把 expected 一起改掉才通过，问题在 mutation 设计。修复后要保存旧 fault 结果，不能用新结果覆盖负控制历史。", "复盘 repair 和 transfer。Repair 的最小变化应该回到根因字段，不能顺手改模型、阈值、输入和 Oracle。Transfer 时为新领域写一张映射表：原字段、目标字段、保持不变的不变量、必须重新批准的规则、待观察的真实证据。这样学习者才能知道哪些是可复用方法，哪些只是当前退款 Fixture 的例子。", "最后做人工走查。让另一个人只看 manifest、input、candidate、failed_checks、repair 和 receipt，尝试回答五个问题：这次实际运行了谁？依据是哪一版？哪条故障被捕获？剩余 Unknown 是什么？能否安全交给下游？如果对方只能看到最终文本而不能回答这些问题，说明包仍然不可审计。"], table: { headers: ["复盘对象", "完成标志", "常见误判", "下一行动"], rows: [["System/Task", "权限、唯一目标、消费者明确", "把长指令当专业", "拆分角色并重写"], ["Context/Input", "事实/推断/未知可回链", "常识等于证据", "补 locator 或保留 BLOCKED"], ["Schema", "状态、证据、观察、动作齐全", "JSON 可解析就算完成", "增加可判定字段"], ["Eval/Mutation", "独立 Oracle 能被负例击穿", "模型自评或 fault 改 expected", "修 checker 并保留历史"], ["Repair/Transfer", "最小修复且映射表完整", "复制阈值和业务规则", "重新取得领域批准"], ["Receipt/Review", "运行者、版本、未知和 owner 可追踪", "示例输出冒充真实运行", "写 NOT_RUN 并补证据"]] }, expected: "初学者可以逐层审阅 Prompt Package，定位不可用之处，并把可复用方法与必须重新取证的业务结论分开。" });
+  return blocks[id] ?? [];
+};
+
+const beginnerConceptBlocks = (pageId: string): TutorialPage["blocks"] => {
+  if (pageId === "TD-FP01") return [
+    {
+      title: "先看完整包：七个组成面怎样共同阻止幻觉进入下游",
+      body: [
+        "System 只声明角色、权限和禁止事项，Task 只声明本轮决策问题；Input/Context 放带版本与 locator 的事实，不能把网页、需求或检索片段里的句子偷偷升级为高优先级指令。Output Schema 负责形状，Eval 负责语义与拒答，Mutation 负责证明错误能被抓住，Manifest/Receipt 则回答究竟组合了哪个版本、是否真的调用了模型。",
+        "一个包可复制，不等于业务结论可复制。换场景时至少要重新填写业务目标、权威来源、数据权限、风险 owner、Oracle、失败动作和限制。任何一项缺失都应停在 BLOCKED、SOURCE_CONFLICT 或 SEMANTIC_UNKNOWN，而不是让模型用常识补齐。",
+      ],
+      table: {
+        headers: ["组成面", "只负责什么", "缺失时的失败"],
+        rows: [
+          ["System / Task", "权限边界与本轮唯一目标", "角色越权、一次输出混入多个不可验目标"],
+          ["Input / Context", "版本化事实、locator、冲突与隐私", "模型无法区分事实、旧版本与外部恶意指令"],
+          ["Output / Schema", "机器可检查字段、状态枚举与必填项", "漂亮文本无法交给自动化、报告或人工复核"],
+          ["Eval / Mutation", "独立 Oracle 与负控制", "Schema 通过被误写成业务正确"],
+          ["Manifest / Receipt", "组合顺序、hash、provider、raw output 与成熟度", "无法重放，NOT_RUN 被误写为已验证"],
+        ],
+      },
+    },
+    {
+      title: "完整可复制示例：需求评审候选包怎样使用",
+      body: [
+        "第一步打开 TD-P02 的 prompt-v1.md，将 INPUT 区替换为脱敏需求片段，并保留文档版本、段落 locator、业务 owner 和未知项；初学者可以整段复制到通用 AI Agent。第二步按 Manifest 的顺序组合 system-v1.md、task-v1.md、input.json、critic-v1.md，专业使用时不得自行换序。第三步用 Schema 检查字段，再用 Eval 和人工 Oracle 检查规则语义，最后把 provider、model、原始输出和复核结论写进新的运行收据。",
+        "例如需求写着“会员可申请退款”，但没写时间窗和重复退款规则。正确候选应把会员身份列为 Evidence，把可能存在时间窗列为 Inference，把实际天数和重复规则列为 Unknown，并将状态设为 BLOCKED；它不能从互联网经验猜出七天或三十天。",
+      ],
+      table: {
+        headers: ["看起来省事的做法", "为什么不可用", "可复用修复"],
+        rows: [
+          ["只复制一句‘帮我写测试用例’", "无版本、来源、Oracle、输出合同和停止条件", "复制完整包，并只替换 adaptation-card 声明的字段"],
+          ["让同一个模型生成后自评 PASS", "候选生成器与裁判没有独立性", "确定性规则优先由代码检查；语义规则由校准 grader 或具名人工复核"],
+          ["Schema 通过就写业务正确", "Schema 只能证明字段形状", "运行正例、边界、拒答、冲突与 mutation，再记录剩余 Unknown"],
+        ],
+      },
+    },
+    {
+      title: "红—绿—红控制：怎样证明 Prompt Package 不是摆设",
+      body: [
+        "先在批准 Fixture 上运行 baseline，预期所有确定性合同成立并退出 0；再只改变一个变量，例如删除 source_ref、混合 system 与 task、把 Unknown 强改成 PASS，预期独立检查器退出 1 且点名对应 Oracle；最后恢复原合同，预期再次退出 0。这里第二步的红灯不是失败，而是门禁具有检测力的证据。",
+        "课程提供的是离线确定性 0→1→0。它没有调用真实模型，因此只能证明包闭包、Schema 和故障检查可运行。真实模型还必须保存 raw output，按风险切片做正例、反例、边界、对抗、权限与漂移实验；没有这些运行证据时 receipt 必须写 provider=none、model_status=NOT_RUN。",
+      ],
+      table: {
+        headers: ["观察到的症状", "先检查", "停止或修复动作"],
+        rows: [
+          ["输出字段齐全但规则被猜测", "source_ref、Evidence/Inference/Unknown 与业务 Oracle", "保持 BLOCKED，找 owner 补规则，不改 Schema 掩盖问题"],
+          ["同输入每次结论不同", "model/Prompt/Context/采样版本与逐次 raw output", "冻结变量，增加重复运行；样本量由风险与估计目标配置"],
+          ["fault 仍退出 0", "mutation 是否命中独立 Oracle，检查器是否吞异常", "课程门禁视为缺陷；禁止降低 expected 或删除 fault"],
+          ["包迁移后无法重放", "Manifest hash、组合顺序、权限、工具与 receipt", "重新生成版本，不覆盖旧包；无法补证据则标 NOT_RUN"],
+        ],
+      },
+    },
+    {
+      title: "版本、权限和责任：从演示进入真实流程前的最后一关",
+      body: [
+        "每次修改 system、task、input schema、eval、mutation 或 critic 都要产生新版本并重算 hash；不要在同一个 v1 文件上覆盖内容。Receipt 记录实际 provider/model、开始与结束时间、输入与输出引用、检查结果、reviewer、限制和 stop state。若没有真实调用，原始输出字段保持空，不能放入一段手写示例冒充模型结果。",
+        "Prompt 可以辅助需求解析、技术设计解析、风险规划、Oracle/用例/数据生成、自动化候选、执行归因和报告协同，但每个阶段的权威决定不同。产品 owner 裁决业务规则，架构或研发 owner 裁决实现契约，测试 owner 选择方法与独立 Oracle，发布 owner 接受剩余风险。工具能缩短整理时间，不能吞掉这些责任。",
+      ],
+      bullets: ["复制前：确认目标、消费者、来源、隐私和权限", "运行中：保存输入、最终 Context、版本和 raw output", "判定时：生成器与 Oracle 分离，blocker 不被平均分抵消", "迁移后：重跑 mutation 与边界用例，不沿用旧 PASS", "交付时：区分 fixture-tested、model NOT_RUN、live、practitioner 与 production"],
+      expected: "学习者能从一键版过渡到专业组合版，完成一次脱敏输入适配和 0→1→0，并准确说明仍未验证的真实模型与业务结论。",
+    },
+  ];
+  if (pageId === "TD-F03") return [{
+    title: "Prompt 是什么：把一句聊天指令升级成可测试合同",
+    body: [
+      "Prompt 是送给模型的指令与上下文，不是咒语。可复用 Prompt 至少要分清：system 负责角色、权限和不可违背的边界；task 负责本次目标；input/context 提供事实；schema 约束输出；stop state 规定证据不足时怎样停止。",
+      "专业用法不是只复制一段文字，而是一起版本化 Prompt、输入样例、输出 Schema、评价规则、故障变体、适配说明和运行收据。这样换业务、换模型或换版本时，才能知道究竟改了什么。",
+    ],
+    bullets: [
+      "先写目标与下游消费者，再写角色",
+      "输入事实与指令分区，外部内容默认不可信",
+      "要求 Evidence / Inference / Unknown 分栏",
+      "缺版本、权限、Oracle 或关键字段时输出 BLOCKED，而不是补写答案",
+      "固定输入后一次只改一个变量，保留原始输出和 receipt",
+    ],
+    technical: {
+      kind: "prompt",
+      content: "SYSTEM：你是测试需求分析助手，只依据已提供材料。\nTASK：识别可测试行为、边界、依赖与未知项。\nOUTPUT：按 Schema 输出 Evidence / Inference / Unknown；关键证据缺失则 status=BLOCKED。",
+      version: "1.2.0",
+      promptPath: `${PROMPT_KIT_DIRECTORY}/task-v1.md`,
+      manifestPath: `${PROMPT_KIT_DIRECTORY}/manifest.json`,
+      inputFixturePath: `${PROMPT_KIT_DIRECTORY}/input.json`,
+      outputSchemaPath: `${PROMPT_KIT_DIRECTORY}/schema.json`,
+      evaluationPath: `${PROMPT_KIT_DIRECTORY}/eval.json`,
+    },
+    expected: "学习者能解释 Prompt Package 各部分的职责，并能在不改变判断规则的前提下替换一个脱敏业务输入。",
+  }];
+  if (pageId === "TD-F04") return [{
+    title: "RAG 是什么：先找证据，再让模型基于证据回答",
+    body: [
+      "RAG（检索增强生成）先把问题转成检索请求，从版本化语料中找候选片段，再把允许使用的片段连同指令交给大模型生成答案。它不是让模型自动获得真相，而是多了一条可观察的证据链。",
+      "因此必须分两段测：检索段检查语料版本、切块、过滤、召回、排序、权限和无结果；生成段检查声明是否被检索证据支持、引用是否匹配、冲突时是否拒答。只看最终答案会把两类失败混在一起。",
+    ],
+    bullets: [
+      "LLM：依据 Prompt 与 Context 逐 Token 生成候选输出",
+      "RAG：LLM 前增加语料、切块、索引、检索、重排和引用",
+      "Agent：模型可以动态选择下一步或工具，必须增加权限、终止和副作用门禁",
+      "Workflow：路径由代码预先定义，重点测试状态、分支、重试、补偿与终态",
+      "任何层证据不足都保留 UNKNOWN/BLOCKED，不用流畅答案覆盖失败",
+    ],
+    technical: {
+      kind: "diagram",
+      content: "问题 → Query/ACL → Retriever → Reranker → Context → LLM → 原子声明 → 引用/忠实性 Oracle → 回答或拒答",
+      verification: "分别注入检索漏召回与生成无依据两种故障，确认报告能定位到不同阶段。",
+    },
+    expected: "学习者能画出 LLM、RAG、Agent、Workflow 四种边界，并为每层写出输入、失败、证据和停止条件。",
+  }];
+  return [];
+};
+
 const makePage = (spec: FoundationSpec): TutorialPage => {
   const manifestPath = `${WORKING_DIRECTORY}/manifests/${spec.id}.json`;
   const reportRoot = `${WORKING_DIRECTORY}/reports/${spec.id}`;
@@ -51,6 +181,7 @@ const makePage = (spec: FoundationSpec): TutorialPage => {
     outcomes: spec.outcomes,
     artifact: spec.artifact,
     blocks: [
+      ...beginnerConceptBlocks(spec.id),
       {
         title: spec.failureTitle,
         body: spec.failureBody,
@@ -134,14 +265,47 @@ const makePage = (spec: FoundationSpec): TutorialPage => {
       { title: "离线合同检查器", description: "标准库脚本；读取 topic contract，注入故障并保存逐字段证据。", href: `${WORKING_DIRECTORY}/scripts/run_lab.py`, kind: "script", validation: "fixture-tested" },
       { title: `${spec.id} 红灯报告`, description: "保存故障字段、expected/actual、退出结论与剩余未知。", href: `${reportRoot}/fault.json`, kind: "evidence", validation: "fixture-tested" },
       { title: "Prompt/Eval/Mutation 包", description: "绑定 Prompt、Schema、eval、mutation 和 provider=none 的版本 Manifest。", href: `${WORKING_DIRECTORY}/prompt-package/manifest.json`, kind: "config", validation: "static-reviewed" },
-      { title: "下载完整 AI 基础与 Eval 实验包", description: "十一页共用的公开 Fixture、全部 Manifest、报告和运行收据。", href: "materials/ai-foundations-eval.zip", kind: "archive", validation: "fixture-tested" },
+      { title: "下载完整 AI 基础与 Eval 实验包", description: "十二页共用的公开 Fixture、全部 Manifest、报告和运行收据。", href: "materials/ai-foundations-eval.zip", kind: "archive", validation: "fixture-tested" },
+      ...(spec.id === "TD-FP01" ? [
+        { title: "Prompt Package 一键复制版", description: "第一次使用先复制这一份；其中保留输入粘贴区、Evidence/Inference/Unknown 和停止条件。", href: `${PROMPT_KIT_DIRECTORY}/prompt-v1.md`, kind: "guide" as const, validation: "static-reviewed" as const },
+        { title: "Prompt Package 完整 Manifest", description: "固定 system→task→input→critic 组合顺序、版本、权限、限制、11 个工件 SHA-256 和 NOT_RUN 边界。", href: `${PROMPT_KIT_DIRECTORY}/manifest.json`, kind: "config" as const, validation: "static-reviewed" as const },
+        { title: "Prompt Package 适配卡", description: "迁移到新业务时逐项替换目标、来源、责任人、权限和验证方法。", href: `${PROMPT_KIT_DIRECTORY}/adaptation-card.md`, kind: "guide" as const, validation: "static-reviewed" as const },
+        { title: "Prompt Package 预期输出示例", description: "只用于理解结构与 Unknown；不得把示例业务值当成真实项目 Oracle。", href: `${PROMPT_KIT_DIRECTORY}/expected-output.json`, kind: "fixture" as const, validation: "static-reviewed" as const },
+      ] : []),
     ],
   };
 };
 
 const specs: FoundationSpec[] = [
   {
-    id: "TD-F02", title: "模型生命周期：一次错误究竟来自哪里", type: "概念", duration: "45 分钟", prerequisites: ["TD-F01"],
+    id: "TD-FP01", title: "Prompt 小白第一课：从一句指令到可验证 Prompt Package", type: "跟做", duration: "75 分钟", prerequisites: ["TD-F01"],
+    summary: "认识 system、task、context/input、output/schema、eval、mutation、versioning 和 receipt；复制一套完整包，亲手跑出 baseline→fault→repair。",
+    why: "一句看起来聪明的提示词既无法复现，也无法证明有用。测试开发需要把模型的候选生成与业务事实、输出合同、独立 Oracle、故障注入和人工责任分开，才能让 Prompt 真正进入研发测试流程。",
+    outcomes: ["解释 Prompt 七个组成面的职责", "按 system→task→input→critic 顺序复制完整包", "用 Schema/Eval/Mutation 区分结构通过与语义可用", "运行 0→1→0 并保留 NOT_RUN 模型边界"],
+    artifact: "可复制 Prompt Package、适配卡、结构自检与 0/1/0 运行收据",
+    failureTitle: "只说“帮我写测试用例”，为什么会得到漂亮但不可用的答案",
+    failureBody: [
+      "模型不知道当前文档哪个版本有效、谁能裁决冲突、哪些字段不能猜，也不知道输出交给测试计划、自动化还是发布报告。它只能补全一个常见形状，结果往往缺 source_ref、Oracle、owner 与 stop state。",
+      "Prompt 的目标不是让文字更像专家，而是建立可追踪的输入—候选—判定合同。任何关键依据缺失都必须返回 BLOCKED、SOURCE_CONFLICT 或 SEMANTIC_UNKNOWN。",
+    ],
+    mechanismTitle: "七个组成面各管一件事，不能混成一段长话",
+    mechanismBody: ["system 定义角色、权限和不可逾越边界；task 定义本次唯一目标；input/context 提供带 locator 的事实；output/schema 定义机器可检查形状；eval 定义正向、边界与拒答样例；mutation 证明错误会被发现；manifest/receipt 固定版本并诚实记录实际运行。"],
+    mechanismBullets: ["System：你是谁、能做什么、不能替谁决定", "Task：这一次要解决的决策问题和下游消费者", "Input/Context：来源、版本、locator、冲突与隐私边界", "Output/Schema：必填字段、状态枚举、Evidence/Inference/Unknown", "Eval/Mutation：独立 Oracle、负控制、停止状态", "Manifest/Receipt：组合顺序、hash、provider/model、原始输出和成熟度"],
+    decisionTitle: "先冻结判断合同，再允许模型生成候选",
+    decisionBody: ["第一次可复制一键版 prompt-v1.md；专业使用时按 manifest 组合 system-v1.md、task-v1.md、input.json，首轮结果再交 critic-v1.md。Schema 只证明形状，Eval/Mutation 才检查关键错误能否被拒绝。"],
+    decisionBullets: ["输入事实与指令分区，外部内容默认不可信", "同一轮只改变一个主要变量", "Critic 不得重写权威规则或把 Unknown 归零", "业务规则与发布决定始终由具名 owner 负责"],
+    metricTitle: "Prompt 质量先看闭包和检测力，不看文采",
+    metricBody: ["检查包内角色是否分离、必需工件是否齐全、关键声明能否回链、stop state 是否保留，以及 fault 是否真正令独立检查器失败。固定百分比或分数不在本页充当通用阈值。"],
+    metricBullets: ["闭包：system/task/input/critic/schema/eval/mutation/manifest/receipt", "追踪：关键主张携带 source_ref", "安全：越权和缺证据进入 stop state", "检测力：baseline/fault/repair 为 0/1/0", "成熟度：无模型原始输出时 model_status=NOT_RUN"],
+    faultExpected: "`roles_separated=false` 触发 FAIL，证明把 system、task、input、critic 混成一个提示词不满足可审计包合同",
+    practice: ["复制 TD-P02 一键版到一个通用 AI Agent，但只使用脱敏 Fixture", "再按 manifest 的四步组合顺序完成一次专业调用演练", "故意删除 source_ref 或把 Unknown 改成 PASS，确认 Schema/Eval/人工复核能发现", "填写 adaptation-card 后迁移到一个新的需求片段"],
+    completion: ["能用白话说清七个组成面", "能找到完整包每个文件及其用途", "完成 0/1/0 离线负控制", "不把静态包或 Fixture PASS 写成真实模型效果"],
+    sources: ["S65", "S66", "S81"],
+    boundary: "完整 Prompt Package、Schema 和 deterministic fixture 可直接复核；provider=none、真实模型输出、学习者理解、企业集成、从业者认可和生产效果均为 NOT_RUN。",
+    architecture: ["业务决策问题", "System 权限", "Task 目标", "Input·Context 证据", "Output·Schema", "Eval·Mutation Oracle", "Manifest·Receipt", "人工 Owner"],
+  },
+  {
+    id: "TD-F02", title: "模型生命周期：一次错误究竟来自哪里", type: "概念", duration: "45 分钟", prerequisites: ["TD-FP01"],
     summary: "从数据、预训练、后训练、评测、部署、推理到监控，建立测试开发能够使用的责任图和版本 Manifest。",
     why: "回答错误不等于基础模型错误。模型快照、Prompt、上下文、工具、索引或部署任一变化都可能产生同一症状；归因错误会让修复既昂贵又不可验证。",
     outcomes: ["区分训练期能力与本次推理配置", "为模型、Prompt、数据、工具和环境固定版本", "根据 Trace 把失败定位到可行动的生命周期层"],
@@ -157,7 +321,7 @@ const specs: FoundationSpec[] = [
     faultExpected: "`model_version_pinned=false` 导致 FAIL，证明浮动别名不能支撑可重复回归",
     practice: ["为熟悉的 AI 功能画七阶段责任图", "给一次历史失败补齐可见版本字段并标出仍未知项", "设计只更换 Prompt、不更换模型和数据的单变量比较"],
     completion: ["能区分训练阶段与本次推理条件", "Manifest 覆盖模型、Prompt、数据、工具和 Scorer", "无法固定的依赖被明确写入限制"],
-    sources: ["S33", "S24", "S65", "S66"], boundary: "页面与 Fixture 只证明生命周期字段和版本 Gate 可检查；没有访问基础模型训练过程、真实 Provider、企业监控或从业者发布评审。",
+    sources: ["S33", "S24", "S65", "S66"], boundary: "本页只做静态字段与离线 Fixture 检查；真实 provider/model、训练与企业 integration 未运行，practitioner 复核、learner 理解观察、live、production 和 publication 均为 NOT_RUN。",
     architecture: ["来源与训练边界", "模型快照", "Prompt·Context", "应用编排", "工具·检索", "Trace 报告", "人工发布 Gate"],
   },
   {
@@ -182,7 +346,7 @@ const specs: FoundationSpec[] = [
     decisionTitle: "用独立 Verifier 检查业务终态", decisionBody: ["模型可以提出动作，不能自行批准不可逆动作。工具边界执行权限，业务状态由独立 Verifier 读取；失败时保留轨迹并进入补偿或人工升级。"], decisionBullets: ["输出正确不抵消危险步骤", "允许多条安全路径但禁止特定副作用", "终止条件与最大步数显式化", "Handoff 传递必要状态与责任"],
     metricTitle: "Trace 覆盖率先于总分", metricBody: ["检查关键节点是否有输入、输出、版本、拒绝原因和 owner。高风险动作的人工 Gate 前置率必须逐动作计算，不能由最终任务成功率抵消。"], metricBullets: ["分母：所有高风险动作尝试", "分子：执行前通过批准或策略拒绝", "维度：工具、身份、状态、重试", "失败动作：隔离副作用并升级"], faultExpected: "`human_gate_before_side_effect=false` 触发 FAIL，即使最终文本可接受也不能放行",
     practice: ["把一个客服功能分别画成 LLM、RAG、Agent 和 Workflow", "给每层补三项 Trace 字段", "为退款动作设计权限、人工确认与幂等补偿"], completion: ["不再按营销名称识别 Agent", "图中包含状态、工具、Handoff 与终态", "不可逆动作有独立 Gate"],
-    sources: ["S34", "S35", "S39", "S65"], boundary: "结构模型来自公开论文与工程综合；本页 Fixture 没有连接真实工具、队列或业务数据库，不能证明任何框架的副作用防护已生效。", architecture: ["用户目标", "检索·Context", "模型决策", "工具策略 Gate", "Worker·队列", "业务状态 Verifier", "人工升级·补偿"],
+    sources: ["S34", "S35", "S39", "S65"], boundary: "本页只做结构静态分析与离线 Fixture；真实 provider/model、工具/队列/数据库 integration 未运行，practitioner 复核、learner 理解观察、live、production 和 publication 均为 NOT_RUN。", architecture: ["用户目标", "检索·Context", "模型决策", "工具策略 Gate", "Worker·队列", "业务状态 Verifier", "人工升级·补偿"],
   },
   {
     id: "TD-T01", title: "Eval Contract：先写发布问题，再选指标", type: "参考", duration: "55 分钟", prerequisites: ["TD-F04"],
@@ -206,7 +370,7 @@ const specs: FoundationSpec[] = [
     decisionTitle: "开发集可见，Holdout 受控", decisionBody: ["开发集用于快速迭代；验证集用于阶段比较；sealed holdout 只在候选冻结后由受控流程运行。重复或近重复样例跨集合出现时先修分割。"], decisionBullets: ["先按用户/文档/时间分组再拆分", "记录 Holdout 访问与修改", "标签冲突进入人工 adjudication", "生产新失败先脱敏再入回归"],
     metricTitle: "总样例数不是覆盖率", metricBody: ["切片覆盖率按风险切片计算，重复率按语义/来源近重复计算，标签分歧率按独立标注比较。没有生产分布时，不能把合成比例解释为真实发生率。"], metricBullets: ["分母：声明的风险切片", "维度：用户、时间、语言、权限", "blocker：Holdout 泄漏或高风险空切片", "失败动作：重建 split 并作废旧比较"], faultExpected: "`holdout_sealed=false` 触发 FAIL，阻止用被反复查看的集合做最终证明",
     practice: ["把 12 条样例分成至少 5 个风险切片", "用 source/group/time 规则去重后再划分", "让第二位标注者独立判断高风险 case"], completion: ["每条 case 有来源、slice、Oracle 和 owner", "development 与 holdout 权限分离", "重复和分歧有机器记录"],
-    sources: ["S23", "S24", "S37", "S65"], boundary: "数据拆分原则来自公开资料；课程数据完全合成，未证明与任何生产流量同分布，也没有测量真实领域标注一致性。", architecture: ["失败与风险池", "采样/去重", "Development set", "Validation set", "Sealed Holdout", "切片报告", "Owner adjudication"],
+    sources: ["S23", "S24", "S37", "S65"], boundary: "本页只用合成数据做静态拆分与 Fixture 检查；真实 provider/model、数据集 integration 未运行，practitioner 复核、learner 理解观察、live、production 和 publication 均为 NOT_RUN。", architecture: ["失败与风险池", "采样/去重", "Development set", "Validation set", "Sealed Holdout", "切片报告", "Owner adjudication"],
   },
   {
     id: "TD-T03", title: "Composite Oracle：规则、语义 Judge 与人工如何组合", type: "概念", duration: "60 分钟", prerequisites: ["TD-T02"],
@@ -242,7 +406,7 @@ const specs: FoundationSpec[] = [
     decisionTitle: "准入 Gate 发生在 embedding 之前", decisionBody: ["没有 owner、版本或权限的文档不进入当前索引；冲突政策等待权威决定；过期文档可保留审计但不进入 current view。"], decisionBullets: ["source conflict 不由模型裁决", "ACL 随 chunk 进入检索过滤", "索引版本能重建文档集合", "删除需要可验证 tombstone/重建"],
     metricTitle: "语料质量需要可行动指标", metricBody: ["报告来源覆盖率、过期 chunk 数、孤儿 chunk、ACL 缺失、冲突未决和删除传播延迟。平均 chunk 长度只描述实现，不代表业务正确。"], metricBullets: ["分母：声明进入 current index 的文档/chunk", "维度：来源、版本、租户、时间", "blocker：过期/冲突/ACL 缺失", "失败动作：隔离并重建索引"], faultExpected: "`effective_date_checked=false` 触发 FAIL，对应旧政策进入索引的准入缺陷",
     practice: ["为三份合成政策建立 source authority 表", "把文档分块并保留 section pointer 与 ACL", "注入过期文档并证明准入 Gate 变红"], completion: ["chunk 可回链到版本化原文", "current index 不含过期/冲突来源", "ACL 与删除规则可验证"],
-    sources: ["S34", "S09", "S65", "S24"], boundary: "Fixture 只检查语料准入字段；未连接文档库、OCR、embedding、向量数据库或企业 ACL，不能证明真实索引治理已完成。", architecture: ["权威文档源", "版本/冲突 Gate", "分块与 metadata", "ACL 过滤", "版本化索引", "检索 Trace", "语料 owner"],
+    sources: ["S34", "S09", "S65", "S24"], boundary: "本页只检查合成语料准入字段与静态 lineage；真实 provider/model、文档库/OCR/embedding/向量库/ACL integration 未运行，practitioner 复核、learner 理解观察、live、production 和 publication 均为 NOT_RUN。", architecture: ["权威文档源", "版本/冲突 Gate", "分块与 metadata", "ACL 过滤", "版本化索引", "检索 Trace", "语料 owner"],
   },
   {
     id: "TD-T10", title: "检索评测：Recall、Ranking 与查询切片", type: "诊断", duration: "65 分钟", prerequisites: ["TD-T09"],
@@ -278,11 +442,11 @@ const specs: FoundationSpec[] = [
     decisionTitle: "停止是一种正确结果", decisionBody: ["SOURCE_CONFLICT、SEMANTIC_UNKNOWN、权限不明和证据不足不应被归一成空成功。系统明确拒答或升级，比生成一个无法支持的答案更符合质量合同。"], decisionBullets: ["no-answer case 单独标注", "拒答也要检查帮助性与 Handoff", "工具权限在模型之外执行", "waiver 有 owner、范围、到期和补偿控制"],
     metricTitle: "项目评分先看 blocker，再看连续质量", metricBody: ["正确拒答率、ACL deny、zero side-effect 和 Handoff 完整率是独立 Gate。只有 blocker 为零后，才比较回答完整性、延迟与成本。"], metricBullets: ["blocker：跨租户、泄露、未授权写入", "切片：known/no-answer/conflict/injection", "证据：Trace、doc IDs、policy reason、state", "失败动作：隔离、转人工、回滚 manifest"], faultExpected: "`acl_denied=false` 触发 FAIL，证明无答案不能通过扩大权限来“修复”",
     practice: ["运行 TD-T09 至 TD-T12 的四组故障链", "增加一个间接 Prompt injection 合成 case", "把退款场景迁移到内部事故助手并替换证据/权限模型"], completion: ["known 与 no-answer 都有明确期望", "跨租户与副作用 blocker 被杀死", "项目报告保留 0/1/0、unknown 和人工 Gate"],
-    sources: ["S07", "S08", "S09", "S65"], boundary: "项目只运行无凭证的合成 Fixture；没有真实租户身份、向量库、模型、工具副作用、人工 SLA 或安全渗透测试，不能标 live/practitioner/production。", architecture: ["Versioned corpus", "Tenant ACL", "Retriever/no-result", "Generator", "Faithfulness·Citation", "Side-effect policy", "Handoff·Human Gate"],
+    sources: ["S07", "S08", "S09", "S65"], boundary: "项目只运行无凭证的合成 Fixture 与静态 Gate；真实 provider/model、租户/向量库/工具 integration 未运行，practitioner 复核、learner 理解观察、live、production 和 publication 均为 NOT_RUN，不能升级成熟度。", architecture: ["Versioned corpus", "Tenant ACL", "Retriever/no-result", "Generator", "Faithfulness·Citation", "Side-effect policy", "Handoff·Human Gate"],
   },
 ];
 
 export const aiQualityFoundationPages: TutorialPage[] = (specs.map(makePage)).map((page): TutorialPage => ({
   ...page,
-  blocks: composeDeepPage(page.blocks, aiFoundationsDeepBlocks(page.id), ragQualityDeepBlocks(page.id)),
+  blocks: [...composeDeepPage(page.blocks, aiFoundationsDeepBlocks(page.id), ragQualityDeepBlocks(page.id)), ...wave2FoundationRepairBlocks(page.id)],
 }));
