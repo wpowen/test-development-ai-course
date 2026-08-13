@@ -49,6 +49,13 @@ test("static GitHub Pages export contains the professional curriculum", () => {
   assert.match(html, /"technicalPresentation":\{"kind":"prompt"/);
   assert.match(html, /复制使用/);
   assert.match(html, /不可复制/);
+  assert.match(html, /<details class=materials><summary>/);
+  assert.doesNotMatch(html, /<details class=materials open>/);
+  assert.doesNotMatch(html, /<section class=evidence>|>证据与边界</);
+  assert.ok(
+    html.indexOf("<section class=complete>") < html.indexOf("<details class=materials><summary>"),
+    "静态站点的随课物料必须位于完成检查之后",
+  );
   assert.match(html, /technicalPresentation\.content/);
   assert.doesNotMatch(html, /clipboard\.writeText\(p\.blocks\[Number\(b\.dataset\.copy\)\]\.code\)/);
 });

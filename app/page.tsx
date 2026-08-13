@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { firstUsablePath, getTechnicalBlockPresentation, pages, publicModules, sourceNotes } from "../content/course";
+import { firstUsablePath, getTechnicalBlockPresentation, pages, publicModules } from "../content/course";
 import { DesignView, GlossaryView } from "./reference-views";
 
 const statusLabel = (status: string) => status === "fixture-tested" ? "实验已跑" : "资料已审";
@@ -188,16 +188,6 @@ export default function Home() {
             {!current.architecture.visual && <p>{current.architecture.caption}</p>}
           </section>}
 
-          {current.materials && current.materials.length > 0 && <section className="materials-card">
-            <div><p className="eyebrow">随课物料</p><h2>页面里提到的脚本和配置，都在这里</h2></div>
-            <div className="material-grid">{current.materials.map((material) => <a href={material.href} key={material.href} target="_blank" rel="noreferrer">
-              <span>{material.kind} · {material.validation === "fixture-tested" ? "已跑夹具" : "静态复核"}</span>
-              <b>{material.title}</b>
-              <p>{material.description}</p>
-              <i>打开物料 →</i>
-            </a>)}</div>
-          </section>}
-
               {current.prerequisites.length > 0 && <section className="prerequisites"><b>前置页面</b>{current.prerequisites.map((id) => {
                 const page = pages.find((item) => item.id === id);
                 return <button key={id} onClick={() => setHash(id)}>{id} · {page?.title}</button>;
@@ -238,11 +228,18 @@ export default function Home() {
                 <button className={completed.includes(current.id) ? "completed" : ""} onClick={toggleComplete}>{completed.includes(current.id) ? "✓ 已标记完成" : "标记本页完成"}</button>
               </section>
 
-          <section className="evidence-card">
-            <h2>证据与边界</h2>
-            <p>{current.evidenceBoundary}</p>
-            <div className="sources">{current.sourceIds.map((id) => sourceNotes[id] && <a key={id} href={sourceNotes[id].url} target="_blank" rel="noreferrer"><b>{id}</b>{sourceNotes[id].title}</a>)}</div>
-          </section>
+              {current.materials && current.materials.length > 0 && <details className="materials-card">
+                <summary>
+                  <span><span className="eyebrow">随课物料</span><b>需要时再展开下载</b></span>
+                  <small>{current.materials.length} 项物料</small>
+                </summary>
+                <div className="material-grid">{current.materials.map((material) => <a href={material.href} key={material.href} target="_blank" rel="noreferrer">
+                  <span>{material.kind} · {material.validation === "fixture-tested" ? "已跑夹具" : "静态复核"}</span>
+                  <b>{material.title}</b>
+                  <p>{material.description}</p>
+                  <i>打开 / 下载物料 →</i>
+                </a>)}</div>
+              </details>}
 
           <nav className="page-nav">
             {previous ? <button onClick={() => setHash(previous.id)}><small>← 上一页</small><b>{previous.title}</b></button> : <span />}
