@@ -28,7 +28,10 @@ test("static GitHub Pages export contains the professional curriculum", () => {
   }
   assert.match(html, /专业主路径已完成/);
   assert.match(html, /localStorage/);
-  assert.match(html, /搜索需求、执行证据、TTFT/);
+  assert.match(html, /输入需求、执行证据、TTFT/);
+  assert.match(html, />搜索课程</);
+  assert.match(html, /https:\/\/github\.com\/wpowen\/test-development-ai-tutorial/);
+  assert.match(html, /GitHub Star/);
   assert.equal((html.match(/"moduleId":"TD-/g) ?? []).length, releaseScope.promisedPageIds.length);
   assert.match(html, new RegExp(`"validatedAt":"${releaseScope.validatedAt}"`));
   assert.match(html, /DATA\.releaseScope\.validatedAt/);

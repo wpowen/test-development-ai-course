@@ -5,6 +5,7 @@ import { firstUsablePath, getTechnicalBlockPresentation, pages, publicModules } 
 import { DesignView, GlossaryView } from "./reference-views";
 
 const statusLabel = (status: string) => status === "fixture-tested" ? "实验已跑" : "资料已审";
+const GITHUB_REPOSITORY_URL = "https://github.com/wpowen/test-development-ai-tutorial";
 
 /**
  * 术语表与设计思路不是课程页面：它们不在 102 页的交付清单里，也不参与页面深度门禁。
@@ -107,6 +108,15 @@ export default function Home() {
         >
           <span aria-hidden="true">{navCollapsed ? "»" : "«"}</span>
         </button>
+        <a
+          className="github-star"
+          href={GITHUB_REPOSITORY_URL}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="前往 GitHub 为测试开发 AI 教程点 Star"
+        >
+          <span aria-hidden="true">★</span><b>GitHub Star</b><small>支持项目</small>
+        </a>
         <div className="top-progress">
           <span>专业主路径已完成 {completed.filter((id) => firstUsablePath.includes(id)).length}/{firstUsablePath.length}</span>
           <div><i style={{ width: `${(completed.filter((id) => firstUsablePath.includes(id)).length / firstUsablePath.length) * 100}%` }} /></div>
@@ -120,10 +130,13 @@ export default function Home() {
           <p>这里只展示已经完成逐题研究、正文、实操和验证门禁的内容。内部研究路线图不会混入公开课程。</p>
           <div className="summary-stats"><span><b>{pages.length}</b> 可学习页面</span><span><b>{publicModules.length}</b> 已交付模块</span></div>
         </div>
-        <label className="search-box">
-          <span>⌕</span>
-          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索 RAG、Agent、CI…" />
-        </label>
+        <div className="course-search">
+          <label htmlFor="course-search-input">搜索课程</label>
+          <div className="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input id="course-search-input" aria-label="搜索课程" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="输入 RAG、Agent、CI…" />
+          </div>
+        </div>
         <nav className="reference-nav" aria-label="参考">
           <button className={view === "glossary" ? "active" : ""} onClick={() => setHash("glossary")}>
             <b>术语表</b><small>336 条 · 不懂的词先查这里</small>
