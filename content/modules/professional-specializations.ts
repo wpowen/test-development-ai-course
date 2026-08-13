@@ -1,5 +1,6 @@
 import type { TutorialBlock, TutorialPage } from "../course.ts";
 import { professionalSpecializationsDeepBlocks } from "./professional-specializations-deep.ts";
+import { composeDeepPage } from "./deep-layer.ts";
 
 const apiExecutableMaterials: NonNullable<TutorialPage["materials"]> = [
   { title: "API 专项完整实验包", description: "离线脚本、OpenAPI、事件夹具、配置、指南与红绿报告。", href: "materials/api-ai-automation.zip", kind: "archive", validation: "fixture-tested" },
@@ -244,5 +245,5 @@ export const professionalSpecializationPages: TutorialPage[] = ([
   },
 ] satisfies TutorialPage[]).map((page): TutorialPage => ({
   ...page,
-  blocks: [...page.blocks, ...professionalSpecializationsDeepBlocks(page.id)],
+  blocks: composeDeepPage(page.blocks, professionalSpecializationsDeepBlocks(page.id)),
 }));

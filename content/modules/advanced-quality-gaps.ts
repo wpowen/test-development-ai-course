@@ -1,5 +1,6 @@
 import type { TutorialPage } from "../course.ts";
 import { professionalSpecializationsDeepBlocks } from "./professional-specializations-deep.ts";
+import { composeDeepPage } from "./deep-layer.ts";
 import { qualitySystemDeepBlocks } from "./quality-system-deep.ts";
 import { ragQualityDeepBlocks } from "./rag-quality-deep.ts";
 import { agentWorkflowDeepBlocks } from "./agent-workflow-deep.ts";
@@ -329,5 +330,5 @@ const specs: GapSpec[] = [
 export const advancedQualityGapPageIds = specs.map((spec) => spec.id);
 export const advancedQualityGapPages: TutorialPage[] = specs.map(makePage).map((page): TutorialPage => ({
   ...page,
-  blocks: [...page.blocks, ...agentWorkflowDeepBlocks(page.id), ...ragQualityDeepBlocks(page.id), ...qualitySystemDeepBlocks(page.id), ...professionalSpecializationsDeepBlocks(page.id)],
+  blocks: composeDeepPage(page.blocks, agentWorkflowDeepBlocks(page.id), ragQualityDeepBlocks(page.id), qualitySystemDeepBlocks(page.id), professionalSpecializationsDeepBlocks(page.id)),
 }));

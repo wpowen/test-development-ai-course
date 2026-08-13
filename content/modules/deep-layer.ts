@@ -108,63 +108,100 @@ const renderGate = (gate: NonNullable<DeepPageContent["gate"]>): TutorialBlock =
   },
 });
 
-export const renderDeepBlocks = (content: DeepPageContent): TutorialBlock[] => [
-  ...(content.failure
-    ? [{
-        title: content.failure.title,
-        body: [content.failure.intro[0], content.failure.intro[1]],
-        table: content.failure.table,
-      }]
-    : []),
-  {
-    title: content.terms.title,
-    body: [content.terms.intro],
-    table: {
-      headers: ["术语", "一句话解释"],
-      rows: content.terms.rows.map((row) => [...row]),
-      caption: "更完整的中英对照与易混辨析见方法论 02 术语表；这里只收本页判断真正依赖的几个。",
+/**
+ * 深度层分成 head 与 tail 两截，中间留给页面自身的块（实验 Manifest、Prompt 包、
+ * 可运行命令等物料）。
+ *
+ * 早期版本把深度层整体追加在页面块之后，结果是：架构图卡片渲染在全部正文之前，
+ * 而解释这张图的 `archref` 落在第 9 块，中间隔着六块别的内容——图和它的说明被拆散，
+ * 读者依旧把图当插图。同样，`failure` 回答的是「这一页为什么存在」，出现在页面中部
+ * 时这个问题已经不必回答了。
+ *
+ * 现在的顺序是：
+ *   head  失效点 → 术语 → 架构索引 → 方法判断表 → 指标卡
+ *   （页面自身的物料、Prompt、命令、实验说明）
+ *   tail  反例 → 诊断树 → 演练 → 三段式门禁 → 带走物
+ */
+export type DeepBlocks = { head: TutorialBlock[]; tail: TutorialBlock[] };
+
+export const EMPTY_DEEP_BLOCKS: DeepBlocks = { head: [], tail: [] };
+
+export const renderDeepBlocks = (content: DeepPageContent): DeepBlocks => ({
+  head: [
+    ...(content.failure
+      ? [{
+          title: content.failure.title,
+          body: [content.failure.intro[0], content.failure.intro[1]],
+          table: content.failure.table,
+        }]
+      : []),
+    {
+      title: content.terms.title,
+      body: [content.terms.intro],
+      table: {
+        headers: ["术语", "一句话解释"],
+        rows: content.terms.rows.map((row) => [...row]),
+        caption: "更完整的中英对照与易混辨析见方法论 02 术语表；这里只收本页判断真正依赖的几个。",
+      },
     },
-  },
-  ...(content.archref
-    ? [{
-        title: content.archref.title,
-        body: [content.archref.intro[0], content.archref.intro[1]],
-        table: content.archref.table,
-      }]
-    : []),
-  {
-    title: content.method.title,
-    body: [content.method.intro[0], content.method.intro[1]],
-    table: content.method.table,
-  },
-  ...(content.metrics
-    ? [{
-        title: content.metrics.title,
-        body: [content.metrics.intro[0], content.metrics.intro[1]],
-        table: content.metrics.table,
-      }]
-    : []),
-  {
-    title: content.counter.title,
-    body: [content.counter.intro[0], content.counter.intro[1]],
-    table: content.counter.table,
-  },
-  {
-    title: content.diagnosis.title,
-    body: [content.diagnosis.intro[0], content.diagnosis.intro[1]],
-    table: content.diagnosis.table,
-  },
-  {
-    title: content.drill.title,
-    body: [content.drill.intro],
-    bullets: content.drill.steps,
-    expected: content.drill.expected,
-    ...(content.drill.warning ? { warning: content.drill.warning } : {}),
-  },
-  ...(content.gate ? [renderGate(content.gate)] : []),
-  {
-    title: content.takeaway.title,
-    body: [content.takeaway.note[0], content.takeaway.note[1]],
-    bullets: content.takeaway.bullets,
-  },
+    ...(content.archref
+      ? [{
+          title: content.archref.title,
+          body: [content.archref.intro[0], content.archref.intro[1]],
+          table: content.archref.table,
+        }]
+      : []),
+    {
+      title: content.method.title,
+      body: [content.method.intro[0], content.method.intro[1]],
+      table: content.method.table,
+    },
+    ...(content.metrics
+      ? [{
+          title: content.metrics.title,
+          body: [content.metrics.intro[0], content.metrics.intro[1]],
+          table: content.metrics.table,
+        }]
+      : []),
+  ],
+  tail: [
+    {
+      title: content.counter.title,
+      body: [content.counter.intro[0], content.counter.intro[1]],
+      table: content.counter.table,
+    },
+    {
+      title: content.diagnosis.title,
+      body: [content.diagnosis.intro[0], content.diagnosis.intro[1]],
+      table: content.diagnosis.table,
+    },
+    {
+      title: content.drill.title,
+      body: [content.drill.intro],
+      bullets: content.drill.steps,
+      expected: content.drill.expected,
+      ...(content.drill.warning ? { warning: content.drill.warning } : {}),
+    },
+    ...(content.gate ? [renderGate(content.gate)] : []),
+    {
+      title: content.takeaway.title,
+      body: [content.takeaway.note[0], content.takeaway.note[1]],
+      bullets: content.takeaway.bullets,
+    },
+  ],
+});
+
+/**
+ * 把页面自身的块夹在深度层的 head 与 tail 之间。
+ *
+ * 一个模块文件通常托管来自多个内容源的页面，因此这里接受任意多个解析结果；
+ * 对某一页而言只有一个是非空的，其余返回 EMPTY_DEEP_BLOCKS。
+ */
+export const composeDeepPage = (
+  pageBlocks: TutorialBlock[],
+  ...deep: DeepBlocks[]
+): TutorialBlock[] => [
+  ...deep.flatMap((item) => item.head),
+  ...pageBlocks,
+  ...deep.flatMap((item) => item.tail),
 ];

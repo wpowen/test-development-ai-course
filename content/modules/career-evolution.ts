@@ -1,5 +1,6 @@
 import type { TutorialBlock, TutorialPage } from "../course.ts";
 import { careerEvolutionDeepBlocks } from "./career-evolution-deep.ts";
+import { composeDeepPage } from "./deep-layer.ts";
 
 type CareerPageId = "TD-C02" | "TD-C03" | "TD-C04" | "TD-F05" | "TD-T26" | "TD-R01";
 
@@ -220,7 +221,7 @@ export const careerEvolutionPages = (contracts.map((page) => ({
   ],
 })) satisfies TutorialPage[]).map((page): TutorialPage => ({
   ...page,
-  blocks: [...page.blocks, ...careerEvolutionDeepBlocks(page.id)],
+  blocks: composeDeepPage(page.blocks, careerEvolutionDeepBlocks(page.id)),
 }));
 
 export const careerEvolutionPageIds = new Set(careerEvolutionPages.map((page) => page.id));

@@ -1,5 +1,4 @@
-import type { TutorialBlock } from "../course.ts";
-import { renderDeepBlocks, type DeepPageContent } from "./deep-layer.ts";
+import { EMPTY_DEEP_BLOCKS, renderDeepBlocks, type DeepBlocks, type DeepPageContent } from "./deep-layer.ts";
 
 /**
  * TD-M05「建设 AI 质量系统」深度层。
@@ -2414,7 +2413,7 @@ const content: Record<string, DeepPageContent> = {
   }
 };
 
-export const qualitySystemDeepBlocks = (pageId: string): TutorialBlock[] => {
+export const qualitySystemDeepBlocks = (pageId: string): DeepBlocks => {
   const page = content[pageId];
-  return page ? renderDeepBlocks(page) : [];
+  return page ? renderDeepBlocks(page) : EMPTY_DEEP_BLOCKS;
 };

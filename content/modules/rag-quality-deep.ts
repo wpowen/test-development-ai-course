@@ -1,5 +1,4 @@
-import type { TutorialBlock } from "../course.ts";
-import { renderDeepBlocks, type DeepPageContent } from "./deep-layer.ts";
+import { EMPTY_DEEP_BLOCKS, renderDeepBlocks, type DeepBlocks, type DeepPageContent } from "./deep-layer.ts";
 
 /**
  * TD-M03「测试 LLM 和 RAG」深度层。
@@ -2377,7 +2376,7 @@ const content: Record<string, DeepPageContent> = {
   }
 };
 
-export const ragQualityDeepBlocks = (pageId: string): TutorialBlock[] => {
+export const ragQualityDeepBlocks = (pageId: string): DeepBlocks => {
   const page = content[pageId];
-  return page ? renderDeepBlocks(page) : [];
+  return page ? renderDeepBlocks(page) : EMPTY_DEEP_BLOCKS;
 };

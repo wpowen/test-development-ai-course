@@ -1,5 +1,6 @@
 import type { TutorialPage } from "../course.ts";
 import { qualitySystemDeepBlocks } from "./quality-system-deep.ts";
+import { composeDeepPage } from "./deep-layer.ts";
 
 export type QualityBenchmarkSpec = {
   id: string;
@@ -208,5 +209,5 @@ const specs: QualityBenchmarkSpec[] = [
 
 export const qualitySystemPages: TutorialPage[] = (specs.map(buildQualityBenchmarkPage) satisfies TutorialPage[]).map((page): TutorialPage => ({
   ...page,
-  blocks: [...page.blocks, ...qualitySystemDeepBlocks(page.id)],
+  blocks: composeDeepPage(page.blocks, qualitySystemDeepBlocks(page.id)),
 }));

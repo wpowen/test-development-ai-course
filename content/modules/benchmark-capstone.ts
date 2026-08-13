@@ -1,5 +1,6 @@
 import { buildQualityBenchmarkPage, type QualityBenchmarkSpec } from "./quality-system.ts";
 import { qualityPlatformDeepBlocks } from "./quality-platform-deep.ts";
+import { composeDeepPage } from "./deep-layer.ts";
 import { benchmarkDeepBlocks } from "./benchmark-deep.ts";
 
 const specs: QualityBenchmarkSpec[] = [
@@ -112,5 +113,5 @@ const specs: QualityBenchmarkSpec[] = [
 
 export const benchmarkCapstonePages = specs.map(buildQualityBenchmarkPage).map((page) => ({
   ...page,
-  blocks: [...page.blocks, ...benchmarkDeepBlocks(page.id), ...qualityPlatformDeepBlocks(page.id)],
+  blocks: composeDeepPage(page.blocks, benchmarkDeepBlocks(page.id), qualityPlatformDeepBlocks(page.id)),
 }));

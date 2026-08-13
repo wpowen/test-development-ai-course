@@ -1,5 +1,6 @@
 import type { TutorialPage } from "../course.ts";
 import { qualityPlatformDeepBlocks } from "./quality-platform-deep.ts";
+import { composeDeepPage } from "./deep-layer.ts";
 
 type QualityPlatformPageId = "TD-QP01" | "TD-QP02" | "TD-QP03" | "TD-QP04";
 
@@ -312,5 +313,5 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = ([
   },
 ] satisfies TutorialPage[]).map((page): TutorialPage => ({
   ...page,
-  blocks: [...page.blocks, ...qualityPlatformDeepBlocks(page.id)],
+  blocks: composeDeepPage(page.blocks, qualityPlatformDeepBlocks(page.id)),
 }));

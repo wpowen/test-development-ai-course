@@ -1,5 +1,6 @@
 import type { TutorialBlock, TutorialPage } from "../course.ts";
 import { aiServingDeepBlocks } from "./ai-serving-deep.ts";
+import { composeDeepPage } from "./deep-layer.ts";
 import { careerEvolutionDeepBlocks } from "./career-evolution-deep.ts";
 
 type ServingPageId = "TD-A01" | "TD-A02" | "TD-A03" | "TD-A04" | "TD-A05" | "TD-A06" | "TD-C01";
@@ -198,5 +199,5 @@ export const aiServingCareerPages: TutorialPage[] = (contracts.map((page) => ({
   ],
 })) satisfies TutorialPage[]).map((page): TutorialPage => ({
   ...page,
-  blocks: [...page.blocks, ...careerEvolutionDeepBlocks(page.id), ...aiServingDeepBlocks(page.id)],
+  blocks: composeDeepPage(page.blocks, careerEvolutionDeepBlocks(page.id), aiServingDeepBlocks(page.id)),
 }));

@@ -1,10 +1,11 @@
 import type { TutorialPage } from "../course.ts";
 import { agentPerformanceDeepBlocks } from "./agent-performance-deep.ts";
+import { composeDeepPage } from "./deep-layer.ts";
 
 /** 在共享实验材料之外，为每页追加逐页不同的深度块（术语、判断表、反例、诊断树、演练、带走物）。 */
 const withDeepLayer = (page: TutorialPage): TutorialPage => ({
   ...page,
-  blocks: [...page.blocks, ...agentPerformanceDeepBlocks(page.id)],
+  blocks: composeDeepPage(page.blocks, agentPerformanceDeepBlocks(page.id)),
 });
 
 const appendExecutedLabMaterial = (page: TutorialPage): TutorialPage => ({
