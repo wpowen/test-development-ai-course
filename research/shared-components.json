@@ -1,0 +1,572 @@
+{
+ "schema_version": "shared-components.v1",
+ "contract": "career-ai-course-factory/references/page-depth-and-projection-fidelity-contract.md#3",
+ "purpose": "显式声明允许跨页逐字复用的脚手架句。未在此声明的重复句一律计入模块内句级重复率。",
+ "review": {
+  "reviewer": "course-lane",
+  "reviewed_at": "2026-08-12",
+  "rule": "只有元数据、授权声明、证据边界、操作约定可以进入本表；任何承载页面特有判断的句子不得声明为共享。"
+ },
+ "components": [
+  {
+   "id": "SC-01",
+   "category": "evidence-boundary",
+   "sentence": "真实AIprovider/model执行仍为NOT_RUN，不能据此声称模型准确、企业可用或生产通过",
+   "rationale": "成熟度边界声明必须逐字一致。改写会让不同页面对同一条 NOT_RUN 事实产生不同表述，是本项目明令禁止的越界风险。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-02",
+   "category": "evidence-boundary",
+   "sentence": "真实模型、企业系统、生产凭证和从业者结论均NOT_RUN",
+   "rationale": "成熟度边界声明必须逐字一致。改写会让不同页面对同一条 NOT_RUN 事实产生不同表述，是本项目明令禁止的越界风险。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-03",
+   "category": "evidence-boundary",
+   "sentence": "本包已通过静态合同和离线负控制",
+   "rationale": "成熟度边界声明必须逐字一致。改写会让不同页面对同一条 NOT_RUN 事实产生不同表述，是本项目明令禁止的越界风险。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-04",
+   "category": "evidence-boundary",
+   "sentence": "真实模型/集成/从业者/学习者证据单独运行",
+   "rationale": "成熟度边界声明必须逐字一致。改写会让不同页面对同一条 NOT_RUN 事实产生不同表述，是本项目明令禁止的越界风险。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-05",
+   "category": "evidence-boundary",
+   "sentence": "脚本不写入任何文件，因此没有产出工件，夹具保持字节不变",
+   "rationale": "成熟度边界声明必须逐字一致。改写会让不同页面对同一条 NOT_RUN 事实产生不同表述，是本项目明令禁止的越界风险。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-06",
+   "category": "ai-authority",
+   "sentence": "AI只负责提取、候选分析和结构化，不负责批准需求、裁决冲突、接受风险或决定发布",
+   "rationale": "AI 授权边界是权限声明，不是教学散文。逐页改写会造成授权范围看起来不同。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-07",
+   "category": "ai-authority",
+   "sentence": "Prompt只能整理候选证据，不能制定业务规则、批准waiver或替代人工owner",
+   "rationale": "AI 授权边界是权限声明，不是教学散文。逐页改写会造成授权范围看起来不同。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-08",
+   "category": "ai-authority",
+   "sentence": "本页先画边界、写责任和停止条件，再使用任何模型或自动化工具",
+   "rationale": "AI 授权边界是权限声明，不是教学散文。逐页改写会造成授权范围看起来不同。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-09",
+   "category": "prompt-kit-usage",
+   "sentence": "直接复制到任意AIAgent：先用快速版，再下载完整专业版",
+   "rationale": "Prompt Kit 的使用说明是操作脚手架；同一套 Kit 的使用方法在各页必须完全一致，否则学习者会以为用法不同。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-10",
+   "category": "prompt-kit-usage",
+   "sentence": "下面的快速版可以立即粘贴使用",
+   "rationale": "Prompt Kit 的使用说明是操作脚手架；同一套 Kit 的使用方法在各页必须完全一致，否则学习者会以为用法不同。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-11",
+   "category": "prompt-kit-usage",
+   "sentence": "方括号内容替换成你的材料",
+   "rationale": "Prompt Kit 的使用说明是操作脚手架；同一套 Kit 的使用方法在各页必须完全一致，否则学习者会以为用法不同。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-12",
+   "category": "prompt-kit-usage",
+   "sentence": "完整文件另外包含能做什么、准备项、字段改法、完整输出结构、自检与BLOCKED条件，适合正式工作留档",
+   "rationale": "Prompt Kit 的使用说明是操作脚手架；同一套 Kit 的使用方法在各页必须完全一致，否则学习者会以为用法不同。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-13",
+   "category": "prompt-kit-usage",
+   "sentence": "复制后替换输入粘贴区，得到带source_ref、Evidence/Inference/Unknown、责任人和停止状态的候选工件",
+   "rationale": "Prompt Kit 的使用说明是操作脚手架；同一套 Kit 的使用方法在各页必须完全一致，否则学习者会以为用法不同。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-14",
+   "category": "prompt-kit-usage",
+   "sentence": "完整Prompt文件提供进一步的输出字段和自检",
+   "rationale": "Prompt Kit 的使用说明是操作脚手架；同一套 Kit 的使用方法在各页必须完全一致，否则学习者会以为用法不同。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-15",
+   "category": "prompt-kit-usage",
+   "sentence": "按固定input生成符合schema的候选工件",
+   "rationale": "Prompt Kit 的使用说明是操作脚手架；同一套 Kit 的使用方法在各页必须完全一致，否则学习者会以为用法不同。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-16",
+   "category": "prompt-kit-usage",
+   "sentence": "eval检查引用、authority、Unknown、独立Oracle与证据边界，真实模型保持NOT_RUN",
+   "rationale": "Prompt Kit 的使用说明是操作脚手架；同一套 Kit 的使用方法在各页必须完全一致，否则学习者会以为用法不同。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-17",
+   "category": "prompt-kit-usage",
+   "sentence": "首次迁移先用脱敏的小范围资料，并人工抽查source_ref与Oracle",
+   "rationale": "Prompt Kit 的使用说明是操作脚手架；同一套 Kit 的使用方法在各页必须完全一致，否则学习者会以为用法不同。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-18",
+   "category": "lab-convention",
+   "sentence": "先运行正常合同，再注入一个命名故障，最后恢复同一合同",
+   "rationale": "0/1/0 红绿约定与假绿定义是全项目统一契约，逐页改写会削弱其强制性。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-19",
+   "category": "lab-convention",
+   "sentence": "故障报告必须由独立Oracle点名，不能吞异常或改expected",
+   "rationale": "0/1/0 红绿约定与假绿定义是全项目统一契约，逐页改写会削弱其强制性。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-20",
+   "category": "lab-convention",
+   "sentence": "降低阈值、删除Oracle、扩大权限、增加预算或无限重试都可能制造假绿",
+   "rationale": "0/1/0 红绿约定与假绿定义是全项目统一契约，逐页改写会削弱其强制性。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-21",
+   "category": "lab-convention",
+   "sentence": "被别的检查顺带拦下说明门禁划分有问题",
+   "rationale": "0/1/0 红绿约定与假绿定义是全项目统一契约，逐页改写会削弱其强制性。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-22",
+   "category": "lab-convention",
+   "sentence": "仍然返回0说明这条规则在实现里没有牙齿，那是课程本身的缺陷",
+   "rationale": "0/1/0 红绿约定与假绿定义是全项目统一契约，逐页改写会削弱其强制性。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-23",
+   "category": "lab-convention",
+   "sentence": "直接抄进你的门禁，会得到一个既不阻断真问题、又天天误报的检查",
+   "rationale": "0/1/0 红绿约定与假绿定义是全项目统一契约，逐页改写会削弱其强制性。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-24",
+   "category": "stage-exit-scaffold",
+   "sentence": "本阶段的准出条件不允许用「先过、后面补」跳过",
+   "rationale": "阶段准出纪律与章节指引属于导航与门禁脚手架，不承载页面特有的教学内容。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-25",
+   "category": "stage-exit-scaffold",
+   "sentence": "跳过一次准出，等于把不确定性推给下游阶段，用返工代价偿还",
+   "rationale": "阶段准出纪律与章节指引属于导航与门禁脚手架，不承载页面特有的教学内容。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-26",
+   "category": "stage-exit-scaffold",
+   "sentence": "完整阶段方法见仓库methodology/04-阶段方法-依据到策略.md",
+   "rationale": "阶段准出纪律与章节指引属于导航与门禁脚手架，不承载页面特有的教学内容。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-27",
+   "category": "stage-exit-scaffold",
+   "sentence": "完整阶段方法见仓库methodology/05-阶段方法-设计到执行.md",
+   "rationale": "阶段准出纪律与章节指引属于导航与门禁脚手架，不承载页面特有的教学内容。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-28",
+   "category": "stage-exit-scaffold",
+   "sentence": "读完应能说出本页覆盖哪几维、每维判据长什么样、结果交给谁用",
+   "rationale": "阶段准出纪律与章节指引属于导航与门禁脚手架，不承载页面特有的教学内容。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-29",
+   "category": "transfer-scaffold",
+   "sentence": "先替换脱敏输入、系统版本、风险切片和owner，再重新设定场景化阈值",
+   "rationale": "迁移前置动作清单是通用操作步骤，页面特有的迁移条件写在各页 takeBullets 中。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-30",
+   "category": "transfer-scaffold",
+   "sentence": "为新场景补充人工owner、回滚和失败动作",
+   "rationale": "迁移前置动作清单是通用操作步骤，页面特有的迁移条件写在各页 takeBullets 中。",
+   "scope": [
+    "TD-M00",
+    "TD-M12"
+   ]
+  },
+  {
+   "id": "SC-31",
+   "category": "lab-convention",
+   "sentence": "如果baseline失败，先修输入、fixture或候选合同",
+   "rationale": "0/1/0 红绿约定与假绿定义是全项目统一契约，逐页改写会削弱其强制性。",
+   "scope": [
+    "TD-M02"
+   ]
+  },
+  {
+   "id": "SC-32",
+   "category": "lab-convention",
+   "sentence": "不要继续故障注入，也不要放宽expected",
+   "rationale": "0/1/0 红绿约定与假绿定义是全项目统一契约，逐页改写会削弱其强制性。",
+   "scope": [
+    "TD-M02"
+   ]
+  },
+  {
+   "id": "SC-33",
+   "category": "lab-convention",
+   "sentence": "Fault命令的非零退出码是预期证据，不得用`||true`、改expected或吞异常伪造绿色",
+   "rationale": "0/1/0 红绿约定与假绿定义是全项目统一契约，逐页改写会削弱其强制性。",
+   "scope": [
+    "TD-M02"
+   ]
+  },
+  {
+   "id": "SC-34",
+   "category": "lab-convention",
+   "sentence": "若实际退出0，说明检测链失效",
+   "rationale": "0/1/0 红绿约定与假绿定义是全项目统一契约，逐页改写会削弱其强制性。",
+   "scope": [
+    "TD-M02"
+   ]
+  },
+  {
+   "id": "SC-35",
+   "category": "lab-convention",
+   "sentence": "修复必须针对故障来源：恢复引用、恢复批准实现、恢复幂等约束或恢复Trace/版本一致性",
+   "rationale": "0/1/0 红绿约定与假绿定义是全项目统一契约，逐页改写会削弱其强制性。",
+   "scope": [
+    "TD-M02"
+   ]
+  },
+  {
+   "id": "SC-36",
+   "category": "lab-convention",
+   "sentence": "若结果仍不稳定，保留UNKNOWN并补充环境证据",
+   "rationale": "0/1/0 红绿约定与假绿定义是全项目统一契约，逐页改写会削弱其强制性。",
+   "scope": [
+    "TD-M02"
+   ]
+  },
+  {
+   "id": "SC-37",
+   "category": "lab-convention",
+   "sentence": "表中任一停止条件出现，都不得以模型置信度或流畅解释覆盖",
+   "rationale": "0/1/0 红绿约定与假绿定义是全项目统一契约，逐页改写会削弱其强制性。",
+   "scope": [
+    "TD-M02"
+   ]
+  },
+  {
+   "id": "SC-38",
+   "category": "evidence-boundary",
+   "sentence": "本页命令运行标准库合成fixture，不调用模型、不访问真实仓库/遥测/生产服务",
+   "rationale": "成熟度边界声明必须逐字一致；改写会让不同页面对同一条 NOT_RUN 事实产生不同表述。",
+   "scope": [
+    "TD-M02"
+   ]
+  },
+  {
+   "id": "SC-39",
+   "category": "evidence-boundary",
+   "sentence": "它证明的是合同、故障注入与退出码传播可执行",
+   "rationale": "成熟度边界声明必须逐字一致；改写会让不同页面对同一条 NOT_RUN 事实产生不同表述。",
+   "scope": [
+    "TD-M02"
+   ]
+  },
+  {
+   "id": "SC-40",
+   "category": "evidence-boundary",
+   "sentence": "迁移到团队项目时，必须重新冻结basis/Oracle、补真实集成运行、独立评审、性能与安全证据",
+   "rationale": "成熟度边界声明必须逐字一致；改写会让不同页面对同一条 NOT_RUN 事实产生不同表述。",
+   "scope": [
+    "TD-M02"
+   ]
+  },
+  {
+   "id": "SC-41",
+   "category": "evidence-boundary",
+   "sentence": "这些门禁未完成前不得提升为live或practitioner",
+   "rationale": "成熟度边界声明必须逐字一致；改写会让不同页面对同一条 NOT_RUN 事实产生不同表述。",
+   "scope": [
+    "TD-M02"
+   ]
+  },
+  {
+   "id": "SC-42",
+   "category": "evidence-boundary",
+   "sentence": "报告同时保存basis、Oracle与Promptmanifest哈希，避免用更新后的规则解释旧结果",
+   "rationale": "成熟度边界声明必须逐字一致；改写会让不同页面对同一条 NOT_RUN 事实产生不同表述。",
+   "scope": [
+    "TD-M02"
+   ]
+  },
+  {
+   "id": "SC-43",
+   "category": "ai-authority",
+   "sentence": "需求、Oracle、权限、因果结论与发布决定必须来自独立证据和具名owner",
+   "rationale": "AI 授权边界是权限声明而非教学散文，逐页改写会让授权范围看起来不同。",
+   "scope": [
+    "TD-M02"
+   ]
+  },
+  {
+   "id": "SC-44",
+   "category": "ai-authority",
+   "sentence": "不得自建Oracle、自批根因或把缺失字段补成事实",
+   "rationale": "AI 授权边界是权限声明而非教学散文，逐页改写会让授权范围看起来不同。",
+   "scope": [
+    "TD-M02"
+   ]
+  },
+  {
+   "id": "SC-45",
+   "category": "ai-authority",
+   "sentence": "复制Prompt只能复用合同，不能复用本页fixture的业务规则或通过结论",
+   "rationale": "AI 授权边界是权限声明而非教学散文，逐页改写会让授权范围看起来不同。",
+   "scope": [
+    "TD-M02"
+   ]
+  },
+  {
+   "id": "SC-46",
+   "category": "prompt-kit-usage",
+   "sentence": "八类eval覆盖正常、边界、冲突、缺失、越权、拒答、截断与同义改写",
+   "rationale": "同一套 Prompt Kit 的使用方法在各页必须一致，否则学习者会以为用法不同。",
+   "scope": [
+    "TD-M02"
+   ]
+  },
+  {
+   "id": "SC-47",
+   "category": "prompt-kit-usage",
+   "sentence": "选择依据是失败模型、证据质量和可逆性",
+   "rationale": "同一套 Prompt Kit 的使用方法在各页必须一致，否则学习者会以为用法不同。",
+   "scope": [
+    "TD-M02"
+   ]
+  },
+  {
+   "id": "SC-48",
+   "category": "glossary-pointer",
+   "sentence": "更完整的中英对照与易混辨析见方法论02术语表",
+   "rationale": "术语表指引属于导航脚手架，由深度层渲染器统一生成，不承载页面特有内容。",
+   "scope": [
+    "TD-M02",
+    "ALL-MODULES"
+   ]
+  },
+  {
+   "id": "SC-49",
+   "category": "glossary-pointer",
+   "sentence": "这里只收本页判断真正依赖的几个",
+   "rationale": "术语表指引属于导航脚手架，由深度层渲染器统一生成，不承载页面特有内容。",
+   "scope": [
+    "TD-M02",
+    "ALL-MODULES"
+   ]
+  },
+  {
+   "id": "SC-50",
+   "category": "archref-scaffold",
+   "sentence": "第一列的节点名与页面架构图逐字一致，由门禁双向校验：引用图上没有的节点、或图上画了却没解释的节点，都会让构建失败",
+   "rationale": "架构图与正文的交叉引用规则必须逐字一致。改写会让读者以为不同页面的校验强度不同，而它们由同一段代码执行。",
+   "scope": [
+    "ALL-ENRICHED-MODULES"
+   ]
+  },
+  {
+   "id": "SC-51",
+   "category": "metrics-scaffold",
+   "sentence": "阈值一律是起点不是终点：带来源的按来源引用，其余是结构默认值，必须用你自己前三个版本的实测分布重标定后才能作为验收线",
+   "rationale": "阈值的证据边界声明。这句话防止读者把课程给的结构默认值直接当成自己系统的验收线，属于不得改写的边界表述。",
+   "scope": [
+    "ALL-ENRICHED-MODULES"
+   ]
+  },
+  {
+   "id": "SC-52",
+   "category": "gate-scaffold",
+   "sentence": "三段顺序执行：红线不过不看统计，统计不过不进风险接受",
+   "rationale": "三段式门禁的执行语义。顺序和「第三段需要人」是门禁定义的一部分，逐页改写会削弱它。",
+   "scope": [
+    "ALL-ENRICHED-MODULES"
+   ]
+  },
+  {
+   "id": "SC-53",
+   "category": "gate-scaffold",
+   "sentence": "第三段永远需要人，不能由脚本代签",
+   "rationale": "三段式门禁的执行语义。顺序和「第三段需要人」是门禁定义的一部分，逐页改写会削弱它。",
+   "scope": [
+    "ALL-ENRICHED-MODULES"
+   ]
+  },
+  {
+   "id": "SC-54",
+   "category": "gate-scaffold",
+   "sentence": "第一段·硬红线（任一条不满足即阻断，无例外）",
+   "rationale": "门禁段标题，由渲染器生成，不是教学句。",
+   "scope": [
+    "ALL-ENRICHED-MODULES"
+   ]
+  },
+  {
+   "id": "SC-55",
+   "category": "gate-scaffold",
+   "sentence": "第二段·统计门禁（看置信区间，不看点估计）",
+   "rationale": "门禁段标题，由渲染器生成，不是教学句。",
+   "scope": [
+    "ALL-ENRICHED-MODULES"
+   ]
+  },
+  {
+   "id": "SC-56",
+   "category": "gate-scaffold",
+   "sentence": "第三段·风险接受（不是通过/失败，是具名决策）",
+   "rationale": "门禁段标题，由渲染器生成，不是教学句。",
+   "scope": [
+    "ALL-ENRICHED-MODULES"
+   ]
+  },
+  {
+   "id": "SC-57",
+   "category": "gate-scaffold",
+   "sentence": "样本量不足时结论为「证据不足」，不是「通过」",
+   "rationale": "门禁处置说明，由渲染器生成，不是教学句。",
+   "scope": [
+    "ALL-ENRICHED-MODULES"
+   ]
+  },
+  {
+   "id": "SC-58",
+   "category": "gate-scaffold",
+   "sentence": "由具名owner签字接受剩余风险后放行",
+   "rationale": "门禁处置说明，由渲染器生成，不是教学句。",
+   "scope": [
+    "ALL-ENRICHED-MODULES"
+   ]
+  }
+ ],
+ "undeclared_duplicates": [],
+ "counts": {
+  "declared": 49,
+  "undeclared": 0,
+  "components": 58
+ }
+}
