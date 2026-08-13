@@ -25,6 +25,13 @@ test("server-renders the test-development AI tutorial shell", async () => {
   assert.match(html, /图示（不可运行）/);
   assert.match(html, /aria-label="不可复制"/);
   assert.match(html, />复制使用<\/button>/);
+  assert.match(html, /<details class="materials-card">/);
+  assert.doesNotMatch(html, /<details class="materials-card" open>/);
+  assert.doesNotMatch(html, />证据与边界</);
+  assert.ok(
+    html.indexOf('class="completion-card"') < html.indexOf('class="materials-card"'),
+    "随课物料必须位于完成检查之后",
+  );
   assert.doesNotMatch(html, /未分类技术内容（不可复制）/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|SkeletonPreview/);
 });
