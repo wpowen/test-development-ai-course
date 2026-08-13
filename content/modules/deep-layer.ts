@@ -41,6 +41,23 @@ export type DeepPageContent = {
   /** 术语前置：本页判断真正依赖的词 */
   terms: { title: string; intro: string; rows: [string, string][] };
   /**
+   * 能力革新：这项传统测试能力在 AI 系统上发生了什么变化。
+   *
+   * 传统专项模块最容易写成「把传统测试原样搬进来，再在场景里提一句 AI」——
+   * 那样读者学到的是两套并列的东西，而不是一套演进后的能力。这一段强制回答三件事：
+   * 原来怎么做、在 AI 系统里为什么不够用、融合之后怎么做。
+   *
+   * `invariant` 同样是强制的，它防止走向另一个极端：不是所有传统功夫都过时了，
+   * 恰恰相反，多数 AI 质量问题最终仍然落在这些地基上。
+   */
+  evolution?: {
+    title: string;
+    intro: [string, string];
+    table: DeepTable;
+    invariantTitle: string;
+    invariant: [string, string, ...string[]];
+  };
+  /**
    * 架构索引：把本页架构图的节点逐个映射到正文段落与出口工件。
    * 第一列的节点名必须逐字出现在该页 `architecture.nodes` 中。
    */
@@ -144,6 +161,20 @@ export const renderDeepBlocks = (content: DeepPageContent): DeepBlocks => ({
         caption: "更完整的中英对照与易混辨析见方法论 02 术语表；这里只收本页判断真正依赖的几个。",
       },
     },
+    ...(content.evolution
+      ? [
+          {
+            title: content.evolution.title,
+            body: [content.evolution.intro[0], content.evolution.intro[1]],
+            table: content.evolution.table,
+          },
+          {
+            title: content.evolution.invariantTitle,
+            body: ["下面这些不因为被测对象换成 AI 系统而失效。它们是上面那张表里「融合后的新做法」能够成立的前提——地基塌了，新做法只是换了个说法的空话。"],
+            bullets: content.evolution.invariant,
+          },
+        ]
+      : []),
     ...(content.archref
       ? [{
           title: content.archref.title,
