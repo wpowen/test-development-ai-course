@@ -2,16 +2,38 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { firstUsablePath, getTechnicalBlockPresentation, pages, publicModules } from "../content/course";
-import { DesignView, GlossaryView } from "./reference-views";
+import { glossary } from "../content/glossary";
+import { references, referencesByPage, resolveReferences, type ReferenceEntry } from "../content/references";
+import { GlossaryView } from "./reference-views";
 
 const statusLabel = (status: string) => status === "fixture-tested" ? "实验已跑" : "资料已审";
 const GITHUB_REPOSITORY_URL = "https://github.com/wpowen/test-development-ai-tutorial";
 
+const REFERENCE_KIND_LABEL: Record<ReferenceEntry["kind"], string> = {
+  repo: "开源实现",
+  spec: "规范",
+  standard: "标准 / RFC",
+  doc: "官方文档",
+};
+
 /**
- * 术语表与设计思路不是课程页面：它们不在 102 页的交付清单里，也不参与页面深度门禁。
- * 用同一套 hash 路由承载，是为了让它们和课程页一样可被链接、可被浏览器前进后退。
+ * 复用口径直接印在卡片上，而不是藏进一份单独的合规文档。
+ * 读者据此判断「这段代码我能不能抄进自己仓库」，这本身就是专业信息。
  */
-const REFERENCE_VIEWS = ["glossary", "design"] as const;
+const REFERENCE_REUSE_LABEL: Record<ReferenceEntry["reuse"], string> = {
+  "code-quotable": "可引用源码",
+  "quote-with-share-alike": "可短引 · 需署名",
+  "link-only": "仅链接",
+};
+
+/** 引用锚点日期只到天；没有日期的（tag / commit 锚点）不显示括号，避免出现空括号。 */
+const anchorText = (anchor: ReferenceEntry["anchor"]) =>
+  anchor ? `${anchor.value}${anchor.date ? ` · ${anchor.date}` : ""}` : null;
+
+/**
+ * 术语表不是课程页面：它不参与页面深度门禁，但通过每页底部锚点提供回跳入口。
+ */
+const REFERENCE_VIEWS = ["glossary"] as const;
 type ReferenceView = (typeof REFERENCE_VIEWS)[number];
 
 function setHash(id: string) {
@@ -72,8 +94,7 @@ export default function Home() {
     window.localStorage.setItem("career-ai-completed", JSON.stringify(updated));
   };
 
-  // 术语表里的「出现在 TD-xxx」和设计思路里的路径按钮都走这里。
-  // 特例 __glossary__ 让设计思路能把读者送去术语表，而不必让它知道 hash 的写法。
+  // 术语表里的「出现在 TD-xxx」和每页底部的术语入口都走这里。
   const openFromReference = (pageId: string) => setHash(pageId === "__glossary__" ? "glossary" : pageId);
 
   const toggleNav = () => {
@@ -89,6 +110,20 @@ export default function Home() {
   };
 
   const currentModule = publicModules.find((item) => item.id === current.moduleId)!;
+
+  /**
+   * 页尾引用清单的顺序 = 正文里被引到的先来（按出现顺序），其余补在后面。
+   *
+   * 这样读者从正文「依据」小链接跳下来时，命中的位置和阅读顺序一致；
+   * 而没有被任何一段直接引用、但属于本页知识范围的资料仍然可见，不会被悄悄丢掉。
+   */
+  const pageReferences = useMemo(() => {
+    const ordered: string[] = [];
+    const push = (id: string) => { if (references[id] && !ordered.includes(id)) ordered.push(id); };
+    current.blocks.forEach((block) => block.refs?.forEach(push));
+    (current.references ?? referencesByPage[current.id] ?? []).forEach(push);
+    return resolveReferences(ordered);
+  }, [current]);
 
   return (
     <div className={`app-shell ${navCollapsed ? "nav-collapsed" : ""}`}>
@@ -139,10 +174,7 @@ export default function Home() {
         </div>
         <nav className="reference-nav" aria-label="参考">
           <button className={view === "glossary" ? "active" : ""} onClick={() => setHash("glossary")}>
-            <b>术语表</b><small>336 条 · 不懂的词先查这里</small>
-          </button>
-          <button className={view === "design" ? "active" : ""} onClick={() => setHash("design")}>
-            <b>设计思路</b><small>内容凭什么可信、页面为什么这样排</small>
+            <b>术语表</b><small>{glossary.length} 条 · 不懂的词先查这里</small>
           </button>
         </nav>
         <nav className="course-nav" aria-label="课程目录">
@@ -168,8 +200,6 @@ export default function Home() {
       </aside>
 
       {view === "glossary" && <GlossaryView onOpenPage={openFromReference} />}
-      {view === "design" && <DesignView onOpenPage={openFromReference} />}
-
       {view === "lesson" && <>
       <main className="reader">
         <div className="reader-inner">
@@ -226,6 +256,18 @@ export default function Home() {
                   </div>}
                   {block.expected && <div className="expected"><b>预期结果</b><p>{block.expected}</p></div>}
                   {block.warning && <div className="warning"><b>常见误区</b><p>{block.warning}</p></div>}
+                  {resolveReferences(block.refs).length > 0 && <p className="block-refs">
+                    <span>依据</span>
+                    {resolveReferences(block.refs).map((entry) => <a
+                      key={entry.id}
+                      href={`#ref-${entry.id}`}
+                      title={`${entry.title}｜${anchorText(entry.anchor) ?? "未锚定版本"}`}
+                      onClick={(event) => {
+                        event.preventDefault();
+                        document.getElementById(`ref-${entry.id}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+                      }}
+                    >{entry.repo ?? entry.publisher ?? entry.id}</a>)}
+                  </p>}
                 </div>
               </section>})}
 
@@ -253,6 +295,48 @@ export default function Home() {
                   <i>打开 / 下载物料 →</i>
                 </a>)}</div>
               </details>}
+
+              {pageReferences.length > 0 && <section className="references-card" id="references">
+                <p className="eyebrow">来源与延伸阅读</p>
+                <h2>这一页的每条结论来自哪里</h2>
+                <p className="references-intro">
+                  版本号、许可证与最近更新时间由 GitHub API 在构建时抓取，不是手抄的，因此可以直接照着核对。
+                  每条都写了「能证明什么」和「不能证明什么」——后者更重要：拿工具给结论背书，是这个模块反复拆解的错误。
+                </p>
+                <ol className="reference-list">
+                  {pageReferences.map((entry) => <li key={entry.id} id={`ref-${entry.id}`}>
+                    <div className="reference-head">
+                      <span className={`reference-kind kind-${entry.kind}`}>{REFERENCE_KIND_LABEL[entry.kind]}</span>
+                      <span className="reference-role">{entry.role}</span>
+                      <span className={`reference-reuse reuse-${entry.reuse}`} title={entry.reuseNote}>
+                        {REFERENCE_REUSE_LABEL[entry.reuse]}
+                      </span>
+                    </div>
+                    {entry.url
+                      ? <a className="reference-title" href={entry.url} target="_blank" rel="noreferrer">{entry.title} ↗</a>
+                      : <b className="reference-title">{entry.title}</b>}
+                    <p className="reference-proves"><b>能证明</b>{entry.whatItProves}</p>
+                    <p className="reference-limits"><b>不能证明</b>{entry.whatItDoesNotProve}</p>
+                    <div className="reference-meta">
+                      {entry.repoUrl && <a href={entry.repoUrl} target="_blank" rel="noreferrer">{entry.repo}</a>}
+                      {entry.anchor && <a href={entry.anchor.url} target="_blank" rel="noreferrer">
+                        {entry.anchor.type === "release" ? "版本" : entry.anchor.type === "tag" ? "tag" : "commit"} {anchorText(entry.anchor)}
+                      </a>}
+                      {entry.license && <span>{entry.license}</span>}
+                      {entry.lastPushedAt && <span>最近提交 {entry.lastPushedAt.slice(0, 10)}</span>}
+                    </div>
+                  </li>)}
+                </ol>
+                <small className="references-note">
+                  引用锚定的是抓取当时的版本。上游发新版后本页结论未必自动失效，但阈值、参数名与默认行为必须按你实际锁定的版本重新核对。
+                </small>
+              </section>}
+
+              <section className="glossary-footer" id="glossary-entry">
+                <span className="eyebrow">阅读辅助</span>
+                <p>遇到不熟的词？打开完整术语表，查看机制、测试关注点、例子、误区和来源。</p>
+                <a href="#glossary">打开术语表（{glossary.length} 条） →</a>
+              </section>
 
           <nav className="page-nav">
             {previous ? <button onClick={() => setHash(previous.id)}><small>← 上一页</small><b>{previous.title}</b></button> : <span />}

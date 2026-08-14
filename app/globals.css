@@ -83,15 +83,71 @@ a { color: inherit; }
 .glossary-list { display: grid; gap: 14px; }
 .glossary-entry { padding: 18px 20px; border: 1px solid var(--line); border-radius: 12px; background: white; }
 .glossary-entry.core { border-left: 3px solid var(--forest); }
+.glossary-category-label { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; color: var(--forest); font-size: 11px; font-weight: 800; }
+.glossary-category-label small { padding: 2px 7px; border: 1px solid var(--line); border-radius: 99px; color: var(--muted); font-size: 10px; font-weight: 600; }
 .glossary-entry h2 { margin: 0 0 8px; font-size: 16px; letter-spacing: -.01em; }
 .glossary-entry h2 small { margin-left: 8px; color: var(--muted); font-size: 11px; font-weight: 500; }
 .glossary-plain { margin: 0; font-size: 13px; line-height: 1.75; }
 .glossary-why { margin: 10px 0 0; padding: 10px 12px; border-radius: 8px; background: #f2f6f2; font-size: 12.5px; line-height: 1.75; }
 .glossary-why b { display: block; margin-bottom: 3px; font-size: 11px; color: var(--forest); }
+.glossary-detail-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+.glossary-detail-grid section { padding: 12px 14px; border-radius: 9px; background: #f7f9f6; }
+.glossary-detail-grid b, .glossary-sources > b { display: block; margin-bottom: 5px; color: var(--forest); font-size: 11px; }
+.glossary-detail-grid p, .glossary-detail-grid ul { margin: 0; font-size: 12px; line-height: 1.7; }
+.glossary-detail-grid ul { padding-left: 17px; }
+.glossary-related { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin: 12px 0 0; color: var(--muted); font-size: 11px; }
+.glossary-related button { padding: 2px 7px; border: 1px solid var(--line); border-radius: 6px; background: white; color: var(--forest); cursor: pointer; }
+.glossary-sources { margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--line); }
+.glossary-sources ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.glossary-sources li { display: grid; gap: 1px; min-width: 180px; }
+.glossary-sources a { color: var(--forest); font-size: 11px; font-weight: 750; }
+.glossary-sources small { color: var(--muted); font-size: 10px; }
 .glossary-pages { margin: 10px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 5px; color: var(--muted); font-size: 11px; }
 .glossary-pages button { padding: 2px 7px; border: 1px solid var(--line); border-radius: 6px; background: transparent; font: 650 10px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; cursor: pointer; }
 .glossary-pages button:hover { border-color: var(--forest); color: var(--forest); }
 .glossary-empty { padding: 30px; text-align: center; color: var(--muted); font-size: 13px; }
+
+/* 来源与延伸阅读 ------------------------------------------------------------
+   引用卡片刻意做得比正文重：它是这个模块「不用去别处看」这个承诺的兑现处。
+   「能证明 / 不能证明」用左边框色区分，让读者一眼看到限制而不是只看到工具名。 */
+.block-refs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 14px 0 0; }
+.block-refs > span { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .04em; }
+.block-refs a { padding: 2px 8px; border: 1px solid var(--line); border-radius: 99px; background: white; color: var(--forest); font: 650 11px/1.7 ui-monospace, SFMono-Regular, Menlo, monospace; text-decoration: none; }
+.block-refs a:hover { border-color: var(--forest); background: #f2f8f5; }
+
+.references-card { margin: 40px 0 8px; padding: 26px; border: 1px solid var(--line); border-radius: 14px; background: white; }
+.references-card h2 { margin: 4px 0 10px; font-size: 20px; }
+.references-intro { margin: 0 0 18px; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.reference-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+.reference-list > li { padding: 16px 18px; border: 1px solid var(--line); border-radius: 11px; background: var(--paper); scroll-margin-top: 96px; }
+.reference-list > li:target { border-color: var(--forest); box-shadow: 0 0 0 3px rgba(21, 94, 75, .12); }
+.reference-head { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-bottom: 8px; }
+.reference-kind { padding: 2px 8px; border-radius: 99px; font-size: 10px; font-weight: 800; letter-spacing: .04em; }
+.kind-repo { background: var(--blue); color: #1c3f78; }
+.kind-spec { background: var(--lime); color: #3c4a17; }
+.kind-standard { background: var(--orange); color: #7a4b09; }
+.kind-doc { background: #eef1ee; color: #3c4a45; }
+.reference-role { color: var(--muted); font-size: 11px; }
+.reference-reuse { margin-left: auto; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--line); font-size: 10px; font-weight: 700; cursor: help; }
+.reuse-code-quotable { border-color: #b9d8c8; background: #eef8f2; color: #16624a; }
+.reuse-quote-with-share-alike { border-color: #e4cf9a; background: var(--orange); color: #7a4b09; }
+.reuse-link-only { border-color: #d9c2bc; background: var(--red); color: #8a3a2a; }
+.reference-title { display: block; margin-bottom: 9px; color: var(--ink); font-size: 15px; font-weight: 750; text-decoration: none; }
+a.reference-title:hover { color: var(--forest); text-decoration: underline; }
+.reference-proves, .reference-limits { margin: 0 0 6px; padding-left: 11px; border-left: 3px solid var(--line); font-size: 13px; line-height: 1.75; }
+.reference-proves { border-left-color: #7fb79c; }
+.reference-limits { border-left-color: #d9a08e; color: #5c4a44; }
+.reference-proves b, .reference-limits b { display: inline-block; margin-right: 7px; font-size: 11px; font-weight: 800; letter-spacing: .04em; }
+.reference-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.reference-meta a, .reference-meta span { padding: 2px 8px; border: 1px solid var(--line); border-radius: 6px; color: var(--muted); font: 600 10px/1.8 ui-monospace, SFMono-Regular, Menlo, monospace; text-decoration: none; overflow-wrap: anywhere; }
+.reference-meta a { color: var(--forest); }
+.reference-meta a:hover { border-color: var(--forest); }
+.references-note { display: block; margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--line); color: var(--muted); font-size: 12px; line-height: 1.7; }
+
+.glossary-footer { margin: 32px 0 8px; padding: 18px 20px; border: 1px solid #cfdcd6; border-radius: 12px; background: #f5f9f7; }
+.glossary-footer p { margin: 4px 0 8px; color: var(--muted); font-size: 13px; }
+.glossary-footer a { color: var(--forest); font-size: 12px; font-weight: 800; text-decoration: none; }
+.glossary-footer a:hover { text-decoration: underline; }
 
 /* 设计思路 */
 .design-section { margin: 34px 0; padding-top: 26px; border-top: 1px solid var(--line); }

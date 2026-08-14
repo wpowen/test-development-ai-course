@@ -1,4 +1,6 @@
 import type { TutorialPage } from "../course.ts";
+import { composeDeepPage } from "./deep-layer.ts";
+import { requirementsLifecycleSupplement } from "./requirements-lifecycle-supplement.ts";
 
 const professionPrompt = `# TD-F01 职业现实重建 Prompt v1.0.0
 
@@ -20,7 +22,7 @@ const professionPrompt = `# TD-F01 职业现实重建 Prompt v1.0.0
 
 每个关键判断都标 \`FACT\`、\`PRACTITIONER-SIGNAL\`、\`INFERENCE\`、\`VENDOR-CLAIM\` 或 \`INTERNAL-UNKNOWN\`，并引用 \`source_id\`。缺少权威依据、Oracle 或发布责任人时，整体 \`status\` 必须是 \`BLOCKED\`。`;
 
-export const professionRealityPage: TutorialPage = {
+const rawProfessionRealityPage: TutorialPage = {
   id: "TD-F01",
   moduleId: "TD-M00",
   order: 0,
@@ -298,4 +300,23 @@ export const professionRealityPage: TutorialPage = {
     {title: "版本化职业重建 Prompt", description: "绑定输入、Schema、Eval；模型状态明确为 NOT_RUN。", href: "materials/profession-reality/prompts/TD-F01/manifest.json", kind: "config", validation: "static-reviewed"},
     {title: "完整红绿修复报告", description: "确定性 fixture 结果：baseline 通过、fault 失败、repair 通过。", href: "materials/profession-reality/reports/TD-F01-cycle.json", kind: "evidence", validation: "fixture-tested"},
   ],
+};
+
+/**
+ * TD-F01 此前是全站唯一一个「内容源里写了补充层、页面却没有接」的页面。
+ *
+ * 它的失效点、架构索引、指标卡与三段式门禁四段一直存在于
+ * `_sources/requirements-lifecycle-supplement.json` 里，也一直通过 `validate-deep-sources.py`
+ * 的可落地性校验——但这一页的正文由本文件手写，从未调用 `requirementsLifecycleSupplement`，
+ * 于是那四段渲染在任何地方都看不到。校验器只检查内容源写没写，检查不到投影有没有被消费，
+ * 因此这个缺口存在了很久且没有任何信号。现在由 `scripts/validate-reference-projection.py` 补上。
+ *
+ * TD-F01 是全站访问量最高的入口页，这个缺口的实际代价也最大。
+ */
+export const professionRealityPage: TutorialPage = {
+  ...rawProfessionRealityPage,
+  blocks: composeDeepPage(
+    rawProfessionRealityPage.blocks,
+    requirementsLifecycleSupplement(rawProfessionRealityPage.id),
+  ),
 };
