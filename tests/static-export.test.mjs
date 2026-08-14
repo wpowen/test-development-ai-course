@@ -32,6 +32,18 @@ test("static GitHub Pages export contains the professional curriculum", () => {
   assert.match(html, />搜索课程</);
   assert.match(html, /https:\/\/github\.com\/wpowen\/test-development-ai-tutorial/);
   assert.match(html, /GitHub Star/);
+  assert.match(html, /id="nav-toggle"/);
+  assert.match(html, /career-ai-nav-collapsed/);
+  assert.match(html, /aria-controls="side"/);
+  assert.match(html, /id="reference-nav"/);
+  assert.match(html, /data-reference="glossary"/);
+  assert.match(html, /data-reference="design"/);
+  assert.match(html, />术语表</);
+  assert.match(html, />设计思路</);
+  assert.match(html, /"glossary":\[/);
+  assert.match(html, /AI（人工智能）/);
+  assert.match(html, /这套课程是怎么设计的/);
+  assert.match(html, /四层结构，单向依赖/);
   assert.equal((html.match(/"moduleId":"TD-/g) ?? []).length, releaseScope.promisedPageIds.length);
   assert.match(html, new RegExp(`"validatedAt":"${releaseScope.validatedAt}"`));
   assert.match(html, /DATA\.releaseScope\.validatedAt/);
