@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { catalogPages, pages, releaseScope } from "../content/course.ts";
+import { glossary } from "../content/glossary.ts";
 
 async function render() {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -24,6 +25,8 @@ test("server-renders the test-development AI tutorial shell", async () => {
   assert.match(html, />搜索课程</);
   assert.match(html, /https:\/\/github\.com\/wpowen\/test-development-ai-tutorial/);
   assert.match(html, /GitHub Star/);
+  assert.match(html, new RegExp(`${glossary.length}(?:<!-- -->)? 条`));
+  assert.match(html, /不懂的词先查这里/);
   assert.match(html, /先重建测试开发这份工作，再判断 AI 应该改哪里/);
   assert.match(html, /图示（不可运行）/);
   assert.match(html, /aria-label="不可复制"/);

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { firstUsablePath, getTechnicalBlockPresentation, pages, publicModules } from "../content/course";
+import { glossary } from "../content/glossary";
 import { DesignView, GlossaryView } from "./reference-views";
 
 const statusLabel = (status: string) => status === "fixture-tested" ? "实验已跑" : "资料已审";
@@ -139,7 +140,7 @@ export default function Home() {
         </div>
         <nav className="reference-nav" aria-label="参考">
           <button className={view === "glossary" ? "active" : ""} onClick={() => setHash("glossary")}>
-            <b>术语表</b><small>336 条 · 不懂的词先查这里</small>
+            <b>术语表</b><small>{glossary.length} 条 · 不懂的词先查这里</small>
           </button>
           <button className={view === "design" ? "active" : ""} onClick={() => setHash("design")}>
             <b>设计思路</b><small>内容凭什么可信、页面为什么这样排</small>
