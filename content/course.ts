@@ -24,6 +24,16 @@ type TutorialBlockBase = {
     rows: string[][];
     caption?: string;
   };
+  /**
+   * 本块结论所依据的外部资料 ID，解析见 `content/references.ts`。
+   *
+   * 正文里不写 URL。理由是实测出来的：正文散落链接后，上游改版会让链接在全站各处静默失效，
+   * 而没有任何机制会发现。改成 ID 引用之后，未知 ID 会被 `scripts/validate-references.py`
+   * 拦下，版本号与许可证也由 GitHub API 现抓而不是手抄。
+   *
+   * 这个字段是「这一段话凭什么这么说」，不是「延伸阅读」。没有外部依据的块不要硬挂。
+   */
+  refs?: string[];
 };
 
 type RepositoryTechnicalPath = string;
@@ -200,6 +210,16 @@ export type TutorialPage = {
   practice: string[];
   completion: string[];
   sourceIds: string[];
+  /**
+   * 本页的完整外部资料清单，渲染成页尾「来源与延伸阅读」。
+   *
+   * 与 `sourceIds` 的区别：`sourceIds` 指向 `research/source-ledger.csv`，是研究阶段的调研台账，
+   * 从未渲染到页面上；`references` 指向 `content/references.ts`，是给读者看的、可点击的、
+   * 带版本锚点与许可证口径的引用。前者是内部可追溯性，后者是对外专业性，两者都要有。
+   *
+   * 省略时回退到 `referencesByPage`（模块级默认），因此已改造的页面可以只在块上标 `refs`。
+   */
+  references?: string[];
   evidenceBoundary: string;
   architecture?: {
     title: string;

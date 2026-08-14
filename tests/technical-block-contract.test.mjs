@@ -202,5 +202,19 @@ test("public build and static export are both gated by release validation", asyn
   const packageJson = JSON.parse(await readFile(new URL("../package.json", import.meta.url), "utf8"));
   assert.match(packageJson.scripts.build, /^npm run validate:release && /);
   assert.match(packageJson.scripts["export:static"], /^npm run validate:release && /);
-  assert.equal(packageJson.scripts["validate:release"], "node scripts/validate-content.ts --with-executability");
+
+  // 断言 validate:release 包含哪些校验，而不是断言它逐字等于某个字符串。
+  //
+  // 原来的精确相等断言在 2026-08-14 加入引用投影校验时失败了——而那次改动是在
+  // **加强**发布门禁。精确相等会把「门禁变严」和「门禁被删」判成同一种失败，
+  // 于是它保护不了真正要保护的东西：每一项必需校验都还在。改成逐项包含之后，
+  // 加新校验不会误报，删掉任何一项仍然会被拦下。
+  const release = packageJson.scripts["validate:release"];
+  const required = [
+    "scripts/validate-content.ts --with-executability",  // 内容与可执行性
+    "scripts/validate-reference-projection.ts",          // 引用是否真的渲染到页面上
+  ];
+  for (const check of required) {
+    assert.ok(release.includes(check), `validate:release 缺少必需校验：${check}`);
+  }
 });

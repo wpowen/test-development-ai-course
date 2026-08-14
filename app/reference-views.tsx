@@ -3,13 +3,7 @@
 import { useMemo, useState } from "react";
 import { glossary, glossaryCategories, type GlossaryEntry } from "../content/glossary.ts";
 
-/**
- * 两个非课程视图：术语表与设计思路。
- *
- * 它们不是课程页面——不进 102 页的交付清单，也不参与页面深度门禁。
- * 存在的理由是同一个：课程正文默认读者已经在上下文里，而第一次打开站点的人
- * 需要先知道这些词是什么、以及整套东西为什么长这样。
- */
+/** 术语表不是课程页面，而是每页底部可回跳的学习参考。 */
 
 const CORE_FIRST = (a: GlossaryEntry, b: GlossaryEntry) =>
   a.kind === b.kind ? 0 : a.kind === "core" ? -1 : 1;
@@ -40,9 +34,9 @@ export function GlossaryView({ onOpenPage }: { onOpenPage: (pageId: string) => v
         <div className="breadcrumb"><span>参考</span><span>›</span><span>术语表</span></div>
         <h1>术语表</h1>
         <p className="lead">
-          共 {glossary.length} 条。其中 {coreCount} 条是贯穿全站的核心词，除了「是什么」还写了
-          「测试开发为什么要关心它」；其余 {glossary.length - coreCount} 条来自各页的术语前置，
-          点条目末尾的页号可以跳回它第一次出现的地方。
+          共 {glossary.length} 条。其中 {coreCount} 条是贯穿全站的核心词；每条都展开为
+          「是什么、怎么工作、测试开发看什么、例子、误区、关联词和来源」。点条目末尾的页号
+          可以跳回它第一次出现的地方。
         </p>
 
         <section className="glossary-controls">
@@ -74,6 +68,10 @@ export function GlossaryView({ onOpenPage }: { onOpenPage: (pageId: string) => v
         <div className="glossary-list">
           {filtered.map((entry) => (
             <article key={entry.term} className={`glossary-entry ${entry.kind}`}>
+              <div className="glossary-category-label">
+                <span>{entry.category}</span>
+                <small>{entry.kind === "core" ? "核心术语" : "页面术语"}</small>
+              </div>
               <h2>
                 {entry.term}
                 {entry.aka && <small>又称 {entry.aka}</small>}
@@ -85,6 +83,14 @@ export function GlossaryView({ onOpenPage }: { onOpenPage: (pageId: string) => v
                   {entry.why}
                 </p>
               )}
+              <div className="glossary-detail-grid">
+                <section><b>它怎么工作</b><p>{entry.mechanism}</p></section>
+                <section><b>测试开发看什么</b><ul>{entry.testFocus.map((item) => <li key={item}>{item}</li>)}</ul></section>
+                <section><b>可复用例子</b><p>{entry.example}</p></section>
+                <section><b>常见误区</b><ul>{entry.pitfalls.map((item) => <li key={item}>{item}</li>)}</ul></section>
+              </div>
+              {entry.related.length > 0 && <p className="glossary-related"><b>关联词：</b>{entry.related.map((term) => <button key={term} onClick={() => setQuery(term)}>{term}</button>)}</p>}
+              {entry.sources.length > 0 && <div className="glossary-sources"><b>延伸来源</b><ul>{entry.sources.map((source) => <li key={source.id}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a><small>{source.kind} · {source.accessed}</small></li>)}</ul></div>}
               {entry.pages.length > 0 && (
                 <p className="glossary-pages">
                   出现在：

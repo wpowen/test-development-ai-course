@@ -37,13 +37,14 @@ test("static GitHub Pages export contains the professional curriculum", () => {
   assert.match(html, /aria-controls="side"/);
   assert.match(html, /id="reference-nav"/);
   assert.match(html, /data-reference="glossary"/);
-  assert.match(html, /data-reference="design"/);
+  assert.doesNotMatch(html, /data-reference="design"/);
   assert.match(html, />术语表</);
-  assert.match(html, />设计思路</);
   assert.match(html, /"glossary":\[/);
   assert.match(html, /AI（人工智能）/);
-  assert.match(html, /这套课程是怎么设计的/);
-  assert.match(html, /四层结构，单向依赖/);
+  assert.match(html, /机制：/);
+  assert.match(html, /测试开发看什么：/);
+  assert.match(html, /延伸来源：/);
+  assert.match(html, /打开术语表（"\+DATA\.glossary\.length\+" 条）/);
   assert.equal((html.match(/"moduleId":"TD-/g) ?? []).length, releaseScope.promisedPageIds.length);
   assert.match(html, new RegExp(`"validatedAt":"${releaseScope.validatedAt}"`));
   assert.match(html, /DATA\.releaseScope\.validatedAt/);
@@ -70,6 +71,10 @@ test("static GitHub Pages export contains the professional curriculum", () => {
   assert.ok(
     html.indexOf("<section class=complete>") < html.indexOf("<details class=materials><summary>"),
     "静态站点的随课物料必须位于完成检查之后",
+  );
+  assert.ok(
+    html.indexOf("<details class=materials><summary>") < html.indexOf("class=glossary-footer"),
+    "静态站点的术语入口必须位于随课物料之后",
   );
   assert.match(html, /technicalPresentation\.content/);
   assert.doesNotMatch(html, /clipboard\.writeText\(p\.blocks\[Number\(b\.dataset\.copy\)\]\.code\)/);

@@ -163,7 +163,7 @@ const deep: Record<string, DeepSpec> = {
         ["D0-3 指标构念效度", "指标是否真的测了它声称测的东西", "指标–业务结果相关性 ≥ 阈值", "每季度"],
         ["D0-4 人审闭环", "标注者间一致性、争议样本仲裁", "标注者 κ ≥ 阈值", "持续"],
       ],
-      caption: "D0-4 的标注者间 κ 是 D0-1 的天花板：judge 不可能比人与人之间更一致。κ_human 过低时先改 rubric，不要改 judge。",
+      caption: "κ_human 过低说明 rubric 有歧义，先改 rubric，不要改 judge；judge–human κ 只在人类共识样本上计算，并与仲裁金标对照，不设「judge 不可能超过人类一致性」的绝对上限。",
     },
     failureModes: {
       headers: ["偏置", "怎么构造探针", "期望", "失败信号"],

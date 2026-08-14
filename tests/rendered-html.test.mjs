@@ -27,6 +27,9 @@ test("server-renders the test-development AI tutorial shell", async () => {
   assert.match(html, /GitHub Star/);
   assert.match(html, new RegExp(`${glossary.length}(?:<!-- -->)? 条`));
   assert.match(html, /不懂的词先查这里/);
+  assert.doesNotMatch(html, />设计思路</);
+  assert.match(html, /机制|测试开发看什么|延伸来源/);
+  assert.match(html, /打开术语表/);
   assert.match(html, /先重建测试开发这份工作，再判断 AI 应该改哪里/);
   assert.match(html, /图示（不可运行）/);
   assert.match(html, /aria-label="不可复制"/);
