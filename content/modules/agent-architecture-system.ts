@@ -1,4 +1,5 @@
 import type { TutorialPage } from "../course.ts";
+import { promptBody } from "../prompt-bodies.ts";
 import { composeDeepPage } from "./deep-layer.ts";
 import { agentArchitectureSupplement } from "./agent-architecture-supplement.ts";
 import { agentDeepBlocks, agentDeepMaterials } from "./agent-architecture-deep.ts";
@@ -388,7 +389,7 @@ const makePage = (spec: AgentArchitectureSpec): TutorialPage => {
         `完成标准是能用小白语言回答四问：测什么、谁判断、哪里停、下一份证据交给谁；答不出时写 UNKNOWN，并把 ${spec.repair} 拆成下一条可执行任务。`,
       ] },
       { title: "按证据顺序执行", body: [spec.scenario], bullets: spec.workflow, technical: { kind: "diagram", content: spec.nodes.join(" → "), verification: `逐项核对 ${spec.nodes.join("、")} 的输入、观察点、Oracle、owner 和 stop state。` } },
-      { title: "Metric Card 与独立 Oracle", body: [spec.metric, "Prompt 只能整理候选证据，不能制定业务规则、批准 waiver 或替代人工 owner。"], technical: { kind: "prompt", content: `按 ${spec.id} 的输入、schema、eval 和 mutation 输出带 source_refs、owner、limitations、stop_state 的候选结果。`, version: "1.0.0", promptPath: `${promptBase}/task.md`, manifestPath: `${promptBase}/manifest.json`, inputFixturePath: `${promptBase}/input.json`, outputSchemaPath: `${promptBase}/schema.json`, evaluationPath: `${promptBase}/eval.json` }, expected: "输出必须保留 Evidence、Inference、Unknown 与证据边界。" },
+      { title: "Metric Card 与独立 Oracle", body: [spec.metric, "Prompt 只能整理候选证据，不能制定业务规则、批准 waiver 或替代人工 owner。"], technical: { kind: "prompt", content: promptBody(`${promptBase}/task.md`), version: "1.0.0", promptPath: `${promptBase}/task.md`, manifestPath: `${promptBase}/manifest.json`, inputFixturePath: `${promptBase}/input.json`, outputSchemaPath: `${promptBase}/schema.json`, evaluationPath: `${promptBase}/eval.json` }, expected: "输出必须保留 Evidence、Inference、Unknown 与证据边界。" },
       { title: "Baseline / Fault / Repair：0/1/0", body: ["先运行正常合同，再注入一个命名故障，最后恢复同一合同。故障报告必须由独立 Oracle 点名，不能吞异常或改 expected。", `Fault 目标：${spec.failure}`], technical: { kind: "command", content: `python3 scripts/agent_architecture_lab.py --topic ${spec.id} --phase cycle --report-dir ${reportDir}`, manifestPath, stepId: "cycle", workingDirectory: WORKDIR, expectedExitCode: 0, expectedArtifacts: [`${reportDir}/baseline.json`, `${reportDir}/fault.json`, `${reportDir}/repair.json`, `${reportDir}/cycle-summary.json`] }, expected: "observed_exit_codes=[0,1,0]；模型 provider/model 保持 NOT_RUN。" },
       { title: "诊断与安全修复", body: [spec.failure, spec.repair], warning: "降低阈值、删除 Oracle、扩大权限、增加预算或无限重试都可能制造假绿。" },
       ...agentDeepBlocks(spec.id),

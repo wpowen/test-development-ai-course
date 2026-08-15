@@ -1,4 +1,5 @@
 import type { TutorialBlock, TutorialPage } from "../course.ts";
+import { promptBody } from "../prompt-bodies.ts";
 import { qualitySystemDeepBlocks } from "./quality-system-deep.ts";
 import { composeDeepPage } from "./deep-layer.ts";
 
@@ -92,7 +93,7 @@ export const buildQualityBenchmarkPage = (spec: QualityBenchmarkSpec): TutorialP
         bullets: spec.decisionBullets,
         technical: {
           kind: "prompt",
-          content: `读取 ${spec.id} 的固定 Fixture 和版本合同；逐字段输出 observed、expected、source_ref、status 与 unknowns。证据缺失、冲突或 blocker 必须 fail-closed；禁止批准发布。`,
+          content: promptBody(`${WORKING_DIRECTORY}/prompt-package/quality-benchmark-contract.prompt.md`),
           version: "1.0.0",
           promptPath: `${WORKING_DIRECTORY}/prompt-package/quality-benchmark-contract.prompt.md`,
           manifestPath: `${WORKING_DIRECTORY}/prompt-package/manifest.json`,

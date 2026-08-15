@@ -1,4 +1,5 @@
 import type { TutorialBlock, TutorialPage } from "../course.ts";
+import { promptBody } from "../prompt-bodies.ts";
 import { aiAssistedDeepBlocks } from "./ai-assisted-deep.ts";
 import { composeDeepPage } from "./deep-layer.ts";
 
@@ -109,7 +110,7 @@ const makePage = (spec: AssistedSpec): TutorialPage => {
         ],
         technical: {
           kind: "prompt",
-          content: spec.prompt,
+          content: promptBody(`${promptRoot}/prompt-v1.md`),
           version: "1.0.0",
           promptPath: `${promptRoot}/prompt-v1.md`,
           manifestPath: `${promptRoot}/manifest.json`,

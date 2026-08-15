@@ -1,4 +1,5 @@
 import type { TechnicalBlock, TutorialBlock, TutorialPage } from "../course.ts";
+import { promptBody } from "../prompt-bodies.ts";
 import { requirementsLifecycleSupplement } from "./requirements-lifecycle-supplement.ts";
 import { handbookMaterials, methodologyExtraBlocks, methodologyStageBlock } from "./methodology-handbook.ts";
 
@@ -622,18 +623,23 @@ const commandLikeBlocks: Record<string, number[]> = {
   "TD-P08": [2, 3, 4],
 };
 
-const pagePrompt = (pageId: string, content: string): TechnicalBlock => ({
+// content 入参保留给调用方做说明，但页面显示与复制的正文一律按 promptPath 从
+// 物料查表：此前两处各写一遍，提示词重构后页面立刻过期。
+const pagePrompt = (pageId: string): TechnicalBlock => ({
   kind: "prompt",
-  content,
+  // 生命周期八页面向的是小白：页面上要显示并可复制的是带输入粘贴区的直用提示词
+  // prompt-v1.md，而不是同目录下给编排用的 task-v1.md。内容与 promptPath 必须
+  // 指同一份文件，否则复制到的东西和标注的来源不是一回事。
+  content: promptBody(`materials/requirements-to-evidence/page-prompts/${pageId}/prompt-v1.md`),
   version: "1.2.0",
-  promptPath: `materials/requirements-to-evidence/page-prompts/${pageId}/task-v1.md`,
+  promptPath: `materials/requirements-to-evidence/page-prompts/${pageId}/prompt-v1.md`,
   manifestPath: `materials/requirements-to-evidence/page-prompts/${pageId}/manifest.json`,
   inputFixturePath: `materials/requirements-to-evidence/page-prompts/${pageId}/input.json`,
   outputSchemaPath: `materials/requirements-to-evidence/page-prompts/${pageId}/schema.json`,
   evaluationPath: `materials/requirements-to-evidence/page-prompts/${pageId}/eval.json`,
 });
 
-const directUsePromptTexts: Record<string, string> = {
+export const directUsePromptTexts: Record<string, string> = {
   "TD-P01": `你是证据优先的测试生命周期负责人。请建立 Test Basis Pack，不替团队决定业务规则。
 
 【业务范围】[填写本次要测试的能力]
@@ -705,7 +711,7 @@ const directUsePromptBlock = (pageId: string): TutorialBlock => ({
     "下面的快速版可以立即粘贴使用；方括号内容替换成你的材料。完整文件另外包含能做什么、准备项、字段改法、完整输出结构、自检与 BLOCKED 条件，适合正式工作留档。",
     "AI 只负责提取、候选分析和结构化，不负责批准需求、裁决冲突、接受风险或决定发布。首次迁移先用脱敏的小范围资料，并人工抽查 source_ref 与 Oracle。",
   ],
-  technical: pagePrompt(pageId, directUsePromptTexts[pageId]),
+  technical: pagePrompt(pageId),
   expected: "复制后替换输入粘贴区，得到带 source_ref、Evidence/Inference/Unknown、责任人和停止状态的候选工件；完整 Prompt 文件提供进一步的输出字段和自检。",
   warning: "本包已通过静态合同和离线负控制；真实 AI provider/model 执行仍为 NOT_RUN，不能据此声称模型准确、企业可用或生产通过。",
 });

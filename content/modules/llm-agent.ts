@@ -1,4 +1,5 @@
 import type { TutorialBlock, TutorialPage } from "../course.ts";
+import { promptBody } from "../prompt-bodies.ts";
 import { ragQualityDeepBlocks } from "./rag-quality-deep.ts";
 import { composeDeepPage } from "./deep-layer.ts";
 import { agentWorkflowDeepBlocks } from "./agent-workflow-deep.ts";
@@ -303,7 +304,7 @@ const buildLlmAgentPage = (spec: TopicSpec, index: number): TutorialPage => {
     prerequisites: spec.prerequisites, outcomes: spec.outcomes, artifact: spec.artifact,
     blocks: [
       { title: "专业问题、失败成本与决策权", body: [spec.problem, control.securityGate], warning: "安全、身份和权限检查必须先于任何可写副作用；被测模型、Judge 或 healer 不能批准自己的期望。" },
-      { title: "架构、输入契约与可观察证据", body: [spec.scenario, control.metric], bullets: spec.workflow, expected: `固定 input、Schema、eval 和 mutation 已绑定；模型执行仍为 NOT_RUN。`, technical: { kind: "prompt", content: `按 ${spec.id} 证据契约评价固定输入；缺少权限、版本、独立 Oracle 或人工权力时 fail-closed。`, version: "1.0.0", promptPath: `${promptBase}/task.md`, manifestPath: `${promptBase}/manifest.json`, inputFixturePath: `${promptBase}/input.json`, outputSchemaPath: `${promptBase}/output.schema.json`, evaluationPath: `${promptBase}/eval.json` } },
+      { title: "架构、输入契约与可观察证据", body: [spec.scenario, control.metric], bullets: spec.workflow, expected: `固定 input、Schema、eval 和 mutation 已绑定；模型执行仍为 NOT_RUN。`, technical: { kind: "prompt", content: promptBody(`${promptBase}/task.md`), version: "1.0.0", promptPath: `${promptBase}/task.md`, manifestPath: `${promptBase}/manifest.json`, inputFixturePath: `${promptBase}/input.json`, outputSchemaPath: `${promptBase}/output.schema.json`, evaluationPath: `${promptBase}/eval.json` } },
       { title: "运行 baseline、故障与修复", body: [control.oracle, "命令依次保存 baseline、fault、repair 和 cycle-summary；只有内部退出语义精确为 0/1/0 时 cycle 才通过。"], expected: `${reportDir} 中四份 JSON；fault 有命名 failed_oracle_ids，repair 不覆盖 fault。`, technical: { kind: "command", content: command, manifestPath: `materials/llm-agent-quality/learner-materials/manifests/${spec.id}.json`, stepId: "cycle", workingDirectory: "materials/llm-agent-quality/learner-materials", expectedExitCode: 0, expectedArtifacts: [`${reportDir}/baseline.json`, `${reportDir}/fault.json`, `${reportDir}/repair.json`, `${reportDir}/cycle-summary.json`] } },
       { title: "从症状定位到安全修复", body: [spec.failure, `回滚：${control.rollback}`], warning: "删除 Oracle、改变 expected、扩大权限、增加预算或无限重试都属于制造假绿。" },
       { title: "人工门禁与迁移", body: [`决策 owner 检查原始输入、版本、failed Oracle、权限 receipt、成本和 residual risk；模型只能提供候选解释。`, control.transfer], bullets: ["来源上下文与目标上下文分开记录", "保持不变量，显式修改至少两项配置", "以故障仍能变红和零越权副作用作为成功标准"] },

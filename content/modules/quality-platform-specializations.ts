@@ -1,4 +1,5 @@
 import type { TutorialPage } from "../course.ts";
+import { promptBody } from "../prompt-bodies.ts";
 import { qualityPlatformDeepBlocks } from "./quality-platform-deep.ts";
 import { composeDeepPage } from "./deep-layer.ts";
 
@@ -122,7 +123,7 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = ([
         ],
         table: { headers: ["对象", "机器状态", "允许的副作用"], rows: [["Basis Pack", "ACCEPTED/BLOCKED", "仅 accepted 可生成候选"], ["AI candidate", "PROPOSED/REJECTED/SUPERSEDED", "不得直接改变业务状态"], ["Human review", "APPROVED/REJECTED", "approved 才能进入执行请求"]] },
         expected: "固定输入、JSON Schema 和 eval 已绑定；模型 provider/model 仍为 NOT_RUN，首次真实运行必须另存 receipt。",
-        technical: { kind: "prompt", content: "读取固定 Jira 事件和当前快照；先校验身份、权限、revision 与 source_refs，再输出 fail-closed Basis Gate、unknowns 和需人工决定的候选。禁止自动批准。", version: "1.0.0", promptPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp01/task.md", manifestPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp01/manifest.json", inputFixturePath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp01/input.json", outputSchemaPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp01/output.schema.json", evaluationPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp01/eval.json" },
+        technical: { kind: "prompt", content: promptBody("materials/quality-platform-integrations/learner-materials/prompts/td-qp01/task.md"), version: "1.0.0", promptPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp01/task.md", manifestPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp01/manifest.json", inputFixturePath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp01/input.json", outputSchemaPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp01/output.schema.json", evaluationPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp01/eval.json" },
       },
       {
         title: "SOP：回读、校验、生成、评审、冻结",
@@ -195,7 +196,7 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = ([
         ],
         table: { headers: ["绑定字段", "用途", "校验"], rows: [["project_id + mr_iid", "定位 MR", "项目与事件来源一致"], ["pipeline_id + commit_sha", "定位一次执行", "Pipeline ref/SHA 与 MR HEAD 回读一致"], ["run_id + suite_version", "定位质量运行", "Manifest、JUnit、artifact provenance 一致"]] },
         expected: "固定输入必须输出 current-SHA 绑定与 fail-closed gate；provider/model 未运行，eval 状态保持 NOT_RUN。",
-        technical: { kind: "prompt", content: "读取固定 MR、Pipeline 和 JUnit；严格绑定 current SHA、pipeline_id、suite 与 artifact hash，证据缺失或旧 SHA 必须失败。", version: "1.0.0", promptPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp02/task.md", manifestPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp02/manifest.json", inputFixturePath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp02/input.json", outputSchemaPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp02/output.schema.json", evaluationPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp02/eval.json" },
+        technical: { kind: "prompt", content: promptBody("materials/quality-platform-integrations/learner-materials/prompts/td-qp02/task.md"), version: "1.0.0", promptPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp02/task.md", manifestPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp02/manifest.json", inputFixturePath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp02/input.json", outputSchemaPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp02/output.schema.json", evaluationPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp02/eval.json" },
       },
       {
         title: "SOP：探针、执行、收集、聚合、发布 gate",
@@ -269,7 +270,7 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = ([
         ],
         table: { headers: ["身份", "允许", "禁止"], rows: [["NamespaceProvisioner", "创建受控 namespace、绑定模板", "读 Secret、任意 RBAC、生产资源"], ["TestRunner", "本 namespace 测试资源", "跨 namespace、改策略、读 Secret"], ["CleanupWorker", "删除本 run 资源并记录结果", "模糊删除无 owner 资源"]] },
         expected: "固定输入必须暴露身份越权、隔离与回收缺口；没有真实集群或模型证据时保持 NOT_RUN。",
-        technical: { kind: "prompt", content: "读取固定 namespace、身份、RBAC、Quota、NetworkPolicy、TTL 与 cleanup；越权、跨 namespace、残留或审计缺失均 fail-closed。", version: "1.0.0", promptPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp03/task.md", manifestPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp03/manifest.json", inputFixturePath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp03/input.json", outputSchemaPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp03/output.schema.json", evaluationPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp03/eval.json" },
+        technical: { kind: "prompt", content: promptBody("materials/quality-platform-integrations/learner-materials/prompts/td-qp03/task.md"), version: "1.0.0", promptPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp03/task.md", manifestPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp03/manifest.json", inputFixturePath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp03/input.json", outputSchemaPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp03/output.schema.json", evaluationPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp03/eval.json" },
       },
       {
         title: "SOP：预检、创建、执行、回收、复核",
@@ -343,7 +344,7 @@ export const qualityPlatformSpecializationPages: TutorialPage[] = ([
         ],
         table: { headers: ["层", "关键键", "失败处理"], rows: [["Inbox", "source + event id", "重复抑制并记录 duplicate_suppressed"], ["Outbox", "effect type + run/fingerprint", "幂等重试，超限 DLQ"], ["Reconciliation", "current revision/SHA/environment", "回读事实，禁止旧状态覆盖新状态"]] },
         expected: "固定输入必须拒绝重复副作用并给出对账/回滚计划；未执行真实消息系统或模型。",
-        technical: { kind: "prompt", content: "读取固定 CloudEvents 信封和副作用账本；核对 source+id、trace、重试、脱敏、reconciliation 与 rollback，重复副作用必须失败。", version: "1.0.0", promptPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp04/task.md", manifestPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp04/manifest.json", inputFixturePath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp04/input.json", outputSchemaPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp04/output.schema.json", evaluationPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp04/eval.json" },
+        technical: { kind: "prompt", content: promptBody("materials/quality-platform-integrations/learner-materials/prompts/td-qp04/task.md"), version: "1.0.0", promptPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp04/task.md", manifestPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp04/manifest.json", inputFixturePath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp04/input.json", outputSchemaPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp04/output.schema.json", evaluationPath: "materials/quality-platform-integrations/learner-materials/prompts/td-qp04/eval.json" },
       },
       {
         title: "SOP：验签、入站、编排、回写、通知、对账",

@@ -1,4 +1,5 @@
 import type { TutorialBlock, TutorialPage } from "../course.ts";
+import { promptBody } from "../prompt-bodies.ts";
 import { careerEvolutionDeepBlocks } from "./career-evolution-deep.ts";
 import { composeDeepPage } from "./deep-layer.ts";
 
@@ -292,7 +293,7 @@ const technicalBlocks = (page: CareerContract): TutorialBlock[] => [
   ] },
   { title: `${page.action}：先用白话建立模型`, body: [...page.definitions, page.workedExample, page.counterexample], expected: page.expected },
   { title: `${page.action}：把决策写成可检查模型`, body: [page.control, "不要把年限、工具名称或生成数量当作能力/质量的替代证据。"], technical: { kind: "diagram", content: page.diagram, verification: `图中每个节点必须能回链到 ${page.id} 的输入、工件、Oracle 或 reviewer；缺失回链时保持 BLOCKED。`, implementationPath: `${bundle}/diagrams/${page.id}.mmd` } },
-  { title: `${page.action}：版本化 Prompt/Eval/Mutation`, body: [`本页 Prompt 只生成 ${page.id} 的结构化候选，不替代 owner、Oracle 或组织政策。`, `输出必须保留 UNKNOWN、NOT_RUN、BLOCKED 和适用范围。`], technical: { kind: "prompt", content: `读取 ${page.id} 的批准 fixture，输出符合 Schema 的候选工件；不得猜测职级、阈值、就业或生产结论。`, version: "1.0.0", promptPath: `${bundle}/prompts/${page.id}/task-v1.md`, manifestPath: `${bundle}/prompts/${page.id}/manifest.json`, inputFixturePath: `${bundle}/fixtures/${page.id}-input.json`, outputSchemaPath: `${bundle}/schemas/${page.id}-output.schema.json`, evaluationPath: `${bundle}/evals/${page.id}-eval.json` }, expected: "Prompt 结果必须可回链；模型执行状态保持 NOT_RUN。" },
+  { title: `${page.action}：版本化 Prompt/Eval/Mutation`, body: [`本页 Prompt 只生成 ${page.id} 的结构化候选，不替代 owner、Oracle 或组织政策。`, `输出必须保留 UNKNOWN、NOT_RUN、BLOCKED 和适用范围。`], technical: { kind: "prompt", content: promptBody(`${bundle}/prompts/${page.id}/task-v1.md`), version: "1.0.0", promptPath: `${bundle}/prompts/${page.id}/task-v1.md`, manifestPath: `${bundle}/prompts/${page.id}/manifest.json`, inputFixturePath: `${bundle}/fixtures/${page.id}-input.json`, outputSchemaPath: `${bundle}/schemas/${page.id}-output.schema.json`, evaluationPath: `${bundle}/evals/${page.id}-eval.json` }, expected: "Prompt 结果必须可回链；模型执行状态保持 NOT_RUN。" },
   { title: `${page.action}：重放 0 → 1 → 0`, body: [page.failure, page.repair, page.boundary], technical: { kind: "command", content: `python3 scripts/career_evolution_lab.py --manifest manifests/${page.id}.json --mode cycle`, manifestPath: `${bundle}/manifests/${page.id}.json`, stepId: "cycle", workingDirectory: bundle, expectedExitCode: 0, expectedArtifacts: [`evidence/${page.id}/baseline.json`, `evidence/${page.id}/fault.json`, `evidence/${page.id}/repair.json`, `evidence/${page.id}/cycle.json`] }, expected: "cycle 退出 0，内部步骤严格为 0/1/0；fault 失败是检测力证据。" },
   { title: `${page.action}：迁移到新场景`, body: ["复制工件时只修改明确的 editable_fields；输入、版本、owner、Oracle、失败动作和限制必须重新审查。", page.boundary], warning: page.boundary },
 ];
