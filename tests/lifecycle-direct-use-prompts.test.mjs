@@ -143,7 +143,15 @@ test("every lifecycle page exposes a visible copyable prompt and a direct prompt
   for (const page of lifecyclePages) {
     const promptBlocks = page.blocks.filter((block) => block.technical?.kind === "prompt");
     assert.ok(promptBlocks.length >= 1, `${page.id} needs a visible prompt block`);
-    assert.ok(promptBlocks.some((block) => block.technical.content.includes("输入粘贴区")), `${page.id} prompt is not copy-ready`);
+    // 页面上的 Prompt 块现在直接渲染 prompt-v1.md 本身，而不是一段手写摘要——
+    // 此前两者各写一遍，提示词一改页面就过期。断言验证的性质不变（可直接复制、
+    // 含粘贴占位），只是改为对着真实文件的写法核对：它用「直接复制到 AI Agent」
+    // 起标题，用 [粘贴 …] 标出要替换的地方。
+    assert.ok(
+      promptBlocks.some((block) => block.technical.content.includes("直接复制到 AI Agent")
+        && block.technical.content.includes("[粘贴")),
+      `${page.id} prompt is not copy-ready`,
+    );
     assert.ok(page.materials?.some((material) => material.href === `materials/requirements-to-evidence/page-prompts/${page.id}/prompt-v1.md`), `${page.id} direct prompt material missing`);
   }
 });

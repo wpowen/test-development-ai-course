@@ -24,10 +24,35 @@
 
 以下每一条都要逐项核对，核不了的记为缺口而不是默认通过：
 
-- - 权限拒绝不创建收货记录
+- - - 权限拒绝不创建收货记录
 - 旋转后台与恢复保留可解释扫描状态
 - 同一 receipt_id 只入账一次
 - 失败包关联 logcat 设备状态和服务 trace
+
+## 📊 输出规范 (Output Specification)
+
+返回单个 JSON 对象：
+
+```json
+{
+  "verdict": "REJECT | PASS_TO_HUMAN",
+  "hit_rules": [
+    "命中的否决条目，PASS_TO_HUMAN 时为空数组"
+  ],
+  "oracle_checks": [
+    {
+      "oracle": "被核对的 Oracle",
+      "result": "PASS | FAIL | CANNOT_VERIFY"
+    }
+  ],
+  "gaps": [
+    "发现但不构成否决的缺口"
+  ],
+  "note": "一句话说明，不做业务判断"
+}
+```
+
+`PASS_TO_HUMAN` 的含义是「没有发现阻断性问题，可以交人复核」，不是「这份结论是对的」
 
 ## 📊 输出规范 (Output Specification)
 

@@ -1,4 +1,5 @@
 import type { TechnicalBlock, TutorialBlock, TutorialPage } from "../course.ts";
+import { promptBody } from "../prompt-bodies.ts";
 import { requirementsLifecycleSupplement } from "./requirements-lifecycle-supplement.ts";
 import { handbookMaterials, methodologyExtraBlocks, methodologyStageBlock } from "./methodology-handbook.ts";
 
@@ -622,11 +623,16 @@ const commandLikeBlocks: Record<string, number[]> = {
   "TD-P08": [2, 3, 4],
 };
 
+// content 入参保留给调用方做说明，但页面显示与复制的正文一律按 promptPath 从
+// 物料查表：此前两处各写一遍，提示词重构后页面立刻过期。
 const pagePrompt = (pageId: string, content: string): TechnicalBlock => ({
   kind: "prompt",
-  content,
+  // 生命周期八页面向的是小白：页面上要显示并可复制的是带输入粘贴区的直用提示词
+  // prompt-v1.md，而不是同目录下给编排用的 task-v1.md。内容与 promptPath 必须
+  // 指同一份文件，否则复制到的东西和标注的来源不是一回事。
+  content: promptBody(`materials/requirements-to-evidence/page-prompts/${pageId}/prompt-v1.md`),
   version: "1.2.0",
-  promptPath: `materials/requirements-to-evidence/page-prompts/${pageId}/task-v1.md`,
+  promptPath: `materials/requirements-to-evidence/page-prompts/${pageId}/prompt-v1.md`,
   manifestPath: `materials/requirements-to-evidence/page-prompts/${pageId}/manifest.json`,
   inputFixturePath: `materials/requirements-to-evidence/page-prompts/${pageId}/input.json`,
   outputSchemaPath: `materials/requirements-to-evidence/page-prompts/${pageId}/schema.json`,

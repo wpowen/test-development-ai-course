@@ -1,4 +1,5 @@
 import type { TutorialPage } from "../course.ts";
+import { promptBody } from "../prompt-bodies.ts";
 import { composeDeepPage } from "./deep-layer.ts";
 import { requirementsLifecycleSupplement } from "./requirements-lifecycle-supplement.ts";
 
@@ -226,7 +227,7 @@ const rawProfessionRealityPage: TutorialPage = {
       ],
       technical: {
         kind: "prompt",
-        content: professionPrompt,
+        content: promptBody("materials/profession-reality/prompts/TD-F01/prompt-v1.md"),
         version: "1.0.0",
         promptPath: "materials/profession-reality/prompts/TD-F01/prompt-v1.md",
         manifestPath: "materials/profession-reality/prompts/TD-F01/manifest.json",

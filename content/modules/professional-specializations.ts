@@ -1,4 +1,5 @@
 import type { TutorialBlock, TutorialPage } from "../course.ts";
+import { promptBody } from "../prompt-bodies.ts";
 import { professionalSpecializationsDeepBlocks } from "./professional-specializations-deep.ts";
 import { composeDeepPage } from "./deep-layer.ts";
 
@@ -59,7 +60,7 @@ const specialtyContractBlocks = (id: SpecialtyPageId, bundle: SpecialtyBundle): 
   const base = `materials/${bundle}`;
   return [
     { title: action, body: [contract.control, contract.method, contract.oracle] },
-    { title: `${action}：Prompt 只提交带证据候选`, body: [contract.prompt, `本页 Critic 只接受带 source_ref 与 oracle_id 的候选，并以“${contract.oracle}”为不可替代的专业审查点；模型尚未执行，UNKNOWN/BLOCKED 不得改写为通过。`], technical: { kind: "prompt", content: contract.prompt, version: "1.0.0", promptPath: `${base}/prompts/${id}/task-v1.md`, manifestPath: `${base}/prompts/${id}/manifest.json`, inputFixturePath: `${base}/fixtures/${id}-input.json`, outputSchemaPath: `${base}/schemas/${id}-output.schema.json`, evaluationPath: `${base}/evals/${id}-eval.json` }, expected: "Prompt 输出只能形成候选测试与证据需求；专业 Oracle、权限与阈值仍由具名 owner 审查。" },
+    { title: `${action}：Prompt 只提交带证据候选`, body: [contract.prompt, `本页 Critic 只接受带 source_ref 与 oracle_id 的候选，并以“${contract.oracle}”为不可替代的专业审查点；模型尚未执行，UNKNOWN/BLOCKED 不得改写为通过。`], technical: { kind: "prompt", content: promptBody(`${base}/prompts/${id}/task-v1.md`), version: "1.0.0", promptPath: `${base}/prompts/${id}/task-v1.md`, manifestPath: `${base}/prompts/${id}/manifest.json`, inputFixturePath: `${base}/fixtures/${id}-input.json`, outputSchemaPath: `${base}/schemas/${id}-output.schema.json`, evaluationPath: `${base}/evals/${id}-eval.json` }, expected: "Prompt 输出只能形成候选测试与证据需求；专业 Oracle、权限与阈值仍由具名 owner 审查。" },
     { title: `${action}：重放 0 → 1 → 0`, body: [`${id} 的 cycle 只回答“${contract.control}”，先运行基线，再用本页 fault 打红目标 Oracle，最后在同一夹具上修复。`, `实验按“${contract.method}”组织证据；结果仅为离线 fixture，不代表浏览器、设备、集群、数据库或生产环境已运行。`], technical: { kind: "command", content: `python3 scripts/specialty_lab.py --manifest manifests/${id}.json --mode cycle`, manifestPath: `${base}/manifests/${id}.json`, stepId: "cycle", workingDirectory: base, expectedExitCode: 0, expectedArtifacts: [`evidence/${id}/baseline.json`, `evidence/${id}/fault.json`, `evidence/${id}/repair.json`, `evidence/${id}/cycle.json`] }, expected: "内部子步骤退出码为 0/1/0，cycle 返回 0；四份证据文件记录 owner、Oracle 和 fixture 边界。" },
   ];
 };

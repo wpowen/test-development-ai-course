@@ -19,6 +19,9 @@
  * 用法：
  *     node scripts/validate-reference-projection.ts
  */
+import { readdirSync, readFileSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { pages } from "../content/course.ts";
 import { references, referencesByPage, resolveReferences } from "../content/references.ts";
 
@@ -26,6 +29,41 @@ import { references, referencesByPage, resolveReferences } from "../content/refe
 const MIN_REFERENCES_PER_PAGE = 3;
 
 const problems: string[] = [];
+
+/**
+ * 孤儿检查：内容源里写了一页，但公开页面里没有这个 id。
+ *
+ * 这是 TD-F01 缺口的另一种形态。TD-F01 的 id 是对的、只是没接线，靠「正文有没有依据标记」
+ * 能查出来；但如果内容源里的 id 本身就拼错了（或页面被下线而内容源忘了删），那一页的内容
+ * 同样渲染不到任何地方，而正文检查看不见它——因为根本没有对应的页面可检查。
+ *
+ * 两个方向都要查：内容源有而页面没有（内容白写了），页面有而内容源没有（这一页没有深度层）。
+ */
+const sourceDir = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)), "../../methodology/dimensions/_sources",
+);
+const sourcePageIds = new Map<string, string>();
+for (const file of readdirSync(sourceDir).filter((name) => name.endsWith(".json"))) {
+  const content = JSON.parse(readFileSync(path.join(sourceDir, file), "utf8")) as Record<string, unknown>;
+  for (const pageId of Object.keys(content)) {
+    const seen = sourcePageIds.get(pageId);
+    if (seen) {
+      problems.push(`${pageId}: 同时出现在 ${seen} 与 ${file} 两个内容源里，投影结果不确定`);
+    }
+    sourcePageIds.set(pageId, file);
+  }
+}
+const publishedIds = new Set(pages.map((page) => page.id));
+for (const [pageId, file] of sourcePageIds) {
+  if (!publishedIds.has(pageId)) {
+    problems.push(`${pageId}（来自 ${file}）: 内容源里写了这一页，但公开页面里没有这个 id——内容渲染不到任何地方`);
+  }
+}
+for (const pageId of publishedIds) {
+  if (!sourcePageIds.has(pageId)) {
+    problems.push(`${pageId}: 公开页面没有对应的内容源，深度层与引用层都不会生效`);
+  }
+}
 
 for (const page of pages) {
   const ordered: string[] = [];
@@ -83,6 +121,6 @@ const totalCards = pages.reduce((sum, page) => {
 }, 0);
 
 console.log(
-  `引用投影校验通过：${pages.length} 页全部渲染出来源，` +
-  `合计 ${totalCards} 张引用卡，每页正文均带依据标记。`,
+  `引用投影校验通过：内容源 ${sourcePageIds.size} 页与公开 ${pages.length} 页一一对应，` +
+  `全部渲染出来源，合计 ${totalCards} 张引用卡，每页正文均带依据标记。`,
 );

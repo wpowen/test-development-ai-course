@@ -1,4 +1,5 @@
 import type { TutorialPage } from "../course.ts";
+import { promptBody } from "../prompt-bodies.ts";
 import { professionalSpecializationsDeepBlocks } from "./professional-specializations-deep.ts";
 import { composeDeepPage } from "./deep-layer.ts";
 import { qualitySystemDeepBlocks } from "./quality-system-deep.ts";
@@ -103,7 +104,7 @@ const makePage = (spec: GapSpec): TutorialPage => {
         ],
         technical: {
           kind: "prompt",
-          content: spec.prompt,
+          content: promptBody(`${promptRoot}/prompt-v1.md`),
           version: "1.0.0",
           promptPath: `${promptRoot}/prompt-v1.md`,
           manifestPath: `${promptRoot}/manifest.json`,

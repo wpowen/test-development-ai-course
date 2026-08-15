@@ -1,4 +1,5 @@
 import type { TutorialPage } from "../course.ts";
+import { promptBody } from "../prompt-bodies.ts";
 import { agentPerformanceDeepBlocks } from "./agent-performance-deep.ts";
 import { composeDeepPage } from "./deep-layer.ts";
 
@@ -279,7 +280,7 @@ export const agentPerformancePages: TutorialPage[] = ([
         ],
         "technical": {
           "kind": "prompt",
-          "content": "审阅 TD-AP01 baseline/fault/repair；缺字段、fault 未红、repair 未绿或 synthetic 边界缺失时 BLOCKED。",
+          "content": promptBody("materials/agent-load-stability/prompts/TD-AP01/prompt-v1.md"),
           "version": "1.0.0",
           "promptPath": "materials/agent-load-stability/prompts/TD-AP01/prompt-v1.md",
           "manifestPath": "materials/agent-load-stability/prompts/TD-AP01/manifest.json",
@@ -484,7 +485,7 @@ export const agentPerformancePages: TutorialPage[] = ([
         ],
         "technical": {
           "kind": "prompt",
-          "content": "审阅 TD-AP02 baseline/fault/repair；缺字段、fault 未红、repair 未绿或 synthetic 边界缺失时 BLOCKED。",
+          "content": promptBody("materials/agent-load-stability/prompts/TD-AP02/prompt-v1.md"),
           "version": "1.0.0",
           "promptPath": "materials/agent-load-stability/prompts/TD-AP02/prompt-v1.md",
           "manifestPath": "materials/agent-load-stability/prompts/TD-AP02/manifest.json",
@@ -679,7 +680,7 @@ export const agentPerformancePages: TutorialPage[] = ([
         ],
         "technical": {
           "kind": "prompt",
-          "content": "审阅 TD-AP03 baseline/fault/repair；缺字段、fault 未红、repair 未绿或 synthetic 边界缺失时 BLOCKED。",
+          "content": promptBody("materials/agent-load-stability/prompts/TD-AP03/prompt-v1.md"),
           "version": "1.0.0",
           "promptPath": "materials/agent-load-stability/prompts/TD-AP03/prompt-v1.md",
           "manifestPath": "materials/agent-load-stability/prompts/TD-AP03/manifest.json",
@@ -876,7 +877,7 @@ export const agentPerformancePages: TutorialPage[] = ([
         ],
         "technical": {
           "kind": "prompt",
-          "content": "审阅 TD-AP04 baseline/fault/repair；缺字段、fault 未红、repair 未绿或 synthetic 边界缺失时 BLOCKED。",
+          "content": promptBody("materials/agent-load-stability/prompts/TD-AP04/prompt-v1.md"),
           "version": "1.0.0",
           "promptPath": "materials/agent-load-stability/prompts/TD-AP04/prompt-v1.md",
           "manifestPath": "materials/agent-load-stability/prompts/TD-AP04/manifest.json",
@@ -1079,7 +1080,7 @@ export const agentPerformancePages: TutorialPage[] = ([
         ],
         "technical": {
           "kind": "prompt",
-          "content": "审阅 TD-AP05 baseline/fault/repair；缺字段、fault 未红、repair 未绿或 synthetic 边界缺失时 BLOCKED。",
+          "content": promptBody("materials/agent-load-stability/prompts/TD-AP05/prompt-v1.md"),
           "version": "1.0.0",
           "promptPath": "materials/agent-load-stability/prompts/TD-AP05/prompt-v1.md",
           "manifestPath": "materials/agent-load-stability/prompts/TD-AP05/manifest.json",
@@ -1279,7 +1280,7 @@ export const agentPerformancePages: TutorialPage[] = ([
         ],
         "technical": {
           "kind": "prompt",
-          "content": "审阅 TD-AP06 baseline/fault/repair；缺字段、fault 未红、repair 未绿或 synthetic 边界缺失时 BLOCKED。",
+          "content": promptBody("materials/agent-load-stability/prompts/TD-AP06/prompt-v1.md"),
           "version": "1.0.0",
           "promptPath": "materials/agent-load-stability/prompts/TD-AP06/prompt-v1.md",
           "manifestPath": "materials/agent-load-stability/prompts/TD-AP06/manifest.json",
@@ -1477,7 +1478,7 @@ export const agentPerformancePages: TutorialPage[] = ([
         ],
         "technical": {
           "kind": "prompt",
-          "content": "审阅 TD-AP07 baseline/fault/repair；缺字段、fault 未红、repair 未绿或 synthetic 边界缺失时 BLOCKED。",
+          "content": promptBody("materials/agent-load-stability/prompts/TD-AP07/prompt-v1.md"),
           "version": "1.0.0",
           "promptPath": "materials/agent-load-stability/prompts/TD-AP07/prompt-v1.md",
           "manifestPath": "materials/agent-load-stability/prompts/TD-AP07/manifest.json",
@@ -1675,7 +1676,7 @@ export const agentPerformancePages: TutorialPage[] = ([
         ],
         "technical": {
           "kind": "prompt",
-          "content": "审阅 TD-AP08 baseline/fault/repair；缺字段、fault 未红、repair 未绿或 synthetic 边界缺失时 BLOCKED。",
+          "content": promptBody("materials/agent-load-stability/prompts/TD-AP08/prompt-v1.md"),
           "version": "1.0.0",
           "promptPath": "materials/agent-load-stability/prompts/TD-AP08/prompt-v1.md",
           "manifestPath": "materials/agent-load-stability/prompts/TD-AP08/manifest.json",

@@ -101,7 +101,15 @@ const auditPrompt = (technical: Extract<TechnicalBlock, { kind: "prompt" }>, blo
   }
   if (manifest.version !== technical.version) findings.push(`${prefix}: prompt version does not exactly match manifest`);
   const manifestDirectory = dirname(technical.manifestPath);
-  const promptEntries = [manifest.system_prompt, manifest.task_prompt, manifest.critic_prompt]
+  // one_shot_copy_file 是 direct_use 包声明的「直接复制给 AI 的那一份」，
+  // 它和三段式提示词一样由 manifest 具名并进入 artifact_sha256。
+  // 生命周期页面向小白展示的正是这一份，因此它同样算「manifest 声明过的提示词」。
+  const promptEntries = [
+    manifest.system_prompt,
+    manifest.task_prompt,
+    manifest.critic_prompt,
+    manifest.one_shot_copy_file,
+  ]
     .filter(hasText)
     .map((path) => `${manifestDirectory}/${path}`);
   if (!promptEntries.includes(technical.promptPath)) findings.push(`${prefix}: prompt path is not declared by manifest`);

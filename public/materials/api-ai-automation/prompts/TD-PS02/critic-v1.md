@@ -24,10 +24,35 @@
 
 以下每一条都要逐项核对，核不了的记为缺口而不是默认通过：
 
-- - amount 必须大于零且币种受商户支持
+- - - amount 必须大于零且币种受商户支持
 - 客户只能操作自己的支付意图
 - 过期意图不能确认且状态不变
 - 删除 required 或放宽金额必须杀死 mutation
+
+## 📊 输出规范 (Output Specification)
+
+返回单个 JSON 对象：
+
+```json
+{
+  "verdict": "REJECT | PASS_TO_HUMAN",
+  "hit_rules": [
+    "命中的否决条目，PASS_TO_HUMAN 时为空数组"
+  ],
+  "oracle_checks": [
+    {
+      "oracle": "被核对的 Oracle",
+      "result": "PASS | FAIL | CANNOT_VERIFY"
+    }
+  ],
+  "gaps": [
+    "发现但不构成否决的缺口"
+  ],
+  "note": "一句话说明，不做业务判断"
+}
+```
+
+`PASS_TO_HUMAN` 的含义是「没有发现阻断性问题，可以交人复核」，不是「这份结论是对的」
 
 ## 📊 输出规范 (Output Specification)
 

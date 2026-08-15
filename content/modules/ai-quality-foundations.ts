@@ -1,4 +1,5 @@
 import type { TutorialPage } from "../course.ts";
+import { promptBody } from "../prompt-bodies.ts";
 import { ragQualityDeepBlocks } from "./rag-quality-deep.ts";
 import { composeDeepPage } from "./deep-layer.ts";
 import { promptFirstLessonSupplement } from "./prompt-first-lesson-supplement.ts";
@@ -132,7 +133,7 @@ const beginnerConceptBlocks = (pageId: string): TutorialPage["blocks"] => {
     ],
     technical: {
       kind: "prompt",
-      content: "SYSTEM：你是测试需求分析助手，只依据已提供材料。\nTASK：识别可测试行为、边界、依赖与未知项。\nOUTPUT：按 Schema 输出 Evidence / Inference / Unknown；关键证据缺失则 status=BLOCKED。",
+      content: promptBody(`${PROMPT_KIT_DIRECTORY}/task-v1.md`),
       version: "1.2.0",
       promptPath: `${PROMPT_KIT_DIRECTORY}/task-v1.md`,
       manifestPath: `${PROMPT_KIT_DIRECTORY}/manifest.json`,
@@ -218,7 +219,7 @@ const makePage = (spec: FoundationSpec): TutorialPage => {
         ],
         technical: {
           kind: "prompt",
-          content: `读取 ${spec.id} 的固定 Fixture；逐字段输出 observed、expected、source_ref、status 与 unknowns。遇到缺失、冲突或 blocker 必须 fail-closed，不得批准发布。`,
+          content: promptBody(`${WORKING_DIRECTORY}/prompt-package/contract-classifier.prompt.md`),
           version: "1.0.0",
           promptPath: `${WORKING_DIRECTORY}/prompt-package/contract-classifier.prompt.md`,
           manifestPath: `${WORKING_DIRECTORY}/prompt-package/manifest.json`,

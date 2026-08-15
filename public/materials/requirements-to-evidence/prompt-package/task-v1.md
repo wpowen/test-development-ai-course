@@ -28,7 +28,7 @@
 
 ## 🎯 任务目标与成功标准 (Objectives & Success Criteria)
 
-**控制问题**：Extract typed RequirementContract records from the frozen input documents. Every accepted claim must cite stable source_refs. Preserve unknowns and conflicts. This prompt is versioned teaching material; no model run is claimed.
+**控制问题**：> 单次任务提示词。角色与红线在 `system-v1.md`，本文件只说这一次做什么、怎么想。
 
 **成功标准**（可量化，全部满足才算完成）：
 - 输出通过 schema 校验，必填字段 `requirements` 缺失数 = 0
@@ -50,7 +50,7 @@
 让我们一步步思考。按顺序执行，不要跳步，也不要在得出结论后回头改前面的步骤。
 
 - **第 1 步 · 清点输入与来源**：列出 input fixture 与 source_refs 实际提供了什么，缺的先记进 unknowns。
-- **第 2 步 · 锁定控制问题**：把本轮判断收敛到一个问题上：Extract typed RequirementContract records from the frozen input documents. Every accepted claim must cite stable source_refs. Preserve unknowns and conflicts. This prompt is versioned teaching material; no model run is claimed.。
+- **第 2 步 · 锁定控制问题**：把本轮判断收敛到一个问题上：> 单次任务提示词。角色与红线在 `system-v1.md`，本文件只说这一次做什么、怎么想。。
 - **第 3 步 · 核对 Oracle 独立性**：确认判据来自 manifest 而非本次生成过程；同源即停止。
 - **第 4 步 · 判定停止状态**：高风险、冲突、缺权限或缺授权时返回停止状态，不继续产出。
 - **第 5 步 · 分栏输出**：证据、推断、未知分列，未决项进 unknowns 与 human_gate。

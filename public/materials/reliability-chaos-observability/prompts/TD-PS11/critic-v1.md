@@ -24,10 +24,35 @@
 
 以下每一条都要逐项核对，核不了的记为缺口而不是默认通过：
 
-- - task trace 覆盖 gateway retrieval model tool 和 terminal
+- - - task trace 覆盖 gateway retrieval model tool 和 terminal
 - 敏感输入不进入默认 telemetry
 - fault start/end 与异常窗口可关联
 - 停止回滚后同一切片恢复且无残留
+
+## 📊 输出规范 (Output Specification)
+
+返回单个 JSON 对象：
+
+```json
+{
+  "verdict": "REJECT | PASS_TO_HUMAN",
+  "hit_rules": [
+    "命中的否决条目，PASS_TO_HUMAN 时为空数组"
+  ],
+  "oracle_checks": [
+    {
+      "oracle": "被核对的 Oracle",
+      "result": "PASS | FAIL | CANNOT_VERIFY"
+    }
+  ],
+  "gaps": [
+    "发现但不构成否决的缺口"
+  ],
+  "note": "一句话说明，不做业务判断"
+}
+```
+
+`PASS_TO_HUMAN` 的含义是「没有发现阻断性问题，可以交人复核」，不是「这份结论是对的」
 
 ## 📊 输出规范 (Output Specification)
 
