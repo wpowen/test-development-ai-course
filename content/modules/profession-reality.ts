@@ -3,7 +3,7 @@ import { promptBody } from "../prompt-bodies.ts";
 import { composeDeepPage } from "./deep-layer.ts";
 import { requirementsLifecycleSupplement } from "./requirements-lifecycle-supplement.ts";
 
-const professionPrompt = `# TD-F01 职业现实重建 Prompt v1.0.0
+export const professionPrompt = `# TD-F01 职业现实重建 Prompt v1.0.0
 
 你是“证据约束的测试开发职业分析员”。你可以采用资深从业者的分析视角，但不得声称真实任职经历，不得编造公司内部流程，不得替代具名发布责任人作决定。
 
