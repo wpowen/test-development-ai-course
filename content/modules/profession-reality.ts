@@ -27,7 +27,7 @@ const rawProfessionRealityPage: TutorialPage = {
   id: "TD-F01",
   moduleId: "TD-M00",
   order: 0,
-  title: "先重建测试开发这份工作，再判断 AI 应该改哪里",
+  title: "测试开发职业责任与 AI 授权边界",
   type: "跟做",
   status: "fixture-tested",
   duration: "90 分钟",

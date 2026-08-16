@@ -36,7 +36,7 @@ const sourceArchitectureVisual = (pageId: string) => {
 
 const specs: AgentArchitectureSpec[] = [
   {
-    id: "TD-AG-00", moduleId: "TD-M12", title: "Agent 测试架构总览：先画边界，再选测试", type: "概念", prerequisites: ["TD-F04", "TD-T01"],
+    id: "TD-AG-00", moduleId: "TD-M12", title: "Agent 测试架构总览：D0–D7 与四证据环", type: "概念", prerequisites: ["TD-F04", "TD-T01"],
     summary: "用 D0–D7、四证据环和运行时护栏画出 Agent 被测边界，知道一条结论从哪里来、由谁负责。",
     why: "把所有问题都叫作“模型不聪明”会漏掉工具、状态、权限、评估器和业务治理故障。",
     outcomes: ["区分模型、Agent、工具、Workflow、Worker 和 Judge", "将架构边界映射为风险、Oracle 和证据", "解释四证据环为何不能互相冒充", "交付一张可迁移的 Agent 测试架构图"],
@@ -52,7 +52,7 @@ const specs: AgentArchitectureSpec[] = [
     sourceIds: ["S24", "S39", "S65"],
   },
   {
-    id: "TD-AG-01", moduleId: "TD-M12", title: "D0 评估可信：先测试 Judge，再相信分数", type: "跟做", prerequisites: ["TD-AG-00", "TD-T03", "TD-T14"],
+    id: "TD-AG-01", moduleId: "TD-M12", title: "D0 评估可信度：Judge 校准", type: "跟做", prerequisites: ["TD-AG-00", "TD-T03", "TD-T14"],
     summary: "建立人工金标、Judge Card、偏差探针和停用回退链，理解评估器本身也是被测系统。",
     why: "未校准的 Judge 可能把冗长、位置或自偏好当成质量；后续所有数字都会继承这个错误。",
     outcomes: ["区分人人一致性与人机一致性", "设计顺序、长度、事实和自偏好探针", "为 Judge 换版建立重校准和停用条件"],
@@ -68,7 +68,7 @@ const specs: AgentArchitectureSpec[] = [
     sourceIds: ["S05", "S23", "S40"],
   },
   {
-    id: "TD-AG-02", moduleId: "TD-M12", title: "D1 轨迹 span：从最终结果追到首个错误", type: "跟做", prerequisites: ["TD-AG-00", "TD-T15", "TD-T16"],
+    id: "TD-AG-02", moduleId: "TD-M12", title: "D1 轨迹 Span 归因", type: "跟做", prerequisites: ["TD-AG-00", "TD-T15", "TD-T16"],
     summary: "同时评估 outcome、step 和 trajectory，并用 span 标签、首错位置和无效循环率定位 Agent 失败。",
     why: "最终结果偶然正确，不能抵消中途越权、错误参数、曲解观测或无限循环。",
     outcomes: ["建立 outcome/step/trajectory 三层 Oracle", "按工具、参数、观测利用、步骤必要性标记 span", "从首错位置生成可操作修复"],
@@ -84,7 +84,7 @@ const specs: AgentArchitectureSpec[] = [
     sourceIds: ["S10", "S70", "S72"],
   },
   {
-    id: "TD-AG-03", moduleId: "TD-M12", title: "D2 编排：交接、隔离、级联和熔断", type: "跟做", prerequisites: ["TD-AG-02", "TD-W01", "TD-W02"],
+    id: "TD-AG-03", moduleId: "TD-M12", title: "D2 编排：交接、隔离、级联与熔断", type: "跟做", prerequisites: ["TD-AG-02", "TD-W01", "TD-W02"],
     summary: "为多 Agent handoff 建立 schema、上下文隔离和三重熔断，防止信息衰减和下游失败拖垮全局。",
     why: "每一次 A→B 交接都是新的断点；状态、权限和失败责任可能在边界处丢失。",
     outcomes: ["写出 handoff contract 和职责矩阵", "验证上下文最小可见与返回污染", "测试步数、时间、成本三类熔断"],
@@ -180,7 +180,7 @@ const specs: AgentArchitectureSpec[] = [
     sourceIds: ["S24", "S64", "S65"],
   },
   {
-    id: "TD-AG-09", moduleId: "TD-M12", title: "四证据环与三段门禁：从 CI 走到持续评估", type: "项目", prerequisites: ["TD-AG-05", "TD-AG-06", "TD-AG-08", "TD-T20", "TD-X805"],
+    id: "TD-AG-09", moduleId: "TD-M12", title: "四证据环与三段门禁", type: "项目", prerequisites: ["TD-AG-05", "TD-AG-06", "TD-AG-08", "TD-T20", "TD-X805"],
     summary: "将离线 CI、沙箱回放、影子灰度和在线持续评估串成证据成熟度链，再执行硬红线、统计门禁和风险接受。",
     why: "静态通过、fixture 通过和生产有效是不同命题；跨环升级必须有新的输入、owner 和回滚证据。",
     outcomes: ["写出四环 entry/exit/hard-block 合同", "执行 0/1/0 的离线闭环", "区分 PASS、EVIDENCE-INSUFFICIENT、BLOCKED 和 risk accepted"],

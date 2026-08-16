@@ -30,7 +30,7 @@ test("server-renders the test-development AI tutorial shell", async () => {
   assert.doesNotMatch(html, />设计思路</);
   assert.match(html, /机制|测试开发看什么|延伸来源/);
   assert.match(html, /打开术语表/);
-  assert.match(html, /先重建测试开发这份工作，再判断 AI 应该改哪里/);
+  assert.match(html, /测试开发职业责任与 AI 授权边界/);
   assert.match(html, /图示（不可运行）/);
   assert.match(html, /aria-label="不可复制"/);
   assert.match(html, />复制使用<\/button>/);

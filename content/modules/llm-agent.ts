@@ -27,7 +27,7 @@ type TopicSpec = {
 
 const specs: TopicSpec[] = [
   {
-    id: "TD-T13", moduleId: "TD-M03", title: "Prompt、模型和知识库版本 A/B", type: "跟做", duration: "55 分钟",
+    id: "TD-T13", moduleId: "TD-M03", title: "版本化 A/B：Prompt、模型与知识库", type: "跟做", duration: "55 分钟",
     summary: "在同一数据集、同一评分协议和同一运行预算下比较候选版本，判断变化是否真实来自 Prompt、模型或知识库。",
     why: "同时更换模型、Prompt 和索引后看到分数上涨，无法知道改进来自哪里，也无法安全回滚。",
     prerequisites: ["TD-T12"], outcomes: ["设计单变量 A/B 实验", "锁定数据、参数、工具和评分版本", "按风险切片作出发布或拒绝决定"], artifact: "AI 候选版本 A/B 对比报告",
@@ -40,7 +40,7 @@ const specs: TopicSpec[] = [
     sourceIds: ["S03", "S04", "S12"], evidenceBoundary: "页面方法由公开评测工具和课程资料支持；命令为教学接口形状，尚未在所有模型供应商、真实流量分布和企业发布系统中验证。",
   },
   {
-    id: "TD-T14", moduleId: "TD-M03", title: "LLM-as-judge 的校准和反例", type: "诊断", duration: "55 分钟",
+    id: "TD-T14", moduleId: "TD-M03", title: "LLM-as-Judge 校准与反例集", type: "诊断", duration: "55 分钟",
     summary: "用人工双标、盲评、反例和一致性统计判断模型 Judge 可以辅助什么、不能替人决定什么。",
     why: "Judge 同样会受措辞、位置、长度、模型版本和自身知识影响；未经校准的分数不是可靠 Oracle。",
     prerequisites: ["TD-T13"], outcomes: ["构建 Judge 校准集", "测量人机与人人分歧", "为高风险分歧建立人工升级规则"], artifact: "Judge 校准集、分歧矩阵与使用边界",
@@ -52,7 +52,7 @@ const specs: TopicSpec[] = [
     sourceIds: ["S04", "S10", "S23"], evidenceBoundary: "来源支持应用评测和 AI 测试中的人机 Oracle；示例规模用于教学，不能外推为任何 Judge 的通用准确率或生产可用性证明。",
   },
   {
-    id: "TD-T15", moduleId: "TD-M04", title: "最终结果、单步动作和完整轨迹", type: "概念", duration: "40 分钟",
+    id: "TD-T15", moduleId: "TD-M04", title: "Agent 结果、步骤与轨迹评估", type: "概念", duration: "40 分钟",
     summary: "把 Agent 质量拆成最终结果、每次工具动作与完整决策轨迹，避免只看最后一句回答。",
     why: "Agent 可能偶然得到正确结果，却经历越权、重复调用或不可接受成本；也可能轨迹合理但被外部故障阻断。",
     prerequisites: ["TD-T03", "TD-T04"], outcomes: ["区分 outcome、step 和 trajectory 三层 Oracle", "为每层选择可观察证据", "根据失败层级设计回归和归因"], artifact: "Agent 三层评测模型与证据映射图",
@@ -64,7 +64,7 @@ const specs: TopicSpec[] = [
     sourceIds: ["S10", "S23", "S35"], evidenceBoundary: "页面把公开 Agent 评测方法转成测试分层；退款轨迹为合成场景，未证明三层指标与任何企业业务结果具有固定相关性。",
   },
   {
-    id: "TD-T16", moduleId: "TD-M04", title: "工具选择、参数和权限", type: "跟做", duration: "55 分钟",
+    id: "TD-T16", moduleId: "TD-M04", title: "Agent 工具调用：选择、参数与权限", type: "跟做", duration: "55 分钟",
     summary: "通过错误工具、危险参数、越权身份和不可逆副作用注入，验证 Agent 在沙箱与策略门禁中安全失败。",
     why: "自然语言回答可撤回，写数据库、发消息和退款等工具副作用可能不可逆，必须在调用前阻断。",
     prerequisites: ["TD-T15"], outcomes: ["建立工具调用契约和权限矩阵", "注入工具、参数、身份和顺序故障", "验证沙箱、审批与幂等保护"], artifact: "工具策略、故障注入集与轨迹报告",
@@ -77,7 +77,7 @@ const specs: TopicSpec[] = [
     sourceIds: ["S06", "S10", "S23"], evidenceBoundary: "公开框架支持轨迹和应用评测，课程给出沙箱契约；未连接真实退款系统，权限模型和审批边界必须按目标组织重新威胁建模。",
   },
   {
-    id: "TD-T17", moduleId: "TD-M04", title: "Prompt injection、数据泄露和 Excessive Agency", type: "跟做", duration: "60 分钟",
+    id: "TD-T17", moduleId: "TD-M04", title: "Agent 安全：Prompt Injection、数据泄露与 Excessive Agency", type: "跟做", duration: "60 分钟",
     summary: "把直接与间接注入、敏感数据泄露和过度代理权做成可回放攻击集，并验证纵深防御。",
     why: "Agent 同时读取不可信内容并调用工具时，恶意指令可以从网页、邮件或知识库进入执行链。",
     prerequisites: ["TD-T16"], outcomes: ["建立 Agent 攻击面和信任边界", "编写直接/间接注入与泄露样例", "验证最小权限、数据隔离和人工确认"], artifact: "Agent 攻击集、安全门禁与红队报告",
@@ -90,7 +90,7 @@ const specs: TopicSpec[] = [
     sourceIds: ["S07", "S08", "S23"], evidenceBoundary: "NIST、OWASP 和测试 syllabus 支持这些风险类别；攻击集是入门基线，不代表渗透测试完成，也未覆盖目标系统所有编码、工具和供应链路径。",
   },
   {
-    id: "TD-T18", moduleId: "TD-M04", title: "Browser Agent 和 Playwright Test Agents", type: "跟做", duration: "60 分钟",
+    id: "TD-T18", moduleId: "TD-M04", title: "Browser Agent 与 Playwright Test Agents", type: "跟做", duration: "60 分钟",
     summary: "理解 planner、generator、healer 的职责，用真实浏览器证据审查 AI 生成测试，而不是直接接受生成代码。",
     why: "浏览器 Agent 能探索页面并生成候选测试，但动态状态、脆弱定位器和错误业务 Oracle 会制造看似可跑的假自动化。",
     prerequisites: ["TD-T06", "TD-T16"], outcomes: ["拆分规划、生成和修复三个角色", "为生成测试保留探索证据和业务依据", "用故障注入验证生成测试的检测力"], artifact: "Browser Agent 生成测试包与审查记录",
@@ -103,7 +103,7 @@ const specs: TopicSpec[] = [
     sourceIds: ["S01", "S02", "S18"], evidenceBoundary: "Playwright 文档和公开实践支持测试 Agent 工作流；示例命令需目标项目和页面夹具，课程尚未对多个复杂企业 UI 测量生成成功率。",
   },
   {
-    id: "TD-T19", moduleId: "TD-M04", title: "自愈测试为什么会误修绿", type: "诊断", duration: "45 分钟",
+    id: "TD-T19", moduleId: "TD-M04", title: "自愈测试的误修绿风险", type: "诊断", duration: "45 分钟",
     summary: "建立 healer 可改、不可改和必须审批的边界，防止删除断言、改变 Oracle 或绕过业务步骤。",
     why: "自动修复降低定位器维护成本的同时，也可能悄悄把真实回归改成绿色。",
     prerequisites: ["TD-T18"], outcomes: ["区分结构变化与业务变化", "审计 healer 的差异和证据", "用变异回归验证修复未削弱检测力"], artifact: "Healer 变更策略、反作弊检查与审计报告",
@@ -115,7 +115,7 @@ const specs: TopicSpec[] = [
     sourceIds: ["S01", "S21", "S22"], evidenceBoundary: "公开文档与实践讨论支持生成和浏览器验证边界；反作弊策略为课程设计，未对特定商业自愈工具做全面功能或准确率评测。",
   },
   {
-    id: "TD-W01", moduleId: "TD-M04", title: "先区分 Agent、Worker 和固定 Workflow", type: "概念", duration: "35 分钟",
+    id: "TD-W01", moduleId: "TD-M04", title: "Agent、Worker 与固定 Workflow 的边界", type: "概念", duration: "35 分钟",
     summary: "按路径由谁决定、状态存在哪里、工具如何调用和何时终止，识别真正的被测系统。",
     why: "营销名称并不能说明系统是否自主；分类错误会让团队漏测分支、状态和副作用。",
     prerequisites: ["TD-T15"], outcomes: ["用控制权识别固定 workflow 与 Agent", "描述 worker 的输入输出和生命周期", "为不同结构选择测试策略"], artifact: "Agent、Worker、Workflow 控制权对照图",
@@ -127,7 +127,7 @@ const specs: TopicSpec[] = [
     sourceIds: ["S10", "S23", "S35"], evidenceBoundary: "分类来自公开 Agent 模式与测试方法的综合；行业对 worker 等术语没有唯一标准，应以目标系统架构和运行证据重新命名。",
   },
   {
-    id: "TD-W02", moduleId: "TD-M04", title: "测试状态、循环、重试、Handoff 和终止条件", type: "跟做", duration: "60 分钟",
+    id: "TD-W02", moduleId: "TD-M04", title: "Workflow 状态、循环、重试、Handoff 与终止条件", type: "跟做", duration: "60 分钟",
     summary: "对长流程注入丢状态、重复执行、错误交接和不终止故障，验证恢复、幂等和预算边界。",
     why: "单步都正确不代表流程可靠；状态与重试错误会造成重复副作用、死循环和责任丢失。",
     prerequisites: ["TD-W01", "TD-T16"], outcomes: ["建立 workflow 状态机与不变量", "设计重试、恢复、Handoff 和终止故障", "验证副作用幂等与可观测性"], artifact: "Workflow 状态模型与故障注入报告",
@@ -140,7 +140,7 @@ const specs: TopicSpec[] = [
     sourceIds: ["S06", "S10", "S48"], evidenceBoundary: "来源支持应用评测和级联失败控制；故障注入脚本为教学形状，队列语义、事务边界和恢复机制需按目标平台验证。",
   },
   {
-    id: "TD-W03", moduleId: "TD-M04", title: "单 Agent 与多 Agent 的公平对照", type: "诊断", duration: "50 分钟",
+    id: "TD-W03", moduleId: "TD-M04", title: "单 Agent 与多 Agent 对照评估", type: "诊断", duration: "50 分钟",
     summary: "固定模型、工具、任务、Token、时间和成功标准，判断多 Agent 是否带来可重复收益而非额外复杂度。",
     why: "多角色能提高覆盖，也会增加通信、冲突、成本和失败面；不做同预算对照无法知道是否值得。",
     prerequisites: ["TD-W02"], outcomes: ["设计同预算系统对照", "测量结果、轨迹、协作失败和成本", "识别真正需要角色分离的任务"], artifact: "单 Agent/多 Agent 同预算实验报告",

@@ -160,7 +160,7 @@ export const buildQualityBenchmarkPage = (spec: QualityBenchmarkSpec): TutorialP
 
 const specs: QualityBenchmarkSpec[] = [
   {
-    id: "TD-T20", moduleId: "TD-M05", title: "CI 分层门禁：让坏 AI 版本真的停下来", type: "项目", duration: "60 分钟", prerequisites: ["TD-T12", "TD-T14"],
+    id: "TD-T20", moduleId: "TD-M05", title: "CI 分层质量门禁", type: "项目", duration: "60 分钟", prerequisites: ["TD-T12", "TD-T14"],
     summary: "把 Schema、权限、风险切片、语义评测和完整发布评测分层接入 CI，并用非零退出码阻止危险变更。",
     why: "只上传报告却不传播退出码、只看总平均或给评测 job 配 continue-on-error，都会制造 CI 假绿。",
     outcomes: ["设计 PR smoke、nightly regression 与 release candidate 三层 Gate", "把确定性 blocker 和统计性退化分开", "证明故障注入会令 CI exit 1"], artifact: "分层 AI Quality CI Workflow 与红绿证据包",
@@ -175,7 +175,7 @@ const specs: QualityBenchmarkSpec[] = [
     sources: ["S03", "S05", "S23", "S24"], boundary: "本地仅运行确定性 Fixture；没有云 CI、模型 Provider、企业审批或发布系统，因此只有 PASS-FIXTURE。", architecture: ["PR/候选版本", "L0 确定性 Gate", "L1 高风险 Smoke", "L2 Nightly 回归", "L3 RC/Holdout", "Artifact/退出码", "人工发布 Gate"],
   },
   {
-    id: "TD-T21", moduleId: "TD-M05", title: "Lineage：每个分数都能回到当时的版本", type: "参考", duration: "50 分钟", prerequisites: ["TD-T20"],
+    id: "TD-T21", moduleId: "TD-M05", title: "模型与评测 Lineage 追踪", type: "参考", duration: "50 分钟", prerequisites: ["TD-T20"],
     summary: "为 Dataset、Prompt、模型、知识库、工具、Scorer 与运行环境建立可回放的版本账本。",
     why: "只记模型名和总分无法解释差异；浮动别名、被覆盖的 Prompt 或更新后的索引会让历史比较失效。",
     outcomes: ["设计完整 run manifest", "用 hash 和 snapshot 固定比较条件", "识别单变量实验与 confounded comparison"], artifact: "AI 评测 Version Lineage 账本与可比性检查器",
@@ -190,7 +190,7 @@ const specs: QualityBenchmarkSpec[] = [
     sources: ["S05", "S24", "S36", "S40"], boundary: "版本账本已在合成 Fixture 中检查；没有真实 Provider snapshot、数据平台或企业制品库集成。", architecture: ["代码 Commit", "Prompt/Input/Schema", "Dataset/Split", "Knowledge/Tool", "Model/Runtime", "Scorer/聚合", "Run Manifest/决策"],
   },
   {
-    id: "TD-T22", moduleId: "TD-M05", title: "Trace-to-Regression：把生产失败变成不会复发的用例", type: "项目", duration: "65 分钟", prerequisites: ["TD-T21"],
+    id: "TD-T22", moduleId: "TD-M05", title: "Trace-to-Regression：生产失败到回归用例", type: "项目", duration: "65 分钟", prerequisites: ["TD-T21"],
     summary: "从脱敏 Trace 重建故障路径，抽取最小回归样例，并把来源、审批、版本与 CI Gate 连成闭环。",
     why: "事故只留在复盘文档中，下一次模型、Prompt、知识库或工具更新仍会让同类问题逃逸。",
     outcomes: ["从 Trace 定位模型、检索、工具和状态故障", "在保留触发机制的同时脱敏", "建立失败→回归→修复→发布 Gate 的追踪"], artifact: "Trace-to-Regression 转换记录与最小失败用例",
@@ -205,7 +205,7 @@ const specs: QualityBenchmarkSpec[] = [
     sources: ["S10", "S28", "S49", "S70"], boundary: "仅使用合成 Trace；没有生产日志、隐私审批、真实工具副作用或现场事故演练。", architecture: ["生产 Trace 隔离区", "字段分类/脱敏", "最小失败抽取", "业务/安全 Oracle", "Regression Dataset", "CI 重放", "修复与事件 Closure"],
   },
   {
-    id: "TD-T23", moduleId: "TD-M05", title: "质量、延迟与成本：联合 Gate 而不是一个综合分", type: "参考", duration: "55 分钟", prerequisites: ["TD-T20", "TD-T21"],
+    id: "TD-T23", moduleId: "TD-M05", title: "质量、延迟与成本联合门禁", type: "参考", duration: "55 分钟", prerequisites: ["TD-T20", "TD-T21"],
     summary: "在固定 workload 上联合比较风险质量、TTFT/TPOT/尾延迟、Token 与单位成功成本，并识别 Pareto 候选。",
     why: "更快、更便宜或平均质量更高，都可能以高风险切片、p99 或失败请求成本恶化为代价。",
     outcomes: ["定义带分布和风险切片的 workload", "计算质量/延迟/成本三类硬门禁", "在合格候选中解释 Pareto 前沿"], artifact: "质量—延迟—成本 Pareto 与路由决策报告",
@@ -220,7 +220,7 @@ const specs: QualityBenchmarkSpec[] = [
     sources: ["S24", "S29", "S31", "S70"], boundary: "Fixture 不产生真实模型延迟、Token 或费用；任何性能/价格阈值均为 NOT_RUN/UNKNOWN。", architecture: ["版本化 Workload", "模型/路由候选", "质量 Scorer", "Trace/延迟分解", "Token/成本账本", "硬门禁/Pareto", "容量与产品 Owner"],
   },
   {
-    id: "TD-T24", moduleId: "TD-M05", title: "漂移、Waiver 与回滚：质量系统的恢复闭环", type: "诊断", duration: "60 分钟", prerequisites: ["TD-T21", "TD-T22", "TD-T23"],
+    id: "TD-T24", moduleId: "TD-M05", title: "漂移、Waiver 与回滚闭环", type: "诊断", duration: "60 分钟", prerequisites: ["TD-T21", "TD-T22", "TD-T23"],
     summary: "区分输入、行为、Judge、质量、性能与成本漂移，设计有到期时间的 Waiver 和经过演练的整包回滚。",
     why: "AI 系统会随流量、知识、模型和依赖变化；静默换 Judge 或放宽阈值只会隐藏问题。",
     outcomes: ["建立按风险切片的多信号基线", "区分告警、调查、waiver 和阻断", "演练 Prompt/模型/知识库/工具整包回滚"], artifact: "AI 质量事故、Waiver 与 Rollback Runbook",
