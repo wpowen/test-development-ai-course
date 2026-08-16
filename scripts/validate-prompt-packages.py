@@ -31,15 +31,15 @@ import pathlib
 import re
 import sys
 
+from prompt_artifact_ownership import OwnershipViolation, protected_artifact_for_topic, verify_non_owned_artifacts
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 COURSES = ROOT / "courses"
 PUBLIC = ROOT / "site" / "public" / "materials"
 
-# requirements-to-evidence 生命周期的 8 页采用 direct-use one-shot 契约，
-# prompt-v1.md 是「直接复制到 AI Agent」，不走七段式任务提示词校验；
-# 它们由 pipeline.py / DIRECT-USE-GUIDE.md / lifecycle-direct-use-prompts.test.mjs
-# 独立校验，避免在这里被误报为「尚未改造」。
-DIRECT_USE_TOPICS = frozenset(f"TD-P0{i}" for i in range(1, 9))
+# 直用包和生成器任务包的类型/所有权由 prompt-artifact-ownership.json 声明；
+# 这里不维护另一个会过期的主题例外名单。
+VALIDATOR_ID = "scripts/validate-prompt-packages.py"
 
 REQUIRED_SECTIONS = [
     "## 🔍 优化诊断 (Diagnosis)",
@@ -174,6 +174,12 @@ def check_triple(pkg: pathlib.Path) -> list[str]:
 
 
 def main() -> int:
+    try:
+        verify_non_owned_artifacts(ROOT, VALIDATOR_ID)
+    except OwnershipViolation as exc:
+        print(f"prompt artifact ownership violation: {exc}", file=sys.stderr)
+        return 2
+
     prompts = sorted(
         [p for p in COURSES.glob("**/prompt-v1.md")]
         + [p for p in PUBLIC.glob("**/prompt-v1.md")]
@@ -186,7 +192,7 @@ def main() -> int:
     converted = 0
     direct_use = 0
     for path in prompts:
-        if path.parent.name in DIRECT_USE_TOPICS:
+        if protected_artifact_for_topic(ROOT, VALIDATOR_ID, path.parent.name):
             direct_use += 1
             continue
         text = path.read_text(encoding="utf-8")
@@ -196,13 +202,13 @@ def main() -> int:
         converted += 1
         problems.extend(check(path.parent, text))
 
-    # 三件套：有 system-v1.md 的包，且未被 receipt.json 钉住。
+    # 三件套：非 learner one-shot 的 package 才接受生成器任务契约校验。
     triples = sorted({p.parent for p in COURSES.glob("**/system-v1.md")}
                      | {p.parent for p in PUBLIC.glob("**/system-v1.md")})
     triple_checked = 0
     triple_skipped = 0
     for pkg in triples:
-        if (pkg / "receipt.json").exists() or pkg.name == "AG-DIM":
+        if protected_artifact_for_topic(ROOT, VALIDATOR_ID, pkg.name) or pkg.name == "AG-DIM":
             triple_skipped += 1
             continue
         if "## 🎭 角色与专业定位 (Role & Expertise)" not in (pkg / "system-v1.md").read_text(encoding="utf-8"):
@@ -218,7 +224,7 @@ def main() -> int:
 
     print(f"提示词设计校验通过：{converted}/{len(prompts)} 份单文件包已按模块化契约改造。")
     print(f"三件套（system/task/critic）：{triple_checked} 个包通过，"
-          f"{triple_skipped} 个因 hash 钉死或粘贴区体裁跳过。")
+          f"{triple_skipped} 个因 learner one-shot 所有权或粘贴区体裁跳过。")
     if direct_use:
         print(f"direct-use 生命周期包：{direct_use} 份（由 lifecycle-direct-use-prompts.test.mjs 单独校验）。")
     if converted < len(prompts):

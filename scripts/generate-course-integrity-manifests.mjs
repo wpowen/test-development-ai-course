@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { createHash } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import {
   existsSync,
@@ -14,6 +14,7 @@ import {
 } from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { isReviewerIndependenceAttested } from "./validate-semantic-contracts.mjs";
 
 export const REQUIRED_RESEARCH_FILES = [
   "research-brief.md",
@@ -388,20 +389,35 @@ const parseEditorialEvidence = (topicRoot) => {
   };
 };
 
-export const normalizeEditorialReviewEvidence = (report, pageReview, reviewHash) => ({
-  editorial_score: pageReview?.editorial_score ?? null,
-  boundary_preservation_score: pageReview?.boundary_preservation_score ?? null,
-  page_content_hash: pageReview?.hashes?.tutorial_page_content_hash ?? pageReview?.page_content_hash ?? null,
-  review_ref: "research/editorial-review-2026-08-11-final.json",
-  review_hash: reviewHash,
-  review_verdict: pageReview?.verdict ?? null,
-  reviewer_id: pageReview?.reviewer_id ?? report?.reviewer ?? null,
-  author_id: pageReview?.author_id ?? report?.author_id ?? null,
-  reviewer_is_independent_of_author: report?.reviewer_is_independent_of_author === true
-    && (pageReview?.reviewer_id ?? report?.reviewer) !== (pageReview?.author_id ?? report?.author_id),
-});
+export const normalizeEditorialReviewEvidence = (report, pageReview, reviewHash) => {
+  const reviewer_id = pageReview?.reviewer_id ?? report?.reviewer ?? null;
+  const author_id = pageReview?.author_id ?? report?.author_id ?? null;
+  const reviewer_independence = pageReview?.reviewer_independence ?? report?.reviewer_independence ?? null;
+  return {
+    editorial_score: pageReview?.editorial_score ?? null,
+    boundary_preservation_score: pageReview?.boundary_preservation_score ?? null,
+    page_content_hash: pageReview?.hashes?.tutorial_page_content_hash ?? pageReview?.page_content_hash ?? null,
+    review_ref: "research/editorial-review-2026-08-11-final.json",
+    review_hash: reviewHash,
+    review_verdict: pageReview?.verdict ?? null,
+    reviewer_id,
+    author_id,
+    reviewer_independence,
+    reviewer_is_independent_of_author: isReviewerIndependenceAttested({ reviewer_id, author_id, reviewer_independence }),
+  };
+};
 
-export const buildPromotionReceipt = async ({ page, topicRoot, audit, auditHash, closureEntries, validationTime, reviewer, editorialReview }) => {
+export const hasPinnedReviewerIndependenceEvidence = (review, evidenceRoot = PACKAGE_ROOT) => {
+  if (!isReviewerIndependenceAttested(review)) return false;
+  const evidenceRef = review.reviewer_independence.evidence_ref;
+  if (path.isAbsolute(evidenceRef)) return false;
+  const root = path.resolve(evidenceRoot);
+  const evidencePath = path.resolve(root, evidenceRef);
+  if (!evidencePath.startsWith(`${root}${path.sep}`) || !isFile(evidencePath)) return false;
+  return sha256File(evidencePath) === review.reviewer_independence.evidence_sha256;
+};
+
+export const buildPromotionReceipt = async ({ page, topicRoot, audit, auditHash, closureEntries, validationTime, reviewer, editorialReview, evidenceRun = null, independenceEvidenceRoot = PACKAGE_ROOT }) => {
   const research_inventory = REQUIRED_RESEARCH_FILES.map((name) => {
     const file = path.join(topicRoot, name);
     return { path: name, exists: isFile(file), sha256: isFile(file) ? sha256File(file) : null };
@@ -422,11 +438,15 @@ export const buildPromotionReceipt = async ({ page, topicRoot, audit, auditHash,
   if (research_inventory.some((item) => !item.exists)) findings.push("exact ten-file research package incomplete");
   if (!audit || audit.verdict !== "PASS" || auditFindingCount !== 0) findings.push("executability audit is not PASS with zero findings");
   if (!pageClosure || pageClosure.verdict !== "PASS") findings.push("learner material publication closure is not PASS");
+  if (!evidenceRun || evidenceRun.exit_code !== 0 || !evidenceRun.input_hashes?.course || !evidenceRun.validator?.sha256 || !evidenceRun.started_at || !evidenceRun.finished_at) {
+    findings.push("immutable evidence-run metadata is incomplete");
+  }
   if (review.editorial_score === null || review.editorial_score < 90) findings.push("editorial score >= 90/100 is not evidenced");
   if (review.boundary_preservation_score !== 100) findings.push("boundary preservation score 100/100 is not evidenced");
   if (!review.review_ref || !review.review_hash) findings.push("independent editorial review artifact is not pinned");
   if (review.review_verdict !== "PASS") findings.push("independent editorial page verdict is not PASS");
-  if (review.reviewer_is_independent_of_author !== true || !review.reviewer_id || review.reviewer_id === review.author_id) findings.push("editorial reviewer is not independent of page author");
+  const reviewerIsIndependent = hasPinnedReviewerIndependenceEvidence(review, independenceEvidenceRoot);
+  if (!reviewerIsIndependent) findings.push("editorial reviewer independence is not attested with pinned evidence");
   if (review.page_content_hash !== currentPageContentHash) findings.push("independent editorial review does not pin current page content hash");
   return {
     schema_version: "page-promotion-receipt.v1",
@@ -434,12 +454,19 @@ export const buildPromotionReceipt = async ({ page, topicRoot, audit, auditHash,
     validated_at: validationTime,
     reviewer,
     page_content_hash: currentPageContentHash,
+    evidence_run_id: evidenceRun?.run_id ?? null,
+    input_content_sha256: evidenceRun?.input_hashes?.course ?? null,
+    validator: evidenceRun?.validator ?? null,
+    run_started_at: evidenceRun?.started_at ?? null,
+    run_finished_at: evidenceRun?.finished_at ?? null,
+    run_exit_code: evidenceRun?.exit_code ?? null,
     editorial_review_ref: review.review_ref ?? null,
     editorial_review_hash: review.review_hash ?? null,
     editorial_review_verdict: review.review_verdict ?? null,
     editorial_reviewer_id: review.reviewer_id ?? null,
     page_author_id: review.author_id ?? null,
-    reviewer_is_independent_of_author: review.reviewer_is_independent_of_author === true,
+    reviewer_independence: review.reviewer_independence ?? null,
+    reviewer_is_independent_of_author: reviewerIsIndependent,
     research_package_files: REQUIRED_RESEARCH_FILES,
     research_inventory,
     editorial_score: review.editorial_score,
@@ -484,6 +511,7 @@ const compareManifest = (file, expected, problems) => {
 };
 
 export const generateIntegrityManifests = async ({ write = false } = {}) => {
+  const runStartedAt = new Date().toISOString();
   const course = await import(`${pathToFileURL(path.join(SITE_ROOT, "content/course.ts")).href}?integrity=${Date.now()}`);
   const auditModule = await import(`${pathToFileURL(path.join(SITE_ROOT, "scripts/audit-executability.ts")).href}?integrity=${Date.now()}`);
   const paths = {
@@ -492,6 +520,7 @@ export const generateIntegrityManifests = async ({ write = false } = {}) => {
     audit: path.join(RESEARCH_ROOT, "executability-audit.json"),
     closure: path.join(RESEARCH_ROOT, "publication-closure.json"),
   };
+  const previousAudit = isFile(paths.audit) ? json(paths.audit) : null;
   const generatedAt = write
     ? new Date().toISOString()
     : isFile(paths.catalog) ? json(paths.catalog).generated_at : new Date().toISOString();
@@ -557,6 +586,28 @@ export const generateIntegrityManifests = async ({ write = false } = {}) => {
     archive_ref: "research/artifacts/tutorial-materials.zip",
     material_entries: materialEntries,
   });
+  // Evidence identities are append-only: each write mints one unique run record
+  // instead of overwriting a prior run's timing, command, input or validator data.
+  // In verify mode, reproduce the existing record exactly so hash comparison is
+  // stable and any changed input is reported by evidence-governance separately.
+  const evidenceRun = write ? {
+    schema_version: "evidence-run.v1",
+    run_id: `integrity-${new Date().toISOString().replace(/[:.]/g, "-")}-${randomUUID().slice(0, 8)}`,
+    command: "node scripts/generate-course-integrity-manifests.mjs --write",
+    started_at: runStartedAt,
+    finished_at: new Date().toISOString(),
+    exit_code: 0,
+    validator: {
+      path: "scripts/generate-course-integrity-manifests.mjs",
+      sha256: sha256File(fileURLToPath(import.meta.url)),
+    },
+    input_hashes: {
+      course: sha256File(path.join(SITE_ROOT, "content/course.ts")),
+      tutorial: sha256File(tutorialPath),
+    },
+  } : previousAudit?.evidence_run ?? null;
+  Object.assign(audit, { evidence_run: evidenceRun });
+  Object.assign(closure, { evidence_run: evidenceRun });
   const auditHash = sha256Bytes(Buffer.from(`${JSON.stringify(audit, null, 2)}\n`));
   const editorialReviewPath = path.join(RESEARCH_ROOT, "editorial-review-2026-08-11-final.json");
   const editorialReview = isFile(editorialReviewPath) ? json(editorialReviewPath) : null;
@@ -577,12 +628,16 @@ export const generateIntegrityManifests = async ({ write = false } = {}) => {
       validationTime: receiptTime,
       reviewer: editorialReview?.reviewer ?? "validation-review-required",
       editorialReview: editorialReview ? normalizeEditorialReviewEvidence(editorialReview, pageReview, editorialReviewHash) : null,
+      evidenceRun,
     }));
   }
 
   const expected = [[paths.catalog, catalog], [paths.ownership, ownership], [paths.audit, audit], [paths.closure, closure]];
   const problems = [];
   if (write) {
+    const runRecordPath = path.join(RESEARCH_ROOT, "evidence-runs", `${evidenceRun.run_id}.json`);
+    if (existsSync(runRecordPath)) throw new Error(`immutable evidence run already exists: ${posix(path.relative(PACKAGE_ROOT, runRecordPath))}`);
+    writeJson(runRecordPath, evidenceRun);
     buildReleaseMaterialArchive(course.pages, releaseArchive);
     for (const [file, value] of expected) writeJson(file, value);
     for (const receipt of receipts) writeJson(path.join(RESEARCH_ROOT, "topics", receipt.page_id, "promotion-receipt.json"), receipt);
@@ -592,7 +647,18 @@ export const generateIntegrityManifests = async ({ write = false } = {}) => {
   }
   const gateFailures = [catalog, ownership, audit, closure].filter((manifest) => manifest.verdict !== "PASS").map((manifest) => `${manifest.schema_version}: ${manifest.verdict}`);
   gateFailures.push(...receipts.filter((receipt) => receipt.verdict !== "PASS").map((receipt) => `${receipt.page_id}: promotion FAIL`));
-  return { write, generatedAt, publicPageCount: course.pages.length, catalogPageCount: course.catalogPages.length, problems, gateFailures };
+  return {
+    schema_version: "integrity-run-summary.v1",
+    write,
+    generatedAt,
+    evidence_run: evidenceRun,
+    timeout_guidance: "CI should use a wall-clock timeout and preserve this JSON stdout; a timeout is NOT_RUN/UNKNOWN, never PASS.",
+    publicPageCount: course.pages.length,
+    catalogPageCount: course.catalogPages.length,
+    problems,
+    gateFailures,
+    verdict: problems.length === 0 && gateFailures.length === 0 ? "PASS" : "FAIL",
+  };
 };
 
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);

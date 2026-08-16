@@ -1,15 +1,31 @@
 {
   "schema_version": "page-promotion-receipt.v1",
   "page_id": "TD-P02",
-  "validated_at": "2026-08-15T14:44:09.109Z",
+  "validated_at": "2026-08-16T15:58:40.218Z",
   "reviewer": "validation-semantic-parity-verifier-2026-08-13",
-  "page_content_hash": "sha256:200fa963b35e1f08753348d0f0b4e399eeb9e742f260df96adf9d988a74ca2c6",
+  "page_content_hash": "sha256:104f91d2ab80449c3d548f0b85a837ed7182c97cc35fa37d37d46aa72acaae45",
+  "evidence_run_id": "integrity-2026-08-16T15-59-52-451Z-61a75ca6",
+  "input_content_sha256": "sha256:630e9af78378326947d9a515bf9b38c5cce32c5ba190c20ac3db3e8d3e2a5749",
+  "validator": {
+    "path": "scripts/generate-course-integrity-manifests.mjs",
+    "sha256": "sha256:ca41cee466e99d6ba822ca70a9fda99daaa4f66b849802fadb730c1bc1f8b976"
+  },
+  "run_started_at": "2026-08-16T15:58:40.093Z",
+  "run_finished_at": "2026-08-16T15:59:52.451Z",
+  "run_exit_code": 0,
   "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
-  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_hash": "sha256:15d68ea9720cf9a1852d045652274d33e409373bc08d21193863b10617f1d3be",
   "editorial_review_verdict": "PASS",
   "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
   "page_author_id": "course-page-projection-author-2026-08-13",
-  "reviewer_is_independent_of_author": true,
+  "reviewer_independence": {
+    "status": "UNVERIFIED",
+    "evidence_ref": null,
+    "evidence_sha256": null,
+    "conflict_of_interest_declared": null,
+    "reason": "Different automated role identifiers do not demonstrate human, organizational, or model independence."
+  },
+  "reviewer_is_independent_of_author": false,
   "research_package_files": [
     "research-brief.md",
     "source-pack.csv",
@@ -77,20 +93,20 @@
   "editorial_score": 100,
   "boundary_preservation_score": 100,
   "executability_audit_ref": "research/executability-audit.json",
-  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit_hash": "sha256:0703e557be4c48f19164b6fb0a675859b9e868ba3b089d5ecb3aefba056810cb",
   "executability_audit": {
     "path": "../../executability-audit.json",
-    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "sha256": "sha256:0703e557be4c48f19164b6fb0a675859b9e868ba3b089d5ecb3aefba056810cb",
     "verdict": "PASS",
     "finding_count": 0
   },
   "material_hashes": {
-    "materials/requirements-to-evidence.zip": "sha256:44b688049eabd01749877a2b99c91dd925e5e6f3c033aabdfb53fd7c4306635b",
+    "materials/requirements-to-evidence.zip": "sha256:2f381168665a9a04d88449f069645ff8aafd448062a5c1aaca27c09f78d6700e",
     "materials/requirements-to-evidence/pipeline.py": "sha256:b2955f230ed10d60cdc713a078b7dc80ae04b972f8643dc061a7248ca00517dc",
     "materials/requirements-to-evidence/prompt-package/manifest.json": "sha256:28374a54aed433b1f63f24e4e6f9db130238ee3ebaa7f737629ec4d200d4ba71",
     "materials/requirements-to-evidence/README.md": "sha256:52dbfc3ce3bc5d148fd25c3a0959fa45d513ccb510639abb153999118e287a42",
     "materials/requirements-to-evidence/page-manifests/TD-P02.json": "sha256:cfd8588d0cc8052e1c10890c3e8c748e028010d3c752715c59f14c5248087a29",
-    "materials/requirements-to-evidence/page-prompts/TD-P02/manifest.json": "sha256:7815b5f8e0eb29453276616417357abd133aca197a876f65a64e6b4740cacdc6",
+    "materials/requirements-to-evidence/page-prompts/TD-P02/manifest.json": "sha256:6f980d5872afa91590d2b18f34ec8a390b8ccc74c54c59eaee204043ed365f0f",
     "materials/requirements-to-evidence/page-prompts/TD-P02/prompt-v1.md": "sha256:ed09f89c0c326085f0b1c8676cfbe1336095670ad459d34ccc2f998ff3f0f086",
     "materials/requirements-to-evidence/DIRECT-USE-GUIDE.md": "sha256:67af5917b9a37177477bc3db8b677d54ef2a0fe90541a1d950bd0b9fe5551c6c",
     "materials/requirements-to-evidence/ADAPTATION-CARD.md": "sha256:843a6107a826c9db8510880659ff1ce9d597c34e5e3ac04bc880206bac42f530",
@@ -104,8 +120,8 @@
   "learner_material_hashes": [
     {
       "href": "materials/requirements-to-evidence.zip",
-      "public_sha256": "sha256:44b688049eabd01749877a2b99c91dd925e5e6f3c033aabdfb53fd7c4306635b",
-      "static_sha256": "sha256:44b688049eabd01749877a2b99c91dd925e5e6f3c033aabdfb53fd7c4306635b",
+      "public_sha256": "sha256:2f381168665a9a04d88449f069645ff8aafd448062a5c1aaca27c09f78d6700e",
+      "static_sha256": "sha256:2f381168665a9a04d88449f069645ff8aafd448062a5c1aaca27c09f78d6700e",
       "archive_member_sha256": null,
       "closure_verdict": "PASS"
     },
@@ -139,9 +155,9 @@
     },
     {
       "href": "materials/requirements-to-evidence/page-prompts/TD-P02/manifest.json",
-      "public_sha256": "sha256:7815b5f8e0eb29453276616417357abd133aca197a876f65a64e6b4740cacdc6",
-      "static_sha256": "sha256:7815b5f8e0eb29453276616417357abd133aca197a876f65a64e6b4740cacdc6",
-      "archive_member_sha256": "sha256:7815b5f8e0eb29453276616417357abd133aca197a876f65a64e6b4740cacdc6",
+      "public_sha256": "sha256:6f980d5872afa91590d2b18f34ec8a390b8ccc74c54c59eaee204043ed365f0f",
+      "static_sha256": "sha256:6f980d5872afa91590d2b18f34ec8a390b8ccc74c54c59eaee204043ed365f0f",
+      "archive_member_sha256": "sha256:6f980d5872afa91590d2b18f34ec8a390b8ccc74c54c59eaee204043ed365f0f",
       "closure_verdict": "PASS"
     },
     {
@@ -210,6 +226,6 @@
   ],
   "verdict": "FAIL",
   "findings": [
-    "independent editorial review does not pin current page content hash"
+    "editorial reviewer independence is not attested with pinned evidence"
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "_doc": "由 scripts/build-reference-library.py 生成，请勿手工编辑。判断类字段改 research/reference-catalog.json；版本与许可证改不了，它们来自 GitHub API。",
+  "_doc": "由 scripts/build-reference-library.py 生成，请勿手工编辑。判断类字段和标准冻结元数据改 research/reference-catalog.json；仓库版本与许可证来自 GitHub API。",
   "generatedBy": "scripts/build-reference-library.py",
   "entryCount": 85,
   "byPage": {
@@ -834,7 +834,47 @@
       ],
       "declaredPages": [
         "TD-PS01"
-      ]
+      ],
+      "edition": "RFC 9110",
+      "version": "2022-06",
+      "publishedAt": "2022-06",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.txt",
+        "mediaType": "text/plain",
+        "contentSha256": "21c1cdce6ab0e5509b04d84a28000836c7a087cf786efe6f04877ebfff47232a",
+        "contentScope": "RFC 9110 的公开完整文本；课程仅使用 Section 9.2.2。",
+        "access": "public"
+      },
+      "lifecycle": {
+        "status": "published",
+        "statusEvidenceUrl": "https://www.rfc-editor.org/info/rfc9110"
+      },
+      "supersedes": [
+        "RFC 7230",
+        "RFC 7231",
+        "RFC 7232",
+        "RFC 7233",
+        "RFC 7235",
+        "RFC 7538",
+        "RFC 7694"
+      ],
+      "compatibility": {
+        "classification": "breaking",
+        "note": "HTTP 语义被整合并更新；旧 RFC 条款号不能直接替换为 RFC 9110 条款号。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 365,
+        "watchUrl": "https://www.rfc-editor.org/info/rfc9110"
+      },
+      "changeImpact": {
+        "risk": "high",
+        "affectedClaimTypes": [
+          "protocol-semantics",
+          "idempotency-oracle",
+          "retry-gate"
+        ]
+      }
     },
     "R-IDEMPOTENCY-KEY": {
       "id": "R-IDEMPOTENCY-KEY",
@@ -860,7 +900,41 @@
       ],
       "declaredPages": [
         "TD-PS01"
-      ]
+      ],
+      "edition": "Internet-Draft -07",
+      "version": "draft-ietf-httpapi-idempotency-key-header-07",
+      "publishedAt": "2025-10-15",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://www.ietf.org/archive/id/draft-ietf-httpapi-idempotency-key-header-07.txt",
+        "mediaType": "text/plain",
+        "contentSha256": "956a446923d6b6cd0ab72b0dbc552937c5b0fcf443da6b47c055d17dcdfa542f",
+        "contentScope": "Internet-Draft -07 的完整公开文本；该工件已到期，只作历史工作草案。",
+        "access": "public"
+      },
+      "lifecycle": {
+        "status": "expired-draft",
+        "statusEvidenceUrl": "https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/history/"
+      },
+      "supersedes": [
+        "draft-idempotency-header"
+      ],
+      "compatibility": {
+        "classification": "unknown",
+        "note": "Internet-Draft 可被替换、更新或废弃；不得把 -07 的字段语义当作稳定标准。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 30,
+        "watchUrl": "https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/"
+      },
+      "changeImpact": {
+        "risk": "high",
+        "affectedClaimTypes": [
+          "idempotency-header",
+          "retry-oracle",
+          "api-contract"
+        ]
+      }
     },
     "R-ASYNCAPI": {
       "id": "R-ASYNCAPI",
@@ -1112,7 +1186,39 @@
       ],
       "declaredPages": [
         "TD-PS05"
-      ]
+      ],
+      "edition": "2.2",
+      "version": "2024-12-12 Recommendation",
+      "publishedAt": "2024-12-12",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://www.w3.org/TR/2024/REC-WCAG22-20241212/",
+        "mediaType": "text/html",
+        "contentSha256": "6e3c5fe397257cae509a2fb4752b73062cf8cbeb92c2cec618989b17e4cf7057",
+        "contentScope": "WCAG 2.2 的日期化 W3C Recommendation（包含 2024-12-12 勘误重发）。",
+        "access": "public"
+      },
+      "lifecycle": {
+        "status": "published",
+        "statusEvidenceUrl": "https://www.w3.org/TR/WCAG22/"
+      },
+      "supersedes": [],
+      "compatibility": {
+        "classification": "compatible",
+        "note": "WCAG 2.2 保持 2.0/2.1 兼容方向，但 4.1.1 已废弃；合规声明仍必须固定 2.2 版本与成功准则。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 180,
+        "watchUrl": "https://www.w3.org/TR/WCAG22/"
+      },
+      "changeImpact": {
+        "risk": "medium",
+        "affectedClaimTypes": [
+          "accessibility-success-criterion",
+          "conformance-claim",
+          "manual-test-coverage"
+        ]
+      }
     },
     "R-MAESTRO": {
       "id": "R-MAESTRO",
@@ -1181,7 +1287,7 @@
     "R-WEBDRIVER": {
       "id": "R-WEBDRIVER",
       "kind": "standard",
-      "title": "WebDriver（W3C 推荐标准）",
+      "title": "WebDriver 2（W3C Working Draft）",
       "role": "协议边界",
       "publisher": "W3C",
       "url": "https://www.w3.org/TR/webdriver2/",
@@ -1204,7 +1310,41 @@
       "declaredPages": [
         "TD-PS06",
         "TD-PS07"
-      ]
+      ],
+      "edition": "WebDriver 2",
+      "version": "2026-07-02 Working Draft",
+      "publishedAt": "2026-07-02",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://www.w3.org/TR/2026/WD-webdriver2-20260702/",
+        "mediaType": "text/html",
+        "contentSha256": "929f2f0be15b73b0b3e33052f115a47fc1561ec42f0a8992d532780591ae919e",
+        "contentScope": "WebDriver 2 的日期化 W3C Working Draft；不是 W3C Recommendation。",
+        "access": "public"
+      },
+      "lifecycle": {
+        "status": "draft",
+        "statusEvidenceUrl": "https://www.w3.org/TR/webdriver2/"
+      },
+      "supersedes": [
+        "WebDriver Level 1 Recommendation 2018-06-05"
+      ],
+      "compatibility": {
+        "classification": "unknown",
+        "note": "Working Draft 可以被更新、替换或废弃；具体 command、error 和 capability 映射只能按冻结工件复核。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 30,
+        "watchUrl": "https://www.w3.org/TR/webdriver2/"
+      },
+      "changeImpact": {
+        "risk": "high",
+        "affectedClaimTypes": [
+          "webdriver-protocol",
+          "driver-compatibility",
+          "automation-oracle"
+        ]
+      }
     },
     "R-ESPRESSO": {
       "id": "R-ESPRESSO",
@@ -1842,7 +1982,41 @@
       ],
       "declaredPages": [
         "TD-PS12"
-      ]
+      ],
+      "edition": "5",
+      "version": "5.0.0",
+      "publishedAt": "2025-05",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://github.com/OWASP/ASVS/releases/download/v5.0.0_release/OWASP_Application_Security_Verification_Standard_5.0.0_en.pdf",
+        "mediaType": "application/pdf",
+        "contentSha256": "f3e9a2f1098bc4af594578acb404121af69e3964aa4d90abd4b00607218d30c6",
+        "contentScope": "OWASP ASVS 5.0.0 英文稳定版 PDF；标准编号应使用 v5.0.0-<requirement> 形式。",
+        "access": "public"
+      },
+      "lifecycle": {
+        "status": "published",
+        "statusEvidenceUrl": "https://github.com/OWASP/ASVS/releases/tag/v5.0.0_release"
+      },
+      "supersedes": [
+        "OWASP ASVS v4.0.3"
+      ],
+      "compatibility": {
+        "classification": "breaking",
+        "note": "5.0.0 的需求编号可能与 4.x 不同；课程和报告必须带 v5.0.0 前缀，不得按 latest 解释。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 90,
+        "watchUrl": "https://github.com/OWASP/ASVS/releases"
+      },
+      "changeImpact": {
+        "risk": "high",
+        "affectedClaimTypes": [
+          "security-requirement-id",
+          "security-gate",
+          "coverage-mapping"
+        ]
+      }
     },
     "R-GARAK": {
       "id": "R-GARAK",
@@ -1910,7 +2084,41 @@
       ],
       "declaredPages": [
         "TD-PS12"
-      ]
+      ],
+      "edition": "2025",
+      "version": "2025",
+      "publishedAt": "2024-11-17",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://genai.owasp.org/download/43299/?tmstv=1731900559",
+        "mediaType": "application/pdf",
+        "contentSha256": "d221fd33cbb96d9b84820ae6dd64a73b7c2861dcf6cbcdc88366be5931858ee4",
+        "contentScope": "OWASP Top 10 for LLM Applications 2025 的公开 PDF；课程只把它用作风险分类起点。",
+        "access": "public"
+      },
+      "lifecycle": {
+        "status": "superseded",
+        "statusEvidenceUrl": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/"
+      },
+      "supersedes": [
+        "OWASP Top 10 for LLM Applications 2023"
+      ],
+      "compatibility": {
+        "classification": "breaking",
+        "note": "2026 版已发布；风险编号、名称和覆盖映射均需人工复核，2025 版不得继续被当作当前清单。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 30,
+        "watchUrl": "https://genai.owasp.org/llm-top-10/"
+      },
+      "changeImpact": {
+        "risk": "high",
+        "affectedClaimTypes": [
+          "llm-risk-taxonomy",
+          "threat-coverage",
+          "security-gate"
+        ]
+      }
     },
     "R-LLM-GUARD": {
       "id": "R-LLM-GUARD",
@@ -2135,7 +2343,41 @@
       ],
       "declaredPages": [
         "TD-X101"
-      ]
+      ],
+      "edition": "1.0",
+      "version": "SLSA v1.0",
+      "publishedAt": "2023-04",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://raw.githubusercontent.com/slsa-framework/slsa/7d5078a986b4783bc8eab32b8e2804187b4cdbb0/spec/levels.md",
+        "mediaType": "text/markdown",
+        "contentSha256": "5c30ff56523d9237584a5126792e6f20dacc8257f91daea17f9c6452d1210fe0",
+        "contentScope": "SLSA v1.0 release branch 的 levels 规范冻结提交；不使用 main 分支草案。",
+        "access": "public"
+      },
+      "lifecycle": {
+        "status": "superseded",
+        "statusEvidenceUrl": "https://slsa.dev/spec/v1.0/whats-new"
+      },
+      "supersedes": [
+        "SLSA v0.1"
+      ],
+      "compatibility": {
+        "classification": "breaking",
+        "note": "v1.0 相对 v0.1 重构，且 SLSA v1.1 已替代 v1.0；供应链等级声明须按当前批准版复核。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 30,
+        "watchUrl": "https://slsa.dev/spec-stages"
+      },
+      "changeImpact": {
+        "risk": "high",
+        "affectedClaimTypes": [
+          "supply-chain-level",
+          "provenance-requirement",
+          "release-gate"
+        ]
+      }
     },
     "R-PROMPTFOO": {
       "id": "R-PROMPTFOO",
@@ -3240,7 +3482,39 @@
         "TD-C02",
         "TD-T23",
         "TD-X601"
-      ]
+      ],
+      "edition": "1.0",
+      "version": "NIST AI 100-1",
+      "publishedAt": "2023-01-26",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf",
+        "mediaType": "application/pdf",
+        "contentSha256": "7576edb531d9848825814ee88e28b1795d3a84b435b4b797d3670eafdc4a89f1",
+        "contentScope": "NIST AI 100-1（AI RMF 1.0）完整公开 PDF；课程采用其四功能框架，不将其外推为验收阈值。",
+        "access": "public"
+      },
+      "lifecycle": {
+        "status": "under-revision",
+        "statusEvidenceUrl": "https://www.nist.gov/itl/ai-risk-management-framework"
+      },
+      "supersedes": [],
+      "compatibility": {
+        "classification": "unknown",
+        "note": "NIST 已明确 AI RMF 1.0 正在修订；新版发布前沿用 1.0，但所有治理映射必须进入复核队列。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 30,
+        "watchUrl": "https://www.nist.gov/itl/ai-risk-management-framework"
+      },
+      "changeImpact": {
+        "risk": "high",
+        "affectedClaimTypes": [
+          "ai-governance",
+          "risk-management-mapping",
+          "release-gate"
+        ]
+      }
     },
     "R-CLOUDEVENTS": {
       "id": "R-CLOUDEVENTS",
@@ -3439,7 +3713,42 @@
       "declaredPages": [
         "TD-C02",
         "TD-P04"
-      ]
+      ],
+      "edition": "2",
+      "version": "ISO/IEC/IEEE 29119-1:2022",
+      "publishedAt": "2022-01",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://www.iso.org/standard/81291.html?browse=tc",
+        "mediaType": "text/html",
+        "contentSha256": null,
+        "contentScope": "ISO 官方公开书目记录（版本、状态、生命周期）；完整标准 PDF/ePub 需经 ISO 获取，课程未保存或复制正文。",
+        "access": "paywalled",
+        "availabilityNote": "ISO 官方页面公开 Edition 2、2022-01、Published 和对 2013 版的替代关系；受版权和访问控制限制，不能诚实地为未取得的完整标准正文提供哈希。"
+      },
+      "lifecycle": {
+        "status": "published",
+        "statusEvidenceUrl": "https://www.iso.org/standard/81291.html?browse=tc"
+      },
+      "supersedes": [
+        "ISO/IEC/IEEE 29119-1:2013"
+      ],
+      "compatibility": {
+        "classification": "breaking",
+        "note": "2022 版替代 2013 版；正文受限时不得声称已核对条款细节，旧版条款映射须按已获授权文本复核。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 180,
+        "watchUrl": "https://www.iso.org/standard/81291.html?browse=tc"
+      },
+      "changeImpact": {
+        "risk": "medium",
+        "affectedClaimTypes": [
+          "test-process-terminology",
+          "audit-mapping",
+          "standard-clause-reference"
+        ]
+      }
     },
     "R-ONET-QA": {
       "id": "R-ONET-QA",

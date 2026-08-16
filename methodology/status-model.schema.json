@@ -1,0 +1,36 @@
+{
+  "schema_version": "status-model.v2",
+  "purpose": "Prevent evidence, execution, release and lifecycle states from being conflated.",
+  "namespaces": {
+    "fact_status": ["EVIDENCED", "UNKNOWN", "CONFLICTING", "SUPERSEDED"],
+    "execution_status": ["NOT_RUN", "PASS", "FAIL", "BLOCKED", "REFUSED", "INCOMPLETE", "SCHEMA_INVALID", "UNSUPPORTED_RULE"],
+    "gate_status": ["NOT_EVALUATED", "PASSED", "BLOCKED", "WAIVED"],
+    "maturity": ["desk-researched", "fixture-tested", "model-integrated", "integration-tested", "practitioner-reviewed", "production-validated"],
+    "record_lifecycle": ["CURRENT", "SUPERSEDED", "ARCHIVED"]
+  },
+  "unknown_policy": {
+    "recording": "UNKNOWN is a fact state and must carry unknown_scope. It is not an execution result or a passed gate.",
+    "closure": "If UNKNOWN controls a release, risk decision, Oracle or exit criterion, it also requires owner and next_evidence and blocks that decision until resolved or formally waived by the authorised owner.",
+    "conflict": "CONFLICTING evidence blocks the affected risk decision until a source precedence decision is recorded."
+  },
+  "unknown_routes": {
+    "DISCOVERY": {
+      "allowed_stages": ["S1", "S2"],
+      "allowed_risk_levels": ["LOW", "MEDIUM"],
+      "allowed_actions": ["record", "request_evidence", "continue_structuring"],
+      "required_fields": ["unknown_scope", "owner", "next_evidence", "expires_at", "escalation_action"],
+      "closure_rule": "May continue only with structural analysis; it cannot be used as evidence for a release, risk decision, Oracle, or exit criterion."
+    },
+    "DECISION_CRITICAL": {
+      "allowed_stages": ["S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9"],
+      "allowed_risk_levels": ["MEDIUM", "HIGH", "CRITICAL"],
+      "allowed_actions": ["record", "request_evidence", "block_and_escalate"],
+      "required_fields": ["unknown_scope", "owner", "next_evidence", "expires_at", "escalation_action"],
+      "closure_rule": "Blocks release, risk_decision, oracle, and exit_criterion closure until resolved or formally waived by the authorised owner."
+    }
+  },
+  "independence_policy": {
+    "attestation_required": ["status=ATTESTED", "evidence_ref", "evidence_sha256", "conflict_of_interest_declared=true"],
+    "non_evidence": "Different strings, tool identities or automated roles do not demonstrate reviewer independence."
+  }
+}

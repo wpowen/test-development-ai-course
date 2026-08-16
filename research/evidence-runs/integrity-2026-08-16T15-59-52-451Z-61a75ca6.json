@@ -1,0 +1,16 @@
+{
+  "schema_version": "evidence-run.v1",
+  "run_id": "integrity-2026-08-16T15-59-52-451Z-61a75ca6",
+  "command": "node scripts/generate-course-integrity-manifests.mjs --write",
+  "started_at": "2026-08-16T15:58:40.093Z",
+  "finished_at": "2026-08-16T15:59:52.451Z",
+  "exit_code": 0,
+  "validator": {
+    "path": "scripts/generate-course-integrity-manifests.mjs",
+    "sha256": "sha256:ca41cee466e99d6ba822ca70a9fda99daaa4f66b849802fadb730c1bc1f8b976"
+  },
+  "input_hashes": {
+    "course": "sha256:630e9af78378326947d9a515bf9b38c5cce32c5ba190c20ac3db3e8d3e2a5749",
+    "tutorial": "sha256:7f741fb11b0d86e69c07dd104478c3f7c563d43dc581721997583ea1c04480a2"
+  }
+}

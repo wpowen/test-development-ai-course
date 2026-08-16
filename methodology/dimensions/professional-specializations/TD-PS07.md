@@ -84,7 +84,7 @@ iOS 测试的既有关注点——可访问性标识、系统权限、签名、�
 
 > 第四行没有一个现成工具能包办，这恰恰是它值得单独占一行的原因：它需要在应用里留出可复位入口，是工程约定不是工具选型。
 
-*依据：[XCUITest：iOS 用户界面测试](https://developer.apple.com/documentation/xctest/user_interface_tests) · [appium/appium](https://appium.io/docs/en/latest/) · [WebDriver（W3C 推荐标准）](https://www.w3.org/TR/webdriver2/)*
+*依据：[XCUITest：iOS 用户界面测试](https://developer.apple.com/documentation/xctest/user_interface_tests) · [appium/appium](https://appium.io/docs/en/latest/) · [WebDriver 2（W3C Working Draft）](https://www.w3.org/TR/webdriver2/)*
 
 ### 这张图的 7 个节点，本页各交付什么
 
@@ -215,7 +215,7 @@ PS07-4 要求按芯片档位分层，理由与 Android 相同：整体均值会�
   - 能证明：server / driver / capabilities 的分层架构，使同一套测试代码可以跨 Android 与 iOS 驱动不同底层引擎（UiAutomator2、XCUITest）。
   - 不能证明：跨平台的是客户端 API，不是行为。同一段脚本在两个平台上的等待、权限与手势语义都不同，必须分别验证。
   - `appium/appium` · 版本 appium@3.6.0（2026-07-25） · Apache-2.0 · Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点
-- **[WebDriver（W3C 推荐标准）](https://www.w3.org/TR/webdriver2/)** — 协议边界
+- **[WebDriver 2（W3C Working Draft）](https://www.w3.org/TR/webdriver2/)** — 协议边界
   - 能证明：浏览器与移动自动化共同依赖的协议命令集与错误模型。理解它才能判断某个能力是标准行为还是某个 driver 的扩展。
   - 不能证明：标准之外的厂商扩展不保证跨实现可用，也不保证长期稳定。
   - 版本 未锚定 · 许可证见原站 · 非代码资料，按链接引用与转述处理

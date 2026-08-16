@@ -8,8 +8,10 @@
 ## 为什么要有这一步
 
 课程里写「Playwright 1.4x」这种手抄版本号，三个月后就是错的，而且没有任何机制会告诉你它错了。
-这个脚本把版本号、许可证、最近提交从 `gh api` 现抓，人工只维护判断类字段
-（这条资料能证明什么、不能证明什么、哪几页在用）。版本会腐烂，判断不会。
+仓库资料的版本号、许可证、最近提交由 `gh api` 现抓；标准/规范则必须在目录中声明
+edition、版本、发布日期、检索日期、主工件 URL 与内容 SHA-256（付费正文只能明确标成未取得），
+再由本脚本投影、比较并生成复核队列。人工仍只维护判断类字段
+（这条资料能证明什么、不能证明什么、哪几页在用）和标准的变更影响边界。
 
 ## 许可证复用口径
 
@@ -25,8 +27,10 @@ GitHub 无法判定许可证时返回 NOASSERTION，一律降级为 link-only。
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import json
 import pathlib
+import re
 import subprocess
 import sys
 from typing import Any
@@ -34,12 +38,138 @@ from typing import Any
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CATALOG = ROOT / "research" / "reference-catalog.json"
 LIBRARY = ROOT / "research" / "reference-library.json"
+STANDARD_REVIEW_QUEUE = ROOT / "research" / "reference-standards-review-queue.json"
 SITE_MODULE = ROOT / "site" / "content" / "references.ts"
 
 GITHUB_FIELDS = (
     "[.full_name,(.license.spdx_id // \"NOASSERTION\"),"
     "(.stargazers_count|tostring),.pushed_at,.default_branch,(.html_url)]|join(\"\\u0001\")"
 )
+
+STANDARD_FIELDS = (
+    "edition", "version", "publishedAt", "retrievedAt", "primaryArtifact",
+    "lifecycle", "supersedes", "compatibility", "reviewPolicy", "changeImpact",
+)
+SHA256 = re.compile(r"^[0-9a-f]{64}$")
+DATE = re.compile(r"^\d{4}-\d{2}(?:-\d{2})?$")
+LIFECYCLE_STATUSES = {"published", "draft", "expired-draft", "under-revision", "superseded", "withdrawn"}
+COMPATIBILITY = {"compatible", "breaking", "unknown"}
+IMPACT_RISKS = {"low", "medium", "high"}
+
+
+def validate_standard_metadata(item: dict[str, Any]) -> list[str]:
+    """校验标准类资料的可复现版本契约，而非只校验动态入口 URL。"""
+    problems: list[str] = []
+    for field in STANDARD_FIELDS:
+        if field not in item:
+            problems.append(f"缺少 {field}")
+    if problems:
+        return problems
+
+    for field in ("edition", "version"):
+        if not isinstance(item[field], str) or not item[field].strip():
+            problems.append(f"{field} 必须是非空字符串")
+    for field in ("publishedAt", "retrievedAt"):
+        if not isinstance(item[field], str) or not DATE.match(item[field]):
+            problems.append(f"{field} 必须是 YYYY-MM 或 YYYY-MM-DD")
+
+    artifact = item["primaryArtifact"]
+    if not isinstance(artifact, dict):
+        problems.append("primaryArtifact 必须是对象")
+    else:
+        for field in ("url", "mediaType", "contentScope"):
+            if not isinstance(artifact.get(field), str) or not artifact[field].strip():
+                problems.append(f"primaryArtifact.{field} 必须是非空字符串")
+        hash_value = artifact.get("contentSha256")
+        access = artifact.get("access", "public")
+        if access == "public" and (not isinstance(hash_value, str) or not SHA256.match(hash_value)):
+            problems.append("primaryArtifact.contentSha256 必须是公开主工件的 SHA-256")
+        if access != "public" and hash_value is not None:
+            problems.append("不可公开取得的主工件不得伪造 contentSha256；应为 null")
+        if access != "public" and not artifact.get("availabilityNote"):
+            problems.append("不可公开取得的主工件必须说明 availabilityNote")
+
+    lifecycle = item["lifecycle"]
+    if not isinstance(lifecycle, dict) or lifecycle.get("status") not in LIFECYCLE_STATUSES:
+        problems.append("lifecycle.status 必须是受支持的生命周期状态")
+    elif not isinstance(lifecycle.get("statusEvidenceUrl"), str) or not lifecycle["statusEvidenceUrl"].strip():
+        problems.append("lifecycle.statusEvidenceUrl 必须指向官方状态证据")
+
+    if not isinstance(item["supersedes"], list) or not all(isinstance(v, str) and v for v in item["supersedes"]):
+        problems.append("supersedes 必须是版本标识字符串数组（没有则 []）")
+    compatibility = item["compatibility"]
+    if not isinstance(compatibility, dict) or compatibility.get("classification") not in COMPATIBILITY:
+        problems.append("compatibility.classification 必须是 compatible/breaking/unknown")
+    elif not isinstance(compatibility.get("note"), str) or len(compatibility["note"].strip()) < 12:
+        problems.append("compatibility.note 必须解释课程映射如何处理")
+    review_policy = item["reviewPolicy"]
+    if not isinstance(review_policy, dict) or not isinstance(review_policy.get("intervalDays"), int) or review_policy["intervalDays"] < 1:
+        problems.append("reviewPolicy.intervalDays 必须是正整数")
+    elif not isinstance(review_policy.get("watchUrl"), str) or not review_policy["watchUrl"].strip():
+        problems.append("reviewPolicy.watchUrl 必须指向官方更新入口")
+    change_impact = item["changeImpact"]
+    if not isinstance(change_impact, dict) or change_impact.get("risk") not in IMPACT_RISKS:
+        problems.append("changeImpact.risk 必须是 low/medium/high")
+    elif not isinstance(change_impact.get("affectedClaimTypes"), list) or not change_impact["affectedClaimTypes"]:
+        problems.append("changeImpact.affectedClaimTypes 不得为空")
+    return problems
+
+
+def build_standard_review_queue_item(
+    current: dict[str, Any], previous: dict[str, Any] | None, affected_pages: list[str],
+) -> dict[str, Any] | None:
+    """把已知版本变化或非稳定生命周期转为人工课程复核队列项。
+
+    这是本次构建的差异结果，不表示任何未来的定时检查已经执行。
+    """
+    reasons: list[str] = []
+    if previous:
+        for field, reason in (("edition", "edition_changed"), ("version", "version_changed")):
+            if previous.get(field) and previous.get(field) != current.get(field):
+                reasons.append(reason)
+        old_artifact = previous.get("primaryArtifact") or {}
+        new_artifact = current.get("primaryArtifact") or {}
+        if old_artifact.get("contentSha256") and old_artifact.get("contentSha256") != new_artifact.get("contentSha256"):
+            reasons.append("content_hash_changed")
+        if previous.get("lifecycle", {}).get("status") and previous.get("lifecycle", {}).get("status") != current.get("lifecycle", {}).get("status"):
+            reasons.append("lifecycle_changed")
+
+    lifecycle_status = current.get("lifecycle", {}).get("status")
+    if lifecycle_status != "published":
+        reasons.append(f"lifecycle_{lifecycle_status}")
+    retrieved_at = current.get("retrievedAt")
+    interval_days = current.get("reviewPolicy", {}).get("intervalDays")
+    review_due_at: str | None = None
+    if isinstance(retrieved_at, str) and isinstance(interval_days, int):
+        try:
+            snapshot_date = dt.date.fromisoformat(retrieved_at if len(retrieved_at) == 10 else f"{retrieved_at}-01")
+            due_date = snapshot_date + dt.timedelta(days=interval_days)
+            review_due_at = due_date.isoformat()
+            if due_date < dt.date.today():
+                reasons.append("retrieval_overdue")
+        except ValueError:
+            # validate_standard_metadata will independently reject malformed dates.
+            pass
+    if current.get("compatibility", {}).get("classification") == "breaking" and reasons:
+        reasons.append("breaking_compatibility")
+    if not reasons:
+        return None
+
+    risk = current.get("changeImpact", {}).get("risk", "high")
+    return {
+        "referenceId": current["id"],
+        "reviewStatus": "required",
+        "reasons": sorted(set(reasons)),
+        "risk": risk,
+        "affectedClaimTypes": current.get("changeImpact", {}).get("affectedClaimTypes", []),
+        "affectedPages": sorted(affected_pages),
+        "requiredAction": "复核受影响页面的标准映射、阈值和条款/风险编号；复核完成前不得把新版本当作既有课程结论。",
+        "sourceVersion": {"edition": current.get("edition"), "version": current.get("version")},
+        "snapshotRetrievedAt": retrieved_at,
+        "reviewDueAt": review_due_at,
+        "primaryArtifact": current.get("primaryArtifact", {}).get("url"),
+        "statusEvidenceUrl": current.get("lifecycle", {}).get("statusEvidenceUrl"),
+    }
 
 
 def run_gh(endpoint: str, jq: str) -> str | None:
@@ -219,6 +349,16 @@ def scan_actual_usage() -> dict[str, set[str]]:
 
 def build(offline: bool) -> int:
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
+    standards_problems = [
+        f"{item['id']}: {problem}"
+        for item in catalog["entries"]
+        if item["kind"] == "standard"
+        for problem in validate_standard_metadata(item)
+    ]
+    if standards_problems:
+        for problem in standards_problems:
+            print(f"  ✗ 标准版本契约：{problem}", file=sys.stderr)
+        return 1
     usage = scan_actual_usage()
     policy = catalog["policy"]
     previous: dict[str, Any] = {}
@@ -227,6 +367,7 @@ def build(offline: bool) -> int:
 
     entries: dict[str, Any] = {}
     unreachable: list[str] = []
+    standard_review_queue: list[dict[str, Any]] = []
 
     for item in catalog["entries"]:
         entry_id = item["id"]
@@ -269,6 +410,16 @@ def build(offline: bool) -> int:
             "pages": sorted(set(item["pages"]) | usage.get(entry_id, set())),
             "declaredPages": sorted(item["pages"]),
         }
+        if item["kind"] == "standard":
+            for field in STANDARD_FIELDS:
+                entries[entry_id][field] = item.get(field)
+            queue_item = build_standard_review_queue_item(
+                current=entries[entry_id],
+                previous=previous.get(entry_id),
+                affected_pages=entries[entry_id]["pages"],
+            )
+            if queue_item:
+                standard_review_queue.append(queue_item)
 
     by_page: dict[str, list[str]] = {}
     for entry in entries.values():
@@ -278,7 +429,8 @@ def build(offline: bool) -> int:
     payload = {
         "_doc": (
             "由 scripts/build-reference-library.py 生成，请勿手工编辑。"
-            "判断类字段改 research/reference-catalog.json；版本与许可证改不了，它们来自 GitHub API。"
+            "判断类字段和标准冻结元数据改 research/reference-catalog.json；"
+            "仓库版本与许可证来自 GitHub API。"
         ),
         "generatedBy": "scripts/build-reference-library.py",
         "entryCount": len(entries),
@@ -287,6 +439,19 @@ def build(offline: bool) -> int:
     }
     LIBRARY.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     SITE_MODULE.write_text(render_site_module(entries, by_page), encoding="utf-8")
+    queue_payload = {
+        "_doc": (
+            "由 scripts/build-reference-library.py 生成。此队列只反映本次构建已观测到的"
+            "版本差异或非 published 生命周期；它不是已运行的未来监控记录。"
+        ),
+        "generatedBy": "scripts/build-reference-library.py",
+        "generatedAt": dt.date.today().isoformat(),
+        "itemCount": len(standard_review_queue),
+        "items": sorted(standard_review_queue, key=lambda item: (item["risk"], item["referenceId"])),
+    }
+    STANDARD_REVIEW_QUEUE.write_text(
+        json.dumps(queue_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
 
     buckets: dict[str, int] = {}
     for entry in entries.values():
@@ -297,6 +462,7 @@ def build(offline: bool) -> int:
     if unreachable:
         print(f"  ⚠ {len(unreachable)} 条仓库元数据抓取失败：{', '.join(unreachable)}", file=sys.stderr)
         return 1
+    print(f"  标准版本复核队列：{len(standard_review_queue)} 项 → {STANDARD_REVIEW_QUEUE.relative_to(ROOT)}")
     return 0
 
 

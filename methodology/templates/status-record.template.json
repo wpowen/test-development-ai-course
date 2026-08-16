@@ -1,0 +1,12 @@
+{
+  "fact_status": "UNKNOWN",
+  "unknown_class": "DISCOVERY",
+  "stage": "S2",
+  "risk_level": "LOW",
+  "controls": ["analysis"],
+  "unknown_scope": "<precisely identify the absent fact or decision>",
+  "owner": "<named accountable role>",
+  "next_evidence": "<source, experiment, or approval required to resolve it>",
+  "expires_at": "<ISO-8601 deadline>",
+  "escalation_action": "<what happens at expiry or risk upgrade>"
+}

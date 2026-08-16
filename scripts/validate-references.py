@@ -34,6 +34,7 @@ from __future__ import annotations
 
 import argparse
 import concurrent.futures
+import importlib.util
 import json
 import pathlib
 import re
@@ -45,6 +46,13 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SOURCE_DIR = ROOT / "methodology" / "dimensions" / "_sources"
 CATALOG = ROOT / "research" / "reference-catalog.json"
 LIBRARY = ROOT / "research" / "reference-library.json"
+STANDARD_REVIEW_QUEUE = ROOT / "research" / "reference-standards-review-queue.json"
+BUILD_REFERENCE_LIBRARY = ROOT / "scripts" / "build-reference-library.py"
+
+_build_spec = importlib.util.spec_from_file_location("build_reference_library", BUILD_REFERENCE_LIBRARY)
+assert _build_spec and _build_spec.loader
+_build_reference_library = importlib.util.module_from_spec(_build_spec)
+_build_spec.loader.exec_module(_build_reference_library)
 
 # 已完成引用层改造、受强制校验的模块。改造一个加一个。
 ENFORCED: set[str] = {
@@ -122,6 +130,36 @@ def check_library(library: dict, policy: dict[str, list[str]]) -> list[str]:
     return problems
 
 
+def check_standard_versioning(catalog: dict, library: dict) -> list[str]:
+    """标准必须保留版本化主工件，且不稳定状态必须在复核队列里可见。"""
+    problems: list[str] = []
+    catalog_standards = {entry["id"]: entry for entry in catalog["entries"] if entry["kind"] == "standard"}
+    library_entries = library["entries"]
+    for entry_id, catalog_entry in catalog_standards.items():
+        for problem in _build_reference_library.validate_standard_metadata(catalog_entry):
+            problems.append(f"{entry_id}: 标准版本契约无效：{problem}")
+        generated = library_entries.get(entry_id)
+        if not generated:
+            problems.append(f"{entry_id}: 标准没有进入生成后的引用台账")
+            continue
+        for field in _build_reference_library.STANDARD_FIELDS:
+            if generated.get(field) != catalog_entry.get(field):
+                problems.append(f"{entry_id}: 生成台账中的 {field} 与引用目录不一致；请重建")
+
+    if not STANDARD_REVIEW_QUEUE.exists():
+        problems.append("缺少 research/reference-standards-review-queue.json；请重建引用台账")
+        return problems
+    queue = json.loads(STANDARD_REVIEW_QUEUE.read_text(encoding="utf-8"))
+    if queue.get("itemCount") != len(queue.get("items", [])):
+        problems.append("标准版本复核队列 itemCount 与 items 数量不一致")
+    queued_ids = {item.get("referenceId") for item in queue.get("items", []) if item.get("reviewStatus") == "required"}
+    for entry_id, entry in library_entries.items():
+        if entry.get("kind") == "standard" and entry.get("lifecycle", {}).get("status") != "published":
+            if entry_id not in queued_ids:
+                problems.append(f"{entry_id}: 生命周期不是 published，却没有进入标准版本复核队列")
+    return problems
+
+
 def collect_refs(page: dict) -> dict[str, list[str]]:
     """返回 段名 → 该段声明的引用 ID。"""
     found: dict[str, list[str]] = {}
@@ -191,6 +229,7 @@ def main() -> int:
     library = load(LIBRARY)
     known = set(library["entries"])
     problems = check_library(library, catalog["policy"])
+    problems.extend(check_standard_versioning(catalog, library))
 
     checked_pages = 0
     for source in sorted(SOURCE_DIR.glob("*.json")):

@@ -1,15 +1,31 @@
 {
   "schema_version": "page-promotion-receipt.v1",
   "page_id": "TD-A06",
-  "validated_at": "2026-08-15T14:44:09.109Z",
+  "validated_at": "2026-08-16T15:58:40.218Z",
   "reviewer": "validation-semantic-parity-verifier-2026-08-13",
   "page_content_hash": "sha256:ac20143efbc65738bac0f01e4e2b9498affa4674d79b17f53e722b137c287510",
+  "evidence_run_id": "integrity-2026-08-16T15-59-52-451Z-61a75ca6",
+  "input_content_sha256": "sha256:630e9af78378326947d9a515bf9b38c5cce32c5ba190c20ac3db3e8d3e2a5749",
+  "validator": {
+    "path": "scripts/generate-course-integrity-manifests.mjs",
+    "sha256": "sha256:ca41cee466e99d6ba822ca70a9fda99daaa4f66b849802fadb730c1bc1f8b976"
+  },
+  "run_started_at": "2026-08-16T15:58:40.093Z",
+  "run_finished_at": "2026-08-16T15:59:52.451Z",
+  "run_exit_code": 0,
   "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
-  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_hash": "sha256:15d68ea9720cf9a1852d045652274d33e409373bc08d21193863b10617f1d3be",
   "editorial_review_verdict": "PASS",
   "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
   "page_author_id": "course-page-projection-author-2026-08-13",
-  "reviewer_is_independent_of_author": true,
+  "reviewer_independence": {
+    "status": "UNVERIFIED",
+    "evidence_ref": null,
+    "evidence_sha256": null,
+    "conflict_of_interest_declared": null,
+    "reason": "Different automated role identifiers do not demonstrate human, organizational, or model independence."
+  },
+  "reviewer_is_independent_of_author": false,
   "research_package_files": [
     "research-brief.md",
     "source-pack.csv",
@@ -77,10 +93,10 @@
   "editorial_score": 100,
   "boundary_preservation_score": 100,
   "executability_audit_ref": "research/executability-audit.json",
-  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit_hash": "sha256:0703e557be4c48f19164b6fb0a675859b9e868ba3b089d5ecb3aefba056810cb",
   "executability_audit": {
     "path": "../../executability-audit.json",
-    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "sha256": "sha256:0703e557be4c48f19164b6fb0a675859b9e868ba3b089d5ecb3aefba056810cb",
     "verdict": "PASS",
     "finding_count": 0
   },
@@ -138,6 +154,6 @@
   ],
   "verdict": "FAIL",
   "findings": [
-    "independent editorial review does not pin current page content hash"
+    "editorial reviewer independence is not attested with pinned evidence"
   ]
 }

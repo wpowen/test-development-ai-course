@@ -131,6 +131,34 @@
       "role": "协议层权威定义",
       "whatItProves": "幂等在 HTTP 里的准确定义：多次相同请求对服务器的预期效果与单次相同。它明确 PUT/DELETE 幂等而 POST 不幂等——这正是取消/退款这类 POST 接口必须自己引入幂等键的协议依据。",
       "whatItDoesNotProve": "规范定义的是方法语义的期望，不强制实现遵守。你的 POST 加没加幂等键、加了是否生效，只能靠测试证明。",
+      "edition": "RFC 9110",
+      "version": "2022-06",
+      "publishedAt": "2022-06",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.txt",
+        "mediaType": "text/plain",
+        "contentSha256": "21c1cdce6ab0e5509b04d84a28000836c7a087cf786efe6f04877ebfff47232a",
+        "contentScope": "RFC 9110 的公开完整文本；课程仅使用 Section 9.2.2。",
+        "access": "public"
+      },
+      "lifecycle": {
+        "status": "published",
+        "statusEvidenceUrl": "https://www.rfc-editor.org/info/rfc9110"
+      },
+      "supersedes": ["RFC 7230", "RFC 7231", "RFC 7232", "RFC 7233", "RFC 7235", "RFC 7538", "RFC 7694"],
+      "compatibility": {
+        "classification": "breaking",
+        "note": "HTTP 语义被整合并更新；旧 RFC 条款号不能直接替换为 RFC 9110 条款号。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 365,
+        "watchUrl": "https://www.rfc-editor.org/info/rfc9110"
+      },
+      "changeImpact": {
+        "risk": "high",
+        "affectedClaimTypes": ["protocol-semantics", "idempotency-oracle", "retry-gate"]
+      },
       "pages": [
         "TD-PS01"
       ]
@@ -144,6 +172,34 @@
       "role": "幂等键的行业收敛形态",
       "whatItProves": "幂等键的头部命名、冲突处理与重放语义正在向一个共同形态收敛，且已被主流支付类 API 实际采用。它给「幂等键应该长什么样」提供了可引用依据，而不是各家自创。",
       "whatItDoesNotProve": "仍是草案，不是已发布 RFC，字段行为可能变化。落地前必须以你所对接供应商的当前文档为准。",
+      "edition": "Internet-Draft -07",
+      "version": "draft-ietf-httpapi-idempotency-key-header-07",
+      "publishedAt": "2025-10-15",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://www.ietf.org/archive/id/draft-ietf-httpapi-idempotency-key-header-07.txt",
+        "mediaType": "text/plain",
+        "contentSha256": "956a446923d6b6cd0ab72b0dbc552937c5b0fcf443da6b47c055d17dcdfa542f",
+        "contentScope": "Internet-Draft -07 的完整公开文本；该工件已到期，只作历史工作草案。",
+        "access": "public"
+      },
+      "lifecycle": {
+        "status": "expired-draft",
+        "statusEvidenceUrl": "https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/history/"
+      },
+      "supersedes": ["draft-idempotency-header"],
+      "compatibility": {
+        "classification": "unknown",
+        "note": "Internet-Draft 可被替换、更新或废弃；不得把 -07 的字段语义当作稳定标准。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 30,
+        "watchUrl": "https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/"
+      },
+      "changeImpact": {
+        "risk": "high",
+        "affectedClaimTypes": ["idempotency-header", "retry-oracle", "api-contract"]
+      },
       "pages": [
         "TD-PS01"
       ]
@@ -250,6 +306,34 @@
       "role": "无障碍判据来源",
       "whatItProves": "无障碍要求的权威条款与分级（A / AA / AAA），以及每条成功准则的判定方式。合规结论必须引条款号，而不是引工具输出。",
       "whatItDoesNotProve": "标准不指定实现与测试方法。哪些条款能自动化、哪些必须人工，需要自己映射。",
+      "edition": "2.2",
+      "version": "2024-12-12 Recommendation",
+      "publishedAt": "2024-12-12",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://www.w3.org/TR/2024/REC-WCAG22-20241212/",
+        "mediaType": "text/html",
+        "contentSha256": "6e3c5fe397257cae509a2fb4752b73062cf8cbeb92c2cec618989b17e4cf7057",
+        "contentScope": "WCAG 2.2 的日期化 W3C Recommendation（包含 2024-12-12 勘误重发）。",
+        "access": "public"
+      },
+      "lifecycle": {
+        "status": "published",
+        "statusEvidenceUrl": "https://www.w3.org/TR/WCAG22/"
+      },
+      "supersedes": [],
+      "compatibility": {
+        "classification": "compatible",
+        "note": "WCAG 2.2 保持 2.0/2.1 兼容方向，但 4.1.1 已废弃；合规声明仍必须固定 2.2 版本与成功准则。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 180,
+        "watchUrl": "https://www.w3.org/TR/WCAG22/"
+      },
+      "changeImpact": {
+        "risk": "medium",
+        "affectedClaimTypes": ["accessibility-success-criterion", "conformance-claim", "manual-test-coverage"]
+      },
       "pages": [
         "TD-PS05"
       ]
@@ -285,11 +369,39 @@
       "id": "R-WEBDRIVER",
       "kind": "standard",
       "url": "https://www.w3.org/TR/webdriver2/",
-      "title": "WebDriver（W3C 推荐标准）",
+      "title": "WebDriver 2（W3C Working Draft）",
       "publisher": "W3C",
       "role": "协议边界",
       "whatItProves": "浏览器与移动自动化共同依赖的协议命令集与错误模型。理解它才能判断某个能力是标准行为还是某个 driver 的扩展。",
       "whatItDoesNotProve": "标准之外的厂商扩展不保证跨实现可用，也不保证长期稳定。",
+      "edition": "WebDriver 2",
+      "version": "2026-07-02 Working Draft",
+      "publishedAt": "2026-07-02",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://www.w3.org/TR/2026/WD-webdriver2-20260702/",
+        "mediaType": "text/html",
+        "contentSha256": "929f2f0be15b73b0b3e33052f115a47fc1561ec42f0a8992d532780591ae919e",
+        "contentScope": "WebDriver 2 的日期化 W3C Working Draft；不是 W3C Recommendation。",
+        "access": "public"
+      },
+      "lifecycle": {
+        "status": "draft",
+        "statusEvidenceUrl": "https://www.w3.org/TR/webdriver2/"
+      },
+      "supersedes": ["WebDriver Level 1 Recommendation 2018-06-05"],
+      "compatibility": {
+        "classification": "unknown",
+        "note": "Working Draft 可以被更新、替换或废弃；具体 command、error 和 capability 映射只能按冻结工件复核。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 30,
+        "watchUrl": "https://www.w3.org/TR/webdriver2/"
+      },
+      "changeImpact": {
+        "risk": "high",
+        "affectedClaimTypes": ["webdriver-protocol", "driver-compatibility", "automation-oracle"]
+      },
       "pages": [
         "TD-PS06",
         "TD-PS07"
@@ -540,6 +652,34 @@
       "role": "安全判据来源",
       "whatItProves": "分级的、可逐条验证的安全需求清单。它把「做了安全测试」变成「V2.1.x 已验证、V4.2.x 未覆盖」这种可审计陈述。",
       "whatItDoesNotProve": "标准是需求清单不是测试方法。每条如何验证、用什么证据，仍需自己设计。",
+      "edition": "5",
+      "version": "5.0.0",
+      "publishedAt": "2025-05",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://github.com/OWASP/ASVS/releases/download/v5.0.0_release/OWASP_Application_Security_Verification_Standard_5.0.0_en.pdf",
+        "mediaType": "application/pdf",
+        "contentSha256": "f3e9a2f1098bc4af594578acb404121af69e3964aa4d90abd4b00607218d30c6",
+        "contentScope": "OWASP ASVS 5.0.0 英文稳定版 PDF；标准编号应使用 v5.0.0-<requirement> 形式。",
+        "access": "public"
+      },
+      "lifecycle": {
+        "status": "published",
+        "statusEvidenceUrl": "https://github.com/OWASP/ASVS/releases/tag/v5.0.0_release"
+      },
+      "supersedes": ["OWASP ASVS v4.0.3"],
+      "compatibility": {
+        "classification": "breaking",
+        "note": "5.0.0 的需求编号可能与 4.x 不同；课程和报告必须带 v5.0.0 前缀，不得按 latest 解释。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 90,
+        "watchUrl": "https://github.com/OWASP/ASVS/releases"
+      },
+      "changeImpact": {
+        "risk": "high",
+        "affectedClaimTypes": ["security-requirement-id", "security-gate", "coverage-mapping"]
+      },
       "pages": [
         "TD-PS12"
       ]
@@ -566,6 +706,34 @@
       "role": "AI 侧风险清单",
       "whatItProves": "LLM 应用的高频风险分类（提示注入、敏感信息泄露、供应链、过度代理权限等），可作为安全测试的风险起点与覆盖度检查表。",
       "whatItDoesNotProve": "清单是风险分类不是验收标准，也不按你的业务排优先级。",
+      "edition": "2025",
+      "version": "2025",
+      "publishedAt": "2024-11-17",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://genai.owasp.org/download/43299/?tmstv=1731900559",
+        "mediaType": "application/pdf",
+        "contentSha256": "d221fd33cbb96d9b84820ae6dd64a73b7c2861dcf6cbcdc88366be5931858ee4",
+        "contentScope": "OWASP Top 10 for LLM Applications 2025 的公开 PDF；课程只把它用作风险分类起点。",
+        "access": "public"
+      },
+      "lifecycle": {
+        "status": "superseded",
+        "statusEvidenceUrl": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/"
+      },
+      "supersedes": ["OWASP Top 10 for LLM Applications 2023"],
+      "compatibility": {
+        "classification": "breaking",
+        "note": "2026 版已发布；风险编号、名称和覆盖映射均需人工复核，2025 版不得继续被当作当前清单。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 30,
+        "watchUrl": "https://genai.owasp.org/llm-top-10/"
+      },
+      "changeImpact": {
+        "risk": "high",
+        "affectedClaimTypes": ["llm-risk-taxonomy", "threat-coverage", "security-gate"]
+      },
       "pages": [
         "TD-PS12"
       ]
@@ -657,6 +825,34 @@
       "role": "供应链判据框架",
       "whatItProves": "构建完整性的分级要求（来源可证明、构建过程可复现、防篡改），把「供应链安全」从含糊目标变成可声明的等级。",
       "whatItDoesNotProve": "等级描述构建过程的可信度，不评价依赖本身是否有漏洞。",
+      "edition": "1.0",
+      "version": "SLSA v1.0",
+      "publishedAt": "2023-04",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://raw.githubusercontent.com/slsa-framework/slsa/7d5078a986b4783bc8eab32b8e2804187b4cdbb0/spec/levels.md",
+        "mediaType": "text/markdown",
+        "contentSha256": "5c30ff56523d9237584a5126792e6f20dacc8257f91daea17f9c6452d1210fe0",
+        "contentScope": "SLSA v1.0 release branch 的 levels 规范冻结提交；不使用 main 分支草案。",
+        "access": "public"
+      },
+      "lifecycle": {
+        "status": "superseded",
+        "statusEvidenceUrl": "https://slsa.dev/spec/v1.0/whats-new"
+      },
+      "supersedes": ["SLSA v0.1"],
+      "compatibility": {
+        "classification": "breaking",
+        "note": "v1.0 相对 v0.1 重构，且 SLSA v1.1 已替代 v1.0；供应链等级声明须按当前批准版复核。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 30,
+        "watchUrl": "https://slsa.dev/spec-stages"
+      },
+      "changeImpact": {
+        "risk": "high",
+        "affectedClaimTypes": ["supply-chain-level", "provenance-requirement", "release-gate"]
+      },
       "pages": [
         "TD-X101"
       ]
@@ -1079,6 +1275,34 @@
       "role": "治理框架",
       "whatItProves": "AI 风险治理的四个功能（Govern / Map / Measure / Manage）及其可落地的子类别，使「我们做了 AI 治理」变成可以逐条对照的陈述。",
       "whatItDoesNotProve": "框架不给阈值也不给测试方法；它规定要管什么，不规定管到什么程度算合格。",
+      "edition": "1.0",
+      "version": "NIST AI 100-1",
+      "publishedAt": "2023-01-26",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf",
+        "mediaType": "application/pdf",
+        "contentSha256": "7576edb531d9848825814ee88e28b1795d3a84b435b4b797d3670eafdc4a89f1",
+        "contentScope": "NIST AI 100-1（AI RMF 1.0）完整公开 PDF；课程采用其四功能框架，不将其外推为验收阈值。",
+        "access": "public"
+      },
+      "lifecycle": {
+        "status": "under-revision",
+        "statusEvidenceUrl": "https://www.nist.gov/itl/ai-risk-management-framework"
+      },
+      "supersedes": [],
+      "compatibility": {
+        "classification": "unknown",
+        "note": "NIST 已明确 AI RMF 1.0 正在修订；新版发布前沿用 1.0，但所有治理映射必须进入复核队列。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 30,
+        "watchUrl": "https://www.nist.gov/itl/ai-risk-management-framework"
+      },
+      "changeImpact": {
+        "risk": "high",
+        "affectedClaimTypes": ["ai-governance", "risk-management-mapping", "release-gate"]
+      },
       "pages": [
         "TD-T23",
         "TD-X601",
@@ -1159,6 +1383,35 @@
       "role": "过程框架",
       "whatItProves": "测试过程、文档与技术有一套国际通用的术语与结构，可用于对齐跨组织的口径，尤其在合规与外部审计场景下需要引用条款号而不是内部约定。",
       "whatItDoesNotProve": "标准正文需付费获取，且它给的是过程框架不是有效性证明；符合标准不代表测试有检测力。本课程只引用其结构，不复制条文。",
+      "edition": "2",
+      "version": "ISO/IEC/IEEE 29119-1:2022",
+      "publishedAt": "2022-01",
+      "retrievedAt": "2026-08-16",
+      "primaryArtifact": {
+        "url": "https://www.iso.org/standard/81291.html?browse=tc",
+        "mediaType": "text/html",
+        "contentSha256": null,
+        "contentScope": "ISO 官方公开书目记录（版本、状态、生命周期）；完整标准 PDF/ePub 需经 ISO 获取，课程未保存或复制正文。",
+        "access": "paywalled",
+        "availabilityNote": "ISO 官方页面公开 Edition 2、2022-01、Published 和对 2013 版的替代关系；受版权和访问控制限制，不能诚实地为未取得的完整标准正文提供哈希。"
+      },
+      "lifecycle": {
+        "status": "published",
+        "statusEvidenceUrl": "https://www.iso.org/standard/81291.html?browse=tc"
+      },
+      "supersedes": ["ISO/IEC/IEEE 29119-1:2013"],
+      "compatibility": {
+        "classification": "breaking",
+        "note": "2022 版替代 2013 版；正文受限时不得声称已核对条款细节，旧版条款映射须按已获授权文本复核。"
+      },
+      "reviewPolicy": {
+        "intervalDays": 180,
+        "watchUrl": "https://www.iso.org/standard/81291.html?browse=tc"
+      },
+      "changeImpact": {
+        "risk": "medium",
+        "affectedClaimTypes": ["test-process-terminology", "audit-mapping", "standard-clause-reference"]
+      },
       "pages": [
         "TD-P04",
         "TD-C02"

@@ -84,7 +84,7 @@ Activity 重建、进程被杀、权限被撤销——这些是 Android 自动�
 
 > 前两行是同一个问题的两种答案：要稳定性就接受侵入应用，要非侵入就接受更低的稳定性上限。没有第三条路，选型时先认这一点。
 
-*依据：[Espresso：Android 进程内 UI 测试](https://developer.android.com/training/testing/espresso) · [appium/appium](https://appium.io/docs/en/latest/) · [mobile-dev-inc/Maestro](https://docs.maestro.dev/) · [WebDriver（W3C 推荐标准）](https://www.w3.org/TR/webdriver2/)*
+*依据：[Espresso：Android 进程内 UI 测试](https://developer.android.com/training/testing/espresso) · [appium/appium](https://appium.io/docs/en/latest/) · [mobile-dev-inc/Maestro](https://docs.maestro.dev/) · [WebDriver 2（W3C Working Draft）](https://www.w3.org/TR/webdriver2/)*
 
 ### 这张图的 7 个节点，本页各交付什么
 
@@ -217,7 +217,7 @@ PS06-4 是新增的一条：端侧推理的耗时必须按机型分层统计，�
   - 能证明：server / driver / capabilities 的分层架构，使同一套测试代码可以跨 Android 与 iOS 驱动不同底层引擎（UiAutomator2、XCUITest）。
   - 不能证明：跨平台的是客户端 API，不是行为。同一段脚本在两个平台上的等待、权限与手势语义都不同，必须分别验证。
   - `appium/appium` · 版本 appium@3.6.0（2026-07-25） · Apache-2.0 · Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点
-- **[WebDriver（W3C 推荐标准）](https://www.w3.org/TR/webdriver2/)** — 协议边界
+- **[WebDriver 2（W3C Working Draft）](https://www.w3.org/TR/webdriver2/)** — 协议边界
   - 能证明：浏览器与移动自动化共同依赖的协议命令集与错误模型。理解它才能判断某个能力是标准行为还是某个 driver 的扩展。
   - 不能证明：标准之外的厂商扩展不保证跨实现可用，也不保证长期稳定。
   - 版本 未锚定 · 许可证见原站 · 非代码资料，按链接引用与转述处理

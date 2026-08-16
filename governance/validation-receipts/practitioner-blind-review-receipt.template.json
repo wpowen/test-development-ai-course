@@ -1,0 +1,12 @@
+{
+  "schema_version": "practitioner-blind-review-receipt.v1",
+  "receipt_kind": "practitioner-blind-review",
+  "execution_status": "NOT_RUN",
+  "outcome": "NOT_RUN",
+  "maturity_claim": "NONE",
+  "protocol": {"reviewers":"qualified test-development practitioners with role/experience eligibility recorded outside public material", "blindness":"remove author and variant identity; randomize order", "conflict_of_interest":"declare before access", "sample":"representative page/artifact and risk-slice sample", "rubric":"business oracle clarity, artifact usability, boundary correctness, recovery quality and transferability", "adjudication":"keep individual judgments and reason codes; no forced consensus"},
+  "required_results": ["reviewer eligibility/COI evidence reference", "blinding/randomization evidence", "per-item ratings and rationale", "disagreement and adjudication record", "material changes and re-review decision"],
+  "evidence": [],
+  "owner":"TBD",
+  "next_evidence":"Recruit independent qualified reviewers and run the blind protocol; do not infer practitioner review from automated editorial checks."
+}

@@ -7,8 +7,8 @@
  * does not mutate course content, projection ledgers, Skill files, or published
  * assets. Its score is a deterministic gate signal, not an author assessment.
  */
-import { createHash } from "node:crypto";
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { createHash, randomUUID } from "node:crypto";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -22,7 +22,6 @@ const REPORT_PATH = path.join(RESEARCH_ROOT, "editorial-review-2026-08-11-final.
 
 const REVIEWER_ID = "validation-semantic-parity-verifier-2026-08-13";
 const AUTHOR_ID = "course-page-projection-author-2026-08-13";
-const GENERATED_AT = "2026-08-13T06:00:00+08:00";
 const TYPE_DEPTH = { concept: 3000, diagnostic: 3500, "guided-lab": 4000, project: 4000, reference: 2000 };
 const TYPE_MAP = { "概念": "concept", "诊断": "diagnostic", "跟做": "guided-lab", "项目": "project", "参考": "reference" };
 const DEPTH_CONTRACT = "references/page-depth-and-projection-fidelity-contract.md";
@@ -153,6 +152,7 @@ const scorePage = ({ depth, type, tables, boundary, duplication, materialCount, 
 };
 
 const main = async () => {
+  const runStartedAt = new Date().toISOString();
   const course = await import(`${pathToFileURL(path.join(SITE_ROOT, "content/course.ts")).href}?independent_audit=${Date.now()}`);
   const tutorial = json(TUTORIAL_PATH);
   const tutorialById = new Map((tutorial.pages ?? []).map((page) => [page.page_id, page]));
@@ -293,14 +293,42 @@ const main = async () => {
     executability_pass_count: pageRecords.filter((page) => page.executability.verdict === "PASS" && page.executability.finding_count === 0).length,
     learner_reuse_records_present_count: pageRecords.filter((page) => page.learner_reuse.record_present).length,
   };
+  const evidenceRun = {
+    schema_version: "evidence-run.v1",
+    run_id: `editorial-${new Date().toISOString().replace(/[:.]/g, "-")}-${randomUUID().slice(0, 8)}`,
+    command: "node scripts/build-independent-editorial-review.mjs",
+    started_at: runStartedAt,
+    finished_at: new Date().toISOString(),
+    exit_code: 0,
+    validator: {
+      path: "scripts/build-independent-editorial-review.mjs",
+      sha256: sha256File(fileURLToPath(import.meta.url)),
+    },
+    input_hashes: {
+      course: sha256File(path.join(SITE_ROOT, "content/course.ts")),
+      tutorial: sha256File(TUTORIAL_PATH),
+    },
+  };
+  const evidenceRunPath = path.join(RESEARCH_ROOT, "evidence-runs", `${evidenceRun.run_id}.json`);
+  if (existsSync(evidenceRunPath)) throw new Error(`immutable evidence run already exists: ${path.relative(PACKAGE_ROOT, evidenceRunPath)}`);
+  mkdirSync(path.dirname(evidenceRunPath), { recursive: true });
+  writeFileSync(evidenceRunPath, `${JSON.stringify(evidenceRun, null, 2)}\n`);
   const report = {
-    schema_version: "independent-editorial-review.v2",
-    review_id: "independent-editorial-review-2026-08-13-semantic-parity",
-    generated_at: GENERATED_AT,
+    schema_version: "editorial-review-contract.v3",
+    review_id: "deterministic-editorial-review-2026-08-16-semantic-contract",
+    generated_at: evidenceRun.finished_at,
+    evidence_run: evidenceRun,
     lane: "validation",
     reviewer: REVIEWER_ID,
     author_id: AUTHOR_ID,
-    reviewer_is_independent_of_author: REVIEWER_ID !== AUTHOR_ID,
+    reviewer_independence: {
+      status: "UNVERIFIED",
+      evidence_ref: null,
+      evidence_sha256: null,
+      conflict_of_interest_declared: null,
+      reason: "Different automated role identifiers do not demonstrate human, organizational, or model independence.",
+    },
+    reviewer_is_independent_of_author: false,
     scope: {
       tutorial_ref: "tutorial/tutorial-site.json",
       tutorial_sha256: sha256File(TUTORIAL_PATH),
@@ -321,8 +349,8 @@ const main = async () => {
     },
     supersedes: oldHash ? [{ path: "research/editorial-review-2026-08-11-final.json", sha256: oldHash, reason: "old PASS scope/records lacked current page hashes and covered 102 pages; replaced by this independent 103-page fail-closed audit" }] : [],
     method: {
-      type: "independent deterministic editorial/depth/boundary/projection audit",
-      reviewer_boundary: "This pass measures current learner projection and evidence contracts; it does not reuse the old editorial score and does not self-approve promotion.",
+      type: "deterministic editorial/depth/boundary/projection audit",
+      reviewer_boundary: "This pass measures current learner projection and evidence contracts. It is not an independent-review attestation and cannot approve promotion.",
       depth_contract: DEPTH_CONTRACT,
       editorial_contract: EDITORIAL_CONTRACT,
       prose_measurement: "CJK characters from summary, why, block titles/bodies/bullets/expected/warning/table captions/rows; typed technical payloads and internal action arrays excluded.",

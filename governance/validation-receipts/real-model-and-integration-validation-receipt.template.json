@@ -1,0 +1,13 @@
+{
+  "schema_version": "real-model-and-integration-validation-receipt.v1",
+  "receipt_kind": "real-model-and-integration-validation",
+  "execution_status": "NOT_RUN",
+  "outcome": "NOT_RUN",
+  "maturity_claim": "NONE",
+  "planned_scope": {"representative_pages":"TBD", "risk_slices":["normal","no_answer","authorization","safety","long_tail"], "model_or_version_matrix":"at least two independently identified provider/model/version entries", "integration_environment":"authorized isolated or equivalent integration environment"},
+  "reproducibility": {"provider":"NOT_RUN", "model":"NOT_RUN", "region":"NOT_RUN", "parameters":"NOT_RUN", "input_hashes":"NOT_RUN", "output_hashes":"NOT_RUN", "scorer_version":"NOT_RUN", "run_start":"NOT_RUN", "run_end":"NOT_RUN"},
+  "required_results": ["per-sample output and trace references", "independent scorer result", "human adjudication for disagreement/blockers", "slice-level metrics and uncertainty method", "failure/UNKNOWN retention", "release decision and rollback boundary"],
+  "evidence": [],
+  "owner":"TBD",
+  "next_evidence":"Obtain authorization, freeze inputs and versions, execute runs, retain raw results and adjudicate disagreements."
+}

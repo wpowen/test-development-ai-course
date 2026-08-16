@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { copyFile, mkdtemp, mkdir, rm, writeFile } from "node:fs/promises";
 import { spawnSync } from "node:child_process";
 import { tmpdir } from "node:os";
@@ -14,11 +15,16 @@ import {
   buildSupportOwnership,
 } from "./generate-course-integrity-manifests.mjs";
 
-test("independent editorial review v2 normalizes nested current-page hashes", () => {
+test("editorial review normalizes nested current-page hashes only with attested independence", () => {
   const evidence = normalizeEditorialReviewEvidence({
     reviewer: "independent-reviewer",
     author_id: "course-author",
-    reviewer_is_independent_of_author: true,
+    reviewer_independence: {
+      status: "ATTESTED",
+      evidence_ref: "governance/reviews/2026-08-16.md",
+      evidence_sha256: "sha256:abc",
+      conflict_of_interest_declared: true,
+    },
   }, {
     page_id: "TD-P01",
     reviewer_id: "independent-reviewer",
@@ -235,6 +241,8 @@ test("promotion receipt consumes an independent editorial review and pins curren
   const root = await mkdtemp(path.join(tmpdir(), "promotion-receipt-pass-"));
   try {
     for (const name of REQUIRED_RESEARCH_FILES) await writeFile(path.join(root, name), `${name}\n`);
+    const attestation = '{"schema_version":"reviewer-independence-attestation.v1"}\n';
+    await writeFile(path.join(root, "attestation.json"), attestation);
     const receipt = await buildPromotionReceipt({
       page: page("TD-P01"),
       topicRoot: root,
@@ -242,6 +250,64 @@ test("promotion receipt consumes an independent editorial review and pins curren
       auditHash: "sha256:audit",
       closureEntries: [{ page_id: "TD-P01", verdict: "PASS", materials: [] }],
       validationTime: "2026-08-11T00:00:00.000Z",
+      reviewer: "independent-editorial-audit",
+      independenceEvidenceRoot: root,
+      evidenceRun: {
+        schema_version: "evidence-run.v1",
+        run_id: "integrity-test-run",
+        started_at: "2026-08-11T00:00:00.000Z",
+        finished_at: "2026-08-11T00:01:00.000Z",
+        exit_code: 0,
+        validator: { path: "scripts/generate-course-integrity-manifests.mjs", sha256: `sha256:${"a".repeat(64)}` },
+        input_hashes: { course: `sha256:${"b".repeat(64)}`, tutorial: `sha256:${"c".repeat(64)}` },
+      },
+      editorialReview: {
+        editorial_score: 94,
+        boundary_preservation_score: 100,
+        page_content_hash: "sha256:6bf8829b69c6541cfd3b80f55cb072f85458112e815ba0f65035044b43b7639b",
+        review_ref: "research/editorial-review-2026-08-11-final.json",
+        review_hash: "sha256:review",
+        review_verdict: "PASS",
+        reviewer_id: "independent-editorial-audit",
+        author_id: "course-page-author",
+        reviewer_independence: {
+          status: "ATTESTED",
+          evidence_ref: "attestation.json",
+          evidence_sha256: `sha256:${createHash("sha256").update(attestation).digest("hex")}`,
+          conflict_of_interest_declared: true,
+        },
+      },
+    });
+
+    assert.equal(receipt.verdict, "PASS");
+    assert.deepEqual(receipt.research_package_files, REQUIRED_RESEARCH_FILES);
+    assert.equal(receipt.executability_audit_ref, "research/executability-audit.json");
+    assert.equal(receipt.executability_audit_hash, "sha256:audit");
+    assert.equal(receipt.editorial_review_hash, "sha256:review");
+    assert.equal(receipt.evidence_run_id, "integrity-test-run");
+    assert.equal(receipt.input_content_sha256, `sha256:${"b".repeat(64)}`);
+    assert.deepEqual(receipt.reviewer_independence, {
+      status: "ATTESTED",
+      evidence_ref: "attestation.json",
+      evidence_sha256: `sha256:${createHash("sha256").update(attestation).digest("hex")}`,
+      conflict_of_interest_declared: true,
+    });
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test("promotion receipt rejects an attestation whose pinned evidence cannot be read", async () => {
+  const root = await mkdtemp(path.join(tmpdir(), "promotion-receipt-missing-attestation-"));
+  try {
+    for (const name of REQUIRED_RESEARCH_FILES) await writeFile(path.join(root, name), `${name}\n`);
+    const receipt = await buildPromotionReceipt({
+      page: page("TD-P01"),
+      topicRoot: root,
+      audit: { page_id: "TD-P01", verdict: "PASS", finding_count: 0, findings: [] },
+      auditHash: "sha256:audit",
+      closureEntries: [{ page_id: "TD-P01", verdict: "PASS", materials: [] }],
+      validationTime: "2026-08-16T00:00:00.000Z",
       reviewer: "independent-editorial-audit",
       editorialReview: {
         editorial_score: 94,
@@ -252,15 +318,16 @@ test("promotion receipt consumes an independent editorial review and pins curren
         review_verdict: "PASS",
         reviewer_id: "independent-editorial-audit",
         author_id: "course-page-author",
-        reviewer_is_independent_of_author: true,
+        reviewer_independence: {
+          status: "ATTESTED",
+          evidence_ref: "missing-attestation.json",
+          evidence_sha256: "sha256:abc",
+          conflict_of_interest_declared: true,
+        },
       },
     });
-
-    assert.equal(receipt.verdict, "PASS");
-    assert.deepEqual(receipt.research_package_files, REQUIRED_RESEARCH_FILES);
-    assert.equal(receipt.executability_audit_ref, "research/executability-audit.json");
-    assert.equal(receipt.executability_audit_hash, "sha256:audit");
-    assert.equal(receipt.editorial_review_hash, "sha256:review");
+    assert.equal(receipt.verdict, "FAIL");
+    assert.match(receipt.findings.join("\n"), /independence is not attested/);
   } finally {
     await rm(root, { recursive: true, force: true });
   }
@@ -290,12 +357,12 @@ test("promotion receipt rejects self-review or a non-PASS page review", async ()
         review_verdict: "FAIL",
         reviewer_id: "course-page-author",
         author_id: "course-page-author",
-        reviewer_is_independent_of_author: false,
+        reviewer_independence: { status: "UNVERIFIED" },
       },
     });
     assert.equal(receipt.verdict, "FAIL");
     assert.match(receipt.findings.join("\n"), /page verdict is not PASS/);
-    assert.match(receipt.findings.join("\n"), /not independent/);
+    assert.match(receipt.findings.join("\n"), /independence is not attested/);
   } finally {
     await rm(root, { recursive: true, force: true });
   }

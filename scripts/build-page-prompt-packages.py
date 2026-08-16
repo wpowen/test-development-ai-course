@@ -40,6 +40,12 @@ from prompt_framework import (  # noqa: E402
     bullets, gap_questions, json_block, quality_metrics, render_diagnosis,
     render_iteration, render_tracking, variants_table,
 )
+from prompt_artifact_ownership import (  # noqa: E402
+    OwnershipViolation,
+    require_generator_owns_topics,
+    select_owned_topics,
+    verify_non_owned_artifacts,
+)
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SPEC_PATH = ROOT / "methodology" / "page-prompt-specs.json"
@@ -48,16 +54,11 @@ PUBLIC = ROOT / "site" / "public" / "materials"
 SITE = ROOT / "site"
 V1_COMMIT = "8638e71"
 
-# 有自己体裁或自己契约的包，本脚本一律不碰：
-#
-#   · 粘贴区交互式（AG-DIM）：输入区就是它的主体，套模块化结构会把它改成另一种东西。
-#   · requirements-to-evidence 的直用包：prompt-v1.md 是 one-shot「直接复制给 AI」，
-#     且 receipt.json 用 sha256 钉住了包内每个文件。改动会造成 hash 漂移，
-#     由 site/tests/lifecycle-direct-use-prompts.test.mjs 拦下。
-#
-# 判断方式不是靠记住主题名，而是看包里有没有 receipt.json——有收据就说明
-# 它的字节被别处钉住了，任何生成器都不该覆盖它。
+# 有自己交互体裁的包（AG-DIM）仍不适合套入三件套。其它跨生成器写入边界不再
+# 通过“是否恰好有 receipt.json”猜测，而由声明式 ownership manifest 和哈希闭包
+# 校验：有收据不自动等于不可写，非本 owner 的 learner one-shot 才不可写。
 PASTE_AREA_TOPICS = frozenset({"AG-DIM"})
+GENERATOR_ID = "scripts/build-page-prompt-packages.py"
 
 
 # 同一种三件套在不同课程下有两套命名：带 -v1 与不带。两种都要认，
@@ -76,11 +77,6 @@ def pkg_file(pkg: pathlib.Path, role: str) -> pathlib.Path | None:
         if path.exists():
             return path
     return None
-
-
-def is_hash_pinned(pkg: pathlib.Path) -> bool:
-    """包内存在 receipt.json 即视为字节被钉住，不参与重建。"""
-    return (pkg / "receipt.json").exists()
 
 
 def package_dirs(topic: str) -> list[pathlib.Path]:
@@ -435,12 +431,17 @@ def main() -> int:
     topics = all_topics()
 
     if extract_mode:
+        try:
+            verify_non_owned_artifacts(ROOT, GENERATOR_ID)
+        except OwnershipViolation as exc:
+            print(f"prompt artifact ownership violation: {exc}", file=sys.stderr)
+            return 2
         specs = {}
         for topic in topics:
             if topic in PASTE_AREA_TOPICS:
                 continue
             dirs = package_dirs(topic)
-            if dirs and is_hash_pinned(dirs[0]):
+            if dirs and select_owned_topics(ROOT, GENERATOR_ID, [topic])[1]:
                 continue
             if dirs and pkg_file(dirs[0], "task"):
                 specs[topic] = extract(topic, dirs[0])
@@ -458,7 +459,17 @@ def main() -> int:
     specs = json.loads(SPEC_PATH.read_text(encoding="utf-8"))
     specs.pop("_comment", None)
 
-    wanted = args or sorted(specs)
+    try:
+        if args:
+            require_generator_owns_topics(ROOT, GENERATOR_ID, args)
+        verify_non_owned_artifacts(ROOT, GENERATOR_ID)
+    except OwnershipViolation as exc:
+        print(f"prompt artifact ownership violation: {exc}", file=sys.stderr)
+        return 2
+
+    wanted, protected = select_owned_topics(ROOT, GENERATOR_ID, args or sorted(specs))
+    if protected:
+        print(f"跳过非本生成器拥有的 Prompt：{', '.join(protected)}")
     unknown = [t for t in wanted if t not in specs]
     if unknown:
         print(f"未知主题：{', '.join(unknown)}", file=sys.stderr)
@@ -469,7 +480,7 @@ def main() -> int:
         if topic in PASTE_AREA_TOPICS:
             continue
         dirs = package_dirs(topic)
-        if not dirs or any(is_hash_pinned(d) for d in dirs):
+        if not dirs:
             continue
         schema = read_schema(dirs[0])
         spec = specs[topic]
@@ -487,6 +498,12 @@ def main() -> int:
                 critic_path.write_text(critic, encoding="utf-8")
             written += 1
         print(f"  {topic:12} system {len(system):5} ｜ task {len(task):5} ｜ critic {len(critic):5}  × {len(dirs)}")
+
+    try:
+        verify_non_owned_artifacts(ROOT, GENERATOR_ID)
+    except OwnershipViolation as exc:
+        print(f"prompt artifact ownership violation after generation: {exc}", file=sys.stderr)
+        return 1
 
     print(f"\n{len(wanted)} 个主题已生成，写入 {written} 份副本。")
     print("接着跑 `python3 scripts/rebuild-material-archives.py` 与 `npm run validate:materials`。")

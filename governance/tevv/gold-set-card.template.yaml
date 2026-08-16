@@ -1,0 +1,13 @@
+{
+  "schema_version": "gold-set-card.v1",
+  "status": "TEMPLATE_NOT_RUN",
+  "gold_set_id": "TBD",
+  "construct_and_harm": "TBD",
+  "provenance": {"source_population":"TBD","consent_or_authority":"TBD","deidentification":"TBD","contamination_risk":"TBD"},
+  "splits": {"development":"TBD","calibration":"TBD","sealed_holdout":"TBD","opening_log_required":true},
+  "slice_plan": ["normal","long_tail","no_answer","authorization","safety","language_or_accessibility"],
+  "annotation_protocol": {"status":"NOT_RUN","blind_annotators":"three qualified and independent annotators or documented exception","rubric_version":"TBD","adjudication":"retain individual labels, disagreement reason and adjudicated label","agreement":"Fleiss_kappa_or_Krippendorff_alpha_as_applicable with class distribution and CI","unknown_policy":"UNKNOWN is a valid label and cannot be silently relabelled PASS"},
+  "quality_controls": ["versioned items and evidence", "rater training and calibration record", "per-class confusion matrix", "contamination and holdout-access log", "change-triggered reannotation sample"],
+  "owner":"TBD",
+  "next_evidence":"Collect and freeze authorized samples; execute the annotation protocol without discarding disagreement."
+}

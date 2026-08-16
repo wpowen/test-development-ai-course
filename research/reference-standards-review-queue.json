@@ -1,0 +1,154 @@
+{
+  "_doc": "由 scripts/build-reference-library.py 生成。此队列只反映本次构建已观测到的版本差异或非 published 生命周期；它不是已运行的未来监控记录。",
+  "generatedBy": "scripts/build-reference-library.py",
+  "generatedAt": "2026-08-16",
+  "itemCount": 5,
+  "items": [
+    {
+      "referenceId": "R-IDEMPOTENCY-KEY",
+      "reviewStatus": "required",
+      "reasons": [
+        "lifecycle_expired-draft"
+      ],
+      "risk": "high",
+      "affectedClaimTypes": [
+        "idempotency-header",
+        "retry-oracle",
+        "api-contract"
+      ],
+      "affectedPages": [
+        "TD-PS01"
+      ],
+      "requiredAction": "复核受影响页面的标准映射、阈值和条款/风险编号；复核完成前不得把新版本当作既有课程结论。",
+      "sourceVersion": {
+        "edition": "Internet-Draft -07",
+        "version": "draft-ietf-httpapi-idempotency-key-header-07"
+      },
+      "snapshotRetrievedAt": "2026-08-16",
+      "reviewDueAt": "2026-09-15",
+      "primaryArtifact": "https://www.ietf.org/archive/id/draft-ietf-httpapi-idempotency-key-header-07.txt",
+      "statusEvidenceUrl": "https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/history/"
+    },
+    {
+      "referenceId": "R-NIST-AI-RMF",
+      "reviewStatus": "required",
+      "reasons": [
+        "lifecycle_under-revision"
+      ],
+      "risk": "high",
+      "affectedClaimTypes": [
+        "ai-governance",
+        "risk-management-mapping",
+        "release-gate"
+      ],
+      "affectedPages": [
+        "TD-C01",
+        "TD-C02",
+        "TD-C03",
+        "TD-C04",
+        "TD-F01",
+        "TD-P04",
+        "TD-P08",
+        "TD-T23",
+        "TD-X601"
+      ],
+      "requiredAction": "复核受影响页面的标准映射、阈值和条款/风险编号；复核完成前不得把新版本当作既有课程结论。",
+      "sourceVersion": {
+        "edition": "1.0",
+        "version": "NIST AI 100-1"
+      },
+      "snapshotRetrievedAt": "2026-08-16",
+      "reviewDueAt": "2026-09-15",
+      "primaryArtifact": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf",
+      "statusEvidenceUrl": "https://www.nist.gov/itl/ai-risk-management-framework"
+    },
+    {
+      "referenceId": "R-OWASP-LLM-TOP10",
+      "reviewStatus": "required",
+      "reasons": [
+        "breaking_compatibility",
+        "lifecycle_superseded"
+      ],
+      "risk": "high",
+      "affectedClaimTypes": [
+        "llm-risk-taxonomy",
+        "threat-coverage",
+        "security-gate"
+      ],
+      "affectedPages": [
+        "TD-AG-06",
+        "TD-AG-10",
+        "TD-PS12",
+        "TD-T09",
+        "TD-T12",
+        "TD-T16",
+        "TD-T17",
+        "TD-X603",
+        "TD-X604"
+      ],
+      "requiredAction": "复核受影响页面的标准映射、阈值和条款/风险编号；复核完成前不得把新版本当作既有课程结论。",
+      "sourceVersion": {
+        "edition": "2025",
+        "version": "2025"
+      },
+      "snapshotRetrievedAt": "2026-08-16",
+      "reviewDueAt": "2026-09-15",
+      "primaryArtifact": "https://genai.owasp.org/download/43299/?tmstv=1731900559",
+      "statusEvidenceUrl": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/"
+    },
+    {
+      "referenceId": "R-SLSA",
+      "reviewStatus": "required",
+      "reasons": [
+        "breaking_compatibility",
+        "lifecycle_superseded"
+      ],
+      "risk": "high",
+      "affectedClaimTypes": [
+        "supply-chain-level",
+        "provenance-requirement",
+        "release-gate"
+      ],
+      "affectedPages": [
+        "TD-QP02",
+        "TD-T25",
+        "TD-X101"
+      ],
+      "requiredAction": "复核受影响页面的标准映射、阈值和条款/风险编号；复核完成前不得把新版本当作既有课程结论。",
+      "sourceVersion": {
+        "edition": "1.0",
+        "version": "SLSA v1.0"
+      },
+      "snapshotRetrievedAt": "2026-08-16",
+      "reviewDueAt": "2026-09-15",
+      "primaryArtifact": "https://raw.githubusercontent.com/slsa-framework/slsa/7d5078a986b4783bc8eab32b8e2804187b4cdbb0/spec/levels.md",
+      "statusEvidenceUrl": "https://slsa.dev/spec/v1.0/whats-new"
+    },
+    {
+      "referenceId": "R-WEBDRIVER",
+      "reviewStatus": "required",
+      "reasons": [
+        "lifecycle_draft"
+      ],
+      "risk": "high",
+      "affectedClaimTypes": [
+        "webdriver-protocol",
+        "driver-compatibility",
+        "automation-oracle"
+      ],
+      "affectedPages": [
+        "TD-PS06",
+        "TD-PS07"
+      ],
+      "requiredAction": "复核受影响页面的标准映射、阈值和条款/风险编号；复核完成前不得把新版本当作既有课程结论。",
+      "sourceVersion": {
+        "edition": "WebDriver 2",
+        "version": "2026-07-02 Working Draft"
+      },
+      "snapshotRetrievedAt": "2026-08-16",
+      "reviewDueAt": "2026-09-15",
+      "primaryArtifact": "https://www.w3.org/TR/2026/WD-webdriver2-20260702/",
+      "statusEvidenceUrl": "https://www.w3.org/TR/webdriver2/"
+    }
+  ]
+}

@@ -34,6 +34,12 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from diagnose_prompt import render_table, score, score_from_git
+from prompt_artifact_ownership import (  # noqa: E402
+    OwnershipViolation,
+    require_generator_owns_topics,
+    select_owned_topics,
+    verify_non_owned_artifacts,
+)
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SPEC_PATH = ROOT / "methodology" / "prompt-specs.json"
@@ -44,12 +50,11 @@ PUBLIC = ROOT / "site" / "public" / "materials"
 SITE = ROOT / "site"
 V1_COMMIT = "8638e71"
 
-# 这 8 页是 requirements-to-evidence 生命周期实验室，它们有自己独立的契约：
-# prompt-v1.md 是面向小白的 one-shot「直接复制到 AI Agent」，而不是本脚本
-# 输出的七段式任务提示词。由 build_direct_use_contracts.py、pipeline.py、
-# DIRECT-USE-GUIDE.md 和 site/tests/lifecycle-direct-use-prompts.test.mjs 共同
-# 约束，必须跳过，否则会把 one-shot 覆盖成任务提示词并造成 manifest hash 漂移。
-DIRECT_USE_TOPICS = frozenset(f"TD-P0{i}" for i in range(1, 9))
+# 受保护的一次性学习者 Prompt 不在这里维护主题例外名单；所有权、消费者、
+# 生成器和不可变 hash 均由 courses/prompt-artifact-ownership.json 声明，并由
+# prompt_artifact_ownership 在写入前后校验。这样新增一种 Prompt 体裁时不会因为
+# 某个生成器忘记更新本地常量而再次覆盖学习者入口。
+GENERATOR_ID = "scripts/build-prompt-packages.py"
 
 # 包内文件名在不同课程下有两套写法，读取时都试一遍。
 ALIASES = {
@@ -417,14 +422,20 @@ def main() -> int:
     specs = json.loads(SPEC_PATH.read_text(encoding="utf-8"))
     specs.pop("_comment", None)
 
-    wanted = sys.argv[1:] or sorted(specs)
-    skipped = sorted(t for t in wanted if t in DIRECT_USE_TOPICS)
-    wanted = [t for t in wanted if t not in DIRECT_USE_TOPICS]
-    if skipped:
-        print(
-            f"跳过生命周期 direct-use 包（请改跑对应 lab 的 build_direct_use_contracts.py）："
-            f"{', '.join(skipped)}"
-        )
+    requested = sys.argv[1:]
+    try:
+        # 显式指定非本生成器拥有的主题是调用错误，不静默跳过；全量重建只会选择
+        # 本生成器拥有的主题，仍保持原有的安全批处理体验。
+        if requested:
+            require_generator_owns_topics(ROOT, GENERATOR_ID, requested)
+        verify_non_owned_artifacts(ROOT, GENERATOR_ID)
+    except OwnershipViolation as exc:
+        print(f"prompt artifact ownership violation: {exc}", file=sys.stderr)
+        return 2
+
+    wanted, protected = select_owned_topics(ROOT, GENERATOR_ID, requested or sorted(specs))
+    if protected:
+        print(f"跳过非本生成器拥有的 Prompt：{', '.join(protected)}")
     unknown = [t for t in wanted if t not in specs]
     if unknown:
         print(f"未知主题：{', '.join(unknown)}", file=sys.stderr)
@@ -446,6 +457,12 @@ def main() -> int:
                 (pkg / "critic-v1.md").write_text(critic, encoding="utf-8")
             written += 1
         print(f"  {topic:10} {len(prompt):5} 字节 × {len(dirs)} 份副本")
+
+    try:
+        verify_non_owned_artifacts(ROOT, GENERATOR_ID)
+    except OwnershipViolation as exc:
+        print(f"prompt artifact ownership violation after generation: {exc}", file=sys.stderr)
+        return 1
 
     print(f"\n{len(wanted)} 个主题已生成，写入 {written} 份副本。")
     print("接着跑 `python3 scripts/validate-prompt-packages.py` 与 `npm run validate:materials`。")

@@ -28,28 +28,29 @@ done
 
 step() { printf '\n\033[1m▸ %s\033[0m\n' "$1"; }
 
-step "1/7 引用台账（人工判断 + GitHub 实时版本与许可证）"
+step "1/8 引用台账（人工判断 + GitHub 实时版本与许可证）"
 python3 scripts/build-reference-library.py $OFFLINE
 
-step "2/7 站点深度层模块投影"
+step "2/8 站点深度层模块投影"
 python3 scripts/build-site-modules.py
 
-step "3/7 维度 Markdown 投影"
+step "3/8 维度 Markdown 投影"
 node scripts/build-dimension-docs.mjs
 
-step "4/7 可落地性门禁（阈值、失效点、架构索引、三段式门禁）"
+step "4/8 语义门禁（状态命名空间、统计判定、审查独立性契约）"
+node scripts/validate-semantic-contracts.mjs
+
+step "5/8 TEVV 治理门禁（覆盖矩阵、Judge/Gold、阈值、学习路径与 NOT_RUN 收据）"
+node scripts/validate-tevv-governance.mjs
+
+step "6/8 可落地性门禁（阈值、失效点、架构索引、三段式门禁）"
 python3 scripts/validate-deep-sources.py
 
-step "5/7 引用门禁（出处、版本锚点、双向边界、许可证口径）"
+step "7/8 引用门禁（出处、版本锚点、许可证、标准版本与复核队列）"
 python3 scripts/validate-references.py $CHECK_URLS
 
-step "6/7 站点内容门禁与类型检查"
-npm --prefix site run validate:content
+step "8/8 发布语义、证据新鲜度、内容投影与类型检查"
+npm --prefix site run validate:release
 npm --prefix site run typecheck
-
-# 前五步全部作用在内容源上；这一步作用在渲染产物上。
-# 两侧都要有门禁——内容源写了不等于页面上渲染了（TD-F01 就在这个缺口里待了很久）。
-step "7/7 引用投影校验（内容源写了 = 页面上渲染了）"
-npm --prefix site run validate:projection
 
 printf '\n\033[32m全部通过。\033[0m内容源改动已同步到站点模块与 Markdown 两个投影。\n'

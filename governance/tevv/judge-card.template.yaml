@@ -1,0 +1,14 @@
+{
+  "schema_version": "judge-card.v1",
+  "status": "TEMPLATE_NOT_RUN",
+  "judge_id": "TBD",
+  "decision_boundary": "Judge may prioritize human review; it cannot override safety, authorization, factual or release blockers.",
+  "target_construct": "TBD",
+  "judge_version": "NOT_RUN",
+  "input_contract": {"task_unit":"TBD","blind_pair_randomization":"REQUIRED","evidence_visibility":"DECLARED","unknown_allowed":true},
+  "rubric": {"labels":["PASS","FAIL","UNKNOWN"],"blocker_labels":["SAFETY","AUTHORIZATION","FACTUAL_SUPPORT"],"per_label_definition":"TBD"},
+  "calibration": {"status":"NOT_RUN","gold_set_ref":"TBD","human_annotation_protocol_ref":"gold-set-card.template.yaml","agreement_statistics":["Fleiss_kappa_or_Krippendorff_alpha_as_applicable","per_class_precision_recall_f1","confidence_interval"],"required_probes":["position_swap","length_inflation","style_preference","same_family_bias","refusal_and_unknown"],"human_sentinel_sampling":"TBD","suspension_conditions":["missing gold set","model or rubric version changed","blocker disagreement","unknown rate outside declared policy"]},
+  "reporting": {"required":["confusion_matrix","label_distribution","per_sample_reason","unknown_count","disagreement_and_adjudication","version_hash"],"prohibited":["single aggregate score as release decision","unqualified kappa threshold","self-generated self-approval"]},
+  "owner":"TBD",
+  "next_evidence":"Run blinded human annotation and independent Judge calibration; preserve failures and UNKNOWN."
+}

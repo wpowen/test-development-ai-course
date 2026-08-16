@@ -1,0 +1,12 @@
+{
+  "schema_version": "learner-study-receipt.v1",
+  "receipt_kind": "learner-study",
+  "execution_status": "NOT_RUN",
+  "outcome": "NOT_RUN",
+  "maturity_claim": "NONE",
+  "protocol": {"cohorts":["new_to_ai_quality","transitioning_test_developer","experienced_qa"], "sample_target":"5-10 authorized target learners before any usability claim", "tasks":["pretest","guided course task","independent transfer task","posttest and failure interview"], "blind_assessment":"independent rubric assessor where feasible", "measures":["completion","time","error taxonomy","artifact quality","transfer success","retention follow-up"], "privacy":"informed consent, minimal data and de-identification plan required"},
+  "required_results": ["cohort/sampling and consent evidence", "per-task completion/time/error data", "independent transfer-task rubric", "failure interview themes including negative findings", "cohort slices and limitations", "course-change decision"],
+  "evidence": [],
+  "owner":"TBD",
+  "next_evidence":"Obtain research/consent authorization and run the planned study without turning template assumptions into learner outcomes."
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "production-validation-receipt.v1",
+  "receipt_kind": "production-validation",
+  "execution_status": "NOT_RUN",
+  "outcome": "NOT_RUN",
+  "maturity_claim": "NONE",
+  "protocol": {"preconditions":["model and integration receipts reviewed","release owner approval","monitoring and rollback tested","privacy/security authorization"], "rollout":"shadow or canary plan with traffic/slice boundaries", "monitoring":"quality, safety, authorization, cost and human-escalation signals", "stop_conditions":"pre-registered hard blockers and evidence-insufficiency conditions", "rollback":"tested owner, command and compensating-action plan"},
+  "evidence": [],
+  "owner":"TBD",
+  "next_evidence":"Run only in an authorized environment; retain observed traffic, alerts, decisions and rollback evidence."
+}
