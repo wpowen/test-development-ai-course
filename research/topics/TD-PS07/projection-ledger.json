@@ -1,0 +1,80 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-PS07",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:5bee3852ad63c8bf644da9d1703da71a2aa2e2166bce4767f669abbe9040e9da",
+  "page_content_sha256": "sha256:fdb45a8d82b5c546860847305841d5716c25909ea5c0f5f75e2ae77b6f893899",
+  "claims": [
+    {
+      "claim_id": "TD-PS07-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "关键控件不依赖坐标定位；权限、数据清理和签名前置有记录；服务端预约状态与 UI 结果相互印证",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-PS07#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-PS07-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L35-L35",
+      "meaning": "证据边界必须写清：模拟器验证不能声称为真机验证。签名、推送、相机等能力只有真机能验证。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-PS07#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-PS07-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L24-L24",
+      "meaning": "XCTest、WCAG 和质量模型用于方法设计；本页未运行 XCUITest、模拟器或真机，签名、OS、动画和设备兼容性均只能标为 desk-researched。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-PS07#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-PS07-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L16-L16",
+      "meaning": "行动：为预约改期控件定义 accessibilityIdentifier 和业务断言；模拟并发 slot_version 冲突并确认 UI 友好失败；写出模拟器与真机各自不能证明的事项 预期：UI 显示处理中时服务端请求可追踪；重复点击不会产生第二个预约变更。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-PS07#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-PS07-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "iOS 的老问题是权限、签名与状态残留，端侧模型让隐私边界第一次进入测试范围 失效形态 可核查的数字 它导致的错误结论 用例之间不清理状态 iOS 模拟器的钥匙串与 UserDefaults 跨用例保留，残留导致的假通过在无清理策略时占比不为 0 单跑通过、全量跑失败，被当成「测试不稳定」而不是状态污染 只在模拟器上验证 签名、真机权限弹窗、后台限制这 3 类行为在模拟器上与真机不一致，模拟器对它们的覆盖率为 0 模拟器全绿，上架审核或真机首启即失败 端侧推理的数据流向未被断言 隐私声明写了「数据不离开设备」，而…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-PS07#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-PS07-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "iOS 自动化在含端侧推理的应用上变成了什么 iOS 测试的既有关注点——可访问性标识、系统权限、签名、动画同步、状态残留——一条都没有减少。端侧模型增加的是隐私边界这一维。 这一维之所以落在测试身上，是因为它是唯一能把「我们不上传数据」从声明变成证据的环节。 传统做法 在 AI 系统里为什么不够用 融合后的新做法 用可访问性标识定位控件 生成内容区的可访问标识可能由模型产出，它既是定位依据又是被测输出，二者混在一起会让定位失败与内容错误无法区分 定位只使用开发者显式设置的静态标识；模型产出的可访问名称转为断言对…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-PS07#content_sections.teaching_blocks.3",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    }
+  ],
+  "counts": {
+    "total": 6,
+    "projected": 4,
+    "condensed": 2,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-AP06",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:c09feaef8734a69999c7289c56fccfd4582548be832905f26739dc67e389e80e",
+  "page_content_sha256": "sha256:a8cf93e930c72511c48929df8cca82bc6e78f591350320c9572e0640312719bf",
+  "claims": [
+    {
+      "claim_id": "TD-AP06-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "命令、cwd、manifest、退出码与工件完全一致；Prompt/Input/Schema/Eval/Mutation 均为 v1.0.0；fault 至少被一个门禁拒绝，repair 未删除门禁；证据明确 synthetic fixture ≠ production capacity",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-AP06#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-AP06-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L34-L34",
+      "meaning": "fault 允许 3–5 次重试、提高失败率并移除压力降级，形成可见重试风暴。；不要用「实际上很少同时重试」来跳过这个计算。重试放大恰恰在依赖抖动时同时发生，那正是你最需要它不发生的时刻。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-AP06#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-AP06-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "当前 0/1/0 证明 fixture gate 与策略方向；真实 AI provider/model、integration、practitioner review、learner run、live 与 production 依赖语义、幂等和补偿责任均 NOT_RUN，仍需集成与从业者评审。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-AP06#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-AP06-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L30-L30",
+      "meaning": "行动：运行 TD-AP06 cycle 并保存 0/1/0；fault 允许 3–5 次重试、提高失败率并移除压力降级，形成可见重试风暴。；从 fault Trace 找到一条红灯证据；写明哪些结论仍不能外推到生产 预期：fault 的 retry_p95、timeout_budget_valid、task_success 必须红；repair 通过限制 attempts 与安全降级恢复。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-AP06#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-AP06-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "跨层重试会把一次抖动放大成副作用事故 失效组合 表面收益 实际风险 四层各重试 3 次 短时成功率提高 最坏 81 倍调用放大 所有超时都 30 秒 配置简单 全链路统一 30 秒会让下游超时晚于上游，上游已放弃而下游仍在计费；这段浪费的算力占比不为 0 写工具无幂等键 失败可再试 写工具无幂等键时，重试必然导致副作用重复执行，1 次重复即构成业务事故 降级只返回错误 实现省事 降级只返回错误等于没有降级；可用性在依赖故障期间直接降到 0，而只读或转人工本可保住一部分 先算预算和副作用，再谈可靠性。",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-AP06#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-AP06-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "超时与重试的四个词 多层重试是 Agent 延迟失控最常见的原因。下面四个词决定你能不能把它算清楚。 术语 一句话解释 总 deadline 一次任务允许的最长时间；所有层的超时之和必须小于它，否则外层永远等不到内层结束 重试预算 一次任务允许的重试总次数；它是任务级的，不是每层各自的 重试放大 网关、SDK、Agent、Tool 各自重试三次，最坏情况是 81 次调用 安全降级 超预算时的可接受终态，如只读结果、转人工、明确拒绝；它不是失败 更完整的中英对照与易混辨析见方法论 02 术语表；这里只收本页判断真正…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-AP06#content_sections.teaching_blocks.1",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-AP06-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L34-L34",
+      "meaning": "先理解系统边界与假绿 重试只适用于暂态且幂等的失败，并尊重 Retry-After；指数退避加 jitter 减少同步重放，但仍需总 attempts 和 deadline。 降级要定义合法终态：高风险写操作可切人工或只读，不能把失败模型输出直接当成功。恢复时逐级放量，避免积压瞬间重放。 对象/信号 正确口径 常见假绿 429/503 在预算内重试 Retry-After + jitter 400/401/403 不重试 修配置/权限 写工具超时 先对账 不可盲重放 队列超限 拒绝/人工 不可无限排队 任何比例都…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-AP06#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

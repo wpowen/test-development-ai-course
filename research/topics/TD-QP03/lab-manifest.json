@@ -1,0 +1,53 @@
+{
+  "topic_id": "TD-QP03",
+  "page_id": "TD-QP03",
+  "owner_page_ids": [
+    "TD-QP03"
+  ],
+  "working_directory": "site/public/materials/quality-platform-integrations/learner-materials",
+  "required_files": [
+    "scripts/ephemeral_namespace_cleanup.py",
+    "scripts/topic_cycle.py",
+    "manifests/td-qp03-lab.json",
+    "prompts/td-qp03/manifest.json",
+    "prompts/td-qp03/task.md",
+    "prompts/td-qp03/input.json",
+    "prompts/td-qp03/output.schema.json",
+    "prompts/td-qp03/eval.json"
+  ],
+  "steps": [
+    {
+      "step_id": "baseline",
+      "kind": "baseline",
+      "command": "python3 scripts/ephemeral_namespace_cleanup.py baseline --report reports/td-qp03/baseline.json",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "reports/td-qp03/baseline.json"
+      ]
+    },
+    {
+      "step_id": "fault",
+      "kind": "mutation",
+      "command": "python3 scripts/ephemeral_namespace_cleanup.py fault --report reports/td-qp03/fault.json",
+      "expected_exit_code": 1,
+      "expected_artifacts": [
+        "reports/td-qp03/fault.json"
+      ]
+    },
+    {
+      "step_id": "repair",
+      "kind": "repair",
+      "command": "python3 scripts/ephemeral_namespace_cleanup.py repair --report reports/td-qp03/repair.json",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "reports/td-qp03/repair.json"
+      ]
+    }
+  ],
+  "failure_cycle": {
+    "baseline_step_id": "baseline",
+    "fault_step_id": "fault",
+    "repair_step_id": "repair"
+  },
+  "evidence_boundary": "fixture-tested only; all live platform model and ChatOps operations NOT_RUN"
+}

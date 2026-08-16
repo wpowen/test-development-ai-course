@@ -1,0 +1,12 @@
+{
+  "topic_id":"TD-P02","status":"fixture-tested","owner":"TD-P02 course owner",
+  "source_authority":"Approved fixture policy: PRD-v3 is authoritative for business rules; OPENAPI-v7 for transport/schema; TECH-a13f is implementation context only and conflicts are BLOCKED.",
+  "authority_owner":"product-owner-order + test-lead",
+  "authority_evidence":"inputs/authority-policy.json and pinned source hashes",
+  "inputs":["PRD-v3","TECH-a13f","OPENAPI-v7"],
+  "outputs":["requirement-contract.json","test-package.json","run receipts"],
+  "stop_states":["BLOCKED","UNKNOWN","SCHEMA_INVALID","SOURCE_CONFLICT","REFUSED","INCOMPLETE"],
+  "method_ids":["M-REQ-TRACE","M-STATE-ORACLE"],
+  "oracle_ids":["O-SOURCE-REF","O-STATE-RESPONSE","O-REFUND-IDEMPOTENCY"],
+  "limitations":["fixture policy is not enterprise governance","no model/API or practitioner evidence"]
+}

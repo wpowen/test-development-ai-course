@@ -1,0 +1,53 @@
+{
+  "topic_id": "TD-P04",
+  "page_id": "TD-P04",
+  "owner_page_ids": [
+    "TD-P04"
+  ],
+  "working_directory": "courses/td-ai-011-requirements-to-evidence/lab",
+  "required_files": [
+    "pipeline.py",
+    "page-prompts/TD-P04/manifest.json",
+    "page-prompts/TD-P04/prompt-v1.md",
+    "page-prompts/TD-P04/input.json",
+    "page-prompts/TD-P04/schema.json",
+    "page-prompts/TD-P04/eval.json",
+    "page-manifests/TD-P04.json"
+  ],
+  "steps": [
+    {
+      "step_id": "baseline",
+      "kind": "baseline",
+      "command": "python3 pipeline.py page-phase --page TD-P04 --phase baseline --report reports/TD-P04-baseline.json",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "reports/TD-P04-baseline.json"
+      ]
+    },
+    {
+      "step_id": "fault",
+      "kind": "mutation",
+      "command": "python3 pipeline.py page-phase --page TD-P04 --phase fault --report reports/TD-P04-fault.json",
+      "expected_exit_code": 1,
+      "expected_artifacts": [
+        "reports/TD-P04-fault.json"
+      ]
+    },
+    {
+      "step_id": "repair",
+      "kind": "repair",
+      "command": "python3 pipeline.py page-phase --page TD-P04 --phase repair --report reports/TD-P04-repair.json",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "reports/TD-P04-repair.json"
+      ]
+    }
+  ],
+  "failure_cycle": {
+    "baseline_step_id": "baseline",
+    "fault_step_id": "fault",
+    "repair_step_id": "repair"
+  },
+  "evidence_boundary": "fixture-tested only; provider none and model NOT_RUN; no practitioner integration live publication or production evidence"
+}
+

@@ -1,0 +1,53 @@
+{
+  "topic_id": "TD-QP04",
+  "page_id": "TD-QP04",
+  "owner_page_ids": [
+    "TD-QP04"
+  ],
+  "working_directory": "site/public/materials/quality-platform-integrations/learner-materials",
+  "required_files": [
+    "scripts/event_replay_and_reconcile.py",
+    "scripts/topic_cycle.py",
+    "manifests/td-qp04-lab.json",
+    "prompts/td-qp04/manifest.json",
+    "prompts/td-qp04/task.md",
+    "prompts/td-qp04/input.json",
+    "prompts/td-qp04/output.schema.json",
+    "prompts/td-qp04/eval.json"
+  ],
+  "steps": [
+    {
+      "step_id": "baseline",
+      "kind": "baseline",
+      "command": "python3 scripts/event_replay_and_reconcile.py baseline --report reports/td-qp04/baseline.json",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "reports/td-qp04/baseline.json"
+      ]
+    },
+    {
+      "step_id": "fault",
+      "kind": "mutation",
+      "command": "python3 scripts/event_replay_and_reconcile.py fault --report reports/td-qp04/fault.json",
+      "expected_exit_code": 1,
+      "expected_artifacts": [
+        "reports/td-qp04/fault.json"
+      ]
+    },
+    {
+      "step_id": "repair",
+      "kind": "repair",
+      "command": "python3 scripts/event_replay_and_reconcile.py repair --report reports/td-qp04/repair.json",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "reports/td-qp04/repair.json"
+      ]
+    }
+  ],
+  "failure_cycle": {
+    "baseline_step_id": "baseline",
+    "fault_step_id": "fault",
+    "repair_step_id": "repair"
+  },
+  "evidence_boundary": "fixture-tested only; all live platform model and ChatOps operations NOT_RUN"
+}

@@ -1,0 +1,46 @@
+topic: AI-native test development professional tutorial
+
+execution:
+  output_dir: ./results
+  batch_size: 4
+  items_per_agent: 1
+
+items:
+  - name: TD-F01
+    category: profession-reality
+    title: Reconstruct test development work before proposing AI transformation
+    description: >-
+      Research the real work system of a senior test development or quality engineering role:
+      lifecycle, dependencies, artifacts, decision rights, performance evidence, promotion signals,
+      recurring pain, information barriers, AI-reconstructable work, non-delegable judgments,
+      existing professional curricula, practitioner discussions, and a beginner-verifiable lab.
+      Compare findings against the current TD-F01 page and identify claims to keep, rewrite, or delete.
+  - name: TD-P02
+    category: requirements-engineering
+    title: Turn PRD and technical design documents into a traceable requirement contract
+    description: >-
+      Research a production-usable AI-assisted workflow from document intake and baseline control
+      through structured extraction, conflict detection, source citations, human review, downstream
+      test design, change impact, and audit. Compare standards, official model capabilities, open-source
+      implementations, practitioner failures, and existing teaching materials. Specify a fully runnable
+      beginner lab with real files, exact commands, expected output, negative mutation, repair, and limits.
+      Compare findings against the current TD-P02 page and identify claims to keep, rewrite, or delete.
+  - name: TD-PS01
+    category: api-automation
+    title: Evolve API automation for AI-era quality engineering
+    description: >-
+      Research how API testing must cover business contracts, side effects, idempotency, asynchronous
+      events, schema evolution, consumer compatibility, AI-assisted generation and repair, provenance,
+      false-green risks, CI integration, and production feedback. Compare official docs, maintained
+      repositories, issue discussions, practitioner reports, and existing courses. Specify a runnable
+      lab with exact files, commands, red evidence, repair, green evidence, and operational boundaries.
+      Compare findings against the current TD-PS01 page and identify claims to keep, rewrite, or delete.
+  - name: TD-AP01
+    category: agent-performance
+    title: Design task-level load and stability testing for AI agents
+    description: >-
+      Research why agent load differs from HTTP request load, including open versus closed workloads,
+      queues, model and tool fan-out, retries, streaming stages, task quality, goodput, cost per success,
+      rate limits, state, side effects, observability, failure injection, capacity decisions, and SLOs.
+      Compare official specifications, benchmarks, maintained load tools, GitHub issues, practitioner
+      reports, and courses. Specify a runnable lab and compare against the current TD-AP01 page.

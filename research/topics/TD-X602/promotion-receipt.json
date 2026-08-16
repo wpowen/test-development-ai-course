@@ -1,0 +1,143 @@
+{
+  "schema_version": "page-promotion-receipt.v1",
+  "page_id": "TD-X602",
+  "validated_at": "2026-08-15T14:44:09.109Z",
+  "reviewer": "validation-semantic-parity-verifier-2026-08-13",
+  "page_content_hash": "sha256:9ade208509ee46d16fd875ddf62af4dc09981fe7841393e0600410b6c69f80b8",
+  "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
+  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_verdict": "PASS",
+  "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
+  "page_author_id": "course-page-projection-author-2026-08-13",
+  "reviewer_is_independent_of_author": true,
+  "research_package_files": [
+    "research-brief.md",
+    "source-pack.csv",
+    "research-runs.json",
+    "evidence-synthesis.md",
+    "engineering-blueprint.md",
+    "manuscript.md",
+    "comparison.md",
+    "lab-manifest.json",
+    "validation.md",
+    "projection-ledger.json"
+  ],
+  "research_inventory": [
+    {
+      "path": "research-brief.md",
+      "exists": true,
+      "sha256": "sha256:fb778d771474ae23db15f5905a9bac342f5eafcc44feced322c925c2ee56ee56"
+    },
+    {
+      "path": "source-pack.csv",
+      "exists": true,
+      "sha256": "sha256:4c86b5275eb7bca97bc55070e4abbbad317d1babf72b39f0759339b2723b24ba"
+    },
+    {
+      "path": "research-runs.json",
+      "exists": true,
+      "sha256": "sha256:dde78ccdf61bbdb7b89b16947a5ea4d48d6814d803ecb08514012c617fcaacbb"
+    },
+    {
+      "path": "evidence-synthesis.md",
+      "exists": true,
+      "sha256": "sha256:acb49407f79a2ba65d1ba09a40cd4c54e91aa0c80f6ae6eebdee3544a1671386"
+    },
+    {
+      "path": "engineering-blueprint.md",
+      "exists": true,
+      "sha256": "sha256:4c506aa2042a8d96abceb42b025457accc03c359f6b81f3d55e966fe9cded5a6"
+    },
+    {
+      "path": "manuscript.md",
+      "exists": true,
+      "sha256": "sha256:16c4af7889cb29ae00bcbc2ba29139fdb81b7095f42c9f031529aa430f691260"
+    },
+    {
+      "path": "comparison.md",
+      "exists": true,
+      "sha256": "sha256:7e8a329275a5afe06ab5b4127c647eb0fe47a1bb40f0dde4c4457787bb75a48d"
+    },
+    {
+      "path": "lab-manifest.json",
+      "exists": true,
+      "sha256": "sha256:56f7c3989d2b343c2c4f8c5ebe8a5630587de9b44d62165fc7bcf0ed833adee6"
+    },
+    {
+      "path": "validation.md",
+      "exists": true,
+      "sha256": "sha256:f5946acc2d46e22f72effb0ba29d1335aeafe2983c91001b3849145230b37874"
+    },
+    {
+      "path": "projection-ledger.json",
+      "exists": true,
+      "sha256": "sha256:10bdbba4ef26dfcc894fcffb27eae362b7947fbfb9b545da6b8018c000bcbdec"
+    }
+  ],
+  "editorial_score": 100,
+  "boundary_preservation_score": 100,
+  "executability_audit_ref": "research/executability-audit.json",
+  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit": {
+    "path": "../../executability-audit.json",
+    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "verdict": "PASS",
+    "finding_count": 0
+  },
+  "material_hashes": {
+    "materials/advanced-quality.zip": "sha256:af5ab89b3f38980e225d1874d6789a9fa591c42c3a305bcca5ec552d66a6d31d",
+    "materials/advanced-quality/advanced_quality_lab.py": "sha256:f6ddd55f96d8a9f9cf21be3446c834136f96ca3ede778edc1320fb0070a5c295",
+    "materials/advanced-quality/page-manifests/TD-X602.json": "sha256:a8cd29b0295787d8b47534d2e7a40fecd53fe0eeaa3408d0b609c3611bfbe2ee",
+    "materials/advanced-quality/page-prompts/TD-X602/manifest.json": "sha256:eb3bb2955389201bdf8c2c1e2e01f711daa5d006e61a5386371d54ad863a7782",
+    "materials/advanced-quality/reports/td-x602-fault.json": "sha256:4044e99eb290d20d7ffbc685ec944fbd74385682731793f5ac81a82b9f09ac7d",
+    "materials/advanced-quality/reports/td-x602-repair.json": "sha256:0409f68fb132039b35578ee3bf4d136358e86ad8a46c780b62e0fb5fb6a13061"
+  },
+  "learner_material_hashes": [
+    {
+      "href": "materials/advanced-quality.zip",
+      "public_sha256": "sha256:af5ab89b3f38980e225d1874d6789a9fa591c42c3a305bcca5ec552d66a6d31d",
+      "static_sha256": "sha256:af5ab89b3f38980e225d1874d6789a9fa591c42c3a305bcca5ec552d66a6d31d",
+      "archive_member_sha256": null,
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/advanced-quality/advanced_quality_lab.py",
+      "public_sha256": "sha256:f6ddd55f96d8a9f9cf21be3446c834136f96ca3ede778edc1320fb0070a5c295",
+      "static_sha256": "sha256:f6ddd55f96d8a9f9cf21be3446c834136f96ca3ede778edc1320fb0070a5c295",
+      "archive_member_sha256": "sha256:f6ddd55f96d8a9f9cf21be3446c834136f96ca3ede778edc1320fb0070a5c295",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/advanced-quality/page-manifests/TD-X602.json",
+      "public_sha256": "sha256:a8cd29b0295787d8b47534d2e7a40fecd53fe0eeaa3408d0b609c3611bfbe2ee",
+      "static_sha256": "sha256:a8cd29b0295787d8b47534d2e7a40fecd53fe0eeaa3408d0b609c3611bfbe2ee",
+      "archive_member_sha256": "sha256:a8cd29b0295787d8b47534d2e7a40fecd53fe0eeaa3408d0b609c3611bfbe2ee",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/advanced-quality/page-prompts/TD-X602/manifest.json",
+      "public_sha256": "sha256:eb3bb2955389201bdf8c2c1e2e01f711daa5d006e61a5386371d54ad863a7782",
+      "static_sha256": "sha256:eb3bb2955389201bdf8c2c1e2e01f711daa5d006e61a5386371d54ad863a7782",
+      "archive_member_sha256": "sha256:eb3bb2955389201bdf8c2c1e2e01f711daa5d006e61a5386371d54ad863a7782",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/advanced-quality/reports/td-x602-fault.json",
+      "public_sha256": "sha256:4044e99eb290d20d7ffbc685ec944fbd74385682731793f5ac81a82b9f09ac7d",
+      "static_sha256": "sha256:4044e99eb290d20d7ffbc685ec944fbd74385682731793f5ac81a82b9f09ac7d",
+      "archive_member_sha256": "sha256:4044e99eb290d20d7ffbc685ec944fbd74385682731793f5ac81a82b9f09ac7d",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/advanced-quality/reports/td-x602-repair.json",
+      "public_sha256": "sha256:0409f68fb132039b35578ee3bf4d136358e86ad8a46c780b62e0fb5fb6a13061",
+      "static_sha256": "sha256:0409f68fb132039b35578ee3bf4d136358e86ad8a46c780b62e0fb5fb6a13061",
+      "archive_member_sha256": "sha256:0409f68fb132039b35578ee3bf4d136358e86ad8a46c780b62e0fb5fb6a13061",
+      "closure_verdict": "PASS"
+    }
+  ],
+  "verdict": "FAIL",
+  "findings": [
+    "independent editorial review does not pin current page content hash"
+  ]
+}

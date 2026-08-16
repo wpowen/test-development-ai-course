@@ -10,36 +10,32 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
+# testing and framework output
 /coverage
-
-# next.js
 /.next/
 /.vinext/
 /out/
-
-# misc
-.DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
-.vercel
-
 /dist/
 /dist-github-pages/
 *.tsbuildinfo
 /.wrangler/
+
+# local state and generated workspace output
+/.playwright-cli/
 /outputs/
 /work/
+node_modules/
+__pycache__/
+*.pyc
 
-# 本地浏览器会话截图与页面快照，属临时产物
-/.playwright-cli/
+# local machine, secrets, and logs
+.DS_Store
+*.pem
+.env*
+.vercel
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+ci-*.json
+*.log

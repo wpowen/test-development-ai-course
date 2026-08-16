@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-P05",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:8aeeeae6ae0dd3cfba0858afed492e9ab2bcfc4276a755f0766544fab48fbf16",
+  "page_content_sha256": "sha256:9982e5fc67d5c88b2e9732381615a92221e52dd7c8d5024d99f10979e3c8f19d",
+  "claims": [
+    {
+      "claim_id": "TD-P05-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "每个测试保护明确风险；关键 Oracle 不依赖生成实现的同一模型；至少一个负控制被可靠发现",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-P05#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-P05-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "本阶段的准出条件不允许用「先过、后面补」跳过。跳过一次准出，等于把不确定性推给下游阶段，用返工代价偿还。；本包已通过静态合同和离线负控制；真实 AI provider/model 执行仍为 NOT_RUN，不能据此声称模型准确、企业可用或生产通过。；同一模型生成 expected 再担任 Judge 仍可能共同失败；高风险金额和权限 Oracle 需要独立证据与具名 owner。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-P05#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-P05-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L27-L27",
+      "meaning": "本专题使用虚构的订单取消与退款资料包验证工件结构和离线流水线。它能证明流程可运行、冲突能阻断、预埋缺陷能被测试发现；不能证明模型能正确理解你公司的全部文档，也不能替代产品、研发、法务和发布责任人的确认。provider/model、真实集成、practitioner 盲审、learner 实际迁移、live、production 均为 NOT_RUN；fixture-only 结果不得升级为企业可用或发布证据。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-P05#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-P05-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L11-L11",
+      "meaning": "行动：把一个‘检查结果正确’改成可执行 Oracle；为幂等和并发各写一条独立不变量；植入一个错误实现并确认测试稳定失败 预期：按固定 input 生成符合 schema 的候选工件；eval 检查引用、authority、Unknown、独立 Oracle 与证据边界，真实模型保持 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-P05#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-P05-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "先让 AI 生成用例再补判据，你会得到一套自洽但无效的测试 失效形态 可核查的数字 它导致的错误结论 判据由生成过程产出 同源判据的变异杀伤率显著低于独立判据；这类用例对实现缺陷的检出能力接近 0 「生成了 200 条用例且全部通过」被当成质量证据 从当前实现反推期望值 以实现为准的判据会把现有缺陷固化为期望；此后该缺陷的检出概率为 0 回归套件从此以当前行为为准，失去发现回归的能力 判据没有分层 结构、业务规则、副作用需要各自的判据共 3 层；合并成 1 条时高风险失败会被平均分掩盖 总分很好看，最关键的那类检…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-P05#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-P05-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "这一页的验收口径：独立、分层、先于生成 P05-1 是本页唯一真正重要的一条：判据必须独立于被测实现与生成过程。不独立的判据，其余指标都没有意义。 P05-3 的时序要求同样是硬性的：判据固定在生成之前，否则独立性无法保证。 编号 测什么 关键指标 复测频率 P05-1 判据独立 判据独立于被测实现与生成过程的比例 = 100% 每次设计 P05-2 判据分层 结构 / 业务规则 / 副作用三层判据分别定义的比例 = 100% 每次设计 P05-3 时序正确 判据版本时间早于用例生成时间的比例 = 100% 每次…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-P05#content_sections.teaching_blocks.4",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-P05-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "TD-P05 反例与诊断：自证 Oracle 会把错误锁死 反例一：先运行实现得到退款金额，再把它复制到 expected；实现若少退一分钱，测试仍然绿色。反例二：让同一模型生成答案和 Judge，模型共同漏掉权限问题。应先冻结业务规则、独立计算或不变量，再让 case 引用 oracle_id。 当测试全绿但事故仍发生，先确认 expected_source 是否来自实现；再检查 Oracle owner、版本与高风险人工复核。 症状 疑似层 下一检查/修复 全绿但金额错误 oracle 与独立计算/账本对照…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-P05#content_sections.teaching_blocks.12",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

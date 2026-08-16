@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-X601",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:4cb754a1e9fb0d77ff6450f2c19b587b2af25b26f29010f960188d2d74cd76c0",
+  "page_content_sha256": "sha256:37294f24368437e51c28c828499217f320438193d02129870c14e1b267443c9e",
+  "claims": [
+    {
+      "claim_id": "TD-X601-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "不以平均值覆盖严重伤害；HITL 有独立性和实际作用；不把 fixture 写成公平证明",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-X601#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-X601-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "10 个 opened 来源与合成切片 fault 支持控制形状；受保护数据合法性、因果公平、真实伤害、专业复核和生产效果 NOT_RUN。；切片划分必须先与合规确认。未经确认就按敏感属性分组统计，本身可能带来合规风险。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-X601#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-X601-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "10 个 opened 来源与合成切片 fault 支持控制形状；受保护数据合法性、因果公平、真实伤害、专业复核和生产效果 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-X601#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-X601-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L13-L13",
+      "meaning": "行动：写出一个伤害模型和合法切片限制；运行 aggregate-only fault；检查人工是否有覆盖、权限和回执 预期：输出必须保留 source refs、owner、limitations 与 stop_state；不得自建 Oracle、自批例外或生成生产通过结论。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-X601#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-X601-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "整体指标达标而某个群体系统性更差，这件事平均分永远看不出来 失效形态 可核查的数字 它导致的错误结论 只报总体指标不做分组 群体间差距可达 30pt 以上而总体指标只变动数个百分点，完全被平均掉 「整体质量达标」被当成「对所有用户都达标」 人工复核样本不独立 复核样本若由系统按置信度筛选，会系统性避开最容易出错的部分，覆盖率再高也无效 人工复核通过率 98% 被当成质量证据，实际它只看了简单的那些 有 override 通道但从不统计其效果 override 使用率与其纠正率若不统计，无法判断人工环节是否真的在起…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-X601#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-X601-METRIC-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "整体指标达标而某个群体系统性更差，这件事平均分永远看不出来 公平性问题的特征是：它在总体指标上完全不可见。一个 91% 的整体准确率，可以由 95% 和 62% 两个群体组成，而报告里只会出现 91。 下面三条是公平性与人工复核环节最常见的三种失效。 失效形态 可核查的数字 它导致的错误结论 只报总体指标不做分组 群体间差距可达 30pt 以上而总体指标只变动数个百分点，完全被平均掉 「整体质量达标」被当成「对所有用户都达标」 人工复核样本不独立 复核样本若由系统按置信度筛选，会系统性避开最容易出错的部分，覆盖率…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-X601#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-X601-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "公平、伤害与 HITL 有效性门禁：错误决定会造成什么 候选模型总体指标提升，但一个关键群体的拒绝率恶化。测试开发要保留最坏切片、样本限制和伤害严重度。 人工复核必须抽到失败和低置信样本，并能真正 override、申诉和回溯。 本页 method 的可交付物是群体切片报告、伤害 blocker、HITL 抽样与 override 账本；先固定风险与停止条件，再决定哪些检查交给 runner。 10 个 opened 来源与合成切片 fault 支持控制形状；受保护数据合法性、因果公平、真实伤害、专业复核和生产效…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-X601#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

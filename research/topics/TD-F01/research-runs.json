@@ -1,0 +1,36 @@
+{
+  "topic_id": "TD-F01",
+  "runs": [
+    {
+      "run_id": "TD-F01-route-a-20260811",
+      "route": "A-profession-and-lifecycle-authority",
+      "lane": "profession-authority",
+      "role": "researcher",
+      "status": "complete",
+      "opened_source_refs": ["F01-S01", "F01-S02", "F01-S03", "F01-S04", "F01-S05", "F01-S06"],
+      "output_ref": "evidence-synthesis.md",
+      "finding": "职业共同骨架覆盖早期工件分析、风险与方法、工程执行、结果报告、发布准备和反馈改进，角色成熟度体现为责任范围与复用杠杆扩大。"
+    },
+    {
+      "run_id": "TD-F01-route-b-20260811",
+      "route": "B-executable-ai-migration-and-counterevidence",
+      "lane": "ai-governance",
+      "role": "researcher",
+      "status": "complete",
+      "opened_source_refs": ["F01-S07", "F01-S08", "F01-S09", "F01-S10", "F01-S11", "F01-S12", "F01-S13"],
+      "output_ref": "engineering-blueprint.md",
+      "finding": "传统需求、Oracle、版本、Trace、权限和发布责任必须迁移到 AI 质量系统；职位名和年限阶梯不能从单一雇主或社区信号泛化。"
+    }
+  ],
+  "comparison": {
+    "reviewer": "TD-F01-independent-course-reviewer",
+    "input_run_ids": ["TD-F01-route-a-20260811", "TD-F01-route-b-20260811"],
+    "output_ref": "comparison.md",
+    "verdict": "保留完整职业责任与工件链；新增双文档读法、独立 Oracle、人类发布责任、AI 能力迁移和确定性入场自测；状态上限为 PASS_FIXTURE。"
+  },
+  "limitations": [
+    "No live model or external API run",
+    "No target-company internal workflow or promotion policy",
+    "No practitioner blind review, learner outcome study, enterprise integration, publication, or production validation"
+  ]
+}

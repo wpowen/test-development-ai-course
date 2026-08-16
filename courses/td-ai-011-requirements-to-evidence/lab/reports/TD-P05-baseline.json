@@ -1,0 +1,14 @@
+{
+  "run_id": "TD-P05-baseline",
+  "page_id": "TD-P05",
+  "phase": "baseline",
+  "status": "PASS",
+  "finding_id": null,
+  "finding": "approved fixture satisfies the page contract",
+  "prompt_hash": "8a4f2bec317c106dc7ab2042ec5a7817246741d94dce3f1a2652c5d34435bc08",
+  "input_hash": "1c2b4a15f67b49e4b3196eeb90ffe4a40f0c534fdfaf92068a96ae5eb2885f50",
+  "evidence_status": "fixture-tested",
+  "provider": "none",
+  "model_status": "NOT_RUN",
+  "boundary": "deterministic offline negative-control fixture; not model, practitioner, integration, live, publication, or production evidence"
+}

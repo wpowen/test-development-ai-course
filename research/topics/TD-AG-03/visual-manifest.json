@@ -1,0 +1,14 @@
+{
+  "topic_id": "TD-AG-03",
+  "source_paths": [
+    "site/public/materials/agent-architecture-system/visuals/TD-AG-03.mmd",
+    "site/public/materials/agent-architecture-system/visuals/TD-AG-03.svg"
+  ],
+  "nodes_min": 5,
+  "edges_min": 4,
+  "source_refs": [
+    "S-USER-AGENT-V2",
+    "S-ADJ-AGENT-DOMAIN"
+  ],
+  "caption": "本图仅表达本页测试边界与证据流，不是生产拓扑。"
+}

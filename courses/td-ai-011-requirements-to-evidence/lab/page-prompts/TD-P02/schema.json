@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "requirement-contract.v1.1",
+  "type": "object",
+  "required": [
+    "page_id",
+    "status",
+    "requirements",
+    "acceptance_criteria",
+    "review_questions",
+    "unknowns"
+  ],
+  "properties": {
+    "page_id": {
+      "const": "TD-P02"
+    },
+    "status": {
+      "enum": [
+        "ACCEPTED",
+        "PASS",
+        "PARTIAL",
+        "BLOCKED",
+        "UNKNOWN",
+        "RELEASE_CANDIDATE",
+        "NOT_RUN",
+        "PASS_SCHEMA",
+        "PASS_SEMANTIC",
+        "FAIL",
+        "SCHEMA_INVALID",
+        "REFUSED",
+        "INCOMPLETE",
+        "SOURCE_CONFLICT",
+        "UNSUPPORTED_RULE",
+        "SEMANTIC_UNKNOWN"
+      ]
+    },
+    "requirements": {
+      "type": "array",
+      "description": "Professional output records for requirements",
+      "items": {
+        "type": "object"
+      }
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "description": "Professional output records for acceptance_criteria",
+      "items": {
+        "type": "object"
+      }
+    },
+    "review_questions": {
+      "type": "array",
+      "description": "Professional output records for review_questions",
+      "items": {
+        "type": "object"
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "description": "Professional output records for unknowns",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": false
+}

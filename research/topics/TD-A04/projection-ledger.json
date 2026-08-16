@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-A04",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:197590b1ea359f05b5632070fc6431646dd43df4b74baa788318eac3a0996613",
+  "page_content_sha256": "sha256:f0f2b0802bf7b51379fac08c62783a0b085e1c83d721a791af70b2e29d6e620e",
+  "claims": [
+    {
+      "claim_id": "TD-A04-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "到达守恒可核对；容量基于 Goodput 而非裸 RPS；没有将 fixture 数字写成硬件承诺",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-A04#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-A04-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "本页只运行合成负载、虚拟时间与固定到达账本；model、integration、practitioner、learner、live 与 production 均 NOT_RUN。没有网络、真实模型、GPU、调度器、缓存、生产流量或真实容量数据。报告中的到达率、Goodput 拐点与安全余量仅用于证明 fixture 门禁能发现守恒缺失，禁止外推为任何硬件、供应商、集成环境、实践者复核、学习者完成或生产 SLA。；不要在共享推理集群上做拐点测试。邻居负载会污染结果，而且你的压测会影响他们。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-A04#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-A04-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L33-L33",
+      "meaning": "本页只运行合成负载、虚拟时间与固定到达账本；model、integration、practitioner、learner、live 与 production 均 NOT_RUN。没有网络、真实模型、GPU、调度器、缓存、生产流量或真实容量数据。报告中的到达率、Goodput 拐点与安全余量仅用于证明 fixture 门禁能发现守恒缺失，禁止外推为任何硬件、供应商、集成环境、实践者复核、学习者完成或生产 SLA。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-A04#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-A04-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L17-L17",
+      "meaning": "行动：构造三类 Token 长度切片；比较 open/closed 模型在变慢时的发送差异；找出 fixture 拐点并写安全余量理由 预期：恢复到达账本和排队项，把失败/dropped 纳入容量分母；报告继续标记 fixture-only。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-A04#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-A04-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "压到目标就停，你只知道达标了，不知道还剩多少余量 失效形态 可核查的数字 它导致的错误结论 只做封闭负载 封闭负载在系统变慢时自动降速，排队问题被折叠；实测中它会把排队 p99 低估数倍 压测一切正常，真实峰值到来时大量超时 压到目标值就停止 只有 1 个压力点时无法判断距离拐点还有多远；至少需要 3 个相邻档位才能看出曲线形状 「当前容量满足需求」被当成「还有余量」 忽略缓存命中率的影响 语义缓存命中率从 40% 掉到 10% 时，实际算力需求会成倍上升，而请求量没有变化 容量按高命中率估算，缓存失效后立刻打满…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-A04#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-A04-METRIC-01",
+      "manuscript_locator": "manuscript.md:L11-L11",
+      "meaning": "容量测试的四个前提词 AI Serving 的容量结论极度依赖负载建模。这四个词决定结论能不能用。 术语 一句话解释 Token 分布 输入与输出长度的实际分布；用均值压测会严重高估容量 到达率 vs 并发 前者固定每秒来多少，后者固定同时有多少；两者结论不同 缓存命中率 相同前缀的复用比例；它显著影响容量且容易在压测中失真 SLO 拐点 开始违反 SLO 的负载点；容量指的是它，不是最大吞吐 更完整的中英对照与易混辨析见方法论 02 术语表；这里只收本页判断真正依赖的几个。 R-K6",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-A04#content_sections.teaching_blocks.1",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-A04-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L22-L22",
+      "meaning": "用到达守恒寻找 fixture 容量拐点：职业场景与失败代价 三档到达率覆盖短聊天、长报告和工具调用，输入/输出 Token 分布与缓存命中固定；故障档隐藏 dropped arrivals。 固定 Hello Prompt 和固定并发会在系统变慢时自动降低发送速率，造成 coordinated omission，并掩盖排队和 dropped arrivals。",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-A04#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

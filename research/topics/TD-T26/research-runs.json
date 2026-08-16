@@ -1,0 +1,38 @@
+{
+  "topic_id": "TD-T26",
+  "runs": [
+    {
+      "run_id": "TD-T26-a",
+      "route": "testing-and-eval-evidence",
+      "status": "completed",
+      "source_refs": [
+        "TD-T26-S01",
+        "TD-T26-S02",
+        "TD-T26-S04",
+        "TD-T26-S06"
+      ]
+    },
+    {
+      "run_id": "TD-T26-b",
+      "route": "mutation-and-false-productivity",
+      "status": "completed",
+      "source_refs": [
+        "TD-T26-S03",
+        "TD-T26-S05",
+        "TD-T26-S07",
+        "TD-T26-S08",
+        "TD-T26-S09",
+        "TD-T26-S10"
+      ]
+    }
+  ],
+  "comparison": {
+    "reviewer": "course-owner-independent-pass",
+    "input_run_ids": [
+      "TD-T26-a",
+      "TD-T26-b"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "independent Oracle and Mutation precede productivity claim"
+  }
+}

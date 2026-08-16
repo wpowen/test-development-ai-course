@@ -1,0 +1,135 @@
+{
+  "schema_version": "page-promotion-receipt.v1",
+  "page_id": "TD-T03",
+  "validated_at": "2026-08-15T14:44:09.109Z",
+  "reviewer": "validation-semantic-parity-verifier-2026-08-13",
+  "page_content_hash": "sha256:5c9e06feb2d6df130f3eebe671f4a5b661f561e40896c1a94b95c1a53cc78524",
+  "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
+  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_verdict": "PASS",
+  "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
+  "page_author_id": "course-page-projection-author-2026-08-13",
+  "reviewer_is_independent_of_author": true,
+  "research_package_files": [
+    "research-brief.md",
+    "source-pack.csv",
+    "research-runs.json",
+    "evidence-synthesis.md",
+    "engineering-blueprint.md",
+    "manuscript.md",
+    "comparison.md",
+    "lab-manifest.json",
+    "validation.md",
+    "projection-ledger.json"
+  ],
+  "research_inventory": [
+    {
+      "path": "research-brief.md",
+      "exists": true,
+      "sha256": "sha256:a478cd5da7d5a4f38986dbb71d66d6d3f79d88ef47adf81f7eeb9dece7b6c672"
+    },
+    {
+      "path": "source-pack.csv",
+      "exists": true,
+      "sha256": "sha256:b3a2eb08ad94b5588cc3a61b6130b95cdef00dcc94d5827189daa8aedd175609"
+    },
+    {
+      "path": "research-runs.json",
+      "exists": true,
+      "sha256": "sha256:e7080e1601c9d5b4514f4d69f424a3e82b836edd91d790a448c11a4e6d3cefbf"
+    },
+    {
+      "path": "evidence-synthesis.md",
+      "exists": true,
+      "sha256": "sha256:157d5bd31020bb98a51c897d180051ba5655c24a8116894f26cbc9a0bbb7d359"
+    },
+    {
+      "path": "engineering-blueprint.md",
+      "exists": true,
+      "sha256": "sha256:b99f3ca55364f79316ca41b51c1fee8dcb7e9431414841e2cd5e41da8eeec8e8"
+    },
+    {
+      "path": "manuscript.md",
+      "exists": true,
+      "sha256": "sha256:31a36ea9e2000be3604de7b3dd8f97058b56f7485c0c0e7cee48199d97cd43ef"
+    },
+    {
+      "path": "comparison.md",
+      "exists": true,
+      "sha256": "sha256:a84fb3502408aa863ae75d3b5ae3bbcc769bdbe37535ba231a94fcb192bb9d81"
+    },
+    {
+      "path": "lab-manifest.json",
+      "exists": true,
+      "sha256": "sha256:a66032c64d35dd93b4808a9f3c6992614b9e8b6b17d8b5762713a19a0a3f83a6"
+    },
+    {
+      "path": "validation.md",
+      "exists": true,
+      "sha256": "sha256:4d22e62c8c29ee9ce7ba2de28b3c98e86df943b7c2a706399719b24576c07cc0"
+    },
+    {
+      "path": "projection-ledger.json",
+      "exists": true,
+      "sha256": "sha256:c418b95abb2feaa11d1363a4b4a5b2cc02586e73ec7904b134669d89b516f3cf"
+    }
+  ],
+  "editorial_score": 100,
+  "boundary_preservation_score": 100,
+  "executability_audit_ref": "research/executability-audit.json",
+  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit": {
+    "path": "../../executability-audit.json",
+    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "verdict": "PASS",
+    "finding_count": 0
+  },
+  "material_hashes": {
+    "materials/ai-foundations-eval/manifests/TD-T03.json": "sha256:674ffd7a4f8c1f9234b41f81844dcbeef89fd8dbb3a61347075a2a8becaf1685",
+    "materials/ai-foundations-eval/scripts/run_lab.py": "sha256:533e7584066713501765cee3c2257a8aaa7cbdc9ff4c64151c6b48459bfbafbb",
+    "materials/ai-foundations-eval/reports/TD-T03/fault.json": "sha256:3535df3b19e9c1e81fea9d5be42d19fcefdeae03fe9be91206cb95fb99f139c4",
+    "materials/ai-foundations-eval/prompt-package/manifest.json": "sha256:2fcfc28d14789b5085d19e450ce94826ed5e937b0c4cb968cd189e865320e57c",
+    "materials/ai-foundations-eval.zip": "sha256:63970389496b7e907c1f60a12599fad5c4372591cf0040977a2f03356617be36"
+  },
+  "learner_material_hashes": [
+    {
+      "href": "materials/ai-foundations-eval/manifests/TD-T03.json",
+      "public_sha256": "sha256:674ffd7a4f8c1f9234b41f81844dcbeef89fd8dbb3a61347075a2a8becaf1685",
+      "static_sha256": "sha256:674ffd7a4f8c1f9234b41f81844dcbeef89fd8dbb3a61347075a2a8becaf1685",
+      "archive_member_sha256": "sha256:674ffd7a4f8c1f9234b41f81844dcbeef89fd8dbb3a61347075a2a8becaf1685",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ai-foundations-eval/scripts/run_lab.py",
+      "public_sha256": "sha256:533e7584066713501765cee3c2257a8aaa7cbdc9ff4c64151c6b48459bfbafbb",
+      "static_sha256": "sha256:533e7584066713501765cee3c2257a8aaa7cbdc9ff4c64151c6b48459bfbafbb",
+      "archive_member_sha256": "sha256:533e7584066713501765cee3c2257a8aaa7cbdc9ff4c64151c6b48459bfbafbb",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ai-foundations-eval/reports/TD-T03/fault.json",
+      "public_sha256": "sha256:3535df3b19e9c1e81fea9d5be42d19fcefdeae03fe9be91206cb95fb99f139c4",
+      "static_sha256": "sha256:3535df3b19e9c1e81fea9d5be42d19fcefdeae03fe9be91206cb95fb99f139c4",
+      "archive_member_sha256": "sha256:3535df3b19e9c1e81fea9d5be42d19fcefdeae03fe9be91206cb95fb99f139c4",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ai-foundations-eval/prompt-package/manifest.json",
+      "public_sha256": "sha256:2fcfc28d14789b5085d19e450ce94826ed5e937b0c4cb968cd189e865320e57c",
+      "static_sha256": "sha256:2fcfc28d14789b5085d19e450ce94826ed5e937b0c4cb968cd189e865320e57c",
+      "archive_member_sha256": "sha256:2fcfc28d14789b5085d19e450ce94826ed5e937b0c4cb968cd189e865320e57c",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ai-foundations-eval.zip",
+      "public_sha256": "sha256:63970389496b7e907c1f60a12599fad5c4372591cf0040977a2f03356617be36",
+      "static_sha256": "sha256:63970389496b7e907c1f60a12599fad5c4372591cf0040977a2f03356617be36",
+      "archive_member_sha256": null,
+      "closure_verdict": "PASS"
+    }
+  ],
+  "verdict": "FAIL",
+  "findings": [
+    "independent editorial review does not pin current page content hash"
+  ]
+}

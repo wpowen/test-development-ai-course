@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T10",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:3849eb7f53bf22180d1ad30e434e30e5a3d4f9a6bd3a172e09fb329a3e068062",
+  "page_content_sha256": "sha256:ed63a0030e799b5139064ad97a9ede737480339e595b25dd3cc9361c1fad2489",
+  "claims": [
+    {
+      "claim_id": "TD-T10-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "检索报告独立于生成报告；每条 query 保存 top-k Trace；失败能定位到语料、改写、过滤或排序",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T10#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T10-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L37-L37",
+      "meaning": "检索评测：Recall、Ranking 与查询切片 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；gold 标注不能由生成答案的同一模型完成。那样会把模型的偏差写进评测基准。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T10#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T10-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L47-L47",
+      "meaning": "页面定义检索评测语义；离线 Fixture 没有运行 embedding、向量库或 reranker，合成查询不能估计线上 Recall。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T10#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T10-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "行动：为 10 条 query 标注 gold document 与 slice；计算 Recall@3、Precision@3 和 MRR；为三条 miss 写出可证伪的层级假设 预期：TD-T10 Prompt/Input/Schema/Eval/Mutation 版本可静态追踪；实际模型输出保持 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T10#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T10-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "把检索故障和生成故障混在一起，你会一直在调错的那一半 失效形态 可核查的数字 它导致的错误结论 只看端到端正确率，不看 Recall@k 检索未命中时生成层无论怎么调都无法答对，这部分失败占比在语料治理不佳的系统里常达 40% 以上 反复调 Prompt 和温度，而问题在检索侧一步都没动 top-k 取值凭经验设定 k 从 3 提到 10 通常能提升 Recall 但同时引入更多干扰 chunk，两者的净效果必须实测，不能假设 把 k 调大当成免费的改进，实际 faithfulness 下降了 没有 miss r…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T10#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T10-METRIC-01",
+      "manuscript_locator": "manuscript.md:L45-L45",
+      "meaning": "把检索故障和生成故障混在一起，你会一直在调错的那一半 RAG 答错只有两种可能：该给的证据没检索到，或者证据检索到了但没用好。这两类的修复方向完全相反，而端到端评测把它们合成了一个数字。 下面三条说明不拆开会付出什么代价。 失效形态 可核查的数字 它导致的错误结论 只看端到端正确率，不看 Recall@k 检索未命中时生成层无论怎么调都无法答对，这部分失败占比在语料治理不佳的系统里常达 40% 以上 反复调 Prompt 和温度，而问题在检索侧一步都没动 top-k 取值凭经验设定 k 从 3 提到 10 通常能…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T10#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T10-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L37-L37",
+      "meaning": "检索评测：Recall、Ranking 与查询切片：解释 baseline → fault → repair 在 materials/ai-foundations-eval 运行三个 Manifest 步骤；它们共用 expected contract，fault 只修改 TD-T10 声明的 observation。 0 表示合成基线满足合同，1 表示 `relevant_doc_recalled=false` 触发 FAIL，即使最终答案可能看起来正确 被独立 Oracle 捕获，最后的 0 表示 obser…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T10#content_sections.teaching_blocks.12",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

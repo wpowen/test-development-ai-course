@@ -1,0 +1,53 @@
+{
+  "topic_id": "TD-QP02",
+  "runs": [
+    {
+      "run_id": "TD-QP02-route-a-20260811",
+      "route": "platform-primary-docs",
+      "lane": "technical-protocol",
+      "role": "independent researcher",
+      "status": "complete",
+      "opened_source_refs": [
+        "GL-PIPE",
+        "GL-JUNIT",
+        "GL-MR",
+        "GL-STATUS",
+        "GL-WEBHOOK",
+        "CE"
+      ],
+      "output_ref": "evidence-synthesis.md",
+      "finding": "Current platform facts require exact object/version readback."
+    },
+    {
+      "run_id": "TD-QP02-route-b-20260811",
+      "route": "standards-failure-audit",
+      "lane": "failure-boundary",
+      "role": "independent counterevidence reviewer",
+      "status": "complete",
+      "opened_source_refs": [
+        "GL-WEBHOOK",
+        "CE",
+        "JS",
+        "OWASP",
+        "W3C",
+        "GL-LEARN"
+      ],
+      "output_ref": "engineering-blueprint.md",
+      "finding": "Retries require idempotency, receipts, reconciliation and rollback."
+    }
+  ],
+  "comparison": {
+    "reviewer": "TD-QP02-independent-comparator",
+    "input_run_ids": [
+      "TD-QP02-route-a-20260811",
+      "TD-QP02-route-b-20260811"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "Use platform-native truth plus cross-system failure controls; fixture is not live."
+  },
+  "limitations": [
+    "No live platform",
+    "No model execution",
+    "No practitioner review"
+  ]
+}

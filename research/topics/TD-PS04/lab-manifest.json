@@ -1,0 +1,65 @@
+{
+  "topic_id": "TD-PS04",
+  "page_id": "TD-PS04",
+  "working_directory": "site/public/materials/ui-mobile-automation",
+  "required_files": [
+    "owners.json",
+    "scripts/specialty_lab.py",
+    "manifests/TD-PS04.json",
+    "prompts/TD-PS04/system-v1.md",
+    "prompts/TD-PS04/task-v1.md",
+    "prompts/TD-PS04/critic-v1.md",
+    "prompts/TD-PS04/manifest.json",
+    "prompts/TD-PS04/mutation.json",
+    "fixtures/TD-PS04-input.json",
+    "schemas/TD-PS04-output.schema.json",
+    "evals/TD-PS04-eval.json"
+  ],
+  "steps": [
+    {
+      "step_id": "baseline",
+      "kind": "baseline",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS04.json --mode baseline",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS04/baseline.json"
+      ]
+    },
+    {
+      "step_id": "fault",
+      "kind": "mutation",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS04.json --mode fault",
+      "expected_exit_code": 1,
+      "expected_artifacts": [
+        "evidence/TD-PS04/fault.json"
+      ]
+    },
+    {
+      "step_id": "repair",
+      "kind": "repair",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS04.json --mode repair",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS04/repair.json"
+      ]
+    },
+    {
+      "step_id": "cycle",
+      "kind": "cycle",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS04.json --mode cycle",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS04/baseline.json",
+        "evidence/TD-PS04/fault.json",
+        "evidence/TD-PS04/repair.json",
+        "evidence/TD-PS04/cycle.json"
+      ]
+    }
+  ],
+  "failure_cycle": {
+    "baseline_step_id": "baseline",
+    "fault_step_id": "fault",
+    "repair_step_id": "repair"
+  },
+  "evidence_boundary": "fixture-tested only; no practitioner/live/production evidence. Unknown: 目标浏览器流量占比、第三方沙箱稳定性和真实页面可访问名称"
+}

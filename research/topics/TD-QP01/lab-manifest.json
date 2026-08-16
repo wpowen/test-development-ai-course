@@ -1,0 +1,53 @@
+{
+  "topic_id": "TD-QP01",
+  "page_id": "TD-QP01",
+  "owner_page_ids": [
+    "TD-QP01"
+  ],
+  "working_directory": "site/public/materials/quality-platform-integrations/learner-materials",
+  "required_files": [
+    "scripts/basis_gate_and_candidate_review.py",
+    "scripts/topic_cycle.py",
+    "manifests/td-qp01-lab.json",
+    "prompts/td-qp01/manifest.json",
+    "prompts/td-qp01/task.md",
+    "prompts/td-qp01/input.json",
+    "prompts/td-qp01/output.schema.json",
+    "prompts/td-qp01/eval.json"
+  ],
+  "steps": [
+    {
+      "step_id": "baseline",
+      "kind": "baseline",
+      "command": "python3 scripts/basis_gate_and_candidate_review.py baseline --report reports/td-qp01/baseline.json",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "reports/td-qp01/baseline.json"
+      ]
+    },
+    {
+      "step_id": "fault",
+      "kind": "mutation",
+      "command": "python3 scripts/basis_gate_and_candidate_review.py fault --report reports/td-qp01/fault.json",
+      "expected_exit_code": 1,
+      "expected_artifacts": [
+        "reports/td-qp01/fault.json"
+      ]
+    },
+    {
+      "step_id": "repair",
+      "kind": "repair",
+      "command": "python3 scripts/basis_gate_and_candidate_review.py repair --report reports/td-qp01/repair.json",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "reports/td-qp01/repair.json"
+      ]
+    }
+  ],
+  "failure_cycle": {
+    "baseline_step_id": "baseline",
+    "fault_step_id": "fault",
+    "repair_step_id": "repair"
+  },
+  "evidence_boundary": "fixture-tested only; all live platform model and ChatOps operations NOT_RUN"
+}

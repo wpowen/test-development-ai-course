@@ -1,0 +1,46 @@
+{
+  "topic_id": "TD-PS07",
+  "runs": [
+    {
+      "run_id": "TD-PS07-route-a-20260811",
+      "route": "standards-and-official-docs",
+      "status": "completed",
+      "source_refs": [
+        "TD-PS07-SRC-01",
+        "TD-PS07-SRC-02",
+        "TD-PS07-SRC-03",
+        "TD-PS07-SRC-04",
+        "TD-PS07-SRC-05",
+        "TD-PS07-SRC-06"
+      ],
+      "output_ref": "evidence-synthesis.md#Fact"
+    },
+    {
+      "run_id": "TD-PS07-route-b-20260811",
+      "route": "failure-first-and-counterevidence",
+      "status": "completed",
+      "source_refs": [
+        "TD-PS07-SRC-05",
+        "TD-PS07-SRC-06",
+        "TD-PS07-SRC-07",
+        "TD-PS07-SRC-08",
+        "TD-PS07-SRC-09",
+        "TD-PS07-SRC-10"
+      ],
+      "output_ref": "evidence-synthesis.md#Cross-source-synthesis"
+    }
+  ],
+  "comparison": {
+    "reviewer": "course-owner-independent-pass",
+    "input_run_ids": [
+      "TD-PS07-route-a-20260811",
+      "TD-PS07-route-b-20260811"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "standards-constrained failure-first design"
+  },
+  "limitations": [
+    "目标签名配置、真实通知服务和 iOS 版本分布",
+    "No practitioner or production run"
+  ]
+}

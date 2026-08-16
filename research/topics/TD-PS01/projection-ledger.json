@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-PS01",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:7fc0fccc7c861a1800a2bc56df66615b05030f69ff3a0dfdd494bff26e418d2f",
+  "page_content_sha256": "sha256:9cb2125c9f4a57524cd49088b58766c01e9f1922e91de8ba1a129a456640e533",
+  "claims": [
+    {
+      "claim_id": "TD-PS01-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "四层 Oracle 均有独立断言；故障注入能稳定变红且诊断链完整；报告明确阻断项、责任人和回滚条件",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-PS01#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-PS01-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L35-L35",
+      "meaning": "断言副作用时要用独立的查询路径，不要用同一个接口的读方法。同一实现的读写可能共享同一个 bug。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-PS01#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-PS01-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L41-L41",
+      "meaning": "static OpenAPI/Pact 片段与离线取消、重放 fixture 只证明四层断言、幂等键和账本差异的判定结构；provider/model、真实 API/事件总线 integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN，不得据此声称目标退款链路可用。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-PS01#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-PS01-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L16-L16",
+      "meaning": "行动：为取消接口补齐成功、拒绝、重放和依赖超时四组请求；注入一次重复事件并证明账本不重复；输出带 trace_id、状态前后值和发布结论的运行 Manifest 预期：正常请求只有一个退款意图；同一幂等键重放不会增加退款计数。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-PS01#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-PS01-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "HTTP 200 从来就不等于业务成功，接上 AI 之后这个落差变得更大 失效形态 可核查的数字 它导致的错误结论 只断言状态码与响应 Schema 协议层断言能覆盖的失败类型不足全部失败的一半；账本不平、事件未发这两类 100% 漏过 接口测试全绿，对账在月底才发现差额 把模型的自述当成执行结果 模型说「已完成」与业务状态真的变更之间没有任何强制关系；这类不一致的检出率在只看文本时为 0 「Agent 说退款成功了」被记为用例通过 重试路径没有幂等键 网关重试在超时场景下必然发生；缺幂等键时重复退款的发生概率不…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-PS01#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-PS01-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "API 契约测试在 AI 系统上变成了什么 API 测试是最老的专项之一，也是迁移代价最小的一个——因为它本来就不该只看响应体。AI 只是把这条一直存在的纪律变成了硬要求。 下表左列是传统 API 测试的标准动作，右列是同一个目的在 AI 系统上的实现方式。 传统做法 在 AI 系统里为什么不够用 融合后的新做法 断言响应体字段等于期望值 生成式接口的响应文本每次措辞都不同，逐字段等值断言会 100% 失败；而放宽成模糊匹配又等于没断言 响应体只做结构断言（字段存在、类型、枚举范围），业务正确性一律断言在账本与事…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-PS01#content_sections.teaching_blocks.3",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-PS01-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L24-L24",
+      "meaning": "HTTP 200 从来就不等于业务成功，接上 AI 之后这个落差变得更大 退款 API 返回 200 只说明请求被接受了。钱有没有动、账本平不平、事件有没有发出去，都在响应体之外。这个老问题在 AI 系统里被放大：模型还会用自然语言告诉你「已为您退款」。 下面三条是只测协议层时漏掉的东西。 失效形态 可核查的数字 它导致的错误结论 只断言状态码与响应 Schema 协议层断言能覆盖的失败类型不足全部失败的一半；账本不平、事件未发这两类 100% 漏过 接口测试全绿，对账在月底才发现差额 把模型的自述当成执行结果…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-PS01#content_sections.teaching_blocks.0",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

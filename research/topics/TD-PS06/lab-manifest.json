@@ -1,0 +1,65 @@
+{
+  "topic_id": "TD-PS06",
+  "page_id": "TD-PS06",
+  "working_directory": "site/public/materials/ui-mobile-automation",
+  "required_files": [
+    "owners.json",
+    "scripts/specialty_lab.py",
+    "manifests/TD-PS06.json",
+    "prompts/TD-PS06/system-v1.md",
+    "prompts/TD-PS06/task-v1.md",
+    "prompts/TD-PS06/critic-v1.md",
+    "prompts/TD-PS06/manifest.json",
+    "prompts/TD-PS06/mutation.json",
+    "fixtures/TD-PS06-input.json",
+    "schemas/TD-PS06-output.schema.json",
+    "evals/TD-PS06-eval.json"
+  ],
+  "steps": [
+    {
+      "step_id": "baseline",
+      "kind": "baseline",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS06.json --mode baseline",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS06/baseline.json"
+      ]
+    },
+    {
+      "step_id": "fault",
+      "kind": "mutation",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS06.json --mode fault",
+      "expected_exit_code": 1,
+      "expected_artifacts": [
+        "evidence/TD-PS06/fault.json"
+      ]
+    },
+    {
+      "step_id": "repair",
+      "kind": "repair",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS06.json --mode repair",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS06/repair.json"
+      ]
+    },
+    {
+      "step_id": "cycle",
+      "kind": "cycle",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS06.json --mode cycle",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS06/baseline.json",
+        "evidence/TD-PS06/fault.json",
+        "evidence/TD-PS06/repair.json",
+        "evidence/TD-PS06/cycle.json"
+      ]
+    }
+  ],
+  "failure_cycle": {
+    "baseline_step_id": "baseline",
+    "fault_step_id": "fault",
+    "repair_step_id": "repair"
+  },
+  "evidence_boundary": "fixture-tested only; no practitioner/live/production evidence. Unknown: OEM 定制行为、目标 API level 分布和真机资源限制"
+}

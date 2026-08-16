@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-X602",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:16c4af7889cb29ae00bcbc2ba29139fdb81b7095f42c9f031529aa430f691260",
+  "page_content_sha256": "sha256:fc924d613559aa2252337cb8075ed6d05fff53ae64e4cfcf6265c03383f96f9f",
+  "claims": [
+    {
+      "claim_id": "TD-X602-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "所有候选能唯一定位；holdout 污染稳定阻断；能区分 fixture 可执行与真实训练效果",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-X602#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-X602-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "10 个 opened 来源、双 research run 与确定性 0→1→0 支持工程合同；训练、模型调用、许可审查、从业者复核和生产收益 NOT_RUN。；holdout 被使用过时不要试图「补救」。正确做法是重建一个新的 holdout，并如实标注旧结论的局限。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-X602#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-X602-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L35-L35",
+      "meaning": "10 个 opened 来源、双 research run 与确定性 0→1→0 支持工程合同；训练、模型调用、许可审查、从业者复核和生产收益 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-X602#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-X602-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L13-L13",
+      "meaning": "行动：画出一次模型更新 lineage；运行 0→1→0 并解释污染为何使旧分数失效；为真实项目列出许可与硬件 UNKNOWN 预期：输出必须保留 source refs、owner、limitations 与 stop_state；不得自建 Oracle、自批例外或生成生产通过结论。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-X602#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-X602-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "模型更新之后分数变了，而你说不清是数据、基座还是超参 失效形态 可核查的数字 它导致的错误结论 数据、基座、超参同时变动 3 个变量同时变动时，完整归因需要至少 7 次实验（各改 1 个 + 各改 2 个 + 全改） 把提升归给数据清洗，实际主要来自基座升级 没有封存 holdout 就宣布提升 在参与过调优的数据上评估，分数虚高；封存 holdout 每版本至多开封 1 次是唯一的无偏来源 内部评估提升 8pt，上线后用户感知为 0 回滚目标未预先指定 事故发生时才寻找回滚目标，平均耗时会显著增加；预先指定可把…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-X602#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-X602-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "这张图的 7 个节点，本页各交付什么 这张图从「批准目的」开始，是刻意的：训练与微调成本高、影响面大，先说清楚为什么做，才能在结束时判断做到了没有。 「独立 Owner」这个节点的存在理由是防止自评：训练的人和验收的人不应是同一个，否则封存 holdout 的纪律很难被真正执行。 架构节点 本页负责的部分 出口工件 批准目的 写明本次训练要解决什么问题、成功标准是什么 训练目的与成功标准 数据 lineage 记录训练数据来源、版本、清洗规则与授权状态 数据 lineage 台账 基座/代码/超参快照 锁定基座模…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-X602#content_sections.teaching_blocks.4",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-X602-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "训练、Fine-tuning 与模型更新的版本化验收：错误决定会造成什么 团队准备微调客服模型。测试开发不是只比较新旧总分，而要确认数据来源、许可、划分、基座 hash、代码、超参、环境和回滚版本。 模型是候选而不是最新即正确；关键业务切片、拒答和安全 blocker 需要独立 owner。 本页 method 的可交付物是模型更新 manifest、候选比较、污染门禁与 0→1→0 收据；先固定风险与停止条件，再决定哪些检查交给 runner。 10 个 opened 来源、双 research run 与确定…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-X602#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

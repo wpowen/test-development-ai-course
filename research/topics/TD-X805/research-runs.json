@@ -1,0 +1,9 @@
+{
+  "topic_id":"TD-X805",
+  "runs":[
+    {"run_id":"TD-X805-R1","role":"evidence-builder","question":"建立权威工件、指标和门禁链","source_ids":["X805-S01","X805-S02","X805-S03","X805-S04","X805-S05"],"output_ref":"evidence-synthesis.md","verdict":"ACCEPT_WITH_LIMITS"},
+    {"run_id":"TD-X805-R2","role":"counterevidence-reviewer","question":"寻找平均值、自评、漂移与样本造成的假绿","source_ids":["X805-S06","X805-S07","X805-S08","X805-S09","X805-S10"],"output_ref":"comparison.md","verdict":"REQUIRE_INDEPENDENT_OWNER"}
+  ],
+  "comparison":{"reviewer":"independent-course-review","input_run_ids":["TD-X805-R1","TD-X805-R2"],"output_ref":"comparison.md","verdict":"MERGE_ONLY_AUDITABLE_CLAIMS"}
+}
+

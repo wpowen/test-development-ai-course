@@ -1,0 +1,46 @@
+{
+  "topic_id": "TD-PS02",
+  "runs": [
+    {
+      "run_id": "TD-PS02-route-a-20260811",
+      "route": "standards-and-official-docs",
+      "status": "completed",
+      "source_refs": [
+        "TD-PS02-SRC-01",
+        "TD-PS02-SRC-02",
+        "TD-PS02-SRC-03",
+        "TD-PS02-SRC-04",
+        "TD-PS02-SRC-05",
+        "TD-PS02-SRC-06"
+      ],
+      "output_ref": "evidence-synthesis.md#Fact"
+    },
+    {
+      "run_id": "TD-PS02-route-b-20260811",
+      "route": "failure-first-and-counterevidence",
+      "status": "completed",
+      "source_refs": [
+        "TD-PS02-SRC-05",
+        "TD-PS02-SRC-06",
+        "TD-PS02-SRC-07",
+        "TD-PS02-SRC-08",
+        "TD-PS02-SRC-09",
+        "TD-PS02-SRC-10"
+      ],
+      "output_ref": "evidence-synthesis.md#Cross-source-synthesis"
+    }
+  ],
+  "comparison": {
+    "reviewer": "course-owner-independent-pass",
+    "input_run_ids": [
+      "TD-PS02-route-a-20260811",
+      "TD-PS02-route-b-20260811"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "standards-constrained failure-first design"
+  },
+  "limitations": [
+    "目标生成器对 OAS dialect 的实现差异和生产商户配置",
+    "No practitioner or production run"
+  ]
+}

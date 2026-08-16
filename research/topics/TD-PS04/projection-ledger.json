@@ -1,0 +1,80 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-PS04",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:ea1a16fbd31a5cc8a6e10cb7f428f1df5460681fdfe0401d0a70300b17ab2e6d",
+  "page_content_sha256": "sha256:33d2834e5fb55e2620033c11b32e981f1eddc4e9a2a55c799767aa563c4845fe",
+  "claims": [
+    {
+      "claim_id": "TD-PS04-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "测试上下文和业务数据相互隔离；关键断言包含 UI 状态与 API/业务证据；失败 Trace 足以支持人工诊断",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-PS04#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-PS04-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L35-L35",
+      "meaning": "消除固定延时后可能暴露真实的性能问题。那不是新引入的缺陷，是此前被延时掩盖的。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-PS04#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-PS04-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L29-L29",
+      "meaning": "本页采用浏览器自动化与质量模型的通用方法；未真实启动浏览器或接入目标站点，浏览器兼容性、渲染差异和网络行为均为 desk-researched 状态。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-PS04#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-PS04-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L16-L16",
+      "meaning": "行动：实现一个不使用固定 sleep 的审批旅程；让第三方通知失败并验证 UI 呈现可诊断错误；为 Chromium、Firefox、WebKit 和两个视口写风险选择理由 预期：测试在不同运行速度下等待业务信号；失败 Trace 能看到 DOM、网络和控制台，而不是只有超时。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-PS04#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-PS04-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "UI 自动化最大的成本从来不是写，是维护——AI 生成的界面让这件事更难 失效形态 可核查的数字 它导致的错误结论 用可见文本作为定位器 模型生成的界面文案每次措辞都可能不同，文本定位器在这类区域的失效率接近 100% 把用例失败归因为「页面又改了」，实际是文案本来就不该被当成锚点 用硬等待代替条件等待 流式输出的首字延迟波动很大，固定等待要么不够要么浪费；1 条硬等待在套件里会被复制到几十处 套件跑得越来越慢，且仍然间歇性失败 断言停在界面提示上 界面显示「已提交」而后端未落库的场景，纯 UI 断言 100%…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-PS04#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-PS04-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "UI 自动化最大的成本从来不是写，是维护——AI 生成的界面让这件事更难 一套 E2E 套件的价值在半年后才显现，也在半年后才崩塌。崩塌的原因几乎总是同一个：定位器绑在了会变的东西上。当界面里出现模型生成的文本时，「会变的东西」占比大幅上升。 下面三条是 UI 自动化的三种典型腐坏方式。 失效形态 可核查的数字 它导致的错误结论 用可见文本作为定位器 模型生成的界面文案每次措辞都可能不同，文本定位器在这类区域的失效率接近 100% 把用例失败归因为「页面又改了」，实际是文案本来就不该被当成锚点 用硬等待代替条件等…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-PS04#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    }
+  ],
+  "counts": {
+    "total": 6,
+    "projected": 4,
+    "condensed": 2,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

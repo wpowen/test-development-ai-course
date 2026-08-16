@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-AG-08",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:beb7fc7e7eae6a29859febb29e683c017863011e83d298d17888b82fb5d2735e",
+  "page_content_sha256": "sha256:dbd2faecbd67108f8a384b6f076bcbb1143e8c17a2854ba067a60aca963b39da",
+  "claims": [
+    {
+      "claim_id": "TD-AG-08-DECISION-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "术语、架构边界和独立 Oracle 能复述；baseline/fault/repair 证据可重放且退出码精确；知道 fixture-tested、NOT_RUN、BLOCKED 和 production 的差异",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-AG-08#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-AG-08-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L27-L27",
+      "meaning": "真实模型、企业系统、生产凭证和从业者结论均 NOT_RUN。；降低阈值、删除 Oracle、扩大权限、增加预算或无限重试都可能制造假绿。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-AG-08#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-AG-08-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L32-L32",
+      "meaning": "本页新增证据仅为标准库确定性离线 fixture；真实模型、真实 Agent、MCP/浏览器/队列/交易后端、从业者评审、学习者迁移和线上效果均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-AG-08#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-AG-08-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L13-L13",
+      "meaning": "行动：运行 TD-AG-08 的 0/1/0 fixture 并解释 failed_oracle_ids；检查 Prompt/Input/Schema/Eval/Mutation 版本闭包；将 business-risk-acceptance.json 与 Agent lineage 卡 迁移到一个低权限、可回滚的合成业务对象 预期：输出必须保留 Evidence、Inference、Unknown 与证据边界。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-AG-08#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-AG-08-TABLE-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "Agent 的版本是四维的，任一维变化都会让历史评估失去可比性 失效形态 可核查的数字 它导致的错误结论 只记录代码版本 Agent 版本由 4 个维度共同决定，只记 1 个等于没记；历史评估数据随任一维变化失去可比性 代码没改而分数变了，被归因为「模型不稳定」 供应商静默更新无哨兵检测 缺哨兵集时模型端点漂移的检出概率为 0；建议每个端点每周跑 20–30 条确定性任务 所有历史数据失去可比性而团队浑然不觉 审计证据链不完整 监管场景要求每个动作可追溯到「哪个 Agent、代表哪个用户、依据什么」3 项，缺任一…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-AG-08#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-AG-08-METRIC-01",
+      "manuscript_locator": "manuscript.md:L18-L18",
+      "meaning": "这一页的验收口径：版本、审计、回滚 AG08-2 的哨兵集是检测供应商静默更新的低成本手段：每周跑 20–30 条确定性任务，分布突变即告警。 AG08-4 要求整包回滚——只回滚其中一维会产生一个从未测试过的新组合，其行为完全未知。 编号 测什么 关键指标 复测频率 AG08-1 四维版本 模型 / prompt / 工具清单 / 记忆快照四项记录缺失率 = 0 每次发布 AG08-2 端点漂移 每个模型端点每周跑 20–30 条哨兵任务；通过率相对基线变动 ≤ 5pt 每周 1 次 AG08-3 审计可举证…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-AG-08#content_sections.teaching_blocks.4",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-AG-08-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "Baseline / Fault / Repair：0/1/0 先运行正常合同，再注入一个命名故障，最后恢复同一合同。故障报告必须由独立 Oracle 点名，不能吞异常或改 expected。 Fault 目标：用模型自评批准 waiver，或以“节省时间”直接推导 ROI，都会绕过责任和证据边界。 command python3 scripts/agent_architecture_lab.py --topic TD-AG-08 --phase cycle --report-dir reports/td-ag-…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-AG-08#content_sections.teaching_blocks.11",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

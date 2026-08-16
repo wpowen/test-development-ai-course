@@ -1,0 +1,80 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-PS08",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:64faed2698e3e1cdaa0e3d1192280a66d924f3e40c506764c2accf75314d743a",
+  "page_content_sha256": "sha256:bab0a2b9a4b2ad96410112ee2fa815a41c8ec390f6cc29e78fc44f58e8627455",
+  "claims": [
+    {
+      "claim_id": "TD-PS08-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "每个 shard 有范围、checkpoint 和独立守恒 Oracle；CDC 与影子读差异有高水位和分母；Contract 由消费者迁移、连续对账和具名 owner 三项共同放行",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-PS08#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-PS08-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L35-L35",
+      "meaning": "影子读会增加读负载。要评估对生产的影响，必要时按比例采样而不是全量比对。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-PS08#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-PS08-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L29-L29",
+      "meaning": "PostgreSQL、Debezium、Kafka 与迁移工具官方资料支持方法设计；当前只运行离线确定性夹具，目标数据库规模、锁时间、CDC 延迟、备份恢复和生产切流均为 NOT_RUN/UNKNOWN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-PS08#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-PS08-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L16-L16",
+      "meaning": "行动：为订单状态迁移画出 expand-contract 与消费者版本顺序；预埋一个跳过分片的 fault 并用主键/金额守恒打红；模拟 CDC offset 回退，分别记录去重、停止切读与回滚动作 预期：坏分片在 DROP 旧列前被阻断；恢复后静态快照与 CDC 变化均有可重放对账证据。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-PS08#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-PS08-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "数据迁移的规矩一条都没变，只是向量索引成了新的迁移对象 失效形态 可核查的数字 它导致的错误结论 先改 Schema 再改代码 破坏性变更与代码发布之间存在时间窗口，窗口内旧消费者的失败率为 100% 把迁移事故归因为「发布顺序没协调好」，而 expand-contract 本来就是为了消除这个协调需求 回填不做守恒对账 分片回填在中途失败时会留下部分完成状态；不对账则差额的检出概率为 0 迁移「完成」，几个月后发现有一批数据从未被回填 换 embedding 模型不当作数据迁移 更换 embedding 模型会…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-PS08#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-PS08-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "数据测试与应用测试的根本差别：断言的是分布，不是单值 应用测试断言的是一次调用的结果：输入可控、预期唯一、失败即缺陷。数据测试面对的是一批数据：输入不可控、而且随时间变化。同一条断言昨天通过今天失败，可能是数据源变了，也可能是业务本身变了——这两种情况的处理方式完全不同，而报警信息长得一模一样。 因此数据质量断言必须先分成两类。结构性约束（非空、唯一、外键、取值域）是硬判据，违反即错；分布性约束（行数区间、空值率、类别占比）是软判据，它检出的是「和以往不一样」，而不一样未必是错。把第二类当第一类用，门禁会天天红，…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-PS08#content_sections.teaching_blocks.2",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    }
+  ],
+  "counts": {
+    "total": 6,
+    "projected": 4,
+    "condensed": 2,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

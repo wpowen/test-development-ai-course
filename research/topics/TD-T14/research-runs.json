@@ -1,0 +1,47 @@
+{
+  "topic_id": "TD-T14",
+  "runs": [
+    {
+      "run_id": "TD-T14-run-a",
+      "role": "profession-and-risk-researcher",
+      "completed_at": "2026-08-11",
+      "source_ids": [
+        "SRC-01",
+        "SRC-02",
+        "SRC-03",
+        "SRC-04",
+        "SRC-05",
+        "SRC-06"
+      ],
+      "question": "怎样用人工双标、顺序翻转、风格扰动和事实反例校准 LLM Judge，使其只能辅助可委托的评分，而不能批准自己的期望或绕过事实 blocker？",
+      "output_ref": "evidence-synthesis.md",
+      "status": "completed"
+    },
+    {
+      "run_id": "TD-T14-run-b",
+      "role": "systems-and-adversarial-researcher",
+      "completed_at": "2026-08-11",
+      "source_ids": [
+        "SRC-07",
+        "SRC-08",
+        "SRC-09",
+        "SRC-10",
+        "SRC-11",
+        "SRC-12"
+      ],
+      "question": "以故障、权限和可执行性反驳：怎样用人工双标、顺序翻转、风格扰动和事实反例校准 LLM Judge，使其只能辅助可委托的评分，而不能批准自己的期望或绕过事实 blocker？",
+      "output_ref": "engineering-blueprint.md",
+      "status": "completed"
+    }
+  ],
+  "comparison": {
+    "reviewer": "independent-course-factory-adjudicator",
+    "input_run_ids": [
+      "TD-T14-run-a",
+      "TD-T14-run-b"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "retain shared controls, reject unsupported live claims, require named Oracle and human decision owner"
+  }
+}
+

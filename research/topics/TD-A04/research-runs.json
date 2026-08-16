@@ -1,0 +1,52 @@
+{
+  "topic_id": "TD-A04",
+  "runs": [
+    {
+      "run_id": "TD-A04-protocol-architecture-20260811",
+      "lane": "protocol-architecture",
+      "role": "researcher",
+      "status": "complete",
+      "output_ref": "source-pack.csv",
+      "source_refs": [
+        "SRC-VLLM",
+        "SRC-NIM",
+        "SRC-GENAI",
+        "SRC-K6",
+        "SRC-SRE",
+        "SRC-AWS",
+        "SRC-OAS",
+        "SRC-HTTP"
+      ]
+    },
+    {
+      "run_id": "TD-A04-failure-measurement-20260811",
+      "lane": "failure-measurement-career",
+      "role": "independent-critic",
+      "status": "complete",
+      "output_ref": "evidence-synthesis.md",
+      "source_refs": [
+        "SRC-SRE",
+        "SRC-AWS",
+        "SRC-OAS",
+        "SRC-HTTP",
+        "SRC-SSE",
+        "SRC-JSON",
+        "SRC-ASYNC",
+        "SRC-CLOUD"
+      ]
+    }
+  ],
+  "comparison": {
+    "reviewer": "independent-serving-and-career-contract-reviewer",
+    "input_run_ids": [
+      "TD-A04-protocol-architecture-20260811",
+      "TD-A04-failure-measurement-20260811"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "ACCEPT-WITH-FIXTURE-BOUNDARY"
+  },
+  "limitations": [
+    "没有网络、模型、GPU、调度器或生产流量，不能外推真实容量。",
+    "No live model/provider/GPU/practitioner/production execution"
+  ]
+}

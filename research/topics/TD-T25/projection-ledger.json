@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T25",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:eb361e01c13f35da5dd00687d6ad3af74ad2d1e718e963a0bb30278963bd2ed2",
+  "page_content_sha256": "sha256:1c0974434b81d98b1fbf01644a742c66499f9a9246c744f655a977438c374811",
+  "claims": [
+    {
+      "claim_id": "TD-T25-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "一条命令可重现 0→1→0；全链工件有 owner/hash/trace；状态严格停在 fixture release candidate",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T25#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T25-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L20-L20",
+      "meaning": "任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。；不要为了填满清单而临时补写文档。缺失的项如实标为缺失，比补一份没有证据支撑的文档更有价值。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T25#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T25-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L26-L26",
+      "meaning": "Capstone 仅为 PASS-FIXTURE release candidate；模型、真实 RAG/Agent、企业集成、从业者评审、publication 与 production 均 NOT_RUN。 本页仅 fixture/static；真实 model/provider、enterprise integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T25#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T25-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L9-L9",
+      "meaning": "行动：按追踪矩阵组装十二页工件；注入一个权限或 lineage 故障；核对三阶段 receipt 与 ZIP hash closure 预期：Prompt 包可静态审计且 model_execution=NOT_RUN；只有固定 Schema/Eval/Mutation 合同获得证据，没有模型能力结论。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T25#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T25-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "Capstone 最容易变成一次演示，而不是一次可被复核的交付 失效形态 可核查的数字 它导致的错误结论 只提交结果不提交依据 缺 lineage 的结果无法在半年后被复现；重放所需的 7 类版本字段缺任一项，重放成功率即为 0 「我们做完了 Capstone」无法转化成团队可复用的资产 实验只有绿灯没有红灯 只证明能通过说明不了任何问题；缺中间那次故障注入时，检查有效性的证据为 0 一套什么都不检查的流程也能全绿通过 证据边界没有随产物一起交付 本课程所有结论都建立在离线夹具上，更高的 4 级成熟度全部 NOT…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T25#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T25-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "一个完整 RC 必须包含的十项工件 缺任何一项，这个 RC 都无法被独立评审——评审人必须来问你才能理解。 右列写的是这一项缺失时评审会卡在哪里。 工件 回答什么 缺失时评审会问 需求契约 要做什么 这条规则依据什么 风险登记册 为什么测这些 为什么不测那些 Oracle 设计记录 凭什么判对错 期望值从哪来 数据集与切片 在什么样本上测的 样本代表什么 Prompt 包 模型怎么被调用的 换个说法还成立吗 Scorer 与校准 分数怎么来的 这个分准吗 CI 门禁配置 什么会被拦下 坏版本能拦住吗 性能与成本…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T25#content_sections.teaching_blocks.5",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T25-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L20-L20",
+      "meaning": "Capstone：交付 AI Quality Fixture Release Candidate：先定位这一个专业失败 退款 RAG+Agent 同时可能引用过期政策、越权调用工具、在并发下变慢或因 Judge 漂移假绿。只提交文档、聊天截图或最终绿色报告无法证明系统会杀死这些故障。 对 TD-T25 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T25#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-W01",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:45da1c58a114ffaf43483f2a5ab244f8cd7bb8163422788b2369385dcea3f9c0",
+  "page_content_sha256": "sha256:973f3a4633d40b5076bc62bfcffbda017cfba2b0197a4803d79b2cbdd1760582",
+  "claims": [
+    {
+      "claim_id": "TD-W01-DECISION-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "安全和权限先于可写副作用；fault 稳定变红且 repair 重新变绿；模型不批准自己的期望，人工 owner 和 NOT_RUN 边界明确",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-W01#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-W01-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "安全、身份和权限检查必须先于任何可写副作用；被测模型、Judge 或 healer 不能批准自己的期望。；删除 Oracle、改变 expected、扩大权限、增加预算或无限重试都属于制造假绿。；不要依据产品命名或架构文档做分类。它们描述的是设计意图，trace 描述的是实际行为。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-W01#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-W01-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "分类来自公开 Agent 模式与测试方法的综合；行业对 worker 等术语没有唯一标准，应以目标系统架构和运行证据重新命名。 本页新增证据仅为确定性离线 fixture；真实模型、浏览器、工具、队列、组织审批和从业者评审均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-W01#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-W01-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "行动：运行 TD-W01 的 0/1/0 fixture 并解释命名 Oracle；检查 Prompt/Input/Schema/Eval/Mutation 的版本闭包；写出一个不同业务对象的权限、故障和 rollback 预期：固定 input、Schema、eval 和 mutation 已绑定；模型执行仍为 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-W01#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-W01-TABLE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "判据是路径由谁决定，不是产品叫什么名字 失效形态 可核查的数字 它导致的错误结论 三种结构混在一起算总成功率 一个总体 92% 的成功率里，自主 Agent 部分可能只有 71%，而固定 Workflow 有 99% 整体看起来达标，风险最高的那部分从未被单独看见 把 Workflow 当 Agent 测 路径固定的流程不需要 pass^k 这类重复运行指标，把它们套上去会把测试成本抬高 5～10 倍而无额外信息 预算花在了不产生信息的重复上 把异步 Worker 当同步调用测 入口返回 2xx 而后台任务失败的…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-W01#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-W01-METRIC-01",
+      "manuscript_locator": "manuscript.md:L19-L19",
+      "meaning": "判据是路径由谁决定，不是产品叫什么名字 「我们的 Agent」这个说法在多数产品里同时指三种不同的东西：固定路由的 Workflow、自主决策的 Agent、异步执行的 Worker。它们的失败模式与测试方法完全不同。 下面三条说明混为一谈的代价。 失效形态 可核查的数字 它导致的错误结论 三种结构混在一起算总成功率 一个总体 92% 的成功率里，自主 Agent 部分可能只有 71%，而固定 Workflow 有 99% 整体看起来达标，风险最高的那部分从未被单独看见 把 Workflow 当 Agent 测…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-W01#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-W01-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "专业问题、失败成本与决策权 同一个“智能客服”产品中，入口是固定路由 workflow，知识查询由 Agent 自主选工具，退款审批由异步 worker 执行。若把它整体叫 Agent，就会漏掉队列重试和确定性分支。 先按状态和副作用 owner 切分权限；Agent 不继承 Worker 或 Workflow 的写权限。 安全、身份和权限检查必须先于任何可写副作用；被测模型、Judge 或 healer 不能批准自己的期望。",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-W01#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

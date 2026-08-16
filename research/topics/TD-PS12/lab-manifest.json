@@ -1,0 +1,65 @@
+{
+  "topic_id": "TD-PS12",
+  "page_id": "TD-PS12",
+  "working_directory": "site/public/materials/reliability-chaos-observability",
+  "required_files": [
+    "owners.json",
+    "scripts/specialty_lab.py",
+    "manifests/TD-PS12.json",
+    "prompts/TD-PS12/system-v1.md",
+    "prompts/TD-PS12/task-v1.md",
+    "prompts/TD-PS12/critic-v1.md",
+    "prompts/TD-PS12/manifest.json",
+    "prompts/TD-PS12/mutation.json",
+    "fixtures/TD-PS12-input.json",
+    "schemas/TD-PS12-output.schema.json",
+    "evals/TD-PS12-eval.json"
+  ],
+  "steps": [
+    {
+      "step_id": "baseline",
+      "kind": "baseline",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS12.json --mode baseline",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS12/baseline.json"
+      ]
+    },
+    {
+      "step_id": "fault",
+      "kind": "mutation",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS12.json --mode fault",
+      "expected_exit_code": 1,
+      "expected_artifacts": [
+        "evidence/TD-PS12/fault.json"
+      ]
+    },
+    {
+      "step_id": "repair",
+      "kind": "repair",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS12.json --mode repair",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS12/repair.json"
+      ]
+    },
+    {
+      "step_id": "cycle",
+      "kind": "cycle",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS12.json --mode cycle",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS12/baseline.json",
+        "evidence/TD-PS12/fault.json",
+        "evidence/TD-PS12/repair.json",
+        "evidence/TD-PS12/cycle.json"
+      ]
+    }
+  ],
+  "failure_cycle": {
+    "baseline_step_id": "baseline",
+    "fault_step_id": "fault",
+    "repair_step_id": "repair"
+  },
+  "evidence_boundary": "fixture-tested only; no practitioner/live/production evidence. Unknown: 目标 IdP 策略、真实密钥管理、渗透授权范围和剩余风险接受人"
+}

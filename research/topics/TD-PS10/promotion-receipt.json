@@ -1,0 +1,135 @@
+{
+  "schema_version": "page-promotion-receipt.v1",
+  "page_id": "TD-PS10",
+  "validated_at": "2026-08-15T14:44:09.109Z",
+  "reviewer": "validation-semantic-parity-verifier-2026-08-13",
+  "page_content_hash": "sha256:28eb0459cec17fa8d9a23b0c8185a13e3eb5811075031dde597adf47c9ce7931",
+  "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
+  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_verdict": "PASS",
+  "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
+  "page_author_id": "course-page-projection-author-2026-08-13",
+  "reviewer_is_independent_of_author": true,
+  "research_package_files": [
+    "research-brief.md",
+    "source-pack.csv",
+    "research-runs.json",
+    "evidence-synthesis.md",
+    "engineering-blueprint.md",
+    "manuscript.md",
+    "comparison.md",
+    "lab-manifest.json",
+    "validation.md",
+    "projection-ledger.json"
+  ],
+  "research_inventory": [
+    {
+      "path": "research-brief.md",
+      "exists": true,
+      "sha256": "sha256:4ef02bc4e4b1cdc3423b029bc2386c52978e26826fd95357f74a0e5446a62964"
+    },
+    {
+      "path": "source-pack.csv",
+      "exists": true,
+      "sha256": "sha256:edddec4f4ebd0a260bbfa0b3eaea053cec7d62093f2c0bddb39de3e70a6a66cd"
+    },
+    {
+      "path": "research-runs.json",
+      "exists": true,
+      "sha256": "sha256:69e8167e0627df086d8667baed0ce671efcd9e99b91e6450ffe29bfaa6a5b5e3"
+    },
+    {
+      "path": "evidence-synthesis.md",
+      "exists": true,
+      "sha256": "sha256:ee8310f2f2185573ce3919965d38eb3441a6c952ebfb1b3d7f84e8f8c4ab264d"
+    },
+    {
+      "path": "engineering-blueprint.md",
+      "exists": true,
+      "sha256": "sha256:eddbe5b15555993fb6a99b0e563d6b43f9107f72dcea0e0c8bd91b36c88a45a9"
+    },
+    {
+      "path": "manuscript.md",
+      "exists": true,
+      "sha256": "sha256:851920c908505bc5b68d33f1fb551e2ea6442b52f5685846c8ada8da6f042871"
+    },
+    {
+      "path": "comparison.md",
+      "exists": true,
+      "sha256": "sha256:786bcc3d782866079c7a69ae1b3881cd928e7abeb847551f541d949240691286"
+    },
+    {
+      "path": "lab-manifest.json",
+      "exists": true,
+      "sha256": "sha256:2e4e3772cedd4614aac240582fbfb7414bf2ccb6ec692c4e4687a42eaeb996a5"
+    },
+    {
+      "path": "validation.md",
+      "exists": true,
+      "sha256": "sha256:13932aea52629b87fce217df02986133f18eb9c5608b3e1fe36fccd678247eb4"
+    },
+    {
+      "path": "projection-ledger.json",
+      "exists": true,
+      "sha256": "sha256:3e5367d3d102ec8e6eb1d86f8b3de28de3ce4d25d2cb6e0eb32da7c663f8686d"
+    }
+  ],
+  "editorial_score": 100,
+  "boundary_preservation_score": 100,
+  "executability_audit_ref": "research/executability-audit.json",
+  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit": {
+    "path": "../../executability-audit.json",
+    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "verdict": "PASS",
+    "finding_count": 0
+  },
+  "material_hashes": {
+    "materials/reliability-chaos-observability/fixtures/order-assistant-chaos.yaml": "sha256:1320118660bf3319870d67d1cc11429abba9b16d22e155db1c16cb1e281cfa79",
+    "materials/reliability-chaos-observability/guides/chaos-experiment-sop.md": "sha256:2b5629d374643c4a2d9a3971c8043cb3d21f544c425a6090e9d34f781f8ce37c",
+    "materials/reliability-chaos-observability.zip": "sha256:756f4ece1099dbd716cfff1859ec71f181eabb9b395be7e79034ea9df3f6a045",
+    "materials/reliability-chaos-observability/scripts/reliability_lab.py": "sha256:6dbedc525aa714bf63e08db10109730e4dbf01431d39a3d092559420a98a2056",
+    "materials/reliability-chaos-observability/README.md": "sha256:a6023bae0eae1d5cc6e0161acc1ca29f2f69be816a3d1e0f98f34c68d9965fce"
+  },
+  "learner_material_hashes": [
+    {
+      "href": "materials/reliability-chaos-observability/fixtures/order-assistant-chaos.yaml",
+      "public_sha256": "sha256:1320118660bf3319870d67d1cc11429abba9b16d22e155db1c16cb1e281cfa79",
+      "static_sha256": "sha256:1320118660bf3319870d67d1cc11429abba9b16d22e155db1c16cb1e281cfa79",
+      "archive_member_sha256": "sha256:1320118660bf3319870d67d1cc11429abba9b16d22e155db1c16cb1e281cfa79",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/reliability-chaos-observability/guides/chaos-experiment-sop.md",
+      "public_sha256": "sha256:2b5629d374643c4a2d9a3971c8043cb3d21f544c425a6090e9d34f781f8ce37c",
+      "static_sha256": "sha256:2b5629d374643c4a2d9a3971c8043cb3d21f544c425a6090e9d34f781f8ce37c",
+      "archive_member_sha256": "sha256:2b5629d374643c4a2d9a3971c8043cb3d21f544c425a6090e9d34f781f8ce37c",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/reliability-chaos-observability.zip",
+      "public_sha256": "sha256:756f4ece1099dbd716cfff1859ec71f181eabb9b395be7e79034ea9df3f6a045",
+      "static_sha256": "sha256:756f4ece1099dbd716cfff1859ec71f181eabb9b395be7e79034ea9df3f6a045",
+      "archive_member_sha256": null,
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/reliability-chaos-observability/scripts/reliability_lab.py",
+      "public_sha256": "sha256:6dbedc525aa714bf63e08db10109730e4dbf01431d39a3d092559420a98a2056",
+      "static_sha256": "sha256:6dbedc525aa714bf63e08db10109730e4dbf01431d39a3d092559420a98a2056",
+      "archive_member_sha256": "sha256:6dbedc525aa714bf63e08db10109730e4dbf01431d39a3d092559420a98a2056",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/reliability-chaos-observability/README.md",
+      "public_sha256": "sha256:a6023bae0eae1d5cc6e0161acc1ca29f2f69be816a3d1e0f98f34c68d9965fce",
+      "static_sha256": "sha256:a6023bae0eae1d5cc6e0161acc1ca29f2f69be816a3d1e0f98f34c68d9965fce",
+      "archive_member_sha256": "sha256:a6023bae0eae1d5cc6e0161acc1ca29f2f69be816a3d1e0f98f34c68d9965fce",
+      "closure_verdict": "PASS"
+    }
+  ],
+  "verdict": "FAIL",
+  "findings": [
+    "independent editorial review does not pin current page content hash"
+  ]
+}

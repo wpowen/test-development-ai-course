@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-X501",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:aa54389239c3e0e5683e995d9f59f21f00289c2eb8eab87023a7b3301793796d",
+  "page_content_sha256": "sha256:2ca8fff8040e3734f61e77bdfb7938b664c1af160037d7a7640517f0f633dec0",
+  "claims": [
+    {
+      "claim_id": "TD-X501-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "不把单模态高分当关系正确；矛盾和 Oracle 缺失会阻断；原始模态工件可追溯",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-X501#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-X501-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L25-L25",
+      "meaning": "10 个 opened 来源与合成跨模态 fault 支持合同；真实设备、模型、标注者、污染与生产体验 NOT_RUN。；人工构造矛盾时要保持两个模态各自内部自洽。否则模型可能因为单模态异常而报错，测不出跨模态判断。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-X501#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-X501-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L37-L37",
+      "meaning": "10 个 opened 来源与合成跨模态 fault 支持合同；真实设备、模型、标注者、污染与生产体验 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-X501#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-X501-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L13-L13",
+      "meaning": "行动：定义一组图文关系 Oracle；运行矛盾 fault；为缺音频场景定义拒答与转人工 预期：输出必须保留 source refs、owner、limitations 与 stop_state；不得自建 Oracle、自批例外或生成生产通过结论。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-X501#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-X501-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "多模态的失败不在单个模态里，在模态之间的关系里 失效形态 可核查的数字 它导致的错误结论 分别评图和评文，不评两者的对应关系 图文分别正确而对应关系错误的样本，在关系型任务中可占错误总量的 30% 以上 两个模态的指标都在 90% 以上，端到端却达不到可用水平 缺模态时系统照常输出 输入只有文字没有图时仍给出基于图的描述，属于典型编造；这类场景的拒答率必须单独测，实测中未做专项设计的系统拒答率常低于 20% 把「鲁棒」读成「缺什么都能跑」，而它实际是在编 矛盾注入场景完全没测 图文互相矛盾时系统应报冲突而非择一；…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-X501#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-X501-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "多模态的失败不在单个模态里，在模态之间的关系里 图能认对、文字能读对，两者放在一起的关系仍然可能是错的。多模态评测最常见的设计缺陷，是把它当成两个单模态评测的加总。 下面三条给出关系层的失效形态——它们在任何单模态指标上都表现正常。 失效形态 可核查的数字 它导致的错误结论 分别评图和评文，不评两者的对应关系 图文分别正确而对应关系错误的样本，在关系型任务中可占错误总量的 30% 以上 两个模态的指标都在 90% 以上，端到端却达不到可用水平 缺模态时系统照常输出 输入只有文字没有图时仍给出基于图的描述，属于典型…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-X501#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-X501-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L25-L25",
+      "meaning": "多模态的失败不在单个模态里，在模态之间的关系里 图能认对、文字能读对，两者放在一起的关系仍然可能是错的。多模态评测最常见的设计缺陷，是把它当成两个单模态评测的加总。 下面三条给出关系层的失效形态——它们在任何单模态指标上都表现正常。 失效形态 可核查的数字 它导致的错误结论 分别评图和评文，不评两者的对应关系 图文分别正确而对应关系错误的样本，在关系型任务中可占错误总量的 30% 以上 两个模态的指标都在 90% 以上，端到端却达不到可用水平 缺模态时系统照常输出 输入只有文字没有图时仍给出基于图的描述，属于典型…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-X501#content_sections.teaching_blocks.0",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

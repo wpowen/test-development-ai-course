@@ -1,0 +1,151 @@
+{
+  "schema_version": "page-promotion-receipt.v1",
+  "page_id": "TD-C04",
+  "validated_at": "2026-08-15T14:44:09.109Z",
+  "reviewer": "validation-semantic-parity-verifier-2026-08-13",
+  "page_content_hash": "sha256:4e65f1e27d375e78d62561c06ecb46072960ea59a1fd7b2ae703e2a1fb2e3860",
+  "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
+  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_verdict": "PASS",
+  "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
+  "page_author_id": "course-page-projection-author-2026-08-13",
+  "reviewer_is_independent_of_author": true,
+  "research_package_files": [
+    "research-brief.md",
+    "source-pack.csv",
+    "research-runs.json",
+    "evidence-synthesis.md",
+    "engineering-blueprint.md",
+    "manuscript.md",
+    "comparison.md",
+    "lab-manifest.json",
+    "validation.md",
+    "projection-ledger.json"
+  ],
+  "research_inventory": [
+    {
+      "path": "research-brief.md",
+      "exists": true,
+      "sha256": "sha256:1493c8fc5bb9c1766cda7b12d87af5e9df306971fdcc218f0224496c2d831051"
+    },
+    {
+      "path": "source-pack.csv",
+      "exists": true,
+      "sha256": "sha256:22d967cf1d436266749fb210efd2c5ba4daf0404c2d53940fea91b13534d71de"
+    },
+    {
+      "path": "research-runs.json",
+      "exists": true,
+      "sha256": "sha256:4fa861ab997a35d86bafe788c075ada0ad603101d976b07fa2f6058d0199a197"
+    },
+    {
+      "path": "evidence-synthesis.md",
+      "exists": true,
+      "sha256": "sha256:4580cd29e429b72150553ff76bcff9a2d72357e8096629e62aac1d07659e99d6"
+    },
+    {
+      "path": "engineering-blueprint.md",
+      "exists": true,
+      "sha256": "sha256:0dbc5fc4afceda3ade72fd65a6a4381d4fa96ede56acc742397d2a8318abfd02"
+    },
+    {
+      "path": "manuscript.md",
+      "exists": true,
+      "sha256": "sha256:aaaf4bd4adf91ca356879e00ff96a70118daa53ecd870697ce4f99214a851d52"
+    },
+    {
+      "path": "comparison.md",
+      "exists": true,
+      "sha256": "sha256:632406aa32e1e970f61f1bfc5b0bfed3cf18aaa0b1c974b07ba12d9ad4ba3b8a"
+    },
+    {
+      "path": "lab-manifest.json",
+      "exists": true,
+      "sha256": "sha256:cf83d69f75a721bf155231ce01403c84a434baba4b81d55ebc592fc805978774"
+    },
+    {
+      "path": "validation.md",
+      "exists": true,
+      "sha256": "sha256:ec704b5d2777eaaaa174b11db5497b771b05f326b7ca10a66a25d8501a9d8e4c"
+    },
+    {
+      "path": "projection-ledger.json",
+      "exists": true,
+      "sha256": "sha256:89c40dae3c1b7c88f4ad5cf1ee7a89d3e5716f9cd81a24cf117d789fce1371f4"
+    }
+  ],
+  "editorial_score": 100,
+  "boundary_preservation_score": 100,
+  "executability_audit_ref": "research/executability-audit.json",
+  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit": {
+    "path": "../../executability-audit.json",
+    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "verdict": "PASS",
+    "finding_count": 0
+  },
+  "material_hashes": {
+    "materials/career-evolution/visuals/career-capability-allocation.svg": "sha256:5c2b77ef6c67b102f6528fcdaa310104b735f0de05f77a1b635e74fd40aa9401",
+    "materials/career-evolution/source-visual-manifest.json": "sha256:537edc5009ef639d9df007072a24c6846a126ef1d9525d285ef8188da67464d4",
+    "materials/career-evolution/scripts/career_evolution_lab.py": "sha256:af1bda9d03260eccb8532685cf2ac1e0e8ed1a634b323d87b4afe92de78fde39",
+    "materials/career-evolution/fixtures/TD-C04-input.json": "sha256:d8ca450532785dd7557174aeee3452c3d8ece4decf4f032b034c5512ad11bc5f",
+    "materials/career-evolution/manifests/TD-C04.json": "sha256:65074e41e2e6f0351d6372b46a010c5c5f4e0226af5b30e91f071a42334457d0",
+    "materials/career-evolution.zip": "sha256:2004786e621d6de3dc47482def95d4ad9a94ab66f1a35b05c7c461d37b84eafc",
+    "materials/career-evolution/artifacts/README.md": "sha256:6b13b07d5df08d783554d1fe2168c58b4050124b66cae1b6ea4604c5b007f30c"
+  },
+  "learner_material_hashes": [
+    {
+      "href": "materials/career-evolution/visuals/career-capability-allocation.svg",
+      "public_sha256": "sha256:5c2b77ef6c67b102f6528fcdaa310104b735f0de05f77a1b635e74fd40aa9401",
+      "static_sha256": "sha256:5c2b77ef6c67b102f6528fcdaa310104b735f0de05f77a1b635e74fd40aa9401",
+      "archive_member_sha256": "sha256:5c2b77ef6c67b102f6528fcdaa310104b735f0de05f77a1b635e74fd40aa9401",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/career-evolution/source-visual-manifest.json",
+      "public_sha256": "sha256:537edc5009ef639d9df007072a24c6846a126ef1d9525d285ef8188da67464d4",
+      "static_sha256": "sha256:537edc5009ef639d9df007072a24c6846a126ef1d9525d285ef8188da67464d4",
+      "archive_member_sha256": "sha256:537edc5009ef639d9df007072a24c6846a126ef1d9525d285ef8188da67464d4",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/career-evolution/scripts/career_evolution_lab.py",
+      "public_sha256": "sha256:af1bda9d03260eccb8532685cf2ac1e0e8ed1a634b323d87b4afe92de78fde39",
+      "static_sha256": "sha256:af1bda9d03260eccb8532685cf2ac1e0e8ed1a634b323d87b4afe92de78fde39",
+      "archive_member_sha256": "sha256:af1bda9d03260eccb8532685cf2ac1e0e8ed1a634b323d87b4afe92de78fde39",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/career-evolution/fixtures/TD-C04-input.json",
+      "public_sha256": "sha256:d8ca450532785dd7557174aeee3452c3d8ece4decf4f032b034c5512ad11bc5f",
+      "static_sha256": "sha256:d8ca450532785dd7557174aeee3452c3d8ece4decf4f032b034c5512ad11bc5f",
+      "archive_member_sha256": "sha256:d8ca450532785dd7557174aeee3452c3d8ece4decf4f032b034c5512ad11bc5f",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/career-evolution/manifests/TD-C04.json",
+      "public_sha256": "sha256:65074e41e2e6f0351d6372b46a010c5c5f4e0226af5b30e91f071a42334457d0",
+      "static_sha256": "sha256:65074e41e2e6f0351d6372b46a010c5c5f4e0226af5b30e91f071a42334457d0",
+      "archive_member_sha256": "sha256:65074e41e2e6f0351d6372b46a010c5c5f4e0226af5b30e91f071a42334457d0",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/career-evolution.zip",
+      "public_sha256": "sha256:2004786e621d6de3dc47482def95d4ad9a94ab66f1a35b05c7c461d37b84eafc",
+      "static_sha256": "sha256:2004786e621d6de3dc47482def95d4ad9a94ab66f1a35b05c7c461d37b84eafc",
+      "archive_member_sha256": null,
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/career-evolution/artifacts/README.md",
+      "public_sha256": "sha256:6b13b07d5df08d783554d1fe2168c58b4050124b66cae1b6ea4604c5b007f30c",
+      "static_sha256": "sha256:6b13b07d5df08d783554d1fe2168c58b4050124b66cae1b6ea4604c5b007f30c",
+      "archive_member_sha256": "sha256:6b13b07d5df08d783554d1fe2168c58b4050124b66cae1b6ea4604c5b007f30c",
+      "closure_verdict": "PASS"
+    }
+  ],
+  "verdict": "FAIL",
+  "findings": [
+    "independent editorial review does not pin current page content hash"
+  ]
+}

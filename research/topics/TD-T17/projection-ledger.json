@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T17",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:e760cd3b312ecb2db5e9508455d4f4411fd15c3d3fbb5e3e6e42d36fa33f511c",
+  "page_content_sha256": "sha256:268b32cfee0ade27be87a7ef6fdd91a7762a72ce137bb97f434bf8ea9cfe7ea4",
+  "claims": [
+    {
+      "claim_id": "TD-T17-DECISION-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "安全和权限先于可写副作用；fault 稳定变红且 repair 重新变绿；模型不批准自己的期望，人工 owner 和 NOT_RUN 边界明确",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T17#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T17-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L30-L30",
+      "meaning": "安全、身份和权限检查必须先于任何可写副作用；被测模型、Judge 或 healer 不能批准自己的期望。；删除 Oracle、改变 expected、扩大权限、增加预算或无限重试都属于制造假绿。；演练必须在隔离环境进行，且工具必须是录制沙箱。真实越权调用一旦成功，损失不可撤销。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T17#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T17-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L28-L28",
+      "meaning": "NIST、OWASP 和测试 syllabus 支持这些风险类别；攻击集是入门基线，不代表渗透测试完成，也未覆盖目标系统所有编码、工具和供应链路径。 本页新增证据仅为确定性离线 fixture；真实模型、浏览器、工具、队列、组织审批和从业者评审均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T17#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T17-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "行动：运行 TD-T17 的 0/1/0 fixture 并解释命名 Oracle；检查 Prompt/Input/Schema/Eval/Mutation 的版本闭包；写出一个不同业务对象的权限、故障和 rollback 预期：固定 input、Schema、eval 和 mutation 已绑定；模型执行仍为 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T17#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T17-TABLE-01",
+      "manuscript_locator": "manuscript.md:L30-L30",
+      "meaning": "攻击面已经从用户输入转移到运行时数据通道 失效形态 可核查的数字 它导致的错误结论 只在用户输入侧做注入防护 工具描述与工具响应直接进上下文且无等价检查，这个信任落差是主要攻击面；实测多数流行 Agent 攻击成功率超过 60%，最高达 72% 输入过滤做得很完善，而攻击根本不走输入 按轮次而不是按轨迹评估护栏 延迟触发与跨会话攻击把风险证据分散在整条轨迹上，单轮窗口内每一轮都正常 逐轮护栏全绿，攻击在第 5 轮才激活 能力更强的模型被默认更安全 更强的指令遵循让模型对恶意元数据更顺从；MCPTox 在 45 个…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T17#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T17-METRIC-01",
+      "manuscript_locator": "manuscript.md:L26-L26",
+      "meaning": "攻击面已经从用户输入转移到运行时数据通道 把提示注入理解成「用户在输入框里写坏话」，会让你的防线建在错误的位置。真正的注入来自 Agent 在运行时读进上下文的东西：检索到的文档、工具返回、网页内容、工单正文。 下面三条描述这个转移带来的三类新失效。 失效形态 可核查的数字 它导致的错误结论 只在用户输入侧做注入防护 工具描述与工具响应直接进上下文且无等价检查，这个信任落差是主要攻击面；实测多数流行 Agent 攻击成功率超过 60%，最高达 72% 输入过滤做得很完善，而攻击根本不走输入 按轮次而不是按轨迹评估…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T17#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T17-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L30-L30",
+      "meaning": "专业问题、失败成本与决策权 客服 Agent 检索到一篇被污染的知识文章，内容要求忽略政策并导出其他用户订单。模型拒绝文字请求不够；系统还必须防止检索跨租户、工具越权和敏感字段进入输出。 不可信网页/邮件/知识内容只作为数据；tenant enforcement 和工具授权在模型之外完整中介。 安全、身份和权限检查必须先于任何可写副作用；被测模型、Judge 或 healer 不能批准自己的期望。",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T17#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

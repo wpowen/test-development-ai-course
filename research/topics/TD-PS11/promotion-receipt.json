@@ -1,0 +1,135 @@
+{
+  "schema_version": "page-promotion-receipt.v1",
+  "page_id": "TD-PS11",
+  "validated_at": "2026-08-15T14:44:09.109Z",
+  "reviewer": "validation-semantic-parity-verifier-2026-08-13",
+  "page_content_hash": "sha256:e3525c5dbf512790cd540b81004e560ceca7162957fb9d6e2ac7ad9de1cbae37",
+  "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
+  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_verdict": "PASS",
+  "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
+  "page_author_id": "course-page-projection-author-2026-08-13",
+  "reviewer_is_independent_of_author": true,
+  "research_package_files": [
+    "research-brief.md",
+    "source-pack.csv",
+    "research-runs.json",
+    "evidence-synthesis.md",
+    "engineering-blueprint.md",
+    "manuscript.md",
+    "comparison.md",
+    "lab-manifest.json",
+    "validation.md",
+    "projection-ledger.json"
+  ],
+  "research_inventory": [
+    {
+      "path": "research-brief.md",
+      "exists": true,
+      "sha256": "sha256:870f9c744e1e4b7f37f6680736065d1c9682879f7adb589c8cf54ffcfaaad3ed"
+    },
+    {
+      "path": "source-pack.csv",
+      "exists": true,
+      "sha256": "sha256:63c1e6fe1d58f9a9e16f0bdf0aa816771514729e17ae5edaa16d01d6655e225f"
+    },
+    {
+      "path": "research-runs.json",
+      "exists": true,
+      "sha256": "sha256:6b15c2594653cce0b8a9e8963b93447fa21ac2a1a17b22d38161926fe5fd202c"
+    },
+    {
+      "path": "evidence-synthesis.md",
+      "exists": true,
+      "sha256": "sha256:cf17f9c2f6799b2529eab4fde46609cb3420edc0c1483a949283390f4065f796"
+    },
+    {
+      "path": "engineering-blueprint.md",
+      "exists": true,
+      "sha256": "sha256:556b1016c759c9ef5d7cf6fe47dc4920172028e0b2488dabfae25da0c681e20b"
+    },
+    {
+      "path": "manuscript.md",
+      "exists": true,
+      "sha256": "sha256:8fd5d49170178ed3812cb4751d8c23653525338306e5ab71bd39340c0edd6bf0"
+    },
+    {
+      "path": "comparison.md",
+      "exists": true,
+      "sha256": "sha256:a8a6e73f74346c4721a32f4b57f730e47c8835a4266ff730a5b43059e5929599"
+    },
+    {
+      "path": "lab-manifest.json",
+      "exists": true,
+      "sha256": "sha256:dd8a2caa5215a98fdb00e5bb81421af82868750084e71c55ad6289c998c79ffd"
+    },
+    {
+      "path": "validation.md",
+      "exists": true,
+      "sha256": "sha256:fe942590a59dd75581ff202b6ff996c3dbb4880063c8fd388baf2b4837312b5f"
+    },
+    {
+      "path": "projection-ledger.json",
+      "exists": true,
+      "sha256": "sha256:e50eb2dbffa169a57a83c794ab7882c9d9d21d50b8aaad4d35692697662a8554"
+    }
+  ],
+  "editorial_score": 100,
+  "boundary_preservation_score": 100,
+  "executability_audit_ref": "research/executability-audit.json",
+  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit": {
+    "path": "../../executability-audit.json",
+    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "verdict": "PASS",
+    "finding_count": 0
+  },
+  "material_hashes": {
+    "materials/reliability-chaos-observability/configs/agent-trace-schema.yaml": "sha256:f65080a709e0fecf94665b11cbce1a949e17c76b21c21d4860c75cf8b559da3b",
+    "materials/reliability-chaos-observability/guides/ai-observability-investigation.md": "sha256:46e8cef2d241d450bac9e4e89733989c93c0a0a019060f5eb37e1c1f84201080",
+    "materials/reliability-chaos-observability.zip": "sha256:756f4ece1099dbd716cfff1859ec71f181eabb9b395be7e79034ea9df3f6a045",
+    "materials/reliability-chaos-observability/scripts/reliability_lab.py": "sha256:6dbedc525aa714bf63e08db10109730e4dbf01431d39a3d092559420a98a2056",
+    "materials/reliability-chaos-observability/README.md": "sha256:a6023bae0eae1d5cc6e0161acc1ca29f2f69be816a3d1e0f98f34c68d9965fce"
+  },
+  "learner_material_hashes": [
+    {
+      "href": "materials/reliability-chaos-observability/configs/agent-trace-schema.yaml",
+      "public_sha256": "sha256:f65080a709e0fecf94665b11cbce1a949e17c76b21c21d4860c75cf8b559da3b",
+      "static_sha256": "sha256:f65080a709e0fecf94665b11cbce1a949e17c76b21c21d4860c75cf8b559da3b",
+      "archive_member_sha256": "sha256:f65080a709e0fecf94665b11cbce1a949e17c76b21c21d4860c75cf8b559da3b",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/reliability-chaos-observability/guides/ai-observability-investigation.md",
+      "public_sha256": "sha256:46e8cef2d241d450bac9e4e89733989c93c0a0a019060f5eb37e1c1f84201080",
+      "static_sha256": "sha256:46e8cef2d241d450bac9e4e89733989c93c0a0a019060f5eb37e1c1f84201080",
+      "archive_member_sha256": "sha256:46e8cef2d241d450bac9e4e89733989c93c0a0a019060f5eb37e1c1f84201080",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/reliability-chaos-observability.zip",
+      "public_sha256": "sha256:756f4ece1099dbd716cfff1859ec71f181eabb9b395be7e79034ea9df3f6a045",
+      "static_sha256": "sha256:756f4ece1099dbd716cfff1859ec71f181eabb9b395be7e79034ea9df3f6a045",
+      "archive_member_sha256": null,
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/reliability-chaos-observability/scripts/reliability_lab.py",
+      "public_sha256": "sha256:6dbedc525aa714bf63e08db10109730e4dbf01431d39a3d092559420a98a2056",
+      "static_sha256": "sha256:6dbedc525aa714bf63e08db10109730e4dbf01431d39a3d092559420a98a2056",
+      "archive_member_sha256": "sha256:6dbedc525aa714bf63e08db10109730e4dbf01431d39a3d092559420a98a2056",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/reliability-chaos-observability/README.md",
+      "public_sha256": "sha256:a6023bae0eae1d5cc6e0161acc1ca29f2f69be816a3d1e0f98f34c68d9965fce",
+      "static_sha256": "sha256:a6023bae0eae1d5cc6e0161acc1ca29f2f69be816a3d1e0f98f34c68d9965fce",
+      "archive_member_sha256": "sha256:a6023bae0eae1d5cc6e0161acc1ca29f2f69be816a3d1e0f98f34c68d9965fce",
+      "closure_verdict": "PASS"
+    }
+  ],
+  "verdict": "FAIL",
+  "findings": [
+    "independent editorial review does not pin current page content hash"
+  ]
+}

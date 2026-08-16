@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-P02",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:e34895421d3fa1f6edad82ca4a1fe5faca1f727bc7edeca5728bb2d58cbd51ec",
+  "page_content_sha256": "sha256:563948d3399449fa50a33ee644649021a55d8920d911ea5c171ff240a9bbaa03",
+  "claims": [
+    {
+      "claim_id": "TD-P02-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "Requirement Contract 能被程序读取；每个关键规则有来源或明确 UNKNOWN；结构通过与业务确认被分成两道门禁",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-P02#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-P02-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L24-L24",
+      "meaning": "模型能输出正确 JSON，只说明传输契约成立；不能据此宣称需求已经正确。；本阶段的准出条件不允许用「先过、后面补」跳过。跳过一次准出，等于把不确定性推给下游阶段，用返工代价偿还。；本包已通过静态合同和离线负控制；真实 AI provider/model 执行仍为 NOT_RUN，不能据此声称模型准确、企业可用或生产通过。；该结果只证明离线确定性负控制可运行，不是模型、从业者、企业集成、线上或生产验证。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-P02#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-P02-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L13-L13",
+      "meaning": "本专题使用虚构的订单取消与退款资料包验证工件结构和离线流水线。它能证明流程可运行、冲突能阻断、预埋缺陷能被测试发现；不能证明模型能正确理解你公司的全部文档，也不能替代产品、研发、法务和发布责任人的确认。provider/model、真实集成、practitioner 盲审、learner 实际迁移、live、production 均为 NOT_RUN；fixture-only 结果不得升级为企业可用或发布证据。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-P02#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-P02-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "行动：为自己的业务补一条状态转换和一条不变量；加入一个文档未定义的字段并确认校验失败；让产品 owner 只评审关键业务语义而不是整段模型解释 预期：看到已版本化的 system/task/critic、Schema 和失败语义；没有真实模型输出，manifest 保持 provider=none/model=offline-deterministic/status=NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-P02#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-P02-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "自然语言需求无法被程序消费，转写这一步决定了下游全部质量 失效形态 可核查的数字 它导致的错误结论 契约缺前置条件与后置状态 一条完整需求契约至少需要触发条件、前置状态、后置状态、异常分支 4 个要素，缺任一项即不可测 用例基于假设编写，评审时才发现理解不一致 用模型生成契约但不做冲突校验 模型会把语义空白补全成看起来合理的内容；这类补全在无校验时的检出率为 0 把模型补出来的规则当成需求原文 契约与原文不可追溯 无 source_ref 的契约条目无法在 1 次抽查内被证伪，复核成本高于重读原文 契约评审流于形…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-P02#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-P02-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "自然语言需求无法被程序消费，转写这一步决定了下游全部质量 「订单超时后应当自动取消」这句话读起来毫无歧义。但超时从哪一刻算起、取消是否退款、并发下怎么处理——这三个问题它一个都没回答。 下面三条是转写不到位的后果。 失效形态 可核查的数字 它导致的错误结论 契约缺前置条件与后置状态 一条完整需求契约至少需要触发条件、前置状态、后置状态、异常分支 4 个要素，缺任一项即不可测 用例基于假设编写，评审时才发现理解不一致 用模型生成契约但不做冲突校验 模型会把语义空白补全成看起来合理的内容；这类补全在无校验时的检出率为…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-P02#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-P02-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L24-L24",
+      "meaning": "TD-P02 反例与诊断：合法 JSON 仍可能是坏契约 反例一：把 refund_timeout_hours 填成 24，格式和类型都正确，但原始 PRD 没有该时限；它会让性能门禁伪装成事实。反例二：把 UNKNOWN 的退款完成状态写成 CANCELLED，后续用例会错误地断言副作用已完成。学员应逐字段回到 source_ref，并把缺失项交给 owner。 结构校验通过后，先查引用存在性，再查语义不变量和权限边界，最后让独立评审确认；schema 只能防止坏格式，不能批准业务含义。 症状 疑似层 下一检查…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-P02#content_sections.teaching_blocks.12",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-PS06",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:01cf7ac0ad668a3f6ef4271ee2797c21886353513585f396274bd8596b1cdf6c",
+  "page_content_sha256": "sha256:fd618f07d23de2360d8240f1e010aeb5ec35723eb9013ba5297d5b912f8ae04d",
+  "claims": [
+    {
+      "claim_id": "TD-PS06-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "同步策略不依赖固定等待；生命周期与服务端状态均有证据；设备未运行时报告明确标 desk-researched",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-PS06#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-PS06-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L35-L35",
+      "meaning": "证据边界要写清楚：如果只在模拟器上跑过，就不能声称在真机上验证过。设备差异是真实存在的。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-PS06#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-PS06-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L29-L29",
+      "meaning": "Android 测试层次和权限策略为 desk-researched；本页未启动 Android 模拟器或真机，设备、ROM、性能和系统弹窗结论不能当作运行结果。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-PS06#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-PS06-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L16-L16",
+      "meaning": "行动：设计首次拒绝相机权限和再次进入的路径；注入进程杀死并检查 receipt_id 幂等；写出至少三种设备切片及其业务理由 预期：恢复后扫描状态可解释；同一 receipt_id 重放不会产生第二次库存入账。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-PS06#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-PS06-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "Android 测试的老难题是生命周期与同步，端侧模型把这两件事同时变难了 失效形态 可核查的数字 它导致的错误结论 按页面加载完成作为同步条件 流式生成的首字延迟波动常在 1～5 秒区间，页面已加载而内容仍在流入；固定等待在这种场景下的失败率显著上升 把间歇失败归因为「设备慢」，实际是同步条件选错了对象 进程被杀后不验证恢复 低内存时系统回收进程是常态；推理中途被杀时若无检查点，用户的输入与已生成内容 100% 丢失 把用户投诉的「说了一半没了」当成偶发 设备矩阵不含端侧模型维度 同一应用在不同芯片上可能走不同…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-PS06#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-PS06-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "Android 测试的老难题是生命周期与同步，端侧模型把这两件事同时变难了 Activity 重建、进程被杀、权限被撤销——这些是 Android 自动化一直要处理的。端侧推理加入之后，它们各自多了一种新的失败形态：推理中途被打断。 下面三条是端侧 AI 引入的新失效，它们都建立在老问题之上。 失效形态 可核查的数字 它导致的错误结论 按页面加载完成作为同步条件 流式生成的首字延迟波动常在 1～5 秒区间，页面已加载而内容仍在流入；固定等待在这种场景下的失败率显著上升 把间歇失败归因为「设备慢」，实际是同步条件选…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-PS06#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-PS06-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L24-L24",
+      "meaning": "四类移动端特有失败与对应验证 这四类在桌面端很少见，在移动端是主要失败来源。 右列是构造方式——多数可以用系统提供的开发者选项直接触发。 失败类型 表现 怎么构造 进程被回收 切回应用后状态丢失 开启「不保留活动」后切换应用 权限被拒绝 功能静默失效 在设置里手动拒绝权限 低内存 界面重建异常 用系统开发者选项限制后台进程 网络切换 请求中断后状态错乱 在操作中途切换网络类型 第一行是移动端最典型也最容易漏测的：开发者选项里的「不保留活动」能稳定复现它。 R-ESPRESSO",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-PS06#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

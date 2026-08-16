@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-C02",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:ca7272a68ab98b9e46b42436dfc0627e27ced3556b8e6f75347c69b67acdc512",
+  "page_content_sha256": "sha256:53419d9c75d56f893645fcc73d5bb9591d33753604604b3d5af29d2f1f998bb8",
+  "claims": [
+    {
+      "claim_id": "TD-C02-DECISION-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "能说清四个责任状态的区别；每个能力主张有 evidence_ref 或 UNKNOWN；责任地图包含决策权、失败代价、工件和 reviewer",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-C02#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-C02-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L22-L22",
+      "meaning": "本页仅为 static/fixture-tested 责任合同；provider、model、integration、practitioner、learner、live、production、publication 均 NOT_RUN。P5–P9、年限和晋升规则必须由组织适配器配置，当前不构成职级、招聘或薪资结论。；不要用「我参与过」填格子。参与不是决策权；填的必须是能查到你名字的那类记录。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-C02#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-C02-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "本页仅为 static/fixture-tested 责任合同；provider、model、integration、practitioner、learner、live、production、publication 均 NOT_RUN。P5–P9、年限和晋升规则必须由组织适配器配置，当前不构成职级、招聘或薪资结论。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-C02#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-C02-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L11-L11",
+      "meaning": "行动：把一次普通 API 测试分别写成四种责任状态；为每种状态补一个禁止动作和升级 owner；用一个 seeded fault 验证证据梯不是自我评价 预期：每个状态都有一个真实文件引用；没有证据的字段明确写 UNKNOWN，并能指出下一份应交付的工件。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-C02#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-C02-TABLE-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "用年限和头衔描述成长，无法回答「他现在能负责到哪一步」 失效形态 可核查的数字 它导致的错误结论 用年限描述能力 同样 3 年经验的两个人，可负责的决策范围可以完全不同；年限对能力的解释力接近 0 按年限分配任务，结果与预期严重不符 用头衔跨组织比较 职级体系由各组织自行定义，跨组织的公共基准不存在；无来源映射的准确性不可估计，且 1 年后组织标准调整会让它进一步失效 把外部头衔直接当成内部能力等级 责任状态没有绑定工件 无工件支撑的责任声明无法被复核；这类声明的可验证性为 0 「我负责过质量治理」无法被追问出任…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-C02#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-C02-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "这一页的验收口径：责任状态由证据判定 四条指标全部指向同一件事：责任状态不是自称的，是由工件、决策记录和复核意见共同判定的。 本页不给出年限对照表——职级与年限由组织定义，缺组织来源时保持 INTERNAL-UNKNOWN，详见 TD-C04。 编号 测什么 关键指标 复测频率 C02-1 状态有工件 每个声明的责任状态绑定 ≥ 2 件可复用工件 每次复评 C02-2 决策权明确 写明可自主决定与必须上报事项的比例 = 100% 每次复评 C02-3 红绿证据 责任状态对应的检查有 0/1/0 完整证据的比例 =…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-C02#content_sections.teaching_blocks.6",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-C02-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L22-L22",
+      "meaning": "为一个测试主题填写 responsibility-map：当前状态、允许的决定、禁止的决定、证据路径、故障变异和 reviewer。：版本化 Prompt/Eval/Mutation 本页 Prompt 只生成 TD-C02 的结构化候选，不替代 owner、Oracle 或组织政策。 输出必须保留 UNKNOWN、NOT_RUN、BLOCKED 和适用范围。 prompt 读取 TD-C02 的批准 fixture，输出符合 Schema 的候选工件；不得猜测职级、阈值、就业或生产结论。 1.0.0 mater…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-C02#content_sections.teaching_blocks.11",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

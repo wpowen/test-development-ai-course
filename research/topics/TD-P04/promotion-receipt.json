@@ -1,0 +1,191 @@
+{
+  "schema_version": "page-promotion-receipt.v1",
+  "page_id": "TD-P04",
+  "validated_at": "2026-08-15T14:44:09.109Z",
+  "reviewer": "validation-semantic-parity-verifier-2026-08-13",
+  "page_content_hash": "sha256:6ca54d1bdd1e69ee9e182430bde7aab5034700cc64966ee3bd09000a8e8512af",
+  "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
+  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_verdict": "PASS",
+  "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
+  "page_author_id": "course-page-projection-author-2026-08-13",
+  "reviewer_is_independent_of_author": true,
+  "research_package_files": [
+    "research-brief.md",
+    "source-pack.csv",
+    "research-runs.json",
+    "evidence-synthesis.md",
+    "engineering-blueprint.md",
+    "manuscript.md",
+    "comparison.md",
+    "lab-manifest.json",
+    "validation.md",
+    "projection-ledger.json"
+  ],
+  "research_inventory": [
+    {
+      "path": "research-brief.md",
+      "exists": true,
+      "sha256": "sha256:e6de004a3b9e1161e129a134eb66c149a39559b59c3cfa5ce021e97d6fd776f9"
+    },
+    {
+      "path": "source-pack.csv",
+      "exists": true,
+      "sha256": "sha256:7506a6a39564128fe032b9aba6b9d6b4b4b8168909914a4a09d3a96790a5c0f6"
+    },
+    {
+      "path": "research-runs.json",
+      "exists": true,
+      "sha256": "sha256:8ed07f2ec63f6fc93c775ec54fef1146bd44756a154909d96f16a2cbc68058b8"
+    },
+    {
+      "path": "evidence-synthesis.md",
+      "exists": true,
+      "sha256": "sha256:bf62855c3e888928de324962d95a58b51bda801ca00bb18cdc2627960ce88667"
+    },
+    {
+      "path": "engineering-blueprint.md",
+      "exists": true,
+      "sha256": "sha256:a3517b46d034f40c3dc6a31c751dd5b5c48d8d9e1f0c90ea50e4a1c4e53c0b48"
+    },
+    {
+      "path": "manuscript.md",
+      "exists": true,
+      "sha256": "sha256:7d494f5157ba95fba9f9bde7542f8fd3b39b68b821bce3c6ea502e48c0d22cb6"
+    },
+    {
+      "path": "comparison.md",
+      "exists": true,
+      "sha256": "sha256:652bb30ebf9905225e55a5cd0fc60c548fad5378f94da5c248d83a2e12fb329c"
+    },
+    {
+      "path": "lab-manifest.json",
+      "exists": true,
+      "sha256": "sha256:c1e0aa0236bb59f3d2e13f3d0ccb38e3cd25a3cbf6b53499aef1362dd898e9df"
+    },
+    {
+      "path": "validation.md",
+      "exists": true,
+      "sha256": "sha256:109174ffe458b6f32f0f4e8185b15705783a39890e3152145d8345e776ab588c"
+    },
+    {
+      "path": "projection-ledger.json",
+      "exists": true,
+      "sha256": "sha256:7a1a343a8e10e650fb430bc2b43ebe6dd90f78782e8a6a9a4f6118befcd08138"
+    }
+  ],
+  "editorial_score": 100,
+  "boundary_preservation_score": 100,
+  "executability_audit_ref": "research/executability-audit.json",
+  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit": {
+    "path": "../../executability-audit.json",
+    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "verdict": "PASS",
+    "finding_count": 0
+  },
+  "material_hashes": {
+    "materials/requirements-to-evidence/pipeline.py": "sha256:b2955f230ed10d60cdc713a078b7dc80ae04b972f8643dc061a7248ca00517dc",
+    "materials/requirements-to-evidence/page-manifests/TD-P04.json": "sha256:1cc9de20c822b3cb2794c541d9aaba7b2b5d2f0843b721d35067ece4b1e7513b",
+    "materials/requirements-to-evidence/page-prompts/TD-P04/manifest.json": "sha256:d1ea5ec7364e418c242da0a3937474c7033a0a28ea2c89d85149e75d809913c1",
+    "materials/requirements-to-evidence/page-prompts/TD-P04/prompt-v1.md": "sha256:10f45da3234d43fa562c653cea2a912f33b449700f6b076127d89965152c0ec8",
+    "materials/requirements-to-evidence/DIRECT-USE-GUIDE.md": "sha256:67af5917b9a37177477bc3db8b677d54ef2a0fe90541a1d950bd0b9fe5551c6c",
+    "materials/requirements-to-evidence/ADAPTATION-CARD.md": "sha256:843a6107a826c9db8510880659ff1ce9d597c34e5e3ac04bc880206bac42f530",
+    "materials/requirements-to-evidence/reports/TD-P04-cycle.json": "sha256:69e904a1ea53b81d6cfab5e8af294d620cd7f32920296240dbbdd8153b5482ef",
+    "materials/methodology-handbook/README.md": "sha256:742206af6b900c5a5b1e43880b0872af94f9d371f68ccba0547335d4aa4e65ac",
+    "materials/methodology-handbook/scripts/validate_handbook.py": "sha256:b9b02b6c8aaa286b2e20fdfa7576b0321883a566518631f74163943ed47050d8",
+    "materials/methodology-handbook/examples/source-manifest.json": "sha256:034319eb6e6d13348f8a10535148837adee53adf003b88ef4c7b2ebf8d1fe96d",
+    "materials/methodology-handbook/templates/06-technique-selection-matrix.md": "sha256:c11e4372a18bcd61b5fd156122479f38fedb5eb15ba75d12473e7f5576289cff",
+    "materials/methodology-handbook/checklists/02-risk-and-strategy.md": "sha256:0bc48f66782a3cb45d27c526a604b5f69691c560f1aed9c6e0c00611a6dcd9a0"
+  },
+  "learner_material_hashes": [
+    {
+      "href": "materials/requirements-to-evidence/pipeline.py",
+      "public_sha256": "sha256:b2955f230ed10d60cdc713a078b7dc80ae04b972f8643dc061a7248ca00517dc",
+      "static_sha256": "sha256:b2955f230ed10d60cdc713a078b7dc80ae04b972f8643dc061a7248ca00517dc",
+      "archive_member_sha256": "sha256:b2955f230ed10d60cdc713a078b7dc80ae04b972f8643dc061a7248ca00517dc",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/requirements-to-evidence/page-manifests/TD-P04.json",
+      "public_sha256": "sha256:1cc9de20c822b3cb2794c541d9aaba7b2b5d2f0843b721d35067ece4b1e7513b",
+      "static_sha256": "sha256:1cc9de20c822b3cb2794c541d9aaba7b2b5d2f0843b721d35067ece4b1e7513b",
+      "archive_member_sha256": "sha256:1cc9de20c822b3cb2794c541d9aaba7b2b5d2f0843b721d35067ece4b1e7513b",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/requirements-to-evidence/page-prompts/TD-P04/manifest.json",
+      "public_sha256": "sha256:d1ea5ec7364e418c242da0a3937474c7033a0a28ea2c89d85149e75d809913c1",
+      "static_sha256": "sha256:d1ea5ec7364e418c242da0a3937474c7033a0a28ea2c89d85149e75d809913c1",
+      "archive_member_sha256": "sha256:d1ea5ec7364e418c242da0a3937474c7033a0a28ea2c89d85149e75d809913c1",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/requirements-to-evidence/page-prompts/TD-P04/prompt-v1.md",
+      "public_sha256": "sha256:10f45da3234d43fa562c653cea2a912f33b449700f6b076127d89965152c0ec8",
+      "static_sha256": "sha256:10f45da3234d43fa562c653cea2a912f33b449700f6b076127d89965152c0ec8",
+      "archive_member_sha256": "sha256:10f45da3234d43fa562c653cea2a912f33b449700f6b076127d89965152c0ec8",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/requirements-to-evidence/DIRECT-USE-GUIDE.md",
+      "public_sha256": "sha256:67af5917b9a37177477bc3db8b677d54ef2a0fe90541a1d950bd0b9fe5551c6c",
+      "static_sha256": "sha256:67af5917b9a37177477bc3db8b677d54ef2a0fe90541a1d950bd0b9fe5551c6c",
+      "archive_member_sha256": "sha256:67af5917b9a37177477bc3db8b677d54ef2a0fe90541a1d950bd0b9fe5551c6c",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/requirements-to-evidence/ADAPTATION-CARD.md",
+      "public_sha256": "sha256:843a6107a826c9db8510880659ff1ce9d597c34e5e3ac04bc880206bac42f530",
+      "static_sha256": "sha256:843a6107a826c9db8510880659ff1ce9d597c34e5e3ac04bc880206bac42f530",
+      "archive_member_sha256": "sha256:843a6107a826c9db8510880659ff1ce9d597c34e5e3ac04bc880206bac42f530",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/requirements-to-evidence/reports/TD-P04-cycle.json",
+      "public_sha256": "sha256:69e904a1ea53b81d6cfab5e8af294d620cd7f32920296240dbbdd8153b5482ef",
+      "static_sha256": "sha256:69e904a1ea53b81d6cfab5e8af294d620cd7f32920296240dbbdd8153b5482ef",
+      "archive_member_sha256": "sha256:69e904a1ea53b81d6cfab5e8af294d620cd7f32920296240dbbdd8153b5482ef",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/methodology-handbook/README.md",
+      "public_sha256": "sha256:742206af6b900c5a5b1e43880b0872af94f9d371f68ccba0547335d4aa4e65ac",
+      "static_sha256": "sha256:742206af6b900c5a5b1e43880b0872af94f9d371f68ccba0547335d4aa4e65ac",
+      "archive_member_sha256": "sha256:742206af6b900c5a5b1e43880b0872af94f9d371f68ccba0547335d4aa4e65ac",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/methodology-handbook/scripts/validate_handbook.py",
+      "public_sha256": "sha256:b9b02b6c8aaa286b2e20fdfa7576b0321883a566518631f74163943ed47050d8",
+      "static_sha256": "sha256:b9b02b6c8aaa286b2e20fdfa7576b0321883a566518631f74163943ed47050d8",
+      "archive_member_sha256": "sha256:b9b02b6c8aaa286b2e20fdfa7576b0321883a566518631f74163943ed47050d8",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/methodology-handbook/examples/source-manifest.json",
+      "public_sha256": "sha256:034319eb6e6d13348f8a10535148837adee53adf003b88ef4c7b2ebf8d1fe96d",
+      "static_sha256": "sha256:034319eb6e6d13348f8a10535148837adee53adf003b88ef4c7b2ebf8d1fe96d",
+      "archive_member_sha256": "sha256:034319eb6e6d13348f8a10535148837adee53adf003b88ef4c7b2ebf8d1fe96d",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/methodology-handbook/templates/06-technique-selection-matrix.md",
+      "public_sha256": "sha256:c11e4372a18bcd61b5fd156122479f38fedb5eb15ba75d12473e7f5576289cff",
+      "static_sha256": "sha256:c11e4372a18bcd61b5fd156122479f38fedb5eb15ba75d12473e7f5576289cff",
+      "archive_member_sha256": "sha256:c11e4372a18bcd61b5fd156122479f38fedb5eb15ba75d12473e7f5576289cff",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/methodology-handbook/checklists/02-risk-and-strategy.md",
+      "public_sha256": "sha256:0bc48f66782a3cb45d27c526a604b5f69691c560f1aed9c6e0c00611a6dcd9a0",
+      "static_sha256": "sha256:0bc48f66782a3cb45d27c526a604b5f69691c560f1aed9c6e0c00611a6dcd9a0",
+      "archive_member_sha256": "sha256:0bc48f66782a3cb45d27c526a604b5f69691c560f1aed9c6e0c00611a6dcd9a0",
+      "closure_verdict": "PASS"
+    }
+  ],
+  "verdict": "FAIL",
+  "findings": [
+    "independent editorial review does not pin current page content hash"
+  ]
+}

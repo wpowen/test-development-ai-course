@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T19",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:84b8dfbbb46f504512665dc9e92d308d563590b4318bf91e6c3221d9d91cdd03",
+  "page_content_sha256": "sha256:20f9f8e1ab85364999a6edb75527e651e93a143cb48c87f583456f90b9563edb",
+  "claims": [
+    {
+      "claim_id": "TD-T19-DECISION-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "安全和权限先于可写副作用；fault 稳定变红且 repair 重新变绿；模型不批准自己的期望，人工 owner 和 NOT_RUN 边界明确",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T19#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T19-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "安全、身份和权限检查必须先于任何可写副作用；被测模型、Judge 或 healer 不能批准自己的期望。；删除 Oracle、改变 expected、扩大权限、增加预算或无限重试都属于制造假绿。；不要用历史通过率作为修复正确性的依据。通过率恰恰是修绿之后会上升的那个指标。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T19#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T19-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "公开文档与实践讨论支持生成和浏览器验证边界；反作弊策略为课程设计，未对特定商业自愈工具做全面功能或准确率评测。 本页新增证据仅为确定性离线 fixture；真实模型、浏览器、工具、队列、组织审批和从业者评审均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T19#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T19-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "行动：运行 TD-T19 的 0/1/0 fixture 并解释命名 Oracle；检查 Prompt/Input/Schema/Eval/Mutation 的版本闭包；写出一个不同业务对象的权限、故障和 rollback 预期：固定 input、Schema、eval 和 mutation 已绑定；模型执行仍为 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T19#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T19-TABLE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "自愈把测试修绿了，问题是它修的是测试还是产品 失效形态 可核查的数字 它导致的错误结论 自愈删除或弱化了断言 断言被删除后测试 100% 通过，而检测力归零；这类改动在 diff 中表现为负行数 「自愈修复了 12 条失败用例」被当成效率提升 自愈改了 Oracle 的期望值 把期望值改成实际值可以让 100% 的失败通过，这是最难察觉的一种误修——diff 行数不变，语义全反 回归套件从此以当前行为为准，失去了发现回归的能力 自愈绕过了业务步骤 跳过 1 个中间步骤直接构造终态，能让流程测试通过而实际验证的步骤…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T19#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T19-METRIC-01",
+      "manuscript_locator": "manuscript.md:L19-L19",
+      "meaning": "自愈边界的四个词 自愈能降低维护成本，也能悄悄移除检测力。这四个词划出它的边界。 术语 一句话解释 非语义表面 定位器属性、等待时长等不影响业务含义的部分；这是允许自动改的范围 业务 Oracle 期望的业务状态；它绝对不能被自动修改 反作弊检查 比对修复前后差异，识别删断言、改期望、跳步骤 变异回归 修复后重跑已知业务变异，确认仍能变红 更完整的中英对照与易混辨析见方法论 02 术语表；这里只收本页判断真正依赖的几个。 R-PLAYWRIGHT-DOCS-LOCATORS",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T19#content_sections.teaching_blocks.1",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T19-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "专业问题、失败成本与决策权 退款按钮重命名后测试失败。healer 发现另一个可点击按钮并修改定位器，同时删除状态断言。执行通过，但实际走的是取消流程。测试负责人需要把这种“修绿”当质量事故。 healer 无代码合并和业务期望修改权限；写入候选 patch 前保存原 Trace、DOM、截图和 diff。 安全、身份和权限检查必须先于任何可写副作用；被测模型、Judge 或 healer 不能批准自己的期望。",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T19#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

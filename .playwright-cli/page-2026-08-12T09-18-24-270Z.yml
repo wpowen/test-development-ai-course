@@ -1,0 +1,761 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - text: 测试开发 × AI
+      - generic [ref=e4]: 从传统测试到 AI 质量工程
+    - generic [ref=e5]: 专业主路径已完成 0/9
+  - complementary [ref=e7]:
+    - generic [ref=e8]:
+      - generic [ref=e9]: 公开学习版
+      - heading "测试开发 × AI 实战" [level=2] [ref=e10]
+      - paragraph [ref=e11]: 只展示已通过逐题研究、正文、实操与验证门禁的内容。
+      - generic [ref=e12]:
+        - generic [ref=e13]: 102 可学习页面
+        - generic [ref=e14]: 13 已交付模块
+    - textbox [ref=e16]:
+      - /placeholder: 搜索需求、执行证据、TTFT、Agent…
+    - navigation [ref=e17]:
+      - generic [ref=e18]:
+        - heading "完整测试生命周期" [level=3] [ref=e19]
+        - paragraph [ref=e20]: 从需求、策略、设计、执行到发布与生产反馈，先建立专业测试骨架
+        - button "01 先重建测试开发这份工作，再判断 AI 应该改哪里 跟做 · 实验已跑" [ref=e21] [cursor=pointer]:
+          - generic [ref=e22]: "01"
+          - generic [ref=e23]:
+            - text: 先重建测试开发这份工作，再判断 AI 应该改哪里
+            - generic [ref=e24]: 跟做 · 实验已跑
+        - button "02 先冻结测试依据：别让 AI 读一堆互相打架的文档 跟做 · 实验已跑" [ref=e26] [cursor=pointer]:
+          - generic [ref=e27]: "02"
+          - generic [ref=e28]:
+            - text: 先冻结测试依据：别让 AI 读一堆互相打架的文档
+            - generic [ref=e29]: 跟做 · 实验已跑
+        - button "03 把自然语言变成需求契约：让下游程序能直接消费 跟做 · 实验已跑" [ref=e31] [cursor=pointer]:
+          - generic [ref=e32]: "03"
+          - generic [ref=e33]:
+            - text: 把自然语言变成需求契约：让下游程序能直接消费
+            - generic [ref=e34]: 跟做 · 实验已跑
+        - button "04 解析技术文档：把组件、接口、状态与失败恢复变成可测试契约 诊断 · 实验已跑" [ref=e36] [cursor=pointer]:
+          - generic [ref=e37]: "04"
+          - generic [ref=e38]:
+            - text: 解析技术文档：把组件、接口、状态与失败恢复变成可测试契约
+            - generic [ref=e39]: 诊断 · 实验已跑
+        - button "05 从需求契约到风险策略：决定测什么、在哪一层测 概念 · 实验已跑" [ref=e41] [cursor=pointer]:
+          - generic [ref=e42]: "05"
+          - generic [ref=e43]:
+            - text: 从需求契约到风险策略：决定测什么、在哪一层测
+            - generic [ref=e44]: 概念 · 实验已跑
+        - button "06 生成测试之前先固定 Oracle：否则 AI 只会生成自洽答案 跟做 · 实验已跑" [ref=e46] [cursor=pointer]:
+          - generic [ref=e47]: "06"
+          - generic [ref=e48]:
+            - text: 生成测试之前先固定 Oracle：否则 AI 只会生成自洽答案
+            - generic [ref=e49]: 跟做 · 实验已跑
+        - button "07 把测试包接到自动化：接口、契约、集成和 UI 各自负责什么 跟做 · 实验已跑" [ref=e51] [cursor=pointer]:
+          - generic [ref=e52]: "07"
+          - generic [ref=e53]:
+            - text: 把测试包接到自动化：接口、契约、集成和 UI 各自负责什么
+            - generic [ref=e54]: 跟做 · 实验已跑
+        - button "08 执行、收集、归因：一次绿色结果需要哪些证据 诊断 · 实验已跑" [ref=e56] [cursor=pointer]:
+          - generic [ref=e57]: "08"
+          - generic [ref=e58]:
+            - text: 执行、收集、归因：一次绿色结果需要哪些证据
+            - generic [ref=e59]: 诊断 · 实验已跑
+        - button "09 变更回归与发布判断：把整条证据链串起来 项目 · 实验已跑" [ref=e61] [cursor=pointer]:
+          - generic [ref=e62]: "09"
+          - generic [ref=e63]:
+            - text: 变更回归与发布判断：把整条证据链串起来
+            - generic [ref=e64]: 项目 · 实验已跑
+      - generic [ref=e66]:
+        - heading "传统测试专项" [level=3] [ref=e67]
+        - paragraph [ref=e68]: 接口、集成、UI、数据、性能、稳定性、安全、可观测性和混沌工程
+        - button "10 API 业务契约：从 HTTP 结果到可验证副作用 跟做 · 资料已审" [ref=e69] [cursor=pointer]:
+          - generic [ref=e70]: "10"
+          - generic [ref=e71]:
+            - text: API 业务契约：从 HTTP 结果到可验证副作用
+            - generic [ref=e72]: 跟做 · 资料已审
+        - button "11 OpenAPI Schema 与属性测试：让坏请求和破坏性变更变红 跟做 · 资料已审" [ref=e74] [cursor=pointer]:
+          - generic [ref=e75]: "11"
+          - generic [ref=e76]:
+            - text: OpenAPI Schema 与属性测试：让坏请求和破坏性变更变红
+            - generic [ref=e77]: 跟做 · 资料已审
+        - button "12 契约、事件与鉴权：测试跨服务边界的真实兼容性 诊断 · 资料已审" [ref=e79] [cursor=pointer]:
+          - generic [ref=e80]: "12"
+          - generic [ref=e81]:
+            - text: 契约、事件与鉴权：测试跨服务边界的真实兼容性
+            - generic [ref=e82]: 诊断 · 资料已审
+        - button "13 Web UI 关键旅程：隔离、定位器、网络控制与跨浏览器 跟做 · 资料已审" [ref=e84] [cursor=pointer]:
+          - generic [ref=e85]: "13"
+          - generic [ref=e86]:
+            - text: Web UI 关键旅程：隔离、定位器、网络控制与跨浏览器
+            - generic [ref=e87]: 跟做 · 资料已审
+        - button "14 Web UI 兼容性、无障碍与视觉回归 诊断 · 资料已审" [ref=e89] [cursor=pointer]:
+          - generic [ref=e90]: "14"
+          - generic [ref=e91]:
+            - text: Web UI 兼容性、无障碍与视觉回归
+            - generic [ref=e92]: 诊断 · 资料已审
+        - button "15 Android 自动化：生命周期、同步、权限与设备矩阵 诊断 · 资料已审" [ref=e94] [cursor=pointer]:
+          - generic [ref=e95]: "15"
+          - generic [ref=e96]:
+            - text: Android 自动化：生命周期、同步、权限与设备矩阵
+            - generic [ref=e97]: 诊断 · 资料已审
+        - button "16 iOS 自动化：可访问性标识、权限、签名与状态残留 诊断 · 资料已审" [ref=e99] [cursor=pointer]:
+          - generic [ref=e100]: "16"
+          - generic [ref=e101]:
+            - text: iOS 自动化：可访问性标识、权限、签名与状态残留
+            - generic [ref=e102]: 诊断 · 资料已审
+        - button "17 数据与迁移：Schema 演进、回填、CDC 与回滚对账 诊断 · 资料已审" [ref=e104] [cursor=pointer]:
+          - generic [ref=e105]: "17"
+          - generic [ref=e106]:
+            - text: 数据与迁移：Schema 演进、回填、CDC 与回滚对账
+            - generic [ref=e107]: 诊断 · 资料已审
+        - button "18 性能与容量：到达率、尾延迟、Goodput 与单位成功成本 诊断 · 资料已审" [ref=e109] [cursor=pointer]:
+          - generic [ref=e110]: "18"
+          - generic [ref=e111]:
+            - text: 性能与容量：到达率、尾延迟、Goodput 与单位成功成本
+            - generic [ref=e112]: 诊断 · 资料已审
+        - button "19 稳定性：超时、重试预算、熔断、限流与降级 跟做 · 资料已审" [ref=e114] [cursor=pointer]:
+          - generic [ref=e115]: "19"
+          - generic [ref=e116]:
+            - text: 稳定性：超时、重试预算、熔断、限流与降级
+            - generic [ref=e117]: 跟做 · 资料已审
+        - button "20 线上可观测性：把 AI 质量、Trace、成本和 SLO 接成一条链 概念 · 资料已审" [ref=e119] [cursor=pointer]:
+          - generic [ref=e120]: "20"
+          - generic [ref=e121]:
+            - text: 线上可观测性：把 AI 质量、Trace、成本和 SLO 接成一条链
+            - generic [ref=e122]: 概念 · 资料已审
+        - button "21 安全测试：身份、授权、输入、秘密与跨租户副作用 项目 · 资料已审" [ref=e124] [cursor=pointer]:
+          - generic [ref=e125]: "21"
+          - generic [ref=e126]:
+            - text: 安全测试：身份、授权、输入、秘密与跨租户副作用
+            - generic [ref=e127]: 项目 · 资料已审
+        - button "22 静态、架构、代码与依赖供应链门禁 项目 · 实验已跑" [ref=e129] [cursor=pointer]:
+          - generic [ref=e130]: "22"
+          - generic [ref=e131]:
+            - text: 静态、架构、代码与依赖供应链门禁
+            - generic [ref=e132]: 项目 · 实验已跑
+      - generic [ref=e134]:
+        - heading "大模型与 AI 系统基础" [level=3] [ref=e135]
+        - paragraph [ref=e136]: 理解模型如何运行，以及 Token、Context、RAG、Tool 和 Agent 为什么会失败
+        - button "23 模型生命周期：一次错误究竟来自哪里 概念 · 实验已跑" [ref=e137] [cursor=pointer]:
+          - generic [ref=e138]: "23"
+          - generic [ref=e139]:
+            - text: 模型生命周期：一次错误究竟来自哪里
+            - generic [ref=e140]: 概念 · 实验已跑
+        - button "24 Token、Context 与非确定性：为什么一次 PASS 不够 概念 · 实验已跑" [ref=e142] [cursor=pointer]:
+          - generic [ref=e143]: "24"
+          - generic [ref=e144]:
+            - text: Token、Context 与非确定性：为什么一次 PASS 不够
+            - generic [ref=e145]: 概念 · 实验已跑
+        - button "25 从 LLM 到 RAG、Agent 与 Workflow：被测边界如何扩张 概念 · 实验已跑" [ref=e147] [cursor=pointer]:
+          - generic [ref=e148]: "25"
+          - generic [ref=e149]:
+            - text: 从 LLM 到 RAG、Agent 与 Workflow：被测边界如何扩张
+            - generic [ref=e150]: 概念 · 实验已跑
+        - button "26 Eval Contract：先写发布问题，再选指标 参考 · 实验已跑" [ref=e152] [cursor=pointer]:
+          - generic [ref=e153]: "26"
+          - generic [ref=e154]:
+            - text: Eval Contract：先写发布问题，再选指标
+            - generic [ref=e155]: 参考 · 实验已跑
+        - button "27 Dataset、Slice 与 Holdout：让评测不会越调越假 概念 · 实验已跑" [ref=e157] [cursor=pointer]:
+          - generic [ref=e158]: "27"
+          - generic [ref=e159]:
+            - text: Dataset、Slice 与 Holdout：让评测不会越调越假
+            - generic [ref=e160]: 概念 · 实验已跑
+        - button "28 Composite Oracle：规则、语义 Judge 与人工如何组合 概念 · 实验已跑" [ref=e162] [cursor=pointer]:
+          - generic [ref=e163]: "28"
+          - generic [ref=e164]:
+            - text: Composite Oracle：规则、语义 Judge 与人工如何组合
+            - generic [ref=e165]: 概念 · 实验已跑
+        - button "29 重复运行与统计：从一次结果到可解释分布 参考 · 实验已跑" [ref=e167] [cursor=pointer]:
+          - generic [ref=e168]: "29"
+          - generic [ref=e169]:
+            - text: 重复运行与统计：从一次结果到可解释分布
+            - generic [ref=e170]: 参考 · 实验已跑
+      - generic [ref=e172]:
+        - heading "AI 帮你做传统测试" [level=3] [ref=e173]
+        - paragraph [ref=e174]: 用 AI 提效，但必须证明生成结果有检测力
+        - button "30 从冻结 Basis 与代码 Diff 提取可追溯风险 项目 · 实验已跑" [ref=e175] [cursor=pointer]:
+          - generic [ref=e176]: "30"
+          - generic [ref=e177]:
+            - text: 从冻结 Basis 与代码 Diff 提取可追溯风险
+            - generic [ref=e178]: 项目 · 实验已跑
+        - button "31 AI 生成测试候选，用 Mutation 证明检测力 项目 · 实验已跑" [ref=e180] [cursor=pointer]:
+          - generic [ref=e181]: "31"
+          - generic [ref=e182]:
+            - text: AI 生成测试候选，用 Mutation 证明检测力
+            - generic [ref=e183]: 项目 · 实验已跑
+        - button "32 按失败模型选择 Boundary、Combination、Property 与 Fuzz 项目 · 实验已跑" [ref=e185] [cursor=pointer]:
+          - generic [ref=e186]: "32"
+          - generic [ref=e187]:
+            - text: 按失败模型选择 Boundary、Combination、Property 与 Fuzz
+            - generic [ref=e188]: 项目 · 实验已跑
+        - button "33 AI 聚类失败，但原始证据和 UNKNOWN 不能丢 诊断 · 实验已跑" [ref=e190] [cursor=pointer]:
+          - generic [ref=e191]: "33"
+          - generic [ref=e192]:
+            - text: AI 聚类失败，但原始证据和 UNKNOWN 不能丢
+            - generic [ref=e193]: 诊断 · 实验已跑
+      - generic [ref=e195]:
+        - heading "AI 接口、性能与可靠性" [level=3] [ref=e196]
+        - paragraph [ref=e197]: 测试流式协议、结构化输出、TTFT、TPOT、Goodput、容量、限流、重试和降级
+        - button "34 普通 API 与 AI API：从确定性响应到版本化生成服务 概念 · 实验已跑" [ref=e198] [cursor=pointer]:
+          - generic [ref=e199]: "34"
+          - generic [ref=e200]:
+            - text: 普通 API 与 AI API：从确定性响应到版本化生成服务
+            - generic [ref=e201]: 概念 · 实验已跑
+        - button "35 AI API 协议：Streaming、Structured、Tool 与 Async 跟做 · 实验已跑" [ref=e203] [cursor=pointer]:
+          - generic [ref=e204]: "35"
+          - generic [ref=e205]:
+            - text: AI API 协议：Streaming、Structured、Tool 与 Async
+            - generic [ref=e206]: 跟做 · 实验已跑
+        - button "36 AI Serving 指标：TTFT、TPOT、ITL、Goodput 与单位成功成本 跟做 · 实验已跑" [ref=e208] [cursor=pointer]:
+          - generic [ref=e209]: "36"
+          - generic [ref=e210]:
+            - text: AI Serving 指标：TTFT、TPOT、ITL、Goodput 与单位成功成本
+            - generic [ref=e211]: 跟做 · 实验已跑
+        - button "37 AI Serving 负载与容量：从 Token 分布到 SLO 拐点 跟做 · 实验已跑" [ref=e213] [cursor=pointer]:
+          - generic [ref=e214]: "37"
+          - generic [ref=e215]:
+            - text: AI Serving 负载与容量：从 Token 分布到 SLO 拐点
+            - generic [ref=e216]: 跟做 · 实验已跑
+        - button "38 AI Serving 瓶颈：Queue、GPU、KV Cache 与阶段诊断 诊断 · 实验已跑" [ref=e218] [cursor=pointer]:
+          - generic [ref=e219]: "38"
+          - generic [ref=e220]:
+            - text: AI Serving 瓶颈：Queue、GPU、KV Cache 与阶段诊断
+            - generic [ref=e221]: 诊断 · 实验已跑
+        - button "39 AI Serving 韧性：限流、Timeout、Retry、Fallback 与 Degradation 诊断 · 实验已跑" [ref=e223] [cursor=pointer]:
+          - generic [ref=e224]: "39"
+          - generic [ref=e225]:
+            - text: AI Serving 韧性：限流、Timeout、Retry、Fallback 与 Degradation
+            - generic [ref=e226]: 诊断 · 实验已跑
+      - generic [ref=e228]:
+        - heading "测试 LLM 和 RAG" [level=3] [ref=e229]
+        - paragraph [ref=e230]: 把概率性回答变成可重复、可审计的质量证据
+        - button "40 RAG 语料治理：来源、版本、分块与权限 诊断 · 实验已跑" [ref=e231] [cursor=pointer]:
+          - generic [ref=e232]: "40"
+          - generic [ref=e233]:
+            - text: RAG 语料治理：来源、版本、分块与权限
+            - generic [ref=e234]: 诊断 · 实验已跑
+        - button "41 检索评测：Recall、Ranking 与查询切片 诊断 · 实验已跑" [ref=e236] [cursor=pointer]:
+          - generic [ref=e237]: "41"
+          - generic [ref=e238]:
+            - text: 检索评测：Recall、Ranking 与查询切片
+            - generic [ref=e239]: 诊断 · 实验已跑
+        - button "42 Faithfulness 与 Citation：回答真的被证据支持吗 诊断 · 实验已跑" [ref=e241] [cursor=pointer]:
+          - generic [ref=e242]: "42"
+          - generic [ref=e243]:
+            - text: Faithfulness 与 Citation：回答真的被证据支持吗
+            - generic [ref=e244]: 诊断 · 实验已跑
+        - button "43 无答案、权限与端到端 RAG Gate 项目 · 实验已跑" [ref=e246] [cursor=pointer]:
+          - generic [ref=e247]: "43"
+          - generic [ref=e248]:
+            - text: 无答案、权限与端到端 RAG Gate
+            - generic [ref=e249]: 项目 · 实验已跑
+        - button "44 多模态关系与独立 Oracle 评测 项目 · 实验已跑" [ref=e251] [cursor=pointer]:
+          - generic [ref=e252]: "44"
+          - generic [ref=e253]:
+            - text: 多模态关系与独立 Oracle 评测
+            - generic [ref=e254]: 项目 · 实验已跑
+        - button "45 多语言、可访问与包容性 AI 任务验收 项目 · 实验已跑" [ref=e256] [cursor=pointer]:
+          - generic [ref=e257]: "45"
+          - generic [ref=e258]:
+            - text: 多语言、可访问与包容性 AI 任务验收
+            - generic [ref=e259]: 项目 · 实验已跑
+        - button "46 Prompt、模型和知识库版本 A/B 跟做 · 实验已跑" [ref=e261] [cursor=pointer]:
+          - generic [ref=e262]: "46"
+          - generic [ref=e263]:
+            - text: Prompt、模型和知识库版本 A/B
+            - generic [ref=e264]: 跟做 · 实验已跑
+        - button "47 LLM-as-judge 的校准和反例 诊断 · 实验已跑" [ref=e266] [cursor=pointer]:
+          - generic [ref=e267]: "47"
+          - generic [ref=e268]:
+            - text: LLM-as-judge 的校准和反例
+            - generic [ref=e269]: 诊断 · 实验已跑
+      - generic [ref=e271]:
+        - heading "测试 Agent、Worker 与 Workflow" [level=3] [ref=e272]
+        - paragraph [ref=e273]: 检查轨迹、状态、工具、权限、Handoff、副作用和自愈风险
+        - button "48 最终结果、单步动作和完整轨迹 概念 · 实验已跑" [ref=e274] [cursor=pointer]:
+          - generic [ref=e275]: "48"
+          - generic [ref=e276]:
+            - text: 最终结果、单步动作和完整轨迹
+            - generic [ref=e277]: 概念 · 实验已跑
+        - button "49 工具选择、参数和权限 跟做 · 实验已跑" [ref=e279] [cursor=pointer]:
+          - generic [ref=e280]: "49"
+          - generic [ref=e281]:
+            - text: 工具选择、参数和权限
+            - generic [ref=e282]: 跟做 · 实验已跑
+        - button "50 Prompt injection、数据泄露和 Excessive Agency 跟做 · 实验已跑" [ref=e284] [cursor=pointer]:
+          - generic [ref=e285]: "50"
+          - generic [ref=e286]:
+            - text: Prompt injection、数据泄露和 Excessive Agency
+            - generic [ref=e287]: 跟做 · 实验已跑
+        - button "51 Browser Agent 和 Playwright Test Agents 跟做 · 实验已跑" [ref=e289] [cursor=pointer]:
+          - generic [ref=e290]: "51"
+          - generic [ref=e291]:
+            - text: Browser Agent 和 Playwright Test Agents
+            - generic [ref=e292]: 跟做 · 实验已跑
+        - button "52 自愈测试为什么会误修绿 诊断 · 实验已跑" [ref=e294] [cursor=pointer]:
+          - generic [ref=e295]: "52"
+          - generic [ref=e296]:
+            - text: 自愈测试为什么会误修绿
+            - generic [ref=e297]: 诊断 · 实验已跑
+        - button "53 先区分 Agent、Worker 和固定 Workflow 概念 · 实验已跑" [ref=e299] [cursor=pointer]:
+          - generic [ref=e300]: "53"
+          - generic [ref=e301]:
+            - text: 先区分 Agent、Worker 和固定 Workflow
+            - generic [ref=e302]: 概念 · 实验已跑
+        - button "54 测试状态、循环、重试、Handoff 和终止条件 跟做 · 实验已跑" [ref=e304] [cursor=pointer]:
+          - generic [ref=e305]: "54"
+          - generic [ref=e306]:
+            - text: 测试状态、循环、重试、Handoff 和终止条件
+            - generic [ref=e307]: 跟做 · 实验已跑
+        - button "55 单 Agent 与多 Agent 的公平对照 诊断 · 实验已跑" [ref=e309] [cursor=pointer]:
+          - generic [ref=e310]: "55"
+          - generic [ref=e311]:
+            - text: 单 Agent 与多 Agent 的公平对照
+            - generic [ref=e312]: 诊断 · 实验已跑
+        - button "56 长期 Memory、个性化与语义缓存治理 项目 · 实验已跑" [ref=e314] [cursor=pointer]:
+          - generic [ref=e315]: "56"
+          - generic [ref=e316]:
+            - text: 长期 Memory、个性化与语义缓存治理
+            - generic [ref=e317]: 项目 · 实验已跑
+        - button "57 模型路由、Fallback 与工具协议漂移测试 项目 · 实验已跑" [ref=e319] [cursor=pointer]:
+          - generic [ref=e320]: "57"
+          - generic [ref=e321]:
+            - text: 模型路由、Fallback 与工具协议漂移测试
+            - generic [ref=e322]: 项目 · 实验已跑
+      - generic [ref=e324]:
+        - heading "建设 AI 质量系统" [level=3] [ref=e325]
+        - paragraph [ref=e326]: 把评测接入 CI、生产反馈、版本与回滚体系
+        - button "58 训练、Fine-tuning 与模型更新的版本化验收 项目 · 实验已跑" [ref=e327] [cursor=pointer]:
+          - generic [ref=e328]: "58"
+          - generic [ref=e329]:
+            - text: 训练、Fine-tuning 与模型更新的版本化验收
+            - generic [ref=e330]: 项目 · 实验已跑
+        - button "59 公平、伤害与 HITL 有效性门禁 项目 · 实验已跑" [ref=e332] [cursor=pointer]:
+          - generic [ref=e333]: "59"
+          - generic [ref=e334]:
+            - text: 公平、伤害与 HITL 有效性门禁
+            - generic [ref=e335]: 项目 · 实验已跑
+        - button "60 CI 分层门禁：让坏 AI 版本真的停下来 项目 · 实验已跑" [ref=e337] [cursor=pointer]:
+          - generic [ref=e338]: "60"
+          - generic [ref=e339]:
+            - text: CI 分层门禁：让坏 AI 版本真的停下来
+            - generic [ref=e340]: 项目 · 实验已跑
+        - button "61 Lineage：每个分数都能回到当时的版本 参考 · 实验已跑" [ref=e342] [cursor=pointer]:
+          - generic [ref=e343]: "61"
+          - generic [ref=e344]:
+            - text: Lineage：每个分数都能回到当时的版本
+            - generic [ref=e345]: 参考 · 实验已跑
+        - button "62 Trace-to-Regression：把生产失败变成不会复发的用例 项目 · 实验已跑" [ref=e347] [cursor=pointer]:
+          - generic [ref=e348]: "62"
+          - generic [ref=e349]:
+            - text: Trace-to-Regression：把生产失败变成不会复发的用例
+            - generic [ref=e350]: 项目 · 实验已跑
+        - button "63 质量、延迟与成本：联合 Gate 而不是一个综合分 参考 · 实验已跑" [ref=e352] [cursor=pointer]:
+          - generic [ref=e353]: "63"
+          - generic [ref=e354]:
+            - text: 质量、延迟与成本：联合 Gate 而不是一个综合分
+            - generic [ref=e355]: 参考 · 实验已跑
+        - button "64 漂移、Waiver 与回滚：质量系统的恢复闭环 诊断 · 实验已跑" [ref=e357] [cursor=pointer]:
+          - generic [ref=e358]: "64"
+          - generic [ref=e359]:
+            - text: 漂移、Waiver 与回滚：质量系统的恢复闭环
+            - generic [ref=e360]: 诊断 · 实验已跑
+        - button "65 在线实验、Canary 与人工抽样发布门禁 项目 · 实验已跑" [ref=e362] [cursor=pointer]:
+          - generic [ref=e363]: "65"
+          - generic [ref=e364]:
+            - text: 在线实验、Canary 与人工抽样发布门禁
+            - generic [ref=e365]: 项目 · 实验已跑
+      - generic [ref=e367]:
+        - heading "Benchmark 与分数工程" [level=3] [ref=e368]
+        - paragraph [ref=e369]: 弄清数据、协议、Scorer、聚合、污染和榜单分数如何产生
+        - button "66 Benchmark 流水线：总分背后有七个可变组件 概念 · 实验已跑" [ref=e370] [cursor=pointer]:
+          - generic [ref=e371]: "66"
+          - generic [ref=e372]:
+            - text: Benchmark 流水线：总分背后有七个可变组件
+            - generic [ref=e373]: 概念 · 实验已跑
+        - button "67 Dataset、Split 与 Sealed Holdout：防止越调越假 项目 · 实验已跑" [ref=e375] [cursor=pointer]:
+          - generic [ref=e376]: "67"
+          - generic [ref=e377]:
+            - text: Dataset、Split 与 Sealed Holdout：防止越调越假
+            - generic [ref=e378]: 项目 · 实验已跑
+        - button "68 Metrics 与区间：Accuracy、Pass@k、Resolved Rate 不能混讲 项目 · 实验已跑" [ref=e380] [cursor=pointer]:
+          - generic [ref=e381]: "68"
+          - generic [ref=e382]:
+            - text: Metrics 与区间：Accuracy、Pass@k、Resolved Rate 不能混讲
+            - generic [ref=e383]: 项目 · 实验已跑
+        - button "69 Harness 敏感性：固定模型，一次只改一个协议变量 诊断 · 实验已跑" [ref=e385] [cursor=pointer]:
+          - generic [ref=e386]: "69"
+          - generic [ref=e387]:
+            - text: Harness 敏感性：固定模型，一次只改一个协议变量
+            - generic [ref=e388]: 诊断 · 实验已跑
+        - button "70 污染与不确定性：隐藏测试也不是万能证明 诊断 · 实验已跑" [ref=e390] [cursor=pointer]:
+          - generic [ref=e391]: "70"
+          - generic [ref=e392]:
+            - text: 污染与不确定性：隐藏测试也不是万能证明
+            - generic [ref=e393]: 诊断 · 实验已跑
+        - button "71 公共到企业：把 Benchmark 方法迁移到业务风险 项目 · 实验已跑" [ref=e395] [cursor=pointer]:
+          - generic [ref=e396]: "71"
+          - generic [ref=e397]:
+            - text: 公共到企业：把 Benchmark 方法迁移到业务风险
+            - generic [ref=e398]: 项目 · 实验已跑
+      - generic [ref=e400]:
+        - heading "专业专题与 Capstone" [level=3] [ref=e401]
+        - paragraph [ref=e402]: 按岗位路线组合工件，交付端到端 AI Quality Engineering 系统
+        - button "72 Jira 需求事件：从 Basis Gate 到人工批准 跟做 · 实验已跑" [ref=e403] [cursor=pointer]:
+          - generic [ref=e404]: "72"
+          - generic [ref=e405]:
+            - text: Jira 需求事件：从 Basis Gate 到人工批准
+            - generic [ref=e406]: 跟做 · 实验已跑
+        - button "73 GitLab MR 与 Pipeline：把 JUnit 证据绑定到当前 SHA 跟做 · 实验已跑" [ref=e408] [cursor=pointer]:
+          - generic [ref=e409]: "73"
+          - generic [ref=e410]:
+            - text: GitLab MR 与 Pipeline：把 JUnit 证据绑定到当前 SHA
+            - generic [ref=e411]: 跟做 · 实验已跑
+        - button "74 Kubernetes 临时测试环境：隔离、回收与审计 跟做 · 实验已跑" [ref=e413] [cursor=pointer]:
+          - generic [ref=e414]: "74"
+          - generic [ref=e415]:
+            - text: Kubernetes 临时测试环境：隔离、回收与审计
+            - generic [ref=e416]: 跟做 · 实验已跑
+        - button "75 跨系统事件总线：幂等、重放、脱敏通知与审计闭环 项目 · 实验已跑" [ref=e418] [cursor=pointer]:
+          - generic [ref=e419]: "75"
+          - generic [ref=e420]:
+            - text: 跨系统事件总线：幂等、重放、脱敏通知与审计闭环
+            - generic [ref=e421]: 项目 · 实验已跑
+        - button "76 Capstone：交付 AI Quality Fixture Release Candidate 项目 · 实验已跑" [ref=e423] [cursor=pointer]:
+          - generic [ref=e424]: "76"
+          - generic [ref=e425]:
+            - text: Capstone：交付 AI Quality Fixture Release Candidate
+            - generic [ref=e426]: 项目 · 实验已跑
+      - generic [ref=e428]:
+        - heading "职业演进" [level=3] [ref=e429]
+        - paragraph [ref=e430]: 从测试执行转向质量信号、评测工程、平台工程与生产可靠性
+        - button "77 职业能力迁移：岗位路径、自评证据与作品集边界 项目 · 实验已跑" [ref=e431] [cursor=pointer]:
+          - generic [ref=e432]: "77"
+          - generic [ref=e433]:
+            - text: 职业能力迁移：岗位路径、自评证据与作品集边界
+            - generic [ref=e434]: 项目 · 实验已跑
+        - button "78 责任证据梯：从跟做测试到质量治理 概念 · 实验已跑" [ref=e436] [cursor=pointer]:
+          - generic [ref=e437]: "78"
+          - generic [ref=e438]:
+            - text: 责任证据梯：从跟做测试到质量治理
+            - generic [ref=e439]: 概念 · 实验已跑
+        - button "79 能力自评与 30/60/90 天证据计划 跟做 · 实验已跑" [ref=e441] [cursor=pointer]:
+          - generic [ref=e442]: "79"
+          - generic [ref=e443]:
+            - text: 能力自评与 30/60/90 天证据计划
+            - generic [ref=e444]: 跟做 · 实验已跑
+        - button "80 组织职级适配器：P5–P9 不能由 Skill 猜 参考 · 实验已跑" [ref=e446] [cursor=pointer]:
+          - generic [ref=e447]: "80"
+          - generic [ref=e448]:
+            - text: 组织职级适配器：P5–P9 不能由 Skill 猜
+            - generic [ref=e449]: 参考 · 实验已跑
+        - button "81 AI 任务族与指标选择：先问任务，再选 F1 或 QPS 参考 · 实验已跑" [ref=e451] [cursor=pointer]:
+          - generic [ref=e452]: "81"
+          - generic [ref=e453]:
+            - text: AI 任务族与指标选择：先问任务，再选 F1 或 QPS
+            - generic [ref=e454]: 参考 · 实验已跑
+        - button "82 AI 生成测试用例提效：用 Mutation 证明不是批量幻觉 项目 · 实验已跑" [ref=e456] [cursor=pointer]:
+          - generic [ref=e457]: "82"
+          - generic [ref=e458]:
+            - text: AI 生成测试用例提效：用 Mutation 证明不是批量幻觉
+            - generic [ref=e459]: 项目 · 实验已跑
+        - button "83 资源与学习路线：会更新的索引，不是盲目书单 参考 · 实验已跑" [ref=e461] [cursor=pointer]:
+          - generic [ref=e462]: "83"
+          - generic [ref=e463]:
+            - text: 资源与学习路线：会更新的索引，不是盲目书单
+            - generic [ref=e464]: 参考 · 实验已跑
+      - generic [ref=e466]:
+        - heading "Agent 性能与稳定性工程" [level=3] [ref=e467]
+        - paragraph [ref=e468]: 从工作负载、指标、Trace、容量压测到生产 SLO、告警与故障处置
+        - button "84 先建工作负载模型：Task 不是 HTTP Request 跟做 · 实验已跑" [ref=e469] [cursor=pointer]:
+          - generic [ref=e470]: "84"
+          - generic [ref=e471]:
+            - text: 先建工作负载模型：Task 不是 HTTP Request
+            - generic [ref=e472]: 跟做 · 实验已跑
+        - button "85 建立指标树：TTFT、TPOT、Queue、Retry、Step 跟做 · 实验已跑" [ref=e474] [cursor=pointer]:
+          - generic [ref=e475]: "85"
+          - generic [ref=e476]:
+            - text: 建立指标树：TTFT、TPOT、Queue、Retry、Step
+            - generic [ref=e477]: 跟做 · 实验已跑
+        - button "86 锁定 Trace 语义：从 Task Root 到 Tool Attempt 跟做 · 实验已跑" [ref=e479] [cursor=pointer]:
+          - generic [ref=e480]: "86"
+          - generic [ref=e481]:
+            - text: 锁定 Trace 语义：从 Task Root 到 Tool Attempt
+            - generic [ref=e482]: 跟做 · 实验已跑
+        - button "87 对照开放与封闭负载：识别 Coordinated Omission 跟做 · 实验已跑" [ref=e484] [cursor=pointer]:
+          - generic [ref=e485]: "87"
+          - generic [ref=e486]:
+            - text: 对照开放与封闭负载：识别 Coordinated Omission
+            - generic [ref=e487]: 跟做 · 实验已跑
+        - button "88 寻找容量边界并归因瓶颈：只报告 Synthetic Goodput 项目 · 实验已跑" [ref=e489] [cursor=pointer]:
+          - generic [ref=e490]: "88"
+          - generic [ref=e491]:
+            - text: 寻找容量边界并归因瓶颈：只报告 Synthetic Goodput
+            - generic [ref=e492]: 项目 · 实验已跑
+        - button "89 约束超时与重试：压力下安全降级 跟做 · 实验已跑" [ref=e494] [cursor=pointer]:
+          - generic [ref=e495]: "89"
+          - generic [ref=e496]:
+            - text: 约束超时与重试：压力下安全降级
+            - generic [ref=e497]: 跟做 · 实验已跑
+        - button "90 运行长稳测试：识别资源泄漏与漂移 跟做 · 实验已跑" [ref=e499] [cursor=pointer]:
+          - generic [ref=e500]: "90"
+          - generic [ref=e501]:
+            - text: 运行长稳测试：识别资源泄漏与漂移
+            - generic [ref=e502]: 跟做 · 实验已跑
+        - button "91 把结果接入 SLO、告警与事故证据 项目 · 实验已跑" [ref=e504] [cursor=pointer]:
+          - generic [ref=e505]: "91"
+          - generic [ref=e506]:
+            - text: 把结果接入 SLO、告警与事故证据
+            - generic [ref=e507]: 项目 · 实验已跑
+      - generic [ref=e509]:
+        - heading "Agent 测试架构" [level=3] [ref=e510]
+        - paragraph [ref=e511]: 从 D0 评估可信到 D7 业务治理，用四证据环验证轨迹、协作、安全、可靠性与成本
+        - button "92 Agent 测试架构总览：先画边界，再选测试 概念 · 实验已跑" [ref=e512] [cursor=pointer]:
+          - generic [ref=e513]: "92"
+          - generic [ref=e514]:
+            - text: Agent 测试架构总览：先画边界，再选测试
+            - generic [ref=e515]: 概念 · 实验已跑
+        - button "93 D0 评估可信：先测试 Judge，再相信分数 跟做 · 实验已跑" [ref=e517] [cursor=pointer]:
+          - generic [ref=e518]: "93"
+          - generic [ref=e519]:
+            - text: D0 评估可信：先测试 Judge，再相信分数
+            - generic [ref=e520]: 跟做 · 实验已跑
+        - button "94 D1 轨迹 span：从最终结果追到首个错误 跟做 · 实验已跑" [ref=e522] [cursor=pointer]:
+          - generic [ref=e523]: "94"
+          - generic [ref=e524]:
+            - text: D1 轨迹 span：从最终结果追到首个错误
+            - generic [ref=e525]: 跟做 · 实验已跑
+        - button "95 D2 编排：交接、隔离、级联和熔断 跟做 · 实验已跑" [ref=e527] [cursor=pointer]:
+          - generic [ref=e528]: "95"
+          - generic [ref=e529]:
+            - text: D2 编排：交接、隔离、级联和熔断
+            - generic [ref=e530]: 跟做 · 实验已跑
+        - button "96 D3 人机协同：中断、接管与确认疲劳 跟做 · 实验已跑" [ref=e532] [cursor=pointer]:
+          - generic [ref=e533]: "96"
+          - generic [ref=e534]:
+            - text: D3 人机协同：中断、接管与确认疲劳
+            - generic [ref=e535]: 跟做 · 实验已跑
+        - button "97 D4 可靠性分布：pass@k、pass^k 与长时程衰减 项目 · 实验已跑" [ref=e537] [cursor=pointer]:
+          - generic [ref=e538]: "97"
+          - generic [ref=e539]:
+            - text: D4 可靠性分布：pass@k、pass^k 与长时程衰减
+            - generic [ref=e540]: 项目 · 实验已跑
+        - button "98 D5 持续安全：注入、MCP 投毒、委托、沙箱与爆炸半径 项目 · 实验已跑" [ref=e542] [cursor=pointer]:
+          - generic [ref=e543]: "98"
+          - generic [ref=e544]:
+            - text: D5 持续安全：注入、MCP 投毒、委托、沙箱与爆炸半径
+            - generic [ref=e545]: 项目 · 实验已跑
+        - button "99 D6 经济性：任务、步骤、尾延迟与成本预算 项目 · 实验已跑" [ref=e547] [cursor=pointer]:
+          - generic [ref=e548]: "99"
+          - generic [ref=e549]:
+            - text: D6 经济性：任务、步骤、尾延迟与成本预算
+            - generic [ref=e550]: 项目 · 实验已跑
+        - button "100 D7 业务治理：规则、审计、四维版本与 ROI 项目 · 实验已跑" [ref=e552] [cursor=pointer]:
+          - generic [ref=e553]: "100"
+          - generic [ref=e554]:
+            - text: D7 业务治理：规则、审计、四维版本与 ROI
+            - generic [ref=e555]: 项目 · 实验已跑
+        - button "101 四证据环与三段门禁：从 CI 走到持续评估 项目 · 实验已跑" [ref=e557] [cursor=pointer]:
+          - generic [ref=e558]: "101"
+          - generic [ref=e559]:
+            - text: 四证据环与三段门禁：从 CI 走到持续评估
+            - generic [ref=e560]: 项目 · 实验已跑
+        - button "102 高风险适配器：交易/金融 Agent 的时效、执行与能力沙箱 项目 · 实验已跑" [ref=e562] [cursor=pointer]:
+          - generic [ref=e563]: "102"
+          - generic [ref=e564]:
+            - text: 高风险适配器：交易/金融 Agent 的时效、执行与能力沙箱
+            - generic [ref=e565]: 项目 · 实验已跑
+  - main [ref=e567]:
+    - article [ref=e568]:
+      - generic [ref=e569]: Agent 测试架构 › TD-AG-00
+      - generic [ref=e570]:
+        - generic [ref=e571]: 实验已跑
+        - generic [ref=e572]: 概念
+        - generic [ref=e573]: 70 分钟
+        - generic [ref=e574]: 更新于 2026-08-10
+      - heading "Agent 测试架构总览：先画边界，再选测试" [level=1] [ref=e575]
+      - paragraph [ref=e576]: 用 D0–D7、四证据环和运行时护栏画出 Agent 被测边界，知道一条结论从哪里来、由谁负责。
+      - generic [ref=e577]:
+        - generic [ref=e578]:
+          - text: 学完能做到
+          - list [ref=e579]:
+            - listitem [ref=e580]: 区分模型、Agent、工具、Workflow、Worker 和 Judge
+            - listitem [ref=e581]: 将架构边界映射为风险、Oracle 和证据
+            - listitem [ref=e582]: 解释四证据环为何不能互相冒充
+            - listitem [ref=e583]: 交付一张可迁移的 Agent 测试架构图
+        - generic [ref=e584]:
+          - text: 本页必须交付
+          - strong [ref=e585]: D0–D7 Agent 测试架构图与边界登记册
+      - generic [ref=e586]:
+        - text: 为什么测试开发需要这一页
+        - paragraph [ref=e587]: 把所有问题都叫作“模型不聪明”会漏掉工具、状态、权限、评估器和业务治理故障。
+      - generic [ref=e588]:
+        - generic [ref=e589]: 架构 / 流程
+        - heading "TD-AG-00 专业测试架构图" [level=2] [ref=e590]
+        - figure "需求/风险 → D0 评估可信 → D1 单体 → D2 编排 → D3 人机 → D4 可靠 → D5 安全 → D6 效率 → D7 治理 → 四证据环 → 护栏 → 决策/反馈；用于定位风险、证据、门禁和责任边界，不代表真实模型、企业集成或生产效果已经验证。" [ref=e591]:
+          - img "Agent 测试架构总览：先画边界，再选测试的专业 Agent 测试架构图，展示风险输入、证据路径、失败分支、停止门禁和责任边界。" [ref=e592]
+        - generic [ref=e594]:
+          - generic [ref=e595]: 01 · 需求/风险 →
+          - generic [ref=e596]: 02 · D0 评估可信 →
+          - generic [ref=e597]: 03 · D1 单体 →
+          - generic [ref=e598]: 04 · D2 编排 →
+          - generic [ref=e599]: 05 · D3 人机 →
+          - generic [ref=e600]: 06 · D4 可靠 →
+          - generic [ref=e601]: 07 · D5 安全 →
+          - generic [ref=e602]: 08 · D6 效率 →
+          - generic [ref=e603]: 09 · D7 治理 →
+          - generic [ref=e604]: 10 · 四证据环 →
+          - generic [ref=e605]: 11 · 护栏 →
+          - generic [ref=e606]: 12 · 决策/反馈
+      - generic [ref=e607]:
+        - generic [ref=e608]: 随课物料
+        - heading "页面里提到的脚本和配置，都在这里" [level=2] [ref=e609]
+        - generic [ref=e610]:
+          - link "script · fixture-tested TD-AG-00 确定性 Runner 标准库离线执行 baseline/fault/repair，输出 0/1/0 receipt。 打开物料 →" [ref=e611] [cursor=pointer]:
+            - /url: materials/agent-architecture-system/scripts/agent_architecture_lab.py
+            - generic [ref=e612]: script · fixture-tested
+            - text: TD-AG-00 确定性 Runner
+            - paragraph [ref=e613]: 标准库离线执行 baseline/fault/repair，输出 0/1/0 receipt。
+            - generic [ref=e614]: 打开物料 →
+          - link "config · fixture-tested TD-AG-00 执行 Manifest 固定工作目录、命令、报告和预期退出码。 打开物料 →" [ref=e615] [cursor=pointer]:
+            - /url: materials/agent-architecture-system/manifests/TD-AG-00.json
+            - generic [ref=e616]: config · fixture-tested
+            - text: TD-AG-00 执行 Manifest
+            - paragraph [ref=e617]: 固定工作目录、命令、报告和预期退出码。
+            - generic [ref=e618]: 打开物料 →
+          - link "config · static-reviewed TD-AG-00 Prompt 包 绑定输入、Schema、Eval、Mutation 与 NOT_RUN 模型策略。 打开物料 →" [ref=e619] [cursor=pointer]:
+            - /url: materials/agent-architecture-system/prompts/TD-AG-00/manifest.json
+            - generic [ref=e620]: config · static-reviewed
+            - text: TD-AG-00 Prompt 包
+            - paragraph [ref=e621]: 绑定输入、Schema、Eval、Mutation 与 NOT_RUN 模型策略。
+            - generic [ref=e622]: 打开物料 →
+          - link "evidence · fixture-tested TD-AG-00 Fixture 报告 独立 Oracle 的 baseline/fault/repair 收据，不是生产证明。 打开物料 →" [ref=e623] [cursor=pointer]:
+            - /url: materials/agent-architecture-system/reports/td-ag-00/cycle-summary.json
+            - generic [ref=e624]: evidence · fixture-tested
+            - text: TD-AG-00 Fixture 报告
+            - paragraph [ref=e625]: 独立 Oracle 的 baseline/fault/repair 收据，不是生产证明。
+            - generic [ref=e626]: 打开物料 →
+          - link "guide · static-reviewed TD-AG-00 专业架构图（SVG） 页面直接展示的完整架构图，包含主路径、失败路径、停止状态、证据环和责任边界。 打开物料 →" [ref=e627] [cursor=pointer]:
+            - /url: materials/agent-architecture-system/visuals/TD-AG-00.svg
+            - generic [ref=e628]: guide · static-reviewed
+            - text: TD-AG-00 专业架构图（SVG）
+            - paragraph [ref=e629]: 页面直接展示的完整架构图，包含主路径、失败路径、停止状态、证据环和责任边界。
+            - generic [ref=e630]: 打开物料 →
+          - link "guide · static-reviewed TD-AG-00 架构图源文件（Mermaid） 可复制修改的图源；迁移时必须保留节点语义、失败分支、来源和 NOT_RUN 边界。 打开物料 →" [ref=e631] [cursor=pointer]:
+            - /url: materials/agent-architecture-system/visuals/TD-AG-00.mmd
+            - generic [ref=e632]: guide · static-reviewed
+            - text: TD-AG-00 架构图源文件（Mermaid）
+            - paragraph [ref=e633]: 可复制修改的图源；迁移时必须保留节点语义、失败分支、来源和 NOT_RUN 边界。
+            - generic [ref=e634]: 打开物料 →
+          - link "archive · fixture-tested Agent 架构 11 页完整包 D0–D7、四证据环、Metric Card 和高风险适配器。 打开物料 →" [ref=e635] [cursor=pointer]:
+            - /url: materials/agent-architecture-system.zip
+            - generic [ref=e636]: archive · fixture-tested
+            - text: Agent 架构 11 页完整包
+            - paragraph [ref=e637]: D0–D7、四证据环、Metric Card 和高风险适配器。
+            - generic [ref=e638]: 打开物料 →
+      - generic [ref=e639]:
+        - text: 前置页面
+        - generic [ref=e640]:
+          - button "TD-F04" [ref=e641] [cursor=pointer]
+          - button "TD-T01" [ref=e642] [cursor=pointer]
+      - generic [ref=e643]:
+        - generic [ref=e644]: "01"
+        - generic [ref=e645]:
+          - heading "先把架构问题说清楚" [level=2] [ref=e646]
+          - paragraph [ref=e647]: 客服退款系统由路由器、Agent、检索器、工具、异步 Worker 和人工审批组成。最终答复看起来正确，但一次未经授权的写操作可能已经发生。
+          - paragraph [ref=e648]: 本页先画边界、写责任和停止条件，再使用任何模型或自动化工具。
+          - generic [ref=e649]:
+            - text: 常见误区
+            - paragraph [ref=e650]: 真实模型、企业系统、生产凭证和从业者结论均 NOT_RUN。
+      - generic [ref=e651]:
+        - generic [ref=e652]: "02"
+        - generic [ref=e653]:
+          - heading "按证据顺序执行" [level=2] [ref=e654]
+          - paragraph [ref=e655]: 在合成退款架构图中标出 D0–D7；把“工具权限越界”连接到 D5、确定性策略 Oracle、沙箱环和人工 owner，而不是只连接到最终文本。
+          - list [ref=e656]:
+            - listitem [ref=e657]: 列出节点、状态、信任边界、工具和副作用
+            - listitem [ref=e658]: 标记每个决策由代码、模型、队列还是人工控制
+            - listitem [ref=e659]: 为每个边界登记风险、可观察证据和独立 Oracle
+            - listitem [ref=e660]: 将风险放入离线、沙箱、影子或在线环并指定 owner
+          - generic [ref=e661]:
+            - text: 图示（不可运行）不可复制
+            - generic [ref=e662]: 需求/风险 → D0 评估可信 → D1 单体 → D2 编排 → D3 人机 → D4 可靠 → D5 安全 → D6 效率 → D7 治理 → 四证据环 → 护栏 → 决策/反馈
+            - text: 逐项核对 需求/风险、D0 评估可信、D1 单体、D2 编排、D3 人机、D4 可靠、D5 安全、D6 效率、D7 治理、四证据环、护栏、决策/反馈 的输入、观察点、Oracle、owner 和 stop state。
+      - generic [ref=e663]:
+        - generic [ref=e664]: "03"
+        - generic [ref=e665]:
+          - heading "Metric Card 与独立 Oracle" [level=2] [ref=e666]
+          - paragraph [ref=e667]: 本页只检查边界闭合率和 owner/Oracle/stop-state 字段，不产生任何模型质量分数。
+          - paragraph [ref=e668]: Prompt 只能整理候选证据，不能制定业务规则、批准 waiver 或替代人工 owner。
+          - generic [ref=e669]:
+            - text: 版本化 Prompt 1.0.0
+            - button "复制使用" [ref=e670]
+            - generic [ref=e671]: 按 TD-AG-00 的输入、schema、eval 和 mutation 输出带 source_refs、owner、limitations、stop_state 的候选结果。
+            - text: 已绑定输入、Schema、评测与模型 manifest
+          - generic [ref=e672]:
+            - text: 预期结果
+            - paragraph [ref=e673]: 输出必须保留 Evidence、Inference、Unknown 与证据边界。
+      - generic [ref=e674]:
+        - generic [ref=e675]: "04"
+        - generic [ref=e676]:
+          - heading "Baseline / Fault / Repair：0/1/0" [level=2] [ref=e677]
+          - paragraph [ref=e678]: 先运行正常合同，再注入一个命名故障，最后恢复同一合同。故障报告必须由独立 Oracle 点名，不能吞异常或改 expected。
+          - paragraph [ref=e679]: Fault 目标：若图只有组件名称或把所有检查挂到模型输出，说明被测边界仍不清楚；不能用页面数量补救。
+          - generic [ref=e680]:
+            - text: 可执行命令 · 工作目录：materials/agent-architecture-system
+            - button "复制使用" [ref=e681]
+            - generic [ref=e682]: python3 scripts/agent_architecture_lab.py --topic TD-AG-00 --phase cycle --report-dir reports/td-ag-00
+            - text: 命令必须由公开 manifest 精确验证后使用
+          - generic [ref=e683]:
+            - text: 预期结果
+            - paragraph [ref=e684]: observed_exit_codes=[0,1,0]；模型 provider/model 保持 NOT_RUN。
+      - generic [ref=e685]:
+        - generic [ref=e686]: "05"
+        - generic [ref=e687]:
+          - heading "诊断与安全修复" [level=2] [ref=e688]
+          - paragraph [ref=e689]: 若图只有组件名称或把所有检查挂到模型输出，说明被测边界仍不清楚；不能用页面数量补救。
+          - paragraph [ref=e690]: 补齐状态持有者、工具副作用、独立 Oracle、owner 和停止状态，再用同一 fixture 重放。
+          - generic [ref=e691]:
+            - text: 常见误区
+            - paragraph [ref=e692]: 降低阈值、删除 Oracle、扩大权限、增加预算或无限重试都可能制造假绿。
+      - generic [ref=e693]:
+        - generic [ref=e694]: "06"
+        - generic [ref=e695]:
+          - heading "迁移到自己的项目" [level=2] [ref=e696]
+          - paragraph [ref=e697]: 先替换脱敏输入、系统版本、风险切片和 owner，再重新设定场景化阈值；不要把 fixture 结果外推为 production。
+          - paragraph [ref=e698]: 架构图至少包含输入、D0–D7、四环、护栏、输出和反馈；每条风险边都有证据、停止状态和责任人。
+          - list [ref=e699]:
+            - listitem [ref=e700]: 保留可审计 manifest、raw evidence 和版本 hash
+            - listitem [ref=e701]: 为新场景补充人工 owner、回滚和失败动作
+            - listitem [ref=e702]: 真实模型/集成/从业者/学习者证据单独运行
+      - generic [ref=e703]:
+        - generic [ref=e704]: 实操
+        - heading "练习与项目替换" [level=2] [ref=e705]
+        - list [ref=e706]:
+          - listitem [ref=e707]: 运行 TD-AG-00 的 0/1/0 fixture 并解释 failed_oracle_ids
+          - listitem [ref=e708]: 检查 Prompt/Input/Schema/Eval/Mutation 版本闭包
+          - listitem [ref=e709]: 将 D0–D7 Agent 测试架构图与边界登记册 迁移到一个低权限、可回滚的合成业务对象
+      - generic [ref=e710]:
+        - heading "满足这些条件才算学完" [level=2] [ref=e711]
+        - generic [ref=e712]:
+          - checkbox "术语、架构边界和独立 Oracle 能复述" [ref=e713]
+          - text: 术语、架构边界和独立 Oracle 能复述
+        - generic [ref=e714]:
+          - checkbox "baseline/fault/repair 证据可重放且退出码精确" [ref=e715]
+          - text: baseline/fault/repair 证据可重放且退出码精确
+        - generic [ref=e716]:
+          - checkbox "知道 fixture-tested、NOT_RUN、BLOCKED 和 production 的差异" [ref=e717]
+          - text: 知道 fixture-tested、NOT_RUN、BLOCKED 和 production 的差异
+        - button "标记本页完成" [ref=e718] [cursor=pointer]
+      - generic [ref=e719]:
+        - heading "证据与边界" [level=2] [ref=e720]
+        - paragraph [ref=e721]: 本页新增证据仅为标准库确定性离线 fixture；真实模型、真实 Agent、MCP/浏览器/队列/交易后端、从业者评审、学习者迁移和线上效果均 NOT_RUN。
+        - generic [ref=e722]:
+          - link "S24The ML Test Score" [ref=e723] [cursor=pointer]:
+            - /url: https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/
+          - 'link "S39AgentBench: Evaluating LLMs as Agents" [ref=e724] [cursor=pointer]':
+            - /url: https://arxiv.org/abs/2308.03688
+          - link "S65NIST Generative AI Profile" [ref=e725] [cursor=pointer]:
+            - /url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf
+      - navigation [ref=e726]:
+        - button "← 上一页 把结果接入 SLO、告警与事故证据" [ref=e727] [cursor=pointer]: ← 上一页把结果接入 SLO、告警与事故证据
+        - button "下一页 → D0 评估可信：先测试 Judge，再相信分数" [ref=e728] [cursor=pointer]: 下一页 →D0 评估可信：先测试 Judge，再相信分数

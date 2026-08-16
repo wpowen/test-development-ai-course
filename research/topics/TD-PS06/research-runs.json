@@ -1,0 +1,46 @@
+{
+  "topic_id": "TD-PS06",
+  "runs": [
+    {
+      "run_id": "TD-PS06-route-a-20260811",
+      "route": "standards-and-official-docs",
+      "status": "completed",
+      "source_refs": [
+        "TD-PS06-SRC-01",
+        "TD-PS06-SRC-02",
+        "TD-PS06-SRC-03",
+        "TD-PS06-SRC-04",
+        "TD-PS06-SRC-05",
+        "TD-PS06-SRC-06"
+      ],
+      "output_ref": "evidence-synthesis.md#Fact"
+    },
+    {
+      "run_id": "TD-PS06-route-b-20260811",
+      "route": "failure-first-and-counterevidence",
+      "status": "completed",
+      "source_refs": [
+        "TD-PS06-SRC-05",
+        "TD-PS06-SRC-06",
+        "TD-PS06-SRC-07",
+        "TD-PS06-SRC-08",
+        "TD-PS06-SRC-09",
+        "TD-PS06-SRC-10"
+      ],
+      "output_ref": "evidence-synthesis.md#Cross-source-synthesis"
+    }
+  ],
+  "comparison": {
+    "reviewer": "course-owner-independent-pass",
+    "input_run_ids": [
+      "TD-PS06-route-a-20260811",
+      "TD-PS06-route-b-20260811"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "standards-constrained failure-first design"
+  },
+  "limitations": [
+    "OEM 定制行为、目标 API level 分布和真机资源限制",
+    "No practitioner or production run"
+  ]
+}

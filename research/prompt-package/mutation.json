@@ -1,0 +1,5 @@
+{"mutation_set_id":"td-p02-mutations-v1","items":[
+ {"mutation_id":"MUT-NO-SOURCE","target":"accepted source_refs","fault":"remove source_ref","expected":"FAIL","repair":"mark UNKNOWN"},
+ {"mutation_id":"MUT-WRONG-ORACLE","target":"SHIPPED response","fault":"expect 202","expected":"FAIL","repair":"restore 409 independent oracle"},
+ {"mutation_id":"MUT-LOOSE-CONSTRAINT","target":"prompt","fault":"allow invented SLA","expected":"FAIL","repair":"retain UNKNOWN stop state"}
+]}

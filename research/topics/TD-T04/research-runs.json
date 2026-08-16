@@ -1,0 +1,48 @@
+{
+  "topic_id": "TD-T04",
+  "runs": [
+    {
+      "run_id": "TD-T04-architecture-20260811",
+      "route": "architecture-primary-docs",
+      "status": "opened-sources-synthesized",
+      "source_refs": [
+        "SRC-TRANSFORMER",
+        "SRC-RAG",
+        "SRC-RAGAS",
+        "SRC-ARES",
+        "SRC-RAG-SURVEY",
+        "SRC-OPENAI-EVALS",
+        "SRC-ANTHROPIC-AGENTS",
+        "SRC-ANTHROPIC-CONTEXT"
+      ]
+    },
+    {
+      "run_id": "TD-T04-measurement-20260811",
+      "route": "measurement-failure-counterevidence",
+      "status": "opened-sources-synthesized",
+      "source_refs": [
+        "SRC-RAG-SURVEY",
+        "SRC-OPENAI-EVALS",
+        "SRC-ANTHROPIC-AGENTS",
+        "SRC-ANTHROPIC-CONTEXT",
+        "SRC-NIST-AIRC",
+        "SRC-NIST-STATS",
+        "SRC-GOOGLE-SPLIT",
+        "SRC-GOOGLE-METRICS"
+      ]
+    }
+  ],
+  "comparison": {
+    "reviewer": "independent-validation-contract-reviewer",
+    "input_run_ids": [
+      "TD-T04-architecture-20260811",
+      "TD-T04-measurement-20260811"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "ACCEPT-WITH-FIXTURE-BOUNDARY"
+  },
+  "limitations": [
+    "教学中的五次运行不构成生产样本量建议，样本量取决于估计目标与错误成本。",
+    "No live model or enterprise integration run"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-X101",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:3bc56cddae6f0409b1007f33c2c34ac3937e19a0ac0b3887435cb349bff0004e",
+  "page_content_sha256": "sha256:4453e98c3e22a487884fe880189a682edf4df2745f3459ec7e89efb05834a580",
+  "claims": [
+    {
+      "claim_id": "TD-X101-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "扫描结果能回到 commit/SBOM；未签名与无人负责 critical 会阻断；不把零告警写成安全",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-X101#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-X101-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "10 个 opened 来源与 0→1→0 支持离线供应链合同；真实构建、漏洞利用、安全审计和生产风险 NOT_RUN。；补 owner 时不要写团队名。例外的责任必须落到具体的人，否则到期时无人处理。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-X101#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-X101-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L31-L31",
+      "meaning": "10 个 opened 来源与 0→1→0 支持离线供应链合同；真实构建、漏洞利用、安全审计和生产风险 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-X101#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-X101-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L9-L9",
+      "meaning": "行动：为一个依赖升级画 trust boundary；运行未签名依赖 fault；列出静态结果不覆盖的运行风险 预期：输出必须保留 source refs、owner、limitations 与 stop_state；不得自建 Oracle、自批例外或生成生产通过结论。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-X101#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-X101-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "供应链门禁挡住了依赖包，没挡住工具描述——而后者现在直接进模型上下文 失效形态 可核查的数字 它导致的错误结论 工具与 MCP server 不纳入 SBOM 工具描述直接进上下文并影响模型决策，其影响力不低于一个代码依赖，而它在 SBOM 中的覆盖率通常为 0 供应链治理「已覆盖全部依赖」，而影响模型行为的那部分完全在管控之外 工具描述只在连接时审一次 连接后描述被修改（rug-pull）在缺 hash 校验时的检出率 = 0；这正是工具投毒的主要利用路径 首次接入评审通过，此后的任何变更都不再被看见 AI 生…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-X101#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-X101-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "静态门禁的价值来自左移，代价来自误报 静态分析的独特价值是它不需要运行系统：在代码合并之前就能给出结论，因此单次发现的修复成本最低。这是它值得占一个门禁位的唯一理由——如果它的结论要等到发布前才可用，那这个位置应该让给测试。 但静态门禁有一个特有的失败模式：误报会导致整条门禁被关掉。一个天天红、且大部分红是噪声的检查，最终一定会被加白名单、被跳过、或者干脆从流水线里删掉——而删掉之后，它原本能拦下的真问题也一起没了。所以静态门禁的设计目标不是「发现最多」，是「发现的每一条都值得修」。 两类工具的取舍正来自这里。模…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-X101#content_sections.teaching_blocks.2",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-X101-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "静态、架构、代码与依赖供应链门禁：错误决定会造成什么 一次依赖升级同时改变传递依赖和网络访问边界。扫描器输出不是安全结论，测试开发要核对构建图、SBOM、来源证明、签名与架构约束。 不同语言和构建系统覆盖不同；无法证明来源的依赖不能因测试通过而放行。 本页 method 的可交付物是SBOM/签名/架构/扫描联合门禁与负控制报告；先固定风险与停止条件，再决定哪些检查交给 runner。 10 个 opened 来源与 0→1→0 支持离线供应链合同；真实构建、漏洞利用、安全审计和生产风险 NOT_RUN。",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-X101#content_sections.teaching_blocks.9",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

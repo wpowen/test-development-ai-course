@@ -1,0 +1,65 @@
+{
+  "topic_id": "TD-PS08",
+  "page_id": "TD-PS08",
+  "working_directory": "site/public/materials/api-ai-automation",
+  "required_files": [
+    "owners.json",
+    "scripts/specialty_lab.py",
+    "manifests/TD-PS08.json",
+    "prompts/TD-PS08/system-v1.md",
+    "prompts/TD-PS08/task-v1.md",
+    "prompts/TD-PS08/critic-v1.md",
+    "prompts/TD-PS08/manifest.json",
+    "prompts/TD-PS08/mutation.json",
+    "fixtures/TD-PS08-input.json",
+    "schemas/TD-PS08-output.schema.json",
+    "evals/TD-PS08-eval.json"
+  ],
+  "steps": [
+    {
+      "step_id": "baseline",
+      "kind": "baseline",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS08.json --mode baseline",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS08/baseline.json"
+      ]
+    },
+    {
+      "step_id": "fault",
+      "kind": "mutation",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS08.json --mode fault",
+      "expected_exit_code": 1,
+      "expected_artifacts": [
+        "evidence/TD-PS08/fault.json"
+      ]
+    },
+    {
+      "step_id": "repair",
+      "kind": "repair",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS08.json --mode repair",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS08/repair.json"
+      ]
+    },
+    {
+      "step_id": "cycle",
+      "kind": "cycle",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS08.json --mode cycle",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS08/baseline.json",
+        "evidence/TD-PS08/fault.json",
+        "evidence/TD-PS08/repair.json",
+        "evidence/TD-PS08/cycle.json"
+      ]
+    }
+  ],
+  "failure_cycle": {
+    "baseline_step_id": "baseline",
+    "fault_step_id": "fault",
+    "repair_step_id": "repair"
+  },
+  "evidence_boundary": "fixture-tested only; no practitioner/live/production evidence. Unknown: 目标数据规模、锁等待、复制延迟、业务可接受停机窗口"
+}

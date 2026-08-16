@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T12",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:47d4636873196ab6590b8ca45c60f5334128e1899e5c2ac990451a92d75954df",
+  "page_content_sha256": "sha256:9b047500d3d6c2573aa772410cdc3d4d803d6f5fe81786f5630d5ae84080c040",
+  "claims": [
+    {
+      "claim_id": "TD-T12-DECISION-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "known 与 no-answer 都有明确期望；跨租户与副作用 blocker 被杀死；项目报告保留 0/1/0、unknown 和人工 Gate",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T12#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T12-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L41-L41",
+      "meaning": "无答案、权限与端到端 RAG Gate 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；跨租户测试要用真实的权限隔离机制，不要用查询条件模拟。两者的失效方式完全不同。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T12#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T12-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L51-L51",
+      "meaning": "项目只运行无凭证的合成 Fixture 与静态 Gate；真实 provider/model、租户/向量库/工具 integration 未运行，practitioner 复核、learner 理解观察、live、production 和 publication 均为 NOT_RUN，不能升级成熟度。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T12#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T12-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L27-L27",
+      "meaning": "行动：运行 TD-T09 至 TD-T12 的四组故障链；增加一个间接 Prompt injection 合成 case；把退款场景迁移到内部事故助手并替换证据/权限模型 预期：TD-T12 Prompt/Input/Schema/Eval/Mutation 版本可静态追踪；实际模型输出保持 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T12#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T12-TABLE-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "RAG 上线前最后一道门，拦的不是答得好不好，是答了不该答的 失效形态 可核查的数字 它导致的错误结论 检索为空时仍然生成答案 无检索结果时模型仍作答的倾向普遍存在；这类回答的无支撑声明比例接近 100% 把「系统什么都能答」当成能力强，实际是拒答机制根本没生效 租户 A 的查询命中了租户 B 的 chunk 跨租户泄漏的可接受次数是 0；单次泄漏在合规场景即构成可报告事件 权限测试在文档层通过了，而检索走的是 chunk 层 回答里附带了会产生副作用的动作建议 把「已为您提交工单」这类表述当成措辞问题的团队，往…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T12#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T12-METRIC-01",
+      "manuscript_locator": "manuscript.md:L49-L49",
+      "meaning": "上线前最后一道门，拦的不是答得好不好 端到端 Gate 常被理解成「质量分数够不够」。实际上它要拦的是另一类东西：答了不该答的问题、越权读了别的租户的数据、在该说「我不知道」的时候编了一个答案、在该转人工的时候自己硬扛。这些都不是质量问题，是安全与责任问题。 它们与质量指标的关键差别在于**不可折抵**：质量分数可以有 85% 这种中间态，越权不行。一次跨租户泄漏不能被 99% 的正确率抵消。因此这一层的判据必须是布尔的、硬红线的，而不是加权进总分。 「无答案」能力是这里最容易被忽略的一项。系统在检索不到依据时应…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T12#content_sections.teaching_blocks.2",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T12-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L41-L41",
+      "meaning": "端到端 Gate 不等于一个总分 语料权威、ACL、retrieval recall、faithfulness、citation、no-answer 和工具副作用分别产出证据。只有所有 blocker 关闭，才把候选交给人工发布决定。 Corpus：当前、可引用、ACL 完整 Retrieval：正确文档或明确 no result Generation：忠实、引用、不过度承诺 Security：tenant、PII、injection 与权限 Action：无未授权副作用 Handoff：原因、证据和责任人完整…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T12#content_sections.teaching_blocks.8",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

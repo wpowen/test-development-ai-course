@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-QP04",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:68b3cc48e8a247e4ba13c5c7f297eb113d8d781dc41394bc972182547dfdd496",
+  "page_content_sha256": "sha256:cfe38d2663a91db8ecb0e961fa40736206e384f0d4e521ed1ff324519d088532",
+  "claims": [
+    {
+      "claim_id": "TD-QP04-DECISION-01",
+      "manuscript_locator": "manuscript.md:L13-L13",
+      "meaning": "Inbox/Outbox/DLQ/reconciliation 的职责和幂等键明确；回写、通知和清理的部分成功状态可分别诊断；审计 graph 能关联 actor、action、resource、run、trace、版本和结果",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-QP04#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-QP04-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "跨系统静态契约不能证明 delivery guarantee；只有隔离租户/集群的重放和故障验收产生真实闭环证据。；重放演练必须在隔离环境，且通知适配器要显式关闭或指向测试渠道。在生产重放而误发通知，是这类演练最常见的事故。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-QP04#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-QP04-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "本页基于 CloudEvents、W3C Trace Context、Atlassian/GitLab/Kubernetes 官方资料与研究重设计做 desk research；未在真实租户、集群、事件总线或通知系统执行投递/重放，delivery、幂等、回写、脱敏和审计闭环均为 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-QP04#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-QP04-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L13-L13",
+      "meaning": "行动：设计包含 Jira/GitLab/K8s 关联字段的最小事件信封；重放一次事件并证明 Jira 缺陷、GitLab status 和 K8s cleanup 不重复；让通知含敏感字段并确认被脱敏拒绝，同时用 reconciliation 修复一次漏事件 预期：固定输入必须拒绝重复副作用并给出对账/回滚计划；未执行真实消息系统或模型。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-QP04#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-QP04-TABLE-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "重复事件与部分成功需要两本账 故障 错误解释 复验 重复 CloudEvent 重试成功 重复 CloudEvent 在至少一次投递语义下必然出现；无去重时重复处理次数不为 0 远端超时 没有创建 远端超时后状态未知，既不能当成功也不能当失败；缺对账时这类事件的最终状态错误率不可估计，且随重试次数放大 2 倍以上 通知已发但审计缺失 用户收到消息 通知已发而审计缺失时，事后无法证明谁在什么时候被通知了什么；合规场景对此的容忍是 0 DLQ 事件丢失 队列已清空 DLQ 事件丢失即失败被静默吞掉；这部分事件的可发现…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-QP04#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-QP04-METRIC-01",
+      "manuscript_locator": "manuscript.md:L9-L9",
+      "meaning": "这一页的验收口径：去重、不丢、可对账 QP04-1 与 QP04-2 是分布式集成的基本功：至少一次投递语义下，重复必然发生、失败必须可见。 QP04-4 的对账是承认前两条不可能做到完美之后的兜底——它的价值在于把「不一致」从不可见变成可发现。 编号 测什么 关键指标 复测频率 QP04-1 幂等去重 重复事件被重复处理的次数 = 0 每日 QP04-2 失败可见 失败事件进入 DLQ 的比例 = 100%；被静默丢弃的数量 = 0 每日 QP04-3 通知与审计成对 已发通知均有对应审计记录的比例 = 100…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-QP04#content_sections.teaching_blocks.6",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-QP04-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "QP04 反例与迁移 只按标题去重会把不同版本需求误合并；只重试请求会造成重复 Jira defect；删除 DLQ 可让队列变干净，却丢失失败证据。迁移到真实事件总线前先验证签名、schema、重试语义、通知脱敏和人工回滚。 本地 fixture 只证明重放和对账分支，真实 provider/model、integration、practitioner review、learner observation、live 与 production 事件闭环均 NOT_RUN。 症状 怀疑层 下一步与修复 重复副作用…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-QP04#content_sections.teaching_blocks.18",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

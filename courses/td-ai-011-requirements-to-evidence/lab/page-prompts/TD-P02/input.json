@@ -1,0 +1,22 @@
+{
+  "baseline_id": "order-cancel-v2",
+  "source_refs": [
+    "PRD-v3#R17",
+    "PRD-v3#R18",
+    "PRD-v3#R19",
+    "OPENAPI-v7#/cancel",
+    "TECH-a13f#S04"
+  ],
+  "authority_policy": "synthetic fixture policy approved by product/technical owners; conflicts BLOCKED",
+  "fixture_boundary": "synthetic offline teaching fixture; replace every direct_use_inputs value before business use",
+  "page_id": "TD-P02",
+  "direct_use_inputs": {
+    "review_goal": "review cancellation requirements",
+    "business_outcome": "eligible buyer schedules exactly one cancellation",
+    "requirements_text": "inputs/prd-v3.md",
+    "glossary": [
+      "CANCEL_PENDING",
+      "SHIPPED"
+    ]
+  }
+}

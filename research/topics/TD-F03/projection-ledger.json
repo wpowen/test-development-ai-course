@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-F03",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:82b4508393dc28d137620ec0bfb5b0d20b132253d2d067b739e2673f4ed2354c",
+  "page_content_sha256": "sha256:fd08ef74002cfbef17dd1c2627f3ccf3650c2f1e5536f68366244752fd377f91",
+  "claims": [
+    {
+      "claim_id": "TD-F03-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "能说明字符数与 Token 预算不同；实验只改变一个主变量；报告包含运行次数、逐次结果和切片",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-F03#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-F03-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L33-L33",
+      "meaning": "Token、Context 与非确定性：为什么一次 PASS 不够 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；比较时要区分措辞差异与结论差异。把措辞不同算成失败，会让所有生成任务都不可测。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-F03#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-F03-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L43-L43",
+      "meaning": "离线 Fixture 没有执行 Tokenizer 或模型推理；它只证明重复运行字段不能被省略。具体确定性、Context 行为和解码差异必须针对当前 Provider 实测。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-F03#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-F03-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L19-L19",
+      "meaning": "行动：比较同一政策放在 Context 开头和结尾的五次结果；为长输入定义截断、Schema 和拒答检查；将一个语义指标与一个权限 blocker 分开报告 预期：学习者能解释 Prompt Package 各部分的职责，并能在不改变判断规则的前提下替换一个脱敏业务输入。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-F03#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-F03-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "一次 PASS 证明不了任何事，而这正是绝大多数评测在做的事 失效形态 可核查的数字 它导致的错误结论 用单次通过率当发布依据 τ-bench 公开结果中，GPT-4o 在零售 Agent 任务上 pass@1 为 61%，pass^8 仅 25% 「六成能做对」被读成「六成用户能用」，实际连续 8 次全对的只有四分之一 只固定 prompt 不测语义等价改写 同一意图的 5 个改写变体常常落在不同的解码分支上，一致率低于 95% 时用户会遇到「换个说法就不行」 把用户投诉归给「用户不会提问」，而不是系统对表述过…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-F03#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-F03-METRIC-01",
+      "manuscript_locator": "manuscript.md:L41-L41",
+      "meaning": "一次 PASS 证明不了任何事，而这正是绝大多数评测在做的事 传统软件里，同样输入返回不同结果是 bug；在模型驱动的系统里这是正常行为。把布尔判定套在非确定性系统上，得到的不是宽松的结论，是错误的结论。 下面三条给出一次判定会漏掉什么。第二条的数量级差距是本页存在的全部理由。 失效形态 可核查的数字 它导致的错误结论 用单次通过率当发布依据 τ-bench 公开结果中，GPT-4o 在零售 Agent 任务上 pass@1 为 61%，pass^8 仅 25% 「六成能做对」被读成「六成用户能用」，实际连续 8…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-F03#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-F03-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L33-L33",
+      "meaning": "Token、Context 与非确定性：为什么一次 PASS 不够：解释 baseline → fault → repair 在 materials/ai-foundations-eval 运行三个 Manifest 步骤；它们共用 expected contract，fault 只修改 TD-F03 声明的 observation。 0 表示合成基线满足合同，1 表示 `repeat_count=1` 触发 FAIL，阻止把单次成功写成稳定证据 被独立 Oracle 捕获，最后的 0 表示 observatio…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-F03#content_sections.teaching_blocks.13",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

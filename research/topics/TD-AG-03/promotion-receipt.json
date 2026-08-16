@@ -1,0 +1,183 @@
+{
+  "schema_version": "page-promotion-receipt.v1",
+  "page_id": "TD-AG-03",
+  "validated_at": "2026-08-15T14:44:09.109Z",
+  "reviewer": "validation-semantic-parity-verifier-2026-08-13",
+  "page_content_hash": "sha256:328d7b538436f28c67a2320677afd1f209ba5cad8a8ceee003fb13457e12deda",
+  "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
+  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_verdict": "PASS",
+  "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
+  "page_author_id": "course-page-projection-author-2026-08-13",
+  "reviewer_is_independent_of_author": true,
+  "research_package_files": [
+    "research-brief.md",
+    "source-pack.csv",
+    "research-runs.json",
+    "evidence-synthesis.md",
+    "engineering-blueprint.md",
+    "manuscript.md",
+    "comparison.md",
+    "lab-manifest.json",
+    "validation.md",
+    "projection-ledger.json"
+  ],
+  "research_inventory": [
+    {
+      "path": "research-brief.md",
+      "exists": true,
+      "sha256": "sha256:2f37c66efcb0316cfc6670c924b7820e648ccb1d1c875b41a4be9e2b4a3038d0"
+    },
+    {
+      "path": "source-pack.csv",
+      "exists": true,
+      "sha256": "sha256:8e6b15623de99ff10ae4c3119544a9ed61e55e4a2b93c1da7d4d2176dc38983f"
+    },
+    {
+      "path": "research-runs.json",
+      "exists": true,
+      "sha256": "sha256:051dae2d7845f026a9dc4a0edc4328130521dcba8a80bf9b33fdf1f919bdf7e4"
+    },
+    {
+      "path": "evidence-synthesis.md",
+      "exists": true,
+      "sha256": "sha256:405a15735c716267c787c99e5ee71c5387b0957b3335276adec2f3438ce39413"
+    },
+    {
+      "path": "engineering-blueprint.md",
+      "exists": true,
+      "sha256": "sha256:89fdaf2cfd33c4f84c38593128e88b951b38ff8fe8be9f9a0de352981789b84d"
+    },
+    {
+      "path": "manuscript.md",
+      "exists": true,
+      "sha256": "sha256:8da93bb0489e5f864a67ea160db8835562ee3ade57d34a8ef8dbcac1f3c3db22"
+    },
+    {
+      "path": "comparison.md",
+      "exists": true,
+      "sha256": "sha256:d2f6c6e86c6f5f33a10a764763154cd0c83a24f36bea7f5a58205b5a9369c20a"
+    },
+    {
+      "path": "lab-manifest.json",
+      "exists": true,
+      "sha256": "sha256:88271c21cb063274e75992878344825854169bf936c93bad946b9842500f8e41"
+    },
+    {
+      "path": "validation.md",
+      "exists": true,
+      "sha256": "sha256:7e37ac88f1a411a9f1d65e84aea20ba6c497063b7e2248df511cea821ea83557"
+    },
+    {
+      "path": "projection-ledger.json",
+      "exists": true,
+      "sha256": "sha256:c9d302f1ffec7884995de8a96ccaba98bcc46f19f2d2a1542ea29ed6f93a3cb0"
+    }
+  ],
+  "editorial_score": 100,
+  "boundary_preservation_score": 100,
+  "executability_audit_ref": "research/executability-audit.json",
+  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit": {
+    "path": "../../executability-audit.json",
+    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "verdict": "PASS",
+    "finding_count": 0
+  },
+  "material_hashes": {
+    "materials/agent-architecture-system/scripts/agent_architecture_lab.py": "sha256:202a4312e8ad4d1ab2d27dc9b750642d98ea3647a4a6757dd09cef65814cec29",
+    "materials/agent-architecture-system/manifests/TD-AG-03.json": "sha256:a707cb4a68f72e6b2fbb55bf9d3124ce4a9405d9eb57ec411acd164f7fe8c290",
+    "materials/agent-architecture-system/prompts/TD-AG-03/manifest.json": "sha256:3088b4452e61bba03d8cb08c8c96a9f21d3e3d47c42c1b9e7d4c2e3582d22d7d",
+    "materials/agent-architecture-system/reports/td-ag-03/cycle-summary.json": "sha256:a076a2c451fd7d1d99f6bdced9b2088681f5a97527b581edcd10a171c96503cb",
+    "materials/agent-architecture-system/visuals/TD-AG-03.svg": "sha256:64683001d001a14d4aeff96b7724e5bd46ef61bd2552275cfb436977e20ae96b",
+    "materials/agent-architecture-system/visuals/TD-AG-03.mmd": "sha256:62ae900e2252c6927994ce761b439427ae36e76e40e7d9b5a3f6e6a4d5e53f85",
+    "materials/agent-architecture-system.zip": "sha256:b7d02e70805b49267b33f6473263300677cb0b249be7eb9c8e8fa66bbf4e039a",
+    "materials/agent-architecture-system/docs/README.md": "sha256:34c3432322df42aa1e33006bdc6b279e5d9dcd4efd191971f97b025fd90aabaf",
+    "materials/agent-architecture-system/scripts/agent_reliability_lab.py": "sha256:8edd4f02fd75ea98df6431981f76d7150545ae7ed94fb8909dfa549038a07000",
+    "materials/agent-architecture-system/visuals/AG-DIM-36.svg": "sha256:e3e6fd2413b050d09ce0cad09a05d9097c68da6bbda79645dd3bee4b7c427dbe",
+    "materials/agent-architecture-system/prompts/AG-DIM/manifest.json": "sha256:29a3101761bc7f43530b1d4eeb4778b8500f5df9f59d26fe0a319786bcbb80e7"
+  },
+  "learner_material_hashes": [
+    {
+      "href": "materials/agent-architecture-system/scripts/agent_architecture_lab.py",
+      "public_sha256": "sha256:202a4312e8ad4d1ab2d27dc9b750642d98ea3647a4a6757dd09cef65814cec29",
+      "static_sha256": "sha256:202a4312e8ad4d1ab2d27dc9b750642d98ea3647a4a6757dd09cef65814cec29",
+      "archive_member_sha256": "sha256:202a4312e8ad4d1ab2d27dc9b750642d98ea3647a4a6757dd09cef65814cec29",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/agent-architecture-system/manifests/TD-AG-03.json",
+      "public_sha256": "sha256:a707cb4a68f72e6b2fbb55bf9d3124ce4a9405d9eb57ec411acd164f7fe8c290",
+      "static_sha256": "sha256:a707cb4a68f72e6b2fbb55bf9d3124ce4a9405d9eb57ec411acd164f7fe8c290",
+      "archive_member_sha256": "sha256:a707cb4a68f72e6b2fbb55bf9d3124ce4a9405d9eb57ec411acd164f7fe8c290",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/agent-architecture-system/prompts/TD-AG-03/manifest.json",
+      "public_sha256": "sha256:3088b4452e61bba03d8cb08c8c96a9f21d3e3d47c42c1b9e7d4c2e3582d22d7d",
+      "static_sha256": "sha256:3088b4452e61bba03d8cb08c8c96a9f21d3e3d47c42c1b9e7d4c2e3582d22d7d",
+      "archive_member_sha256": "sha256:3088b4452e61bba03d8cb08c8c96a9f21d3e3d47c42c1b9e7d4c2e3582d22d7d",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/agent-architecture-system/reports/td-ag-03/cycle-summary.json",
+      "public_sha256": "sha256:a076a2c451fd7d1d99f6bdced9b2088681f5a97527b581edcd10a171c96503cb",
+      "static_sha256": "sha256:a076a2c451fd7d1d99f6bdced9b2088681f5a97527b581edcd10a171c96503cb",
+      "archive_member_sha256": "sha256:a076a2c451fd7d1d99f6bdced9b2088681f5a97527b581edcd10a171c96503cb",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/agent-architecture-system/visuals/TD-AG-03.svg",
+      "public_sha256": "sha256:64683001d001a14d4aeff96b7724e5bd46ef61bd2552275cfb436977e20ae96b",
+      "static_sha256": "sha256:64683001d001a14d4aeff96b7724e5bd46ef61bd2552275cfb436977e20ae96b",
+      "archive_member_sha256": "sha256:64683001d001a14d4aeff96b7724e5bd46ef61bd2552275cfb436977e20ae96b",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/agent-architecture-system/visuals/TD-AG-03.mmd",
+      "public_sha256": "sha256:62ae900e2252c6927994ce761b439427ae36e76e40e7d9b5a3f6e6a4d5e53f85",
+      "static_sha256": "sha256:62ae900e2252c6927994ce761b439427ae36e76e40e7d9b5a3f6e6a4d5e53f85",
+      "archive_member_sha256": "sha256:62ae900e2252c6927994ce761b439427ae36e76e40e7d9b5a3f6e6a4d5e53f85",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/agent-architecture-system.zip",
+      "public_sha256": "sha256:b7d02e70805b49267b33f6473263300677cb0b249be7eb9c8e8fa66bbf4e039a",
+      "static_sha256": "sha256:b7d02e70805b49267b33f6473263300677cb0b249be7eb9c8e8fa66bbf4e039a",
+      "archive_member_sha256": null,
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/agent-architecture-system/docs/README.md",
+      "public_sha256": "sha256:34c3432322df42aa1e33006bdc6b279e5d9dcd4efd191971f97b025fd90aabaf",
+      "static_sha256": "sha256:34c3432322df42aa1e33006bdc6b279e5d9dcd4efd191971f97b025fd90aabaf",
+      "archive_member_sha256": "sha256:34c3432322df42aa1e33006bdc6b279e5d9dcd4efd191971f97b025fd90aabaf",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/agent-architecture-system/scripts/agent_reliability_lab.py",
+      "public_sha256": "sha256:8edd4f02fd75ea98df6431981f76d7150545ae7ed94fb8909dfa549038a07000",
+      "static_sha256": "sha256:8edd4f02fd75ea98df6431981f76d7150545ae7ed94fb8909dfa549038a07000",
+      "archive_member_sha256": "sha256:8edd4f02fd75ea98df6431981f76d7150545ae7ed94fb8909dfa549038a07000",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/agent-architecture-system/visuals/AG-DIM-36.svg",
+      "public_sha256": "sha256:e3e6fd2413b050d09ce0cad09a05d9097c68da6bbda79645dd3bee4b7c427dbe",
+      "static_sha256": "sha256:e3e6fd2413b050d09ce0cad09a05d9097c68da6bbda79645dd3bee4b7c427dbe",
+      "archive_member_sha256": "sha256:e3e6fd2413b050d09ce0cad09a05d9097c68da6bbda79645dd3bee4b7c427dbe",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/agent-architecture-system/prompts/AG-DIM/manifest.json",
+      "public_sha256": "sha256:29a3101761bc7f43530b1d4eeb4778b8500f5df9f59d26fe0a319786bcbb80e7",
+      "static_sha256": "sha256:29a3101761bc7f43530b1d4eeb4778b8500f5df9f59d26fe0a319786bcbb80e7",
+      "archive_member_sha256": "sha256:29a3101761bc7f43530b1d4eeb4778b8500f5df9f59d26fe0a319786bcbb80e7",
+      "closure_verdict": "PASS"
+    }
+  ],
+  "verdict": "FAIL",
+  "findings": [
+    "independent editorial review does not pin current page content hash"
+  ]
+}

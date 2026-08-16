@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-AG-05",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:4c6eeb2f260643fbd0768c9ddcc0f2295379071d8390b1d713ba58dafb530cc1",
+  "page_content_sha256": "sha256:c52a2ca6f189e4f0e94099d4cda5392c9faf3505c8fc37d17e445546ce02f487",
+  "claims": [
+    {
+      "claim_id": "TD-AG-05-DECISION-01",
+      "manuscript_locator": "manuscript.md:L9-L9",
+      "meaning": "术语、架构边界和独立 Oracle 能复述；baseline/fault/repair 证据可重放且退出码精确；知道 fixture-tested、NOT_RUN、BLOCKED 和 production 的差异",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-AG-05#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-AG-05-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L10-L10",
+      "meaning": "真实模型、企业系统、生产凭证和从业者结论均 NOT_RUN。；降低阈值、删除 Oracle、扩大权限、增加预算或无限重试都可能制造假绿。；夹具中的 reliability 阈值全部是结构占位。直接抄进你的门禁，会得到一个既不阻断真问题、又天天误报的检查。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-AG-05#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-AG-05-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L34-L34",
+      "meaning": "本页新增证据仅为标准库确定性离线 fixture；真实模型、真实 Agent、MCP/浏览器/队列/交易后端、从业者评审、学习者迁移和线上效果均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-AG-05#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-AG-05-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "行动：运行 TD-AG-05 的 0/1/0 fixture 并解释 failed_oracle_ids；检查 Prompt/Input/Schema/Eval/Mutation 版本闭包；将 reliability-metric-card.json 与 horizon 曲线数据 迁移到一个低权限、可回滚的合成业务对象 预期：输出必须保留 Evidence、Inference、Unknown 与证据边界。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-AG-05#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-AG-05-TABLE-01",
+      "manuscript_locator": "manuscript.md:L9-L9",
+      "meaning": "所有指标从「一个数」变成「一个分布」，这是本模块最重要的范式改动 失效形态 可核查的数字 它导致的错误结论 用 pass@1 当发布依据 τ-bench 公开结果中 pass@1 为 61% 而 pass^8 仅 25%；两者的差距就是一致性缺口 「六成能做对」被读成「六成用户能用」 错误注入下只看 pass@k Claw-Eval 观察到在错误注入下 Pass@3 相对稳定而 Pass^3 下跌多达 24 个百分点 鲁棒性看起来没问题，一致性已经崩了 不做长时程分桶 同一 Agent 在 30 分钟内任务与超过…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-AG-05#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-AG-05-METRIC-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "所有指标从「一个数」变成「一个分布」，这是本模块最重要的范式改动 一个函数对同样输入返回不同结果，在传统软件里是 bug，在 LLM 驱动的 Agent 里是正常行为。布尔门禁套在这样的系统上，得到的不是宽松的结论，是错误的结论。 下面三条说明单次判定漏掉了什么。 失效形态 可核查的数字 它导致的错误结论 用 pass@1 当发布依据 τ-bench 公开结果中 pass@1 为 61% 而 pass^8 仅 25%；两者的差距就是一致性缺口 「六成能做对」被读成「六成用户能用」 错误注入下只看 pass@k C…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-AG-05#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-AG-05-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L17-L17",
+      "meaning": "Baseline / Fault / Repair：0/1/0 先运行正常合同，再注入一个命名故障，最后恢复同一合同。故障报告必须由独立 Oracle 点名，不能吞异常或改 expected。 Fault 目标：将重复 run 当作完全独立样本，或以 CI 不重叠作为唯一统计原则，都会造成过度结论。 command python3 scripts/agent_architecture_lab.py --topic TD-AG-05 --phase cycle --report-dir reports/td-ag-…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-AG-05#content_sections.teaching_blocks.12",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T08",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:ff8c2165c4774b3fe5343632508bb7857e1e770d4ba578169a95fa35fc3d074b",
+  "page_content_sha256": "sha256:5dbbc271ad8bd6ac82b7f4d5a96aa6f7949f9f139f5ca8c201933ed2c00dc0e3",
+  "claims": [
+    {
+      "claim_id": "TD-T08-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "派生 cluster 不覆盖原始事件；缺 trace 或混合版本时保持 UNKNOWN；只有独立实验与 owner 能升级 verified cause",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T08#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T08-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "AI 输出始终是候选。需求、Oracle、权限、因果结论与发布决定必须来自独立证据和具名 owner；缺证据时保留 UNKNOWN/BLOCKED。；复核的目的不是追责。归因错误在 AI 系统里非常常见，重要的是让它在排期之前被发现。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T08#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T08-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L22-L22",
+      "meaning": "12 个打开来源与双 run 支持证据保全和因果门禁；fixture 在缺 trace/混合版本时返回 UNKNOWN/2。真实遥测、AI 聚类准确率、生产 RCA、从业者和发布验证均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T08#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T08-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L8-L8",
+      "meaning": "行动：为三条失败事件补 run/trace/commit/environment/raw refs；运行 0→2→0 并解释为何相似症状不能越过 UNKNOWN；设计一个只改变连接池参数的控制实验与回滚验证 预期：Prompt 输出保持 CANDIDATE 或明确 stop state；不得自建 Oracle、自批根因或把缺失字段补成事实。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T08#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T08-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "AI 把失败聚成 12 类很快，把 UNKNOWN 聚没了也很快 失效形态 可核查的数字 它导致的错误结论 聚类结果覆盖了原始证据 原始事件一旦被聚合覆盖，重新聚类的可能性归零；只追加存储是唯一能保住这个能力的结构，代价是存储量增加约 1 个数量级 换一套聚类假设想重算时，发现原始数据已经不在了 把相似度当因果 同一簇内的失败共享表象特征，根因却可能有 2～3 种；没有一次控制变量实验就无法区分，而区分它们平均只需 1 次实验 为一个簇写了一个修复，上线后该簇只消失了一部分 UNKNOWN 被强行分配 健康的失败…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T08#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T08-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "这张图的 8 个节点，本页各交付什么 这张图分成三段：左边三个节点是证据层（只追加、可关联、只读），中间三个是假设层（候选簇、假设、实验），右边两个是结论层（Cause Gate、修复回放）。 跨段是单向的。任何把结论写回证据层的动作都会破坏这个结构——这也是「只追加」这个约束的全部理由。 架构节点 本页负责的部分 出口工件 只追加原始事件 原始失败事件只追加不修改不删除，保证任何时候都能重新聚类 只追加事件存储 Trace 与版本关联 把每条事件关联到 trace 与四维版本，使归因有据可查 事件—版本关联索引…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T08#content_sections.teaching_blocks.4",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T08-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L14-L14",
+      "meaning": "AI 把失败聚成 12 类很快，把 UNKNOWN 聚没了也很快 失败聚类是 AI 最擅长的辅助场景之一：它能在几秒内把上千条失败按相似度归堆。危险也恰在这里——聚类天然倾向于把每一条都分进某个桶，包括那些本该留在 UNKNOWN 的。 下面三条说明为什么本页坚持「只追加原始事件」和「无控制实验不得升级为根因」这两条硬约束。 失效形态 可核查的数字 它导致的错误结论 聚类结果覆盖了原始证据 原始事件一旦被聚合覆盖，重新聚类的可能性归零；只追加存储是唯一能保住这个能力的结构，代价是存储量增加约 1 个数量级 换一套…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T08#content_sections.teaching_blocks.0",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

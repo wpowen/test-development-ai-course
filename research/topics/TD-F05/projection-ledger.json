@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-F05",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:df2096554a95db7839e429ca2dca0a86b3a50b6c9a497f6ded4bf00b16583045",
+  "page_content_sha256": "sha256:1dbe4bbf0e3025ec8c25686e5ab203469efd59c0ce5ded7b6891b841b04b5529",
+  "claims": [
+    {
+      "claim_id": "TD-F05-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "能按任务选择指标而不是按工具选择；每张 Metric Card 有分母、切片、版本和 owner；能写出指标的限制和失败动作",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-F05#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-F05-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L4-L4",
+      "meaning": "示例数字只属于 fixture-tested 离线夹具；真实 live 流量、practitioner 复核和 production 阈值均 NOT_RUN，没有业务或法规批准。；下线指标要说明理由并通知使用方。悄悄停报会让人以为出了问题，反而增加沟通成本。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-F05#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-F05-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L22-L22",
+      "meaning": "示例数字只属于 fixture-tested 离线夹具；真实 live 流量、practitioner 复核和 production 阈值均 NOT_RUN，没有业务或法规批准。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-F05#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-F05-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L4-L4",
+      "meaning": "行动：为不平衡分类画 confusion matrix；为 RAG 分开检索、证据支持和端到端结果；为 Agent 把 outcome、step、trajectory 和副作用分开 预期：每张卡都能回答“这个数字支持什么决策”和“它不能证明什么”，且有可追溯输入版本。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-F05#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-F05-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "先选指标再想任务，是指标体系失效的标准起点 失效形态 可核查的数字 它导致的错误结论 用准确率描述极不平衡的任务 正例占比 1% 时，全部预测为负例的准确率是 99%，而召回为 0 「准确率 99%」被当成效果很好，实际一个正例都没找到 用单一指标覆盖不同失败成本 漏检与误检的业务代价常相差 3 倍以上；用 1 个指标时两者被强行等权 优化了总分，最贵的那类错误反而变多 指标与业务结果不相关 指标构念效度的通行要求是与业务结果相关性 ≥ 0.6；低于此值时指标涨跌与业务无关 指标提升 7 个点，线上投诉量没有任何…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-F05#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-F05-METRIC-01",
+      "manuscript_locator": "manuscript.md:L4-L4",
+      "meaning": "先选指标再想任务，是指标体系失效的标准起点 F1、Recall@k、ROUGE、延迟、QPS 都是好指标，问题在于它们各自只适合回答特定问题。从指标出发选任务，得到的一定是「测得出来的东西」而不是「该测的东西」。 下面三条是指标与任务错配的典型形态。 失效形态 可核查的数字 它导致的错误结论 用准确率描述极不平衡的任务 正例占比 1% 时，全部预测为负例的准确率是 99%，而召回为 0 「准确率 99%」被当成效果很好，实际一个正例都没找到 用单一指标覆盖不同失败成本 漏检与误检的业务代价常相差 3 倍以上；用…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-F05#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-F05-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L10-L10",
+      "meaning": "为一个分类、一个 RAG、一个 Agent 任务各填写 task/population、failure_cost、definition、slices、statistic、threshold owner、uncertainty 和 failure_action。：版本化 Prompt/Eval/Mutation 本页 Prompt 只生成 TD-F05 的结构化候选，不替代 owner、Oracle 或组织政策。 输出必须保留 UNKNOWN、NOT_RUN、BLOCKED 和适用范围。 prompt 读取 TD-…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-F05#content_sections.teaching_blocks.10",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

@@ -1,0 +1,46 @@
+{
+  "topic_id": "TD-PS10",
+  "runs": [
+    {
+      "run_id": "TD-PS10-route-a-20260811",
+      "route": "standards-and-official-docs",
+      "status": "completed",
+      "source_refs": [
+        "TD-PS10-SRC-01",
+        "TD-PS10-SRC-02",
+        "TD-PS10-SRC-03",
+        "TD-PS10-SRC-04",
+        "TD-PS10-SRC-05",
+        "TD-PS10-SRC-06"
+      ],
+      "output_ref": "evidence-synthesis.md#Fact"
+    },
+    {
+      "run_id": "TD-PS10-route-b-20260811",
+      "route": "failure-first-and-counterevidence",
+      "status": "completed",
+      "source_refs": [
+        "TD-PS10-SRC-05",
+        "TD-PS10-SRC-06",
+        "TD-PS10-SRC-07",
+        "TD-PS10-SRC-08",
+        "TD-PS10-SRC-09",
+        "TD-PS10-SRC-10"
+      ],
+      "output_ref": "evidence-synthesis.md#Cross-source-synthesis"
+    }
+  ],
+  "comparison": {
+    "reviewer": "course-owner-independent-pass",
+    "input_run_ids": [
+      "TD-PS10-route-a-20260811",
+      "TD-PS10-route-b-20260811"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "standards-constrained failure-first design"
+  },
+  "limitations": [
+    "目标供应商 Retry-After、真实队列容量和业务降级文案",
+    "No practitioner or production run"
+  ]
+}

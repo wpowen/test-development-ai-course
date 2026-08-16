@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T14",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:e99f4d63a460e460a4966fbfcf0521b2a1e3d780e7d4c142dc29a7cb0b8f6d64",
+  "page_content_sha256": "sha256:83556333a1878330072b4f4de9291206520f1ac749c67836ced0726314fb5eb3",
+  "claims": [
+    {
+      "claim_id": "TD-T14-DECISION-01",
+      "manuscript_locator": "manuscript.md:L11-L11",
+      "meaning": "安全和权限先于可写副作用；fault 稳定变红且 repair 重新变绿；模型不批准自己的期望，人工 owner 和 NOT_RUN 边界明确",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T14#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T14-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L26-L26",
+      "meaning": "安全、身份和权限检查必须先于任何可写副作用；被测模型、Judge 或 healer 不能批准自己的期望。；删除 Oracle、改变 expected、扩大权限、增加预算或无限重试都属于制造假绿。；近邻反例必须由人构造。让模型生成反例时，它倾向于生成明显错误的样本，测不出真正的区分度。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T14#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T14-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L24-L24",
+      "meaning": "来源支持应用评测和 AI 测试中的人机 Oracle；示例规模用于教学，不能外推为任何 Judge 的通用准确率或生产可用性证明。 本页新增证据仅为确定性离线 fixture；真实模型、浏览器、工具、队列、组织审批和从业者评审均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T14#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T14-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L11-L11",
+      "meaning": "行动：运行 TD-T14 的 0/1/0 fixture 并解释命名 Oracle；检查 Prompt/Input/Schema/Eval/Mutation 的版本闭包；写出一个不同业务对象的权限、故障和 rollback 预期：固定 input、Schema、eval 和 mutation 已绑定；模型执行仍为 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T14#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T14-TABLE-01",
+      "manuscript_locator": "manuscript.md:L26-L26",
+      "meaning": "整套评测都靠 Judge 打分，而 Judge 本身从来没被测过 失效形态 可核查的数字 它导致的错误结论 Judge 未与人工双标做过一致性检验 Judge 分歧在安全分类这类任务上可贡献高达 44% 的总方差，与被测模型本身的差异相当 把 Judge 的噪声当成模型能力波动，追着调 Prompt 与温度 成对比较只跑一个方向 位置偏置存在时，A/B 与 B/A 两个方向的结论不一致率可达 10% 以上；不双向跑就完全看不到 得出「A 优于 B」，交换顺序后结论反转而无人察觉 Judge 与被测模型同族 自偏好…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T14#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T14-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "整套评测都靠 Judge 打分，而 Judge 本身从来没被测过 这是评测体系里最大的盲区，也是本模块的收尾页：你所有数字的准确性上限，就是那个 Judge 的一致性上限。而这件事在多数团队里从未被量化。 下面三条给出这个盲区的量级与形态。 失效形态 可核查的数字 它导致的错误结论 Judge 未与人工双标做过一致性检验 Judge 分歧在安全分类这类任务上可贡献高达 44% 的总方差，与被测模型本身的差异相当 把 Judge 的噪声当成模型能力波动，追着调 Prompt 与温度 成对比较只跑一个方向 位置偏置存…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T14#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T14-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L26-L26",
+      "meaning": "专业问题、失败成本与决策权 两个退款答复事实相同，一个更长、更礼貌，Judge 总是偏向长答案；另一个答复引用了过期政策，Judge 因语言流畅仍给高分。测试开发要证明这种偏差并限制 Judge 权限。 Judge 只读脱敏回答；不能调用业务工具，也不能批准自己生成的 reference 或期望。 安全、身份和权限检查必须先于任何可写副作用；被测模型、Judge 或 healer 不能批准自己的期望。",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T14#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

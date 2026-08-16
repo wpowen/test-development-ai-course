@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-R01",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:5a75bc1de89e961d95a2761436e4db8a27ac0b7c188e33304f6c5ec132282393",
+  "page_content_sha256": "sha256:cec17fadf4b6cff1124222dc3edbb4530940ca916787581cb38f803afd316531",
+  "claims": [
+    {
+      "claim_id": "TD-R01-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "每个资源有用途、版本和检查日期；有 fallback 和限制说明；学习路线以出口工件而不是书单长度结束",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-R01#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-R01-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L9-L9",
+      "meaning": "资源索引只证明 fixture-tested 整理和维护方法；live 链接可达性、practitioner 复用和 production 学习效果均 NOT_RUN，仍需独立验证。；不要把索引做成推荐榜。加评分会让人按分数选择，而正确的选择依据是当前要解决的问题。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-R01#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-R01-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "资源索引只证明 fixture-tested 整理和维护方法；live 链接可达性、practitioner 复用和 production 学习效果均 NOT_RUN，仍需独立验证。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-R01#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-R01-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "行动：为测试背景、开发背景、零基础各选一条入口；给一个过期链接写替代路径；把一个资源连接到可运行课程工件 预期：索引能生成按背景分路的学习顺序；过期资源被标记并能回退到另一条路径。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-R01#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-R01-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "一份不会更新的书单，三个月后就开始误导人 失效形态 可核查的数字 它导致的错误结论 资源没有检查日期 AI 领域的工具与实践变化很快；无检查日期的资源在 1 年后其有效性不可估计 按过期资料操作，与当前版本行为不符 不写适用范围与限制 同一份资料对不同背景读者的价值差别很大；缺适用说明时选错资源的概率显著上升，一次选错的代价通常是 2～4 周 花了几周读完，发现解决的不是自己的问题 没有替代路径 资源可能失效、收费或下架；无 fallback 时该条缺口的闭合率降为 0 计划因为一个链接失效而卡住 本页把资源清单…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-R01#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-R01-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "这一页的验收口径：索引本身的时效与可用性 本页的指标度量的是这份索引的健康度：条目是否新鲜、是否写清了边界、是否有替代路径。 R01-4 的出口工件是把「学习」变成「可复核」的关键——学完之后手上多出来的那件东西，才是可以被别人检查的。 编号 测什么 关键指标 复测频率 R01-1 时效 资源条目最近检查日期距今 ≤ 180 天；超期条目数 = 0 每半年 1 次 R01-2 限制声明 写明适用范围与限制的条目比例 = 100% 每次更新 R01-3 替代路径 提供 ≥ 1 条替代路径的条目比例 = 100% 每…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-R01#content_sections.teaching_blocks.6",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-R01-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L10-L10",
+      "meaning": "五类资源各自能提供什么、不能提供什么 第三列是这张表的重点：每一类资源都有它结构性提供不了的东西，而误用通常发生在这里。 最后一列的更新频率决定了复查周期——把它写进索引，比凭印象决定什么时候该更新可靠。 资源类型 能提供什么 结构上提供不了什么 复查周期 官方文档 当前版本的准确 API 与行为 为什么这样设计、什么时候不该用 随版本，建议每季度 规范与标准 术语、结构与可引用的条款号 落地方法与阈值 较慢，每年 开源仓库 可运行的参考实现与真实约束 它是否适合你的场景 跟随 release，每季度 书籍 系统…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-R01#content_sections.teaching_blocks.3",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

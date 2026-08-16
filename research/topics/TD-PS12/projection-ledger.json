@@ -1,0 +1,80 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-PS12",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:c51c1c81cff5c2fc6e9d913fd5d871d73010c56ec6d4ccf0b7b763e79e694086",
+  "page_content_sha256": "sha256:fa4556ce5337e06c9ba0104455d64922559eebae236ab714981bd92e84741c93",
+  "claims": [
+    {
+      "claim_id": "TD-PS12-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "身份、对象、功能和工具权限均有独立负例；被拒绝路径的跨租户读写增量为零；Prompt 注入不能扩大工具能力且所有证据经过秘密扫描",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-PS12#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-PS12-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L35-L35",
+      "meaning": "测试必须在隔离环境用测试账号进行。用真实用户数据做越权测试本身就是一次数据事故。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-PS12#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-PS12-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L41-L41",
+      "meaning": "static threat model、BOLA/tool-allowlist/secret-scan fixture 只证明身份、对象、工具和日志脱敏的零增量 Oracle；provider/model、IdP/API/Agent integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN，授权范围、真实漏洞和风险接受仍为 UNKNOWN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-PS12#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-PS12-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L16-L16",
+      "meaning": "行动：画出退款助手从 token 到工具的信任边界和资产；构造 BOLA、角色不足、Prompt 扩大 allowlist 与日志泄密四类 fault；为每个拒绝用例同时证明 policy decision、read/write delta 和脱敏报告 预期：拒绝发生在 API/工具边界而非 UI 文案层；身份、对象、功能与秘密四类证据可独立复核。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-PS12#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-PS12-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "安全测试的每一条老规矩都还在，只是多了一个会被说服的执行者 失效形态 可核查的数字 它导致的错误结论 把授权检查放在模型提示里 提示层约束在注入下可被击穿，实测多数流行 Agent 的攻击成功率超过 60%，最高 72% 以为写了「只能查询自己的订单」就实现了授权，实际授权根本没有实施点 只防用户输入侧的注入 攻击已转向运行时数据通道：工具描述、工具返回、检索内容 3 类都直接进上下文且无等价检查，而入口过滤对它们的覆盖率 = 0 输入过滤做得很完善，攻击从检索到的工单正文进来 对象级授权由业务代码自行判断 Ag…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-PS12#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-PS12-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "这一页的验收口径：拦截率与实施点 本页四条指标全部要求绝对值。安全类失败属于「一次即事故」，用百分比表达容忍度在这里没有意义。 PS12-2 是本页最重要的一条：它检查授权是否真的有实施点，而不是只写在提示或文档里。 编号 测什么 关键指标 复测频率 PS12-1 注入抵抗 高危动作类攻击成功率 = 0；总体 ASR ≤ 1% 每次发布 + 每周 1 次 PS12-2 授权实施点 对象级授权在服务端执行的比例 = 100%；仅靠提示约束的授权项数 = 0 每次发布 PS12-3 委托链完整 工具调用携带原始用户身…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-PS12#content_sections.teaching_blocks.8",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    }
+  ],
+  "counts": {
+    "total": 6,
+    "projected": 4,
+    "condensed": 2,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

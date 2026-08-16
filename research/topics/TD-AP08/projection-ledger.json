@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-AP08",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:37fd0ca0eb46a61035908c81d218fb9c059824d53b35d187c70ba8a9c19432c9",
+  "page_content_sha256": "sha256:ce414133757ae74ee4ad8615ff77379befaf4215888e29372d61aaecc5a9ffb7",
+  "claims": [
+    {
+      "claim_id": "TD-AP08-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "命令、cwd、manifest、退出码与工件完全一致；Prompt/Input/Schema/Eval/Mutation 均为 v1.0.0；fault 至少被一个门禁拒绝，repair 未删除门禁；证据明确 synthetic fixture ≠ production capacity",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-AP08#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-AP08-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L34-L34",
+      "meaning": "fault 让 good-task rate 下降，且没有告警动作和事故证据；repair 要三项同时恢复。；不要在复盘中把「监控没覆盖到」当作结论。它是症状；结论应当是具体哪个 SLI 的分子选错了，或者哪个窗口缺失。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-AP08#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-AP08-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "SLO/告警结构来自 SRE 方法；真实 AI provider/model、integration、practitioner review、learner run、live 与 production SLO/告警均 NOT_RUN，组织阈值、值班责任、业务等级与合规保留期仍为 Unknown。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-AP08#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-AP08-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L30-L30",
+      "meaning": "行动：运行 TD-AP08 cycle 并保存 0/1/0；fault 让 good-task rate 下降，且没有告警动作和事故证据；repair 要三项同时恢复。；从 fault Trace 找到一条红灯证据；写明哪些结论仍不能外推到生产 预期：fault 同时降低 good-task、移除 alert action 与 incident evidence；任何一项缺失都必须 fail-closed。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-AP08#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-AP08-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "把压测结论留在报告里，它三个月后就只是一份归档文件 失效形态 可核查的数字 它导致的错误结论 SLI 用请求成功率而不是 good task 入口成功率可以在任务大量失败的情况下保持 99%以上，两者的差额就是被掩盖的失败 SLO 长期达标，用户投诉持续存在 只有单窗口告警 单窗口要么太灵敏产生大量误报，要么太迟钝错过快速烧尽；多窗口 burn-rate 才能同时覆盖这 2 种情况 告警要么被静音，要么在错误预算已经烧完之后才响 事故没有回流成 workload 未回流的事故场景在下次压测中的覆盖率为 0，同类问…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-AP08#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-AP08-METRIC-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "把压测结论留在报告里，它三个月后就只是一份归档文件 性能工作最常见的终点是一份 PDF。它无法在凌晨三点告诉值班的人该做什么，也无法阻止同一个问题下个季度再来一次。 下面三条是性能结论没有接进运行时的后果。 失效形态 可核查的数字 它导致的错误结论 SLI 用请求成功率而不是 good task 入口成功率可以在任务大量失败的情况下保持 99%以上，两者的差额就是被掩盖的失败 SLO 长期达标，用户投诉持续存在 只有单窗口告警 单窗口要么太灵敏产生大量误报，要么太迟钝错过快速烧尽；多窗口 burn-rate 才能…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-AP08#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-AP08-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L34-L34",
+      "meaning": "先理解系统边界与假绿 good task 同时满足正确终态、时延、重试/成本预算、策略和副作用安全。高风险写任务应单独切片；模型 99.9% 可用不能替代业务任务 SLO。 Page 用于需要立即行动的用户症状或错误预算快速燃烧。Queue、TTFT、tool、retry、cost 主要用于诊断，除非它们本身有明确 owner 与动作。 对象/信号 正确口径 常见假绿 P1 重复副作用/高风险错终态 停止写工具、回滚、人工 P2 good-task burn rate 冻结放量、降级 诊断 queue/TTFT/…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-AP08#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

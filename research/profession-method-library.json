@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "owner": "TD-P02 course owner (fixture scope)",
+  "source_authority": "For this approved teaching fixture, accepted business semantics come from the versioned PRD; interface shape comes from the pinned OpenAPI; implementation details are advisory and cannot override a conflict.",
+  "evidence": ["research/methodology/route-a-standards.md", "research/methodology/route-b-practice.md", "research/topics/TD-P02/source-pack.csv"],
+  "methods": [
+    {"method_id":"M-REQ-TRACE","name":"source-bound requirement extraction","work_domain":"requirements-to-test-basis","input":"versioned PRD, design, OpenAPI","observable_steps":["freeze hashes","extract typed claims","attach source_refs","mark unknown/conflict"],"protected_outcome":"no unsupported rule reaches test generation","decision_rights":"product owner approves business semantics","risks":["silent invention","stale source"],"artifacts":["requirement-contract.json"],"oracle":"source-reference oracle plus owner review","rationale":"Stable locators and explicit stop states make generated requirements auditable.","source_refs":["S-OPENAI-STRUCTURED","S-ISTQB-TRACE","S-OPENAPI-POINTER"],"status":"fixture-tested"},
+    {"method_id":"M-STATE-ORACLE","name":"state and side-effect contract testing","work_domain":"order-cancellation","input":"Requirement Contract","observable_steps":["partition states","assert status and transitions","assert idempotent refund side effect"],"protected_outcome":"invalid state and duplicate refund are detected","decision_rights":"test owner selects cases; domain owner approves oracle","risks":["money loss","unauthorized action"],"artifacts":["test-package.json","reports/*.json"],"oracle":"independent expected response and refund-count oracle","rationale":"The highest-risk fields need an oracle independent of the implementation.","source_refs":["S-ISTQB-TRACE","S-OPENAPI-POINTER"],"status":"fixture-tested"}
+  ]
+}

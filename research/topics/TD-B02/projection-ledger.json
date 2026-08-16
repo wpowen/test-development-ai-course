@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-B02",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:a986ba88b6633f54291c5e7d90420af2089607dbf8fde34a4c0232efbb154062",
+  "page_content_sha256": "sha256:852a994b4588802c9035221a685d41a6373c084088363b445c0510d786a39b48",
+  "claims": [
+    {
+      "claim_id": "TD-B02-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "数据卡含来源、时间、许可和限制；同一实体不跨 split 泄漏；Holdout 与调试面隔离",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-B02#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-B02-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L20-L20",
+      "meaning": "任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。；holdout 抽取必须在任何调优之前完成。从已经用过的集合里事后划出一部分，它不是 holdout。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-B02#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-B02-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L26-L26",
+      "meaning": "本页只在离线合成 Fixture 中验证 Split 与 Holdout 合同；没有运行真实模型或企业数据集成，也没有完成领域从业者评审、隐私许可审查或 production 验证。 本页仅 fixture/static；真实 model/provider、enterprise integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-B02#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-B02-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L9-L9",
+      "meaning": "行动：将合成样例分为四种数据角色；按 incident_id 检查跨 split 泄漏；写出 Holdout 访问与失效政策 预期：Prompt 包可静态审计且 model_execution=NOT_RUN；只有固定 Schema/Eval/Mutation 合同获得证据，没有模型能力结论。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-B02#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-B02-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "数据集只有一类角色时，你无法同时回答「够不够好」和「有没有变差」 失效形态 可核查的数字 它导致的错误结论 用同一份数据反复调优 反复调优的数据集会逐步失去区分度；通行纪律是 sealed holdout 每个版本至多开封 1 次 分数持续上涨被读成能力提升，实际是对这批题的过拟合 只有难例没有代表性样本 全部由难例组成的数据集，其分数与真实用户体验的相关性会显著低于 0.6 的可用门槛 模型在难例上进步很大，用户感知不到任何变化 回归集与评估集混用 回归集要求 0 修改、只增不删，评估集要求随业务分布持续更新；…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-B02#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-B02-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "数据集只有一类角色时，你无法同时回答「够不够好」和「有没有变差」 多数团队只维护一份评测集，并用它同时做能力评估、难例攻坚和回归防护。这三件事对数据的要求互相冲突，一份数据满足不了。 下面三条说明单一数据集的三种失效。 失效形态 可核查的数字 它导致的错误结论 用同一份数据反复调优 反复调优的数据集会逐步失去区分度；通行纪律是 sealed holdout 每个版本至多开封 1 次 分数持续上涨被读成能力提升，实际是对这批题的过拟合 只有难例没有代表性样本 全部由难例组成的数据集，其分数与真实用户体验的相关性会显…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-B02#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-B02-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L20-L20",
+      "meaning": "Dataset、Split 与 Sealed Holdout：防止越调越假：先定位这一个专业失败 客服数据 99% 是简单 FAQ，随机采样掩盖少量高风险退款；同一 incident 的改写还跨 train/dev/holdout 出现，导致虚高。 对 TD-B02 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-B02#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

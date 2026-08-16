@@ -1,0 +1,64 @@
+name: publish-github-pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Validate honest fixture-preview release
+        run: |
+          python3 - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, "skill/career-ai-course-factory/scripts")
+          from validate_public_release import validate_release
+
+          receipt = json.loads(Path("CANDIDATE-VALIDATION.json").read_text(encoding="utf-8"))
+          if receipt.get("candidate_structure_valid") is not True or receipt.get("unexpected_errors") != []:
+              raise SystemExit(f"candidate validation receipt is not clean: {receipt}")
+
+          errors = validate_release(Path("."))
+          allowed = [
+              error for error in errors
+              if error == "release manifest validation_verdict must be PASS"
+              or error.endswith("must be pilot or public")
+          ]
+          unexpected = [error for error in errors if error not in allowed]
+          solution_blockers = [error for error in allowed if error.endswith("must be pilot or public")]
+          if unexpected or len(solution_blockers) != 6 or "release manifest validation_verdict must be PASS" not in allowed:
+              raise SystemExit(f"unexpected public-preview validation state: unexpected={unexpected}, allowed={allowed}")
+
+          manifest = json.loads(Path("RELEASE-MANIFEST.json").read_text(encoding="utf-8"))
+          if manifest.get("page_count") != 103 or manifest.get("validation_verdict") != "BLOCKED-HIGHER-MATURITY":
+              raise SystemExit(f"fixture-preview maturity boundary drifted: {manifest}")
+          print("Fixture preview valid: 103 pages; structure PASS; practitioner/integration/live maturity remains blocked.")
+          PY
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

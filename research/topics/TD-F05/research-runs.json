@@ -1,0 +1,38 @@
+{
+  "topic_id": "TD-F05",
+  "runs": [
+    {
+      "run_id": "TD-F05-a",
+      "route": "metric-and-standard-evidence",
+      "status": "completed",
+      "source_refs": [
+        "TD-F05-S01",
+        "TD-F05-S02",
+        "TD-F05-S04",
+        "TD-F05-S07"
+      ]
+    },
+    {
+      "run_id": "TD-F05-b",
+      "route": "failure-first-task-fit",
+      "status": "completed",
+      "source_refs": [
+        "TD-F05-S03",
+        "TD-F05-S05",
+        "TD-F05-S06",
+        "TD-F05-S08",
+        "TD-F05-S09",
+        "TD-F05-S10"
+      ]
+    }
+  ],
+  "comparison": {
+    "reviewer": "course-owner-independent-pass",
+    "input_run_ids": [
+      "TD-F05-a",
+      "TD-F05-b"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "task-specific Metric Card with independent Oracle"
+  }
+}

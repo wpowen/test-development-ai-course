@@ -1,0 +1,38 @@
+{
+  "topic_id": "TD-R01",
+  "runs": [
+    {
+      "run_id": "TD-R01-a",
+      "route": "official-and-learning-path",
+      "status": "completed",
+      "source_refs": [
+        "TD-R01-S01",
+        "TD-R01-S02",
+        "TD-R01-S04",
+        "TD-R01-S07"
+      ]
+    },
+    {
+      "run_id": "TD-R01-b",
+      "route": "staleness-and-fallback",
+      "status": "completed",
+      "source_refs": [
+        "TD-R01-S03",
+        "TD-R01-S05",
+        "TD-R01-S06",
+        "TD-R01-S08",
+        "TD-R01-S09",
+        "TD-R01-S10"
+      ]
+    }
+  ],
+  "comparison": {
+    "reviewer": "course-owner-independent-pass",
+    "input_run_ids": [
+      "TD-R01-a",
+      "TD-R01-b"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "maintained resource index with fallback and exit artifact"
+  }
+}

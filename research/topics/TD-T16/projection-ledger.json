@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T16",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:e57dac60922d69fa9fbd5aabc4096cdc07012bb782248f2247fb5b992c500b5a",
+  "page_content_sha256": "sha256:c98cefc66cf7bac18a193ea5e1a8be26f877e32ae792f9df77ab4194ec48f317",
+  "claims": [
+    {
+      "claim_id": "TD-T16-DECISION-01",
+      "manuscript_locator": "manuscript.md:L19-L19",
+      "meaning": "安全和权限先于可写副作用；fault 稳定变红且 repair 重新变绿；模型不批准自己的期望，人工 owner 和 NOT_RUN 边界明确",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T16#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T16-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L34-L34",
+      "meaning": "安全、身份和权限检查必须先于任何可写副作用；被测模型、Judge 或 healer 不能批准自己的期望。；删除 Oracle、改变 expected、扩大权限、增加预算或无限重试都属于制造假绿。；演练必须在录制沙箱或隔离环境进行，并断言真实写入次数为零。不要在共享测试环境直接测可写工具。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T16#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T16-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L32-L32",
+      "meaning": "公开框架支持轨迹和应用评测，课程给出沙箱契约；未连接真实退款系统，权限模型和审批边界必须按目标组织重新威胁建模。 本页新增证据仅为确定性离线 fixture；真实模型、浏览器、工具、队列、组织审批和从业者评审均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T16#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T16-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L19-L19",
+      "meaning": "行动：运行 TD-T16 的 0/1/0 fixture 并解释命名 Oracle；检查 Prompt/Input/Schema/Eval/Mutation 的版本闭包；写出一个不同业务对象的权限、故障和 rollback 预期：固定 input、Schema、eval 和 mutation 已绑定；模型执行仍为 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T16#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T16-TABLE-01",
+      "manuscript_locator": "manuscript.md:L34-L34",
+      "meaning": "参数错误比工具错误危险得多，而多数测试只测了工具选对没有 失效形态 可核查的数字 它导致的错误结论 只测工具选择正确率，不测参数精确匹配 工具选择正确率 95% 听起来可接受，但参数精确匹配若只有 90%，实际正确执行率是两者的乘积约 85% 把工具选择的达标读成动作执行的达标 靠 system prompt 约束高危动作 提示层约束在提示注入下可被击穿，实测攻击成功率在多数流行 Agent 上超过 60% 以为写了「不要执行超过 X 的交易」就有了限额，实际限额根本不存在 不可逆动作没有幂等键 重试机制存在时，…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T16#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T16-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "这一页的验收口径：测控制，不测服从性 下面四条里有三条要求绝对值。原因是它们都属于「一次即事故」的类别：一次越权、一次逃逸、一次重复转账，都不能用「99.9% 情况下没发生」来安慰。 T16-1 的参数精确匹配阈值高于工具选择，正是因为参数错误的失败是安静的——它不报错，只是做错。 编号 测什么 关键指标 复测频率 T16-1 动作正确性 工具选择正确率 ≥ 95%；参数精确匹配率 ≥ 98% 每次发布 T16-2 越权拦截 身份与委托链越权尝试的拦截率 = 100% 每次发布 + 每周 1 次 T16-3 沙箱…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T16#content_sections.teaching_blocks.6",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T16-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L34-L34",
+      "meaning": "参数错误比工具错误危险得多，而多数测试只测了工具选对没有 Agent 调错工具通常会失败得很响——报错、返回空、流程中断。调对工具但参数错了则会安静地成功，并把错误的结果写进系统。 下面三条按危险程度递增排列，第三条是金融与交易场景的核心风险。 失效形态 可核查的数字 它导致的错误结论 只测工具选择正确率，不测参数精确匹配 工具选择正确率 95% 听起来可接受，但参数精确匹配若只有 90%，实际正确执行率是两者的乘积约 85% 把工具选择的达标读成动作执行的达标 靠 system prompt 约束高危动作 提示…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T16#content_sections.teaching_blocks.0",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

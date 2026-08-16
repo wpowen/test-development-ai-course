@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T03",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:31a36ea9e2000be3604de7b3dd8f97058b56f7485c0c0e7cee48199d97cd43ef",
+  "page_content_sha256": "sha256:cc6ae59e7cfe50b3b3a577014864fc67242187d600ac106b95a0af3f57829f18",
+  "claims": [
+    {
+      "claim_id": "TD-T03-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "每项风险有主 Oracle 和失败动作；blocker 与语义分数分开；Judge 版本、rubric 与分歧被保存",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T03#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T03-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L37-L37",
+      "meaning": "Composite Oracle：规则、语义 Judge 与人工如何组合 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；下移时要验证结果一致。有些看似可以用规则判定的逻辑，实际有例外情况需要语义判断。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T03#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T03-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L47-L47",
+      "meaning": "本页 Composite Oracle 为工程设计；Fixture 没有运行 Judge 或权限系统，也没有领域人工双标，因此只能证明独立 Oracle 字段不可缺。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T03#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T03-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "行动：为 PII、引用错误和语气问题各选主 Oracle；设计一个高分但必须阻断的反例；用两名人工标注者建立 Judge 校准表 预期：TD-T03 Prompt/Input/Schema/Eval/Mutation 版本可静态追踪；实际模型输出保持 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T03#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T03-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "把所有判断都交给一个 Judge，等于把体系的可信度上限交给一个没测过的组件 失效形态 可核查的数字 它导致的错误结论 Judge 未校准就投入使用 方差分解研究显示，Judge 分歧本身在安全分类任务中可贡献高达 44% 的总方差 把 Judge 的噪声读成模型的能力波动，追着调 Prompt 用语义评分去测本可以用断言测的东西 Schema、权限、金额这类判断的正确率用确定性断言可达 100%，用语义 Judge 通常落在 90% 上下 在完全可判定的地方引入 10% 的不确定性，还看不出来 高风险失败被平均…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T03#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T03-METRIC-01",
+      "manuscript_locator": "manuscript.md:L45-L45",
+      "meaning": "复合 Oracle 的四个词 没有任何单一判据能覆盖 AI 输出的全部维度。组合才是常态。 术语 一句话解释 确定性 Gate 可以用代码精确判定的部分，如格式、字段、引用存在性 业务规则 领域内必须成立的约束，如金额上限、状态转换 语义评分 模型判分；它是估计值，不是判据 人工复核 最终的判断者；成本最高，因此要精准投放 更完整的中英对照与易混辨析见方法论 02 术语表；这里只收本页判断真正依赖的几个。 R-DEEPEVAL",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T03#content_sections.teaching_blocks.1",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T03-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L37-L37",
+      "meaning": "语义 9 分也不能覆盖一次越权工具调用 模型回答礼貌且政策解释大体正确，但在身份未验证时调用 refund_order。若把权限检查和语义分数加权求平均，严重失败会被高分冲掉。 Composite Oracle 的顺序是：确定性 blocker 先执行；语义评价补充连续质量；新颖、高风险或分歧样例进入人工。 Composite Oracle：规则、语义 Judge 与人工如何组合 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T03#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

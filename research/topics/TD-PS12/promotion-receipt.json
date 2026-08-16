@@ -1,0 +1,135 @@
+{
+  "schema_version": "page-promotion-receipt.v1",
+  "page_id": "TD-PS12",
+  "validated_at": "2026-08-15T14:44:09.109Z",
+  "reviewer": "validation-semantic-parity-verifier-2026-08-13",
+  "page_content_hash": "sha256:f0544e3df97d014881ea545c8b3cab36875d2dfec0026de789178a583d619f69",
+  "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
+  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_verdict": "PASS",
+  "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
+  "page_author_id": "course-page-projection-author-2026-08-13",
+  "reviewer_is_independent_of_author": true,
+  "research_package_files": [
+    "research-brief.md",
+    "source-pack.csv",
+    "research-runs.json",
+    "evidence-synthesis.md",
+    "engineering-blueprint.md",
+    "manuscript.md",
+    "comparison.md",
+    "lab-manifest.json",
+    "validation.md",
+    "projection-ledger.json"
+  ],
+  "research_inventory": [
+    {
+      "path": "research-brief.md",
+      "exists": true,
+      "sha256": "sha256:80ddb00ceb7adb8d7111064b04dabc9544c2b1393339dcf4338d985581a77c82"
+    },
+    {
+      "path": "source-pack.csv",
+      "exists": true,
+      "sha256": "sha256:dc3cd72cd095b922a85d5d628602227c72dfcef8da8bc56dc716a3c396a1f1ec"
+    },
+    {
+      "path": "research-runs.json",
+      "exists": true,
+      "sha256": "sha256:1ab73d0526c379d496b7f069d07c61c8c8d2fea6c2d48eed80b5eeeb1f42fedb"
+    },
+    {
+      "path": "evidence-synthesis.md",
+      "exists": true,
+      "sha256": "sha256:b88e02d629bf92c768c8b85818424570a79100b95a9c6ef8c546425e71990561"
+    },
+    {
+      "path": "engineering-blueprint.md",
+      "exists": true,
+      "sha256": "sha256:6f4936684a05023c674da49df95b6811315e2626c72f6662c18331a5dc56160f"
+    },
+    {
+      "path": "manuscript.md",
+      "exists": true,
+      "sha256": "sha256:c51c1c81cff5c2fc6e9d913fd5d871d73010c56ec6d4ccf0b7b763e79e694086"
+    },
+    {
+      "path": "comparison.md",
+      "exists": true,
+      "sha256": "sha256:be70645147e5a07053759a73d2105de47f9e030dfc2380d57ed292625f652b5a"
+    },
+    {
+      "path": "lab-manifest.json",
+      "exists": true,
+      "sha256": "sha256:184369d906e0e4d13b22b72af3ef3004d02ee8f0a897d1ffadaf33c21f757967"
+    },
+    {
+      "path": "validation.md",
+      "exists": true,
+      "sha256": "sha256:6a17d48a53535da09e1db1b959a470f9cdf50479deb3de991ba8cb7ac18b730c"
+    },
+    {
+      "path": "projection-ledger.json",
+      "exists": true,
+      "sha256": "sha256:795e05e85a2ee2c249c396560919a645bafe0f5be0618262f027abc61838f808"
+    }
+  ],
+  "editorial_score": 100,
+  "boundary_preservation_score": 100,
+  "executability_audit_ref": "research/executability-audit.json",
+  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit": {
+    "path": "../../executability-audit.json",
+    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "verdict": "PASS",
+    "finding_count": 0
+  },
+  "material_hashes": {
+    "materials/reliability-chaos-observability/fixtures/TD-PS12-input.json": "sha256:669cd07823857b67619979e03d9e75b66e36b915b6bd775febcd1807792bbbfd",
+    "materials/reliability-chaos-observability/manifests/TD-PS12.json": "sha256:71106b0e42be9518e6dadd0f0544a51e21b1d229b47028ce3d74bfe240f7290e",
+    "materials/reliability-chaos-observability.zip": "sha256:756f4ece1099dbd716cfff1859ec71f181eabb9b395be7e79034ea9df3f6a045",
+    "materials/reliability-chaos-observability/scripts/reliability_lab.py": "sha256:6dbedc525aa714bf63e08db10109730e4dbf01431d39a3d092559420a98a2056",
+    "materials/reliability-chaos-observability/README.md": "sha256:a6023bae0eae1d5cc6e0161acc1ca29f2f69be816a3d1e0f98f34c68d9965fce"
+  },
+  "learner_material_hashes": [
+    {
+      "href": "materials/reliability-chaos-observability/fixtures/TD-PS12-input.json",
+      "public_sha256": "sha256:669cd07823857b67619979e03d9e75b66e36b915b6bd775febcd1807792bbbfd",
+      "static_sha256": "sha256:669cd07823857b67619979e03d9e75b66e36b915b6bd775febcd1807792bbbfd",
+      "archive_member_sha256": "sha256:669cd07823857b67619979e03d9e75b66e36b915b6bd775febcd1807792bbbfd",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/reliability-chaos-observability/manifests/TD-PS12.json",
+      "public_sha256": "sha256:71106b0e42be9518e6dadd0f0544a51e21b1d229b47028ce3d74bfe240f7290e",
+      "static_sha256": "sha256:71106b0e42be9518e6dadd0f0544a51e21b1d229b47028ce3d74bfe240f7290e",
+      "archive_member_sha256": "sha256:71106b0e42be9518e6dadd0f0544a51e21b1d229b47028ce3d74bfe240f7290e",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/reliability-chaos-observability.zip",
+      "public_sha256": "sha256:756f4ece1099dbd716cfff1859ec71f181eabb9b395be7e79034ea9df3f6a045",
+      "static_sha256": "sha256:756f4ece1099dbd716cfff1859ec71f181eabb9b395be7e79034ea9df3f6a045",
+      "archive_member_sha256": null,
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/reliability-chaos-observability/scripts/reliability_lab.py",
+      "public_sha256": "sha256:6dbedc525aa714bf63e08db10109730e4dbf01431d39a3d092559420a98a2056",
+      "static_sha256": "sha256:6dbedc525aa714bf63e08db10109730e4dbf01431d39a3d092559420a98a2056",
+      "archive_member_sha256": "sha256:6dbedc525aa714bf63e08db10109730e4dbf01431d39a3d092559420a98a2056",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/reliability-chaos-observability/README.md",
+      "public_sha256": "sha256:a6023bae0eae1d5cc6e0161acc1ca29f2f69be816a3d1e0f98f34c68d9965fce",
+      "static_sha256": "sha256:a6023bae0eae1d5cc6e0161acc1ca29f2f69be816a3d1e0f98f34c68d9965fce",
+      "archive_member_sha256": "sha256:a6023bae0eae1d5cc6e0161acc1ca29f2f69be816a3d1e0f98f34c68d9965fce",
+      "closure_verdict": "PASS"
+    }
+  ],
+  "verdict": "FAIL",
+  "findings": [
+    "independent editorial review does not pin current page content hash"
+  ]
+}

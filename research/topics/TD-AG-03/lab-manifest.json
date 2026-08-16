@@ -1,0 +1,75 @@
+{
+  "topic_id": "TD-AG-03",
+  "page_id": "TD-AG-03",
+  "working_directory": "site/public/materials/agent-architecture-system",
+  "required_files": [
+    "scripts/agent_architecture_lab.py",
+    "prompts/TD-AG-03/manifest.json",
+    "prompts/TD-AG-03/input.json",
+    "prompts/TD-AG-03/schema.json",
+    "prompts/TD-AG-03/eval.json",
+    "prompts/TD-AG-03/mutation.json"
+  ],
+  "steps": [
+    {
+      "step_id": "baseline",
+      "kind": "baseline",
+      "command": [
+        "python3",
+        "scripts/agent_architecture_lab.py",
+        "--topic",
+        "TD-AG-03",
+        "--phase",
+        "baseline",
+        "--report",
+        "reports/td-ag-03/baseline.json"
+      ],
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "reports/td-ag-03/baseline.json"
+      ]
+    },
+    {
+      "step_id": "fault",
+      "kind": "fault",
+      "command": [
+        "python3",
+        "scripts/agent_architecture_lab.py",
+        "--topic",
+        "TD-AG-03",
+        "--phase",
+        "fault",
+        "--report",
+        "reports/td-ag-03/fault.json"
+      ],
+      "expected_exit_code": 1,
+      "expected_artifacts": [
+        "reports/td-ag-03/fault.json"
+      ]
+    },
+    {
+      "step_id": "repair",
+      "kind": "repair",
+      "command": [
+        "python3",
+        "scripts/agent_architecture_lab.py",
+        "--topic",
+        "TD-AG-03",
+        "--phase",
+        "repair",
+        "--report",
+        "reports/td-ag-03/repair.json"
+      ],
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "reports/td-ag-03/repair.json"
+      ]
+    }
+  ],
+  "failure_cycle": {
+    "baseline_step_id": "baseline",
+    "fault_step_id": "fault",
+    "repair_step_id": "repair"
+  },
+  "evidence_boundary": "deterministic offline fixture only; live model, live Agent, live tools, shadow/online, practitioner and learner transfer NOT_RUN"
+}

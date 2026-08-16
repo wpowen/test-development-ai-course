@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T24",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:b887f5d4359737bb90bafd6237aa9f85d9647be387ecf8bd756ea560be174ced",
+  "page_content_sha256": "sha256:3337f8d1ce61cd77c431d1ddbb4828897c7f790ebf2bf8a1f6773bafb8d63d70",
+  "claims": [
+    {
+      "claim_id": "TD-T24-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "漂移信号按组件拆分；waiver 有 owner/补偿/到期；回滚验证包含业务与回归证据",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T24#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T24-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L20-L20",
+      "meaning": "任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。；演练必须在隔离环境。在生产直接演练回滚，本身就是一次事故。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T24#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T24-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L28-L28",
+      "meaning": "本页只验证合成 Runbook 合同；没有生产基线、告警系统、审批或真实回滚演练。 本页仅 fixture/static；真实 model/provider、enterprise integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T24#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T24-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L9-L9",
+      "meaning": "行动：为一次知识库漂移画诊断树；写一个 24h 自动失效 waiver；用完整 manifest 演练回滚和复跑 预期：Prompt 包可静态审计且 model_execution=NOT_RUN；只有固定 Schema/Eval/Mutation 合同获得证据，没有模型能力结论。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T24#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T24-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "上线后停止监控的系统，会在 30 到 60 天内安静地退化 失效形态 可核查的数字 它导致的错误结论 上线后停止评估 只在上线前评估、上线后停止监控的团队，30～60 天内质量必然退化；持续评估相比周期性评估可将生产事故降低约 67% 把发布前的验收结论当成长期有效的质量保证 Waiver 没有到期时间 无到期时间的临时豁免会长期存在；1 条永久 waiver 等于把对应门禁永久关闭 门禁列表看起来完整，实际其中若干条早已被豁免掉 回滚未演练且非整包 只回滚代码而不回滚提示、知识库与模型，会产生 1 个从未测试过…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T24#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T24-METRIC-01",
+      "manuscript_locator": "manuscript.md:L24-L24",
+      "meaning": "恢复闭环的四个词 漂移、豁免、回滚是质量系统在出问题之后的三件事。 术语 一句话解释 漂移 版本未变但行为变了；它分输入、行为、Judge、质量、性能、成本六类 Waiver 明知不达标但批准通过的记录；它必须有过期时间 整包回滚 模型、Prompt、索引、工具、阈值成组退回 演练 在没有事故时先走一遍回滚流程 更完整的中英对照与易混辨析见方法论 02 术语表；这里只收本页判断真正依赖的几个。 R-EVIDENTLY",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T24#content_sections.teaching_blocks.1",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T24-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L20-L20",
+      "meaning": "漂移、Waiver 与回滚：质量系统的恢复闭环：先定位这一个专业失败 退款正确率缓慢下降，Judge 分却保持稳定；原因可能是输入分布、知识库、模型或 Judge 自身漂移。只调模型或放宽阈值都可能修错层。 对 TD-T24 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T24#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

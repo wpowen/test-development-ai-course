@@ -1,0 +1,135 @@
+{
+  "schema_version": "page-promotion-receipt.v1",
+  "page_id": "TD-PS01",
+  "validated_at": "2026-08-15T14:44:09.109Z",
+  "reviewer": "validation-semantic-parity-verifier-2026-08-13",
+  "page_content_hash": "sha256:dc98ab3ee1f9ea305421b21ba422890bd57026578671f39c21566e6fbd58be2d",
+  "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
+  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_verdict": "PASS",
+  "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
+  "page_author_id": "course-page-projection-author-2026-08-13",
+  "reviewer_is_independent_of_author": true,
+  "research_package_files": [
+    "research-brief.md",
+    "source-pack.csv",
+    "research-runs.json",
+    "evidence-synthesis.md",
+    "engineering-blueprint.md",
+    "manuscript.md",
+    "comparison.md",
+    "lab-manifest.json",
+    "validation.md",
+    "projection-ledger.json"
+  ],
+  "research_inventory": [
+    {
+      "path": "research-brief.md",
+      "exists": true,
+      "sha256": "sha256:1fb1b39ab893c0272baa873b79ce885f39085b57daa31db97007f03c9645c29b"
+    },
+    {
+      "path": "source-pack.csv",
+      "exists": true,
+      "sha256": "sha256:7ade07738b803cb0ecf3049a275c195f4a28f125244d67883f0105f9576df135"
+    },
+    {
+      "path": "research-runs.json",
+      "exists": true,
+      "sha256": "sha256:dcd8124f9dbfd028baca9cd98cf9c869f9881a9397242dd2493893c8b11b1581"
+    },
+    {
+      "path": "evidence-synthesis.md",
+      "exists": true,
+      "sha256": "sha256:72304d8243e0fe7c7b26269038e2f0200577146b571a12fba2ddcd03bd6893ed"
+    },
+    {
+      "path": "engineering-blueprint.md",
+      "exists": true,
+      "sha256": "sha256:b079297f40ddefb3bcc63a84cde0957a78ee1f8c25d6fb8dfce7c204a47124c5"
+    },
+    {
+      "path": "manuscript.md",
+      "exists": true,
+      "sha256": "sha256:7fc0fccc7c861a1800a2bc56df66615b05030f69ff3a0dfdd494bff26e418d2f"
+    },
+    {
+      "path": "comparison.md",
+      "exists": true,
+      "sha256": "sha256:c5cba0af6ab35205320bd66e261333da0c9f132e411ec6baa130cc825ff26f7f"
+    },
+    {
+      "path": "lab-manifest.json",
+      "exists": true,
+      "sha256": "sha256:69d4f1ab782c346f258e01e8c1e2d8f82dddffcf31f5f531e2f690e3825f3aea"
+    },
+    {
+      "path": "validation.md",
+      "exists": true,
+      "sha256": "sha256:c39135ca824bc48dc190818f930e03135d26dfae7143f5f726268f2917ece9f7"
+    },
+    {
+      "path": "projection-ledger.json",
+      "exists": true,
+      "sha256": "sha256:b500401f633d4bf0021018c53afd6c4ea6b7fcc6174ea3b95ae71ebb3d45ce60"
+    }
+  ],
+  "editorial_score": 100,
+  "boundary_preservation_score": 100,
+  "executability_audit_ref": "research/executability-audit.json",
+  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit": {
+    "path": "../../executability-audit.json",
+    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "verdict": "PASS",
+    "finding_count": 0
+  },
+  "material_hashes": {
+    "materials/api-ai-automation/fixtures/order-cancel.openapi.yaml": "sha256:ccb87df85edb016095e5797cca089d4e43a24c307bc2ec54ab6c790e745e1dfa",
+    "materials/api-ai-automation/guides/api-run-manifest.md": "sha256:27db9681ab9904ae0162aef533bf06dee790a8028699fd63a042779838e31d04",
+    "materials/api-ai-automation.zip": "sha256:261f8a4bded1f7fb9a576aeb1deb4f76b84acf3abb2119198ba6ddaa5e3936e3",
+    "materials/api-ai-automation/scripts/api_automation.py": "sha256:4378a765c69ff7b8dbc1504b18988e9cdc204f863262b741c4ee9113eb5e7f79",
+    "materials/api-ai-automation/README.md": "sha256:ee6dfc3217cafe8ccac5a3e9d669b488e2d2a55e33e7089b087606fd21df4cb8"
+  },
+  "learner_material_hashes": [
+    {
+      "href": "materials/api-ai-automation/fixtures/order-cancel.openapi.yaml",
+      "public_sha256": "sha256:ccb87df85edb016095e5797cca089d4e43a24c307bc2ec54ab6c790e745e1dfa",
+      "static_sha256": "sha256:ccb87df85edb016095e5797cca089d4e43a24c307bc2ec54ab6c790e745e1dfa",
+      "archive_member_sha256": "sha256:ccb87df85edb016095e5797cca089d4e43a24c307bc2ec54ab6c790e745e1dfa",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/api-ai-automation/guides/api-run-manifest.md",
+      "public_sha256": "sha256:27db9681ab9904ae0162aef533bf06dee790a8028699fd63a042779838e31d04",
+      "static_sha256": "sha256:27db9681ab9904ae0162aef533bf06dee790a8028699fd63a042779838e31d04",
+      "archive_member_sha256": "sha256:27db9681ab9904ae0162aef533bf06dee790a8028699fd63a042779838e31d04",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/api-ai-automation.zip",
+      "public_sha256": "sha256:261f8a4bded1f7fb9a576aeb1deb4f76b84acf3abb2119198ba6ddaa5e3936e3",
+      "static_sha256": "sha256:261f8a4bded1f7fb9a576aeb1deb4f76b84acf3abb2119198ba6ddaa5e3936e3",
+      "archive_member_sha256": null,
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/api-ai-automation/scripts/api_automation.py",
+      "public_sha256": "sha256:4378a765c69ff7b8dbc1504b18988e9cdc204f863262b741c4ee9113eb5e7f79",
+      "static_sha256": "sha256:4378a765c69ff7b8dbc1504b18988e9cdc204f863262b741c4ee9113eb5e7f79",
+      "archive_member_sha256": "sha256:4378a765c69ff7b8dbc1504b18988e9cdc204f863262b741c4ee9113eb5e7f79",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/api-ai-automation/README.md",
+      "public_sha256": "sha256:ee6dfc3217cafe8ccac5a3e9d669b488e2d2a55e33e7089b087606fd21df4cb8",
+      "static_sha256": "sha256:ee6dfc3217cafe8ccac5a3e9d669b488e2d2a55e33e7089b087606fd21df4cb8",
+      "archive_member_sha256": "sha256:ee6dfc3217cafe8ccac5a3e9d669b488e2d2a55e33e7089b087606fd21df4cb8",
+      "closure_verdict": "PASS"
+    }
+  ],
+  "verdict": "FAIL",
+  "findings": [
+    "independent editorial review does not pin current page content hash"
+  ]
+}

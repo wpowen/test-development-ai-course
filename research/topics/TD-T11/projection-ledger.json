@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T11",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:038c59757849a8615428e1ac640f283a3d629ffccffbd09f362e01a2ba7e66ae",
+  "page_content_sha256": "sha256:3e733336b242d6c7b06ecade8b4e099bc5cd1677fc1e9b56d0a1b4d698edf371",
+  "claims": [
+    {
+      "claim_id": "TD-T11-DECISION-01",
+      "manuscript_locator": "manuscript.md:L14-L14",
+      "meaning": "引用存在与语义支持分开；关键声明可回链到证据 span；冲突和无证据不会被强制评分为 PASS",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T11#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T11-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L44-L44",
+      "meaning": "Faithfulness 与 Citation：回答真的被证据支持吗 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；拆 claim 时不要把一句话拆得太细。拆到「可以独立判断真假」为止，过细会让核查成本失控。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T11#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T11-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L54-L54",
+      "meaning": "Fixture 只检查 `claims_supported` 合同字段；没有运行生成模型或自动 faithfulness scorer，也没有领域人工校准，不能声明真实准确率。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T11#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T11-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L30-L30",
+      "meaning": "行动：把一段回答拆成原子声明；为每条声明标 supporting/contradicting/no-evidence；设计一个 citation 合法但 faithfulness 失败的反例 预期：TD-T11 Prompt/Input/Schema/Eval/Mutation 版本可静态追踪；实际模型输出保持 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T11#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T11-TABLE-01",
+      "manuscript_locator": "manuscript.md:L14-L14",
+      "meaning": "给了引用不等于说了实话，这两件事要分开测 失效形态 可核查的数字 它导致的错误结论 只检查引用字段非空 引用非空率可以做到 100%，而其中指向错误 chunk 的比例在未校验系统里并不低 「每句话都有出处」被当成可信度证据，用户点开才发现对不上 引用对了但回答做了原文没有的推论 把回答拆成原子声明后，无证据支撑的声明往往集中在 1～2 句总结性表述上 整段回答看起来有据可依，最关键的那句结论其实是模型自己加的 检索到的多份证据互相矛盾时不报冲突 冲突证据共存时系统若不报 blocker，用户看到的就是被随机选中…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T11#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T11-METRIC-01",
+      "manuscript_locator": "manuscript.md:L12-L12",
+      "meaning": "给了引用不等于说了实话，这两件事的判据完全不同 引用是一个非常容易被满足的形式要求：模型可以在句尾加上一个真实存在的文档编号，而那句话的内容与该文档毫无关系。因此「有没有引用」和「引用支不支持这句话」必须拆成两个独立判据，前者可以完全自动化且成本为零，后者不行。 拆成三层是实用的做法。第一层核查引用的文档 id 是否真的出现在本次检索到的上下文里——这一层是确定性的，用集合比对就能完成，能拦掉「编造引用」这类最严重的问题。第二层核查引用片段是否真的包含被断言的信息，这一层可以用文本蕴含或字符串定位做部分自动化。第…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T11#content_sections.teaching_blocks.2",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T11-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L44-L44",
+      "meaning": "给了引用不等于说了实话，这两件事要分开测 「回答带引用」是 RAG 产品最常见的信任设计，也是最容易被误读的一个。引用存在、引用指向正确文档、回答内容真的被那段文字支持——这是三件递进的事，多数系统只测了第一件。 下面三条按这三层依次给出失效形态。 失效形态 可核查的数字 它导致的错误结论 只检查引用字段非空 引用非空率可以做到 100%，而其中指向错误 chunk 的比例在未校验系统里并不低 「每句话都有出处」被当成可信度证据，用户点开才发现对不上 引用对了但回答做了原文没有的推论 把回答拆成原子声明后，无证据…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T11#content_sections.teaching_blocks.0",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

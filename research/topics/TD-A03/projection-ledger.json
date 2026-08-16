@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-A03",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:05a3c90903707a34168e2aebb8d84b9562bb31e2bd434850ea530fb287a3c0be",
+  "page_content_sha256": "sha256:e1f552bb9c1fb5383f1940043338c78d7228004af13dab0e27ec1d3f7e63cf03",
+  "claims": [
+    {
+      "claim_id": "TD-A03-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "公式可由原始事件重算；Goodput 不含质量或安全失败；容量与成本结论标明 fixture-only",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-A03#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-A03-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L5-L5",
+      "meaning": "本页仅运行确定性时间戳 fixture；model、integration、practitioner、learner、live 与 production 均 NOT_RUN。时间戳、Token、成本和分位数不代表任何真实模型、GPU、供应商、集成环境、实践者复核、学习者完成或生产性能。；不要用一次调用的结果下结论。这个演练的目的是校准测量方法，不是评估性能。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-A03#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-A03-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L33-L33",
+      "meaning": "本页仅运行确定性时间戳 fixture；model、integration、practitioner、learner、live 与 production 均 NOT_RUN。时间戳、Token、成本和分位数不代表任何真实模型、GPU、供应商、集成环境、实践者复核、学习者完成或生产性能。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-A03#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-A03-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L17-L17",
+      "meaning": "行动：从一条 Token 时间线手算 TTFT/TPOT/ITL；为聊天与批任务分别写 Goodput 条件；把失败与重试费用纳入 cost_per_success 预期：恢复全到达分母和 quality_pass 条件，重算所有尝试成本；阈值不外推到任何真实模型。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-A03#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-A03-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "指标算错分母，比不算更危险 失效形态 可核查的数字 它导致的错误结论 用请求数做吞吐分母 一次任务可能包含 5～15 次生成调用，请求数与业务完成量之间没有固定比例 吞吐数字很高，无法换算成业务容量 把 TTFT 和端到端时长混用 流式场景下两者可相差 1 个数量级以上；混用会让体验结论与容量结论互相污染 为了压端到端时长去限制输出长度，体感并没有改善 成功率不扣除质量不达标的完成 完成但质量不达标的任务在成功率里被计为成功，两者差额即 Goodput 与吞吐的差距 成功率 95% 而用户可用率远低于此 本页把每…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-A03#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-A03-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "指标算错分母，比不算更危险 AI serving 的指标看起来和普通服务一样：延迟、吞吐、成功率。但它们的分母都变了，而分母的变化不会体现在指标名字上。 下面三条是分母选错的典型后果。 失效形态 可核查的数字 它导致的错误结论 用请求数做吞吐分母 一次任务可能包含 5～15 次生成调用，请求数与业务完成量之间没有固定比例 吞吐数字很高，无法换算成业务容量 把 TTFT 和端到端时长混用 流式场景下两者可相差 1 个数量级以上；混用会让体验结论与容量结论互相污染 为了压端到端时长去限制输出长度，体感并没有改善 成功…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-A03#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-A03-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L22-L22",
+      "meaning": "从 Token 事件重算延迟、Goodput 与成本：职业场景与失败代价 同一 serving fixture 含短聊天、长报告与工具请求；每条保存到达、排队、首 Token、Token 间隔、终态、质量和成本。 总延迟或 GPU 利用率不能区分排队、prefill 与 decode，也会把质量失败、截断和昂贵重试计入成功吞吐。",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-A03#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

@@ -1,0 +1,65 @@
+{
+  "topic_id": "TD-PS02",
+  "page_id": "TD-PS02",
+  "working_directory": "site/public/materials/api-ai-automation",
+  "required_files": [
+    "owners.json",
+    "scripts/specialty_lab.py",
+    "manifests/TD-PS02.json",
+    "prompts/TD-PS02/system-v1.md",
+    "prompts/TD-PS02/task-v1.md",
+    "prompts/TD-PS02/critic-v1.md",
+    "prompts/TD-PS02/manifest.json",
+    "prompts/TD-PS02/mutation.json",
+    "fixtures/TD-PS02-input.json",
+    "schemas/TD-PS02-output.schema.json",
+    "evals/TD-PS02-eval.json"
+  ],
+  "steps": [
+    {
+      "step_id": "baseline",
+      "kind": "baseline",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS02.json --mode baseline",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS02/baseline.json"
+      ]
+    },
+    {
+      "step_id": "fault",
+      "kind": "mutation",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS02.json --mode fault",
+      "expected_exit_code": 1,
+      "expected_artifacts": [
+        "evidence/TD-PS02/fault.json"
+      ]
+    },
+    {
+      "step_id": "repair",
+      "kind": "repair",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS02.json --mode repair",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS02/repair.json"
+      ]
+    },
+    {
+      "step_id": "cycle",
+      "kind": "cycle",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS02.json --mode cycle",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS02/baseline.json",
+        "evidence/TD-PS02/fault.json",
+        "evidence/TD-PS02/repair.json",
+        "evidence/TD-PS02/cycle.json"
+      ]
+    }
+  ],
+  "failure_cycle": {
+    "baseline_step_id": "baseline",
+    "fault_step_id": "fault",
+    "repair_step_id": "repair"
+  },
+  "evidence_boundary": "fixture-tested only; no practitioner/live/production evidence. Unknown: 目标生成器对 OAS dialect 的实现差异和生产商户配置"
+}

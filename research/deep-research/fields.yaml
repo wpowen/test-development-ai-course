@@ -1,0 +1,118 @@
+field_categories:
+  - category: identity_and_scope
+    fields:
+      - name: topic_id
+        required: true
+        description: Stable tutorial topic identifier.
+      - name: controlling_question
+        required: true
+        description: The concrete professional question this topic must answer.
+      - name: target_learner
+        required: true
+        description: Learner baseline, assumed skills, and intended outcome.
+      - name: professional_scenario
+        required: true
+        description: One realistic end-to-end business scenario used throughout the topic.
+      - name: scope_boundary
+        required: true
+        description: Included and excluded responsibilities and systems.
+  - category: professional_baseline
+    fields:
+      - name: traditional_workflow
+        required: true
+        description: Pre-AI workflow with actors, inputs, dependencies, outputs, decisions, and downstream consumers.
+      - name: pain_and_failure_cost
+        required: true
+        description: Recurrent pain, workaround, delay, quality risk, and business consequence.
+      - name: ai_specific_change
+        required: true
+        description: What AI changes, what remains conventional engineering, and why.
+      - name: human_decision_rights
+        required: true
+        description: Judgments, approvals, and accountability that cannot be delegated.
+  - category: evidence
+    fields:
+      - name: search_strategy
+        required: true
+        description: English and Chinese queries, source families, date range, inclusion rules, and exclusions.
+      - name: primary_sources
+        required: true
+        description: Official specifications, standards, vendor documentation, or research papers with direct URLs and claim limits.
+      - name: implementation_sources
+        required: true
+        description: Maintained repositories, examples, releases, and issue discussions with direct URLs and relevance.
+      - name: practitioner_sources
+        required: true
+        description: Forums, engineering blogs, incident reports, job frameworks, or community discussions with direct URLs and bias notes.
+      - name: competitor_learning_materials
+        required: true
+        description: Existing courses or tutorials, their syllabus shape, strengths, omissions, and differentiation opportunity.
+      - name: counterevidence_and_failures
+        required: true
+        description: Failure modes, negative findings, disputed claims, limitations, and evidence against easy conclusions.
+      - name: source_comparison
+        required: true
+        description: Agreement, disagreement, evidence hierarchy, publisher concentration, and final adjudication.
+  - category: engineering_solution
+    fields:
+      - name: requirements_and_acceptance
+        required: true
+        description: Functional, quality, security, privacy, operability, and acceptance requirements.
+      - name: architecture_and_flow
+        required: true
+        description: Components, sequence, trust boundaries, control points, and failure propagation.
+      - name: interface_and_data_contracts
+        required: true
+        description: Inputs, outputs, schemas, identifiers, versioning, idempotency, and audit fields.
+      - name: metrics_and_decision_rules
+        required: true
+        description: Metric name, definition, formula, unit, dimensions, distribution, threshold method, and owner.
+      - name: implementation_options
+        required: true
+        description: At least three approaches or tools compared by fit, maturity, maintenance, license, limits, and recommendation.
+      - name: security_privacy_and_governance
+        required: true
+        description: Sensitive data, permissions, prompt injection, supply chain, retention, approval, and rollback controls.
+      - name: operations_and_incident_response
+        required: true
+        description: Monitoring, alerting, diagnosis, containment, rollback, recovery validation, and evidence feedback.
+  - category: runnable_learning
+    fields:
+      - name: runnable_lab_spec
+        required: true
+        description: A self-contained lab whose learning claim is proved by execution rather than prose.
+      - name: required_repository_files
+        required: true
+        description: Exact repository-owned scripts, configs, fixtures, schemas, tests, and reports needed by the lab.
+      - name: environment_and_dependencies
+        required: true
+        description: OS, runtime, package versions, installation, credentials, network, and offline alternatives.
+      - name: exact_commands
+        required: true
+        description: Copy-paste commands from a stated working directory with expected exit codes.
+      - name: expected_outputs
+        required: true
+        description: Expected stdout, report fields, generated files, and pass criteria.
+      - name: negative_mutation_and_red_evidence
+        required: true
+        description: Meaningful injected defect or failure and evidence that the gate turns red for the right reason.
+      - name: repair_and_green_evidence
+        required: true
+        description: Repair that addresses the mechanism and evidence that the same gate returns green.
+      - name: transfer_exercise
+        required: true
+        description: How the learner adapts the lab to a real but sanitized project and proves transfer.
+  - category: editorial_and_audit
+    fields:
+      - name: current_page_audit
+        required: true
+        description: Current page claims, code blocks, missing evidence, path errors, pseudo-code, and false usability signals.
+      - name: keep_rewrite_delete
+        required: true
+        description: Explicit keep, rewrite, and delete decisions with reasons.
+      - name: proposed_tutorial_outline
+        required: true
+        description: Beginner-to-professional page structure using explanation, demonstration, practice, failure, repair, and decision.
+      - name: confidence_and_unknowns
+        required: true
+        description: Confidence by major claim, remaining unknowns, and validation needed before publication.

@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-AP03",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:02597a1da28dd58740056f4a0a8952c14eedc06a25ec7024fadfcdc573836b1e",
+  "page_content_sha256": "sha256:b24a23ba0f8c258f100e606bc3874292aee3754d97664d56fc12c4cea58063d4",
+  "claims": [
+    {
+      "claim_id": "TD-AP03-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "命令、cwd、manifest、退出码与工件完全一致；Prompt/Input/Schema/Eval/Mutation 均为 v1.0.0；fault 至少被一个门禁拒绝，repair 未删除门禁；证据明确 synthetic fixture ≠ production capacity",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-AP03#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-AP03-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L34-L34",
+      "meaning": "fault 让 45% generation/tool Span 丢失父子关联；repair 恢复关联，而不是在报表端伪造 parent。；脱敏不是删除。把整个入参删掉会让 trace 失去归因价值；正确做法是字段级脱敏并保留结构。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-AP03#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-AP03-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "Trace 结构是课程实现；语义约定仍会变化。真实 AI provider/model、integration、practitioner review、learner run、live 与 production telemetry 均 NOT_RUN，生产前需锁版本、验证后端兼容并完成隐私评审。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-AP03#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-AP03-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L30-L30",
+      "meaning": "行动：运行 TD-AP03 cycle 并保存 0/1/0；fault 让 45% generation/tool Span 丢失父子关联；repair 恢复关联，而不是在报表端伪造 parent。；从 fault Trace 找到一条红灯证据；写明哪些结论仍不能外推到生产 预期：从 fault traces.jsonl 抽一条 orphan span；验证 trace_complete_rate 门禁拒绝它。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-AP03#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-AP03-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "Trace 断链会怎样误导容量与质量结论 失效点 看起来像什么 可核查的代价 tool span 无 parent 模型正常、工具偶发失败 无法区分参数错误与依赖错误；这类失败的归因成功率降到 0，只能记为 UNKNOWN retry 未单列 任务最终成功 调用放大与真实成本被隐藏；一次任务的实际模型调用数可能是记录值的 2～3 倍 高危动作低采样 观测成本下降 关键失败样本永久缺失；按 1% 均匀采样时，高危动作的失败样本命中概率同样只有 1% 脱敏删除结构 隐私更安全 无法在不暴露原文的情况下重放；这类 tr…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-AP03#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-AP03-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "Trace 断链会怎样误导容量与质量结论 Trace 缺父子关系时，失败仍然可能被包装成成功文本，性能、工具安全和重试成本会同时失去归因。 先把缺口分到传播、采集、存储或脱敏层，再决定修复；不要用增加采样率代替结构修复。 失效点 看起来像什么 可核查的代价 tool span 无 parent 模型正常、工具偶发失败 无法区分参数错误与依赖错误；这类失败的归因成功率降到 0，只能记为 UNKNOWN retry 未单列 任务最终成功 调用放大与真实成本被隐藏；一次任务的实际模型调用数可能是记录值的 2～3 倍 高…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-AP03#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-AP03-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L34-L34",
+      "meaning": "先理解系统边界与假绿 Span 表示有时长的操作，parent/span context 组成树。一个 task root 下保存 generation、tool、retry、handoff 与 finalize，才能从用户症状追到具体步骤。 OpenTelemetry GenAI Agent 约定仍在 Development。锁定 schema/version；缺少的 task、attempt、budget、oracle 字段放在 app.*，不要冒充稳定标准。 对象/信号 正确口径 常见假绿 Metric 低…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-AP03#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

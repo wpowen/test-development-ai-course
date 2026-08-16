@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-X502",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:13f6fba0214e9dd4679bf94fef559f1c9769102fc0ea90d10f5ea83d16edf686",
+  "page_content_sha256": "sha256:997c1fc8dbef602af2344df74e9f398f302b20e5c47dfb03ed491b667de6fb0b",
+  "claims": [
+    {
+      "claim_id": "TD-X502-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "语言和可访问性按任务验收；关键切片 blocker 不被平均值覆盖；知道 fixture 不证明包容性",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-X502#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-X502-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L19-L19",
+      "meaning": "10 个 opened 来源与离线门禁支持合同；真实用户、辅助技术设备、文化伤害、法律和包容性结论 NOT_RUN。；没有该语言使用者参与时，第四步无法完成。此时应当把该语言标注为部分验证，而不是全部通过。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-X502#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-X502-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L31-L31",
+      "meaning": "10 个 opened 来源与离线门禁支持合同；真实用户、辅助技术设备、文化伤害、法律和包容性结论 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-X502#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-X502-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L9-L9",
+      "meaning": "行动：建立三种 locale 的任务矩阵；运行 locale/键盘 fault；列出需要母语和辅助技术用户复核的 UNKNOWN 预期：输出必须保留 source refs、owner、limitations 与 stop_state；不得自建 Oracle、自批例外或生成生产通过结论。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-X502#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-X502-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "用英文平均分外推其他语言，是本页要拆掉的唯一一个假设 失效形态 可核查的数字 它导致的错误结论 用英文指标外推低资源语言 同一任务在高资源与低资源语言之间的表现差距常达 20pt 以上，且差距随任务复杂度放大 宣布「支持 30 种语言」，其中 20 种从未被单独测过 RTL 与复杂字形只做了显示测试 阿拉伯语、希伯来语的双向文本在截断、拼接、光标定位处会出错，这类缺陷在纯显示检查中 100% 漏过 界面看起来正常，用户编辑时才发现文字顺序错乱 可访问名称与视觉标签不一致 屏幕阅读器读到的名称与视觉标签不一致时，键…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-X502#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-X502-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "用英文平均分外推其他语言，是本页要拆掉的唯一一个假设 多语言支持最常见的验收方式是：英文测充分，其他语言抽查。这个做法隐含一个从未被验证的假设——模型能力在语言之间是可迁移的。 下面三条说明这个假设在哪些地方成立、在哪些地方不成立，而后者恰好是用户最容易遇到的地方。 失效形态 可核查的数字 它导致的错误结论 用英文指标外推低资源语言 同一任务在高资源与低资源语言之间的表现差距常达 20pt 以上，且差距随任务复杂度放大 宣布「支持 30 种语言」，其中 20 种从未被单独测过 RTL 与复杂字形只做了显示测试 阿…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-X502#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-X502-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L19-L19",
+      "meaning": "英文平均分不能外推到其他语言，原因不止是训练数据多少 把英文表现当成整体能力的代表，隐含了一个假设：语言只是同一能力的不同外壳。这个假设在多个层面上不成立，而且失效方式各不相同。 第一层是能力差异：低资源语言的训练数据少，同样的任务准确率显著更低，而且下降幅度与任务类型相关，不是一个可以整体折算的系数。第二层是书写系统：RTL 语言的排版、组合字符的分词、CJK 的无空格切分，都会让 token 计数、截断位置与文本处理逻辑出现英文里不存在的错误。 第三层最隐蔽：翻译语义。同一个提示词翻译过去之后，语气、正式程度…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-X502#content_sections.teaching_blocks.2",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

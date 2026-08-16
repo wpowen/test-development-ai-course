@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T20",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:c41ebbaa5c803a14d751d0431a14cc17bc906a5abadb215f0a98c49165ff4206",
+  "page_content_sha256": "sha256:c311240b8c70c9b55a014a4379491abc2e7528ac52389b2497911bfa1f056961",
+  "claims": [
+    {
+      "claim_id": "TD-T20-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "三层 Gate 有不同输入和时限；blocker 不被平均分覆盖；fault 阶段稳定 exit 1",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T20#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T20-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L20-L20",
+      "meaning": "任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。；验证要用真实的历史缺陷，不要用人为构造的明显错误。后者太容易被拦下，验证不出实际能力。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T20#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T20-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L26-L26",
+      "meaning": "本地仅运行确定性 Fixture；没有云 CI、模型 Provider、企业审批或发布系统，因此只有 PASS-FIXTURE。 本页仅 fixture/static；真实 model/provider、enterprise integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T20#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T20-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L9-L9",
+      "meaning": "行动：画出三层 CI 与依赖顺序；查找一个会吞 exit 1 的假绿配置；运行 0→1→0 并比较三份报告 预期：Prompt 包可静态审计且 model_execution=NOT_RUN；只有固定 Schema/Eval/Mutation 合同获得证据，没有模型能力结论。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T20#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T20-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "CI 里有评测但从不阻断，等于把评测做成了一份日报 失效形态 可核查的数字 它导致的错误结论 评测结果不影响退出码 不阻断的评测对合并行为的影响为 0；它的唯一效果是产生日志 「我们 CI 里有 AI 评测」被当成质量保障已建立 所有评测都放在同一层 完整语义评测通常需要 30 分钟以上，放进每次提交会让 CI 时长不可接受，最终被关掉——关掉后门禁强度归 0 为了 CI 速度关掉了评测，于是回到零门禁状态 高风险用例与普通用例同等对待 高风险 smoke 只需 20～30 条用例即可在 10 分钟内跑完，与 2…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T20#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T20-METRIC-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "分层门禁的四个词 门禁不是一个开关，是几层各自负责不同风险的检查。 术语 一句话解释 快速层 每次提交都跑，分钟级，只做确定性检查 评测层 合并前跑，覆盖风险切片与语义评测 完整层 发布前跑，含全量评测、安全与性能 fail-closed 检查本身失败时视为不通过，而不是跳过 更完整的中英对照与易混辨析见方法论 02 术语表；这里只收本页判断真正依赖的几个。 R-PROMPTFOO",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T20#content_sections.teaching_blocks.1",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T20-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L20-L20",
+      "meaning": "三层各自放什么检查、跑多久、能不能阻断 分层的目的是让每一层都敢阻断。一层里混进了慢的或抖的检查，整层就会被降级成「仅告警」。 第四列是判断依据：一个检查能不能进快速层，只看它是不是确定性的、是不是秒级完成。 层级 放什么检查 时长与频率 阻断策略 快速层 结构断言、schema 校验、禁用词、格式、静态规则 秒级，每次提交 fail-closed，无例外 评测层 小样本评测，只看明显退化（超出噪声底线） 分钟级，每次 MR fail-closed；样本不足时判为「证据不足」并阻断 完整层 全量样本、统计判据、公…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T20#content_sections.teaching_blocks.3",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

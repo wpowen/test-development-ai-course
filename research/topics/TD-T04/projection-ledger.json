@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T04",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:cc6ad4df70dff4e031d1cd9e031b0320fd25c8fb92ac0e8517931e54dc0a503b",
+  "page_content_sha256": "sha256:1c91d0951151a453126fdb08d5d75b6c7cf37a106d505bb482828490fa9c2261",
+  "claims": [
+    {
+      "claim_id": "TD-T04-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "报告声明估计目标和分母；每个汇总可回链到 raw run；blocker 不被连续分数抵消",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T04#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T04-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L37-L37",
+      "meaning": "重复运行与统计：从一次结果到可解释分布 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；不要在三个口径里挑一个支持既定结论的来报。三个都要报，并说明发布决定依据哪一个。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T04#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T04-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L47-L47",
+      "meaning": "课程没有运行随机模型；五次是教学设计而非样本量建议。任何总体结论、显著性或生产阈值都需要真实数据与统计假设。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T04#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T04-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "行动：对五条 case 各运行五次并保存逐次结果；用配对方式比较只更换 Prompt 的 A/B；分别写固定集合结论与总体外推限制 预期：TD-T04 Prompt/Input/Schema/Eval/Mutation 版本可静态追踪；实际模型输出保持 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T04#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T04-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "把点估计当结论，是统计上最省事也最容易被推翻的做法 失效形态 可核查的数字 它导致的错误结论 用点估计差值判断版本回归 两个版本 84% 与 87% 的差距，在样本 100 条时其 95% CI 通常大幅重叠，不构成显著差异 把噪声当改进，发版庆祝；下个版本掉回去时又归因于「数据变难」 忽略任务聚类做区间估计 同一任务的多次重复不是独立样本，按独立处理会把置信区间算窄，低估不确定性 报出一个看起来很紧的区间，实际覆盖率远低于 95% 只报总体不报首错位置 失败往往集中在轨迹的特定步骤上，首错位置分布能把改进范围缩…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T04#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T04-METRIC-01",
+      "manuscript_locator": "manuscript.md:L11-L11",
+      "meaning": "把点估计当结论，是统计上最省事也最容易被推翻的做法 重复运行的成本很高，所以它最容易被砍成一次。但一次运行给出的不是「一个不够精确的答案」，而是「一个无法判断精度的答案」——这两者性质完全不同。 下面三条说明省掉分布之后，你实际失去了什么能力。 失效形态 可核查的数字 它导致的错误结论 用点估计差值判断版本回归 两个版本 84% 与 87% 的差距，在样本 100 条时其 95% CI 通常大幅重叠，不构成显著差异 把噪声当改进，发版庆祝；下个版本掉回去时又归因于「数据变难」 忽略任务聚类做区间估计 同一任务的多…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T04#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T04-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L37-L37",
+      "meaning": "重复运行与统计：从一次结果到可解释分布：解释 baseline → fault → repair 在 materials/ai-foundations-eval 运行三个 Manifest 步骤；它们共用 expected contract，fault 只修改 TD-T04 声明的 observation。 0 表示合成基线满足合同，1 表示 `blocker_separate=false` 触发 FAIL，阻止平均分吞掉高风险事件 被独立 Oracle 捕获，最后的 0 表示 observation 恢复而 e…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T04#content_sections.teaching_blocks.12",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

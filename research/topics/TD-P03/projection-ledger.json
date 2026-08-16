@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-P03",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:55c6f9eaf44483b2d0d7fa788843b862e4b834b5cb0c854c6abfda0fe5193a90",
+  "page_content_sha256": "sha256:6207e8e4dd6f829de1cf6f2a371a466d95da9f0e184df348f50ac39de42acbcb",
+  "claims": [
+    {
+      "claim_id": "TD-P03-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "需求与组件/接口/状态/观察点双向可追踪；失败恢复与幂等语义有 owner；关键技术缺口会阻断风险和用例生成",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-P03#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-P03-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "本阶段的准出条件不允许用「先过、后面补」跳过。跳过一次准出，等于把不确定性推给下游阶段，用返工代价偿还。；本包已通过静态合同和离线负控制；真实 AI provider/model 执行仍为 NOT_RUN，不能据此声称模型准确、企业可用或生产通过。；把 owner 默认成“团队”或把问题改成“请完善需求”是假修复；应补 locator、影响、具名回答人和关闭后的契约版本。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-P03#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-P03-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "本专题使用虚构的订单取消与退款资料包验证工件结构和离线流水线。它能证明流程可运行、冲突能阻断、预埋缺陷能被测试发现；不能证明模型能正确理解你公司的全部文档，也不能替代产品、研发、法务和发布责任人的确认。provider/model、真实集成、practitioner 盲审、learner 实际迁移、live、production 均为 NOT_RUN；fixture-only 结果不得升级为企业可用或发布证据。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-P03#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-P03-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L11-L11",
+      "meaning": "行动：给一个接口补齐超时、重试、幂等和最终状态；画出一条异步链并标出每个可观察证据；找一条设计超出需求授权的行为并 BLOCKED 预期：按固定 input 生成符合 schema 的候选工件；eval 检查引用、authority、Unknown、独立 Oracle 与证据边界，真实模型保持 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-P03#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-P03-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "技术文档里真正决定测试设计的，是状态与失败恢复而不是接口列表 失效形态 可核查的数字 它导致的错误结论 只提取接口不提取状态机 状态转换缺陷无法通过接口级用例发现；非法转换这类缺陷 100% 落在状态维度上 接口测试很完整，订单能从「已取消」跳回「待支付」 失败恢复路径不提取 失败路径通常只在文档里占几行，但它对应的代码分支在生产上被执行的次数不为 0 正常路径全绿，异常路径从未被执行过 并发与幂等假设不落到契约 文档里的「应当保证幂等」不是可测语句；不转成具体约束时该项的测试覆盖率为 0 把幂等当成实现细节，直…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-P03#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-P03-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "这一页的验收口径：状态与恢复的覆盖 P03-1 与 P03-2 是本页的核心：状态转换与失败恢复是技术文档中最容易被略过、也最容易出缺陷的两部分。 P03-3 要求非法转换被显式列出——只测合法路径无法发现状态机的漏洞。 编号 测什么 关键指标 复测频率 P03-1 状态覆盖 已识别状态转换的测试覆盖率 = 100%；未覆盖转换数 = 0 每次设计 P03-2 恢复路径 文档声明的失败恢复路径有对应验证的比例 = 100% 每次设计 P03-3 非法转换 非法状态转换被显式列出并验证被拒绝的比例 = 100% 每…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-P03#content_sections.teaching_blocks.4",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-P03-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "技术文档里真正决定测试设计的，是状态与失败恢复而不是接口列表 技术方案通常写得很详细，但详细的部分往往是接口定义；而缺陷更多来自状态转换与失败恢复，这两部分常常只有一两句话。 下面三条是只读接口列表的后果。 失效形态 可核查的数字 它导致的错误结论 只提取接口不提取状态机 状态转换缺陷无法通过接口级用例发现；非法转换这类缺陷 100% 落在状态维度上 接口测试很完整，订单能从「已取消」跳回「待支付」 失败恢复路径不提取 失败路径通常只在文档里占几行，但它对应的代码分支在生产上被执行的次数不为 0 正常路径全绿，异…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-P03#content_sections.teaching_blocks.0",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

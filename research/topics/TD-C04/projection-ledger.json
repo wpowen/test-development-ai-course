@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-C04",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:aaaf4bd4adf91ca356879e00ff96a70118daa53ecd870697ce4f99214a851d52",
+  "page_content_sha256": "sha256:91b32f4ae6506d35537a6b17c3ad75776eb4a5a60b7f2fcb80f2df3e4088b824",
+  "claims": [
+    {
+      "claim_id": "TD-C04-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "知道何时必须 INTERNAL-UNKNOWN；组织映射包含 source、owner、version、effective_from；阈值不再是无范围的通用数字",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-C04#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-C04-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L10-L10",
+      "meaning": "当前适配器是 fixture-tested 可配置模板，不含任何真实公司 policy；live policy、practitioner 复核和 production 结果均 NOT_RUN，不产生职级、晋升或薪资结论。；不要为了让表好看而用外部数据填补空白。一旦有人据此做了晋升判断，纠正成本远高于当初留空。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-C04#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-C04-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "当前适配器是 fixture-tested 可配置模板，不含任何真实公司 policy；live policy、practitioner 复核和 production 结果均 NOT_RUN，不产生职级、晋升或薪资结论。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-C04#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-C04-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "行动：为同一责任状态设计两家组织的不同映射；给一个过期 policy 写 superseded 处理；为一个指标补 denominator、version、owner 和 failure_action 预期：未配置 source_ref/owner/version 时，输出保持 INTERNAL-UNKNOWN 且 failure_action=BLOCK。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-C04#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-C04-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "职级映射是组织的事，任何课程都无权替你的公司决定 P 几 失效形态 可核查的数字 它导致的错误结论 用外部模板直接套内部职级 职级体系由各组织自行定义，跨组织公共基准不存在；套用外部模板时与内部标准的偏差可达 1～2 个 band 按外部模板做了晋升准备，与内部标准完全不对齐 映射没有组织内审批 未经具名 owner 审批的映射不具备效力；用它做决策时的可追责性为 0 拿一份没人认可的对照表去谈晋升 映射没有生效版本与复审周期 组织职级标准会随时间调整；无版本与复审的映射在 1 年后可能已完全失效 沿用一份过期映…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-C04#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-C04-METRIC-01",
+      "manuscript_locator": "manuscript.md:L10-L10",
+      "meaning": "这张图的 8 个节点，本页各交付什么 这张图是一个适配器：左侧是本课程给出的公共责任状态，右侧是你所在组织的职级体系，中间需要组织来源与审批才能连通。 「UNKNOWN/BLOCK」是这张图上最重要的节点——缺来源时它必须被触发，而不是被绕过。 架构节点 本页负责的部分 出口工件 公共责任状态 本课程给出的、与组织无关的责任状态定义 公共责任状态定义 组织来源 组织内正式发布的职级标准文档，作为映射依据 组织来源引用 Owner 审批 由组织内具名 owner 审批该映射 审批记录 生效版本 记录映射依据的标准版…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-C04#content_sections.teaching_blocks.4",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-C04-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "编辑 organization-level-adapter.yaml：组织、source_ref、owner、version、effective_from、四状态映射和阈值 owner。：版本化 Prompt/Eval/Mutation 本页 Prompt 只生成 TD-C04 的结构化候选，不替代 owner、Oracle 或组织政策。 输出必须保留 UNKNOWN、NOT_RUN、BLOCKED 和适用范围。 prompt 读取 TD-C04 的批准 fixture，输出符合 Schema 的候选工件；不得猜…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-C04#content_sections.teaching_blocks.10",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

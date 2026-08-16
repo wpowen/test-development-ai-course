@@ -1,0 +1,143 @@
+{
+  "schema_version": "page-promotion-receipt.v1",
+  "page_id": "TD-AP08",
+  "validated_at": "2026-08-15T14:44:09.109Z",
+  "reviewer": "validation-semantic-parity-verifier-2026-08-13",
+  "page_content_hash": "sha256:d46447a9ca2b05c8ed620a17ce5ef33661efc074a436a6b54012b7f0913edf42",
+  "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
+  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_verdict": "PASS",
+  "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
+  "page_author_id": "course-page-projection-author-2026-08-13",
+  "reviewer_is_independent_of_author": true,
+  "research_package_files": [
+    "research-brief.md",
+    "source-pack.csv",
+    "research-runs.json",
+    "evidence-synthesis.md",
+    "engineering-blueprint.md",
+    "manuscript.md",
+    "comparison.md",
+    "lab-manifest.json",
+    "validation.md",
+    "projection-ledger.json"
+  ],
+  "research_inventory": [
+    {
+      "path": "research-brief.md",
+      "exists": true,
+      "sha256": "sha256:8e22304008662f83e8176382db9d1a87506b72e8e45e0c769a5bcd253f30534d"
+    },
+    {
+      "path": "source-pack.csv",
+      "exists": true,
+      "sha256": "sha256:2a47ccdc0e49b5a2bc09aaf469132aa7c53846772b6cf8a467427d160d3fc7c2"
+    },
+    {
+      "path": "research-runs.json",
+      "exists": true,
+      "sha256": "sha256:6c213a3f7601646db120e0de4c3ce73b5624254a0c4cbb7f16200f6b474b4ba2"
+    },
+    {
+      "path": "evidence-synthesis.md",
+      "exists": true,
+      "sha256": "sha256:a75cea4b40dc62ce7eaeaecf18169b52daddbb646c670930e5f47b877d3d3c6f"
+    },
+    {
+      "path": "engineering-blueprint.md",
+      "exists": true,
+      "sha256": "sha256:7326c72f228945665316bf4aaced34c10496a89c566fabf183a78901828632f6"
+    },
+    {
+      "path": "manuscript.md",
+      "exists": true,
+      "sha256": "sha256:37fd0ca0eb46a61035908c81d218fb9c059824d53b35d187c70ba8a9c19432c9"
+    },
+    {
+      "path": "comparison.md",
+      "exists": true,
+      "sha256": "sha256:84b6f1597500228b10318cac13db1ef7d81bd319c5044839c6cb584aca59a5a9"
+    },
+    {
+      "path": "lab-manifest.json",
+      "exists": true,
+      "sha256": "sha256:ee32a8220ee61ad1842443bc1a532d96e264d4b660ea987fd2f8b24d4fbc3f94"
+    },
+    {
+      "path": "validation.md",
+      "exists": true,
+      "sha256": "sha256:834eb2ffd84bfc140d3bb9da4931912610b397116de10ba37535cf38bea32e5f"
+    },
+    {
+      "path": "projection-ledger.json",
+      "exists": true,
+      "sha256": "sha256:bd62aaf2ec7416f4c6eedf25ea4a25f25cffcdf1cc257b4bed56403f80d9fdfe"
+    }
+  ],
+  "editorial_score": 100,
+  "boundary_preservation_score": 100,
+  "executability_audit_ref": "research/executability-audit.json",
+  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit": {
+    "path": "../../executability-audit.json",
+    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "verdict": "PASS",
+    "finding_count": 0
+  },
+  "material_hashes": {
+    "materials/agent-load-stability.zip": "sha256:78035283735b08d9f79627bf8208bab0aef3834f34a5ff6230ef9a6bd3cb5a1b",
+    "materials/agent-load-stability/guides/TD-AP08.md": "sha256:d414a220e41da7abd0a5b626971ee47d0a947caf90930191fa3e4443b17fe8b9",
+    "materials/agent-load-stability/manifests/TD-AP08-lab.json": "sha256:ad01f0952d9fde85b92824509f7d0de0b76e114cce51daa3d08333b0a9d4c011",
+    "materials/agent-load-stability/profiles/TD-AP08.json": "sha256:a1cbb01db3fd6f1b9b993286f0e675ea0d491d58ab0c1387857d1dde23303d6d",
+    "materials/agent-load-stability/reports/TD-AP08/cycle-summary.json": "sha256:52daeb1af65c6938f58dafcc6b02b97302cedc341659729e935f981e33f17f9b",
+    "materials/agent-load-stability/scripts/agent_performance_lab.py": "sha256:7f532012a40ffc227d9f3ff8509c990185e00b1232d2dcd98605e632fbee5653"
+  },
+  "learner_material_hashes": [
+    {
+      "href": "materials/agent-load-stability.zip",
+      "public_sha256": "sha256:78035283735b08d9f79627bf8208bab0aef3834f34a5ff6230ef9a6bd3cb5a1b",
+      "static_sha256": "sha256:78035283735b08d9f79627bf8208bab0aef3834f34a5ff6230ef9a6bd3cb5a1b",
+      "archive_member_sha256": null,
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/agent-load-stability/guides/TD-AP08.md",
+      "public_sha256": "sha256:d414a220e41da7abd0a5b626971ee47d0a947caf90930191fa3e4443b17fe8b9",
+      "static_sha256": "sha256:d414a220e41da7abd0a5b626971ee47d0a947caf90930191fa3e4443b17fe8b9",
+      "archive_member_sha256": "sha256:d414a220e41da7abd0a5b626971ee47d0a947caf90930191fa3e4443b17fe8b9",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/agent-load-stability/manifests/TD-AP08-lab.json",
+      "public_sha256": "sha256:ad01f0952d9fde85b92824509f7d0de0b76e114cce51daa3d08333b0a9d4c011",
+      "static_sha256": "sha256:ad01f0952d9fde85b92824509f7d0de0b76e114cce51daa3d08333b0a9d4c011",
+      "archive_member_sha256": "sha256:ad01f0952d9fde85b92824509f7d0de0b76e114cce51daa3d08333b0a9d4c011",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/agent-load-stability/profiles/TD-AP08.json",
+      "public_sha256": "sha256:a1cbb01db3fd6f1b9b993286f0e675ea0d491d58ab0c1387857d1dde23303d6d",
+      "static_sha256": "sha256:a1cbb01db3fd6f1b9b993286f0e675ea0d491d58ab0c1387857d1dde23303d6d",
+      "archive_member_sha256": "sha256:a1cbb01db3fd6f1b9b993286f0e675ea0d491d58ab0c1387857d1dde23303d6d",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/agent-load-stability/reports/TD-AP08/cycle-summary.json",
+      "public_sha256": "sha256:52daeb1af65c6938f58dafcc6b02b97302cedc341659729e935f981e33f17f9b",
+      "static_sha256": "sha256:52daeb1af65c6938f58dafcc6b02b97302cedc341659729e935f981e33f17f9b",
+      "archive_member_sha256": "sha256:52daeb1af65c6938f58dafcc6b02b97302cedc341659729e935f981e33f17f9b",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/agent-load-stability/scripts/agent_performance_lab.py",
+      "public_sha256": "sha256:7f532012a40ffc227d9f3ff8509c990185e00b1232d2dcd98605e632fbee5653",
+      "static_sha256": "sha256:7f532012a40ffc227d9f3ff8509c990185e00b1232d2dcd98605e632fbee5653",
+      "archive_member_sha256": "sha256:7f532012a40ffc227d9f3ff8509c990185e00b1232d2dcd98605e632fbee5653",
+      "closure_verdict": "PASS"
+    }
+  ],
+  "verdict": "FAIL",
+  "findings": [
+    "independent editorial review does not pin current page content hash"
+  ]
+}

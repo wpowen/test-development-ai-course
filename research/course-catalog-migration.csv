@@ -1,0 +1,271 @@
+source_catalog,source_id,source_title,canonical_ids,relation,source_delivery_status,source_evidence_maturity,coverage_decision,notes
+topic-system-105,TD-000,AI 时代测试开发的责任边界,TD-000,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-001,测试对象为什么从代码扩展到 AI 系统,TD-001,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-002,传统测试能力入场检查,TD-002,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-003,三条岗位路线,TD-003,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-101,需求可测性与验收条件,TD-101,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-102,风险驱动测试策略,TD-102,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-103,用例设计与 Oracle,TD-103,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-104,测试数据与环境,TD-104,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-105,自动化分层,TD-105,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-106,执行、证据与缺陷诊断,TD-106,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-107,发布、Waiver 与回滚,TD-107,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-108,生产质量闭环,TD-108,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-201,从训练到推理,TD-201,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-202,Token、Context 与 Attention,TD-202,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-203,概率生成与采样,TD-203,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-204,Prompt 与结构化输出,TD-204,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-205,Embedding 与向量检索,TD-205,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-206,RAG 最小架构,TD-206,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-207,Tool Calling,TD-207,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-208,Agent、Worker 与 Workflow,TD-208,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-209,Memory、State 与 Trace,TD-209,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-210,AI 能力边界,TD-210,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-301,AI 解析 PRD,TD-301,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-302,AI 审查架构与代码 Diff,TD-302,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-303,AI 生成测试场景,TD-303,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-304,AI 生成边界、组合与 Fuzz 数据,TD-304,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-305,AI 生成单元与组件测试,TD-305,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-306,AI 生成 API/契约测试,TD-306,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-307,AI 生成 UI/E2E 测试,TD-307,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-308,AI 测试 Agent,TD-308,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-309,AI 分析失败与日志,TD-309,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-310,AI 生成发布报告,TD-310,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-401,LLM 测试任务定义,TD-401,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-402,确定性与语义 Oracle,TD-402,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-403,事实性、相关性与完整性,TD-403,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-404,拒答与安全边界,TD-404,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-405,Prompt/模型 A/B,TD-405,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-406,多轮与长上下文,TD-406,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-407,LLM-as-Judge 校准,TD-407,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-408,非确定性与统计结论,TD-408,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-501,知识库数据质量,TD-501,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-502,检索召回,TD-502,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-503,重排与上下文选择,TD-503,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-504,回答忠实性与引用,TD-504,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-505,无答案与冲突知识,TD-505,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-506,多租户与权限过滤,TD-506,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-507,RAG 性能与成本,TD-507,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-508,RAG 回归与线上反馈,TD-508,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-601,Agent 测试分层,TD-601,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-602,工具选择与参数,TD-602,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-603,权限与副作用,TD-603,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-604,状态与并发隔离,TD-604,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-605,循环、重试与终止,TD-605,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-606,Handoff 与多 Agent,TD-606,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-607,Human-in-the-loop,TD-607,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-608,Agent 安全,TD-608,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-609,Browser/Computer-use Agent,TD-609,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-610,Agent 回归与 Benchmark,TD-610,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-701,AI API 协议特点,TD-701,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-702,TTFT、ITL/TPOT 与 E2E,TD-702,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-703,Token 与请求吞吐,TD-703,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-704,Prefill、Decode、Batch 与 KV Cache,TD-704,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-705,工作负载建模,TD-705,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-706,LLM Serving 压测工具,TD-706,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-707,容量、Goodput 与成本,TD-707,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-708,限流、超时、重试和降级,TD-708,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-AP01,为什么 Agent 压测不是 API 压测,TD-AP01,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-AP02,Agent 指标体系,TD-AP02,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-AP03,Agent 负载模型与数据集,TD-AP03,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-AP04,Trace 与可观测数据结构,TD-AP04,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-AP05,压测系统架构与工具选型,TD-AP05,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-AP06,Agent 压测 SOP,TD-AP06,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-AP07,诊断队列、重试与成本放大,TD-AP07,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-AP08,线上 SLO、告警与稳定性 Runbook,TD-AP08,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-901,AI 威胁建模,TD-901,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-902,Prompt Injection,TD-902,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-903,数据泄露与隐私,TD-903,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-904,Excessive Agency,TD-904,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-905,多租户隔离,TD-905,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-906,供应链与模型依赖,TD-906,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-907,安全评测与红队,TD-907,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-908,混沌、降级与灾备,TD-908,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1001,从业务风险到 Eval Task,TD-1001,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1002,数据采样与代表性,TD-1002,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1003,标注与冲突处理,TD-1003,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1004,Dev、Regression 与 Holdout,TD-1004,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1005,Scorer 与聚合,TD-1005,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1006,不确定性与显著性,TD-1006,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1007,污染与泄漏,TD-1007,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1008,Harness 与协议敏感性,TD-1008,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1009,公共 Benchmark 解读,TD-1009,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1010,企业内部 Benchmark,TD-1010,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1101,AI 版本与 Lineage,TD-1101,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1102,Eval 接入 CI/CD,TD-1102,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1103,质量—延迟—成本联合门禁,TD-1103,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1104,AI Trace 与生产反馈,TD-1104,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1105,在线质量监控与漂移,TD-1105,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1106,告警、Waiver 与回滚,TD-1106,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1107,评测平台数据模型,TD-1107,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1108,质量治理与审计,TD-1108,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1201,AI 辅助测试项目,TD-1201,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1202,RAG 质量项目,TD-1202,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1203,Agent 质量项目,TD-1203,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1204,AI 质量平台项目,TD-1204,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+topic-system-105,TD-1205,岗位能力与作品集,TD-1205,canonical-source,planned,unmeasured,retain,source topic remains canonical; publication requires an independent package
+gap-audit-12,TD-X101,静态测试、架构、代码与依赖质量,TD-X101,canonical-gap,gap,unmeasured,add-gap-and-research,not complete; evidence and split decision required
+gap-audit-12,TD-X102,数据库、数据管道与迁移质量,TD-X102,canonical-gap,gap,unmeasured,add-gap-and-research,not complete; evidence and split decision required
+gap-audit-12,TD-X103,Web 兼容、可访问性与本地化质量,TD-X103,canonical-gap,gap,unmeasured,add-gap-and-research,not complete; evidence and split decision required
+gap-audit-12,TD-X104,Android 质量工程,TD-X104,canonical-gap,gap,unmeasured,add-gap-and-research,not complete; evidence and split decision required
+gap-audit-12,TD-X105,iOS 质量工程,TD-X105,canonical-gap,gap,unmeasured,add-gap-and-research,not complete; evidence and split decision required
+gap-audit-12,TD-X501,多模态 AI 评测,TD-X501,canonical-gap,gap,unmeasured,add-gap-and-research,not complete; evidence and split decision required
+gap-audit-12,TD-X502,多语言、可访问性与包容性 AI 评测,TD-X502,canonical-gap,gap,unmeasured,add-gap-and-research,not complete; evidence and split decision required
+gap-audit-12,TD-X601,公平性、伤害与人类监督有效性,TD-X601,canonical-gap,gap,unmeasured,add-gap-and-research,not complete; evidence and split decision required
+gap-audit-12,TD-X602,训练、Fine-tuning 与模型更新质量,TD-X602,canonical-gap,gap,unmeasured,add-gap-and-research,not complete; evidence and split decision required
+gap-audit-12,TD-X603,长期 Memory、个性化与语义缓存质量,TD-X603,canonical-gap,gap,unmeasured,add-gap-and-research,not complete; evidence and split decision required
+gap-audit-12,TD-X604,模型路由、Provider Fallback 与工具协议漂移,TD-X604,canonical-gap,gap,unmeasured,add-gap-and-research,not complete; evidence and split decision required
+gap-audit-12,TD-X805,在线实验、Canary 与人工抽样评审,TD-X805,canonical-gap,gap,unmeasured,add-gap-and-research,not complete; evidence and split decision required
+curriculum-46,TD-BASE-01,传统研发测试流程与 AI 变化点,TD-000;TD-002,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-BASE-02,测试设计、Oracle 与 Mutation 入场考核,TD-103,alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-BASE-03,自动化工具链、Trace、CI 与发布基线,TD-105;TD-106;TD-107,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-FOUND-01,大模型从数据、训练到推理和监控,TD-201,alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-FOUND-02,Token、Attention、Context 与概率生成,TD-202;TD-203,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-FOUND-03,Embedding、RAG、Tool call 与 Agent loop,TD-205;TD-206;TD-207;TD-208;TD-209,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-FOUND-04,大模型能力边界与 AI 测试对象,TD-001;TD-210,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-01,用 AI 从 PRD/代码 Diff 建立风险模型,TD-301;TD-302,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-02,AI 生成自动化测试，但必须证明它会失败,TD-303;TD-305;TD-306;TD-307,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-03,用 AI 读 Trace/Log/Diff 做失败归因,TD-309,alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-04,AI 生成属性、边界和 Fuzz 数据,TD-304,alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-EVAL-01,Eval 数据集、Dataset card、切片与 Holdout,TD-1001;TD-1002;TD-1003;TD-1004,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-EVAL-02,Scorer、Rubric、LLM Judge 与人工校准,TD-402;TD-407;TD-1003;TD-1005,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-05,LLM 评测基础：黄金集、Rubric 与阈值,TD-401;TD-402;TD-403;TD-404;TD-407;TD-408,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,td-ai-006-rag-eval-ci,RAG 分层评测：检索、回答、引用与忠实性,TD-501;TD-502;TD-503;TD-504;TD-505;TD-506;TD-507;TD-508,split-alias,fixture-tested,fixture-tested,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-07,Prompt/模型/知识库 A/B 与版本回归,TD-405;TD-508,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-09,LLM/RAG/Agent 安全红队,TD-404;TD-608;TD-901;TD-902;TD-903;TD-904;TD-907,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-10,多模态 AI 的文档与截图评测,TD-X501,alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-08,Agent 评测：最终结果、单步与轨迹,TD-601;TD-602;TD-604;TD-605,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-11,Playwright Planner/Generator/Healer,TD-308;TD-609,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-12,Browser/API Agent 沙箱、工具与权限,TD-603;TD-608;TD-609,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-13,自愈测试的反作弊门禁,TD-308;TD-305,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-14,Worker Workflow 与多 Agent 测试流水线,TD-606;TD-607;TD-610,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-15,评测集、Prompt、模型与工具版本管理,TD-1101,alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-16,把 AI 评测接进 CI/CD,TD-1102;TD-1103,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-17,Trace、线上反馈与回归集闭环,TD-1104;TD-1105,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-18,质量、成本、延迟与稳定性联合评估,TD-1103;TD-707,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-19,漂移、告警、Waiver、回滚与事故演练,TD-1105;TD-1106,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-BENCH-01,Benchmark 数据如何构造：任务、样本、标注与 Holdout,TD-1001;TD-1002;TD-1003;TD-1004,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-BENCH-02,Benchmark 分数如何产生：Harness、Prompt、Scorer 与聚合,TD-1005;TD-1008,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-BENCH-03,Benchmark 可信度：置信区间、方差、污染与可比性,TD-1006;TD-1007,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-BENCH-04,从公开榜单到企业内部 Benchmark,TD-1009;TD-1010,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-BASE-04,需求文档解析、可测试性与双向追踪,TD-101;TD-301,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-BASE-05,风险策略、测试层级与发布完成标准,TD-102;TD-107,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-BASE-06,测试数据、环境、依赖隔离与可重放,TD-104,alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-BASE-07,API、契约、集成与事件驱动测试,TD-105;TD-306,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-BASE-08,UI、兼容性、可访问性与用户旅程,TD-X103;TD-X104;TD-X105,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-BASE-09,性能、负载、容量、长稳与成本,TD-702;TD-703;TD-705;TD-707,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-BASE-10,可靠性、安全、可观测性、灾备与混沌,TD-901;TD-908;TD-1104;TD-1106,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-21,AI 接口服务：Streaming、结构化输出、工具与异步合同,TD-701,alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-22,AI 性能指标：TTFT、TPOT、ITL、Goodput 与成本,TD-702;TD-703;TD-707,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-23,AI 压测、容量拐点与瓶颈诊断,TD-704;TD-705;TD-706;TD-707,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-24,AI 服务稳定性：限流、超时、重试、Fallback 与降级,TD-708;TD-908,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-25,AI Serving 可观测性：Trace、Queue、GPU 与 KV Cache,TD-704;TD-1104;TD-1105,split-alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-26,测试职业演进：从执行者到 AI Quality Engineer,TD-1205,alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+curriculum-46,TD-AI-20,AI QE 平台 Capstone,TD-1204,alias,planned,unmeasured,migrate-without-promotion,legacy contract preserved as alias
+site-107,TD-F01,先重建测试开发这份工作，再判断 AI 应该改哪里,TD-000;TD-002,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-P01,先冻结测试依据：别让 AI 读一堆互相打架的文档,TD-101;TD-301,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-P02,把自然语言变成需求契约：让下游程序能直接消费,TD-301,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-P03,解析技术文档：把组件、接口、状态与失败恢复变成可测试契约,TD-101;TD-301,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-P04,从需求契约到风险策略：决定测什么、在哪一层测,TD-102,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-P05,生成测试之前先固定 Oracle：否则 AI 只会生成自洽答案,TD-103;TD-402,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-P06,把测试包接到自动化：接口、契约、集成和 UI 各自负责什么,TD-105;TD-305;TD-306;TD-307,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-P07,执行、收集、归因：一次绿色结果需要哪些证据,TD-106;TD-309,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-P08,变更回归与发布判断：把整条证据链串起来,TD-107;TD-108;TD-310,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-PS01,API 业务契约：从 HTTP 结果到可验证副作用,TD-306;TD-701,split-or-merge-alias,desk-researched,desk-researched,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-PS02,OpenAPI Schema 与属性测试：让坏请求和破坏性变更变红,TD-306,alias,desk-researched,desk-researched,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-PS03,契约、事件与鉴权：测试跨服务边界的真实兼容性,TD-306;TD-602;TD-603,split-or-merge-alias,desk-researched,desk-researched,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-PS04,Web UI 关键旅程：隔离、定位器、网络控制与跨浏览器,TD-307;TD-X103,split-or-merge-alias,desk-researched,desk-researched,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-PS05,Web UI 兼容性、无障碍与视觉回归,TD-X103,alias,desk-researched,desk-researched,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-PS06,Android 自动化：生命周期、同步、权限与设备矩阵,TD-X104,alias,desk-researched,desk-researched,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-PS07,iOS 自动化：可访问性标识、权限、签名与状态残留,TD-X105,alias,desk-researched,desk-researched,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-PS08,数据与迁移：Schema 演进、回填、CDC 与回滚对账,TD-X102,alias,desk-researched,desk-researched,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-PS09,性能与容量：到达率、尾延迟、Goodput 与单位成功成本,TD-702;TD-703;TD-707,split-or-merge-alias,desk-researched,desk-researched,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-PS10,稳定性：超时、重试预算、熔断、限流与降级,TD-708;TD-908,split-or-merge-alias,desk-researched,desk-researched,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-PS11,线上可观测性：把 AI 质量、Trace、成本和 SLO 接成一条链,TD-1104;TD-1105,split-or-merge-alias,desk-researched,desk-researched,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-PS12,安全测试：身份、授权、输入、秘密与跨租户副作用,TD-1106,alias,desk-researched,desk-researched,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-QP01,Jira 需求事件：从 Basis Gate 到人工批准,TD-301;TD-1102;TD-1107,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-QP02,GitLab MR 与 Pipeline：把 JUnit 证据绑定到当前 SHA,TD-1102;TD-1107,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-QP03,Kubernetes 临时测试环境：隔离、回收与审计,TD-1102;TD-1108,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-QP04,跨系统事件总线：幂等、重放、脱敏通知与审计闭环,TD-1104;TD-1107,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-X101,静态、架构、代码与依赖供应链门禁,TD-X101,alias,fixture-tested,fixture-tested,deliver-canonical-page,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-S01,接口、契约、集成与事件测试,TD-306;TD-701,split-or-merge-alias,outlined,unmeasured,rebuild-under-canonical-topic,currently internal outlined page
+site-107,TD-S02,UI、兼容性、可访问性与数据质量,TD-X103;TD-X104;TD-X105,split-or-merge-alias,outlined,unmeasured,rebuild-under-canonical-topic,currently internal outlined page
+site-107,TD-S03,性能、负载、容量与长稳测试,TD-702;TD-703;TD-705;TD-707,split-or-merge-alias,outlined,unmeasured,rebuild-under-canonical-topic,currently internal outlined page
+site-107,TD-S04,可靠性、安全、可观测性、容灾与混沌,TD-901;TD-908;TD-1104;TD-1106,split-or-merge-alias,outlined,unmeasured,rebuild-under-canonical-topic,currently internal outlined page
+site-107,TD-FP01,Prompt 小白第一课：从一句指令到可验证 Prompt Package,TD-001;TD-301,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-F02,模型生命周期：一次错误究竟来自哪里,TD-201,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-F03,Token、Context 与非确定性：为什么一次 PASS 不够,TD-202;TD-203,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-F04,从 LLM 到 RAG、Agent 与 Workflow：被测边界如何扩张,TD-205;TD-206;TD-207;TD-208;TD-209;TD-210,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-X602,训练、Fine-tuning 与模型更新的版本化验收,TD-X602,alias,fixture-tested,fixture-tested,deliver-canonical-page,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-A01,普通 API 与 AI API：从确定性响应到版本化生成服务,TD-701,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-A02,AI API 协议：Streaming、Structured、Tool 与 Async,TD-701,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-A03,AI Serving 指标：TTFT、TPOT、ITL、Goodput 与单位成功成本,TD-702;TD-703;TD-707,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-A04,AI Serving 负载与容量：从 Token 分布到 SLO 拐点,TD-705;TD-706;TD-707,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-A05,AI Serving 瓶颈：Queue、GPU、KV Cache 与阶段诊断,TD-704,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-A06,AI Serving 韧性：限流、Timeout、Retry、Fallback 与 Degradation,TD-708,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T01,Eval Contract：先写发布问题，再选指标,TD-001;TD-210,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T02,Dataset、Slice 与 Holdout：让评测不会越调越假,TD-206;TD-208,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T03,Composite Oracle：规则、语义 Judge 与人工如何组合,TD-402;TD-408,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T04,重复运行与统计：从一次结果到可解释分布,TD-401;TD-1001;TD-1002;TD-1004,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T05,从冻结 Basis 与代码 Diff 提取可追溯风险,TD-301;TD-302,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T06,AI 生成测试候选，用 Mutation 证明检测力,TD-303;TD-305,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T07,按失败模型选择 Boundary、Combination、Property 与 Fuzz,TD-304,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T08,AI 聚类失败，但原始证据和 UNKNOWN 不能丢,TD-309,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T09,RAG 语料治理：来源、版本、分块与权限,TD-401;TD-402;TD-403;TD-404,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T10,检索评测：Recall、Ranking 与查询切片,TD-501;TD-502;TD-503,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T11,Faithfulness 与 Citation：回答真的被证据支持吗,TD-403;TD-404;TD-504;TD-505,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T12,无答案、权限与端到端 RAG Gate,TD-501;TD-502;TD-503;TD-504;TD-505;TD-506;TD-507;TD-508,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-X501,多模态关系与独立 Oracle 评测,TD-X501,alias,fixture-tested,fixture-tested,deliver-canonical-page,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-X502,多语言、可访问与包容性 AI 任务验收,TD-X502,alias,fixture-tested,fixture-tested,deliver-canonical-page,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T13,Prompt、模型和知识库版本 A/B,TD-405;TD-508,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T14,LLM-as-judge 的校准和反例,TD-407,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T15,最终结果、单步动作和完整轨迹,TD-601,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T16,工具选择、参数和权限,TD-602;TD-603,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T17,Prompt injection、数据泄露和 Excessive Agency,TD-901;TD-902;TD-903;TD-904;TD-907,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T18,Browser Agent 和 Playwright Test Agents,TD-609,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T19,自愈测试为什么会误修绿,TD-305;TD-308,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-W01,先区分 Agent、Worker 和固定 Workflow,TD-208;TD-601,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-W02,测试状态、循环、重试、Handoff 和终止条件,TD-604;TD-605;TD-606;TD-607,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-W03,单 Agent 与多 Agent 的公平对照,TD-606;TD-610,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-X601,公平、伤害与 HITL 有效性门禁,TD-X601,alias,fixture-tested,fixture-tested,deliver-canonical-page,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-X603,长期 Memory、个性化与语义缓存治理,TD-X603,alias,fixture-tested,fixture-tested,deliver-canonical-page,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-X604,模型路由、Fallback 与工具协议漂移测试,TD-X604,alias,fixture-tested,fixture-tested,deliver-canonical-page,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T20,CI 分层门禁：让坏 AI 版本真的停下来,TD-1102,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T21,Lineage：每个分数都能回到当时的版本,TD-1101,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T22,Trace-to-Regression：把生产失败变成不会复发的用例,TD-1104;TD-1105,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T23,质量、延迟与成本：联合 Gate 而不是一个综合分,TD-1103,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T24,漂移、Waiver 与回滚：质量系统的恢复闭环,TD-1105;TD-1106,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-X805,在线实验、Canary 与人工抽样发布门禁,TD-X805,alias,fixture-tested,fixture-tested,deliver-canonical-page,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-B01,Benchmark 流水线：总分背后有七个可变组件,TD-1001;TD-1005,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-B02,Dataset、Split 与 Sealed Holdout：防止越调越假,TD-1002;TD-1003;TD-1004,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-B03,Metrics 与区间：Accuracy、Pass@k、Resolved Rate 不能混讲,TD-1005;TD-1006,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-B04,Harness 敏感性：固定模型，一次只改一个协议变量,TD-1008,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-B05,污染与不确定性：隐藏测试也不是万能证明,TD-1006;TD-1007,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-B06,公共到企业：把 Benchmark 方法迁移到业务风险,TD-1009;TD-1010,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T25,Capstone：交付 AI Quality Fixture Release Candidate,TD-1204,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-C01,职业能力迁移：岗位路径、自评证据与作品集边界,TD-1205,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-C02,责任证据梯：从跟做测试到质量治理,TD-003;TD-1205,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-C03,能力自评与 30/60/90 天证据计划,TD-003;TD-1205,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-C04,组织职级适配器：P5–P9 不能由 Skill 猜,TD-003,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-F05,AI 任务族与指标选择：先问任务，再选 F1 或 QPS,TD-1001;TD-1002;TD-1003;TD-1004,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-T26,AI 生成测试用例提效：用 Mutation 证明不是批量幻觉,TD-308;TD-310,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-R01,资源与学习路线：会更新的索引，不是盲目书单,TD-1205,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AP01,先建工作负载模型：Task 不是 HTTP Request,TD-AP01,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AP02,建立指标树：TTFT、TPOT、Queue、Retry、Step,TD-AP02,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AP03,锁定 Trace 语义：从 Task Root 到 Tool Attempt,TD-AP03,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AP04,对照开放与封闭负载：识别 Coordinated Omission,TD-AP04,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AP05,寻找容量边界并归因瓶颈：只报告 Synthetic Goodput,TD-AP05,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AP06,约束超时与重试：压力下安全降级,TD-AP06,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AP07,运行长稳测试：识别资源泄漏与漂移,TD-AP07,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AP08,把结果接入 SLO、告警与事故证据,TD-AP08,alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AG-00,Agent 测试架构总览：先画边界，再选测试,TD-601;TD-602,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AG-01,D0 评估可信：先测试 Judge，再相信分数,TD-407;TD-1005,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AG-02,D1 轨迹 span：从最终结果追到首个错误,TD-601;TD-602,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AG-03,D2 编排：交接、隔离、级联和熔断,TD-603;TD-604;TD-605,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AG-04,D3 人机协同：中断、接管与确认疲劳,TD-606;TD-607,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AG-05,D4 可靠性分布：pass@k、pass^k 与长时程衰减,TD-610;TD-1006,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AG-06,D5 持续安全：注入、MCP 投毒、委托、沙箱与爆炸半径,TD-901;TD-902;TD-903;TD-904;TD-907,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AG-07,D6 经济性：任务、步骤、尾延迟与成本预算,TD-702;TD-703;TD-707,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AG-08,D7 业务治理：规则、审计、四维版本与 ROI,TD-1101;TD-1103;TD-1104,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AG-09,四证据环与三段门禁：从 CI 走到持续评估,TD-1105;TD-X805,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate
+site-107,TD-AG-10,高风险适配器：交易/金融 Agent 的时效、执行与能力沙箱,TD-907;TD-908,split-or-merge-alias,fixture-tested,fixture-tested,rebuild-under-canonical-topic,currently in 103-page public projection; public visibility is not a completion gate

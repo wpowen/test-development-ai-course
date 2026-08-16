@@ -1,0 +1,13 @@
+{
+  "version":"1.1.0",
+  "evidence_boundary":"PASS-FIXTURE applies only to the locally executed deterministic fixture. The model/provider execution remains NOT_RUN and must not be inferred from the fixture result.",
+  "links":[
+    {"id":"S-PRD-R17","kind":"source","version":"PRD-v3","status":"ACCEPTED","owner":"product-owner-order","hash":"fixture-prd-v3"},
+    {"id":"C-CANCEL","kind":"claim","status":"ACCEPTED","refs":["S-PRD-R17"],"owner":"product-owner-order"},
+    {"id":"R-INVALID-STATE","kind":"risk","status":"ACCEPTED","refs":["C-CANCEL"],"owner":"test-lead"},
+    {"id":"M-STATE-ORACLE","kind":"method","status":"ACCEPTED","refs":["R-INVALID-STATE"],"owner":"test-lead"},
+    {"id":"O-STATE-RESPONSE","kind":"oracle","status":"ACCEPTED","refs":["M-STATE-ORACLE"],"owner":"test-lead"},
+    {"id":"CASE-SHIPPED","kind":"case","status":"ACCEPTED","refs":["O-STATE-RESPONSE","C-CANCEL"],"owner":"test-lead"},
+    {"id":"RESULT-SHIPPED","kind":"result","status":"PASS-FIXTURE","refs":["CASE-SHIPPED","O-STATE-RESPONSE"],"owner":"test-lead","run_receipt":"research/solution-architecture/receipts/td-p02-fixture-20260811.json","model_execution_status":"NOT_RUN","model_receipt":"courses/td-ai-011-requirements-to-evidence/lab/receipts/baseline.json"}
+  ]
+}

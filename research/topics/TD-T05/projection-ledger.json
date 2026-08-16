@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T05",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:465a6fb280f3e05b066697248ace71ca103ade942d5562033d7d3174d35c2ea2",
+  "page_content_sha256": "sha256:423223449e54b0b2e3562a6c726f13fc669683a86e8fb13673abe3d07cf1ebf5",
+  "claims": [
+    {
+      "claim_id": "TD-T05-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "每条候选能回到 requirement/diff/oracle/owner；缺证据与冲突不会被模型补成事实；能区分直接 diff 与完整影响面",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T05#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T05-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L25-L25",
+      "meaning": "AI 输出始终是候选。需求、Oracle、权限、因果结论与发布决定必须来自独立证据和具名 owner；缺证据时保留 UNKNOWN/BLOCKED。；不要用模型自己检查引用是否存在。引用存在性是确定性检查，应当用程序校验 source_ref 是否在当前 baseline 中。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T05#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T05-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L22-L22",
+      "meaning": "12 个打开来源与两次独立研究 run 支持方法边界；确定性 fixture 已通过 0→2→0。真实模型、企业仓库影响召回、从业者复核和生产发布均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T05#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T05-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L8-L8",
+      "meaning": "行动：为一个小变更建立四类冻结输入与哈希；运行 0→2→0 并解释为何 fault 必须非零；补一条来源冲突，验证输出保留双方而非自动合并 预期：Prompt 输出保持 CANDIDATE 或明确 stop state；不得自建 Oracle、自批根因或把缺失字段补成事实。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T05#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T05-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "让 AI 读需求提风险，最先坏掉的不是准确率，是可追溯性 失效形态 可核查的数字 它导致的错误结论 风险候选不带原文引用 无引用的候选无法在 1 次抽查内被证伪，复核成本反而高于人工重读全文 把 AI 的措辞自信度当成依据强度，把「可能存在并发问题」写进测试设计 模型编造了 PRD 里没有的业务政策 虚构政策在生成结果中的占比虽低，但它拦截率必须是 100%——放过 1 条就足以让整份测试设计建立在假前提上 为一条不存在的退款规则设计了 12 条用例，评审时无人发现 Basis 未冻结就反复生成 需求文档在一次迭…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T05#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T05-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "让 AI 读需求提风险，最先坏掉的不是准确率，是可追溯性 AI 从 PRD 和代码 Diff 里提风险，产出速度比人快一个量级。问题从来不在它提得少，而在于它提的东西你无法核对——一份没有引用的风险清单，和一份凭印象写的风险清单，可信度是一样的。 下面三条是这类任务真实的失败形态。它们的共同特征是：产出看起来专业，且不会报错。 失效形态 可核查的数字 它导致的错误结论 风险候选不带原文引用 无引用的候选无法在 1 次抽查内被证伪，复核成本反而高于人工重读全文 把 AI 的措辞自信度当成依据强度，把「可能存在并发问…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T05#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T05-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L14-L14",
+      "meaning": "把 PRD、设计、Diff 与 Oracle 分开解读：Fault 预期退出 2 故障删除审计风险的 diff_ref，并注入不存在的 SLA/Oracle。结构看似合理，但独立引用门禁必须 BLOCKED。 Fault 命令的非零退出码是预期证据，不得用 `|| true`、改 expected 或吞异常伪造绿色。若实际退出 0，说明检测链失效。 command python3 ai_assisted_lab.py run --topic TD-T05 --phase fault --report report…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T05#content_sections.teaching_blocks.12",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

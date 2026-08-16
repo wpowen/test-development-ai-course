@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-W02",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:2df1403f700c76c728d7d0ff30e7bd76c556d91b5bd0803a85d3079a6c806634",
+  "page_content_sha256": "sha256:1175df556f8d92a2725a5d4d14846aa8835ec2d455caa8d0e3dd5873e02eefda",
+  "claims": [
+    {
+      "claim_id": "TD-W02-DECISION-01",
+      "manuscript_locator": "manuscript.md:L19-L19",
+      "meaning": "安全和权限先于可写副作用；fault 稳定变红且 repair 重新变绿；模型不批准自己的期望，人工 owner 和 NOT_RUN 边界明确",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-W02#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-W02-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L27-L27",
+      "meaning": "安全、身份和权限检查必须先于任何可写副作用；被测模型、Judge 或 healer 不能批准自己的期望。；删除 Oracle、改变 expected、扩大权限、增加预算或无限重试都属于制造假绿。；演练要在独立队列上做。共享队列上注入崩溃会影响其他消费者，也会污染结果。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-W02#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-W02-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L25-L25",
+      "meaning": "来源支持应用评测和级联失败控制；故障注入脚本为教学形状，队列语义、事务边界和恢复机制需按目标平台验证。 本页新增证据仅为确定性离线 fixture；真实模型、浏览器、工具、队列、组织审批和从业者评审均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-W02#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-W02-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L19-L19",
+      "meaning": "行动：运行 TD-W02 的 0/1/0 fixture 并解释命名 Oracle；检查 Prompt/Input/Schema/Eval/Mutation 的版本闭包；写出一个不同业务对象的权限、故障和 rollback 预期：固定 input、Schema、eval 和 mutation 已绑定；模型执行仍为 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-W02#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-W02-TABLE-01",
+      "manuscript_locator": "manuscript.md:L27-L27",
+      "meaning": "长流程最贵的失败不是做错，是不停下来 失效形态 可核查的数字 它导致的错误结论 没有步数、时间、成本三重熔断 缺熔断时失控循环可以持续很久：公开案例中出现过 Agent 在对账任务里连续运行 11 天 把「还在处理中」当成正常状态，账单出来才发现 重试机制没有幂等保护 队列的至少一次投递语义下，缺幂等键的 Worker 重复执行是必然而非偶然；1 次重复扣款即构成资金事故 把重复扣款归因为「偶发 bug」，实际是投递语义的必然结果 交接时信息丢失 每经过 1 跳交接就损失一部分上下文；走完 3 跳后源头埋入的 5…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-W02#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-W02-METRIC-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "长流程最贵的失败不是做错，是不停下来 短流程的失败会很快暴露。长流程的失败可以持续很久而没人发现，因为它看起来还在工作——这类失败的成本按时间累积，而不是按次数累积。 下面三条按成本递增排列。 失效形态 可核查的数字 它导致的错误结论 没有步数、时间、成本三重熔断 缺熔断时失控循环可以持续很久：公开案例中出现过 Agent 在对账任务里连续运行 11 天 把「还在处理中」当成正常状态，账单出来才发现 重试机制没有幂等保护 队列的至少一次投递语义下，缺幂等键的 Worker 重复执行是必然而非偶然；1 次重复扣款即…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-W02#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-W02-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L27-L27",
+      "meaning": "长流程最贵的失败不是做错，是不停下来 短流程的失败会很快暴露。长流程的失败可以持续很久而没人发现，因为它看起来还在工作——这类失败的成本按时间累积，而不是按次数累积。 下面三条按成本递增排列。 失效形态 可核查的数字 它导致的错误结论 没有步数、时间、成本三重熔断 缺熔断时失控循环可以持续很久：公开案例中出现过 Agent 在对账任务里连续运行 11 天 把「还在处理中」当成正常状态，账单出来才发现 重试机制没有幂等保护 队列的至少一次投递语义下，缺幂等键的 Worker 重复执行是必然而非偶然；1 次重复扣款即…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-W02#content_sections.teaching_blocks.0",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

@@ -1,0 +1,48 @@
+{
+  "topic_id": "TD-T20",
+  "runs": [
+    {
+      "run_id": "TD-T20-architecture-20260811",
+      "route": "architecture-primary-docs",
+      "status": "opened-sources-synthesized",
+      "source_refs": [
+        "W3-01",
+        "W3-02",
+        "W3-03",
+        "W3-04",
+        "W3-05",
+        "W3-06",
+        "W3-07",
+        "W3-08"
+      ]
+    },
+    {
+      "run_id": "TD-T20-measurement-20260811",
+      "route": "measurement-failure-counterevidence",
+      "status": "opened-sources-synthesized",
+      "source_refs": [
+        "W3-05",
+        "W3-06",
+        "W3-07",
+        "W3-08",
+        "W3-09",
+        "W3-10",
+        "W3-11",
+        "W3-12"
+      ]
+    }
+  ],
+  "comparison": {
+    "reviewer": "independent-validation-contract-reviewer",
+    "input_run_ids": [
+      "TD-T20-architecture-20260811",
+      "TD-T20-measurement-20260811"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "ACCEPT-WITH-FIXTURE-BOUNDARY"
+  },
+  "limitations": [
+    "真实云 CI、企业审批和模型执行未运行。",
+    "No live model or enterprise run"
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "research_id": "AI-TEST-EXPERT-INPUT-20260812",
+  "profession_id": "test-development-ai",
+  "as_of": "2026-08-12",
+  "lane": "research",
+  "request_type": "expert-input-reconciliation-and-curriculum-gap-research",
+  "objective": "把测试开发专家提出的 AI 测试指标、能力前置、LLM/RAG/Judge/Agent 压测、AI 辅助测试、Skill/MCP、Benchmark 与数据标注要求，转成可被 factory 和 course 消费的证据化专业能力合同。",
+  "input_scope": [
+    "用户在 2026-08-12 提供的专业测试开发建议",
+    "用户提供的《AI测试开发工程师能力模型与成长路径》本地文档（SHA-256 固定）",
+    "用户提供的《AI Agent 测试架构方案 v2.0》本地文档（SHA-256 固定）",
+    "当前 85 个公开课程页面",
+    "117-topic canonical course catalog",
+    "现有 research/factory/course/validation 工件",
+    "标准、官方文档、主要研究论文和工具官方文档"
+  ],
+  "research_questions": [
+    "AI 测试的通用质量维度、任务指标、系统指标与业务指标应如何分层？",
+    "新人从传统测试到 LLM、RAG、Judge、Agent、性能与质量平台应如何递进？",
+    "AI 生成测试用例如何通过 Prompt、独立 Oracle、Eval、Mutation 和人审证明真正提效？",
+    "Agent 压测应如何定义 workload、trace、指标、故障注入、停止条件和报告？",
+    "Skill 与 MCP 如何处理冲突、解耦、跨平台适配、权限、副作用和可验证接入？",
+    "当前课程哪些内容已充分覆盖、哪些只覆盖名词、哪些缺失或不可执行？",
+    "职业能力如何用可验证工件分级，而不是用年限、P 级或影响力计数替代？",
+    "Agent 评估系统、长时程可靠性、多 Agent 交接、人类接管与供应链安全应如何成为可验证合同？",
+    "CAIA、飞书 MCP、Web Coding 三个术语的可验证含义是什么？"
+  ],
+  "evidence_lanes": [
+    "standards-and-certification",
+    "official-platform-and-tool-documentation",
+    "primary-research",
+    "local-course-and-runtime-evidence",
+    "counterevidence-and-limitations"
+  ],
+  "query_families": [
+    "AI testing quality model and metrics",
+    "classification summarization RAG agent evaluation",
+    "LLM judge calibration and bias",
+    "LLM serving and agent performance testing",
+    "dataset annotation agreement and documentation",
+    "AI-generated test productivity and mutation",
+    "MCP tool collision transport security and conformance",
+    "Playwright Cypress API inspection workflows",
+    "HELM OpenCompass C-Eval GAIA MLPerf benchmark",
+    "AI-generated text detection limitations",
+    "agent evaluator validity pass^k trajectory opaque evaluation tool poisoning",
+    "AI testing competency evidence ladder CV recommendation MLOps",
+    "CAIA benchmark exact acronym",
+    "Feishu MCP and Web Coding terminology"
+  ],
+  "authority_policy": {
+    "primary": [
+      "standards publisher",
+      "official tool or platform documentation",
+      "peer-reviewed or original research paper",
+      "repository-owned fresh audit"
+    ],
+    "secondary": [
+      "vendor experiment",
+      "industry report",
+      "course or practitioner signal"
+    ],
+    "excluded_from_authoritative_claims": [
+      "search snippet without opened source",
+      "marketing efficiency multiplier",
+      "uncited benchmark leaderboard",
+      "AI authorship detector score used as proof"
+    ]
+  },
+  "freshness_policy": {
+    "standards": "verify current edition and publication date",
+    "tooling": "official docs current as of research date; recheck before implementation",
+    "benchmarks": "record harness and dataset versions; leaderboard claims expire with version changes",
+    "productivity": "treat each study as population- and task-bounded, never universal"
+  },
+  "stop_conditions": [
+    "An ambiguous term has no authoritative definition: mark UNKNOWN and request owner clarification.",
+    "A metric has no task, slice, threshold owner, oracle or failure action: keep the course unit BLOCKED.",
+    "A tool example has no executable fixture, manifest and receipt: do not claim it is usable.",
+    "Fixture evidence is presented as live, practitioner, integration or production evidence: fail closed.",
+    "An AI-generated artifact evaluates or approves itself without an independent oracle or human gate: fail closed."
+  ],
+  "deliverables": [
+    "source-ledger.csv",
+    "evidence-matrix.md",
+    "current-course-gap-audit.md",
+    "ai-testing-professional-capability-blueprint.md",
+    "ambiguity-register.md",
+    "expert-document-adjudication.md",
+    "docs/handoffs/2026-08-12-research-to-factory-ai-testing-expert-model.md"
+  ],
+  "status": "complete",
+  "maturity_boundary": "Research and local fixture evidence only. No live model, enterprise integration, practitioner review, production validation or publication approval is produced by this plan."
+}

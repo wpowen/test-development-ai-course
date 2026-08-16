@@ -1,0 +1,65 @@
+{
+  "topic_id": "TD-PS01",
+  "page_id": "TD-PS01",
+  "working_directory": "site/public/materials/api-ai-automation",
+  "required_files": [
+    "owners.json",
+    "scripts/specialty_lab.py",
+    "manifests/TD-PS01.json",
+    "prompts/TD-PS01/system-v1.md",
+    "prompts/TD-PS01/task-v1.md",
+    "prompts/TD-PS01/critic-v1.md",
+    "prompts/TD-PS01/manifest.json",
+    "prompts/TD-PS01/mutation.json",
+    "fixtures/TD-PS01-input.json",
+    "schemas/TD-PS01-output.schema.json",
+    "evals/TD-PS01-eval.json"
+  ],
+  "steps": [
+    {
+      "step_id": "baseline",
+      "kind": "baseline",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS01.json --mode baseline",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS01/baseline.json"
+      ]
+    },
+    {
+      "step_id": "fault",
+      "kind": "mutation",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS01.json --mode fault",
+      "expected_exit_code": 1,
+      "expected_artifacts": [
+        "evidence/TD-PS01/fault.json"
+      ]
+    },
+    {
+      "step_id": "repair",
+      "kind": "repair",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS01.json --mode repair",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS01/repair.json"
+      ]
+    },
+    {
+      "step_id": "cycle",
+      "kind": "cycle",
+      "command": "python3 scripts/specialty_lab.py --manifest manifests/TD-PS01.json --mode cycle",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "evidence/TD-PS01/baseline.json",
+        "evidence/TD-PS01/fault.json",
+        "evidence/TD-PS01/repair.json",
+        "evidence/TD-PS01/cycle.json"
+      ]
+    }
+  ],
+  "failure_cycle": {
+    "baseline_step_id": "baseline",
+    "fault_step_id": "fault",
+    "repair_step_id": "repair"
+  },
+  "evidence_boundary": "fixture-tested only; no practitioner/live/production evidence. Unknown: 目标支付网关幂等窗口、真实账本可查询性和业务延迟阈值"
+}

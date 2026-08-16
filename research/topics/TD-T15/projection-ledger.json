@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T15",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:7b1c5c08c9fa31c32ae9206927682437e41d053b119092f9c3a58e14447388a7",
+  "page_content_sha256": "sha256:e27f6b0866c6304617b39182a77df0b6af52fc5c4e2125c39ef7f6708bc2f658",
+  "claims": [
+    {
+      "claim_id": "TD-T15-DECISION-01",
+      "manuscript_locator": "manuscript.md:L11-L11",
+      "meaning": "安全和权限先于可写副作用；fault 稳定变红且 repair 重新变绿；模型不批准自己的期望，人工 owner 和 NOT_RUN 边界明确",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T15#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T15-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L26-L26",
+      "meaning": "安全、身份和权限检查必须先于任何可写副作用；被测模型、Judge 或 healer 不能批准自己的期望。；删除 Oracle、改变 expected、扩大权限、增加预算或无限重试都属于制造假绿。；不要把「效率低」写成禁止副作用。禁止的应当是不可接受的动作，而不是不优雅的路径。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T15#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T15-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L24-L24",
+      "meaning": "页面把公开 Agent 评测方法转成测试分层；退款轨迹为合成场景，未证明三层指标与任何企业业务结果具有固定相关性。 本页新增证据仅为确定性离线 fixture；真实模型、浏览器、工具、队列、组织审批和从业者评审均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T15#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T15-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L11-L11",
+      "meaning": "行动：运行 TD-T15 的 0/1/0 fixture 并解释命名 Oracle；检查 Prompt/Input/Schema/Eval/Mutation 的版本闭包；写出一个不同业务对象的权限、故障和 rollback 预期：固定 input、Schema、eval 和 mutation 已绑定；模型执行仍为 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T15#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T15-TABLE-01",
+      "manuscript_locator": "manuscript.md:L26-L26",
+      "meaning": "只看最后一句回答，你会漏掉九成发生在中途的失败 失效形态 可核查的数字 它导致的错误结论 只对最终输出打分 只评终局的评估会漏掉约 90% 发生在执行中途的失败模式 「答案对了」被当成「过程对了」，而 Agent 可能是靠 3 次多余的写操作凑出来的 轨迹不落盘就下安全结论 缺轨迹级评估会系统性漏掉约 44% 的安全违规与约 13% 的鲁棒性失败 把「没测出安全问题」当成「没有安全问题」 答对了但过程做错了事 同一任务的最优步数与实际步数之比（步骤效率比）低于 0.5 时，说明一半以上的动作是无效或有害的 验收通…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T15#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T15-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "终局判定为什么必然漏掉大部分失败 只看最后一句回答，等价于只验收结果不审计过程。对单次调用这没问题——过程就是一步。对 Agent 就完全不同：一个正确的终局可以由一条充满错误的路径产生，而那条路径上的每一个错误都可能已经在真实世界留下了后果。 具体形态包括：多调了三次付费接口（成本），读取了本不该访问的数据（越权），把一条错误结论写进了长期记忆（污染下一次），对同一个不可逆动作重试了两次（副作用重复）。这四类在终局判定下全部不可见，因为终局确实是对的。 因此判定必须分三层：Outcome 判终局对不对，Step…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T15#content_sections.teaching_blocks.2",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T15-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L26-L26",
+      "meaning": "只看最后一句回答，你会漏掉九成发生在中途的失败 Agent 与单次模型调用最大的差别是：它在给出回答之前做了十几个决定，而每个决定都可能错。只对终局打分的评估，对这十几个决定完全无感。 下面三条给出终局评估漏掉的东西，第一条的数量级是本页存在的全部理由。 失效形态 可核查的数字 它导致的错误结论 只对最终输出打分 只评终局的评估会漏掉约 90% 发生在执行中途的失败模式 「答案对了」被当成「过程对了」，而 Agent 可能是靠 3 次多余的写操作凑出来的 轨迹不落盘就下安全结论 缺轨迹级评估会系统性漏掉约 44%…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T15#content_sections.teaching_blocks.0",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

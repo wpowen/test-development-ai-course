@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "automation-adapter.v1.1",
+  "type": "object",
+  "required": [
+    "page_id",
+    "status",
+    "review_findings",
+    "adapter_contracts",
+    "commands",
+    "trace_links",
+    "blocked",
+    "unknowns"
+  ],
+  "properties": {
+    "page_id": {
+      "const": "TD-P06"
+    },
+    "status": {
+      "enum": [
+        "ACCEPTED",
+        "PASS",
+        "PARTIAL",
+        "BLOCKED",
+        "UNKNOWN",
+        "RELEASE_CANDIDATE",
+        "NOT_RUN",
+        "PASS_SCHEMA",
+        "PASS_SEMANTIC",
+        "FAIL",
+        "SCHEMA_INVALID",
+        "REFUSED",
+        "INCOMPLETE",
+        "SOURCE_CONFLICT",
+        "UNSUPPORTED_RULE",
+        "SEMANTIC_UNKNOWN"
+      ]
+    },
+    "review_findings": {
+      "type": "array",
+      "description": "Professional output records for review_findings",
+      "items": {
+        "type": "object"
+      }
+    },
+    "adapter_contracts": {
+      "type": "array",
+      "description": "Professional output records for adapter_contracts",
+      "items": {
+        "type": "object"
+      }
+    },
+    "commands": {
+      "type": "array",
+      "description": "Professional output records for commands",
+      "items": {
+        "type": "object"
+      }
+    },
+    "trace_links": {
+      "type": "array",
+      "description": "Professional output records for trace_links",
+      "items": {
+        "type": "object"
+      }
+    },
+    "blocked": {
+      "type": "array",
+      "description": "Professional output records for blocked",
+      "items": {
+        "type": "object"
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "description": "Professional output records for unknowns",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": false
+}

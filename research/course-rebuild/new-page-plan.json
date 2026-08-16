@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0.0",
+  "status": "COURSE-IMPLEMENTED-FIXTURE-BOUNDARY",
+  "baseline_public_page_count": 85,
+  "pages": [
+    {
+      "page_id": "TD-C02",
+      "title": "职业责任证据梯：从跟做到独立负责",
+      "prerequisite_ids": [
+        "TD-F01"
+      ],
+      "source_obligation": "career-evolution-system"
+    },
+    {
+      "page_id": "TD-C03",
+      "title": "能力自评：用证据定位当前位置",
+      "prerequisite_ids": [
+        "TD-C02"
+      ],
+      "source_obligation": "career-evolution-system"
+    },
+    {
+      "page_id": "TD-C04",
+      "title": "30/60/90 天成长路线与组织适配",
+      "prerequisite_ids": [
+        "TD-C03"
+      ],
+      "source_obligation": "career-evolution-system"
+    },
+    {
+      "page_id": "TD-F05",
+      "title": "AI/ML 任务族与测试能力地图",
+      "prerequisite_ids": [
+        "TD-F04"
+      ],
+      "source_obligation": "career-evolution-system"
+    },
+    {
+      "page_id": "TD-T26",
+      "title": "AI 测试指标、业务指标与 Metric Card",
+      "prerequisite_ids": [
+        "TD-T04",
+        "TD-F05"
+      ],
+      "source_obligation": "career-evolution-system"
+    },
+    {
+      "page_id": "TD-R01",
+      "title": "作品集、复盘与职业迁移证据",
+      "prerequisite_ids": [
+        "TD-C04",
+        "TD-T26"
+      ],
+      "source_obligation": "career-evolution-system"
+    },
+    {
+      "page_id": "TD-AG-00",
+      "title": "Agent 测试架构总览：D0-D7 与四证据环",
+      "prerequisite_ids": [
+        "TD-F04"
+      ],
+      "source_obligation": "agent-architecture-testing"
+    },
+    {
+      "page_id": "TD-AG-01",
+      "title": "D0 评估可信与 Judge Card",
+      "prerequisite_ids": [
+        "TD-AG-00",
+        "TD-T03"
+      ],
+      "source_obligation": "agent-architecture-testing"
+    },
+    {
+      "page_id": "TD-AG-02",
+      "title": "D1 单 Agent 能力与 span 轨迹",
+      "prerequisite_ids": [
+        "TD-AG-01"
+      ],
+      "source_obligation": "agent-architecture-testing"
+    },
+    {
+      "page_id": "TD-AG-03",
+      "title": "D2 多 Agent 编排、Handoff 与熔断",
+      "prerequisite_ids": [
+        "TD-AG-02"
+      ],
+      "source_obligation": "agent-architecture-testing"
+    },
+    {
+      "page_id": "TD-AG-04",
+      "title": "D3 人机协同、中断、接管与确认疲劳",
+      "prerequisite_ids": [
+        "TD-AG-03"
+      ],
+      "source_obligation": "agent-architecture-testing"
+    },
+    {
+      "page_id": "TD-AG-05",
+      "title": "D4 可靠性分布、pass@k、pass^k 与长时程",
+      "prerequisite_ids": [
+        "TD-AG-04",
+        "TD-T04"
+      ],
+      "source_obligation": "agent-architecture-testing"
+    },
+    {
+      "page_id": "TD-AG-06",
+      "title": "D5 Agent 安全、MCP 供应链与爆炸半径",
+      "prerequisite_ids": [
+        "TD-AG-05",
+        "TD-T17"
+      ],
+      "source_obligation": "agent-architecture-testing"
+    },
+    {
+      "page_id": "TD-AG-07",
+      "title": "D6 Agent 延迟、吞吐、成本与资源隔离",
+      "prerequisite_ids": [
+        "TD-AG-06",
+        "TD-A03"
+      ],
+      "source_obligation": "agent-architecture-testing"
+    },
+    {
+      "page_id": "TD-AG-08",
+      "title": "D7 业务规则、审计、版本、ROI 与风险接受",
+      "prerequisite_ids": [
+        "TD-AG-07",
+        "TD-T21"
+      ],
+      "source_obligation": "agent-architecture-testing"
+    },
+    {
+      "page_id": "TD-AG-09",
+      "title": "四环实战：CI、沙箱、Shadow/Canary、在线持续",
+      "prerequisite_ids": [
+        "TD-AG-08"
+      ],
+      "source_obligation": "agent-architecture-testing"
+    },
+    {
+      "page_id": "TD-AG-10",
+      "title": "高风险领域适配器：时效、建议/执行与能力沙箱",
+      "prerequisite_ids": [
+        "TD-AG-09"
+      ],
+      "source_obligation": "agent-architecture-testing"
+    }
+  ],
+  "evidence_boundary": "17 页必须进入公开课程数据、研究包、可运行 fixture、视觉和复用合同；真实模型、企业集成、从业者与目标学员验证仍 NOT_RUN。"
+}

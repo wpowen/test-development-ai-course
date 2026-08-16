@@ -1,0 +1,32 @@
+{
+  "receipt_id": "REC-QUALITY-PLATFORM-NOT-RUN",
+  "solution_id": "SOL-QUALITY-PLATFORM",
+  "scenario_id": "TD-S07",
+  "environment": "NOT_RUN",
+  "run_at": "NOT_RUN",
+  "tools": [
+    "NOT_RUN"
+  ],
+  "command": "NOT_RUN",
+  "working_directory": "NOT_RUN",
+  "input_hashes": {
+    "status": "NOT_RUN"
+  },
+  "output_hashes": {
+    "status": "NOT_RUN"
+  },
+  "assertions": [
+    {
+      "name": "external boundary exercised",
+      "expected": "NOT_RUN",
+      "observed": "NOT_RUN",
+      "status": "NOT_RUN"
+    }
+  ],
+  "expected_verdict": "NOT_RUN",
+  "actual_verdict": "NOT_RUN",
+  "limitations": [
+    "No controlled integration or live environment was exercised; this record cannot support fixture, integration, live, practitioner or production claims."
+  ],
+  "reviewer": "validation-contract-audit-2026-08-11"
+}

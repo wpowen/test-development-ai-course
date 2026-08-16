@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-W03",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:84bbf79042a3356fb8053945cef077aab4c0a81f4ec578bae7c2289f9e7b508e",
+  "page_content_sha256": "sha256:4bdc3932499d6e7b63ebaa31c995620d12b604083c8ee0c9a764511ca78975ab",
+  "claims": [
+    {
+      "claim_id": "TD-W03-DECISION-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "安全和权限先于可写副作用；fault 稳定变红且 repair 重新变绿；模型不批准自己的期望，人工 owner 和 NOT_RUN 边界明确",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-W03#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-W03-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "安全、身份和权限检查必须先于任何可写副作用；被测模型、Judge 或 healer 不能批准自己的期望。；删除 Oracle、改变 expected、扩大权限、增加预算或无限重试都属于制造假绿。；不要在对照中允许人工救场。一旦有人干预，测的就是人加架构，而不是架构。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-W03#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-W03-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "公开资料支持 Agent 轨迹与生产成熟度评估；20 个任务是教学实验设计，未实际证明多 Agent 在目标组织更优或更便宜。 本页新增证据仅为确定性离线 fixture；真实模型、浏览器、工具、队列、组织审批和从业者评审均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-W03#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-W03-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "行动：运行 TD-W03 的 0/1/0 fixture 并解释命名 Oracle；检查 Prompt/Input/Schema/Eval/Mutation 的版本闭包；写出一个不同业务对象的权限、故障和 rollback 预期：固定 input、Schema、eval 和 mutation 已绑定；模型执行仍为 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-W03#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-W03-TABLE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "多 Agent 比单 Agent 好，这个结论多数时候来自不公平的对照 失效形态 可核查的数字 它导致的错误结论 不固定 token 与时间预算 多 Agent 方案的 token 消耗常达单 Agent 的 3～5 倍；不固定预算的对照实际比的是投入 「多 Agent 效果更好」被当成架构结论，实际是花了更多钱 两侧用了不同的工具集或提示 任何一侧多 1 个工具就可能改变可解任务的范围，这类差异会被 100% 归给架构 架构决策建立在一个混杂了工具差异的对比上 单次运行就下结论 多 Agent 的方差通常高于单…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-W03#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-W03-METRIC-01",
+      "manuscript_locator": "manuscript.md:L19-L19",
+      "meaning": "公平对照的四个词 多 Agent 是不是更好，只有在同预算下比较才有答案。这四个词是公平的前提。 术语 一句话解释 同预算 两组共享相同的总 token、时间、重试与人工干预额度 混杂 两组之间有多于一个变量不同，结论无法归因 协作失败 多 Agent 特有的失败：重复工作、信息丢失、互相等待 单位成功成本 每个成功任务的总花费；架构决策的核心可比量 更完整的中英对照与易混辨析见方法论 02 术语表；这里只收本页判断真正依赖的几个。 R-HELM",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-W03#content_sections.teaching_blocks.1",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-W03-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "专业问题、失败成本与决策权 团队把一个测试生成 Agent 拆成 planner、generator、reviewer，成功率看似提高，但 Token 和时间翻倍，且 reviewer 常重复 planner 的内容。需要在相同预算与任务集上比较。 两组都只给同一只读 scope；多 Agent 不因角色增加获得隐式权限或额外人工救场。 安全、身份和权限检查必须先于任何可写副作用；被测模型、Judge 或 healer 不能批准自己的期望。",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-W03#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

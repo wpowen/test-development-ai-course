@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-B05",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:8b187be0d4039c804e676b2637f8d40832643b57c71c924c179a94befcd073d3",
+  "page_content_sha256": "sha256:77331e0bbf8cffeb8fa44c433fddf622d1cc43eef0109b935ddec2e8bc4468a1",
+  "claims": [
+    {
+      "claim_id": "TD-B05-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "报告区分 evidence/inference/unknown；污染和版本变化不被隐藏；不确定性进入最终决定",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-B05#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-B05-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L20-L20",
+      "meaning": "任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。；改写不能改变难度。把题目改简单或改难都会污染这次检测，改写只能动表述。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-B05#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-B05-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L26-L26",
+      "meaning": "课程不能确认闭源模型训练数据，也没有真实隐藏测试基础设施；只演示 fail-closed 审计。 本页仅 fixture/static；真实 model/provider、enterprise integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-B05#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-B05-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L9-L9",
+      "meaning": "行动：在 Fixture 中标记一个近重复题；判断一次 1.5% 提升的证据等级；设计五个 sealed canary 的访问与轮换 预期：Prompt 包可静态审计且 model_execution=NOT_RUN；只有固定 Schema/Eval/Mutation 合同获得证据，没有模型能力结论。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-B05#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-B05-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "隐藏测试集能防止过拟合，但它防不住其他四种失真 失效形态 可核查的数字 它导致的错误结论 样本量不足就发布排名 样本 100 条时两个 85% 与 82% 的结果，其 95% CI 通常大幅重叠，不构成排名依据 榜单上的名次差被当成能力差，实际统计上无法区分 跨版本比较未检查兼容性 数据集或评分协议改版后新旧分数不可比；实测中改版带来的整体平移可达 3～8pt，方向不固定 看到分数下降就排查模型，实际是评测集改版了 隐藏集被反复访问 隐藏集的无偏性随访问次数下降，累计开封 ≥ 3 次即应整体重建；缺访问审计时无法…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-B05#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-B05-METRIC-01",
+      "manuscript_locator": "manuscript.md:L5-L5",
+      "meaning": "隐藏测试集能防止过拟合，但它防不住其他四种失真 把测试集藏起来是应对污染最直接的手段，也因此容易被当成充分手段。它解决的是「模型见过题」，解决不了样本量、版本可比性、重复暴露与不确定性这四个问题。 下面三条是隐藏测试集之外仍然存在的失真来源。 失效形态 可核查的数字 它导致的错误结论 样本量不足就发布排名 样本 100 条时两个 85% 与 82% 的结果，其 95% CI 通常大幅重叠，不构成排名依据 榜单上的名次差被当成能力差，实际统计上无法区分 跨版本比较未检查兼容性 数据集或评分协议改版后新旧分数不可比；…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-B05#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-B05-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L20-L20",
+      "meaning": "污染与不确定性：隐藏测试也不是万能证明：先定位这一个专业失败 候选只跑一次就高 1.5%，部分题在训练说明里可直接找到答案，Harness 版本还升级；团队却宣布显著能力提升。 对 TD-B05 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-B05#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-QP01",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:2346eb4a295c510b4ad2c68a87b8bbce11a8637481f83f5547f99753338f59e8",
+  "page_content_sha256": "sha256:c900b81ee156a7504e0d1d1fb5c026c2c0c4b4a776d56532102b000693caf408",
+  "claims": [
+    {
+      "claim_id": "TD-QP01-DECISION-01",
+      "manuscript_locator": "manuscript.md:L13-L13",
+      "meaning": "Basis Gate 能阻断冲突、缺失和过期依据；每个 AI 候选都有 provenance、scope 和人工决定；审计记录能重建事件、revision、review 和回滚关系",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-QP01#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-QP01-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "AI 可以整理冲突，不能替产品或技术负责人选择冲突规则。；NOT_RUN 不是成功也不是失败；它表示没有真实租户证据，后续验收必须从隔离 Jira project 开始。；不要把「以描述字段为准」写成规则来消除冲突。优先级规则必须由产品与技术 owner 共同确认，而不是由集成实现方决定。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-QP01#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-QP01-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "本页基于 research-redesign/40-quality-platform-integrations.md 与 Atlassian、CloudEvents、结构化输出资料做 desk research；未连接真实 Jira 租户、真实模型或组织审批流程，所有租户字段、权限、阈值和批准结果均为 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-QP01#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-QP01-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L13-L13",
+      "meaning": "行动：用一个需求变更夹具跑出 accepted 和 blocked 两种 Basis Gate 结果；让 AI 候选缺少 source_ref 并证明它不能进入 approved；记录一次 reviewer reject、supersede 和按新 revision 重评 预期：固定输入、JSON Schema 和 eval 已绑定；模型 provider/model 仍为 NOT_RUN，首次真实运行必须另存 receipt。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-QP01#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-QP01-TABLE-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "没有 Basis Gate 就会把旧需求变成自动副作用 缺口 看起来像什么 阻断证据 revision 过期 需求已更新但仍可执行 基于过期 revision 生成的候选全部作废；一次返工的成本是重跑生成加重新人工复核 2 轮 source_ref 缺失 摘要完整 无 source_ref 的候选无法在 1 次抽查内被证伪，复核成本高于人工重读原文 reviewer 无范围 有人点了批准 reviewer 没有明确范围时，批准的实际覆盖面不可知；事后追责的可判定性为 0 webhook 当事实 事件 payloa…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-QP01#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-QP01-METRIC-01",
+      "manuscript_locator": "manuscript.md:L9-L9",
+      "meaning": "没有 Basis Gate 就会把旧需求变成自动副作用 Webhook 只说明变化发生，不能证明当前 revision、验收条件和冲突责任人已经被核对。 先回读事实，再生成候选，最后由有权限的人批准；每一步都要留下可回链的证据。 缺口 看起来像什么 阻断证据 revision 过期 需求已更新但仍可执行 基于过期 revision 生成的候选全部作废；一次返工的成本是重跑生成加重新人工复核 2 轮 source_ref 缺失 摘要完整 无 source_ref 的候选无法在 1 次抽查内被证伪，复核成本高于人工重…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-QP01#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-QP01-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "QP01 反例与迁移 把 webhook payload 直接交给模型看起来快速，但它可能缺字段、过期或被重放；把 Jira 评论表情当批准也无法证明 reviewer 身份和范围。修复必须回读当前 issue/changelog，并把批准绑定 revision。 迁移到真实 Jira 前先做 capability probe：字段、transition、权限、签名、限流、审计和撤销路径逐项确认。静态 fixture 只能证明分支检测，真实 provider/model、integration、practitio…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-QP01#content_sections.teaching_blocks.18",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

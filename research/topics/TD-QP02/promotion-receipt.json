@@ -1,0 +1,151 @@
+{
+  "schema_version": "page-promotion-receipt.v1",
+  "page_id": "TD-QP02",
+  "validated_at": "2026-08-15T14:44:09.109Z",
+  "reviewer": "validation-semantic-parity-verifier-2026-08-13",
+  "page_content_hash": "sha256:28e45d575c9d4fb1b827116890d07be86942802a2d1a01391f0b215054528e79",
+  "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
+  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_verdict": "PASS",
+  "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
+  "page_author_id": "course-page-projection-author-2026-08-13",
+  "reviewer_is_independent_of_author": true,
+  "research_package_files": [
+    "research-brief.md",
+    "source-pack.csv",
+    "research-runs.json",
+    "evidence-synthesis.md",
+    "engineering-blueprint.md",
+    "manuscript.md",
+    "comparison.md",
+    "lab-manifest.json",
+    "validation.md",
+    "projection-ledger.json"
+  ],
+  "research_inventory": [
+    {
+      "path": "research-brief.md",
+      "exists": true,
+      "sha256": "sha256:e317ad2fd17ac488c8f3962861127be00a4d796989cd3e025d2c920d2f23f965"
+    },
+    {
+      "path": "source-pack.csv",
+      "exists": true,
+      "sha256": "sha256:a7968ba809c6ccb10fd8066b00ad058ccff1465f659b50d545c29dbbb1f06a60"
+    },
+    {
+      "path": "research-runs.json",
+      "exists": true,
+      "sha256": "sha256:09285ac0704d1e3ae29557435de28cf9d4a8df59756e57d824d6ccf1d7fe66f7"
+    },
+    {
+      "path": "evidence-synthesis.md",
+      "exists": true,
+      "sha256": "sha256:32619e265bf41adb634f91be0af34c1cdeecdae3831f50705af0283e3cd1aa34"
+    },
+    {
+      "path": "engineering-blueprint.md",
+      "exists": true,
+      "sha256": "sha256:b12de4f4ea83e1011a45f6bc53c6f0d9e0ba7214b9c06075a005a39e69244c14"
+    },
+    {
+      "path": "manuscript.md",
+      "exists": true,
+      "sha256": "sha256:a03d99ef1aad12cbd30d10c66c8d4aa2cd5eab0af55a0aeebc6ebe57ec38602d"
+    },
+    {
+      "path": "comparison.md",
+      "exists": true,
+      "sha256": "sha256:c76921ac97b49e4638fc792f1a8e7c9874450dd25b812c7fb92743bd0a3f6d42"
+    },
+    {
+      "path": "lab-manifest.json",
+      "exists": true,
+      "sha256": "sha256:3191c5caebf360ce90ee64b89a7d0f9deab25da170fa73c85876830bb0aae8ff"
+    },
+    {
+      "path": "validation.md",
+      "exists": true,
+      "sha256": "sha256:172f5929ce58258e19e25dcea82b3b777ee8e08c3e846cf0615975cd96c265e2"
+    },
+    {
+      "path": "projection-ledger.json",
+      "exists": true,
+      "sha256": "sha256:2d853146a44c9ba4f3930cbb2dc5ac7fdb560eabe49cf97e1973d0648a9e8150"
+    }
+  ],
+  "editorial_score": 100,
+  "boundary_preservation_score": 100,
+  "executability_audit_ref": "research/executability-audit.json",
+  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit": {
+    "path": "../../executability-audit.json",
+    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "verdict": "PASS",
+    "finding_count": 0
+  },
+  "material_hashes": {
+    "materials/quality-platform-integrations/learner-materials/scripts/gitlab_sha_junit_gate.py": "sha256:acb9fe59848ca6d452db90f98b0545487dc94402e0389134dc7932564cc41ac7",
+    "materials/quality-platform-integrations/learner-materials/configs/gitlab-junit-gate.yaml": "sha256:1270910f8018a05d70aee17cdd3f5ccbfe74c0a785a74a347583d37a28982d3e",
+    "materials/quality-platform-integrations/learner-materials/fixtures/mr-pipeline-junit.json": "sha256:4ec1ced3ccf379c25c8db89442405caf597cf7836a538d9bc5edeaef55ea00bd",
+    "materials/quality-platform-integrations/learner-materials/guides/td-qp02-sha-junit-sop.md": "sha256:288d6dac67a80048221de311ffecfc9bb0969aaebab44c0d751abd0ff1022aa1",
+    "materials/quality-platform-integrations.zip": "sha256:17a7ffd370dcac38627df33f235ede42d034a52e3f5acb23c3738213cbcce0ff",
+    "materials/quality-platform-integrations/learner-materials/README.md": "sha256:d8b1ca4baa0f90e71716dbb6c90651f992ba3fcdad5892930aa00360af4fe106",
+    "materials/quality-platform-integrations/learner-materials/manifests/shared-bundle-owners.json": "sha256:355fc034f82a0f16464ef225c3774b7c6b677a9b55546204cff89c47ed999793"
+  },
+  "learner_material_hashes": [
+    {
+      "href": "materials/quality-platform-integrations/learner-materials/scripts/gitlab_sha_junit_gate.py",
+      "public_sha256": "sha256:acb9fe59848ca6d452db90f98b0545487dc94402e0389134dc7932564cc41ac7",
+      "static_sha256": "sha256:acb9fe59848ca6d452db90f98b0545487dc94402e0389134dc7932564cc41ac7",
+      "archive_member_sha256": "sha256:acb9fe59848ca6d452db90f98b0545487dc94402e0389134dc7932564cc41ac7",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/quality-platform-integrations/learner-materials/configs/gitlab-junit-gate.yaml",
+      "public_sha256": "sha256:1270910f8018a05d70aee17cdd3f5ccbfe74c0a785a74a347583d37a28982d3e",
+      "static_sha256": "sha256:1270910f8018a05d70aee17cdd3f5ccbfe74c0a785a74a347583d37a28982d3e",
+      "archive_member_sha256": "sha256:1270910f8018a05d70aee17cdd3f5ccbfe74c0a785a74a347583d37a28982d3e",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/quality-platform-integrations/learner-materials/fixtures/mr-pipeline-junit.json",
+      "public_sha256": "sha256:4ec1ced3ccf379c25c8db89442405caf597cf7836a538d9bc5edeaef55ea00bd",
+      "static_sha256": "sha256:4ec1ced3ccf379c25c8db89442405caf597cf7836a538d9bc5edeaef55ea00bd",
+      "archive_member_sha256": "sha256:4ec1ced3ccf379c25c8db89442405caf597cf7836a538d9bc5edeaef55ea00bd",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/quality-platform-integrations/learner-materials/guides/td-qp02-sha-junit-sop.md",
+      "public_sha256": "sha256:288d6dac67a80048221de311ffecfc9bb0969aaebab44c0d751abd0ff1022aa1",
+      "static_sha256": "sha256:288d6dac67a80048221de311ffecfc9bb0969aaebab44c0d751abd0ff1022aa1",
+      "archive_member_sha256": "sha256:288d6dac67a80048221de311ffecfc9bb0969aaebab44c0d751abd0ff1022aa1",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/quality-platform-integrations.zip",
+      "public_sha256": "sha256:17a7ffd370dcac38627df33f235ede42d034a52e3f5acb23c3738213cbcce0ff",
+      "static_sha256": "sha256:17a7ffd370dcac38627df33f235ede42d034a52e3f5acb23c3738213cbcce0ff",
+      "archive_member_sha256": null,
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/quality-platform-integrations/learner-materials/README.md",
+      "public_sha256": "sha256:d8b1ca4baa0f90e71716dbb6c90651f992ba3fcdad5892930aa00360af4fe106",
+      "static_sha256": "sha256:d8b1ca4baa0f90e71716dbb6c90651f992ba3fcdad5892930aa00360af4fe106",
+      "archive_member_sha256": "sha256:d8b1ca4baa0f90e71716dbb6c90651f992ba3fcdad5892930aa00360af4fe106",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/quality-platform-integrations/learner-materials/manifests/shared-bundle-owners.json",
+      "public_sha256": "sha256:355fc034f82a0f16464ef225c3774b7c6b677a9b55546204cff89c47ed999793",
+      "static_sha256": "sha256:355fc034f82a0f16464ef225c3774b7c6b677a9b55546204cff89c47ed999793",
+      "archive_member_sha256": "sha256:355fc034f82a0f16464ef225c3774b7c6b677a9b55546204cff89c47ed999793",
+      "closure_verdict": "PASS"
+    }
+  ],
+  "verdict": "FAIL",
+  "findings": [
+    "independent editorial review does not pin current page content hash"
+  ]
+}

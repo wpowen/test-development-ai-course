@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-F04",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:2c88b009fef1c7648ecb1c275f503f90ca7029cc76f778c151a90a0f7a18c24a",
+  "page_content_sha256": "sha256:7715edd62ef6f2ec87a1fc2d52f6583698f1fd6b9d0fb90036ee5b95fb07cb5b",
+  "claims": [
+    {
+      "claim_id": "TD-F04-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "不再按营销名称识别 Agent；图中包含状态、工具、Handoff 与终态；不可逆动作有独立 Gate",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-F04#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-F04-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L33-L33",
+      "meaning": "从 LLM 到 RAG、Agent 与 Workflow：被测边界如何扩张 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；不要按产品命名或团队分工来切分组件。切分依据只有一个：下一步由什么决定。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-F04#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-F04-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L43-L43",
+      "meaning": "本页只做结构静态分析与离线 Fixture；真实 provider/model、工具/队列/数据库 integration 未运行，practitioner 复核、learner 理解观察、live、production 和 publication 均为 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-F04#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-F04-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L19-L19",
+      "meaning": "行动：把一个客服功能分别画成 LLM、RAG、Agent 和 Workflow；给每层补三项 Trace 字段；为退款动作设计权限、人工确认与幂等补偿 预期：学习者能画出 LLM、RAG、Agent、Workflow 四种边界，并为每层写出输入、失败、证据和停止条件。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-F04#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-F04-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "把 Agent 当 LLM 测，会漏掉九成发生在中途的失败 失效形态 可核查的数字 它导致的错误结论 把多步 Agent 当单次 LLM 调用测，只评最终输出 只对最终输出打分的评估会漏掉约 90% 发生在执行中途的失败模式 线上一堆「答案看起来对但做错了事」的投诉，而评测报告一片绿 轨迹不透明就下安全结论 缺轨迹级评估会系统性漏掉约 44% 的安全违规与约 13% 的鲁棒性失败 把「没测出安全问题」当成「没有安全问题」 按产品名而不是控制权分类 一个产品里常常同时存在固定路由 Workflow、自主 Agent…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-F04#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-F04-METRIC-01",
+      "manuscript_locator": "manuscript.md:L41-L41",
+      "meaning": "控制权在谁手里，决定了要测什么 区分 LLM、RAG、工具调用、Agent 的实用标准只有一条：控制权在谁手里。单次 LLM 调用里控制权全在调用方，输入输出都是一次性的；Agent 里控制权交给了模型，由它决定下一步调什么、调几次、什么时候停。 控制权一旦转移，三样东西随之出现：状态（跨步骤累积，且可能被污染）、副作用（中途已经发生，失败时无法整体回滚）、轨迹（正确性分布在过程里而不只在终局）。这三样在单次调用里根本不存在，因此也没有对应的断言。 所以「把 Agent 当 LLM 测」漏掉的不是某些用例，是整整…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-F04#content_sections.teaching_blocks.2",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-F04-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L33-L33",
+      "meaning": "把 Agent 当 LLM 测，会漏掉九成发生在中途的失败 这一页是分类页，看起来是概念课。它实际上决定了后面所有模块对你是否适用——分类错了，方案整套都是错的。 下面三条说明分类错误的代价。判据是「路径由谁决定」，不是产品叫什么名字。 失效形态 可核查的数字 它导致的错误结论 把多步 Agent 当单次 LLM 调用测，只评最终输出 只对最终输出打分的评估会漏掉约 90% 发生在执行中途的失败模式 线上一堆「答案看起来对但做错了事」的投诉，而评测报告一片绿 轨迹不透明就下安全结论 缺轨迹级评估会系统性漏掉约 4…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-F04#content_sections.teaching_blocks.0",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-AP05",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:b51e5a88c34cfb73915a595b84e83d2880d88f652462de8caaf8288f8923abd9",
+  "page_content_sha256": "sha256:31f87273a0b17ce447147a9847c76140af72fc386bd0d22d5b7849db308cb14a",
+  "claims": [
+    {
+      "claim_id": "TD-AP05-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "命令、cwd、manifest、退出码与工件完全一致；Prompt/Input/Schema/Eval/Mutation 均为 v1.0.0；fault 至少被一个门禁拒绝，repair 未删除门禁；证据明确 synthetic fixture ≠ production capacity",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-AP05#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-AP05-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L34-L34",
+      "meaning": "fault 压低 worker、提高到达率、放慢 tool 且隐藏 bottleneck；goodput、queue、attribution 应红。；不要在共享环境做阶梯加压。它会影响其他团队，而且邻居的负载会污染你的拐点。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-AP05#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-AP05-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "所有容量与 goodput 数字仅属于本地 deterministic synthetic fixture，真实 AI provider/model、integration、practitioner review、learner run、live 与 production capacity 均 NOT_RUN，不能用于生产 Sizing、SLA 或供应商比较。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-AP05#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-AP05-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L30-L30",
+      "meaning": "行动：运行 TD-AP05 cycle 并保存 0/1/0；fault 压低 worker、提高到达率、放慢 tool 且隐藏 bottleneck；goodput、queue、attribution 应红。；从 fault Trace 找到一条红灯证据；写明哪些结论仍不能外推到生产 预期：报告必须带 synthetic/fixture 标签、profile hash 与第一个失败 gate；禁止把结果改名为 production capacity。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-AP05#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-AP05-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "没有首个失败门禁就没有容量结论 错误结论 为什么诱人 修正后的证据 120 task/min 就是容量 曲线有最高点 单点数字无法说明是拐点还是平台期；至少需要 3 个相邻压力档位才能判断曲线形状 synthetic goodput 可上线 主要路径已覆盖 合成 workload 与真实流量存在分布差距，synthetic goodput 只能用于横向比较；把它当生产容量承诺时高估 2～5 倍是常见结果 TTFT 上升等于模型瓶颈 模型指标最显眼 TTFT 上升有排队、prefill、准入 3 个可能来源，不分段…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-AP05#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-AP05-METRIC-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "没有首个失败门禁就没有容量结论 最大吞吐、goodput 和 SLO 容量回答的是不同问题。把它们混成一个数字，会让后续扩容和上线决策失去边界。 容量卡先锁定负载、版本和 SLO，再找第一个失败台阶，最后才讨论瓶颈归因。 错误结论 为什么诱人 修正后的证据 120 task/min 就是容量 曲线有最高点 单点数字无法说明是拐点还是平台期；至少需要 3 个相邻压力档位才能判断曲线形状 synthetic goodput 可上线 主要路径已覆盖 合成 workload 与真实流量存在分布差距，synthetic g…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-AP05#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-AP05-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L34-L34",
+      "meaning": "没有首个失败门禁就没有容量结论 最大吞吐、goodput 和 SLO 容量回答的是不同问题。把它们混成一个数字，会让后续扩容和上线决策失去边界。 容量卡先锁定负载、版本和 SLO，再找第一个失败台阶，最后才讨论瓶颈归因。 错误结论 为什么诱人 修正后的证据 120 task/min 就是容量 曲线有最高点 单点数字无法说明是拐点还是平台期；至少需要 3 个相邻压力档位才能判断曲线形状 synthetic goodput 可上线 主要路径已覆盖 合成 workload 与真实流量存在分布差距，synthetic g…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-AP05#content_sections.teaching_blocks.0",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

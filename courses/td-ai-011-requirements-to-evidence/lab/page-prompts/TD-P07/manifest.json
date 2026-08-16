@@ -1,0 +1,125 @@
+{
+  "schema_version": "professional-prompt-package.v1",
+  "package_id": "td-p07-lifecycle-prompt-package",
+  "version": "1.2.0",
+  "purpose": "冻结运行版本和原始证据，区分产品、环境、数据、脚本和 Oracle 故障，再形成可复现缺陷。",
+  "authority": "source-bound draft assistant; human owners retain decision authority",
+  "owner_page_ids": [
+    "TD-P07"
+  ],
+  "provider": "none",
+  "model": "offline-deterministic",
+  "model_version": null,
+  "model_status": "NOT_RUN",
+  "parameters": {},
+  "seed": null,
+  "tools": [],
+  "permissions": [
+    "read sanitized fixed input",
+    "produce draft JSON only"
+  ],
+  "privacy_level": "synthetic-teaching-fixture",
+  "direct_use": true,
+  "copy_target": "generic-ai-agent",
+  "assembly_order": [
+    {
+      "step": 1,
+      "file": "system-v1.md",
+      "placement": "system or instructions"
+    },
+    {
+      "step": 2,
+      "file": "task-v1.md",
+      "placement": "first user message"
+    },
+    {
+      "step": 3,
+      "file": "input.json",
+      "placement": "append to task message after adaptation"
+    },
+    {
+      "step": 4,
+      "file": "critic-v1.md",
+      "placement": "second review message after first JSON"
+    }
+  ],
+  "one_shot_copy_file": "prompt-v1.md",
+  "system_prompt": "system-v1.md",
+  "task_prompt": "task-v1.md",
+  "critic_prompt": "critic-v1.md",
+  "editable_fields": [
+    "run_goal",
+    "version_manifest",
+    "command_cwd",
+    "selected_tests",
+    "raw_evidence"
+  ],
+  "expected_outputs": [
+    "page_id",
+    "status",
+    "run",
+    "results",
+    "attributions",
+    "defects",
+    "blocked",
+    "unknowns",
+    "decision"
+  ],
+  "self_checks": [
+    "schema required fields close",
+    "critical claims carry source_ref or explicit Inference/Unknown",
+    "stop states are preserved without normalization",
+    "independent Oracle is not derived from generated output",
+    "model/provider and maturity claims remain NOT_RUN without receipts"
+  ],
+  "expected_statuses": [
+    "PASS_SCHEMA",
+    "PASS_SEMANTIC",
+    "BLOCKED",
+    "SOURCE_CONFLICT",
+    "UNSUPPORTED_RULE",
+    "SEMANTIC_UNKNOWN",
+    "SCHEMA_INVALID",
+    "REFUSED",
+    "INCOMPLETE"
+  ],
+  "stop_states": [
+    "BLOCKED",
+    "SOURCE_CONFLICT",
+    "UNSUPPORTED_RULE",
+    "SEMANTIC_UNKNOWN",
+    "SCHEMA_INVALID",
+    "REFUSED",
+    "INCOMPLETE"
+  ],
+  "review_owner": "independent test owner plus relevant business/technical owner",
+  "refusal_status": "REFUSED",
+  "superseded_package": "td-p07-single-prompt-v1.1.0",
+  "limitations": [
+    "static package only",
+    "model/provider NOT_RUN",
+    "enterprise integration NOT_RUN",
+    "practitioner and learner validation NOT_RUN"
+  ],
+  "artifact_sha256": {
+    "prompt-v1.md": "12d54b0de8735b74507e2931120c0927767beaeaf2721ff20861dc550f933d4f",
+    "system-v1.md": "1a9d1ac8a2ca26fabb0733be8eb6b5d0b4417bba201c8087bf924f93e00413ed",
+    "task-v1.md": "efdc07631d55e4335961f05601cb3ed18ca7f5a18d8e0ad6cd65ade62e51c335",
+    "critic-v1.md": "906f06c60a68adf33738b92af2f27665c09c1571fc3f1bc070ce478ced2bf6b9",
+    "input.json": "d481ac3ad0c6d3dc90e9b3f8388c70ad9dc6abd69b0ebfc098c0ea1023e0c40c",
+    "schema.json": "89866348932c84bb0e0272f92c8f923d3d126a89f7ec3e9d49f13ad99f099d36",
+    "eval.json": "7d9b1a59a9d6d903cf594d48e39832b0f7d5428972f1dfa8438a5c26a82004dd",
+    "mutation.json": "a2f180754caae5be1af76a811d4109cb94593b67fe757107a68c1b46f23087e1",
+    "adaptation-card.md": "12044312714494cd0a95f8809a1cd54a71c57575395c570a1b054d75b8e6b535",
+    "expected-output.json": "d1f223f8c2c17bf7579824d1f5316eb0e920c5d64b9ffb6af885099d89d4e9d0",
+    "receipt.json": "58865fe3ff6692883873b2e3aa5b1274ec97ccc520b02f924837346cc6e6964c"
+  },
+  "template_sha256": "12d54b0de8735b74507e2931120c0927767beaeaf2721ff20861dc550f933d4f",
+  "input_sha256": "d481ac3ad0c6d3dc90e9b3f8388c70ad9dc6abd69b0ebfc098c0ea1023e0c40c",
+  "output_schema_sha256": "89866348932c84bb0e0272f92c8f923d3d126a89f7ec3e9d49f13ad99f099d36",
+  "evaluation_sha256": "7d9b1a59a9d6d903cf594d48e39832b0f7d5428972f1dfa8438a5c26a82004dd",
+  "mutation_sha256": "a2f180754caae5be1af76a811d4109cb94593b67fe757107a68c1b46f23087e1",
+  "expected_output_sha256": "d1f223f8c2c17bf7579824d1f5316eb0e920c5d64b9ffb6af885099d89d4e9d0",
+  "receipt_sha256": "58865fe3ff6692883873b2e3aa5b1274ec97ccc520b02f924837346cc6e6964c",
+  "boundary": "versioned prompt package; no model/API run"
+}

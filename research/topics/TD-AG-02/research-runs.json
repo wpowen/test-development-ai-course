@@ -1,0 +1,44 @@
+{
+  "topic_id": "TD-AG-02",
+  "runs": [
+    {
+      "run_id": "TD-AG-02-R1",
+      "researcher": "course-research-pass-a",
+      "independence_basis": "professional workflow and beginner reuse",
+      "source_ids": [
+        "S07",
+        "S13",
+        "S23",
+        "S24",
+        "S36"
+      ],
+      "completed_at": "2026-08-12T00:00:00+08:00",
+      "output_ref": "evidence-synthesis.md",
+      "verdict": "usable-with-boundary"
+    },
+    {
+      "run_id": "TD-AG-02-R2",
+      "researcher": "course-research-pass-b",
+      "independence_basis": "system adversarial, metrics and operational failure",
+      "source_ids": [
+        "S01",
+        "S03",
+        "S04",
+        "S08",
+        "S10"
+      ],
+      "completed_at": "2026-08-12T00:05:00+08:00",
+      "output_ref": "engineering-blueprint.md",
+      "verdict": "usable-with-boundary"
+    }
+  ],
+  "comparison": {
+    "reviewer": "course-adjudication-owner",
+    "input_run_ids": [
+      "TD-AG-02-R1",
+      "TD-AG-02-R2"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "adjudicated; no source permits live/practitioner inference"
+  }
+}

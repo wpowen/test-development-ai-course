@@ -1,0 +1,14 @@
+{
+  "run_id": "TD-P02-fault",
+  "page_id": "TD-P02",
+  "phase": "fault",
+  "status": "FAIL",
+  "finding_id": "UNSUPPORTED_RULE",
+  "finding": "Requirement Contract contains a value without source_refs",
+  "prompt_hash": "ed09f89c0c326085f0b1c8676cfbe1336095670ad459d34ccc2f998ff3f0f086",
+  "input_hash": "3a56275fd5a06d5d7644cd9a40b8213dde30a178f183928eb6285f2f4abb9397",
+  "evidence_status": "fixture-tested",
+  "provider": "none",
+  "model_status": "NOT_RUN",
+  "boundary": "deterministic offline negative-control fixture; not model, practitioner, integration, live, publication, or production evidence"
+}

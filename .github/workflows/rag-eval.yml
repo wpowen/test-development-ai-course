@@ -1,0 +1,65 @@
+name: rag-eval-gate
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+jobs:
+  course-factory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Compile factory scripts
+        run: python3 -m py_compile skill/career-ai-course-factory/scripts/*.py
+      - name: Run fail-closed factory regressions
+        run: |
+          python3 -m unittest discover -s skill/career-ai-course-factory/scripts -p 'test_*.py'
+      - name: Validate the assembled public release
+        run: python3 skill/career-ai-course-factory/scripts/validate_public_release.py .
+      - name: Execute every downloadable red-green lab
+        run: python3 tools/validate-material-archives.py site/materials
+
+  offline-eval:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: courses/td-ai-006-rag-eval-ci/lab
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Adversarial evaluator tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Evaluate candidate under review
+        run: python3 scripts/evaluate.py --candidate data/candidate-current.jsonl --report reports/ci-current.json
+      - name: Prove known regression is rejected
+        run: |
+          if python3 scripts/evaluate.py --candidate data/candidate-regressed.jsonl --report reports/ci-mutation.json; then
+            echo "ERROR: known regression unexpectedly passed"
+            exit 1
+          fi
+
+  agent-load-stability:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: courses/td-ai-010-agent-load-stability
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Healthy baseline must pass
+        run: python3 lab/agent_load_lab.py --config lab/configs/baseline.json --output evidence/baseline
+      - name: Retry storm must fail
+        run: |
+          if python3 lab/agent_load_lab.py --config lab/configs/retry-storm.json --output evidence/retry-storm; then
+            echo "ERROR: retry storm unexpectedly passed"
+            exit 1
+          fi
+      - name: Repaired configuration must pass
+        run: python3 lab/agent_load_lab.py --config lab/configs/repaired.json --output evidence/repaired

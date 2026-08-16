@@ -1,0 +1,48 @@
+{
+  "topic_id": "TD-W02",
+  "runs": [
+    {
+      "run_id": "TD-W02-run-a",
+      "role": "profession-and-risk-researcher",
+      "completed_at": "2026-08-11",
+      "source_ids": [
+        "SRC-01",
+        "SRC-02",
+        "SRC-03",
+        "SRC-04",
+        "SRC-05",
+        "SRC-06"
+      ],
+      "question": "怎样把 checkpoint、循环预算、消息重投、幂等 receipt、handoff 契约和 stop reason 组成可恢复工作流，避免重复副作用、孤儿状态和无限循环？",
+      "output_ref": "evidence-synthesis.md",
+      "status": "completed"
+    },
+    {
+      "run_id": "TD-W02-run-b",
+      "role": "systems-and-adversarial-researcher",
+      "completed_at": "2026-08-11",
+      "source_ids": [
+        "SRC-07",
+        "SRC-08",
+        "SRC-09",
+        "SRC-10",
+        "SRC-11",
+        "SRC-12"
+      ],
+      "question": "以故障、权限和可执行性反驳：怎样把 checkpoint、循环预算、消息重投、幂等 receipt、handoff 契约和 stop reason 组成可恢复工作流，避免重复副作用、孤儿状态和无限循环？",
+      "output_ref": "engineering-blueprint.md",
+      "status": "completed"
+    }
+  ],
+  "comparison": {
+    "reviewer": "independent-course-factory-adjudicator",
+    "input_run_ids": [
+      "TD-W02-run-a",
+      "TD-W02-run-b"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "retain shared controls, reject unsupported live claims, require named Oracle and human decision owner"
+  }
+}
+
+

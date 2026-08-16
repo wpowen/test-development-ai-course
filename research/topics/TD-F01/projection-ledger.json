@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-F01",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:6fb18553ebdf504ddf495d4bd604a9b332328583e4762d782c3f779df0c679a0",
+  "page_content_sha256": "sha256:bcf7d8b1cd483c847d40c49c4f34af4ae1929b26f84faacb65c8463f2ce304c6",
+  "claims": [
+    {
+      "claim_id": "TD-F01-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "能用一句话说明测试开发责任，并说出业务、研发、测试、发布和运行责任边界；生命周期包含需求、技术设计、权威裁决、风险、方法、Oracle、执行归因、发布和生产回流；需求与技术文档的读法已经区分，冲突不会被技术实现或模型静默覆盖；至少一个方法绑定风险，一个 Oracle 独立于实现，一个工件有 owner/version/source/acceptance/consumer；自测 cycle 真实得到 0/1/0，报告明确 provider none、model NOT_RUN 和 fixture-only 边界；个…",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-F01#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-F01-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L25-L25",
+      "meaning": "技术设计与当前实现都不是天然 Oracle；需求依据也可能过期。先验证权威性和版本，再写预期结果。；如果 AI 产物没有进入真实工件链，也没有人用它做决定，它只是一次演示。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-F01#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-F01-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L19-L19",
+      "meaning": "公开职业框架、标准、雇主材料与社区讨论只支持共同职业结构和可迁移能力。确定性自测已通过 fixture 红绿修复，但 Prompt 的 provider=none、model_status=NOT_RUN；目标公司职责、权限、绩效、发布规则和真实效果仍为 INTERNAL-UNKNOWN。本页不构成 practitioner、integration、live、publication 或 production 证据。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-F01#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-F01-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L13-L13",
+      "meaning": "行动：用最近一次需求重建九阶段研发测试链，并为每阶段写 input、artifact、decision 和 consumer；分别列出需求文档与技术文档各五个阅读问题，模拟一个冲突并写出 BLOCKED 升级路径；为一个高风险场景选择方法并写出独立 Oracle，说明为什么不依赖被测实现或本次模型输出；运行职业能力 baseline/fault/repair cycle，查看 fault 中被检出的责任边界；选择传统测试到 AI 质量迁移的一项能力，写 Dataset/Eval/Trace/权限或生产反馈工件 预…",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-F01#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-F01-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "把测试开发定义成「找 Bug」，AI 一进来就会取代你 失效形态 可核查的数字 它导致的错误结论 把产出定义为缺陷数量 缺陷数量随被测系统质量提高而下降；用它衡量价值时，质量越好的项目测试价值越低，这个指标方向是反的 「这个季度只提了 8 个 Bug」被读成工作不饱和 不区分方法、判据、工件与责任 这 4 件事各自可以独立缺失；混为一谈时无法定位到底哪一环没做 「测试做过了」这句话不携带任何可核查信息 把 AI 授权定义为「让它做测试」 AI 可承担的是生成候选与整理证据这 2 类工作；判据与发布决定必须留在人手…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-F01#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-F01-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "把测试开发定义成「找 Bug」，AI 一进来就会取代你 如果这份工作的定义是执行用例、提交缺陷，那么它确实是最容易被自动化的那一类。这一页要先把工作重新定义清楚，再谈 AI 该改哪里。 下面三条是职业定义不清带来的具体后果。 失效形态 可核查的数字 它导致的错误结论 把产出定义为缺陷数量 缺陷数量随被测系统质量提高而下降；用它衡量价值时，质量越好的项目测试价值越低，这个指标方向是反的 「这个季度只提了 8 个 Bug」被读成工作不饱和 不区分方法、判据、工件与责任 这 4 件事各自可以独立缺失；混为一谈时无法定位…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-F01#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-F01-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L25-L25",
+      "meaning": "依赖和工件决定 AI 能不能真正落地 同样是“生成测试用例”，有人缺的是边界案例，有人缺的是已批准规则，有人根本没有稳定环境和测试数据。模型不能替你补齐权限、责任人、历史事故和业务 Oracle。先画依赖：产品和研发、代码与 CI、环境和数据、日志与 Trace、发布政策和时间窗口。 再画工件链：风险地图 → 测试策略 → 需求契约 → TestPackage → 自动化与 Fixture → Run Manifest → 缺陷和发布证据 → 生产回归资产。每个工件要有 owner、版本、来源、验收规则和下游消费…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-F01#content_sections.teaching_blocks.9",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

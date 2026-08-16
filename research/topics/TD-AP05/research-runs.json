@@ -1,0 +1,59 @@
+{
+  "topic_id": "TD-AP05",
+  "runs": [
+    {
+      "run_id": "TD-AP05-official-metrics-20260811",
+      "route": "official-specification-and-implementation",
+      "status": "completed",
+      "query_set": [
+        "如何从阶梯负载找到 SLO 首次失效点，并用 queue、prefill、decode、tool 信号定位瓶颈？",
+        "official metric semantics implementation limitations"
+      ],
+      "source_refs": [
+        "TD-AP05-K6-OPEN",
+        "TD-AP05-K6-ARRIVAL",
+        "TD-AP05-NVIDIA-METRICS",
+        "TD-AP05-VLLM-METRICS",
+        "TD-AP05-OTEL-TRACE",
+        "TD-AP05-OTEL-AGENT",
+        "TD-AP05-PROM-HIST",
+        "TD-AP05-SRE-MON"
+      ],
+      "output_ref": "evidence-synthesis.md#Evidence"
+    },
+    {
+      "run_id": "TD-AP05-failure-operations-20260811",
+      "route": "failure-first-operations-and-learning",
+      "status": "completed",
+      "query_set": [
+        "容量曲线与瓶颈归因 failure mode retry queue leak incident",
+        "counterevidence learner workflow"
+      ],
+      "source_refs": [
+        "TD-AP05-SRE-CASCADE",
+        "TD-AP05-SRE-SLO",
+        "TD-AP05-SRE-ALERT",
+        "TD-AP05-AWS-RETRY",
+        "TD-AP05-PY-TRACEMALLOC",
+        "TD-AP05-VLLM-LEAK",
+        "TD-AP05-OTEL-GAP"
+      ],
+      "output_ref": "evidence-synthesis.md#Counterevidence"
+    }
+  ],
+  "comparison": {
+    "reviewer": "independent-course-comparator",
+    "input_run_ids": [
+      "TD-AP05-official-metrics-20260811",
+      "TD-AP05-failure-operations-20260811"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "bounded synthesis; fixture implementation allowed"
+  },
+  "opened_source_count": 15,
+  "limitations": [
+    "No live provider run",
+    "No practitioner or production capacity evidence"
+  ]
+}
+

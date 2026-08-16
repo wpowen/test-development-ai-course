@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T02",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:79ec4aa6caf33c79d1b20e900923f772e0b7bc9addbeb7270ac5b56fc17625bd",
+  "page_content_sha256": "sha256:e0b1f059cfc75095f032933587adab7e25abb95f69b636653f80b11b6067d0aa",
+  "claims": [
+    {
+      "claim_id": "TD-T02-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "每条 case 有来源、slice、Oracle 和 owner；development 与 holdout 权限分离；重复和分歧有机器记录",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T02#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T02-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L33-L33",
+      "meaning": "Dataset、Slice 与 Holdout：让评测不会越调越假 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；holdout 必须在任何调优之前抽取。从已经用过的集合里事后划出一部分，它不是 holdout。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T02#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T02-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L43-L43",
+      "meaning": "本页只用合成数据做静态拆分与 Fixture 检查；真实 provider/model、数据集 integration 未运行，practitioner 复核、learner 理解观察、live、production 和 publication 均为 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T02#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T02-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L19-L19",
+      "meaning": "行动：把 12 条样例分成至少 5 个风险切片；用 source/group/time 规则去重后再划分；让第二位标注者独立判断高风险 case 预期：TD-T02 Prompt/Input/Schema/Eval/Mutation 版本可静态追踪；实际模型输出保持 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T02#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T02-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "评测集越调越假，是因为它已经变成了训练集的一部分 失效形态 可核查的数字 它导致的错误结论 用同一批数据反复调优 Holdout 每被开封 1 次，其无偏性就下降一档；通行纪律是每个版本至多开封 1 次 分数持续上涨被读成能力提升，实际是对这批题的过拟合 训练数据污染评测集 污染率的唯一可接受值是 0；哪怕 1% 的重合也足以让排名失真 模型「表现优异」，换一批同分布新题就掉 10 个点以上 高风险切片样本太少 单个切片样本 < 30 条时，置信区间宽到无法区分 60% 和 85% 把「这个切片看起来还行」当成结…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T02#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T02-METRIC-01",
+      "manuscript_locator": "manuscript.md:L41-L41",
+      "meaning": "评测集越调越假，是因为它已经变成了训练集的一部分 数据集是评测体系里唯一一个会被自己的使用过程破坏的组件。每看一次 Holdout，它就少一分作为 Holdout 的价值。 下面三条是数据集失效的三种典型路径，它们的共同特征是：过程中每一步看起来都合理。 失效形态 可核查的数字 它导致的错误结论 用同一批数据反复调优 Holdout 每被开封 1 次，其无偏性就下降一档；通行纪律是每个版本至多开封 1 次 分数持续上涨被读成能力提升，实际是对这批题的过拟合 训练数据污染评测集 污染率的唯一可接受值是 0；哪怕 1…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T02#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T02-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L33-L33",
+      "meaning": "从失败成本反推样本，而不是从数据可得性正推 评测集最常见的建法是「把手头有的数据拿来标一批」。这样得到的分布等于历史流量分布，而历史流量里高频的往往恰恰是低风险的——于是评测集把绝大多数样本花在了错了也不要紧的地方。 正确的起点是失败成本：列出这个系统可能造成的损失（资损、合规、口碑、人工返工），按成本排序，再为每一类构造足够样本。这会得到一个与流量分布完全不同的评测集，而且它是**刻意不平衡**的——这一点常被误当成设计缺陷。 时间边界与封存 holdout 解决的是另一个问题：评测集一旦被用来调优，它就逐渐变…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T02#content_sections.teaching_blocks.2",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

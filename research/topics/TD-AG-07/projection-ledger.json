@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-AG-07",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:ac4b3c71169bba3d0f919911d13580c527895b9108385f82ca4f744d628b8174",
+  "page_content_sha256": "sha256:7eda8b2e2ae01616b704ca33acb8c1b2628ea72c2e6ef8e438b5fdd700b846b5",
+  "claims": [
+    {
+      "claim_id": "TD-AG-07-DECISION-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "术语、架构边界和独立 Oracle 能复述；baseline/fault/repair 证据可重放且退出码精确；知道 fixture-tested、NOT_RUN、BLOCKED 和 production 的差异",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-AG-07#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-AG-07-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L8-L8",
+      "meaning": "真实模型、企业系统、生产凭证和从业者结论均 NOT_RUN。；降低阈值、删除 Oracle、扩大权限、增加预算或无限重试都可能制造假绿。；夹具中的 economics 阈值全部是结构占位。直接抄进你的门禁，会得到一个既不阻断真问题、又天天误报的检查。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-AG-07#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-AG-07-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L32-L32",
+      "meaning": "本页新增证据仅为标准库确定性离线 fixture；真实模型、真实 Agent、MCP/浏览器/队列/交易后端、从业者评审、学习者迁移和线上效果均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-AG-07#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-AG-07-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L13-L13",
+      "meaning": "行动：运行 TD-AG-07 的 0/1/0 fixture 并解释 failed_oracle_ids；检查 Prompt/Input/Schema/Eval/Mutation 版本闭包；将 workload-cost-card.json 与容量/成本报告 迁移到一个低权限、可回滚的合成业务对象 预期：输出必须保留 Evidence、Inference、Unknown 与证据边界。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-AG-07#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-AG-07-TABLE-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "成本不是运维指标，它是一等质量指标 失效形态 可核查的数字 它导致的错误结论 报成本均值 成本长尾分布下均值被大量廉价请求拉低；失控案例可比中位数高 2～3 个数量级 按均值做预算，实际账单被少量任务占据 没有单任务硬上限 缺硬上限时失控任务不会自行停止；公开案例中出现过连续运行 11 天的 Agent 把「任务还在处理中」当成正常状态 不算评估基础设施自身成本 评估基础设施通常占 Agent 运营成本的 10–25%，不计入时总预算被系统性低估 预算做完就超，且找不到超在哪里 本页把成本与延迟一起纳入门禁，并要…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-AG-07#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-AG-07-METRIC-01",
+      "manuscript_locator": "manuscript.md:L24-L24",
+      "meaning": "成本不是运维指标，它是一等质量指标 Agent 的成本是长尾分布：中位数很便宜，而失控案例能烧掉几个数量级。用均值做预算，等于假装尾部不存在。 下面三条是把成本当二等指标的后果。 失效形态 可核查的数字 它导致的错误结论 报成本均值 成本长尾分布下均值被大量廉价请求拉低；失控案例可比中位数高 2～3 个数量级 按均值做预算，实际账单被少量任务占据 没有单任务硬上限 缺硬上限时失控任务不会自行停止；公开案例中出现过连续运行 11 天的 Agent 把「任务还在处理中」当成正常状态 不算评估基础设施自身成本 评估基础…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-AG-07#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-AG-07-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "Baseline / Fault / Repair：0/1/0 先运行正常合同，再注入一个命名故障，最后恢复同一合同。故障报告必须由独立 Oracle 点名，不能吞异常或改 expected。 Fault 目标：只报平均延迟/QPS，或把提高预算作为修复，会把失控循环和高尾成本藏起来。 command python3 scripts/agent_architecture_lab.py --topic TD-AG-07 --phase cycle --report-dir reports/td-ag-07 mate…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-AG-07#content_sections.teaching_blocks.11",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

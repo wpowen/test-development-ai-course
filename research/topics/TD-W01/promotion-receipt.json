@@ -1,0 +1,143 @@
+{
+  "schema_version": "page-promotion-receipt.v1",
+  "page_id": "TD-W01",
+  "validated_at": "2026-08-15T14:44:09.109Z",
+  "reviewer": "validation-semantic-parity-verifier-2026-08-13",
+  "page_content_hash": "sha256:c597b92fcedd0a2a3dc27d73af4bd1781adac30e5c807a4796393641994327cb",
+  "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
+  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_verdict": "PASS",
+  "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
+  "page_author_id": "course-page-projection-author-2026-08-13",
+  "reviewer_is_independent_of_author": true,
+  "research_package_files": [
+    "research-brief.md",
+    "source-pack.csv",
+    "research-runs.json",
+    "evidence-synthesis.md",
+    "engineering-blueprint.md",
+    "manuscript.md",
+    "comparison.md",
+    "lab-manifest.json",
+    "validation.md",
+    "projection-ledger.json"
+  ],
+  "research_inventory": [
+    {
+      "path": "research-brief.md",
+      "exists": true,
+      "sha256": "sha256:87919583dfa7cdef8ca076e044e523ba7638466fe6a04c3ff9a3b346d5f5ec4e"
+    },
+    {
+      "path": "source-pack.csv",
+      "exists": true,
+      "sha256": "sha256:6bc2c2fb30d395569d856de1779962d203b622d4b1ac5ab4d1f1334167048925"
+    },
+    {
+      "path": "research-runs.json",
+      "exists": true,
+      "sha256": "sha256:0408bf6a7d6d8fded4b286d989f6eb229ee5f6581f33432c413e7ce3d2b141fa"
+    },
+    {
+      "path": "evidence-synthesis.md",
+      "exists": true,
+      "sha256": "sha256:7fbb784ca50b5569a15890244a085e10184f7bc104a1c259933912052cd97ed0"
+    },
+    {
+      "path": "engineering-blueprint.md",
+      "exists": true,
+      "sha256": "sha256:9e6e9e8cc3f9ddeaba1223f4e183b69cff506735a92e6cc4668230ab26c473d0"
+    },
+    {
+      "path": "manuscript.md",
+      "exists": true,
+      "sha256": "sha256:45da1c58a114ffaf43483f2a5ab244f8cd7bb8163422788b2369385dcea3f9c0"
+    },
+    {
+      "path": "comparison.md",
+      "exists": true,
+      "sha256": "sha256:fb1f931d3c4bb699f8c56bbd1fa5b7538e0f2ad34e699e06d1c9acccd024af3b"
+    },
+    {
+      "path": "lab-manifest.json",
+      "exists": true,
+      "sha256": "sha256:ab7aacc3b31543aebc8dfe4c8c4e1aa5d9add2ecbcafd62e5dfb5bca1f12a9bc"
+    },
+    {
+      "path": "validation.md",
+      "exists": true,
+      "sha256": "sha256:2fee9ec2cb579a3d6cb985c154c0758beb672ec86e75ed9d82631dd2fa927042"
+    },
+    {
+      "path": "projection-ledger.json",
+      "exists": true,
+      "sha256": "sha256:9b7927435d4bf8a158f4cdcffd7d374c75310649cca8f6d0605cda538305bd3c"
+    }
+  ],
+  "editorial_score": 100,
+  "boundary_preservation_score": 100,
+  "executability_audit_ref": "research/executability-audit.json",
+  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit": {
+    "path": "../../executability-audit.json",
+    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "verdict": "PASS",
+    "finding_count": 0
+  },
+  "material_hashes": {
+    "materials/llm-agent-quality/learner-materials/scripts/agent_quality_lab.py": "sha256:9374cf1a7c0cc1699595032f45a8138f9b1f43371be9f767dee894a67f2b0317",
+    "materials/llm-agent-quality/learner-materials/manifests/TD-W01.json": "sha256:c1747f583848743332e0025929831f16b91ce62982ab1d0077ee47e16b32b038",
+    "materials/llm-agent-quality/learner-materials/prompts/TD-W01/manifest.json": "sha256:fa937cea0d6ce2ca8931708316fdcdc89992c929ab4bc2c3cff26734076c905d",
+    "materials/llm-agent-quality/learner-materials/prompts/TD-W01/mutation.json": "sha256:89e0f9e401185f5f04786d5959585d9d26656f766f7c4c830caa0eb12a5d64a0",
+    "materials/llm-agent-quality/learner-materials/owners.json": "sha256:4ce9bbdcccfa1d1e1febbb639a630b0e9cc0d2d877a0fd76a664c74b9bb2378e",
+    "materials/llm-agent-quality.zip": "sha256:b278115596706d1c32e5b0d526868e6538f704de01658c70ce21dd83fce64cfe"
+  },
+  "learner_material_hashes": [
+    {
+      "href": "materials/llm-agent-quality/learner-materials/scripts/agent_quality_lab.py",
+      "public_sha256": "sha256:9374cf1a7c0cc1699595032f45a8138f9b1f43371be9f767dee894a67f2b0317",
+      "static_sha256": "sha256:9374cf1a7c0cc1699595032f45a8138f9b1f43371be9f767dee894a67f2b0317",
+      "archive_member_sha256": "sha256:9374cf1a7c0cc1699595032f45a8138f9b1f43371be9f767dee894a67f2b0317",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/llm-agent-quality/learner-materials/manifests/TD-W01.json",
+      "public_sha256": "sha256:c1747f583848743332e0025929831f16b91ce62982ab1d0077ee47e16b32b038",
+      "static_sha256": "sha256:c1747f583848743332e0025929831f16b91ce62982ab1d0077ee47e16b32b038",
+      "archive_member_sha256": "sha256:c1747f583848743332e0025929831f16b91ce62982ab1d0077ee47e16b32b038",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/llm-agent-quality/learner-materials/prompts/TD-W01/manifest.json",
+      "public_sha256": "sha256:fa937cea0d6ce2ca8931708316fdcdc89992c929ab4bc2c3cff26734076c905d",
+      "static_sha256": "sha256:fa937cea0d6ce2ca8931708316fdcdc89992c929ab4bc2c3cff26734076c905d",
+      "archive_member_sha256": "sha256:fa937cea0d6ce2ca8931708316fdcdc89992c929ab4bc2c3cff26734076c905d",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/llm-agent-quality/learner-materials/prompts/TD-W01/mutation.json",
+      "public_sha256": "sha256:89e0f9e401185f5f04786d5959585d9d26656f766f7c4c830caa0eb12a5d64a0",
+      "static_sha256": "sha256:89e0f9e401185f5f04786d5959585d9d26656f766f7c4c830caa0eb12a5d64a0",
+      "archive_member_sha256": "sha256:89e0f9e401185f5f04786d5959585d9d26656f766f7c4c830caa0eb12a5d64a0",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/llm-agent-quality/learner-materials/owners.json",
+      "public_sha256": "sha256:4ce9bbdcccfa1d1e1febbb639a630b0e9cc0d2d877a0fd76a664c74b9bb2378e",
+      "static_sha256": "sha256:4ce9bbdcccfa1d1e1febbb639a630b0e9cc0d2d877a0fd76a664c74b9bb2378e",
+      "archive_member_sha256": "sha256:4ce9bbdcccfa1d1e1febbb639a630b0e9cc0d2d877a0fd76a664c74b9bb2378e",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/llm-agent-quality.zip",
+      "public_sha256": "sha256:b278115596706d1c32e5b0d526868e6538f704de01658c70ce21dd83fce64cfe",
+      "static_sha256": "sha256:b278115596706d1c32e5b0d526868e6538f704de01658c70ce21dd83fce64cfe",
+      "archive_member_sha256": null,
+      "closure_verdict": "PASS"
+    }
+  ],
+  "verdict": "FAIL",
+  "findings": [
+    "independent editorial review does not pin current page content hash"
+  ]
+}

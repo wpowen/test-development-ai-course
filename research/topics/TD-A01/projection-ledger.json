@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-A01",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:2ff93c623c81e8a2290f7f604c6b663f65488d63d5f61beab49b47b96781991e",
+  "page_content_sha256": "sha256:0665ca5c4538cb3f952e8c9ae9c14f55750d8e0b61c18ef45118645108a6639b",
+  "claims": [
+    {
+      "claim_id": "TD-A01-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "共同协议与 AI 新增变量分开；未知供应商内部状态显式为 UNKNOWN；错误分类能驱动重试或安全失败",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-A01#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-A01-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L29-L29",
+      "meaning": "本页仅运行离线 manifest fixture；model、integration、practitioner、learner、live 与 production 均 NOT_RUN。没有调用供应商 API，不证明真实模型行为、当前限额、集成环境、实践者复核、学习者完成、线上服务或生产 SLA。；不要把「重复调用三次都返回 200」当作模型行为测试。它测的还是协议面。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-A01#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-A01-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L33-L33",
+      "meaning": "本页仅运行离线 manifest fixture；model、integration、practitioner、learner、live 与 production 均 NOT_RUN。没有调用供应商 API，不证明真实模型行为、当前限额、集成环境、实践者复核、学习者完成、线上服务或生产 SLA。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-A01#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-A01-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L17-L17",
+      "meaning": "行动：把一个普通订单 API 与生成式解释 API 对齐成五层测试面；为 400/401/429/5xx/安全拒绝写 retryable 分类；生成一份不伪造内部版本的请求 Manifest 预期：恢复 request_id，将不可见内部版本改为 UNKNOWN，并保留可见模型别名、Prompt hash、Schema 和工具版本。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-A01#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-A01-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "把生成式接口当普通 REST 测，五个测试面里只覆盖了一个 失效形态 可核查的数字 它导致的错误结论 只测协议层不测生成 manifest 生成结果由模型版本、提示版本、解码参数共同决定，这 3 类字段任一变化都会让历史结果失去可比性 接口没改而输出变了，被归因为「模型不稳定」 不记录 token 与成本 生成式接口按量计费，单次调用成本可相差 1～2 个数量级；不记录时超支无法归因到具体调用 月底账单超预算，而所有接口指标都在阈值内 用固定断言校验响应文本 同一请求两次返回的措辞不同是正常行为，逐字断言的失败率…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-A01#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-A01-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "把生成式接口当普通 REST 测，五个测试面里只覆盖了一个 普通 API 的契约是「同样输入给同样输出」。生成式接口没有这个契约，它有的是版本化的行为、算力约束和按量计费——这三件事在传统接口测试里都不存在。 下面三条是沿用普通 API 思路时漏掉的部分。 失效形态 可核查的数字 它导致的错误结论 只测协议层不测生成 manifest 生成结果由模型版本、提示版本、解码参数共同决定，这 3 类字段任一变化都会让历史结果失去可比性 接口没改而输出变了，被归因为「模型不稳定」 不记录 token 与成本 生成式接口按…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-A01#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-A01-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L22-L22",
+      "meaning": "给生成请求建立可重放版本指纹：职业场景与失败代价 同一个退款解释请求分别调用普通规则 API 与生成式 API；后者还携带模型别名、Prompt hash、上下文、采样、输出 Schema 和工具定义。 只复用状态码与 JSON 断言，会漏掉模型/Prompt/Schema/Tool 版本、流式阶段、Token 成本、概率行为和服务内部不可见项。",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-A01#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

@@ -1,0 +1,38 @@
+{
+  "receipt_id": "REC-TD-P02-FIXTURE-20260811",
+  "solution_id": "SOL-REQ-RELEASE",
+  "scenario_id": "TD-S06",
+  "environment": "fresh temporary unzip on macOS; synthetic offline fixture",
+  "run_at": "2026-08-11T10:58:17Z",
+  "tools": ["Python 3.9.6", "requirements-to-evidence pipeline.py", "unzip"],
+  "command": "unzip requirements-to-evidence.zip; cd requirements-to-evidence; python3 pipeline.py reset; python3 pipeline.py all --report reports/solution-baseline.json; python3 pipeline.py inject-code-defect; python3 pipeline.py all --report reports/solution-mutation.json; python3 pipeline.py repair; python3 pipeline.py all --report reports/solution-repair.json",
+  "working_directory": "fresh temporary archive root/requirements-to-evidence",
+  "input_hashes": {
+    "prd-v3.md": "6ca8bedc486e23370aeee541109eb4a1c2e54fce803fcedd0e80a49fb92dd6ea",
+    "technical-design-a13f.md": "45d3d5df269cdaadae139b1389e58c0b87b3a6c8989d1b5057706a2f67a9faad",
+    "openapi-v7.yaml": "a18ed66cf9f493415925a8d15124579c29eed376495b32f806cb744c418ebeb9",
+    "authority-policy.json": "65a011f4ddade953e57e7e8bec6e44d5bcaa7ecee966402291615320b9d4565a",
+    "prompt-manifest.json": "3dedf1157623c4fbfc071858cdaf2fedd971f22340242944a0929b1a883735a5",
+    "requirement-contract.schema.json": "b1ed4b3be46855ea4b03ceb731b188597cefe95b56d5e74449206372244cb90e"
+  },
+  "output_hashes": {
+    "solution-baseline.json": "a8d5b7bf47e8d6cb0b42e410d6e5ea615b740fe9cc5b212cd1992c69d0de391d",
+    "solution-mutation.json": "825cf58f0414c6d0e1ffce4df62096e7e2a85a36cfae38553a23cdab8f40b149",
+    "solution-repair.json": "a8d5b7bf47e8d6cb0b42e410d6e5ea615b740fe9cc5b212cd1992c69d0de391d"
+  },
+  "assertions": [
+    {"name": "baseline", "expected": "PASS exit 0", "observed": "PASS exit 0; failed=[]", "status": "PASS"},
+    {"name": "meaningful mutation", "expected": "FAIL exit 1", "observed": "FAIL exit 1; failed=[T-CANCEL-SHIPPED-01]", "status": "PASS"},
+    {"name": "repair", "expected": "PASS exit 0", "observed": "PASS exit 0; failed=[]", "status": "PASS"}
+  ],
+  "expected_verdict": "PASS-FIXTURE",
+  "actual_verdict": "PASS-FIXTURE",
+  "failure_injection": {"command": "python3 pipeline.py inject-code-defect", "target": "shipped-order cancellation behavior"},
+  "red_evidence": {"exit_code": 1, "failed_test_ids": ["T-CANCEL-SHIPPED-01"], "report_hash": "825cf58f0414c6d0e1ffce4df62096e7e2a85a36cfae38553a23cdab8f40b149"},
+  "repair": {"command": "python3 pipeline.py repair", "scope": "restore healthy deterministic implementation"},
+  "green_evidence": {"exit_code": 0, "failed_test_ids": [], "report_hash": "a8d5b7bf47e8d6cb0b42e410d6e5ea615b740fe9cc5b212cd1992c69d0de391d"},
+  "stdout": {"baseline": "PASS generated 3 evidence-bound tests; status PASS", "mutation": "PASS generated 3 evidence-bound tests; status FAIL; T-CANCEL-SHIPPED-01", "repair": "PASS generated 3 evidence-bound tests; status PASS"},
+  "stderr": "",
+  "limitations": ["synthetic offline fixture", "no model or API invocation", "no Jira/GitLab/Kubernetes/browser/mobile integration", "no practitioner or production review"],
+  "reviewer": "validation-contract-local-run-2026-08-11"
+}

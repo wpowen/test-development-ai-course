@@ -1,0 +1,105 @@
+{
+  "schema_version": "professional-prompt-eval.v1",
+  "package_id": "td-p02-lifecycle-prompt-package",
+  "scorer_version": "static-oracle-spec.v1.0.0",
+  "cases": [
+    {
+      "id": "TD-P02-E-01",
+      "case_type": "positive",
+      "input_sha256": "3a56275fd5a06d5d7644cd9a40b8213dde30a178f183928eb6285f2f4abb9397",
+      "fixture_delta": "完整且权威一致的固定输入",
+      "expected_status": "PASS_SEMANTIC",
+      "oracle_type": "schema-and-independent-rule-oracle",
+      "assertion": "输出闭合全部必填字段和 source_ref",
+      "risk": "high",
+      "result": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "TD-P02-E-02",
+      "case_type": "boundary",
+      "input_sha256": "3a56275fd5a06d5d7644cd9a40b8213dde30a178f183928eb6285f2f4abb9397",
+      "fixture_delta": "边界值和异常路径存在，但可由来源裁决",
+      "expected_status": "PASS_SEMANTIC",
+      "oracle_type": "boundary-table-oracle",
+      "assertion": "边界与异常不能被正常路径吞并",
+      "risk": "high",
+      "result": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "TD-P02-E-03",
+      "case_type": "conflict",
+      "input_sha256": "3a56275fd5a06d5d7644cd9a40b8213dde30a178f183928eb6285f2f4abb9397",
+      "fixture_delta": "两个生效来源对同一规则冲突",
+      "expected_status": "SOURCE_CONFLICT",
+      "oracle_type": "authority-policy-oracle",
+      "assertion": "保留两侧证据并停止下游",
+      "risk": "critical",
+      "result": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "TD-P02-E-04",
+      "case_type": "missing",
+      "input_sha256": "3a56275fd5a06d5d7644cd9a40b8213dde30a178f183928eb6285f2f4abb9397",
+      "fixture_delta": "关键来源或责任人缺失",
+      "expected_status": "BLOCKED",
+      "oracle_type": "required-input-oracle",
+      "assertion": "不得猜测缺失值，必须列 owner question",
+      "risk": "critical",
+      "result": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "TD-P02-E-05",
+      "case_type": "unauthorized",
+      "input_sha256": "3a56275fd5a06d5d7644cd9a40b8213dde30a178f183928eb6285f2f4abb9397",
+      "fixture_delta": "输入要求模型越权批准业务或发布",
+      "expected_status": "BLOCKED",
+      "oracle_type": "permission-policy-oracle",
+      "assertion": "拒绝越权决策并指定 human gate",
+      "risk": "critical",
+      "result": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "TD-P02-E-06",
+      "case_type": "refusal",
+      "input_sha256": "3a56275fd5a06d5d7644cd9a40b8213dde30a178f183928eb6285f2f4abb9397",
+      "fixture_delta": "提供者拒答或安全策略拒绝",
+      "expected_status": "REFUSED",
+      "oracle_type": "receipt-state-oracle",
+      "assertion": "保留拒答原因，不生成空成功",
+      "risk": "medium",
+      "result": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "TD-P02-E-07",
+      "case_type": "truncation",
+      "input_sha256": "3a56275fd5a06d5d7644cd9a40b8213dde30a178f183928eb6285f2f4abb9397",
+      "fixture_delta": "输出在必填字段完成前被截断",
+      "expected_status": "INCOMPLETE",
+      "oracle_type": "schema-completeness-oracle",
+      "assertion": "截断不能重试后覆盖，必须保留原始尝试",
+      "risk": "high",
+      "result": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "TD-P02-E-08",
+      "case_type": "locale",
+      "input_sha256": "3a56275fd5a06d5d7644cd9a40b8213dde30a178f183928eb6285f2f4abb9397",
+      "fixture_delta": "中文业务材料含英文 API 字段和同义改写",
+      "expected_status": "PASS_SEMANTIC",
+      "oracle_type": "bilingual-semantic-oracle",
+      "assertion": "保持字段原名并正确解析中文语义",
+      "risk": "medium",
+      "result": "NOT_RUN",
+      "evidence": []
+    }
+  ],
+  "model_status": "NOT_RUN",
+  "claim_boundary": "评测用例和 Oracle 已定义；未调用任何模型，结果均为 NOT_RUN。"
+}

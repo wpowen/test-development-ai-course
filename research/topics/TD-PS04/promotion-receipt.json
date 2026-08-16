@@ -1,0 +1,135 @@
+{
+  "schema_version": "page-promotion-receipt.v1",
+  "page_id": "TD-PS04",
+  "validated_at": "2026-08-15T14:44:09.109Z",
+  "reviewer": "validation-semantic-parity-verifier-2026-08-13",
+  "page_content_hash": "sha256:a7187992d498bb48a002c589f0a65120004b6325bf4f859273f7229e470aa248",
+  "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
+  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_verdict": "PASS",
+  "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
+  "page_author_id": "course-page-projection-author-2026-08-13",
+  "reviewer_is_independent_of_author": true,
+  "research_package_files": [
+    "research-brief.md",
+    "source-pack.csv",
+    "research-runs.json",
+    "evidence-synthesis.md",
+    "engineering-blueprint.md",
+    "manuscript.md",
+    "comparison.md",
+    "lab-manifest.json",
+    "validation.md",
+    "projection-ledger.json"
+  ],
+  "research_inventory": [
+    {
+      "path": "research-brief.md",
+      "exists": true,
+      "sha256": "sha256:e3b838c31bdd2cce52f8f68aee56254e59e37abc8a73d2dc5fd26dcc2d4d5e97"
+    },
+    {
+      "path": "source-pack.csv",
+      "exists": true,
+      "sha256": "sha256:f3deff2559cfa79f8dd5ac634e683eca72ff718297d013bdadf068f682264c65"
+    },
+    {
+      "path": "research-runs.json",
+      "exists": true,
+      "sha256": "sha256:327c158be533ba37f56216fb62a1901529b08c9e5529fa3faae64419886c2df8"
+    },
+    {
+      "path": "evidence-synthesis.md",
+      "exists": true,
+      "sha256": "sha256:a19da5d519ba67b1ef7d9669b417389b18b399450ee8def5ea0a00069050b605"
+    },
+    {
+      "path": "engineering-blueprint.md",
+      "exists": true,
+      "sha256": "sha256:9cbfb8a389df318d6d85a9c40ea292479eaf70577d582b40f89ba52e1c16e7f1"
+    },
+    {
+      "path": "manuscript.md",
+      "exists": true,
+      "sha256": "sha256:ea1a16fbd31a5cc8a6e10cb7f428f1df5460681fdfe0401d0a70300b17ab2e6d"
+    },
+    {
+      "path": "comparison.md",
+      "exists": true,
+      "sha256": "sha256:a784ce100c574bf8f1184dcdf87effebdfce3546b319fd7abf2909b9aa6dcfbe"
+    },
+    {
+      "path": "lab-manifest.json",
+      "exists": true,
+      "sha256": "sha256:27078dcd8b54992b70bca549bd3a39cf5e287efbacb80196354e3bbc3fc46ee5"
+    },
+    {
+      "path": "validation.md",
+      "exists": true,
+      "sha256": "sha256:aa288785c76f49d18a375df1d5285d8bc732ae5bb5d368b9aabc66947583252c"
+    },
+    {
+      "path": "projection-ledger.json",
+      "exists": true,
+      "sha256": "sha256:377e4155604d0d07489c8115d17c6cd0cd9c94eee1cfacd1eff0d23e59e4917a"
+    }
+  ],
+  "editorial_score": 100,
+  "boundary_preservation_score": 100,
+  "executability_audit_ref": "research/executability-audit.json",
+  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit": {
+    "path": "../../executability-audit.json",
+    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "verdict": "PASS",
+    "finding_count": 0
+  },
+  "material_hashes": {
+    "materials/ui-mobile-automation/fixtures/refund-approval.json": "sha256:fd0fcc04755834810dcb5d6d49ae70218156f19439a644823db671760ee4e347",
+    "materials/ui-mobile-automation/guides/web-journey-sop.md": "sha256:6a5ee618732747cd392be4edc9220820b778bd429e64a8d1d952e19a3edc1a76",
+    "materials/ui-mobile-automation.zip": "sha256:9d7f84ee5168e1e5c16831604fda6460a12e0366c89da0285478647aaf8dea51",
+    "materials/ui-mobile-automation/scripts/ui_contract_lab.py": "sha256:fc84433464a670362214d6275faac57c73f616097efef17d102f01a82e80009e",
+    "materials/ui-mobile-automation/README.md": "sha256:76752e8d703cf2a53faf584c4c7a4798b7abc35f63d675cfda42a4d7269d98e1"
+  },
+  "learner_material_hashes": [
+    {
+      "href": "materials/ui-mobile-automation/fixtures/refund-approval.json",
+      "public_sha256": "sha256:fd0fcc04755834810dcb5d6d49ae70218156f19439a644823db671760ee4e347",
+      "static_sha256": "sha256:fd0fcc04755834810dcb5d6d49ae70218156f19439a644823db671760ee4e347",
+      "archive_member_sha256": "sha256:fd0fcc04755834810dcb5d6d49ae70218156f19439a644823db671760ee4e347",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ui-mobile-automation/guides/web-journey-sop.md",
+      "public_sha256": "sha256:6a5ee618732747cd392be4edc9220820b778bd429e64a8d1d952e19a3edc1a76",
+      "static_sha256": "sha256:6a5ee618732747cd392be4edc9220820b778bd429e64a8d1d952e19a3edc1a76",
+      "archive_member_sha256": "sha256:6a5ee618732747cd392be4edc9220820b778bd429e64a8d1d952e19a3edc1a76",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ui-mobile-automation.zip",
+      "public_sha256": "sha256:9d7f84ee5168e1e5c16831604fda6460a12e0366c89da0285478647aaf8dea51",
+      "static_sha256": "sha256:9d7f84ee5168e1e5c16831604fda6460a12e0366c89da0285478647aaf8dea51",
+      "archive_member_sha256": null,
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ui-mobile-automation/scripts/ui_contract_lab.py",
+      "public_sha256": "sha256:fc84433464a670362214d6275faac57c73f616097efef17d102f01a82e80009e",
+      "static_sha256": "sha256:fc84433464a670362214d6275faac57c73f616097efef17d102f01a82e80009e",
+      "archive_member_sha256": "sha256:fc84433464a670362214d6275faac57c73f616097efef17d102f01a82e80009e",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ui-mobile-automation/README.md",
+      "public_sha256": "sha256:76752e8d703cf2a53faf584c4c7a4798b7abc35f63d675cfda42a4d7269d98e1",
+      "static_sha256": "sha256:76752e8d703cf2a53faf584c4c7a4798b7abc35f63d675cfda42a4d7269d98e1",
+      "archive_member_sha256": "sha256:76752e8d703cf2a53faf584c4c7a4798b7abc35f63d675cfda42a4d7269d98e1",
+      "closure_verdict": "PASS"
+    }
+  ],
+  "verdict": "FAIL",
+  "findings": [
+    "independent editorial review does not pin current page content hash"
+  ]
+}

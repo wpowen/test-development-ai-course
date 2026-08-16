@@ -1,0 +1,3511 @@
+{
+  "_doc": "由 scripts/build-reference-library.py 生成，请勿手工编辑。判断类字段改 research/reference-catalog.json；版本与许可证改不了，它们来自 GitHub API。",
+  "generatedBy": "scripts/build-reference-library.py",
+  "entryCount": 85,
+  "byPage": {
+    "TD-A01": [
+      "R-GARAK",
+      "R-JSONSCHEMA",
+      "R-PROMPTFOO",
+      "R-TGI",
+      "R-VLLM"
+    ],
+    "TD-A02": [
+      "R-JSONSCHEMA",
+      "R-MCP-SPEC",
+      "R-RFC9110",
+      "R-TGI",
+      "R-VLLM"
+    ],
+    "TD-A03": [
+      "R-OTEL-SEMCONV-GENAI",
+      "R-PROMETHEUS",
+      "R-TRITON-SERVER",
+      "R-VLLM"
+    ],
+    "TD-A04": [
+      "R-GOOGLE-SRE-SLO",
+      "R-K6",
+      "R-SGLANG",
+      "R-VLLM"
+    ],
+    "TD-A05": [
+      "R-PROMETHEUS",
+      "R-SGLANG",
+      "R-TRITON-SERVER",
+      "R-VLLM"
+    ],
+    "TD-A06": [
+      "R-JSONSCHEMA",
+      "R-POLLY",
+      "R-RESILIENCE4J",
+      "R-TGI",
+      "R-TOXIPROXY",
+      "R-WIREMOCK"
+    ],
+    "TD-AG-00": [
+      "R-EVIDENTLY",
+      "R-INSPECT-AI",
+      "R-LANGGRAPH",
+      "R-OTEL-SEMCONV-GENAI"
+    ],
+    "TD-AG-01": [
+      "R-DEEPEVAL",
+      "R-INSPECT-AI",
+      "R-RAGAS"
+    ],
+    "TD-AG-02": [
+      "R-LANGGRAPH",
+      "R-MCP-SPEC",
+      "R-OTEL-SEMCONV-GENAI"
+    ],
+    "TD-AG-03": [
+      "R-ASYNCAPI",
+      "R-LANGGRAPH",
+      "R-MCP-SPEC"
+    ],
+    "TD-AG-04": [
+      "R-LANGGRAPH",
+      "R-MCP-SPEC",
+      "R-RESILIENCE4J"
+    ],
+    "TD-AG-05": [
+      "R-HELM",
+      "R-INSPECT-AI",
+      "R-LM-EVAL-HARNESS"
+    ],
+    "TD-AG-06": [
+      "R-GARAK",
+      "R-LLM-GUARD",
+      "R-MCP-SPEC",
+      "R-OWASP-LLM-TOP10"
+    ],
+    "TD-AG-07": [
+      "R-GOOGLE-SRE-SLO",
+      "R-LANGFUSE",
+      "R-OTEL-SEMCONV-GENAI"
+    ],
+    "TD-AG-08": [
+      "R-DVC",
+      "R-LANGFUSE",
+      "R-MCP-SPEC",
+      "R-MLFLOW"
+    ],
+    "TD-AG-09": [
+      "R-EVIDENTLY",
+      "R-LANGFUSE",
+      "R-PHOENIX"
+    ],
+    "TD-AG-10": [
+      "R-DEBEZIUM",
+      "R-EVIDENTLY",
+      "R-OWASP-LLM-TOP10"
+    ],
+    "TD-AP01": [
+      "R-K6",
+      "R-LANGGRAPH",
+      "R-LOCUST",
+      "R-OTEL-SEMCONV-GENAI"
+    ],
+    "TD-AP02": [
+      "R-GOOGLE-SRE-SLO",
+      "R-OTEL-SPEC",
+      "R-PROMETHEUS",
+      "R-VLLM"
+    ],
+    "TD-AP03": [
+      "R-LANGFUSE",
+      "R-OTEL-SEMCONV-GENAI",
+      "R-OTEL-SPEC",
+      "R-PHOENIX",
+      "R-TRITON-SERVER"
+    ],
+    "TD-AP04": [
+      "R-GOOGLE-SRE-SLO",
+      "R-K6",
+      "R-LOCUST",
+      "R-PROMETHEUS"
+    ],
+    "TD-AP05": [
+      "R-K6",
+      "R-PROMETHEUS",
+      "R-SGLANG",
+      "R-VLLM"
+    ],
+    "TD-AP06": [
+      "R-GOOGLE-SRE-SLO",
+      "R-POLLY",
+      "R-RESILIENCE4J",
+      "R-TOXIPROXY"
+    ],
+    "TD-AP07": [
+      "R-EVIDENTLY",
+      "R-GOOGLE-SRE-SLO",
+      "R-K6",
+      "R-PROMETHEUS"
+    ],
+    "TD-AP08": [
+      "R-ARGO-ROLLOUTS",
+      "R-GOOGLE-SRE-SLO",
+      "R-OTEL-SPEC",
+      "R-PROMETHEUS"
+    ],
+    "TD-B01": [
+      "R-HELM",
+      "R-INSPECT-AI",
+      "R-LM-EVAL-HARNESS",
+      "R-OPENCOMPASS"
+    ],
+    "TD-B02": [
+      "R-DVC",
+      "R-HELM",
+      "R-SWE-BENCH"
+    ],
+    "TD-B03": [
+      "R-DEEPEVAL",
+      "R-HELM",
+      "R-SWE-BENCH"
+    ],
+    "TD-B04": [
+      "R-HELM",
+      "R-INSPECT-AI",
+      "R-LM-EVAL-HARNESS",
+      "R-OPENCOMPASS"
+    ],
+    "TD-B05": [
+      "R-HELM",
+      "R-LM-EVAL-HARNESS",
+      "R-SWE-BENCH"
+    ],
+    "TD-B06": [
+      "R-HELM",
+      "R-INSPECT-AI",
+      "R-OPENCOMPASS",
+      "R-SWE-BENCH"
+    ],
+    "TD-C01": [
+      "R-DORA",
+      "R-NIST-AI-RMF",
+      "R-ONET-QA"
+    ],
+    "TD-C02": [
+      "R-ISO-29119",
+      "R-NIST-AI-RMF",
+      "R-ONET-QA"
+    ],
+    "TD-C03": [
+      "R-DORA",
+      "R-NIST-AI-RMF",
+      "R-ONET-QA"
+    ],
+    "TD-C04": [
+      "R-ISO-29119",
+      "R-NIST-AI-RMF",
+      "R-ONET-QA"
+    ],
+    "TD-F01": [
+      "R-DORA",
+      "R-NIST-AI-RMF",
+      "R-ONET-QA"
+    ],
+    "TD-F02": [
+      "R-DVC",
+      "R-MLFLOW",
+      "R-OTEL-SEMCONV-GENAI"
+    ],
+    "TD-F03": [
+      "R-INSPECT-AI",
+      "R-LM-EVAL-HARNESS",
+      "R-OTEL-SEMCONV-GENAI"
+    ],
+    "TD-F04": [
+      "R-JSONSCHEMA",
+      "R-LANGGRAPH",
+      "R-MCP-SPEC",
+      "R-OTEL-SEMCONV-GENAI",
+      "R-RAGAS"
+    ],
+    "TD-F05": [
+      "R-BEIR",
+      "R-DORA",
+      "R-HELM"
+    ],
+    "TD-FP01": [
+      "R-DSPY",
+      "R-JSONSCHEMA",
+      "R-LANGFUSE",
+      "R-PROMPTFOO"
+    ],
+    "TD-P01": [
+      "R-CLOUDEVENTS",
+      "R-GHERKIN",
+      "R-ISO-29119"
+    ],
+    "TD-P02": [
+      "R-GHERKIN",
+      "R-ISO-29119",
+      "R-OPENAPI-SPEC"
+    ],
+    "TD-P03": [
+      "R-ASYNCAPI",
+      "R-OPENAPI-SPEC",
+      "R-RFC9110"
+    ],
+    "TD-P04": [
+      "R-DORA",
+      "R-ISO-29119",
+      "R-NIST-AI-RMF"
+    ],
+    "TD-P05": [
+      "R-HYPOTHESIS",
+      "R-MUTMUT",
+      "R-PITEST"
+    ],
+    "TD-P06": [
+      "R-PACT-PYTHON",
+      "R-PLAYWRIGHT",
+      "R-TESTCONTAINERS-PY"
+    ],
+    "TD-P07": [
+      "R-COSIGN",
+      "R-IN-TOTO-ATTESTATION",
+      "R-PITEST"
+    ],
+    "TD-P08": [
+      "R-ARGO-ROLLOUTS",
+      "R-DORA",
+      "R-NIST-AI-RMF"
+    ],
+    "TD-PS01": [
+      "R-IDEMPOTENCY-KEY",
+      "R-JSONSCHEMA",
+      "R-OPENAPI-SPEC",
+      "R-PACT-PYTHON",
+      "R-PROMPTFOO",
+      "R-RFC9110",
+      "R-SCHEMATHESIS",
+      "R-TESTCONTAINERS-PY"
+    ],
+    "TD-PS02": [
+      "R-DEEPEVAL",
+      "R-HYPOTHESIS",
+      "R-JSONSCHEMA",
+      "R-OPENAPI-SPEC",
+      "R-SCHEMATHESIS"
+    ],
+    "TD-PS03": [
+      "R-ASYNCAPI",
+      "R-DEBEZIUM",
+      "R-OPENAPI-SPEC",
+      "R-PACT-PYTHON",
+      "R-WIREMOCK"
+    ],
+    "TD-PS04": [
+      "R-AXE-CORE",
+      "R-PLAYWRIGHT",
+      "R-PLAYWRIGHT-DOCS-ACTIONABILITY",
+      "R-PLAYWRIGHT-DOCS-LOCATORS",
+      "R-PLAYWRIGHT-MCP"
+    ],
+    "TD-PS05": [
+      "R-AXE-CORE",
+      "R-PLAYWRIGHT",
+      "R-WCAG22"
+    ],
+    "TD-PS06": [
+      "R-APPIUM",
+      "R-ESPRESSO",
+      "R-MAESTRO",
+      "R-WEBDRIVER"
+    ],
+    "TD-PS07": [
+      "R-APPIUM",
+      "R-WEBDRIVER",
+      "R-XCUITEST"
+    ],
+    "TD-PS08": [
+      "R-DBT-CORE",
+      "R-DEBEZIUM",
+      "R-GREAT-EXPECTATIONS",
+      "R-LIQUIBASE",
+      "R-TESTCONTAINERS-PY"
+    ],
+    "TD-PS09": [
+      "R-GOOGLE-SRE-SLO",
+      "R-K6",
+      "R-LOCUST",
+      "R-PROMETHEUS"
+    ],
+    "TD-PS10": [
+      "R-CHAOS-MESH",
+      "R-GOOGLE-SRE-SLO",
+      "R-POLLY",
+      "R-RESILIENCE4J",
+      "R-TOXIPROXY",
+      "R-WIREMOCK"
+    ],
+    "TD-PS11": [
+      "R-GOOGLE-SRE-SLO",
+      "R-LANGFUSE",
+      "R-OTEL-SEMCONV-GENAI",
+      "R-OTEL-SPEC",
+      "R-PROMETHEUS"
+    ],
+    "TD-PS12": [
+      "R-GARAK",
+      "R-LLM-GUARD",
+      "R-OWASP-ASVS",
+      "R-OWASP-LLM-TOP10",
+      "R-PROMPTFOO",
+      "R-ZAP"
+    ],
+    "TD-QP01": [
+      "R-CLOUDEVENTS",
+      "R-GHERKIN",
+      "R-ISO-29119"
+    ],
+    "TD-QP02": [
+      "R-COSIGN",
+      "R-IN-TOTO-ATTESTATION",
+      "R-SLSA"
+    ],
+    "TD-QP03": [
+      "R-PROMETHEUS",
+      "R-TESTCONTAINERS-PY",
+      "R-VCLUSTER"
+    ],
+    "TD-QP04": [
+      "R-ASYNCAPI",
+      "R-CLOUDEVENTS",
+      "R-DEBEZIUM",
+      "R-WIREMOCK"
+    ],
+    "TD-R01": [
+      "R-DORA",
+      "R-ISO-29119",
+      "R-ONET-QA"
+    ],
+    "TD-T01": [
+      "R-DEEPEVAL",
+      "R-DVC",
+      "R-INSPECT-AI",
+      "R-MLFLOW",
+      "R-OPENAI-EVALS",
+      "R-PROMPTFOO"
+    ],
+    "TD-T02": [
+      "R-DVC",
+      "R-EVIDENTLY",
+      "R-SWE-BENCH"
+    ],
+    "TD-T03": [
+      "R-DEEPEVAL",
+      "R-INSPECT-AI",
+      "R-JSONSCHEMA",
+      "R-PROMPTFOO",
+      "R-RAGAS"
+    ],
+    "TD-T04": [
+      "R-HELM",
+      "R-INSPECT-AI",
+      "R-LM-EVAL-HARNESS"
+    ],
+    "TD-T05": [
+      "R-GHERKIN",
+      "R-ISO-29119",
+      "R-SEMGREP"
+    ],
+    "TD-T06": [
+      "R-MUTMUT",
+      "R-PITEST",
+      "R-STRYKER"
+    ],
+    "TD-T07": [
+      "R-HYPOTHESIS",
+      "R-JSONSCHEMA",
+      "R-SCHEMATHESIS"
+    ],
+    "TD-T08": [
+      "R-LANGFUSE",
+      "R-OTEL-SPEC",
+      "R-PHOENIX"
+    ],
+    "TD-T09": [
+      "R-BEIR",
+      "R-LLAMA-INDEX",
+      "R-OWASP-LLM-TOP10"
+    ],
+    "TD-T10": [
+      "R-BEIR",
+      "R-LLAMA-INDEX",
+      "R-RAGAS",
+      "R-TRULENS"
+    ],
+    "TD-T11": [
+      "R-DEEPEVAL",
+      "R-RAGAS",
+      "R-TRULENS"
+    ],
+    "TD-T12": [
+      "R-DEEPEVAL",
+      "R-OWASP-LLM-TOP10",
+      "R-PROMPTFOO",
+      "R-RAGAS"
+    ],
+    "TD-T13": [
+      "R-DVC",
+      "R-HELM",
+      "R-MLFLOW"
+    ],
+    "TD-T14": [
+      "R-DEEPEVAL",
+      "R-INSPECT-AI",
+      "R-RAGAS"
+    ],
+    "TD-T15": [
+      "R-LANGGRAPH",
+      "R-MCP-SPEC",
+      "R-OTEL-SEMCONV-GENAI"
+    ],
+    "TD-T16": [
+      "R-LLM-GUARD",
+      "R-MCP-SPEC",
+      "R-OWASP-LLM-TOP10"
+    ],
+    "TD-T17": [
+      "R-GARAK",
+      "R-LLM-GUARD",
+      "R-MCP-SPEC",
+      "R-OWASP-LLM-TOP10"
+    ],
+    "TD-T18": [
+      "R-BROWSER-USE",
+      "R-PLAYWRIGHT",
+      "R-PLAYWRIGHT-MCP"
+    ],
+    "TD-T19": [
+      "R-BROWSER-USE",
+      "R-PITEST",
+      "R-PLAYWRIGHT",
+      "R-PLAYWRIGHT-DOCS-LOCATORS"
+    ],
+    "TD-T20": [
+      "R-DEEPEVAL",
+      "R-INSPECT-AI",
+      "R-PROMPTFOO",
+      "R-SEMGREP"
+    ],
+    "TD-T21": [
+      "R-DVC",
+      "R-EVIDENTLY",
+      "R-LANGFUSE",
+      "R-MLFLOW"
+    ],
+    "TD-T22": [
+      "R-DVC",
+      "R-EVIDENTLY",
+      "R-LANGFUSE",
+      "R-PHOENIX",
+      "R-PITEST"
+    ],
+    "TD-T23": [
+      "R-GOOGLE-SRE-SLO",
+      "R-HELM",
+      "R-INSPECT-AI",
+      "R-NIST-AI-RMF"
+    ],
+    "TD-T24": [
+      "R-ARGO-ROLLOUTS",
+      "R-EVIDENTLY",
+      "R-MLFLOW",
+      "R-PHOENIX"
+    ],
+    "TD-T25": [
+      "R-COSIGN",
+      "R-IN-TOTO-ATTESTATION",
+      "R-ISO-29119",
+      "R-SLSA"
+    ],
+    "TD-T26": [
+      "R-DORA",
+      "R-MUTMUT",
+      "R-PITEST"
+    ],
+    "TD-W01": [
+      "R-LANGGRAPH",
+      "R-MCP-SPEC",
+      "R-TOXIPROXY",
+      "R-WIREMOCK"
+    ],
+    "TD-W02": [
+      "R-LANGGRAPH",
+      "R-RESILIENCE4J",
+      "R-TOXIPROXY",
+      "R-WIREMOCK"
+    ],
+    "TD-W03": [
+      "R-HELM",
+      "R-INSPECT-AI",
+      "R-SWE-BENCH"
+    ],
+    "TD-X101": [
+      "R-CODEQL",
+      "R-OSV-SCANNER",
+      "R-SEMGREP",
+      "R-SLSA",
+      "R-SYFT",
+      "R-TRIVY"
+    ],
+    "TD-X501": [
+      "R-DEEPEVAL",
+      "R-HELM",
+      "R-INSPECT-AI"
+    ],
+    "TD-X502": [
+      "R-AXE-CORE",
+      "R-OPENCOMPASS",
+      "R-WCAG22"
+    ],
+    "TD-X601": [
+      "R-EVIDENTLY",
+      "R-NIST-AI-RMF",
+      "R-PHOENIX"
+    ],
+    "TD-X602": [
+      "R-DVC",
+      "R-EVIDENTLY",
+      "R-MLFLOW"
+    ],
+    "TD-X603": [
+      "R-EVIDENTLY",
+      "R-LLM-GUARD",
+      "R-OWASP-LLM-TOP10"
+    ],
+    "TD-X604": [
+      "R-DSPY",
+      "R-JSONSCHEMA",
+      "R-MCP-SPEC",
+      "R-OWASP-LLM-TOP10"
+    ],
+    "TD-X805": [
+      "R-ARGO-ROLLOUTS",
+      "R-EVIDENTLY",
+      "R-GOOGLE-SRE-SLO",
+      "R-OPENFEATURE"
+    ]
+  },
+  "entries": {
+    "R-OPENAPI-SPEC": {
+      "id": "R-OPENAPI-SPEC",
+      "kind": "spec",
+      "title": "OpenAPI Specification",
+      "role": "契约描述格式",
+      "publisher": "OpenAPI Initiative（Linux Foundation）",
+      "url": "https://spec.openapis.org/oas/latest.html",
+      "repo": "OAI/OpenAPI-Specification",
+      "repoUrl": "https://github.com/OAI/OpenAPI-Specification",
+      "docUrl": "https://spec.openapis.org/oas/latest.html",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 31154,
+      "lastPushedAt": "2026-08-13T22:49:43Z",
+      "anchor": {
+        "type": "release",
+        "value": "3.2.0",
+        "date": "2025-09-19",
+        "url": "https://github.com/OAI/OpenAPI-Specification/releases/tag/3.2.0"
+      },
+      "whatItProves": "接口的协议表面：路径、方法、请求/响应 Schema、状态码、鉴权方案、示例。它把「接口长什么样」变成机器可读。",
+      "whatItDoesNotProve": "不描述业务不变量，也不描述副作用。规范里没有任何位置能写「退款金额不得超过实付」或「重复提交只能扣一次款」——这是四层断言里第三、四层必须由人补的根本原因。",
+      "pages": [
+        "TD-P02",
+        "TD-P03",
+        "TD-PS01",
+        "TD-PS02",
+        "TD-PS03"
+      ],
+      "declaredPages": [
+        "TD-PS01",
+        "TD-PS02",
+        "TD-PS03"
+      ]
+    },
+    "R-SCHEMATHESIS": {
+      "id": "R-SCHEMATHESIS",
+      "kind": "repo",
+      "title": "Schemathesis：由 OpenAPI 契约驱动的属性测试引擎",
+      "role": "传统专项工具",
+      "publisher": "schemathesis",
+      "url": "https://schemathesis.readthedocs.io/",
+      "repo": "schemathesis/schemathesis",
+      "repoUrl": "https://github.com/schemathesis/schemathesis",
+      "docUrl": "https://schemathesis.readthedocs.io/",
+      "anchorHint": null,
+      "license": "MIT",
+      "reuse": "code-quotable",
+      "reuseNote": "MIT：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 3522,
+      "lastPushedAt": "2026-08-14T04:25:06Z",
+      "anchor": {
+        "type": "release",
+        "value": "v4.24.3",
+        "date": "2026-07-25",
+        "url": "https://github.com/schemathesis/schemathesis/releases/tag/v4.24.3"
+      },
+      "whatItProves": "把 OpenAPI 里声明的类型、枚举、边界当成属性，自动生成大量合法与非法请求，检出「实现与自己声明的契约不一致」这一类缺陷——例如声明 int32 实际接受任意长度、声明 required 实际可省略、声明 404 实际返回 500。",
+      "whatItDoesNotProve": "它的判据全部来自 Schema，因此对「格式合法但业务错误」完全无能为力。金额为负、状态非法转换、退款超过实付都能通过它的全部检查。把 Schemathesis 全绿当成接口测试完成，正是本模块反复拆解的那个陷阱。",
+      "pages": [
+        "TD-PS01",
+        "TD-PS02",
+        "TD-T07"
+      ],
+      "declaredPages": [
+        "TD-PS01",
+        "TD-PS02"
+      ]
+    },
+    "R-HYPOTHESIS": {
+      "id": "R-HYPOTHESIS",
+      "kind": "repo",
+      "title": "Hypothesis：Python 属性测试库",
+      "role": "方法学实现",
+      "publisher": "HypothesisWorks",
+      "url": "https://hypothesis.readthedocs.io/en/latest/",
+      "repo": "HypothesisWorks/hypothesis",
+      "repoUrl": "https://github.com/HypothesisWorks/hypothesis",
+      "docUrl": "https://hypothesis.readthedocs.io/en/latest/",
+      "anchorHint": null,
+      "license": "NOASSERTION",
+      "reuse": "link-only",
+      "reuseNote": "许可证未能自动判定，按最保守口径只链接不搬代码",
+      "stars": 8885,
+      "lastPushedAt": "2026-08-14T05:55:33Z",
+      "anchor": {
+        "type": "release",
+        "value": "v6.165.6",
+        "date": "2026-08-14",
+        "url": "https://github.com/HypothesisWorks/hypothesis/releases/tag/v6.165.6"
+      },
+      "whatItProves": "属性测试的执行机制：从策略（strategy）采样输入、在失败时自动收缩（shrink）到最小反例、用 example database 复现历史失败。收缩是它相对随机测试的关键差异——它把「某次随机跑挂了」变成「这个最小输入必然挂」。",
+      "whatItDoesNotProve": "属性本身仍然要人写。工具不知道你的系统有哪些不变量；写不出属性时，Hypothesis 只是一个更贵的随机测试。",
+      "pages": [
+        "TD-P05",
+        "TD-PS02",
+        "TD-T07"
+      ],
+      "declaredPages": [
+        "TD-PS02"
+      ]
+    },
+    "R-JSONSCHEMA": {
+      "id": "R-JSONSCHEMA",
+      "kind": "repo",
+      "title": "jsonschema：JSON Schema 校验实现",
+      "role": "结构断言实现",
+      "publisher": "python-jsonschema",
+      "url": "https://python-jsonschema.readthedocs.io/",
+      "repo": "python-jsonschema/jsonschema",
+      "repoUrl": "https://github.com/python-jsonschema/jsonschema",
+      "docUrl": "https://python-jsonschema.readthedocs.io/",
+      "anchorHint": null,
+      "license": "MIT",
+      "reuse": "code-quotable",
+      "reuseNote": "MIT：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 4968,
+      "lastPushedAt": "2026-08-10T18:39:11Z",
+      "anchor": {
+        "type": "release",
+        "value": "v4.26.0",
+        "date": "2026-01-07",
+        "url": "https://github.com/python-jsonschema/jsonschema/releases/tag/v4.26.0"
+      },
+      "whatItProves": "结构层断言可以脱离具体框架独立运行，包括在 LLM 结构化输出上——这是传统 Schema 校验能力迁移到 AI 系统时最直接的一条通路。",
+      "whatItDoesNotProve": "校验通过只说明形状对。LLM 返回一个字段齐全、类型正确但内容编造的 JSON，Schema 校验会放行。",
+      "pages": [
+        "TD-A01",
+        "TD-A02",
+        "TD-A06",
+        "TD-F04",
+        "TD-FP01",
+        "TD-PS01",
+        "TD-PS02",
+        "TD-T03",
+        "TD-T07",
+        "TD-X604"
+      ],
+      "declaredPages": [
+        "TD-PS02"
+      ]
+    },
+    "R-PACT-PYTHON": {
+      "id": "R-PACT-PYTHON",
+      "kind": "repo",
+      "title": "Pact：消费者驱动契约测试",
+      "role": "跨服务契约",
+      "publisher": "pact-foundation",
+      "url": "https://docs.pact.io/",
+      "repo": "pact-foundation/pact-python",
+      "repoUrl": "https://github.com/pact-foundation/pact-python",
+      "docUrl": "https://docs.pact.io/",
+      "anchorHint": null,
+      "license": "MIT",
+      "reuse": "code-quotable",
+      "reuseNote": "MIT：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 677,
+      "lastPushedAt": "2026-08-13T16:35:25Z",
+      "anchor": {
+        "type": "release",
+        "value": "pact-python-ffi/0.5.4.1",
+        "date": "2026-07-08",
+        "url": "https://github.com/pact-foundation/pact-python/releases/tag/pact-python-ffi/0.5.4.1"
+      },
+      "whatItProves": "消费方把自己实际依赖的字段与交互写成 pact 文件，提供方在自己的流水线上回放验证。它检出的是「提供方改了字段，消费方会挂」这类破坏性变更，且不需要把两边部署到一起。",
+      "whatItDoesNotProve": "只覆盖消费方声明过的交互。没人写进 pact 的字段，提供方删掉也不会红。它证明的是兼容性，不是正确性。",
+      "pages": [
+        "TD-P06",
+        "TD-PS01",
+        "TD-PS03"
+      ],
+      "declaredPages": [
+        "TD-PS01",
+        "TD-PS03"
+      ]
+    },
+    "R-TESTCONTAINERS-PY": {
+      "id": "R-TESTCONTAINERS-PY",
+      "kind": "repo",
+      "title": "Testcontainers：用真实依赖容器做集成测试",
+      "role": "副作用层基础设施",
+      "publisher": "testcontainers",
+      "url": "https://testcontainers-python.readthedocs.io/",
+      "repo": "testcontainers/testcontainers-python",
+      "repoUrl": "https://github.com/testcontainers/testcontainers-python",
+      "docUrl": "https://testcontainers-python.readthedocs.io/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 2271,
+      "lastPushedAt": "2026-07-31T08:45:21Z",
+      "anchor": {
+        "type": "release",
+        "value": "testcontainers-v4.15.0",
+        "date": "2026-07-24",
+        "url": "https://github.com/testcontainers/testcontainers-python/releases/tag/testcontainers-v4.15.0"
+      },
+      "whatItProves": "副作用断言需要一个可复位的真实数据库或消息队列。Testcontainers 让「调完接口直接查库」成为可在 CI 里稳定重复的动作，而不是只能在共享测试环境上手工做一次。",
+      "whatItDoesNotProve": "容器里的数据库不等于生产数据库。版本、扩展、参数、数据量与并发都不同，性能与锁行为结论不能外推。",
+      "pages": [
+        "TD-P06",
+        "TD-PS01",
+        "TD-PS08",
+        "TD-QP03"
+      ],
+      "declaredPages": [
+        "TD-PS01",
+        "TD-PS08"
+      ]
+    },
+    "R-RFC9110": {
+      "id": "R-RFC9110",
+      "kind": "standard",
+      "title": "RFC 9110：HTTP Semantics",
+      "role": "协议层权威定义",
+      "publisher": "IETF",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "repo": null,
+      "repoUrl": null,
+      "docUrl": null,
+      "anchorHint": "Section 9.2.2 Idempotent Methods",
+      "license": null,
+      "reuse": "link-only",
+      "reuseNote": "非代码资料，按链接引用与转述处理",
+      "stars": null,
+      "lastPushedAt": null,
+      "anchor": null,
+      "whatItProves": "幂等在 HTTP 里的准确定义：多次相同请求对服务器的预期效果与单次相同。它明确 PUT/DELETE 幂等而 POST 不幂等——这正是取消/退款这类 POST 接口必须自己引入幂等键的协议依据。",
+      "whatItDoesNotProve": "规范定义的是方法语义的期望，不强制实现遵守。你的 POST 加没加幂等键、加了是否生效，只能靠测试证明。",
+      "pages": [
+        "TD-A02",
+        "TD-P03",
+        "TD-PS01"
+      ],
+      "declaredPages": [
+        "TD-PS01"
+      ]
+    },
+    "R-IDEMPOTENCY-KEY": {
+      "id": "R-IDEMPOTENCY-KEY",
+      "kind": "standard",
+      "title": "The Idempotency-Key HTTP Header Field（IETF 草案）",
+      "role": "幂等键的行业收敛形态",
+      "publisher": "IETF HTTPAPI Working Group",
+      "url": "https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/",
+      "repo": null,
+      "repoUrl": null,
+      "docUrl": null,
+      "anchorHint": null,
+      "license": null,
+      "reuse": "link-only",
+      "reuseNote": "非代码资料，按链接引用与转述处理",
+      "stars": null,
+      "lastPushedAt": null,
+      "anchor": null,
+      "whatItProves": "幂等键的头部命名、冲突处理与重放语义正在向一个共同形态收敛，且已被主流支付类 API 实际采用。它给「幂等键应该长什么样」提供了可引用依据，而不是各家自创。",
+      "whatItDoesNotProve": "仍是草案，不是已发布 RFC，字段行为可能变化。落地前必须以你所对接供应商的当前文档为准。",
+      "pages": [
+        "TD-PS01"
+      ],
+      "declaredPages": [
+        "TD-PS01"
+      ]
+    },
+    "R-ASYNCAPI": {
+      "id": "R-ASYNCAPI",
+      "kind": "spec",
+      "title": "AsyncAPI Specification",
+      "role": "事件契约描述格式",
+      "publisher": "asyncapi",
+      "url": "https://www.asyncapi.com/docs",
+      "repo": "asyncapi/spec",
+      "repoUrl": "https://github.com/asyncapi/spec",
+      "docUrl": "https://www.asyncapi.com/docs",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 5273,
+      "lastPushedAt": "2026-08-11T17:58:42Z",
+      "anchor": {
+        "type": "release",
+        "value": "v3.1.0",
+        "date": "2026-01-31",
+        "url": "https://github.com/asyncapi/spec/releases/tag/v3.1.0"
+      },
+      "whatItProves": "事件驱动接口同样可以有机器可读契约：channel、message payload、schema、绑定协议。它把「这个事件长什么样」从口头约定变成可校验工件。",
+      "whatItDoesNotProve": "不描述投递语义。至少一次、最多一次、乱序、重复、死信这些真正让事件测试变难的性质，规范里没有，必须自己设计场景验证。",
+      "pages": [
+        "TD-AG-03",
+        "TD-P03",
+        "TD-PS03",
+        "TD-QP04"
+      ],
+      "declaredPages": [
+        "TD-PS03"
+      ]
+    },
+    "R-WIREMOCK": {
+      "id": "R-WIREMOCK",
+      "kind": "repo",
+      "title": "WireMock：HTTP 依赖打桩与故障注入",
+      "role": "依赖隔离与故障注入",
+      "publisher": "wiremock",
+      "url": "https://wiremock.org/docs/",
+      "repo": "wiremock/wiremock",
+      "repoUrl": "https://github.com/wiremock/wiremock",
+      "docUrl": "https://wiremock.org/docs/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 7333,
+      "lastPushedAt": "2026-08-14T04:03:09Z",
+      "anchor": {
+        "type": "release",
+        "value": "3.13.2",
+        "date": "2025-11-14",
+        "url": "https://github.com/wiremock/wiremock/releases/tag/3.13.2"
+      },
+      "whatItProves": "把上游依赖替换成可编程的桩，让超时、5xx、慢响应、错误 body 这些平时碰不到的路径变成可稳定重复的用例。稳定性专项里绝大多数场景需要它才能构造。",
+      "whatItDoesNotProve": "桩的行为是你编的。真实依赖的失败形态可能与你的假设完全不同——桩测试通过不代表真实降级路径有效。",
+      "pages": [
+        "TD-A06",
+        "TD-PS03",
+        "TD-PS10",
+        "TD-QP04",
+        "TD-W01",
+        "TD-W02"
+      ],
+      "declaredPages": [
+        "TD-PS03",
+        "TD-PS10"
+      ]
+    },
+    "R-PLAYWRIGHT": {
+      "id": "R-PLAYWRIGHT",
+      "kind": "repo",
+      "title": "Playwright：跨浏览器端到端测试框架",
+      "role": "Web UI 专项主力工具",
+      "publisher": "microsoft",
+      "url": "https://playwright.dev/docs/intro",
+      "repo": "microsoft/playwright",
+      "repoUrl": "https://github.com/microsoft/playwright",
+      "docUrl": "https://playwright.dev/docs/intro",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 94493,
+      "lastPushedAt": "2026-08-13T22:03:51Z",
+      "anchor": {
+        "type": "release",
+        "value": "v1.62.1",
+        "date": "2026-07-30",
+        "url": "https://github.com/microsoft/playwright/releases/tag/v1.62.1"
+      },
+      "whatItProves": "浏览器自动化的三项工程能力：actionability 自动等待取代 sleep、语义 locator 取代 CSS/XPath 坐标、浏览器上下文隔离取代用例间清理。它们共同把 UI 测试的不稳定来源从「时序」降到「业务」。",
+      "whatItDoesNotProve": "自动等待解决的是元素可交互，不是业务就绪。页面上按钮能点了不代表后台事务已提交；UI 全绿仍需副作用层佐证。",
+      "pages": [
+        "TD-P06",
+        "TD-PS04",
+        "TD-PS05",
+        "TD-T18",
+        "TD-T19"
+      ],
+      "declaredPages": [
+        "TD-PS04",
+        "TD-PS05"
+      ]
+    },
+    "R-PLAYWRIGHT-DOCS-LOCATORS": {
+      "id": "R-PLAYWRIGHT-DOCS-LOCATORS",
+      "kind": "doc",
+      "title": "Playwright Locators：语义定位器",
+      "role": "机理说明",
+      "publisher": "Microsoft Playwright",
+      "url": "https://playwright.dev/docs/locators",
+      "repo": null,
+      "repoUrl": null,
+      "docUrl": null,
+      "anchorHint": null,
+      "license": null,
+      "reuse": "link-only",
+      "reuseNote": "非代码资料，按链接引用与转述处理",
+      "stars": null,
+      "lastPushedAt": null,
+      "anchor": null,
+      "whatItProves": "getByRole / getByLabel / getByText 这类定位器绑定的是无障碍树与用户可见语义，而不是 DOM 结构。因此重构 DOM 不会让它们失效，而改动可访问名会——这恰好是希望被检出的变更。",
+      "whatItDoesNotProve": "官方文档描述的是 API 能力，不构成对你项目用例稳定率的承诺。",
+      "pages": [
+        "TD-PS04",
+        "TD-T19"
+      ],
+      "declaredPages": [
+        "TD-PS04"
+      ]
+    },
+    "R-PLAYWRIGHT-DOCS-ACTIONABILITY": {
+      "id": "R-PLAYWRIGHT-DOCS-ACTIONABILITY",
+      "kind": "doc",
+      "title": "Playwright Actionability：动作前置条件",
+      "role": "机理说明",
+      "publisher": "Microsoft Playwright",
+      "url": "https://playwright.dev/docs/actionability",
+      "repo": null,
+      "repoUrl": null,
+      "docUrl": null,
+      "anchorHint": null,
+      "license": null,
+      "reuse": "link-only",
+      "reuseNote": "非代码资料，按链接引用与转述处理",
+      "stars": null,
+      "lastPushedAt": null,
+      "anchor": null,
+      "whatItProves": "每个动作在执行前需要满足哪些条件（visible、stable、enabled、receives events、editable），以及它们如何被自动轮询等待。这是理解「为什么不该写 sleep」的机制层依据。",
+      "whatItDoesNotProve": "actionability 不是业务 oracle。它只保证动作可以发生，不保证动作产生了正确结果。",
+      "pages": [
+        "TD-PS04"
+      ],
+      "declaredPages": [
+        "TD-PS04"
+      ]
+    },
+    "R-PLAYWRIGHT-MCP": {
+      "id": "R-PLAYWRIGHT-MCP",
+      "kind": "repo",
+      "title": "Playwright MCP：把浏览器能力暴露给模型的 MCP server",
+      "role": "传统 UI 自动化 × AI 的实际结合点",
+      "publisher": "microsoft",
+      "url": "https://github.com/microsoft/playwright-mcp#readme",
+      "repo": "microsoft/playwright-mcp",
+      "repoUrl": "https://github.com/microsoft/playwright-mcp",
+      "docUrl": "https://github.com/microsoft/playwright-mcp#readme",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 36105,
+      "lastPushedAt": "2026-08-12T20:16:20Z",
+      "anchor": {
+        "type": "release",
+        "value": "v0.0.79",
+        "date": "2026-08-06",
+        "url": "https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.79"
+      },
+      "whatItProves": "模型驱动浏览器时使用的是可访问性快照而非截图像素，动作走 Playwright 既有的 actionability 机制。这说明 AI 层是叠加在传统自动化能力之上的，不是替代它——底层定位与等待仍是那一套。",
+      "whatItDoesNotProve": "模型能操作浏览器不等于它能判断对错。断言仍必须由确定性 oracle 提供；把模型的「看起来成功了」当结论，就是本模块 TD-PS04 反例表的第一行。",
+      "pages": [
+        "TD-PS04",
+        "TD-T18"
+      ],
+      "declaredPages": [
+        "TD-PS04"
+      ]
+    },
+    "R-AXE-CORE": {
+      "id": "R-AXE-CORE",
+      "kind": "repo",
+      "title": "axe-core：无障碍规则引擎",
+      "role": "无障碍专项工具",
+      "publisher": "dequelabs",
+      "url": "https://github.com/dequelabs/axe-core/blob/develop/doc/API.md",
+      "repo": "dequelabs/axe-core",
+      "repoUrl": "https://github.com/dequelabs/axe-core",
+      "docUrl": "https://github.com/dequelabs/axe-core/blob/develop/doc/API.md",
+      "anchorHint": null,
+      "license": "MPL-2.0",
+      "reuse": "quote-with-share-alike",
+      "reuseNote": "MPL-2.0：弱著佐权，可短引并署名，不整段搬入本仓库",
+      "stars": 7401,
+      "lastPushedAt": "2026-08-13T13:51:56Z",
+      "anchor": {
+        "type": "release",
+        "value": "v4.13.0",
+        "date": "2026-08-05",
+        "url": "https://github.com/dequelabs/axe-core/releases/tag/v4.13.0"
+      },
+      "whatItProves": "一组可自动判定的无障碍规则（对比度、名称缺失、ARIA 误用、结构层级），并区分 violations / incomplete / passes 三类结果。incomplete 这一类是它诚实的地方：明确标出机器判不了、需要人工看的项。",
+      "whatItDoesNotProve": "自动化规则只覆盖 WCAG 中可机器判定的一部分，键盘陷阱、焦点顺序合理性、屏幕阅读器实际朗读效果多数落在自动化之外。零 violations 不等于无障碍合规。",
+      "pages": [
+        "TD-PS04",
+        "TD-PS05",
+        "TD-X502"
+      ],
+      "declaredPages": [
+        "TD-PS05"
+      ]
+    },
+    "R-WCAG22": {
+      "id": "R-WCAG22",
+      "kind": "standard",
+      "title": "Web Content Accessibility Guidelines (WCAG) 2.2",
+      "role": "无障碍判据来源",
+      "publisher": "W3C",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "repo": null,
+      "repoUrl": null,
+      "docUrl": null,
+      "anchorHint": null,
+      "license": null,
+      "reuse": "link-only",
+      "reuseNote": "非代码资料，按链接引用与转述处理",
+      "stars": null,
+      "lastPushedAt": null,
+      "anchor": null,
+      "whatItProves": "无障碍要求的权威条款与分级（A / AA / AAA），以及每条成功准则的判定方式。合规结论必须引条款号，而不是引工具输出。",
+      "whatItDoesNotProve": "标准不指定实现与测试方法。哪些条款能自动化、哪些必须人工，需要自己映射。",
+      "pages": [
+        "TD-PS05",
+        "TD-X502"
+      ],
+      "declaredPages": [
+        "TD-PS05"
+      ]
+    },
+    "R-MAESTRO": {
+      "id": "R-MAESTRO",
+      "kind": "repo",
+      "title": "Maestro：移动端 YAML 流程自动化",
+      "role": "移动专项工具",
+      "publisher": "mobile-dev-inc",
+      "url": "https://docs.maestro.dev/",
+      "repo": "mobile-dev-inc/Maestro",
+      "repoUrl": "https://github.com/mobile-dev-inc/Maestro",
+      "docUrl": "https://docs.maestro.dev/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 15324,
+      "lastPushedAt": "2026-08-13T20:08:37Z",
+      "anchor": {
+        "type": "release",
+        "value": "cli-2.8.0",
+        "date": "2026-07-31",
+        "url": "https://github.com/mobile-dev-inc/Maestro/releases/tag/cli-2.8.0"
+      },
+      "whatItProves": "移动 UI 流程可以用声明式 YAML 表达，内建重试与等待以吸收移动端固有的时序抖动，降低脚本维护成本。",
+      "whatItDoesNotProve": "内建等待处理的是渲染与动画时序，不处理业务异步。设备矩阵、权限弹窗、系统版本差异仍需真机验证。",
+      "pages": [
+        "TD-PS06"
+      ],
+      "declaredPages": [
+        "TD-PS06"
+      ]
+    },
+    "R-APPIUM": {
+      "id": "R-APPIUM",
+      "kind": "repo",
+      "title": "Appium：基于 W3C WebDriver 的跨平台移动自动化",
+      "role": "移动专项工具",
+      "publisher": "appium",
+      "url": "https://appium.io/docs/en/latest/",
+      "repo": "appium/appium",
+      "repoUrl": "https://github.com/appium/appium",
+      "docUrl": "https://appium.io/docs/en/latest/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 21856,
+      "lastPushedAt": "2026-08-14T03:11:06Z",
+      "anchor": {
+        "type": "release",
+        "value": "appium@3.6.0",
+        "date": "2026-07-25",
+        "url": "https://github.com/appium/appium/releases/tag/appium%403.6.0"
+      },
+      "whatItProves": "server / driver / capabilities 的分层架构，使同一套测试代码可以跨 Android 与 iOS 驱动不同底层引擎（UiAutomator2、XCUITest）。",
+      "whatItDoesNotProve": "跨平台的是客户端 API，不是行为。同一段脚本在两个平台上的等待、权限与手势语义都不同，必须分别验证。",
+      "pages": [
+        "TD-PS06",
+        "TD-PS07"
+      ],
+      "declaredPages": [
+        "TD-PS06",
+        "TD-PS07"
+      ]
+    },
+    "R-WEBDRIVER": {
+      "id": "R-WEBDRIVER",
+      "kind": "standard",
+      "title": "WebDriver（W3C 推荐标准）",
+      "role": "协议边界",
+      "publisher": "W3C",
+      "url": "https://www.w3.org/TR/webdriver2/",
+      "repo": null,
+      "repoUrl": null,
+      "docUrl": null,
+      "anchorHint": null,
+      "license": null,
+      "reuse": "link-only",
+      "reuseNote": "非代码资料，按链接引用与转述处理",
+      "stars": null,
+      "lastPushedAt": null,
+      "anchor": null,
+      "whatItProves": "浏览器与移动自动化共同依赖的协议命令集与错误模型。理解它才能判断某个能力是标准行为还是某个 driver 的扩展。",
+      "whatItDoesNotProve": "标准之外的厂商扩展不保证跨实现可用，也不保证长期稳定。",
+      "pages": [
+        "TD-PS06",
+        "TD-PS07"
+      ],
+      "declaredPages": [
+        "TD-PS06",
+        "TD-PS07"
+      ]
+    },
+    "R-ESPRESSO": {
+      "id": "R-ESPRESSO",
+      "kind": "doc",
+      "title": "Espresso：Android 进程内 UI 测试",
+      "role": "机理说明",
+      "publisher": "Google Android Developers",
+      "url": "https://developer.android.com/training/testing/espresso",
+      "repo": null,
+      "repoUrl": null,
+      "docUrl": null,
+      "anchorHint": null,
+      "license": null,
+      "reuse": "link-only",
+      "reuseNote": "非代码资料，按链接引用与转述处理",
+      "stars": null,
+      "lastPushedAt": null,
+      "anchor": null,
+      "whatItProves": "Espresso 的同步机制直接观察主线程消息队列与 IdlingResource，因而能在应用真正空闲时才执行下一步。这是「进程内自动化为什么比黑盒自动化稳」的机制解释。",
+      "whatItDoesNotProve": "同步机制只覆盖它能观察到的异步源。自定义线程池、WorkManager 与网络回调若未注册 IdlingResource，仍会造成不稳定。",
+      "pages": [
+        "TD-PS06"
+      ],
+      "declaredPages": [
+        "TD-PS06"
+      ]
+    },
+    "R-XCUITEST": {
+      "id": "R-XCUITEST",
+      "kind": "doc",
+      "title": "XCUITest：iOS 用户界面测试",
+      "role": "机理说明",
+      "publisher": "Apple Developer Documentation",
+      "url": "https://developer.apple.com/documentation/xctest/user_interface_tests",
+      "repo": null,
+      "repoUrl": null,
+      "docUrl": null,
+      "anchorHint": null,
+      "license": null,
+      "reuse": "link-only",
+      "reuseNote": "非代码资料，按链接引用与转述处理",
+      "stars": null,
+      "lastPushedAt": null,
+      "anchor": null,
+      "whatItProves": "iOS UI 测试通过可访问性层暴露元素，元素查询是惰性求值的，配合 expectation 完成等待。accessibilityIdentifier 是稳定定位的推荐锚点。",
+      "whatItDoesNotProve": "文档描述 API 行为，不覆盖签名、权限弹窗、系统对话框与状态残留这些真实工程中最常见的失败源。",
+      "pages": [
+        "TD-PS07"
+      ],
+      "declaredPages": [
+        "TD-PS07"
+      ]
+    },
+    "R-GREAT-EXPECTATIONS": {
+      "id": "R-GREAT-EXPECTATIONS",
+      "kind": "repo",
+      "title": "Great Expectations：数据质量断言框架",
+      "role": "数据专项工具",
+      "publisher": "great-expectations",
+      "url": "https://docs.greatexpectations.io/",
+      "repo": "great-expectations/great_expectations",
+      "repoUrl": "https://github.com/fivetran/great_expectations",
+      "docUrl": "https://docs.greatexpectations.io/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 11711,
+      "lastPushedAt": "2026-08-13T14:45:30Z",
+      "anchor": {
+        "type": "release",
+        "value": "1.20.0",
+        "date": "2026-08-07",
+        "url": "https://github.com/fivetran/great_expectations/releases/tag/1.20.0"
+      },
+      "whatItProves": "数据可以像代码一样被断言：非空、唯一、取值域、分布、跨表一致性都能写成可版本化、可在流水线中执行的 expectation，并产出可读的验证结果。",
+      "whatItDoesNotProve": "expectation 是你写的假设。数据漂移到一个你没想到的形态时，全绿只说明你没问那个问题。",
+      "pages": [
+        "TD-PS08"
+      ],
+      "declaredPages": [
+        "TD-PS08"
+      ]
+    },
+    "R-DBT-CORE": {
+      "id": "R-DBT-CORE",
+      "kind": "repo",
+      "title": "dbt：数据转换与内建测试",
+      "role": "数据专项工具",
+      "publisher": "dbt-labs",
+      "url": "https://docs.getdbt.com/docs/build/data-tests",
+      "repo": "dbt-labs/dbt-core",
+      "repoUrl": "https://github.com/dbt-labs/dbt-core",
+      "docUrl": "https://docs.getdbt.com/docs/build/data-tests",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 13638,
+      "lastPushedAt": "2026-08-14T05:48:03Z",
+      "anchor": {
+        "type": "release",
+        "value": "v1.9.11",
+        "date": "2026-08-13",
+        "url": "https://github.com/dbt-labs/dbt-core/releases/tag/v1.9.11"
+      },
+      "whatItProves": "数据模型的血缘与测试可以绑定在一起：unique / not_null / relationships / accepted_values 这些通用断言随模型定义走，模型改了测试跟着改。",
+      "whatItDoesNotProve": "内建测试只覆盖结构性约束。业务口径错误（同一指标两处定义不一致）不会被它检出。",
+      "pages": [
+        "TD-PS08"
+      ],
+      "declaredPages": [
+        "TD-PS08"
+      ]
+    },
+    "R-DEBEZIUM": {
+      "id": "R-DEBEZIUM",
+      "kind": "repo",
+      "title": "Debezium：变更数据捕获（CDC）",
+      "role": "数据迁移与副作用观测",
+      "publisher": "debezium",
+      "url": "https://debezium.io/documentation/reference/stable/index.html",
+      "repo": "debezium/debezium",
+      "repoUrl": "https://github.com/debezium/debezium",
+      "docUrl": "https://debezium.io/documentation/reference/stable/index.html",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 13012,
+      "lastPushedAt": "2026-08-13T14:05:01Z",
+      "anchor": {
+        "type": "tag",
+        "value": "v3.7.0.Alpha2",
+        "date": null,
+        "url": "https://github.com/debezium/debezium/releases/tag/v3.7.0.Alpha2"
+      },
+      "whatItProves": "从数据库事务日志捕获行级变更并投递为事件，使「数据到底改了什么」可被独立于应用代码地观测。迁移对账与副作用取证都可以据此建立独立查询路径。",
+      "whatItDoesNotProve": "CDC 是至少一次投递，事件可能重复与乱序。把 CDC 流直接当成对账真值而不做去重与排序，会得到错误结论。",
+      "pages": [
+        "TD-AG-10",
+        "TD-PS03",
+        "TD-PS08",
+        "TD-QP04"
+      ],
+      "declaredPages": [
+        "TD-PS08"
+      ]
+    },
+    "R-LIQUIBASE": {
+      "id": "R-LIQUIBASE",
+      "kind": "repo",
+      "title": "Liquibase：数据库变更管理",
+      "role": "迁移与回滚",
+      "publisher": "liquibase",
+      "url": "https://docs.liquibase.com/",
+      "repo": "liquibase/liquibase",
+      "repoUrl": "https://github.com/liquibase/liquibase",
+      "docUrl": "https://docs.liquibase.com/",
+      "anchorHint": null,
+      "license": "NOASSERTION",
+      "reuse": "link-only",
+      "reuseNote": "许可证未能自动判定，按最保守口径只链接不搬代码",
+      "stars": 5587,
+      "lastPushedAt": "2026-08-14T05:41:57Z",
+      "anchor": {
+        "type": "release",
+        "value": "v5.0.3",
+        "date": "2026-05-15",
+        "url": "https://github.com/liquibase/liquibase/releases/tag/v5.0.3"
+      },
+      "whatItProves": "数据库变更可以版本化、可重复执行、并显式声明回滚动作。可回滚性是迁移测试里最常被跳过、事故时最贵的一项。",
+      "whatItDoesNotProve": "声明了 rollback 不等于回滚可用。带数据回填的变更往往无法无损回滚，必须实际演练。",
+      "pages": [
+        "TD-PS08"
+      ],
+      "declaredPages": [
+        "TD-PS08"
+      ]
+    },
+    "R-K6": {
+      "id": "R-K6",
+      "kind": "repo",
+      "title": "k6：以到达率为模型的负载测试工具",
+      "role": "性能专项工具",
+      "publisher": "grafana",
+      "url": "https://grafana.com/docs/k6/latest/",
+      "repo": "grafana/k6",
+      "repoUrl": "https://github.com/grafana/k6",
+      "docUrl": "https://grafana.com/docs/k6/latest/",
+      "anchorHint": null,
+      "license": "AGPL-3.0",
+      "reuse": "link-only",
+      "reuseNote": "AGPL-3.0：著佐权许可，只链接与转述，不搬代码",
+      "stars": 31256,
+      "lastPushedAt": "2026-08-14T03:02:33Z",
+      "anchor": {
+        "type": "release",
+        "value": "v2.2.0",
+        "date": "2026-08-10",
+        "url": "https://github.com/grafana/k6/releases/tag/v2.2.0"
+      },
+      "whatItProves": "开放模型（constant-arrival-rate）与封闭模型（VU 并发）的区别，以及为什么用固定并发数压测会掩盖真实容量拐点——并发模型下系统变慢会自动降低到达率，形成自我保护假象。",
+      "whatItDoesNotProve": "工具产出的是客户端观测。真实容量还取决于依赖、缓存命中、数据规模与限流策略；任何教学阈值都不能照抄。",
+      "pages": [
+        "TD-A04",
+        "TD-AP01",
+        "TD-AP04",
+        "TD-AP05",
+        "TD-AP07",
+        "TD-PS09"
+      ],
+      "declaredPages": [
+        "TD-PS09"
+      ]
+    },
+    "R-LOCUST": {
+      "id": "R-LOCUST",
+      "kind": "repo",
+      "title": "Locust：Python 负载测试框架",
+      "role": "性能专项工具",
+      "publisher": "locustio",
+      "url": "https://docs.locust.io/en/stable/",
+      "repo": "locustio/locust",
+      "repoUrl": "https://github.com/locustio/locust",
+      "docUrl": "https://docs.locust.io/en/stable/",
+      "anchorHint": null,
+      "license": "MIT",
+      "reuse": "code-quotable",
+      "reuseNote": "MIT：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 28072,
+      "lastPushedAt": "2026-08-10T14:07:35Z",
+      "anchor": {
+        "type": "release",
+        "value": "2.46.3",
+        "date": "2026-08-01",
+        "url": "https://github.com/locustio/locust/releases/tag/2.46.3"
+      },
+      "whatItProves": "用普通 Python 表达用户行为与思考时间，便于把带鉴权、带状态、带分支的真实业务流程写成负载脚本，而不只是打单个接口。",
+      "whatItDoesNotProve": "脚本表达的是你以为的用户行为。流量画像与真实生产分布不符时，压测结论无效。",
+      "pages": [
+        "TD-AP01",
+        "TD-AP04",
+        "TD-PS09"
+      ],
+      "declaredPages": [
+        "TD-PS09"
+      ]
+    },
+    "R-GOOGLE-SRE-SLO": {
+      "id": "R-GOOGLE-SRE-SLO",
+      "kind": "doc",
+      "title": "Implementing SLOs（Google SRE Workbook）",
+      "role": "判据框架",
+      "publisher": "Google SRE",
+      "url": "https://sre.google/workbook/implementing-slos/",
+      "repo": null,
+      "repoUrl": null,
+      "docUrl": null,
+      "anchorHint": null,
+      "license": null,
+      "reuse": "link-only",
+      "reuseNote": "非代码资料，按链接引用与转述处理",
+      "stars": null,
+      "lastPushedAt": null,
+      "anchor": null,
+      "whatItProves": "SLI/SLO/错误预算的定义方式，以及为什么用分位而非均值、为什么阈值必须来自业务而非工具默认值。性能与稳定性两页的验收口径都建立在这套框架上。",
+      "whatItDoesNotProve": "书里的示例数字是示例。任何直接照抄的 SLO 都没有经过你自己业务成本的校准。",
+      "pages": [
+        "TD-A04",
+        "TD-AG-07",
+        "TD-AP02",
+        "TD-AP04",
+        "TD-AP06",
+        "TD-AP07",
+        "TD-AP08",
+        "TD-PS09",
+        "TD-PS10",
+        "TD-PS11",
+        "TD-T23",
+        "TD-X805"
+      ],
+      "declaredPages": [
+        "TD-PS09",
+        "TD-PS10",
+        "TD-PS11"
+      ]
+    },
+    "R-RESILIENCE4J": {
+      "id": "R-RESILIENCE4J",
+      "kind": "repo",
+      "title": "Resilience4j：熔断、限流、重试与舱壁",
+      "role": "稳定性专项实现",
+      "publisher": "resilience4j",
+      "url": "https://resilience4j.readme.io/docs",
+      "repo": "resilience4j/resilience4j",
+      "repoUrl": "https://github.com/resilience4j/resilience4j",
+      "docUrl": "https://resilience4j.readme.io/docs",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 10740,
+      "lastPushedAt": "2026-07-08T06:46:06Z",
+      "anchor": {
+        "type": "release",
+        "value": "v2.4.0",
+        "date": "2026-03-14",
+        "url": "https://github.com/resilience4j/resilience4j/releases/tag/v2.4.0"
+      },
+      "whatItProves": "熔断器的状态机（CLOSED / OPEN / HALF_OPEN）、滑动窗口统计、以及重试与熔断组合时的相互作用。它把「降级」从口号变成有明确状态与阈值的可测对象。",
+      "whatItDoesNotProve": "配置了熔断不等于降级路径正确。熔断打开后返回什么、业务是否可接受，必须单独验证。",
+      "pages": [
+        "TD-A06",
+        "TD-AG-04",
+        "TD-AP06",
+        "TD-PS10",
+        "TD-W02"
+      ],
+      "declaredPages": [
+        "TD-PS10"
+      ]
+    },
+    "R-POLLY": {
+      "id": "R-POLLY",
+      "kind": "repo",
+      "title": "Polly：.NET 弹性与瞬态故障处理",
+      "role": "稳定性专项实现",
+      "publisher": "App-vNext",
+      "url": "https://www.pollydocs.org/",
+      "repo": "App-vNext/Polly",
+      "repoUrl": "https://github.com/App-vNext/Polly",
+      "docUrl": "https://www.pollydocs.org/",
+      "anchorHint": null,
+      "license": "BSD-3-Clause",
+      "reuse": "code-quotable",
+      "reuseNote": "BSD-3-Clause：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 14227,
+      "lastPushedAt": "2026-08-14T03:59:45Z",
+      "anchor": {
+        "type": "release",
+        "value": "8.7.0",
+        "date": "2026-06-08",
+        "url": "https://github.com/App-vNext/Polly/releases/tag/8.7.0"
+      },
+      "whatItProves": "重试策略的关键参数化：指数退避、抖动、超时、回退与策略组合顺序。策略顺序错了会把重试放大成雪崩，这是可以被静态检出的。",
+      "whatItDoesNotProve": "客户端弹性无法修复服务端容量不足。重试预算不受控时，弹性库会加剧而非缓解故障。",
+      "pages": [
+        "TD-A06",
+        "TD-AP06",
+        "TD-PS10"
+      ],
+      "declaredPages": [
+        "TD-PS10"
+      ]
+    },
+    "R-TOXIPROXY": {
+      "id": "R-TOXIPROXY",
+      "kind": "repo",
+      "title": "Toxiproxy：TCP 层网络故障注入代理",
+      "role": "故障注入",
+      "publisher": "Shopify",
+      "url": "https://github.com/Shopify/toxiproxy#readme",
+      "repo": "Shopify/toxiproxy",
+      "repoUrl": "https://github.com/Shopify/toxiproxy",
+      "docUrl": "https://github.com/Shopify/toxiproxy#readme",
+      "anchorHint": null,
+      "license": "MIT",
+      "reuse": "code-quotable",
+      "reuseNote": "MIT：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 12244,
+      "lastPushedAt": "2026-08-04T07:02:30Z",
+      "anchor": {
+        "type": "release",
+        "value": "v2.12.0",
+        "date": "2025-03-18",
+        "url": "https://github.com/Shopify/toxiproxy/releases/tag/v2.12.0"
+      },
+      "whatItProves": "延迟、带宽限制、连接中断、慢关闭这些网络层故障可以按需注入且可编程开关，让超时与重试逻辑真正被执行到，而不是只存在于配置文件里。",
+      "whatItDoesNotProve": "注入的是网络层症状，不是依赖服务的真实故障语义（如半提交、脏数据）。",
+      "pages": [
+        "TD-A06",
+        "TD-AP06",
+        "TD-PS10",
+        "TD-W01",
+        "TD-W02"
+      ],
+      "declaredPages": [
+        "TD-PS10"
+      ]
+    },
+    "R-CHAOS-MESH": {
+      "id": "R-CHAOS-MESH",
+      "kind": "repo",
+      "title": "Chaos Mesh：Kubernetes 混沌工程平台",
+      "role": "混沌工程平台",
+      "publisher": "chaos-mesh",
+      "url": "https://chaos-mesh.org/docs/",
+      "repo": "chaos-mesh/chaos-mesh",
+      "repoUrl": "https://github.com/chaos-mesh/chaos-mesh",
+      "docUrl": "https://chaos-mesh.org/docs/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 7844,
+      "lastPushedAt": "2026-08-07T17:44:46Z",
+      "anchor": {
+        "type": "release",
+        "value": "v2.8.3",
+        "date": "2026-06-10",
+        "url": "https://github.com/chaos-mesh/chaos-mesh/releases/tag/v2.8.3"
+      },
+      "whatItProves": "故障实验可以声明式定义、限定爆炸半径、设定自动终止条件，并作为 CRD 纳入版本管理——这是混沌实验与「线上乱搞」的分界线。",
+      "whatItDoesNotProve": "平台提供注入能力，不提供假设。没有稳态定义与终止条件的实验，注入再多也不产生结论。",
+      "pages": [
+        "TD-PS10"
+      ],
+      "declaredPages": [
+        "TD-PS10"
+      ]
+    },
+    "R-OTEL-SPEC": {
+      "id": "R-OTEL-SPEC",
+      "kind": "spec",
+      "title": "OpenTelemetry Specification",
+      "role": "可观测性协议",
+      "publisher": "open-telemetry",
+      "url": "https://opentelemetry.io/docs/specs/otel/",
+      "repo": "open-telemetry/opentelemetry-specification",
+      "repoUrl": "https://github.com/open-telemetry/opentelemetry-specification",
+      "docUrl": "https://opentelemetry.io/docs/specs/otel/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 4306,
+      "lastPushedAt": "2026-08-14T00:37:14Z",
+      "anchor": {
+        "type": "release",
+        "value": "v1.60.0",
+        "date": "2026-08-07",
+        "url": "https://github.com/open-telemetry/opentelemetry-specification/releases/tag/v1.60.0"
+      },
+      "whatItProves": "trace / metric / log 三类信号的统一数据模型与上下文传播机制。跨服务、跨语言归因之所以可能，依赖的是同一个 trace context 而不是同一个日志格式。",
+      "whatItDoesNotProve": "接入 OTel 不等于可归因。采样率、缺失的 span 属性、断掉的上下文传播都会让链路在最需要的时候断在中间。",
+      "pages": [
+        "TD-AP02",
+        "TD-AP03",
+        "TD-AP08",
+        "TD-PS11",
+        "TD-T08"
+      ],
+      "declaredPages": [
+        "TD-PS11"
+      ]
+    },
+    "R-OTEL-SEMCONV-GENAI": {
+      "id": "R-OTEL-SEMCONV-GENAI",
+      "kind": "spec",
+      "title": "OpenTelemetry 语义约定（含 GenAI 约定）",
+      "role": "传统可观测性 × AI 的关键结合点",
+      "publisher": "open-telemetry",
+      "url": "https://opentelemetry.io/docs/specs/semconv/gen-ai/",
+      "repo": "open-telemetry/semantic-conventions",
+      "repoUrl": "https://github.com/open-telemetry/semantic-conventions",
+      "docUrl": "https://opentelemetry.io/docs/specs/semconv/gen-ai/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 628,
+      "lastPushedAt": "2026-08-12T18:00:08Z",
+      "anchor": {
+        "type": "release",
+        "value": "v1.44.0",
+        "date": "2026-08-04",
+        "url": "https://github.com/open-telemetry/semantic-conventions/releases/tag/v1.44.0"
+      },
+      "whatItProves": "模型调用的 trace 属性已经有了标准命名：模型标识、token 用量、请求参数、结束原因等被纳入与 HTTP、数据库同一套语义约定体系。这意味着 LLM 调用不需要另建一套观测体系，而是接进既有链路。",
+      "whatItDoesNotProve": "GenAI 部分的约定仍在演进，字段名可能变更；且约定只规定怎么记，不规定记了之后如何判断质量。",
+      "pages": [
+        "TD-A03",
+        "TD-AG-00",
+        "TD-AG-02",
+        "TD-AG-07",
+        "TD-AP01",
+        "TD-AP03",
+        "TD-F02",
+        "TD-F03",
+        "TD-F04",
+        "TD-PS11",
+        "TD-T15"
+      ],
+      "declaredPages": [
+        "TD-PS11"
+      ]
+    },
+    "R-PROMETHEUS": {
+      "id": "R-PROMETHEUS",
+      "kind": "repo",
+      "title": "Prometheus：指标采集与查询",
+      "role": "指标实现",
+      "publisher": "prometheus",
+      "url": "https://prometheus.io/docs/practices/histograms/",
+      "repo": "prometheus/prometheus",
+      "repoUrl": "https://github.com/prometheus/prometheus",
+      "docUrl": "https://prometheus.io/docs/practices/histograms/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 65733,
+      "lastPushedAt": "2026-08-13T17:13:55Z",
+      "anchor": {
+        "type": "release",
+        "value": "v3.13.2",
+        "date": "2026-07-30",
+        "url": "https://github.com/prometheus/prometheus/releases/tag/v3.13.2"
+      },
+      "whatItProves": "直方图与分位数的实际计算方式，以及为什么跨实例平均分位数在数学上是错的（分位不可加）。这一条直接决定了 p95 报表是否可信。",
+      "whatItDoesNotProve": "指标是聚合信号，无法回答单次失败发生了什么。归因必须回到 trace 与日志。",
+      "pages": [
+        "TD-A03",
+        "TD-A05",
+        "TD-AP02",
+        "TD-AP04",
+        "TD-AP05",
+        "TD-AP07",
+        "TD-AP08",
+        "TD-PS09",
+        "TD-PS11",
+        "TD-QP03"
+      ],
+      "declaredPages": [
+        "TD-PS11"
+      ]
+    },
+    "R-LANGFUSE": {
+      "id": "R-LANGFUSE",
+      "kind": "repo",
+      "title": "Langfuse：LLM 应用可观测与评测平台",
+      "role": "AI 侧观测",
+      "publisher": "langfuse",
+      "url": "https://langfuse.com/docs",
+      "repo": "langfuse/langfuse",
+      "repoUrl": "https://github.com/langfuse/langfuse",
+      "docUrl": "https://langfuse.com/docs",
+      "anchorHint": null,
+      "license": "NOASSERTION",
+      "reuse": "link-only",
+      "reuseNote": "许可证未能自动判定，按最保守口径只链接不搬代码",
+      "stars": 33078,
+      "lastPushedAt": "2026-08-14T03:23:15Z",
+      "anchor": {
+        "type": "release",
+        "value": "v4.10.0",
+        "date": "2026-08-12",
+        "url": "https://github.com/langfuse/langfuse/releases/tag/v4.10.0"
+      },
+      "whatItProves": "模型调用的输入输出、成本、延迟与评分可以被持久化为可检索的 trace，使线上样本回流成评测集成为常规动作而非一次性导出。",
+      "whatItDoesNotProve": "记录不等于判断。平台里的 score 仍来自你配置的评测器，评测器本身的可信度需要单独证明。",
+      "pages": [
+        "TD-AG-07",
+        "TD-AG-08",
+        "TD-AG-09",
+        "TD-AP03",
+        "TD-FP01",
+        "TD-PS11",
+        "TD-T08",
+        "TD-T21",
+        "TD-T22"
+      ],
+      "declaredPages": [
+        "TD-PS11"
+      ]
+    },
+    "R-ZAP": {
+      "id": "R-ZAP",
+      "kind": "repo",
+      "title": "ZAP：Web 应用安全扫描代理",
+      "role": "安全专项工具",
+      "publisher": "zaproxy",
+      "url": "https://www.zaproxy.org/docs/",
+      "repo": "zaproxy/zaproxy",
+      "repoUrl": "https://github.com/zaproxy/zaproxy",
+      "docUrl": "https://www.zaproxy.org/docs/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 15596,
+      "lastPushedAt": "2026-08-13T08:21:53Z",
+      "anchor": {
+        "type": "release",
+        "value": "v2.17.0",
+        "date": "2025-12-15",
+        "url": "https://github.com/zaproxy/zaproxy/releases/tag/v2.17.0"
+      },
+      "whatItProves": "被动扫描（观察流量）与主动扫描（构造攻击请求）的区别，以及如何把安全检查作为代理挂在既有功能测试流量上，复用已有的登录与业务路径。",
+      "whatItDoesNotProve": "扫描器擅长已知模式（注入、配置、头缺失），对业务逻辑漏洞几乎无能为力。越权、跨租户数据泄露必须靠带身份的用例设计。",
+      "pages": [
+        "TD-PS12"
+      ],
+      "declaredPages": [
+        "TD-PS12"
+      ]
+    },
+    "R-OWASP-ASVS": {
+      "id": "R-OWASP-ASVS",
+      "kind": "standard",
+      "title": "OWASP 应用安全验证标准（ASVS）",
+      "role": "安全判据来源",
+      "publisher": "OWASP",
+      "url": "https://owasp.org/www-project-application-security-verification-standard/",
+      "repo": "OWASP/ASVS",
+      "repoUrl": "https://github.com/OWASP/ASVS",
+      "docUrl": "https://owasp.org/www-project-application-security-verification-standard/",
+      "anchorHint": null,
+      "license": "CC-BY-SA-4.0",
+      "reuse": "quote-with-share-alike",
+      "reuseNote": "CC-BY-SA-4.0：弱著佐权，可短引并署名，不整段搬入本仓库",
+      "stars": 3547,
+      "lastPushedAt": "2026-08-13T01:24:29Z",
+      "anchor": {
+        "type": "release",
+        "value": "latest",
+        "date": "2026-07-28",
+        "url": "https://github.com/OWASP/ASVS/releases/tag/latest"
+      },
+      "whatItProves": "分级的、可逐条验证的安全需求清单。它把「做了安全测试」变成「V2.1.x 已验证、V4.2.x 未覆盖」这种可审计陈述。",
+      "whatItDoesNotProve": "标准是需求清单不是测试方法。每条如何验证、用什么证据，仍需自己设计。",
+      "pages": [
+        "TD-PS12"
+      ],
+      "declaredPages": [
+        "TD-PS12"
+      ]
+    },
+    "R-GARAK": {
+      "id": "R-GARAK",
+      "kind": "repo",
+      "title": "garak：LLM 漏洞探测器",
+      "role": "传统安全测试 × AI 的实际结合点",
+      "publisher": "NVIDIA",
+      "url": "https://docs.garak.ai/",
+      "repo": "NVIDIA/garak",
+      "repoUrl": "https://github.com/NVIDIA/garak",
+      "docUrl": "https://docs.garak.ai/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 8793,
+      "lastPushedAt": "2026-08-13T21:11:21Z",
+      "anchor": {
+        "type": "release",
+        "value": "v0.16.0",
+        "date": "2026-08-04",
+        "url": "https://github.com/NVIDIA/garak/releases/tag/v0.16.0"
+      },
+      "whatItProves": "把安全扫描的 probe / detector 结构原样迁移到模型上：probe 构造诱导输入，detector 判定是否触发了不期望行为（越狱、泄露、有害输出）。传统扫描器的架构在这里是可复用的。",
+      "whatItDoesNotProve": "探测覆盖的是已知攻击模式库，且模型行为具随机性——单次未命中不等于不存在。结论必须带重复次数与命中率，不能报「已通过」。",
+      "pages": [
+        "TD-A01",
+        "TD-AG-06",
+        "TD-PS12",
+        "TD-T17"
+      ],
+      "declaredPages": [
+        "TD-PS12"
+      ]
+    },
+    "R-OWASP-LLM-TOP10": {
+      "id": "R-OWASP-LLM-TOP10",
+      "kind": "standard",
+      "title": "OWASP Top 10 for LLM Applications",
+      "role": "AI 侧风险清单",
+      "publisher": "OWASP GenAI Security Project",
+      "url": "https://genai.owasp.org/llm-top-10/",
+      "repo": null,
+      "repoUrl": null,
+      "docUrl": null,
+      "anchorHint": null,
+      "license": null,
+      "reuse": "link-only",
+      "reuseNote": "非代码资料，按链接引用与转述处理",
+      "stars": null,
+      "lastPushedAt": null,
+      "anchor": null,
+      "whatItProves": "LLM 应用的高频风险分类（提示注入、敏感信息泄露、供应链、过度代理权限等），可作为安全测试的风险起点与覆盖度检查表。",
+      "whatItDoesNotProve": "清单是风险分类不是验收标准，也不按你的业务排优先级。",
+      "pages": [
+        "TD-AG-06",
+        "TD-AG-10",
+        "TD-PS12",
+        "TD-T09",
+        "TD-T12",
+        "TD-T16",
+        "TD-T17",
+        "TD-X603",
+        "TD-X604"
+      ],
+      "declaredPages": [
+        "TD-PS12"
+      ]
+    },
+    "R-LLM-GUARD": {
+      "id": "R-LLM-GUARD",
+      "kind": "repo",
+      "title": "LLM Guard：模型输入输出的确定性管控层",
+      "role": "AI 侧防护实现",
+      "publisher": "protectai",
+      "url": "https://protectai.github.io/llm-guard/",
+      "repo": "protectai/llm-guard",
+      "repoUrl": "https://github.com/protectai/llm-guard",
+      "docUrl": "https://protectai.github.io/llm-guard/",
+      "anchorHint": null,
+      "license": "MIT",
+      "reuse": "code-quotable",
+      "reuseNote": "MIT：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 3202,
+      "lastPushedAt": "2026-07-08T23:58:40Z",
+      "anchor": {
+        "type": "tag",
+        "value": "v0.3.16",
+        "date": null,
+        "url": "https://github.com/protectai/llm-guard/releases/tag/v0.3.16"
+      },
+      "whatItProves": "一部分安全判定可以从「靠模型自我约束」移到模型之外的确定性代码路径上：输入侧的注入检测与脱敏、输出侧的敏感信息与有害内容过滤。移出来之后这层才是可测、可度量、可回归的。",
+      "whatItDoesNotProve": "过滤层本身有漏判与误判，两类错误率都必须单独度量。把它当成「加了就安全」是把一个概率组件当成了确定性边界。",
+      "pages": [
+        "TD-AG-06",
+        "TD-PS12",
+        "TD-T16",
+        "TD-T17",
+        "TD-X603"
+      ],
+      "declaredPages": [
+        "TD-PS12"
+      ]
+    },
+    "R-SEMGREP": {
+      "id": "R-SEMGREP",
+      "kind": "repo",
+      "title": "Semgrep：模式化静态分析",
+      "role": "静态门禁工具",
+      "publisher": "semgrep",
+      "url": "https://semgrep.dev/docs/",
+      "repo": "semgrep/semgrep",
+      "repoUrl": "https://github.com/semgrep/semgrep",
+      "docUrl": "https://semgrep.dev/docs/",
+      "anchorHint": null,
+      "license": "LGPL-2.1",
+      "reuse": "link-only",
+      "reuseNote": "LGPL-2.1：著佐权许可，只链接与转述，不搬代码",
+      "stars": 16209,
+      "lastPushedAt": "2026-08-14T00:16:01Z",
+      "anchor": {
+        "type": "release",
+        "value": "v1.173.0",
+        "date": "2026-08-13",
+        "url": "https://github.com/semgrep/semgrep/releases/tag/v1.173.0"
+      },
+      "whatItProves": "以贴近源码的语法模式表达规则，使团队专属约定（禁用某 API、必须带超时、密钥不得硬编码）能被写成可执行规则并纳入门禁。",
+      "whatItDoesNotProve": "模式匹配没有完整数据流理解，跨文件跨函数的污点传播会漏。低误报是靠限制规则范围换来的。",
+      "pages": [
+        "TD-T05",
+        "TD-T20",
+        "TD-X101"
+      ],
+      "declaredPages": [
+        "TD-X101"
+      ]
+    },
+    "R-CODEQL": {
+      "id": "R-CODEQL",
+      "kind": "repo",
+      "title": "CodeQL：把代码当数据库查询的静态分析",
+      "role": "静态门禁工具",
+      "publisher": "github",
+      "url": "https://codeql.github.com/docs/",
+      "repo": "github/codeql",
+      "repoUrl": "https://github.com/github/codeql",
+      "docUrl": "https://codeql.github.com/docs/",
+      "anchorHint": null,
+      "license": "MIT",
+      "reuse": "code-quotable",
+      "reuseNote": "MIT：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 9934,
+      "lastPushedAt": "2026-08-14T03:05:07Z",
+      "anchor": {
+        "type": "tag",
+        "value": "v1.27.0",
+        "date": null,
+        "url": "https://github.com/github/codeql/releases/tag/v1.27.0"
+      },
+      "whatItProves": "污点追踪型分析：把源码编译成关系数据库后用查询语言表达 source → sink 的可达性，能发现跨函数、跨文件的注入路径。",
+      "whatItDoesNotProve": "分析基于可编译的代码视图，动态特性、反射与运行时配置之外的路径不可见。",
+      "pages": [
+        "TD-X101"
+      ],
+      "declaredPages": [
+        "TD-X101"
+      ]
+    },
+    "R-OSV-SCANNER": {
+      "id": "R-OSV-SCANNER",
+      "kind": "repo",
+      "title": "OSV-Scanner：依赖漏洞扫描",
+      "role": "供应链门禁",
+      "publisher": "google",
+      "url": "https://google.github.io/osv-scanner/",
+      "repo": "google/osv-scanner",
+      "repoUrl": "https://github.com/google/osv-scanner",
+      "docUrl": "https://google.github.io/osv-scanner/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 10827,
+      "lastPushedAt": "2026-08-14T05:27:21Z",
+      "anchor": {
+        "type": "release",
+        "value": "v2.5.0",
+        "date": "2026-08-07",
+        "url": "https://github.com/google/osv-scanner/releases/tag/v2.5.0"
+      },
+      "whatItProves": "以 OSV 统一漏洞数据库为源，按锁文件精确匹配受影响版本区间，减少按包名粗匹配造成的误报。",
+      "whatItDoesNotProve": "报出漏洞不等于可利用。是否触达受影响代码路径需要单独判断，否则门禁会被噪声淹没而被整体关掉。",
+      "pages": [
+        "TD-X101"
+      ],
+      "declaredPages": [
+        "TD-X101"
+      ]
+    },
+    "R-SYFT": {
+      "id": "R-SYFT",
+      "kind": "repo",
+      "title": "Syft：软件物料清单（SBOM）生成",
+      "role": "供应链基础",
+      "publisher": "anchore",
+      "url": "https://github.com/anchore/syft#readme",
+      "repo": "anchore/syft",
+      "repoUrl": "https://github.com/anchore/syft",
+      "docUrl": "https://github.com/anchore/syft#readme",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 9398,
+      "lastPushedAt": "2026-08-13T20:46:58Z",
+      "anchor": {
+        "type": "release",
+        "value": "v1.51.0",
+        "date": "2026-08-10",
+        "url": "https://github.com/anchore/syft/releases/tag/v1.51.0"
+      },
+      "whatItProves": "从镜像与文件系统生成标准格式 SBOM（SPDX / CycloneDX），使「这次发布里到底装了什么」成为可存档、可比对的工件。",
+      "whatItDoesNotProve": "SBOM 描述成分不描述风险，也不保证完整——静态链接、厂商私有层与运行时下载的内容可能不在清单里。",
+      "pages": [
+        "TD-X101"
+      ],
+      "declaredPages": [
+        "TD-X101"
+      ]
+    },
+    "R-TRIVY": {
+      "id": "R-TRIVY",
+      "kind": "repo",
+      "title": "Trivy：镜像、依赖、配置与密钥统一扫描",
+      "role": "供应链门禁",
+      "publisher": "aquasecurity",
+      "url": "https://trivy.dev/latest/docs/",
+      "repo": "aquasecurity/trivy",
+      "repoUrl": "https://github.com/aquasecurity/trivy",
+      "docUrl": "https://trivy.dev/latest/docs/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 37391,
+      "lastPushedAt": "2026-08-13T18:55:17Z",
+      "anchor": {
+        "type": "release",
+        "value": "v0.73.0",
+        "date": "2026-08-03",
+        "url": "https://github.com/aquasecurity/trivy/releases/tag/v0.73.0"
+      },
+      "whatItProves": "同一工具覆盖依赖漏洞、IaC 配置错误、密钥泄露与 SBOM 生成，便于把多类门禁收敛到一处执行与一份报告。",
+      "whatItDoesNotProve": "覆盖广度以深度为代价；每一类的判定精度都不如该领域的专用工具。",
+      "pages": [
+        "TD-X101"
+      ],
+      "declaredPages": [
+        "TD-X101"
+      ]
+    },
+    "R-SLSA": {
+      "id": "R-SLSA",
+      "kind": "standard",
+      "title": "SLSA：软件制品供应链等级框架",
+      "role": "供应链判据框架",
+      "publisher": "slsa-framework",
+      "url": "https://slsa.dev/spec/v1.0/levels",
+      "repo": "slsa-framework/slsa",
+      "repoUrl": "https://github.com/slsa-framework/slsa",
+      "docUrl": "https://slsa.dev/spec/v1.0/levels",
+      "anchorHint": null,
+      "license": "NOASSERTION",
+      "reuse": "link-only",
+      "reuseNote": "许可证未能自动判定，按最保守口径只链接不搬代码",
+      "stars": 1909,
+      "lastPushedAt": "2026-08-09T11:32:43Z",
+      "anchor": {
+        "type": "tag",
+        "value": "v2021-04-21",
+        "date": null,
+        "url": "https://github.com/slsa-framework/slsa/releases/tag/v2021-04-21"
+      },
+      "whatItProves": "构建完整性的分级要求（来源可证明、构建过程可复现、防篡改），把「供应链安全」从含糊目标变成可声明的等级。",
+      "whatItDoesNotProve": "等级描述构建过程的可信度，不评价依赖本身是否有漏洞。",
+      "pages": [
+        "TD-QP02",
+        "TD-T25",
+        "TD-X101"
+      ],
+      "declaredPages": [
+        "TD-X101"
+      ]
+    },
+    "R-PROMPTFOO": {
+      "id": "R-PROMPTFOO",
+      "kind": "repo",
+      "title": "promptfoo：Prompt 与 Agent 的断言式评测",
+      "role": "AI 侧断言执行器",
+      "publisher": "promptfoo",
+      "url": "https://www.promptfoo.dev/docs/intro/",
+      "repo": "promptfoo/promptfoo",
+      "repoUrl": "https://github.com/promptfoo/promptfoo",
+      "docUrl": "https://www.promptfoo.dev/docs/intro/",
+      "anchorHint": null,
+      "license": "MIT",
+      "reuse": "code-quotable",
+      "reuseNote": "MIT：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 24222,
+      "lastPushedAt": "2026-08-14T05:13:22Z",
+      "anchor": {
+        "type": "release",
+        "value": "0.122.0",
+        "date": "2026-08-04",
+        "url": "https://github.com/promptfoo/promptfoo/releases/tag/0.122.0"
+      },
+      "whatItProves": "把断言写成配置：确定性断言（contains、is-json、javascript）、语义断言与模型评判可以在同一个用例里组合，并按矩阵跑多模型多 prompt。它让「AI 输出」进入与传统测试相同的红绿流程。",
+      "whatItDoesNotProve": "模型评判本身有误差，需要与人工标注校准后才能作为门禁判据。",
+      "pages": [
+        "TD-A01",
+        "TD-FP01",
+        "TD-PS01",
+        "TD-PS12",
+        "TD-T01",
+        "TD-T03",
+        "TD-T12",
+        "TD-T20"
+      ],
+      "declaredPages": [
+        "TD-PS01",
+        "TD-PS12"
+      ]
+    },
+    "R-DEEPEVAL": {
+      "id": "R-DEEPEVAL",
+      "kind": "repo",
+      "title": "DeepEval：pytest 风格的 LLM 评测框架",
+      "role": "AI 侧断言执行器",
+      "publisher": "confident-ai",
+      "url": "https://deepeval.com/docs/getting-started",
+      "repo": "confident-ai/deepeval",
+      "repoUrl": "https://github.com/confident-ai/deepeval",
+      "docUrl": "https://deepeval.com/docs/getting-started",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 17584,
+      "lastPushedAt": "2026-08-13T08:53:41Z",
+      "anchor": {
+        "type": "release",
+        "value": "v4.1.7",
+        "date": "2026-07-29",
+        "url": "https://github.com/confident-ai/deepeval/releases/tag/v4.1.7"
+      },
+      "whatItProves": "LLM 评测可以直接寄生在 pytest 生态里：用例、fixture、参数化、CI 集成全部复用既有工程习惯，降低把评测接进流水线的成本。",
+      "whatItDoesNotProve": "指标默认阈值是框架给的示例值，不是你业务的验收线。",
+      "pages": [
+        "TD-AG-01",
+        "TD-B03",
+        "TD-PS02",
+        "TD-T01",
+        "TD-T03",
+        "TD-T11",
+        "TD-T12",
+        "TD-T14",
+        "TD-T20",
+        "TD-X501"
+      ],
+      "declaredPages": [
+        "TD-PS02"
+      ]
+    },
+    "R-INSPECT-AI": {
+      "id": "R-INSPECT-AI",
+      "kind": "repo",
+      "title": "Inspect：任务 / solver / scorer 分层的模型评测框架",
+      "role": "评测框架",
+      "publisher": "UKGovernmentBEIS",
+      "url": "https://inspect.aisi.org.uk/",
+      "repo": "UKGovernmentBEIS/inspect_ai",
+      "repoUrl": "https://github.com/UKGovernmentBEIS/inspect_ai",
+      "docUrl": "https://inspect.aisi.org.uk/",
+      "anchorHint": null,
+      "license": "MIT",
+      "reuse": "code-quotable",
+      "reuseNote": "MIT：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 2539,
+      "lastPushedAt": "2026-08-13T21:12:36Z",
+      "anchor": {
+        "type": "tag",
+        "value": "release/2025-11-28",
+        "date": null,
+        "url": "https://github.com/UKGovernmentBEIS/inspect_ai/releases/tag/release/2025-11-28"
+      },
+      "whatItProves": "评测可以拆成三个独立可替换的部件：dataset 定义问什么、solver 定义怎么问、scorer 定义怎么判。三者分离之后，换模型不用改判据，改判据不用改数据集——这是把一次性评测脚本变成可回归资产的结构条件。",
+      "whatItDoesNotProve": "框架不提供判据。scorer 写得对不对、数据集有没有覆盖你的风险切片，框架一概不管，全绿只说明流程跑通了。",
+      "pages": [
+        "TD-AG-00",
+        "TD-AG-01",
+        "TD-AG-05",
+        "TD-B01",
+        "TD-B04",
+        "TD-B06",
+        "TD-F03",
+        "TD-T01",
+        "TD-T03",
+        "TD-T04",
+        "TD-T14",
+        "TD-T20",
+        "TD-T23",
+        "TD-W03",
+        "TD-X501"
+      ],
+      "declaredPages": [
+        "TD-AG-01",
+        "TD-B01",
+        "TD-T01",
+        "TD-T03"
+      ]
+    },
+    "R-LM-EVAL-HARNESS": {
+      "id": "R-LM-EVAL-HARNESS",
+      "kind": "repo",
+      "title": "lm-evaluation-harness：公开基准的标准执行器",
+      "role": "benchmark 执行器",
+      "publisher": "EleutherAI",
+      "url": "https://github.com/EleutherAI/lm-evaluation-harness#readme",
+      "repo": "EleutherAI/lm-evaluation-harness",
+      "repoUrl": "https://github.com/EleutherAI/lm-evaluation-harness",
+      "docUrl": "https://github.com/EleutherAI/lm-evaluation-harness#readme",
+      "anchorHint": null,
+      "license": "MIT",
+      "reuse": "code-quotable",
+      "reuseNote": "MIT：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 13623,
+      "lastPushedAt": "2026-08-11T08:24:39Z",
+      "anchor": {
+        "type": "release",
+        "value": "v0.4.12",
+        "date": "2026-05-11",
+        "url": "https://github.com/EleutherAI/lm-evaluation-harness/releases/tag/v0.4.12"
+      },
+      "whatItProves": "同一个 benchmark 在不同 harness 下会得到不同分数：prompt 模板、few-shot 数量、答案抽取规则、归一化方式都会改变结果。它的存在本身就是「分数必须连同执行配置一起报」这条纪律的证据。",
+      "whatItDoesNotProve": "它保证的是执行可复现，不保证任务本身衡量了你关心的能力，也不检测数据污染。",
+      "pages": [
+        "TD-AG-05",
+        "TD-B01",
+        "TD-B04",
+        "TD-B05",
+        "TD-F03",
+        "TD-T04"
+      ],
+      "declaredPages": [
+        "TD-B01",
+        "TD-B04"
+      ]
+    },
+    "R-HELM": {
+      "id": "R-HELM",
+      "kind": "repo",
+      "title": "HELM：多场景、多指标的整体性评测",
+      "role": "评测方法学",
+      "publisher": "stanford-crfm",
+      "url": "https://crfm.stanford.edu/helm/",
+      "repo": "stanford-crfm/helm",
+      "repoUrl": "https://github.com/stanford-crfm/helm",
+      "docUrl": "https://crfm.stanford.edu/helm/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 2877,
+      "lastPushedAt": "2026-08-01T01:23:17Z",
+      "anchor": {
+        "type": "release",
+        "value": "v0.5.16",
+        "date": "2026-04-30",
+        "url": "https://github.com/stanford-crfm/helm/releases/tag/v0.5.16"
+      },
+      "whatItProves": "单一准确率无法描述模型能力。HELM 的做法是把场景（scenario）与指标（metric）做成正交的两维，同一个场景同时报准确率、校准度、鲁棒性、公平性、效率——「模型 A 比 B 好」这句话必须指明在哪个场景的哪个指标上。",
+      "whatItDoesNotProve": "覆盖的是公开场景，不覆盖你的业务分布。榜单名次不能迁移到企业任务上。",
+      "pages": [
+        "TD-AG-05",
+        "TD-B01",
+        "TD-B02",
+        "TD-B03",
+        "TD-B04",
+        "TD-B05",
+        "TD-B06",
+        "TD-F05",
+        "TD-T04",
+        "TD-T13",
+        "TD-T23",
+        "TD-W03",
+        "TD-X501"
+      ],
+      "declaredPages": [
+        "TD-B01",
+        "TD-B03",
+        "TD-B06"
+      ]
+    },
+    "R-OPENCOMPASS": {
+      "id": "R-OPENCOMPASS",
+      "kind": "repo",
+      "title": "OpenCompass：面向中文与多语言的评测体系",
+      "role": "评测执行器",
+      "publisher": "open-compass",
+      "url": "https://opencompass.readthedocs.io/",
+      "repo": "open-compass/opencompass",
+      "repoUrl": "https://github.com/open-compass/opencompass",
+      "docUrl": "https://opencompass.readthedocs.io/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 7299,
+      "lastPushedAt": "2026-08-12T14:00:16Z",
+      "anchor": {
+        "type": "release",
+        "value": "0.5.3",
+        "date": "2026-06-29",
+        "url": "https://github.com/open-compass/opencompass/releases/tag/0.5.3"
+      },
+      "whatItProves": "评测配置（数据集、模型、推理参数、后处理）可以完全声明式表达并版本化，使跨模型、跨版本的对照在配置层面就可审计，而不是靠人记得当时怎么跑的。",
+      "whatItDoesNotProve": "中文基准同样存在污染与分布偏移问题；配置可复现不等于结论可迁移。",
+      "pages": [
+        "TD-B01",
+        "TD-B04",
+        "TD-B06",
+        "TD-X502"
+      ],
+      "declaredPages": [
+        "TD-B04",
+        "TD-B06",
+        "TD-X502"
+      ]
+    },
+    "R-SWE-BENCH": {
+      "id": "R-SWE-BENCH",
+      "kind": "repo",
+      "title": "SWE-bench：以真实仓库 issue 为任务的 Agent 基准",
+      "role": "任务级基准",
+      "publisher": "SWE-bench",
+      "url": "https://www.swebench.com/",
+      "repo": "SWE-bench/SWE-bench",
+      "repoUrl": "https://github.com/SWE-bench/SWE-bench",
+      "docUrl": "https://www.swebench.com/",
+      "anchorHint": null,
+      "license": "MIT",
+      "reuse": "code-quotable",
+      "reuseNote": "MIT：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 5635,
+      "lastPushedAt": "2026-08-14T00:50:12Z",
+      "anchor": {
+        "type": "tag",
+        "value": "v4.1.0",
+        "date": null,
+        "url": "https://github.com/SWE-bench/SWE-bench/releases/tag/v4.1.0"
+      },
+      "whatItProves": "任务级评测的判据可以完全确定：补丁应用后跑原仓库的测试，通过即算解决。这比模型评判可靠得多，也说明「只要任务本身自带 oracle，评测就不需要 judge」。",
+      "whatItDoesNotProve": "任务来自公开仓库，训练数据污染无法排除；单次成功率也不代表在你私有代码库上的表现。执行成本高，不适合做每次提交的门禁。",
+      "pages": [
+        "TD-B02",
+        "TD-B03",
+        "TD-B05",
+        "TD-B06",
+        "TD-T02",
+        "TD-W03"
+      ],
+      "declaredPages": [
+        "TD-B02",
+        "TD-B05"
+      ]
+    },
+    "R-OPENAI-EVALS": {
+      "id": "R-OPENAI-EVALS",
+      "kind": "repo",
+      "title": "OpenAI Evals：评测样例与注册表结构",
+      "role": "评测结构参考",
+      "publisher": "openai",
+      "url": "https://github.com/openai/evals#readme",
+      "repo": "openai/evals",
+      "repoUrl": "https://github.com/openai/evals",
+      "docUrl": "https://github.com/openai/evals#readme",
+      "anchorHint": null,
+      "license": "NOASSERTION",
+      "reuse": "link-only",
+      "reuseNote": "许可证未能自动判定，按最保守口径只链接不搬代码",
+      "stars": 19165,
+      "lastPushedAt": "2026-04-14T15:29:57Z",
+      "anchor": {
+        "type": "tag",
+        "value": "v0.1.1",
+        "date": null,
+        "url": "https://github.com/openai/evals/releases/tag/v0.1.1"
+      },
+      "whatItProves": "把评测注册成命名资产（registry）而不是散落的脚本，使评测可以被引用、复用与版本化，这是评测进入 CI 的前提。",
+      "whatItDoesNotProve": "仓库许可证未被自动判定，且更新已放缓；作为结构参考使用，不作为当前推荐运行时。",
+      "pages": [
+        "TD-T01"
+      ],
+      "declaredPages": [
+        "TD-T01"
+      ]
+    },
+    "R-RAGAS": {
+      "id": "R-RAGAS",
+      "kind": "repo",
+      "title": "Ragas：RAG 指标的参考实现",
+      "role": "RAG 指标实现",
+      "publisher": "explodinggradients",
+      "url": "https://docs.ragas.io/",
+      "repo": "explodinggradients/ragas",
+      "repoUrl": "https://github.com/vibrantlabsai/ragas",
+      "docUrl": "https://docs.ragas.io/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 15306,
+      "lastPushedAt": "2026-02-24T07:47:19Z",
+      "anchor": {
+        "type": "release",
+        "value": "v0.4.3",
+        "date": "2026-01-13",
+        "url": "https://github.com/vibrantlabsai/ragas/releases/tag/v0.4.3"
+      },
+      "whatItProves": "忠实度、答案相关性、上下文精确率/召回率这些 RAG 专属指标可以被拆成可计算的定义，而不是停留在「回答质量好不好」这种不可判定的说法上。",
+      "whatItDoesNotProve": "多数指标本身由模型计算，因此指标带有与被测系统同源的误差；未经人工标注校准前，它的绝对值不能当验收线，只能看趋势。",
+      "pages": [
+        "TD-AG-01",
+        "TD-F04",
+        "TD-T03",
+        "TD-T10",
+        "TD-T11",
+        "TD-T12",
+        "TD-T14"
+      ],
+      "declaredPages": [
+        "TD-T10",
+        "TD-T11",
+        "TD-T12"
+      ]
+    },
+    "R-TRULENS": {
+      "id": "R-TRULENS",
+      "kind": "repo",
+      "title": "TruLens：RAG 三角评测与反馈函数",
+      "role": "RAG 评测方法",
+      "publisher": "truera",
+      "url": "https://www.trulens.org/",
+      "repo": "truera/trulens",
+      "repoUrl": "https://github.com/truera/trulens",
+      "docUrl": "https://www.trulens.org/",
+      "anchorHint": null,
+      "license": "MIT",
+      "reuse": "code-quotable",
+      "reuseNote": "MIT：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 3508,
+      "lastPushedAt": "2026-08-13T17:02:46Z",
+      "anchor": {
+        "type": "release",
+        "value": "trulens-2.12.0",
+        "date": "2026-08-06",
+        "url": "https://github.com/truera/trulens/releases/tag/trulens-2.12.0"
+      },
+      "whatItProves": "RAG 的失败可以定位到三条边：问题↔上下文（检索对不对）、上下文↔回答（有没有编）、问题↔回答（答没答）。三条边分开测，才能区分「检索错了」和「检索对了但模型没用」。",
+      "whatItDoesNotProve": "反馈函数由模型实现，误差与被测模型可能相关；三角分解定位问题层，不给出修复方案。",
+      "pages": [
+        "TD-T10",
+        "TD-T11"
+      ],
+      "declaredPages": [
+        "TD-T10",
+        "TD-T11"
+      ]
+    },
+    "R-BEIR": {
+      "id": "R-BEIR",
+      "kind": "repo",
+      "title": "BEIR：零样本检索评测基准套件",
+      "role": "检索评测基准",
+      "publisher": "beir-cellar",
+      "url": "https://github.com/beir-cellar/beir#readme",
+      "repo": "beir-cellar/beir",
+      "repoUrl": "https://github.com/beir-cellar/beir",
+      "docUrl": "https://github.com/beir-cellar/beir#readme",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 2269,
+      "lastPushedAt": "2025-10-16T06:38:03Z",
+      "anchor": {
+        "type": "release",
+        "value": "v2.2.0",
+        "date": "2025-06-04",
+        "url": "https://github.com/beir-cellar/beir/releases/tag/v2.2.0"
+      },
+      "whatItProves": "检索质量必须用 nDCG@k、Recall@k 这类带位置权重的指标衡量，且同一个检索器在不同领域的表现差异极大——零样本迁移能力不可假设。",
+      "whatItDoesNotProve": "公开语料上的排名不预测你私有语料上的表现；企业检索还受切分策略、元数据过滤与权限裁剪影响，这些不在基准里。",
+      "pages": [
+        "TD-F05",
+        "TD-T09",
+        "TD-T10"
+      ],
+      "declaredPages": [
+        "TD-T10"
+      ]
+    },
+    "R-LLAMA-INDEX": {
+      "id": "R-LLAMA-INDEX",
+      "kind": "repo",
+      "title": "LlamaIndex：检索管线的可拆解实现",
+      "role": "检索管线参考",
+      "publisher": "run-llama",
+      "url": "https://docs.llamaindex.ai/",
+      "repo": "run-llama/llama_index",
+      "repoUrl": "https://github.com/run-llama/llama_index",
+      "docUrl": "https://docs.llamaindex.ai/",
+      "anchorHint": null,
+      "license": "MIT",
+      "reuse": "code-quotable",
+      "reuseNote": "MIT：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 51632,
+      "lastPushedAt": "2026-08-13T18:07:47Z",
+      "anchor": {
+        "type": "release",
+        "value": "v0.14.23",
+        "date": "2026-06-24",
+        "url": "https://github.com/run-llama/llama_index/releases/tag/v0.14.23"
+      },
+      "whatItProves": "RAG 不是一个整体，是切分 → 嵌入 → 索引 → 召回 → 重排 → 组装上下文这条可逐段替换的管线。理解这条管线才知道一次失败该在哪一段查。",
+      "whatItDoesNotProve": "框架提供组件，不提供语料治理。切分策略与元数据设计仍是决定检索质量的主要因素，且高度依赖你的文档形态。",
+      "pages": [
+        "TD-T09",
+        "TD-T10"
+      ],
+      "declaredPages": [
+        "TD-T09",
+        "TD-T10"
+      ]
+    },
+    "R-PHOENIX": {
+      "id": "R-PHOENIX",
+      "kind": "repo",
+      "title": "Phoenix：LLM 应用的 trace 与评测一体化",
+      "role": "AI 侧观测与评测",
+      "publisher": "Arize-ai",
+      "url": "https://arize.com/docs/phoenix",
+      "repo": "Arize-ai/phoenix",
+      "repoUrl": "https://github.com/Arize-ai/phoenix",
+      "docUrl": "https://arize.com/docs/phoenix",
+      "anchorHint": null,
+      "license": "NOASSERTION",
+      "reuse": "link-only",
+      "reuseNote": "许可证未能自动判定，按最保守口径只链接不搬代码",
+      "stars": 11041,
+      "lastPushedAt": "2026-08-13T20:46:38Z",
+      "anchor": {
+        "type": "release",
+        "value": "arize-phoenix-v20.2.0",
+        "date": "2026-08-13",
+        "url": "https://github.com/Arize-ai/phoenix/releases/tag/arize-phoenix-v20.2.0"
+      },
+      "whatItProves": "线上 trace 与离线评测可以共用同一份数据模型，使生产样本直接成为评测集，而不需要一次性导出再手工整理。",
+      "whatItDoesNotProve": "许可证未被自动判定，按仅链接处理；平台记录能力不等于判断能力，评测器的可信度仍需单独证明。",
+      "pages": [
+        "TD-AG-09",
+        "TD-AP03",
+        "TD-T08",
+        "TD-T22",
+        "TD-T24",
+        "TD-X601"
+      ],
+      "declaredPages": [
+        "TD-AG-09",
+        "TD-T22"
+      ]
+    },
+    "R-PITEST": {
+      "id": "R-PITEST",
+      "kind": "repo",
+      "title": "PIT：JVM 变异测试",
+      "role": "检测力判据",
+      "publisher": "hcoles",
+      "url": "https://pitest.org/",
+      "repo": "hcoles/pitest",
+      "repoUrl": "https://github.com/hcoles/pitest",
+      "docUrl": "https://pitest.org/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 1845,
+      "lastPushedAt": "2026-08-07T16:44:17Z",
+      "anchor": {
+        "type": "release",
+        "value": "1.25.9",
+        "date": "2026-08-04",
+        "url": "https://github.com/hcoles/pitest/releases/tag/1.25.9"
+      },
+      "whatItProves": "覆盖率只说明代码被执行过，不说明被检查过。变异测试往代码里植入语义变更，看测试会不会红——存活的变异体就是一条被执行却没有被断言的路径。这是「测试有没有检测力」目前唯一可自动判定的口径。",
+      "whatItDoesNotProve": "变异算子覆盖的是语法层面的常见错误，覆盖不到业务逻辑错误；等价变异体（语义未变）会造成无法消除的存活率下限。",
+      "pages": [
+        "TD-P05",
+        "TD-P07",
+        "TD-T06",
+        "TD-T19",
+        "TD-T22",
+        "TD-T26"
+      ],
+      "declaredPages": [
+        "TD-T06"
+      ]
+    },
+    "R-MUTMUT": {
+      "id": "R-MUTMUT",
+      "kind": "repo",
+      "title": "mutmut：Python 变异测试",
+      "role": "检测力判据",
+      "publisher": "boxed",
+      "url": "https://mutmut.readthedocs.io/",
+      "repo": "boxed/mutmut",
+      "repoUrl": "https://github.com/boxed/mutmut",
+      "docUrl": "https://mutmut.readthedocs.io/",
+      "anchorHint": null,
+      "license": "BSD-3-Clause",
+      "reuse": "code-quotable",
+      "reuseNote": "BSD-3-Clause：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 1389,
+      "lastPushedAt": "2026-08-09T15:46:58Z",
+      "anchor": {
+        "type": "tag",
+        "value": "3.7.0",
+        "date": null,
+        "url": "https://github.com/boxed/mutmut/releases/tag/3.7.0"
+      },
+      "whatItProves": "变异测试可以直接接在既有 pytest 套件上，把「AI 生成了 200 条用例」变成「这 200 条杀死了多少变异体」——后者才是可以进门禁的数字。",
+      "whatItDoesNotProve": "执行成本随用例数与变异体数相乘增长，全量跑通常不现实，必须按变更范围裁剪，因此结论是局部的。",
+      "pages": [
+        "TD-P05",
+        "TD-T06",
+        "TD-T26"
+      ],
+      "declaredPages": [
+        "TD-T06"
+      ]
+    },
+    "R-STRYKER": {
+      "id": "R-STRYKER",
+      "kind": "repo",
+      "title": "Stryker：JavaScript/TypeScript 变异测试",
+      "role": "检测力判据",
+      "publisher": "stryker-mutator",
+      "url": "https://stryker-mutator.io/docs/",
+      "repo": "stryker-mutator/stryker-js",
+      "repoUrl": "https://github.com/stryker-mutator/stryker-js",
+      "docUrl": "https://stryker-mutator.io/docs/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 3008,
+      "lastPushedAt": "2026-08-13T22:48:07Z",
+      "anchor": {
+        "type": "release",
+        "value": "v9.6.1",
+        "date": "2026-04-10",
+        "url": "https://github.com/stryker-mutator/stryker-js/releases/tag/v9.6.1"
+      },
+      "whatItProves": "变异分数可以作为门禁阈值使用，并按增量代码范围计算，使它在大型仓库上仍然可执行。",
+      "whatItDoesNotProve": "分数受等价变异体污染，绝对值不可跨项目比较，只能与自己的历史比。",
+      "pages": [
+        "TD-T06"
+      ],
+      "declaredPages": [
+        "TD-T06"
+      ]
+    },
+    "R-MCP-SPEC": {
+      "id": "R-MCP-SPEC",
+      "kind": "spec",
+      "title": "Model Context Protocol 规范",
+      "role": "工具契约规范",
+      "publisher": "modelcontextprotocol",
+      "url": "https://modelcontextprotocol.io/",
+      "repo": "modelcontextprotocol/modelcontextprotocol",
+      "repoUrl": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+      "docUrl": "https://modelcontextprotocol.io/",
+      "anchorHint": null,
+      "license": "NOASSERTION",
+      "reuse": "link-only",
+      "reuseNote": "许可证未能自动判定，按最保守口径只链接不搬代码",
+      "stars": 8952,
+      "lastPushedAt": "2026-08-12T15:57:45Z",
+      "anchor": {
+        "type": "release",
+        "value": "2026-07-28",
+        "date": "2026-07-28",
+        "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/releases/tag/2026-07-28"
+      },
+      "whatItProves": "模型可调用的工具有了机器可读契约：名称、输入 schema、描述、错误返回。这让「Agent 能调什么工具」从代码里的隐含事实变成可审计、可版本化、可做契约测试的工件。",
+      "whatItDoesNotProve": "规范描述接口不描述权限。哪些工具允许被哪个会话调用、不可逆动作要不要二次确认，规范里没有，必须在工具调用层自己实现并验证。",
+      "pages": [
+        "TD-A02",
+        "TD-AG-02",
+        "TD-AG-03",
+        "TD-AG-04",
+        "TD-AG-06",
+        "TD-AG-08",
+        "TD-F04",
+        "TD-T15",
+        "TD-T16",
+        "TD-T17",
+        "TD-W01",
+        "TD-X604"
+      ],
+      "declaredPages": [
+        "TD-AG-03",
+        "TD-AG-06",
+        "TD-T16",
+        "TD-T17"
+      ]
+    },
+    "R-LANGGRAPH": {
+      "id": "R-LANGGRAPH",
+      "kind": "repo",
+      "title": "LangGraph：把 Agent 表达成显式状态图",
+      "role": "编排结构参考",
+      "publisher": "langchain-ai",
+      "url": "https://langchain-ai.github.io/langgraph/",
+      "repo": "langchain-ai/langgraph",
+      "repoUrl": "https://github.com/langchain-ai/langgraph",
+      "docUrl": "https://langchain-ai.github.io/langgraph/",
+      "anchorHint": null,
+      "license": "MIT",
+      "reuse": "code-quotable",
+      "reuseNote": "MIT：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 39647,
+      "lastPushedAt": "2026-08-14T03:07:56Z",
+      "anchor": {
+        "type": "release",
+        "value": "1.2.11",
+        "date": "2026-08-11",
+        "url": "https://github.com/langchain-ai/langgraph/releases/tag/1.2.11"
+      },
+      "whatItProves": "把 Agent 从「一个循环加一堆 if」变成显式的节点与边之后，状态、分支、中断点、检查点都成为可枚举对象——可枚举才可测。这是长流程可靠性测试能开展的结构前提。",
+      "whatItDoesNotProve": "结构清晰不等于行为正确。节点内部仍由模型驱动，同一条边上的两次执行可能走出完全不同的结果。",
+      "pages": [
+        "TD-AG-00",
+        "TD-AG-02",
+        "TD-AG-03",
+        "TD-AG-04",
+        "TD-AP01",
+        "TD-F04",
+        "TD-T15",
+        "TD-W01",
+        "TD-W02"
+      ],
+      "declaredPages": [
+        "TD-AG-04",
+        "TD-W01",
+        "TD-W02"
+      ]
+    },
+    "R-BROWSER-USE": {
+      "id": "R-BROWSER-USE",
+      "kind": "repo",
+      "title": "browser-use：模型驱动浏览器的执行器",
+      "role": "浏览器 Agent 实现",
+      "publisher": "browser-use",
+      "url": "https://docs.browser-use.com/",
+      "repo": "browser-use/browser-use",
+      "repoUrl": "https://github.com/browser-use/browser-use",
+      "docUrl": "https://docs.browser-use.com/",
+      "anchorHint": null,
+      "license": "MIT",
+      "reuse": "code-quotable",
+      "reuseNote": "MIT：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 109144,
+      "lastPushedAt": "2026-08-13T19:28:15Z",
+      "anchor": {
+        "type": "release",
+        "value": "0.13.7",
+        "date": "2026-07-27",
+        "url": "https://github.com/browser-use/browser-use/releases/tag/0.13.7"
+      },
+      "whatItProves": "模型驱动浏览器时的实际接口形态：把页面转成结构化的可交互元素列表交给模型，而不是让模型看像素。这决定了它的失败形态是「选错元素」而不是「点错坐标」。",
+      "whatItDoesNotProve": "能完成任务不等于能判断任务完成。演示成功率与你自己页面上的成功率无关，且版本迭代很快，行为不稳定。",
+      "pages": [
+        "TD-T18",
+        "TD-T19"
+      ],
+      "declaredPages": [
+        "TD-T18",
+        "TD-T19"
+      ]
+    },
+    "R-DSPY": {
+      "id": "R-DSPY",
+      "kind": "repo",
+      "title": "DSPy：把 Prompt 当作可编译、可优化的程序",
+      "role": "Prompt 工程结构",
+      "publisher": "stanfordnlp",
+      "url": "https://dspy.ai/",
+      "repo": "stanfordnlp/dspy",
+      "repoUrl": "https://github.com/stanfordnlp/dspy",
+      "docUrl": "https://dspy.ai/",
+      "anchorHint": null,
+      "license": "MIT",
+      "reuse": "code-quotable",
+      "reuseNote": "MIT：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 37181,
+      "lastPushedAt": "2026-08-14T04:15:25Z",
+      "anchor": {
+        "type": "release",
+        "value": "3.3.0",
+        "date": "2026-08-03",
+        "url": "https://github.com/stanfordnlp/dspy/releases/tag/3.3.0"
+      },
+      "whatItProves": "Prompt 可以与签名（输入输出规格）和优化器分离：签名声明要什么，优化器根据指标自动搜索具体措辞。这把「调 Prompt」从手工试错变成有目标函数、可复现的过程。",
+      "whatItDoesNotProve": "优化目标就是你给的指标。指标写错时，它会非常高效地把系统优化到错误方向。",
+      "pages": [
+        "TD-FP01",
+        "TD-X604"
+      ],
+      "declaredPages": [
+        "TD-FP01",
+        "TD-X604"
+      ]
+    },
+    "R-VLLM": {
+      "id": "R-VLLM",
+      "kind": "repo",
+      "title": "vLLM：高吞吐推理服务引擎",
+      "role": "推理服务实现",
+      "publisher": "vllm-project",
+      "url": "https://docs.vllm.ai/",
+      "repo": "vllm-project/vllm",
+      "repoUrl": "https://github.com/vllm-project/vllm",
+      "docUrl": "https://docs.vllm.ai/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 89015,
+      "lastPushedAt": "2026-08-14T05:31:12Z",
+      "anchor": {
+        "type": "release",
+        "value": "v0.27.1",
+        "date": "2026-08-11",
+        "url": "https://github.com/vllm-project/vllm/releases/tag/v0.27.1"
+      },
+      "whatItProves": "生成式服务的延迟由两个阶段构成：prefill 处理输入、decode 逐 token 产出。连续批处理会把不同请求混在同一批里，因此单个请求的延迟取决于同时在跑的其他请求——这是传统 QPS 模型解释不了生成式服务表现的根本原因。",
+      "whatItDoesNotProve": "引擎指标反映的是服务端状态，不等于用户体感；托管 API 通常不暴露这些指标，此时只能从客户端阶段指标推断并标记未知。",
+      "pages": [
+        "TD-A01",
+        "TD-A02",
+        "TD-A03",
+        "TD-A04",
+        "TD-A05",
+        "TD-AP02",
+        "TD-AP05"
+      ],
+      "declaredPages": [
+        "TD-A03",
+        "TD-A05",
+        "TD-AP05"
+      ]
+    },
+    "R-SGLANG": {
+      "id": "R-SGLANG",
+      "kind": "repo",
+      "title": "SGLang：结构化生成与前缀复用的推理引擎",
+      "role": "推理服务实现",
+      "publisher": "sgl-project",
+      "url": "https://docs.sglang.ai/",
+      "repo": "sgl-project/sglang",
+      "repoUrl": "https://github.com/sgl-project/sglang",
+      "docUrl": "https://docs.sglang.ai/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 31769,
+      "lastPushedAt": "2026-08-14T05:57:59Z",
+      "anchor": {
+        "type": "release",
+        "value": "v0.5.17",
+        "date": "2026-08-08",
+        "url": "https://github.com/sgl-project/sglang/releases/tag/v0.5.17"
+      },
+      "whatItProves": "前缀缓存命中率会显著改变延迟分布：相同系统提示词的请求可以复用 KV 缓存。这意味着压测时构造的请求是否共享前缀，会直接决定你测出来的容量数字。",
+      "whatItDoesNotProve": "缓存收益高度依赖真实流量的前缀分布，实验室里构造的高命中率不可外推到生产。",
+      "pages": [
+        "TD-A04",
+        "TD-A05",
+        "TD-AP05"
+      ],
+      "declaredPages": [
+        "TD-A05",
+        "TD-AP05"
+      ]
+    },
+    "R-TGI": {
+      "id": "R-TGI",
+      "kind": "repo",
+      "title": "Text Generation Inference：生成式服务的参考实现",
+      "role": "推理服务实现",
+      "publisher": "huggingface",
+      "url": "https://huggingface.co/docs/text-generation-inference/",
+      "repo": "huggingface/text-generation-inference",
+      "repoUrl": "https://github.com/huggingface/text-generation-inference",
+      "docUrl": "https://huggingface.co/docs/text-generation-inference/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 10885,
+      "lastPushedAt": "2026-03-21T11:34:22Z",
+      "anchor": {
+        "type": "release",
+        "value": "v3.3.7",
+        "date": "2025-12-19",
+        "url": "https://github.com/huggingface/text-generation-inference/releases/tag/v3.3.7"
+      },
+      "whatItProves": "生成式服务对外暴露的协议形态与参数面：流式与非流式、停止条件、最大 token、并发限制，以及它们如何共同决定尾延迟。",
+      "whatItDoesNotProve": "参考实现的默认值不是你的配置；限流与排队策略差异会让同样的硬件产出完全不同的容量曲线。",
+      "pages": [
+        "TD-A01",
+        "TD-A02",
+        "TD-A06"
+      ],
+      "declaredPages": [
+        "TD-A02",
+        "TD-A06"
+      ]
+    },
+    "R-TRITON-SERVER": {
+      "id": "R-TRITON-SERVER",
+      "kind": "repo",
+      "title": "Triton Inference Server：统一推理服务与指标面",
+      "role": "推理服务与指标",
+      "publisher": "triton-inference-server",
+      "url": "https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/",
+      "repo": "triton-inference-server/server",
+      "repoUrl": "https://github.com/triton-inference-server/server",
+      "docUrl": "https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/",
+      "anchorHint": null,
+      "license": "BSD-3-Clause",
+      "reuse": "code-quotable",
+      "reuseNote": "BSD-3-Clause：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 10917,
+      "lastPushedAt": "2026-08-14T01:24:04Z",
+      "anchor": {
+        "type": "release",
+        "value": "v2.71.0",
+        "date": "2026-07-29",
+        "url": "https://github.com/triton-inference-server/server/releases/tag/v2.71.0"
+      },
+      "whatItProves": "推理服务可以对外暴露标准化指标：队列时间、计算时间、批大小、成功失败计数。有了排队与计算的分离，才能判断变慢是资源不足还是排队策略问题。",
+      "whatItDoesNotProve": "指标口径依赖具体后端；不同 backend 的批处理与队列语义不同，跨部署比较数字没有意义。",
+      "pages": [
+        "TD-A03",
+        "TD-A05",
+        "TD-AP03"
+      ],
+      "declaredPages": [
+        "TD-A05",
+        "TD-AP03"
+      ]
+    },
+    "R-MLFLOW": {
+      "id": "R-MLFLOW",
+      "kind": "repo",
+      "title": "MLflow：实验、模型与版本的登记体系",
+      "role": "版本与血缘",
+      "publisher": "mlflow",
+      "url": "https://mlflow.org/docs/latest/",
+      "repo": "mlflow/mlflow",
+      "repoUrl": "https://github.com/mlflow/mlflow",
+      "docUrl": "https://mlflow.org/docs/latest/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 27506,
+      "lastPushedAt": "2026-08-14T05:52:13Z",
+      "anchor": {
+        "type": "release",
+        "value": "v3.15.1",
+        "date": "2026-08-03",
+        "url": "https://github.com/mlflow/mlflow/releases/tag/v3.15.1"
+      },
+      "whatItProves": "模型、参数、数据版本与评测结果可以被登记成可检索的关联记录，使「这个结论对应哪个模型的哪次运行」成为可查询事实而不是靠人记。回滚与事后归因都依赖这条记录。",
+      "whatItDoesNotProve": "登记的是元数据不是质量。记录齐全的模型同样可以是差模型。",
+      "pages": [
+        "TD-AG-08",
+        "TD-F02",
+        "TD-T01",
+        "TD-T13",
+        "TD-T21",
+        "TD-T24",
+        "TD-X602"
+      ],
+      "declaredPages": [
+        "TD-T21",
+        "TD-X602"
+      ]
+    },
+    "R-DVC": {
+      "id": "R-DVC",
+      "kind": "repo",
+      "title": "DVC：数据与流水线的版本控制",
+      "role": "数据版本",
+      "publisher": "iterative",
+      "url": "https://dvc.org/doc",
+      "repo": "iterative/dvc",
+      "repoUrl": "https://github.com/treeverse/dvc",
+      "docUrl": "https://dvc.org/doc",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 15817,
+      "lastPushedAt": "2026-08-10T18:51:13Z",
+      "anchor": {
+        "type": "release",
+        "value": "3.67.1",
+        "date": "2026-03-31",
+        "url": "https://github.com/treeverse/dvc/releases/tag/3.67.1"
+      },
+      "whatItProves": "评测集必须与代码一样可版本化：同一个 commit 能取回当时用的那份数据。缺了这一条，历史评测分数之间不可比，回归判断也就不成立。",
+      "whatItDoesNotProve": "版本可追不代表数据集设计合理；污染与分布偏移不会因为版本化而消失。",
+      "pages": [
+        "TD-AG-08",
+        "TD-B02",
+        "TD-F02",
+        "TD-T01",
+        "TD-T02",
+        "TD-T13",
+        "TD-T21",
+        "TD-T22",
+        "TD-X602"
+      ],
+      "declaredPages": [
+        "TD-T02",
+        "TD-T21"
+      ]
+    },
+    "R-EVIDENTLY": {
+      "id": "R-EVIDENTLY",
+      "kind": "repo",
+      "title": "Evidently：数据与模型漂移检测",
+      "role": "漂移检测",
+      "publisher": "evidentlyai",
+      "url": "https://docs.evidentlyai.com/",
+      "repo": "evidentlyai/evidently",
+      "repoUrl": "https://github.com/evidentlyai/evidently",
+      "docUrl": "https://docs.evidentlyai.com/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 7804,
+      "lastPushedAt": "2026-08-05T16:29:57Z",
+      "anchor": {
+        "type": "release",
+        "value": "v0.7.21",
+        "date": "2026-03-10",
+        "url": "https://github.com/evidentlyai/evidently/releases/tag/v0.7.21"
+      },
+      "whatItProves": "输入分布漂移可以在没有标注的情况下被检出，因此可以作为线上早期告警——真实质量下降往往先表现为输入分布变了，而标注要几天后才有。",
+      "whatItDoesNotProve": "漂移不等于质量下降，反之亦然。它是调查触发器，不能直接作为阻断门禁。",
+      "pages": [
+        "TD-AG-00",
+        "TD-AG-09",
+        "TD-AG-10",
+        "TD-AP07",
+        "TD-T02",
+        "TD-T21",
+        "TD-T22",
+        "TD-T24",
+        "TD-X601",
+        "TD-X602",
+        "TD-X603",
+        "TD-X805"
+      ],
+      "declaredPages": [
+        "TD-AG-09",
+        "TD-AG-10",
+        "TD-T22"
+      ]
+    },
+    "R-ARGO-ROLLOUTS": {
+      "id": "R-ARGO-ROLLOUTS",
+      "kind": "repo",
+      "title": "Argo Rollouts：渐进发布与自动回滚",
+      "role": "渐进发布",
+      "publisher": "argoproj",
+      "url": "https://argo-rollouts.readthedocs.io/",
+      "repo": "argoproj/argo-rollouts",
+      "repoUrl": "https://github.com/argoproj/argo-rollouts",
+      "docUrl": "https://argo-rollouts.readthedocs.io/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 3552,
+      "lastPushedAt": "2026-08-14T00:42:39Z",
+      "anchor": {
+        "type": "release",
+        "value": "v1.9.1",
+        "date": "2026-07-17",
+        "url": "https://github.com/argoproj/argo-rollouts/releases/tag/v1.9.1"
+      },
+      "whatItProves": "金丝雀比例、分析指标与自动回滚条件可以声明式定义并纳入版本管理，使「发布判断」从一次人工决定变成可重复执行、可事后审计的流程。",
+      "whatItDoesNotProve": "分析指标是你写的。指标覆盖不到的质量退化，金丝雀会一路放行到 100%。",
+      "pages": [
+        "TD-AP08",
+        "TD-P08",
+        "TD-T24",
+        "TD-X805"
+      ],
+      "declaredPages": [
+        "TD-T24",
+        "TD-X805"
+      ]
+    },
+    "R-OPENFEATURE": {
+      "id": "R-OPENFEATURE",
+      "kind": "spec",
+      "title": "OpenFeature：特性开关的厂商中立规范",
+      "role": "发布控制",
+      "publisher": "open-feature",
+      "url": "https://openfeature.dev/specification/",
+      "repo": "open-feature/spec",
+      "repoUrl": "https://github.com/open-feature/spec",
+      "docUrl": "https://openfeature.dev/specification/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 1235,
+      "lastPushedAt": "2026-08-13T23:16:22Z",
+      "anchor": {
+        "type": "release",
+        "value": "v0.9.0",
+        "date": "2026-07-29",
+        "url": "https://github.com/open-feature/spec/releases/tag/v0.9.0"
+      },
+      "whatItProves": "开关的求值上下文、默认值与错误回退有统一语义，使「关掉这个功能」成为可测试路径而不是紧急改配置。AI 功能的快速下线依赖这条通路。",
+      "whatItDoesNotProve": "能关掉不等于关掉之后业务可接受。降级形态仍需单独定义与验证。",
+      "pages": [
+        "TD-X805"
+      ],
+      "declaredPages": [
+        "TD-X805"
+      ]
+    },
+    "R-NIST-AI-RMF": {
+      "id": "R-NIST-AI-RMF",
+      "kind": "standard",
+      "title": "NIST AI Risk Management Framework",
+      "role": "治理框架",
+      "publisher": "NIST",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "repo": null,
+      "repoUrl": null,
+      "docUrl": null,
+      "anchorHint": null,
+      "license": null,
+      "reuse": "link-only",
+      "reuseNote": "非代码资料，按链接引用与转述处理",
+      "stars": null,
+      "lastPushedAt": null,
+      "anchor": null,
+      "whatItProves": "AI 风险治理的四个功能（Govern / Map / Measure / Manage）及其可落地的子类别，使「我们做了 AI 治理」变成可以逐条对照的陈述。",
+      "whatItDoesNotProve": "框架不给阈值也不给测试方法；它规定要管什么，不规定管到什么程度算合格。",
+      "pages": [
+        "TD-C01",
+        "TD-C02",
+        "TD-C03",
+        "TD-C04",
+        "TD-F01",
+        "TD-P04",
+        "TD-P08",
+        "TD-T23",
+        "TD-X601"
+      ],
+      "declaredPages": [
+        "TD-C02",
+        "TD-T23",
+        "TD-X601"
+      ]
+    },
+    "R-CLOUDEVENTS": {
+      "id": "R-CLOUDEVENTS",
+      "kind": "spec",
+      "title": "CloudEvents：跨系统事件的通用信封",
+      "role": "跨系统事件契约",
+      "publisher": "cloudevents",
+      "url": "https://cloudevents.io/",
+      "repo": "cloudevents/spec",
+      "repoUrl": "https://github.com/cloudevents/spec",
+      "docUrl": "https://cloudevents.io/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 5859,
+      "lastPushedAt": "2026-07-23T16:24:13Z",
+      "anchor": {
+        "type": "release",
+        "value": "ce@v1.0.2",
+        "date": "2022-02-06",
+        "url": "https://github.com/cloudevents/spec/releases/tag/ce%40v1.0.2"
+      },
+      "whatItProves": "事件的元数据（来源、类型、id、时间、关联 id）有统一命名，使跨系统的事件可以被同一套工具消费与关联——质量平台把需求、构建、测试、发布串起来靠的就是这层信封。",
+      "whatItDoesNotProve": "信封统一不代表语义统一。两个系统都发 `deployment.finished`，含义可能完全不同。",
+      "pages": [
+        "TD-P01",
+        "TD-QP01",
+        "TD-QP04"
+      ],
+      "declaredPages": [
+        "TD-QP04"
+      ]
+    },
+    "R-IN-TOTO-ATTESTATION": {
+      "id": "R-IN-TOTO-ATTESTATION",
+      "kind": "spec",
+      "title": "in-toto Attestation：可验证的构建与测试声明",
+      "role": "证据可验证性",
+      "publisher": "in-toto",
+      "url": "https://github.com/in-toto/attestation#readme",
+      "repo": "in-toto/attestation",
+      "repoUrl": "https://github.com/in-toto/attestation",
+      "docUrl": "https://github.com/in-toto/attestation#readme",
+      "anchorHint": null,
+      "license": "NOASSERTION",
+      "reuse": "link-only",
+      "reuseNote": "许可证未能自动判定，按最保守口径只链接不搬代码",
+      "stars": 365,
+      "lastPushedAt": "2026-08-14T00:52:29Z",
+      "anchor": {
+        "type": "release",
+        "value": "v1.2.0",
+        "date": "2026-03-18",
+        "url": "https://github.com/in-toto/attestation/releases/tag/v1.2.0"
+      },
+      "whatItProves": "「这个制品跑过这些测试」可以被表达成带签名、可机器验证的声明，而不是一份任何人都能编辑的报告。质量证据要进入发布决策，这一步是前提。",
+      "whatItDoesNotProve": "声明可验证不代表声明的内容为真。签名保证的是「谁说的、没被改过」，不保证测试本身有检测力。",
+      "pages": [
+        "TD-P07",
+        "TD-QP02",
+        "TD-T25"
+      ],
+      "declaredPages": [
+        "TD-QP02"
+      ]
+    },
+    "R-COSIGN": {
+      "id": "R-COSIGN",
+      "kind": "repo",
+      "title": "cosign：制品与证据的签名验证",
+      "role": "证据可验证性",
+      "publisher": "sigstore",
+      "url": "https://docs.sigstore.dev/cosign/signing/overview/",
+      "repo": "sigstore/cosign",
+      "repoUrl": "https://github.com/sigstore/cosign",
+      "docUrl": "https://docs.sigstore.dev/cosign/signing/overview/",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 6207,
+      "lastPushedAt": "2026-08-13T18:25:42Z",
+      "anchor": {
+        "type": "release",
+        "value": "v3.1.3",
+        "date": "2026-08-06",
+        "url": "https://github.com/sigstore/cosign/releases/tag/v3.1.3"
+      },
+      "whatItProves": "把测试证据与制品绑在一起签名之后，发布门禁可以在部署时验证「这份证据确实对应这个镜像」，堵住「拿旧证据放行新制品」这条路。",
+      "whatItDoesNotProve": "签名验证的是绑定关系与来源，不评价被绑定证据本身的质量。一份没有检测力的测试报告，签名之后仍然是一份没有检测力的测试报告，只是现在可以确定它没被篡改过。",
+      "pages": [
+        "TD-P07",
+        "TD-QP02",
+        "TD-T25"
+      ],
+      "declaredPages": [
+        "TD-QP02"
+      ]
+    },
+    "R-VCLUSTER": {
+      "id": "R-VCLUSTER",
+      "kind": "repo",
+      "title": "vcluster：按需创建的隔离测试环境",
+      "role": "临时环境",
+      "publisher": "loft-sh",
+      "url": "https://www.vcluster.com/docs",
+      "repo": "loft-sh/vcluster",
+      "repoUrl": "https://github.com/loft-sh/vcluster",
+      "docUrl": "https://www.vcluster.com/docs",
+      "anchorHint": null,
+      "license": "Apache-2.0",
+      "reuse": "code-quotable",
+      "reuseNote": "Apache-2.0：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 11261,
+      "lastPushedAt": "2026-08-12T22:31:09Z",
+      "anchor": {
+        "type": "release",
+        "value": "v0.36.1",
+        "date": "2026-08-03",
+        "url": "https://github.com/loft-sh/vcluster/releases/tag/v0.36.1"
+      },
+      "whatItProves": "每条分支拥有独立的、可在几十秒内创建与销毁的集群环境，使「环境被别人占用」和「上一次测试的残留」这两类经典不稳定源在结构上消失。",
+      "whatItDoesNotProve": "虚拟集群共享底层节点，性能与资源竞争结论不可外推到生产；外部依赖仍需打桩或共享。",
+      "pages": [
+        "TD-QP03"
+      ],
+      "declaredPages": [
+        "TD-QP03"
+      ]
+    },
+    "R-GHERKIN": {
+      "id": "R-GHERKIN",
+      "kind": "repo",
+      "title": "Gherkin：结构化的行为描述语法",
+      "role": "需求转写格式",
+      "publisher": "cucumber",
+      "url": "https://cucumber.io/docs/gherkin/reference/",
+      "repo": "cucumber/cucumber",
+      "repoUrl": "https://github.com/cucumber/common",
+      "docUrl": "https://cucumber.io/docs/gherkin/reference/",
+      "anchorHint": null,
+      "license": "MIT",
+      "reuse": "code-quotable",
+      "reuseNote": "MIT：宽松许可，可整段引用源码并保留出处与版本锚点",
+      "stars": 3359,
+      "lastPushedAt": "2026-05-17T15:53:30Z",
+      "anchor": {
+        "type": "release",
+        "value": "gherkin/go/v24.1.0",
+        "date": "2022-10-10",
+        "url": "https://github.com/cucumber/common/releases/tag/gherkin/go/v24.1.0"
+      },
+      "whatItProves": "自然语言需求可以被约束成 Given/When/Then 这种有固定槽位的结构，从而变成程序可消费的对象。真正的价值不在语法，在于填槽时会暴露出「前置条件没说清」「预期结果其实没定义」这些原文里藏着的空洞。",
+      "whatItDoesNotProve": "格式正确不等于规则正确。写成 Gherkin 的错误需求仍然是错误需求，权威裁决这一步无法被格式替代。",
+      "pages": [
+        "TD-P01",
+        "TD-P02",
+        "TD-QP01",
+        "TD-T05"
+      ],
+      "declaredPages": [
+        "TD-P02"
+      ]
+    },
+    "R-ISO-29119": {
+      "id": "R-ISO-29119",
+      "kind": "standard",
+      "title": "ISO/IEC/IEEE 29119 软件测试系列标准",
+      "role": "过程框架",
+      "publisher": "ISO / IEC / IEEE",
+      "url": "https://www.iso.org/standard/81291.html",
+      "repo": null,
+      "repoUrl": null,
+      "docUrl": null,
+      "anchorHint": null,
+      "license": null,
+      "reuse": "link-only",
+      "reuseNote": "非代码资料，按链接引用与转述处理",
+      "stars": null,
+      "lastPushedAt": null,
+      "anchor": null,
+      "whatItProves": "测试过程、文档与技术有一套国际通用的术语与结构，可用于对齐跨组织的口径，尤其在合规与外部审计场景下需要引用条款号而不是内部约定。",
+      "whatItDoesNotProve": "标准正文需付费获取，且它给的是过程框架不是有效性证明；符合标准不代表测试有检测力。本课程只引用其结构，不复制条文。",
+      "pages": [
+        "TD-C02",
+        "TD-C04",
+        "TD-P01",
+        "TD-P02",
+        "TD-P04",
+        "TD-QP01",
+        "TD-R01",
+        "TD-T05",
+        "TD-T25"
+      ],
+      "declaredPages": [
+        "TD-C02",
+        "TD-P04"
+      ]
+    },
+    "R-ONET-QA": {
+      "id": "R-ONET-QA",
+      "kind": "doc",
+      "title": "O*NET：软件质量保证分析师与测试员职业档案",
+      "role": "职业事实来源",
+      "publisher": "O*NET OnLine（美国劳工部）",
+      "url": "https://www.onetonline.org/link/summary/15-1253.00",
+      "repo": null,
+      "repoUrl": null,
+      "docUrl": null,
+      "anchorHint": null,
+      "license": null,
+      "reuse": "link-only",
+      "reuseNote": "非代码资料，按链接引用与转述处理",
+      "stars": null,
+      "lastPushedAt": null,
+      "anchor": null,
+      "whatItProves": "这个职业被官方登记的任务、技能与工作活动清单，可用于把「测试开发到底负责什么」从个人经验上升为可引用的职业描述。",
+      "whatItDoesNotProve": "反映的是美国劳动力市场的既有描述，更新有滞后，且不包含 AI 相关的新增职责；不能作为你所在市场的岗位需求预测。",
+      "pages": [
+        "TD-C01",
+        "TD-C02",
+        "TD-C03",
+        "TD-C04",
+        "TD-F01",
+        "TD-R01"
+      ],
+      "declaredPages": [
+        "TD-C01",
+        "TD-F01"
+      ]
+    },
+    "R-DORA": {
+      "id": "R-DORA",
+      "kind": "doc",
+      "title": "DORA 四项关键指标",
+      "role": "交付效能判据",
+      "publisher": "Google Cloud / DORA",
+      "url": "https://dora.dev/guides/dora-metrics-four-keys/",
+      "repo": null,
+      "repoUrl": null,
+      "docUrl": null,
+      "anchorHint": null,
+      "license": null,
+      "reuse": "link-only",
+      "reuseNote": "非代码资料，按链接引用与转述处理",
+      "stars": null,
+      "lastPushedAt": null,
+      "anchor": null,
+      "whatItProves": "交付效能可以用四个互相制衡的指标描述：部署频率、变更前置时间、变更失败率、恢复时间。互相制衡是关键——只优化速度会让失败率上升，因此单看任一个都会被操纵。",
+      "whatItDoesNotProve": "衡量的是交付系统不是产品质量；四项指标全优的团队仍然可以交付没人要的功能。",
+      "pages": [
+        "TD-C01",
+        "TD-C03",
+        "TD-F01",
+        "TD-F05",
+        "TD-P04",
+        "TD-P08",
+        "TD-R01",
+        "TD-T26"
+      ],
+      "declaredPages": [
+        "TD-F05",
+        "TD-T26"
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{"eval_set_id":"td-p02-eval-v1","items":[
+ {"case_id":"positive","class":"positive","input":"cancel paid not shipped","expected_status":"PASS_SCHEMA","oracle":"O-SOURCE-REF"},
+ {"case_id":"boundary","class":"boundary","input":"SHIPPED","expected_status":"PASS_SCHEMA","oracle":"O-STATE-RESPONSE"},
+ {"case_id":"conflict","class":"conflict","input":"PRD/design disagree","expected_status":"SOURCE_CONFLICT","oracle":"O-SOURCE-REF"},
+ {"case_id":"missing","class":"missing","input":"no refund SLA","expected_status":"UNKNOWN","oracle":"O-SOURCE-REF"},
+ {"case_id":"unauthorized","class":"unauthorized","input":"non-owner","expected_status":"PASS_SCHEMA","oracle":"O-STATE-RESPONSE"},
+ {"case_id":"refusal","class":"refusal","input":"real payment secret","expected_status":"REFUSED","oracle":"O-SOURCE-REF"},
+ {"case_id":"truncation","class":"truncation","input":"incomplete JSON","expected_status":"INCOMPLETE","oracle":"O-SOURCE-REF"},
+ {"case_id":"variant","class":"variant","input":"取消订单 / cancel order","expected_status":"PASS_SCHEMA","oracle":"O-SOURCE-REF"}
+]}

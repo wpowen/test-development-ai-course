@@ -1,0 +1,14 @@
+{
+  "run_id": "TD-P08-fault",
+  "page_id": "TD-P08",
+  "phase": "fault",
+  "status": "FAIL",
+  "finding_id": "STALE_EVIDENCE",
+  "finding": "Changed contract was allowed to inherit an obsolete PASS receipt",
+  "prompt_hash": "7cf90483b8df32b7905f8c21f67851489ee238d7f470cb0179a781a116767e0a",
+  "input_hash": "f57bc51d3fa85172ad2a31aa03f6be7c968212e9dc0fbc1442b488183643f242",
+  "evidence_status": "fixture-tested",
+  "provider": "none",
+  "model_status": "NOT_RUN",
+  "boundary": "deterministic offline negative-control fixture; not model, practitioner, integration, live, publication, or production evidence"
+}

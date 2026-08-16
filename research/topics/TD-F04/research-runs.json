@@ -1,0 +1,48 @@
+{
+  "topic_id": "TD-F04",
+  "runs": [
+    {
+      "run_id": "TD-F04-architecture-20260811",
+      "route": "architecture-primary-docs",
+      "status": "opened-sources-synthesized",
+      "source_refs": [
+        "SRC-TRANSFORMER",
+        "SRC-RAG",
+        "SRC-RAGAS",
+        "SRC-ARES",
+        "SRC-RAG-SURVEY",
+        "SRC-OPENAI-EVALS",
+        "SRC-ANTHROPIC-AGENTS",
+        "SRC-ANTHROPIC-CONTEXT"
+      ]
+    },
+    {
+      "run_id": "TD-F04-measurement-20260811",
+      "route": "measurement-failure-counterevidence",
+      "status": "opened-sources-synthesized",
+      "source_refs": [
+        "SRC-RAG-SURVEY",
+        "SRC-OPENAI-EVALS",
+        "SRC-ANTHROPIC-AGENTS",
+        "SRC-ANTHROPIC-CONTEXT",
+        "SRC-NIST-AIRC",
+        "SRC-NIST-STATS",
+        "SRC-GOOGLE-SPLIT",
+        "SRC-GOOGLE-METRICS"
+      ]
+    }
+  ],
+  "comparison": {
+    "reviewer": "independent-validation-contract-reviewer",
+    "input_run_ids": [
+      "TD-F04-architecture-20260811",
+      "TD-F04-measurement-20260811"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "ACCEPT-WITH-FIXTURE-BOUNDARY"
+  },
+  "limitations": [
+    "目标框架对 Agent、Worker 和 Workflow 的命名、重试和状态语义尚未接入。",
+    "No live model or enterprise integration run"
+  ]
+}

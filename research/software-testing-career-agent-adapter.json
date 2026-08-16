@@ -1,0 +1,569 @@
+{
+  "schema_version": "1.0.0",
+  "responsibility_states": [
+    {
+      "state_id": "guided-execution",
+      "plain_definition": "在明确输入、方法和评审下完成一个受限任务",
+      "observable_work": [
+        "版本化工件",
+        "故障/Mutation 证据",
+        "下游消费者反馈"
+      ],
+      "decision_rights": "由证据和具名评审确定，不由年限或自评分自动推断",
+      "transition_evidence": [
+        "accepted artifact",
+        "named reviewer",
+        "failure recovery receipt"
+      ]
+    },
+    {
+      "state_id": "independent-scoped-ownership",
+      "plain_definition": "独立拥有风险、工件、Oracle、结果和交接",
+      "observable_work": [
+        "版本化工件",
+        "故障/Mutation 证据",
+        "下游消费者反馈"
+      ],
+      "decision_rights": "由证据和具名评审确定，不由年限或自评分自动推断",
+      "transition_evidence": [
+        "accepted artifact",
+        "named reviewer",
+        "failure recovery receipt"
+      ]
+    },
+    {
+      "state_id": "system-cross-team-leverage",
+      "plain_definition": "建设被多个团队消费的控制、平台或标准",
+      "observable_work": [
+        "版本化工件",
+        "故障/Mutation 证据",
+        "下游消费者反馈"
+      ],
+      "decision_rights": "由证据和具名评审确定，不由年限或自评分自动推断",
+      "transition_evidence": [
+        "accepted artifact",
+        "named reviewer",
+        "failure recovery receipt"
+      ]
+    },
+    {
+      "state_id": "strategy-governance-mentoring",
+      "plain_definition": "承担策略、治理、风险接受、带教与反馈闭环",
+      "observable_work": [
+        "版本化工件",
+        "故障/Mutation 证据",
+        "下游消费者反馈"
+      ],
+      "decision_rights": "由证据和具名评审确定，不由年限或自评分自动推断",
+      "transition_evidence": [
+        "accepted artifact",
+        "named reviewer",
+        "failure recovery receipt"
+      ]
+    }
+  ],
+  "self_assessment": [
+    {
+      "dimension_id": "basis-method-oracle",
+      "question": "能否把需求/技术依据转成风险、方法、独立 Oracle 和结果？",
+      "evidence_refs": [
+        "courses/td-ai-career-evolution/learner-materials/templates/career-self-assessment.json"
+      ],
+      "gap_route_page_ids": [
+        "TD-C02",
+        "TD-P01"
+      ],
+      "reviewer": "learner plus named professional reviewer"
+    },
+    {
+      "dimension_id": "ai-system-model",
+      "question": "能否画出 LLM/RAG/Agent/Workflow 边界并定位失败层？",
+      "evidence_refs": [
+        "courses/td-ai-career-evolution/learner-materials/templates/career-self-assessment.json"
+      ],
+      "gap_route_page_ids": [
+        "TD-F05",
+        "TD-AG-00"
+      ],
+      "reviewer": "learner plus named professional reviewer"
+    },
+    {
+      "dimension_id": "evaluation-evidence",
+      "question": "能否用数据、切片、指标、不确定性和 owner 支撑决定？",
+      "evidence_refs": [
+        "courses/td-ai-career-evolution/learner-materials/templates/career-self-assessment.json"
+      ],
+      "gap_route_page_ids": [
+        "TD-T26",
+        "TD-AG-01"
+      ],
+      "reviewer": "learner plus named professional reviewer"
+    },
+    {
+      "dimension_id": "system-leverage",
+      "question": "是否有被下游复用并在故障时变红的工件？",
+      "evidence_refs": [
+        "courses/td-ai-career-evolution/learner-materials/templates/career-self-assessment.json"
+      ],
+      "gap_route_page_ids": [
+        "TD-C03",
+        "TD-R01"
+      ],
+      "reviewer": "learner plus named professional reviewer"
+    },
+    {
+      "dimension_id": "governance-growth",
+      "question": "能否说明决策权、残余风险、30/60/90 天证据目标？",
+      "evidence_refs": [
+        "courses/td-ai-career-evolution/learner-materials/templates/career-self-assessment.json"
+      ],
+      "gap_route_page_ids": [
+        "TD-C04",
+        "TD-AG-08"
+      ],
+      "reviewer": "learner plus named professional reviewer"
+    }
+  ],
+  "organization_level_adapter": {
+    "status": "INTERNAL-UNKNOWN",
+    "default_status": "INTERNAL-UNKNOWN",
+    "owner": "target-organization career committee",
+    "evidence_refs": [
+      "research/course-rebuild/career-source-adjudication.md"
+    ],
+    "required_inputs": [
+      "internal title/band",
+      "decision rights",
+      "review rules",
+      "named source/version"
+    ],
+    "prohibited_defaults": [
+      "P5-P9 universal mapping",
+      "years imply capability",
+      "fixed promotion time",
+      "vanity counts as evidence"
+    ]
+  },
+  "agent_domains": [
+    {
+      "domain_id": "D0-evaluation-trust",
+      "title": "评估可信层",
+      "plain_boundary": "gold、Judge 校准、分歧、构念效度与评估器漂移",
+      "page_ids": [
+        "TD-AG-01"
+      ]
+    },
+    {
+      "domain_id": "D1-single-agent-capability",
+      "title": "单体能力层",
+      "plain_boundary": "意图、规划、工具选择、参数、记忆与任务终态",
+      "page_ids": [
+        "TD-AG-02"
+      ]
+    },
+    {
+      "domain_id": "D2-orchestration-multi-agent",
+      "title": "编排协作层",
+      "plain_boundary": "路由、handoff、上下文保真、隔离和级联熔断",
+      "page_ids": [
+        "TD-AG-03"
+      ]
+    },
+    {
+      "domain_id": "D3-interaction-collaboration",
+      "title": "交互协同层",
+      "plain_boundary": "多轮、澄清、中断、接管、确认疲劳与人工权威",
+      "page_ids": [
+        "TD-AG-04"
+      ]
+    },
+    {
+      "domain_id": "D4-robustness-reliability",
+      "title": "鲁棒可靠层",
+      "plain_boundary": "重复运行、长时程、异常、自恢复、幂等和统计回归",
+      "page_ids": [
+        "TD-AG-05"
+      ]
+    },
+    {
+      "domain_id": "D5-security-adversarial",
+      "title": "安全对抗层",
+      "plain_boundary": "注入、权限、委托、供应链、记忆污染、沙箱与爆炸半径",
+      "page_ids": [
+        "TD-AG-06"
+      ]
+    },
+    {
+      "domain_id": "D6-efficiency-economics",
+      "title": "效率经济层",
+      "plain_boundary": "延迟、吞吐、资源、Token、工具、Judge、人审和尾部成本",
+      "page_ids": [
+        "TD-AG-07"
+      ]
+    },
+    {
+      "domain_id": "D7-business-governance",
+      "title": "业务治理层",
+      "plain_boundary": "业务规则、审计、隐私、版本、灰度、waiver、回滚和 ROI",
+      "page_ids": [
+        "TD-AG-08"
+      ]
+    }
+  ],
+  "evidence_rings": [
+    {
+      "ring_id": "offline-fixture",
+      "entry": "versioned synthetic input",
+      "exit": "0/1/0 receipt",
+      "owner": "course lab owner",
+      "maturity": "fixture-tested"
+    },
+    {
+      "ring_id": "controlled-integration",
+      "entry": "sandbox credentials and cleanup",
+      "exit": "integration receipt",
+      "owner": "system owner",
+      "maturity": "NOT_RUN"
+    },
+    {
+      "ring_id": "shadow-canary",
+      "entry": "paired old/new manifest and no-effect policy",
+      "exit": "staged decision/rollback receipt",
+      "owner": "release owner",
+      "maturity": "NOT_RUN"
+    },
+    {
+      "ring_id": "continuous-online",
+      "entry": "privacy-approved telemetry and SLO",
+      "exit": "monitoring/incident/rollback evidence",
+      "owner": "production owner",
+      "maturity": "NOT_RUN"
+    }
+  ],
+  "domain_test_mappings": [
+    {
+      "domain_id": "D0-evaluation-trust",
+      "architecture_boundary": "gold、Judge 校准、分歧、构念效度与评估器漂移",
+      "risks": [
+        "评估可信层关键状态不可见",
+        "评估可信层总分掩盖 blocker"
+      ],
+      "observables": [
+        "versioned input",
+        "trace/state",
+        "independent result",
+        "stop reason"
+      ],
+      "methods": [
+        "contract/state testing",
+        "risk slice",
+        "fault injection",
+        "paired or repeated comparison"
+      ],
+      "independent_oracles": [
+        "frozen fixture/reference state",
+        "policy or business owner",
+        "ledger/schema validator"
+      ],
+      "cases_faults": [
+        "baseline",
+        "single seeded fault",
+        "repair",
+        "missing/conflict/refusal"
+      ],
+      "evidence_refs": [
+        "research/course-rebuild/agent-source-adjudication.md",
+        "research/topics/TD-AG-00/engineering-blueprint.md"
+      ],
+      "stop_decision": "关键输入、独立 Oracle、权限、统计单位或 owner 缺失时 BLOCKED；不得以平均分抵消安全/业务 blocker。"
+    },
+    {
+      "domain_id": "D1-single-agent-capability",
+      "architecture_boundary": "意图、规划、工具选择、参数、记忆与任务终态",
+      "risks": [
+        "单体能力层关键状态不可见",
+        "单体能力层总分掩盖 blocker"
+      ],
+      "observables": [
+        "versioned input",
+        "trace/state",
+        "independent result",
+        "stop reason"
+      ],
+      "methods": [
+        "contract/state testing",
+        "risk slice",
+        "fault injection",
+        "paired or repeated comparison"
+      ],
+      "independent_oracles": [
+        "frozen fixture/reference state",
+        "policy or business owner",
+        "ledger/schema validator"
+      ],
+      "cases_faults": [
+        "baseline",
+        "single seeded fault",
+        "repair",
+        "missing/conflict/refusal"
+      ],
+      "evidence_refs": [
+        "research/course-rebuild/agent-source-adjudication.md",
+        "research/topics/TD-AG-01/engineering-blueprint.md"
+      ],
+      "stop_decision": "关键输入、独立 Oracle、权限、统计单位或 owner 缺失时 BLOCKED；不得以平均分抵消安全/业务 blocker。"
+    },
+    {
+      "domain_id": "D2-orchestration-multi-agent",
+      "architecture_boundary": "路由、handoff、上下文保真、隔离和级联熔断",
+      "risks": [
+        "编排协作层关键状态不可见",
+        "编排协作层总分掩盖 blocker"
+      ],
+      "observables": [
+        "versioned input",
+        "trace/state",
+        "independent result",
+        "stop reason"
+      ],
+      "methods": [
+        "contract/state testing",
+        "risk slice",
+        "fault injection",
+        "paired or repeated comparison"
+      ],
+      "independent_oracles": [
+        "frozen fixture/reference state",
+        "policy or business owner",
+        "ledger/schema validator"
+      ],
+      "cases_faults": [
+        "baseline",
+        "single seeded fault",
+        "repair",
+        "missing/conflict/refusal"
+      ],
+      "evidence_refs": [
+        "research/course-rebuild/agent-source-adjudication.md",
+        "research/topics/TD-AG-02/engineering-blueprint.md"
+      ],
+      "stop_decision": "关键输入、独立 Oracle、权限、统计单位或 owner 缺失时 BLOCKED；不得以平均分抵消安全/业务 blocker。"
+    },
+    {
+      "domain_id": "D3-interaction-collaboration",
+      "architecture_boundary": "多轮、澄清、中断、接管、确认疲劳与人工权威",
+      "risks": [
+        "交互协同层关键状态不可见",
+        "交互协同层总分掩盖 blocker"
+      ],
+      "observables": [
+        "versioned input",
+        "trace/state",
+        "independent result",
+        "stop reason"
+      ],
+      "methods": [
+        "contract/state testing",
+        "risk slice",
+        "fault injection",
+        "paired or repeated comparison"
+      ],
+      "independent_oracles": [
+        "frozen fixture/reference state",
+        "policy or business owner",
+        "ledger/schema validator"
+      ],
+      "cases_faults": [
+        "baseline",
+        "single seeded fault",
+        "repair",
+        "missing/conflict/refusal"
+      ],
+      "evidence_refs": [
+        "research/course-rebuild/agent-source-adjudication.md",
+        "research/topics/TD-AG-03/engineering-blueprint.md"
+      ],
+      "stop_decision": "关键输入、独立 Oracle、权限、统计单位或 owner 缺失时 BLOCKED；不得以平均分抵消安全/业务 blocker。"
+    },
+    {
+      "domain_id": "D4-robustness-reliability",
+      "architecture_boundary": "重复运行、长时程、异常、自恢复、幂等和统计回归",
+      "risks": [
+        "鲁棒可靠层关键状态不可见",
+        "鲁棒可靠层总分掩盖 blocker"
+      ],
+      "observables": [
+        "versioned input",
+        "trace/state",
+        "independent result",
+        "stop reason"
+      ],
+      "methods": [
+        "contract/state testing",
+        "risk slice",
+        "fault injection",
+        "paired or repeated comparison"
+      ],
+      "independent_oracles": [
+        "frozen fixture/reference state",
+        "policy or business owner",
+        "ledger/schema validator"
+      ],
+      "cases_faults": [
+        "baseline",
+        "single seeded fault",
+        "repair",
+        "missing/conflict/refusal"
+      ],
+      "evidence_refs": [
+        "research/course-rebuild/agent-source-adjudication.md",
+        "research/topics/TD-AG-04/engineering-blueprint.md"
+      ],
+      "stop_decision": "关键输入、独立 Oracle、权限、统计单位或 owner 缺失时 BLOCKED；不得以平均分抵消安全/业务 blocker。"
+    },
+    {
+      "domain_id": "D5-security-adversarial",
+      "architecture_boundary": "注入、权限、委托、供应链、记忆污染、沙箱与爆炸半径",
+      "risks": [
+        "安全对抗层关键状态不可见",
+        "安全对抗层总分掩盖 blocker"
+      ],
+      "observables": [
+        "versioned input",
+        "trace/state",
+        "independent result",
+        "stop reason"
+      ],
+      "methods": [
+        "contract/state testing",
+        "risk slice",
+        "fault injection",
+        "paired or repeated comparison"
+      ],
+      "independent_oracles": [
+        "frozen fixture/reference state",
+        "policy or business owner",
+        "ledger/schema validator"
+      ],
+      "cases_faults": [
+        "baseline",
+        "single seeded fault",
+        "repair",
+        "missing/conflict/refusal"
+      ],
+      "evidence_refs": [
+        "research/course-rebuild/agent-source-adjudication.md",
+        "research/topics/TD-AG-05/engineering-blueprint.md"
+      ],
+      "stop_decision": "关键输入、独立 Oracle、权限、统计单位或 owner 缺失时 BLOCKED；不得以平均分抵消安全/业务 blocker。"
+    },
+    {
+      "domain_id": "D6-efficiency-economics",
+      "architecture_boundary": "延迟、吞吐、资源、Token、工具、Judge、人审和尾部成本",
+      "risks": [
+        "效率经济层关键状态不可见",
+        "效率经济层总分掩盖 blocker"
+      ],
+      "observables": [
+        "versioned input",
+        "trace/state",
+        "independent result",
+        "stop reason"
+      ],
+      "methods": [
+        "contract/state testing",
+        "risk slice",
+        "fault injection",
+        "paired or repeated comparison"
+      ],
+      "independent_oracles": [
+        "frozen fixture/reference state",
+        "policy or business owner",
+        "ledger/schema validator"
+      ],
+      "cases_faults": [
+        "baseline",
+        "single seeded fault",
+        "repair",
+        "missing/conflict/refusal"
+      ],
+      "evidence_refs": [
+        "research/course-rebuild/agent-source-adjudication.md",
+        "research/topics/TD-AG-06/engineering-blueprint.md"
+      ],
+      "stop_decision": "关键输入、独立 Oracle、权限、统计单位或 owner 缺失时 BLOCKED；不得以平均分抵消安全/业务 blocker。"
+    },
+    {
+      "domain_id": "D7-business-governance",
+      "architecture_boundary": "业务规则、审计、隐私、版本、灰度、waiver、回滚和 ROI",
+      "risks": [
+        "业务治理层关键状态不可见",
+        "业务治理层总分掩盖 blocker"
+      ],
+      "observables": [
+        "versioned input",
+        "trace/state",
+        "independent result",
+        "stop reason"
+      ],
+      "methods": [
+        "contract/state testing",
+        "risk slice",
+        "fault injection",
+        "paired or repeated comparison"
+      ],
+      "independent_oracles": [
+        "frozen fixture/reference state",
+        "policy or business owner",
+        "ledger/schema validator"
+      ],
+      "cases_faults": [
+        "baseline",
+        "single seeded fault",
+        "repair",
+        "missing/conflict/refusal"
+      ],
+      "evidence_refs": [
+        "research/course-rebuild/agent-source-adjudication.md",
+        "research/topics/TD-AG-07/engineering-blueprint.md"
+      ],
+      "stop_decision": "关键输入、独立 Oracle、权限、统计单位或 owner 缺失时 BLOCKED；不得以平均分抵消安全/业务 blocker。"
+    }
+  ],
+  "statistical_semantics": {
+    "pass_at_k": "同一任务的 k 次尝试至少一次成功；适合机会型完成率，不代表单次稳定性。",
+    "pass_power_k": "同一任务在 k 次状态重置后的执行全部成功；报告任务分层分布，不把共享任务的重复当独立样本。",
+    "pass_caret_k": "pass^k 与 pass_power_k 同义；不是 pass@k。",
+    "repeat_unit": "task-attempt nested within task/session/trajectory",
+    "state_reset": "每次运行记录 memory、cache、tool state、seed 和外部 fixture 是否重置",
+    "uncertainty_method": "按任务配对或聚类 bootstrap/区间；预声明样本不足与多重比较处置"
+  },
+  "metric_card_policy": {
+    "required_fields": [
+      "task_population",
+      "numerator",
+      "denominator",
+      "slice",
+      "baseline",
+      "uncertainty",
+      "sample_size_rationale",
+      "version",
+      "owner",
+      "failure_action"
+    ],
+    "universal_thresholds_allowed": false,
+    "zero_event_rule": "报告 exposure、套件覆盖和上界解释；零观测不等于零风险。"
+  },
+  "owners": [
+    "course-evidence-owner",
+    "target-system owner",
+    "independent oracle owner",
+    "release/risk owner"
+  ],
+  "evidence_refs": [
+    "research/course-rebuild/career-source-adjudication.md",
+    "research/course-rebuild/agent-source-adjudication.md",
+    "research/source-assimilation-ledger.json"
+  ],
+  "maturity_boundary": "课程页和离线 runner 仅可证明 desk-researched/fixture-tested；真实模型、企业集成、目标学员、从业者、shadow、online 和生产效果保持 NOT_RUN。"
+}

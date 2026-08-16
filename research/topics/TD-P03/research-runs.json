@@ -1,0 +1,55 @@
+{
+  "topic_id": "TD-P03",
+  "runs": [
+    {
+      "run_id": "TD-P03-route-a-20260811",
+      "route": "A-standards-and-authority",
+      "lane": "profession-authority",
+      "role": "researcher",
+      "status": "complete",
+      "opened_source_refs": [
+        "S-ISTQB-CTFL",
+        "S-ISTQB-TA",
+        "S-ISO-29148",
+        "S-NASA-SE",
+        "S-NASA-SWE050",
+        "S-OPENAPI",
+        "S-JSON-SCHEMA"
+      ],
+      "output_ref": "evidence-synthesis.md",
+      "finding": "versioned basis traceability risk method oracle and stop conditions are professional requirements"
+    },
+    {
+      "run_id": "TD-P03-route-b-20260811",
+      "route": "B-practice-and-negative-controls",
+      "lane": "implementation-practice",
+      "role": "researcher",
+      "status": "complete",
+      "opened_source_refs": [
+        "S-OPENAI-STRUCT",
+        "S-OPENAI-EVALS",
+        "S-STRYKER",
+        "S-PROMPTFOO",
+        "S-PACT",
+        "S-OPENAPI"
+      ],
+      "output_ref": "engineering-blueprint.md",
+      "finding": "structured output requires independent eval mutations runnable receipts and truthful evidence boundaries"
+    }
+  ],
+  "comparison": {
+    "reviewer": "TD-P03-independent-course-reviewer",
+    "input_run_ids": [
+      "TD-P03-route-a-20260811",
+      "TD-P03-route-b-20260811"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "评审与提取角色分离；每个问题带 source_refs、impact、owner、block_level、close_with。"
+  },
+  "limitations": [
+    "No live model or external API run",
+    "No enterprise integration or production data",
+    "No practitioner blind review or learner outcome study"
+  ]
+}
+

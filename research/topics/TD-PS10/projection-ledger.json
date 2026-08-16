@@ -1,0 +1,80 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-PS10",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:851920c908505bc5b68d33f1fb551e2ea6442b52f5685846c8ada8da6f042871",
+  "page_content_sha256": "sha256:2b4557a289f9abd3f528089f2a163fbce5d8046a78cbd627d01ac2913310f1ca",
+  "claims": [
+    {
+      "claim_id": "TD-PS10-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "实验有明确授权和 blast radius；故障后降级不越权且可观测；恢复与同一回归集复验均有证据",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-PS10#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-PS10-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L29-L29",
+      "meaning": "熔断验证要在隔离环境做。在共享环境注入持续失败会影响其他调用方。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-PS10#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-PS10-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L41-L41",
+      "meaning": "static Chaos Experiment Card、deadline/retry fixture 只证明超时预算、停止条件、降级和清理检查的设计可判定；provider/model、Kubernetes/依赖 integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN，恢复时间与 blast radius 不得写成实测结果。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-PS10#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-PS10-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L16-L16",
+      "meaning": "行动：写一张工具超时 Chaos Experiment Card；为重试风暴定义停止条件和副作用 Oracle；恢复后验证队列、Feature Flag 和合成数据均清理 预期：工具超时与模型限流叠加时调用放大仍有界；过载拒绝不产生退款写入，恢复后无洪峰。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-PS10#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-PS10-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "重试在传统系统里几乎免费，在 Agent 系统里每一次都在烧钱并可能重复执行副作用 失效形态 可核查的数字 它导致的错误结论 按次数设置重试预算 同样是 3 次重试，短请求与长上下文任务的成本可能相差 1～2 个数量级，次数无法表达真实预算 重试配置在测试环境合理，在生产上把成本预算打穿 重试不区分动作是否可逆 对不可逆动作的重试会重复执行副作用；缺幂等保护时重复的发生概率不为 0 把重试当成纯粹的可靠性手段，而它同时是一个事故来源 缺失步数/时间/成本三重熔断 只有单一熔断条件时失控循环仍可能长时间持续；公开案…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-PS10#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-PS10-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "重试在传统系统里几乎免费，在 Agent 系统里每一次都在烧钱并可能重复执行副作用 超时、重试、熔断、限流、降级——这套稳定性模式的前提是「重试的代价可以忽略」。在 Agent 系统上这个前提不成立：一次重试会重放整条工具链。 下面三条是沿用旧假设的后果。 失效形态 可核查的数字 它导致的错误结论 按次数设置重试预算 同样是 3 次重试，短请求与长上下文任务的成本可能相差 1～2 个数量级，次数无法表达真实预算 重试配置在测试环境合理，在生产上把成本预算打穿 重试不区分动作是否可逆 对不可逆动作的重试会重复执行副…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-PS10#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    }
+  ],
+  "counts": {
+    "total": 6,
+    "projected": 4,
+    "condensed": 2,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

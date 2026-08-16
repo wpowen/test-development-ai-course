@@ -1,0 +1,46 @@
+{
+  "topic_id": "TD-PS09",
+  "runs": [
+    {
+      "run_id": "TD-PS09-route-a-20260811",
+      "route": "standards-and-official-docs",
+      "status": "completed",
+      "source_refs": [
+        "TD-PS09-SRC-01",
+        "TD-PS09-SRC-02",
+        "TD-PS09-SRC-03",
+        "TD-PS09-SRC-04",
+        "TD-PS09-SRC-05",
+        "TD-PS09-SRC-06"
+      ],
+      "output_ref": "evidence-synthesis.md#Fact"
+    },
+    {
+      "run_id": "TD-PS09-route-b-20260811",
+      "route": "failure-first-and-counterevidence",
+      "status": "completed",
+      "source_refs": [
+        "TD-PS09-SRC-05",
+        "TD-PS09-SRC-06",
+        "TD-PS09-SRC-07",
+        "TD-PS09-SRC-08",
+        "TD-PS09-SRC-09",
+        "TD-PS09-SRC-10"
+      ],
+      "output_ref": "evidence-synthesis.md#Cross-source-synthesis"
+    }
+  ],
+  "comparison": {
+    "reviewer": "course-owner-independent-pass",
+    "input_run_ids": [
+      "TD-PS09-route-a-20260811",
+      "TD-PS09-route-b-20260811"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "standards-constrained failure-first design"
+  },
+  "limitations": [
+    "目标模型硬件、provider 内部队列、真实流量分布和价格",
+    "No practitioner or production run"
+  ]
+}

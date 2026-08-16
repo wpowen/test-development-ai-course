@@ -1,0 +1,48 @@
+{
+  "topic_id": "TD-T12",
+  "runs": [
+    {
+      "run_id": "TD-T12-architecture-20260811",
+      "route": "architecture-primary-docs",
+      "status": "opened-sources-synthesized",
+      "source_refs": [
+        "SRC-TRANSFORMER",
+        "SRC-RAG",
+        "SRC-RAGAS",
+        "SRC-ARES",
+        "SRC-RAG-SURVEY",
+        "SRC-OPENAI-EVALS",
+        "SRC-ANTHROPIC-AGENTS",
+        "SRC-ANTHROPIC-CONTEXT"
+      ]
+    },
+    {
+      "run_id": "TD-T12-measurement-20260811",
+      "route": "measurement-failure-counterevidence",
+      "status": "opened-sources-synthesized",
+      "source_refs": [
+        "SRC-RAG-SURVEY",
+        "SRC-OPENAI-EVALS",
+        "SRC-ANTHROPIC-AGENTS",
+        "SRC-ANTHROPIC-CONTEXT",
+        "SRC-NIST-AIRC",
+        "SRC-NIST-STATS",
+        "SRC-GOOGLE-SPLIT",
+        "SRC-GOOGLE-METRICS"
+      ]
+    }
+  ],
+  "comparison": {
+    "reviewer": "independent-validation-contract-reviewer",
+    "input_run_ids": [
+      "TD-T12-architecture-20260811",
+      "TD-T12-measurement-20260811"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "ACCEPT-WITH-FIXTURE-BOUNDARY"
+  },
+  "limitations": [
+    "真实身份链、租户隔离、策略引擎与人工 SLA 未集成验证。",
+    "No live model or enterprise integration run"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "topic_id": "TD-C01",
+  "runs": [
+    {
+      "run_id": "TD-C01-protocol-architecture-20260811",
+      "lane": "protocol-architecture",
+      "role": "researcher",
+      "status": "complete",
+      "output_ref": "source-pack.csv",
+      "source_refs": [
+        "SRC-ONET",
+        "SRC-BLS",
+        "SRC-SFIA-TEST",
+        "SRC-SFIA-QA",
+        "SRC-NIST",
+        "SRC-ISTQB",
+        "SRC-OAS",
+        "SRC-HTTP"
+      ]
+    },
+    {
+      "run_id": "TD-C01-failure-measurement-20260811",
+      "lane": "failure-measurement-career",
+      "role": "independent-critic",
+      "status": "complete",
+      "output_ref": "evidence-synthesis.md",
+      "source_refs": [
+        "SRC-NIST",
+        "SRC-ISTQB",
+        "SRC-OAS",
+        "SRC-HTTP",
+        "SRC-SSE",
+        "SRC-JSON",
+        "SRC-ASYNC",
+        "SRC-CLOUD"
+      ]
+    }
+  ],
+  "comparison": {
+    "reviewer": "independent-serving-and-career-contract-reviewer",
+    "input_run_ids": [
+      "TD-C01-protocol-architecture-20260811",
+      "TD-C01-failure-measurement-20260811"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "ACCEPT-WITH-FIXTURE-BOUNDARY"
+  },
+  "limitations": [
+    "课程不能证明招聘需求、薪资、晋升、地区机会或个体适配。",
+    "No live model/provider/GPU/practitioner/production execution"
+  ]
+}

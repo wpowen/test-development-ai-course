@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-QP03",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:2dd6b5ef045b3bd5bd466e40c0bc8977423c414c9e32d40d370e265cc3ce5da6",
+  "page_content_sha256": "sha256:86b637c6c0bf99e63742f72c7f3e61056fdba5cce52c6ad34929e413b4f914f4",
+  "claims": [
+    {
+      "claim_id": "TD-QP03-DECISION-01",
+      "manuscript_locator": "manuscript.md:L13-L13",
+      "meaning": "Provisioner、runner、cleaner 权限边界可验证；环境有 namespace/RBAC/NetworkPolicy/TTL/owner 全套证据；回收失败、网络越权和审计缺失都会 fail-closed",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-QP03#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-QP03-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "Kubernetes manifest 的静态审阅不能证明网络策略被实际 enforcement，也不能证明清理 worker 在目标集群有权限。；默认拒绝出方向会让一批测试立刻失败。这是预期结果：失败的每一条都对应一个此前未被声明的依赖。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-QP03#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-QP03-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "本页基于 Kubernetes 官方资源模型、RBAC、NetworkPolicy、Job TTL、审计资料和质量平台设计做 desk research；未在真实集群或真实网络插件执行，版本、准入、权限、隔离、回收时延和审计完整性均为 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-QP03#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-QP03-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L13-L13",
+      "meaning": "行动：设计一个含 quota、默认拒绝网络、ServiceAccount 和 Job TTL 的临时环境基线；为 runner 写出至少三条 can-i 预期结果并加入跨 namespace/Secret 负例；模拟 cleanup 失败并让报告保留残留资源与审计关联 预期：固定输入必须暴露身份越权、隔离与回收缺口；没有真实集群或模型证据时保持 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-QP03#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-QP03-TABLE-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "共享临时环境会把隔离问题变成平台事故 风险 表面绿灯 必须保留 runner 读 Secret Job 成功 runner 能读到超出本次运行所需的 Secret 时，最小权限被破坏；越权可读条目数必须为 0 跨 namespace 访问 服务可达 跨 namespace 访问成功即隔离失效；1 次成功访问就足以让并发运行互相污染 超 quota 创建 单次测试完成 超 quota 创建会挤占其他运行的资源；缺 quota 时 1 次失控运行即可影响整个集群 cleanup 残留 删除命令 0 owner 资源清…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-QP03#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-QP03-METRIC-01",
+      "manuscript_locator": "manuscript.md:L9-L9",
+      "meaning": "共享临时环境会把隔离问题变成平台事故 共享测试环境的经典问题是互相干扰：A 的测试改了数据导致 B 的测试失败，而 B 的作者会花半天时间在自己的代码里找原因。这类损耗不会出现在任何报表上，但它是测试体系里最大的隐性成本之一。 按需创建的短生命周期环境从结构上消掉了这个问题：每条分支拥有独立的 namespace，用完即销毁。这不只是「更干净」，它改变了测试的可信度——一次失败可以确定是自己的代码造成的，而不是环境残留。 但按需创建引入了新的失败面：环境创建失败、资源耗尽、TTL 未生效导致环境泄漏。这三项必须有…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-QP03#content_sections.teaching_blocks.2",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-QP03-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "QP03 反例与迁移 共享 namespace 看起来省资源，却会让 MR 之间互读数据；cluster-admin 让排错方便，却突破最小权限。迁移到真实集群前先做 API/admission/审计/配额 capability probe，再在隔离集群跑 fault。 本地材料只能证明 fixture 检测越权和残留，真实 provider/model、integration、practitioner review、learner observation、live 与 production 集群均 NOT_RU…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-QP03#content_sections.teaching_blocks.18",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

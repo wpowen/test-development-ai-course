@@ -1,0 +1,51 @@
+{
+  "topic_id": "TD-T06",
+  "page_id": "TD-T06",
+  "working_directory": "courses/td-ai-assisted-testing/lab",
+  "required_files": [
+    "ai_assisted_lab.py",
+    "fixtures/oracles.json",
+    "page-prompts/TD-T06/manifest.json",
+    "page-prompts/TD-T06/prompt-v1.md",
+    "page-prompts/TD-T06/input.json",
+    "page-prompts/TD-T06/schema.json",
+    "page-prompts/TD-T06/eval.json",
+    "page-prompts/TD-T06/mutation.json"
+  ],
+  "steps": [
+    {
+      "step_id": "td-t06-baseline",
+      "kind": "baseline",
+      "command": "python3 ai_assisted_lab.py run --topic TD-T06 --phase baseline --report reports/td-t06-baseline.json",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "reports/td-t06-baseline.json"
+      ]
+    },
+    {
+      "step_id": "td-t06-fault",
+      "kind": "fault",
+      "command": "python3 ai_assisted_lab.py run --topic TD-T06 --phase fault --report reports/td-t06-fault.json",
+      "expected_exit_code": 1,
+      "expected_artifacts": [
+        "reports/td-t06-fault.json"
+      ]
+    },
+    {
+      "step_id": "td-t06-repair",
+      "kind": "repair",
+      "command": "python3 ai_assisted_lab.py run --topic TD-T06 --phase repair --report reports/td-t06-repair.json",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "reports/td-t06-repair.json"
+      ]
+    }
+  ],
+  "failure_cycle": {
+    "baseline_step_id": "td-t06-baseline",
+    "fault_step_id": "td-t06-fault",
+    "repair_step_id": "td-t06-repair"
+  },
+  "evidence_scope": "deterministic offline fixture; model and repository integration NOT_RUN",
+  "evidence_boundary": "PASS-FIXTURE covers only the repository-owned synthetic input and deterministic checker; model execution, repository integration, practitioner review, live traffic, publication and production remain NOT_RUN."
+}

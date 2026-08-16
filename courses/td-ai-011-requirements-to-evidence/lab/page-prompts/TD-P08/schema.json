@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "impact-and-release-evidence.v1.1",
+  "type": "object",
+  "required": [
+    "page_id",
+    "status",
+    "change_set",
+    "impact_set",
+    "regression_set",
+    "evidence_pack",
+    "residual_risks",
+    "unknowns",
+    "decision"
+  ],
+  "properties": {
+    "page_id": {
+      "const": "TD-P08"
+    },
+    "status": {
+      "enum": [
+        "ACCEPTED",
+        "PASS",
+        "PARTIAL",
+        "BLOCKED",
+        "UNKNOWN",
+        "RELEASE_CANDIDATE",
+        "NOT_RUN",
+        "PASS_SCHEMA",
+        "PASS_SEMANTIC",
+        "FAIL",
+        "SCHEMA_INVALID",
+        "REFUSED",
+        "INCOMPLETE",
+        "SOURCE_CONFLICT",
+        "UNSUPPORTED_RULE",
+        "SEMANTIC_UNKNOWN"
+      ]
+    },
+    "change_set": {
+      "type": "array",
+      "description": "Professional output records for change_set",
+      "items": {
+        "type": "object"
+      }
+    },
+    "impact_set": {
+      "type": "array",
+      "description": "Professional output records for impact_set",
+      "items": {
+        "type": "object"
+      }
+    },
+    "regression_set": {
+      "type": "array",
+      "description": "Professional output records for regression_set",
+      "items": {
+        "type": "object"
+      }
+    },
+    "evidence_pack": {
+      "type": "array",
+      "description": "Professional output records for evidence_pack",
+      "items": {
+        "type": "object"
+      }
+    },
+    "residual_risks": {
+      "type": "array",
+      "description": "Professional output records for residual_risks",
+      "items": {
+        "type": "object"
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "description": "Professional output records for unknowns",
+      "items": {
+        "type": "object"
+      }
+    },
+    "decision": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

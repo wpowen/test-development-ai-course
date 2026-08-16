@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T09",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:50cca82620eeec6926dc9160bea2dbd9e1bcfa622f45c7a85a357a036f721de7",
+  "page_content_sha256": "sha256:d8b151da02bea7cbb7b72401f537945f3b2d9d528232e77f336f4366edcaadfb",
+  "claims": [
+    {
+      "claim_id": "TD-T09-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "chunk 可回链到版本化原文；current index 不含过期/冲突来源；ACL 与删除规则可验证",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T09#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T09-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L33-L33",
+      "meaning": "RAG 语料治理：来源、版本、分块与权限 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；抽样要覆盖不同来源与不同时间入库的文档。只抽最近入库的，会漏掉历史遗留问题。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T09#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T09-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L43-L43",
+      "meaning": "本页只检查合成语料准入字段与静态 lineage；真实 provider/model、文档库/OCR/embedding/向量库/ACL integration 未运行，practitioner 复核、learner 理解观察、live、production 和 publication 均为 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T09#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T09-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L19-L19",
+      "meaning": "行动：为三份合成政策建立 source authority 表；把文档分块并保留 section pointer 与 ACL；注入过期文档并证明准入 Gate 变红 预期：TD-T09 Prompt/Input/Schema/Eval/Mutation 版本可静态追踪；实际模型输出保持 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T09#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T09-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "RAG 答错的时候，一半以上的原因在索引之前就已经埋好了 失效形态 可核查的数字 它导致的错误结论 同一政策的新旧两版同时在索引里 冲突文档共存时，检索命中旧版的概率接近 50%，而回答不会提示存在冲突 把「模型有时对有时错」归因于随机性，实际是每次命中了不同版本 文档删除没有传播到索引 删除传播延迟每多 1 天，就多 1 天可能引用已撤回内容；合规场景对此的容忍窗口通常是 0 线上仍在引用已下架条款，且没有任何告警 chunk 丢失来源与生效期 metadata 缺 lineage 的 chunk 无法回答「这…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T09#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T09-METRIC-01",
+      "manuscript_locator": "manuscript.md:L41-L41",
+      "meaning": "RAG 答错的时候，一半以上的原因在索引之前就已经埋好了 团队排查 RAG 问题时，第一反应通常是调 Prompt 或换模型。但语料层的缺陷会伪装成生成层的缺陷：模型答得很流畅、引用也给了，只是那份文档三个月前就作废了。 下面三条是语料治理缺位时的典型形态，它们都不会在任何一条报错日志里出现。 失效形态 可核查的数字 它导致的错误结论 同一政策的新旧两版同时在索引里 冲突文档共存时，检索命中旧版的概率接近 50%，而回答不会提示存在冲突 把「模型有时对有时错」归因于随机性，实际是每次命中了不同版本 文档删除没有传…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T09#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T09-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L33-L33",
+      "meaning": "文档到 chunk 的 lineage 不能丢 每个 chunk 保留 source_id、document_version、effective_from/to、content_hash、section pointer、tenant/ACL、ingested_at 和 supersedes。索引 Manifest 固定分块器、embedding、过滤和文档集合。 来源权威与 owner 版本、生效期与 supersession chunk 边界与 parent document 租户、角色与 ACL 删除/撤销在…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T09#content_sections.teaching_blocks.8",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

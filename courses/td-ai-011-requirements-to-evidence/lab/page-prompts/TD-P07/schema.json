@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "run-evidence.v1.1",
+  "type": "object",
+  "required": [
+    "page_id",
+    "status",
+    "run",
+    "results",
+    "attributions",
+    "defects",
+    "blocked",
+    "unknowns",
+    "decision"
+  ],
+  "properties": {
+    "page_id": {
+      "const": "TD-P07"
+    },
+    "status": {
+      "enum": [
+        "ACCEPTED",
+        "PASS",
+        "PARTIAL",
+        "BLOCKED",
+        "UNKNOWN",
+        "RELEASE_CANDIDATE",
+        "NOT_RUN",
+        "PASS_SCHEMA",
+        "PASS_SEMANTIC",
+        "FAIL",
+        "SCHEMA_INVALID",
+        "REFUSED",
+        "INCOMPLETE",
+        "SOURCE_CONFLICT",
+        "UNSUPPORTED_RULE",
+        "SEMANTIC_UNKNOWN"
+      ]
+    },
+    "run": {
+      "type": "array",
+      "description": "Professional output records for run",
+      "items": {
+        "type": "object"
+      }
+    },
+    "results": {
+      "type": "array",
+      "description": "Professional output records for results",
+      "items": {
+        "type": "object"
+      }
+    },
+    "attributions": {
+      "type": "array",
+      "description": "Professional output records for attributions",
+      "items": {
+        "type": "object"
+      }
+    },
+    "defects": {
+      "type": "array",
+      "description": "Professional output records for defects",
+      "items": {
+        "type": "object"
+      }
+    },
+    "blocked": {
+      "type": "array",
+      "description": "Professional output records for blocked",
+      "items": {
+        "type": "object"
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "description": "Professional output records for unknowns",
+      "items": {
+        "type": "object"
+      }
+    },
+    "decision": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

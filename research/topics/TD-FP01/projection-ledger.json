@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-FP01",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:6140020cdd2955f80f14131f197728cee5a77a479a0d40472d6895c4d131266e",
+  "page_content_sha256": "sha256:5597aa81cc85c50746af5308ba4abf06b1af11957982d9a55bae07cbef473f6a",
+  "claims": [
+    {
+      "claim_id": "TD-FP01-DECISION-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "能用白话说清七个组成面；能找到完整包每个文件及其用途；完成 0/1/0 离线负控制；不把静态包或 Fixture PASS 写成真实模型效果",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-FP01#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-FP01-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L49-L49",
+      "meaning": "Prompt 小白第一课：从一句指令到可验证 Prompt Package 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-FP01#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-FP01-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L59-L59",
+      "meaning": "完整 Prompt Package、Schema 和 deterministic fixture 可直接复核；provider=none、真实模型输出、学习者理解、企业集成、从业者认可和生产效果均为 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-FP01#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-FP01-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L35-L35",
+      "meaning": "行动：复制 TD-P02 一键版到一个通用 AI Agent，但只使用脱敏 Fixture；再按 manifest 的四步组合顺序完成一次专业调用演练；故意删除 source_ref 或把 Unknown 改成 PASS，确认 Schema/Eval/人工复核能发现；填写 adaptation-card 后迁移到一个新的需求片段 预期：学习者能从一键版过渡到专业组合版，完成一次脱敏输入适配和 0→1→0，并准确说明仍未验证的真实模型与业务结论。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-FP01#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-FP01-TABLE-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "把一句指令直接当 Prompt 用，你会得到一个无法复现、无法验收的结果 失效形态 可核查的数字 它导致的错误结论 只保存指令不保存输入与 Schema 复现一次结果至少需要指令、输入、输出 Schema、模型版本 4 类信息，缺任一项复现成功率为 0 「上次效果很好」无法被复现，也无法被改进 没有输出 Schema 自由文本输出无法被程序消费，人工整理成本随产出量线性上升；生成 100 条的整理耗时可超过自己写 20 条 AI 提效在下游被人工整理成本吃掉 没有评价规则就判断好坏 无评价规则时「好」由感觉决定；…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-FP01#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-FP01-METRIC-01",
+      "manuscript_locator": "manuscript.md:L57-L57",
+      "meaning": "把一句指令直接当 Prompt 用，你会得到一个无法复现、无法验收的结果 一句「帮我生成测试用例」也能出结果，这正是它的危险之处：它能用，但用不了第二次——你说不清这次为什么好、下次为什么差。 下面三条是把 Prompt 当一句话而不是当一个包的后果。 失效形态 可核查的数字 它导致的错误结论 只保存指令不保存输入与 Schema 复现一次结果至少需要指令、输入、输出 Schema、模型版本 4 类信息，缺任一项复现成功率为 0 「上次效果很好」无法被复现，也无法被改进 没有输出 Schema 自由文本输出无法被…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-FP01#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-FP01-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L49-L49",
+      "meaning": "一句指令与一个 Prompt 的差别，在于它能不能被验收 「帮我写个测试用例」是一句指令：它没有输入规格、没有输出格式、没有判据，因此它的结果无法复现也无法验收——换个人、换个时间、换个模型，得到的东西完全不同。 把它变成 Prompt 需要补四样东西：输入规格（给什么，从哪来）、输出 Schema（返回什么结构，下游怎么消费）、判据（什么样算对）、以及版本（这一版叫什么，改了什么）。补齐之后它才成为一个可以进流水线的组件。 版本化是其中最容易被跳过、代价最隐蔽的一项。Prompt 改一个词就可能显著改变行为，而…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-FP01#content_sections.teaching_blocks.1",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

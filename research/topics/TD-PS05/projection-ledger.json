@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-PS05",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:0fa89e200555b970dc64de253e3af89d525fc4349a04ced709412abefe2b6212",
+  "page_content_sha256": "sha256:f1cc6641c7c3a300cbc904b6414ff292361a4295040e47cb97638f3ec39bcf1a",
+  "claims": [
+    {
+      "claim_id": "TD-PS05-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "矩阵选择与用户风险相连；自动规则与人工语义检查分开；视觉基线更新有审查和回滚证据",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-PS05#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-PS05-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L35-L35",
+      "meaning": "这个演练要用真实的读屏工具，不能用属性检查代替。两者发现的问题完全不同。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-PS05#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-PS05-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L29-L29",
+      "meaning": "WCAG 与质量模型提供通用检查框架；本页未真实运行浏览器、辅助技术或视觉基线，具体合规结论必须在目标产品和目标市场复核。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-PS05#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-PS05-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L16-L16",
+      "meaning": "行动：为客服工作台裁剪两个浏览器、两个视口和两种语言；注入长文本并记录溢出元素；完成一次键盘-only 旅程并保留焦点证据 预期：每个矩阵组合有选择理由；失败报告能指出元素、规则、截图和变更 commit。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-PS05#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-PS05-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "像素级视觉回归遇到生成内容会 100% 失败，但放弃视觉回归又会让布局问题全部漏过 失效形态 可核查的数字 它导致的错误结论 对含生成内容的区域做像素快照 生成文本长度每次不同会导致整块区域重排，像素比对的误报率接近 100%，团队随后会关掉这项检查 从「视觉回归太吵」直接走到「不做视觉回归」，布局问题从此无人发现 无障碍只检查对比度 对比度是自动化工具最容易查的一项，但键盘不可达与可访问名称错误这两类占实际障碍的大头，且 100% 不体现在对比度上 自动化扫描 0 违规，屏幕阅读器用户完全无法完成任务 国际化只…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-PS05#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-PS05-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "这一页的验收口径：三类判据各自达标 PS05-2 的键盘可达率必须是 100%，不设容忍区间：存在一个只能用鼠标完成的功能，就意味着一部分用户完全无法使用该功能。 PS05-4 的误报率是视觉回归能否长期存活的关键——误报太多时它一定会被关掉，而被关掉的检查等于不存在。 编号 测什么 关键指标 复测频率 PS05-1 语义结构 标题层级错误、缺失表单标签、可访问名称与视觉标签不一致的数量均 = 0 每次 UI 变更 PS05-2 键盘可达 关键任务的键盘可达率 = 100%；焦点丢失次数 = 0 每次 UI 变更…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-PS05#content_sections.teaching_blocks.8",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-PS05-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L24-L24",
+      "meaning": "像素级视觉回归遇到生成内容会 100% 失败，但放弃视觉回归又会让布局问题全部漏过 视觉回归的价值在于它能发现所有人都没想到要断言的东西。它的代价是对变化极度敏感——而 AI 生成的内容每次都在变。 下面三条说明这个冲突以及无障碍侧被忽略的部分。 失效形态 可核查的数字 它导致的错误结论 对含生成内容的区域做像素快照 生成文本长度每次不同会导致整块区域重排，像素比对的误报率接近 100%，团队随后会关掉这项检查 从「视觉回归太吵」直接走到「不做视觉回归」，布局问题从此无人发现 无障碍只检查对比度 对比度是自动化工…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-PS05#content_sections.teaching_blocks.0",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

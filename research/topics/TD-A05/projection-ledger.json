@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-A05",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:64bf9f33a39132b2f8a6b7e5656cd8ef3ea342cd7cc77912ff6cd9a5d218fdbe",
+  "page_content_sha256": "sha256:6096e6198d1c349910238b244dc5eaeee9a71908ee4444e02ac07eab63551f97",
+  "claims": [
+    {
+      "claim_id": "TD-A05-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "结论回链到慢请求和阶段证据；相关性经过单变量实验；内部指标缺失不被伪造",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-A05#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-A05-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L29-L29",
+      "meaning": "离线 telemetry fixture；托管 API、GPU profiler 和真实 KV Cache 均未运行。；不要在验证过程中同时更新模型版本或推理引擎版本。那会让前后对比失去意义。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-A05#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-A05-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L33-L33",
+      "meaning": "离线 telemetry fixture；托管 API、GPU profiler 和真实 KV Cache 均未运行。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-A05#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-A05-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L17-L17",
+      "meaning": "行动：为 TTFT 高、TPOT 高和 Agent 慢各画路径；用 queue 占比和对照实验推翻一个错误根因；为不可见的托管指标写 UNKNOWN 预期：恢复阶段占比判断，用降低到达率的单变量结果确认 queue 根因；GPU/KV 只保留次要或 UNKNOWN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-A05#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-A05-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "同一个「变慢了」，可能来自五个完全不同的地方 失效形态 可核查的数字 它导致的错误结论 看到 TTFT 上升就加 GPU TTFT 上升有排队、prefill、准入 3 个可能来源；不分段时归因正确率接近随机 扩容后延迟没有改善，因为瓶颈在准入队列 同时改多个变量做优化 同时改 2 个变量时归因需要至少 3 次实验；一次实验的结论不可归因 优化有效但不知道是哪一项起的作用，下次无法复用 忽略 KV Cache 压力 长上下文占用的显存随上下文长度线性增长，传统 CPU/内存指标对它的可见度为 0 资源指标全绿，而…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-A05#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-A05-METRIC-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "同一个「变慢了」，可能来自五个完全不同的地方 排队、prefill、decode、KV Cache、下游依赖——这五处都会表现为延迟上升，而它们的修复手段完全不同。 下面三条是不分段就下结论的后果。 失效形态 可核查的数字 它导致的错误结论 看到 TTFT 上升就加 GPU TTFT 上升有排队、prefill、准入 3 个可能来源；不分段时归因正确率接近随机 扩容后延迟没有改善，因为瓶颈在准入队列 同时改多个变量做优化 同时改 2 个变量时归因需要至少 3 次实验；一次实验的结论不可归因 优化有效但不知道是哪一…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-A05#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-A05-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L22-L22",
+      "meaning": "用单变量实验区分 Queue、GPU 与 KV Cache：职业场景与失败代价 一组长上下文请求出现高 TTFT；fixture 同时提供 queue、prefill、decode、GPU、KV 和 Trace，候选 fault 把根因错误标为 GPU。 “模型慢”不是根因；直接扩 GPU、缩 Prompt 或开缓存，可能只移动瓶颈并让质量或成本变差。",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-A05#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-AP02",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:c08648aeab08d0d0b6cc96e6c5802c6a7408df87a6f3b5e58144ec510b86c297",
+  "page_content_sha256": "sha256:23641dcfc08066f8a4cc066814197cbfabbb33534f27ef3920edd35660bfc65b",
+  "claims": [
+    {
+      "claim_id": "TD-AP02-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "命令、cwd、manifest、退出码与工件完全一致；Prompt/Input/Schema/Eval/Mutation 均为 v1.0.0；fault 至少被一个门禁拒绝，repair 未删除门禁；证据明确 synthetic fixture ≠ production capacity",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-AP02#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-AP02-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L34-L34",
+      "meaning": "fault 同时增加 TTFT、TPOT、Queue、Retry 和 Step，五个门禁应全部红；repair 不能删掉任何指标。；不要用平均值做拆解。六段各自都是长尾的，平均之后所有段都会看起来差不多。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-AP02#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-AP02-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L21-L21",
+      "meaning": "指标语义可迁移，阈值不可迁移。当前数字只证明 fixture 检测力；真实 AI provider/model、integration、practitioner review、learner run、live 与 production 性能均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-AP02#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-AP02-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L30-L30",
+      "meaning": "行动：运行 TD-AP02 cycle 并保存 0/1/0；fault 同时增加 TTFT、TPOT、Queue、Retry 和 Step，五个门禁应全部红；repair 不能删掉任何指标。；从 fault Trace 找到一条红灯证据；写明哪些结论仍不能外推到生产 预期：用相同 workload_version 重算 fault 和 repair；任何不满足质量/延迟/重试预算的任务不得进入 goodput。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-AP02#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-AP02-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "只有一个端到端时长的报告，除了「慢」之外说明不了任何事 失效形态 可核查的数字 它导致的错误结论 只报端到端 p99 端到端时长由 4 段以上构成；不分段时归因正确率接近随机，优化常落在占比不足 10% 的那一段 投入几周优化推理，而真正的瓶颈在工具依赖上 用端到端时长代表体感 流式输出下用户在首个 token 出现时就开始获得价值；TTFT 可以是 1 秒而端到端总时长是 30 秒，两者相差 1 个数量级以上 总时长超标被当成体验问题，而用户实际抱怨的是首字慢 重试被合并进原调用计时 重试不单列时，一次任务的实…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-AP02#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-AP02-METRIC-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "只有一个端到端时长的报告，除了「慢」之外说明不了任何事 用户等待的那一段时间由排队、首 token、逐 token、工具调用与重试共同构成。它们的优化手段完全不同，成本也完全不同。 下面三条是不做分段时会付出的代价。 失效形态 可核查的数字 它导致的错误结论 只报端到端 p99 端到端时长由 4 段以上构成；不分段时归因正确率接近随机，优化常落在占比不足 10% 的那一段 投入几周优化推理，而真正的瓶颈在工具依赖上 用端到端时长代表体感 流式输出下用户在首个 token 出现时就开始获得价值；TTFT 可以是 1…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-AP02#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-AP02-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L34-L34",
+      "meaning": "先理解系统边界与假绿 TTFT 包含排队与 Prefill；TPOT/ITL 描述首 Token 后的生成节奏；E2E 还包括工具、重试与编排。比较前必须固定或分桶 input/output tokens。 Retry 与 Step 是 Agent 特有放大器。最终成功也可能经过大量尝试，所以要同时看 retry_p95、step_p95、cost_per_success 和 goodput。 对象/信号 正确口径 常见假绿 queue_p95 started_at-admitted_at 调度/容量 TTFT…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-AP02#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

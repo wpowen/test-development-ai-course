@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-X603",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:c2a33770d4f9902d90cbf2a3dd09dea839c595de2e7ea40738fea93db2ad0c8e",
+  "page_content_sha256": "sha256:a6c2dc0a5de8b41afdd1cc5ab9057c3194cfd4bed5ae9244b1a39e55ed6f5759",
+  "claims": [
+    {
+      "claim_id": "TD-X603-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "Memory 写入有同意与目的；跨用户和陈旧命中会阻断；删除有可复核回执",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-X603#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-X603-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "10 个 opened 来源与离线隔离 fault 支持合同；真实隐私法律、用户同意、存储系统、删除传播与生产漂移 NOT_RUN。；测试记忆要用明显的唯一标识，避免与真实数据混淆。演练结束后确认它在所有位置都已清除。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-X603#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-X603-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L35-L35",
+      "meaning": "10 个 opened 来源与离线隔离 fault 支持合同；真实隐私法律、用户同意、存储系统、删除传播与生产漂移 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-X603#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-X603-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L13-L13",
+      "meaning": "行动：画出删除传播路径；运行跨用户陈旧缓存 fault；为模型升级定义 cache invalidation key 预期：输出必须保留 source refs、owner、limitations 与 stop_state；不得自建 Oracle、自批例外或生成生产通过结论。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-X603#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-X603-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "长期记忆是唯一一个会把今天的错误带到明天的组件 失效形态 可核查的数字 它导致的错误结论 记忆写入没有 TTL 无 TTL 的偏好记忆会无限期生效；用户 6 个月前的 1 次临时选择仍在影响今天的输出 把「个性化不准」归因为模型，实际是记忆过期机制不存在 记忆投毒后无检测手段 污染注入的成功次数必须是 0，污染存活轮数也必须是 0；一条存活的污染记忆会持续影响后续所有会话 把间歇性的异常输出当成模型波动 语义缓存不区分租户 缓存键不含租户维度时，跨租户命中是必然而非偶然；1 次命中即构成数据泄露 缓存命中率很高被…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-X603#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-X603-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "这张图的 7 个节点，本页各交付什么 这张图是记忆的完整生命周期：从写入前的同意与目的检查，到隔离、TTL、检索、冲突处理、删除回执，最后回到回归验证。 「回执」是这张图里最容易被省略也最重要的节点：删除请求返回成功不等于数据真的没了，必须有可验证的回执。 架构节点 本页负责的部分 出口工件 同意/目的 验证每条记忆写入都有明确的同意来源与使用目的 同意与目的记录 用户/租户隔离 验证记忆与缓存的键包含租户维度，构造跨租户攻击集 跨租户隔离测试结果 写入/TTL 验证每条记忆有 TTL 且到期真的失效 TTL 生…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-X603#content_sections.teaching_blocks.4",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-X603-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "长期记忆是唯一一个会把今天的错误带到明天的组件 其余组件的错误随会话结束而消失。记忆不会——一条被污染的记忆会在此后每一次检索中继续生效，而且没有任何报错。 下面三条是记忆治理缺位的三种形态，第三条在多租户产品里是合规红线。 失效形态 可核查的数字 它导致的错误结论 记忆写入没有 TTL 无 TTL 的偏好记忆会无限期生效；用户 6 个月前的 1 次临时选择仍在影响今天的输出 把「个性化不准」归因为模型，实际是记忆过期机制不存在 记忆投毒后无检测手段 污染注入的成功次数必须是 0，污染存活轮数也必须是 0；一条存…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-X603#content_sections.teaching_blocks.0",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

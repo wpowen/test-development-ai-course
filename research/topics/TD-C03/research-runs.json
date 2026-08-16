@@ -1,0 +1,38 @@
+{
+  "topic_id": "TD-C03",
+  "runs": [
+    {
+      "run_id": "TD-C03-a",
+      "route": "standards-and-learning",
+      "status": "completed",
+      "source_refs": [
+        "TD-C03-S01",
+        "TD-C03-S02",
+        "TD-C03-S04",
+        "TD-C03-S08"
+      ]
+    },
+    {
+      "run_id": "TD-C03-b",
+      "route": "failure-first-and-transfer",
+      "status": "completed",
+      "source_refs": [
+        "TD-C03-S03",
+        "TD-C03-S05",
+        "TD-C03-S06",
+        "TD-C03-S07",
+        "TD-C03-S09",
+        "TD-C03-S10"
+      ]
+    }
+  ],
+  "comparison": {
+    "reviewer": "course-owner-independent-pass",
+    "input_run_ids": [
+      "TD-C03-a",
+      "TD-C03-b"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "artifact milestones with UNKNOWN preserved"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-PS02",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:16158a04296cc125042776b9826b9fd3752c466fac7dfcf64b18d2e566a472dc",
+  "page_content_sha256": "sha256:18e5c34b4251e0bdde553c0474d8aa4e61c77e03b4a760a2c9e8826788b7c478",
+  "claims": [
+    {
+      "claim_id": "TD-PS02-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "每个关键约束有业务 Oracle；至少一种契约破坏会阻断；报告区分结构、业务和环境失败",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-PS02#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-PS02-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L35-L35",
+      "meaning": "属性测试的生成器要覆盖业务边界。默认生成器倾向于生成中间值，测不到边界组合。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-PS02#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-PS02-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L41-L41",
+      "meaning": "static schema/属性清单与支付意图 mutation fixture 只证明 required、跨字段约束及反例 shrink 的 Oracle 形状；provider/model、目标 API integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN，生成分布和业务覆盖率不能从样例推断。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-PS02#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-PS02-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L16-L16",
+      "meaning": "行动：从一个 OpenAPI 操作生成并审查 10 个正反例；删除一个 required 字段并验证 mutation 门禁失败；把一个跨字段规则写成独立属性并生成最小重放 预期：每个负向样例都有明确错误模型；契约 mutation 至少使一个检查失败，而不是全套仍然绿色。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-PS02#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-PS02-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "Schema 通过和语义正确是两件事，生成式接口让这个差距变得致命 失效形态 可核查的数字 它导致的错误结论 把 Schema 校验通过当成结果正确 Schema 层能拦住的是格式类错误；金额算错、币种搞反、状态取了合法但错误的枚举值，这三类 100% 通过 Schema 「结构化输出已经保证了可靠性」——这是引入结构化输出后最常见的误判 只测正例不测坏请求 缺反例时接口的错误处理路径覆盖率接近 0，而生产流量里坏请求的占比从来不是 0 上线后大量 5xx，且错误信息泄露内部结构 Schema 变更没有破坏性检测…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-PS02#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-PS02-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "属性测试凭什么能发现例子测试发现不了的缺陷 例子测试的检出能力上限，等于作者想得到的输入集合。作者没想到的输入，在测试套件里就不存在——覆盖率再高也不会改变这一点，因为覆盖率统计的是被执行的代码行，不是被考察的输入空间。 属性测试换掉的是这个前提：不枚举输入，而是声明一条对所有合法输入都必须成立的性质，再让引擎去找反例。作者的工作从「想出可能出错的例子」变成「说清什么情况下算对」，后者要难得多，但它的覆盖不依赖想象力。 让这件事真正可用的不是随机采样，而是收缩。随机采样找到的反例通常又长又乱，读不出原因；收缩会自…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-PS02#content_sections.teaching_blocks.2",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-PS02-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L24-L24",
+      "meaning": "实现：正反例与 Schema 变异 使用 OpenAPI 作为输入生成边界、缺字段、额外字段、非法枚举和错误 Content-Type；再人工补充跨字段约束。对服务契约删除 required、放宽金额范围、改变错误码，验证门禁能捕获破坏性变化。 pseudocode cases = [valid_payment, amount_zero, currency_unknown, owner_mismatch, expired_intent] for case in cases: response = client.s…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-PS02#content_sections.teaching_blocks.10",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

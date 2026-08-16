@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-A06",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:bbf9fe3bf95487218605a534105b604aaf9e3cb22d2672ef109b510c27c1be85",
+  "page_content_sha256": "sha256:0f5eaf29761dcea0556e8c79f9be8fb5442eb6215f368237b51aae75aa918548",
+  "claims": [
+    {
+      "claim_id": "TD-A06-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "不可重试错误不会循环；重试同时受四类预算约束；回退失败时安全失败或转人工",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-A06#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-A06-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "本页仅运行离线错误和预算 fixture；model、integration、practitioner、learner、live 与 production 均 NOT_RUN。未验证真实供应商配额、Retry-After、fallback 模型、集成环境、实践者复核、学习者完成、线上调用或生产恢复。；降级演练要在有真实流量特征的环境做。用固定测试请求演练，会让降级路径看起来比实际更可靠。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-A06#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-A06-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L33-L33",
+      "meaning": "本页仅运行离线错误和预算 fixture；model、integration、practitioner、learner、live 与 production 均 NOT_RUN。未验证真实供应商配额、Retry-After、fallback 模型、集成环境、实践者复核、学习者完成、线上调用或生产恢复。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-A06#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-A06-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L17-L17",
+      "meaning": "行动：为 400/401/429/5xx/超时写处理表；计算一次重试风暴的 call/cost amplification；为小模型 fallback 写独立质量切片 预期：恢复三次以内、deadline/cost budget、幂等状态查询与安全失败；未通过质量门禁时转人工。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-A06#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-A06-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "韧性设计如果没被注入过故障，它只是一段没运行过的代码 失效形态 可核查的数字 它导致的错误结论 超时层级设置反了 内层超时长于外层时，上游已放弃而下游仍在计费；这段浪费的算力占比不为 0 且完全不可见 故障时成本不降反升 重试没有退避与抖动 故障恢复瞬间的同步重试会造成二次冲击，峰值可达正常流量的 3 倍以上 系统刚恢复就被自己的重试再次打垮 降级路径从未被执行过 未注入验证的降级路径其实际可用性未知；这类代码的首次触发失败率不为 0，而首次触发恰好发生在故障时 把「设计了降级」当成「有降级」 本页的做法：逐条注…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-A06#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-A06-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "韧性设计如果没被注入过故障，它只是一段没运行过的代码 限流、超时、重试、熔断、降级这五件事都写在代码里，也都很少被验证真的会按预期触发。它们的共同特点是：只在故障时执行。 下面三条是未经验证的韧性设计的典型形态。 失效形态 可核查的数字 它导致的错误结论 超时层级设置反了 内层超时长于外层时，上游已放弃而下游仍在计费；这段浪费的算力占比不为 0 且完全不可见 故障时成本不降反升 重试没有退避与抖动 故障恢复瞬间的同步重试会造成二次冲击，峰值可达正常流量的 3 倍以上 系统刚恢复就被自己的重试再次打垮 降级路径从未…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-A06#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-A06-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L22-L22",
+      "meaning": "五类错误各自的恢复动作与验证手段 第二列是决策表：把这五类分开处理，是这一页最实际的产出。统一按重试处理会在第二行直接把故障放大。 第四列的验证手段全部是故障注入——没有注入过的恢复路径不能算已实现。 错误类别 正确的恢复动作 错误的做法 验证手段 上游超时 有界重试 + 指数退避 + 抖动 无限重试或固定间隔重试 Toxiproxy 注入延迟 限流 429 按 Retry-After 退避，不加重试 立即重试，把限流变成雪崩 WireMock 返回 429 + Retry-After 安全策略拦截 不重试，走降…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-A06#content_sections.teaching_blocks.3",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

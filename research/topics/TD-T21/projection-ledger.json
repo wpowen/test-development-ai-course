@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T21",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:e02cdaa455faeeb115216cf4ff8a7f680c4f835e19256d37efd9260dea305713",
+  "page_content_sha256": "sha256:ec5968f88db58caf914ac35eb6338e10ce56210b4f222233f832b398c91deb4f",
+  "claims": [
+    {
+      "claim_id": "TD-T21-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "所有关键资产有版本或 unknown；混杂比较不会生成 winner；报告能回链到 raw run",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T21#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T21-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L20-L20",
+      "meaning": "任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。；回放不必得到完全一致的结果。目标是确认所有输入都能被还原；输出差异本身是有价值的信息。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T21#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T21-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L26-L26",
+      "meaning": "版本账本已在合成 Fixture 中检查；没有真实 Provider snapshot、数据平台或企业制品库集成。 本页仅 fixture/static；真实 model/provider、enterprise integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T21#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T21-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L9-L9",
+      "meaning": "行动：为一次历史评测补 run manifest；对两次运行做锁定字段 diff；把浮动模型别名标成不可重放 预期：Prompt 包可静态审计且 model_execution=NOT_RUN；只有固定 Schema/Eval/Mutation 合同获得证据，没有模型能力结论。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T21#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T21-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "半年后有人问「这个 87 分是怎么来的」，你要么答得出，要么这个分数从此无效 失效形态 可核查的数字 它导致的错误结论 只记录代码版本 AI 系统的版本至少由代码、提示、数据、知识库、模型、判分器、运行时 7 个组件共同决定；只记 1 个等于没记 代码没变分数变了，被归因为「模型不稳定」 判分器版本未纳入 lineage 判分器换版会整体平移分数 3～8pt，且方向不固定；不记录时这个平移无法被识别 把判分器的刻度变化当成模型能力变化，做了错误的版本决策 历史运行无法重放 重放需要 7 个组件全部可还原；缺任一项…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T21#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T21-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "七要素各自记录什么、记在哪 这张表是账本的字段清单。建议直接照着建表，缺项在这一列里就是空白，一眼可见。 第三列标出了「最容易漏」的三项，它们的共同点是不属于任何一个现成仓库。 要素 记什么 是否容易漏 工具 模型版本 权重版本或别名的实际解析结果 中：只记别名是常见错误 MLflow model registry 提示词版本 系统提示词与模板的版本号或哈希 高：通常不在任何仓库里 Langfuse prompt management 检索索引版本 索引构建时间、语料快照、切分参数 高：索引重建后无记录 自建索引…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T21#content_sections.teaching_blocks.3",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T21-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L20-L20",
+      "meaning": "Lineage：每个分数都能回到当时的版本：先定位这一个专业失败 报告称候选 B 提升 6%，但 A/B 同时改变模型、知识库、Prompt 与 Judge；没有 lineage 就无法把提升归因给任何组件。 对 TD-T21 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T21#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

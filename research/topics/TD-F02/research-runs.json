@@ -1,0 +1,48 @@
+{
+  "topic_id": "TD-F02",
+  "runs": [
+    {
+      "run_id": "TD-F02-architecture-20260811",
+      "route": "architecture-primary-docs",
+      "status": "opened-sources-synthesized",
+      "source_refs": [
+        "SRC-TRANSFORMER",
+        "SRC-RAG",
+        "SRC-RAGAS",
+        "SRC-ARES",
+        "SRC-RAG-SURVEY",
+        "SRC-OPENAI-EVALS",
+        "SRC-ANTHROPIC-AGENTS",
+        "SRC-ANTHROPIC-CONTEXT"
+      ]
+    },
+    {
+      "run_id": "TD-F02-measurement-20260811",
+      "route": "measurement-failure-counterevidence",
+      "status": "opened-sources-synthesized",
+      "source_refs": [
+        "SRC-RAG-SURVEY",
+        "SRC-OPENAI-EVALS",
+        "SRC-ANTHROPIC-AGENTS",
+        "SRC-ANTHROPIC-CONTEXT",
+        "SRC-NIST-AIRC",
+        "SRC-NIST-STATS",
+        "SRC-GOOGLE-SPLIT",
+        "SRC-GOOGLE-METRICS"
+      ]
+    }
+  ],
+  "comparison": {
+    "reviewer": "independent-validation-contract-reviewer",
+    "input_run_ids": [
+      "TD-F02-architecture-20260811",
+      "TD-F02-measurement-20260811"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "ACCEPT-WITH-FIXTURE-BOUNDARY"
+  },
+  "limitations": [
+    "基础模型训练数据、后训练配方及提供方内部发布变更通常不可见。",
+    "No live model or enterprise integration run"
+  ]
+}

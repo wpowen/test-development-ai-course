@@ -1,0 +1,143 @@
+{
+  "schema_version": "page-promotion-receipt.v1",
+  "page_id": "TD-T08",
+  "validated_at": "2026-08-15T14:44:09.109Z",
+  "reviewer": "validation-semantic-parity-verifier-2026-08-13",
+  "page_content_hash": "sha256:8137bb32201baf4dd174dbe370787c1e77e167e26ab9ed491cf351af00cacf2a",
+  "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
+  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_verdict": "PASS",
+  "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
+  "page_author_id": "course-page-projection-author-2026-08-13",
+  "reviewer_is_independent_of_author": true,
+  "research_package_files": [
+    "research-brief.md",
+    "source-pack.csv",
+    "research-runs.json",
+    "evidence-synthesis.md",
+    "engineering-blueprint.md",
+    "manuscript.md",
+    "comparison.md",
+    "lab-manifest.json",
+    "validation.md",
+    "projection-ledger.json"
+  ],
+  "research_inventory": [
+    {
+      "path": "research-brief.md",
+      "exists": true,
+      "sha256": "sha256:be86140dbf0dbf6bc1311a53086650534c5a63ca0773dcb804bf6505ae4a3b70"
+    },
+    {
+      "path": "source-pack.csv",
+      "exists": true,
+      "sha256": "sha256:055c281bd10028d55a263a65144b814a0e916d033edb39e247f28f383f97c0e9"
+    },
+    {
+      "path": "research-runs.json",
+      "exists": true,
+      "sha256": "sha256:e972c26556a3e7d35ba8571a2d16d60a29efafc2b861b488a801316b02c73aae"
+    },
+    {
+      "path": "evidence-synthesis.md",
+      "exists": true,
+      "sha256": "sha256:66e166e9206ffa1a55acb4aa0672a82ce8b057478eced5dd2fd8c85c0d6c862e"
+    },
+    {
+      "path": "engineering-blueprint.md",
+      "exists": true,
+      "sha256": "sha256:d2b6f36ebfc5446554998df0f1cb2933a420691fa265685933639bf6379ba30c"
+    },
+    {
+      "path": "manuscript.md",
+      "exists": true,
+      "sha256": "sha256:ff8c2165c4774b3fe5343632508bb7857e1e770d4ba578169a95fa35fc3d074b"
+    },
+    {
+      "path": "comparison.md",
+      "exists": true,
+      "sha256": "sha256:57343deb74e8e7bc96f71d1970780d65ee3b1baab7eee8985f3a341b2db70d96"
+    },
+    {
+      "path": "lab-manifest.json",
+      "exists": true,
+      "sha256": "sha256:cef27cd370c507e34e393efa9063da6e70285e789b1718464cbf06bc00161ca4"
+    },
+    {
+      "path": "validation.md",
+      "exists": true,
+      "sha256": "sha256:253952707ee3c615042dbfb17a373d1f05f8559bc9690b19f5354d9edbdb748c"
+    },
+    {
+      "path": "projection-ledger.json",
+      "exists": true,
+      "sha256": "sha256:d6417757ff43168e70d6d6585a6e869478bec5e662bda3ee91681ed4ce7ace33"
+    }
+  ],
+  "editorial_score": 100,
+  "boundary_preservation_score": 100,
+  "executability_audit_ref": "research/executability-audit.json",
+  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit": {
+    "path": "../../executability-audit.json",
+    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "verdict": "PASS",
+    "finding_count": 0
+  },
+  "material_hashes": {
+    "materials/ai-assisted-testing.zip": "sha256:0a80626b144755270fbbc9f90324c11c4d612424bdcc6c40707c409bbfc7ef1a",
+    "materials/ai-assisted-testing/ai_assisted_lab.py": "sha256:f3692463b13baac9d260db6909b88a9eb24a84f49fc6bacd40159123e1cc009f",
+    "materials/ai-assisted-testing/page-manifests/TD-T08.json": "sha256:effacdc0ad7b2e5d48594eab2bfd17bae140696381157303e79e68050028aa7f",
+    "materials/ai-assisted-testing/page-prompts/TD-T08/manifest.json": "sha256:58a21ba68cc2ed7ff383aff1ed990a86d9236f1941e2b91d733e0482db7aca7f",
+    "materials/ai-assisted-testing/reports/td-t08-fault.json": "sha256:c54bc47f5c755daa81ccdfd3df25c99936a639de6090df35294baf106f229a13",
+    "materials/ai-assisted-testing/reports/td-t08-repair.json": "sha256:85da055fc6866a4f1977f97f2ba61ea62d7b4412817affaa222d7f03d7319b9f"
+  },
+  "learner_material_hashes": [
+    {
+      "href": "materials/ai-assisted-testing.zip",
+      "public_sha256": "sha256:0a80626b144755270fbbc9f90324c11c4d612424bdcc6c40707c409bbfc7ef1a",
+      "static_sha256": "sha256:0a80626b144755270fbbc9f90324c11c4d612424bdcc6c40707c409bbfc7ef1a",
+      "archive_member_sha256": null,
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ai-assisted-testing/ai_assisted_lab.py",
+      "public_sha256": "sha256:f3692463b13baac9d260db6909b88a9eb24a84f49fc6bacd40159123e1cc009f",
+      "static_sha256": "sha256:f3692463b13baac9d260db6909b88a9eb24a84f49fc6bacd40159123e1cc009f",
+      "archive_member_sha256": "sha256:f3692463b13baac9d260db6909b88a9eb24a84f49fc6bacd40159123e1cc009f",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ai-assisted-testing/page-manifests/TD-T08.json",
+      "public_sha256": "sha256:effacdc0ad7b2e5d48594eab2bfd17bae140696381157303e79e68050028aa7f",
+      "static_sha256": "sha256:effacdc0ad7b2e5d48594eab2bfd17bae140696381157303e79e68050028aa7f",
+      "archive_member_sha256": "sha256:effacdc0ad7b2e5d48594eab2bfd17bae140696381157303e79e68050028aa7f",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ai-assisted-testing/page-prompts/TD-T08/manifest.json",
+      "public_sha256": "sha256:58a21ba68cc2ed7ff383aff1ed990a86d9236f1941e2b91d733e0482db7aca7f",
+      "static_sha256": "sha256:58a21ba68cc2ed7ff383aff1ed990a86d9236f1941e2b91d733e0482db7aca7f",
+      "archive_member_sha256": "sha256:58a21ba68cc2ed7ff383aff1ed990a86d9236f1941e2b91d733e0482db7aca7f",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ai-assisted-testing/reports/td-t08-fault.json",
+      "public_sha256": "sha256:c54bc47f5c755daa81ccdfd3df25c99936a639de6090df35294baf106f229a13",
+      "static_sha256": "sha256:c54bc47f5c755daa81ccdfd3df25c99936a639de6090df35294baf106f229a13",
+      "archive_member_sha256": "sha256:c54bc47f5c755daa81ccdfd3df25c99936a639de6090df35294baf106f229a13",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ai-assisted-testing/reports/td-t08-repair.json",
+      "public_sha256": "sha256:85da055fc6866a4f1977f97f2ba61ea62d7b4412817affaa222d7f03d7319b9f",
+      "static_sha256": "sha256:85da055fc6866a4f1977f97f2ba61ea62d7b4412817affaa222d7f03d7319b9f",
+      "archive_member_sha256": "sha256:85da055fc6866a4f1977f97f2ba61ea62d7b4412817affaa222d7f03d7319b9f",
+      "closure_verdict": "PASS"
+    }
+  ],
+  "verdict": "FAIL",
+  "findings": [
+    "independent editorial review does not pin current page content hash"
+  ]
+}

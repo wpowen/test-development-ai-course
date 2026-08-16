@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T07",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:c2321a14377432c1d7705368a45dab5b4cc6e27d803d731298b4d7cfc0184ad2",
+  "page_content_sha256": "sha256:bd236638f452d777d87effcd003e24d4d0c0a0cb8a70bb54785de22fff9f6b7b",
+  "claims": [
+    {
+      "claim_id": "TD-T07-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "方法由失败模型而非工具热度选择；生成合同包含域、约束、Oracle、预算和权限；失败输入可收缩、重放并转为固定回归",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T07#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T07-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L20-L20",
+      "meaning": "AI 输出始终是候选。需求、Oracle、权限、因果结论与发布决定必须来自独立证据和具名 owner；缺证据时保留 UNKNOWN/BLOCKED。；不要在没有失败模型的情况下先选方法。那样写出的理由会变成事后合理化，下次换人还得重来。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T07#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T07-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L27-L27",
+      "meaning": "12 个打开来源与双 run 支持方法矩阵；fixture 重放并收缩幂等故障。真实 property/fuzz 工具、服务授权、生产数据代表性、模型和从业者复核均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T07#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T07-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L4-L4",
+      "meaning": "行动：为四类 failure model 各写一条方法选择理由；运行 0→1→0 并用最小反例复述缺陷；列出 seed 之外必须冻结的时间、依赖和环境 预期：Prompt 输出保持 CANDIDATE 或明确 stop state；不得自建 Oracle、自批根因或把缺失字段补成事实。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T07#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T07-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "选错数据方法，测试量再大也只是在同一个位置反复敲 失效形态 可核查的数字 它导致的错误结论 用等概率随机去测阈值型缺陷 阈值缺陷通常只在边界 ±1 个单位处暴露，随机采样命中该窗口的概率随取值域增大迅速趋近 0 跑了 10 万条随机数据没发现问题，得出「边界处理没问题」 用穷举组合去测高维参数 10 个二值参数的全组合是 1024 条，20 个就是 1048576 条，而两两覆盖只需数十条即可覆盖绝大多数交互缺陷 为了「覆盖全面」把用例数堆到不可维护，实际交互覆盖并没有更好 模糊测试不保存 seed 与最小反例…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T07#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T07-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "选错数据方法，测试量再大也只是在同一个位置反复敲 四种数据方法对应四种不同的失败模型，用错了不是效率问题而是覆盖问题——再多的用例也检不出那一类缺陷。边界值针对的是阈值判断错误，组合法针对的是条件交互，属性测试针对的是不变量违反，Fuzz 针对的是解析与健壮性。 判断该用哪一种，先问这个功能最可能怎么坏。有明确阈值的（金额上限、字数限制、时间窗口）用边界值；有多个条件互相影响的（权限 × 状态 × 渠道）用组合法；有可表述不变量的（往返一致、守恒、幂等）用属性测试；接受外部非结构化输入的（文件、协议、用户文本）用…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T07#content_sections.teaching_blocks.2",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T07-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L14-L14",
+      "meaning": "四种方法各自适用什么失败模型 先看第二列判断该用哪一种，再看第三列估成本。方法选对之后 AI 才有用武之地，选错则生成量越大浪费越大。 第四列是 AI 在这一行能做什么——注意它的位置都在「扩充」而不是「决定」。 数据方法 针对的失败模型 工具 AI 在这里做什么 边界值 阈值判断错误：大于写成大于等于、精度截断 手工 + 从 Schema 自动提取 从需求文本里抽出所有阈值，避免遗漏 组合（成对覆盖） 条件交互：权限 × 状态 × 渠道的特定组合出错 成对覆盖生成器 列出条件与取值，人确认后由算法生成组合 属性…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T07#content_sections.teaching_blocks.3",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

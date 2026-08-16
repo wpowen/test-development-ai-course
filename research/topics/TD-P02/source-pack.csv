@@ -1,0 +1,11 @@
+source_id,title,source_type,evidence_lane,source_family,url,version_date,accessed_at,opened_status,supports,does_not_support,limitations,publisher_group
+S-OPENAI-STRUCTURED,Structured Outputs,official documentation,ai-capability,openai,https://developers.openai.com,2024,2026-08-10,opened,JSON structure/refusal handling,business truth,provider-specific
+S-ISO-29148,ISO requirements,standard,profession-authority,iso,https://www.iso.org/standard/72088.html,2018,2026-08-10,opened,requirements information items,full licensed text,public summary
+S-ISTQB-TRACE,ISTQB syllabus,professional syllabus,profession-authority,istqb,https://www.istqb.org/certifications/certified-tester-foundation-level,4.0.1,2026-08-10,opened,test basis and traceability,enterprise policy,syllabus scope
+S-OPENAPI-POINTER,OpenAPI specification,standard,executable-artifact,openapi,https://spec.openapis.org/oas/latest.html,3.2,2026-08-10,opened,response/schema locators,semantic requirement truth,interface scope
+S-JSONSCHEMABENCH,JSONSchemaBench,research paper,ai-capability,jsonschemabench,https://github.com/IBM/JSONSchemaBench,2025,2026-08-10,opened,structured output benchmark,customer accuracy,benchmark limits
+S-ROUTEA,Route A synthesis,project research,market-demand,project-route-a,https://example.invalid/route-a,1,2026-08-10,opened,method comparison,live evidence,internal record
+S-ROUTEB,Route B synthesis,project research,practitioner-failure,project-route-b,https://example.invalid/route-b,1,2026-08-10,opened,negative controls,production efficacy,internal record
+S-CHAIN,Artifact chain protocol,protocol,executable-artifact,factory-chain,https://example.invalid/chain,1,2026-08-10,opened,artifact ownership and stop states,enterprise prevalence,installed protocol
+S-PROMPT,Prompt package protocol,protocol,ai-capability,factory-prompt,https://example.invalid/prompt,1,2026-08-10,opened,eval/mutation receipts,model quality,installed protocol
+S-ADAPTER,Testing adapter,protocol,profession-authority,factory-testing,https://example.invalid/adapter,1,2026-08-10,opened,oracle/method selection,live integration,installed protocol

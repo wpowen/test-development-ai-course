@@ -1,0 +1,23 @@
+{
+  "baseline_id": "order-cancel-v2",
+  "source_refs": [
+    "PRD-v3#R17",
+    "PRD-v3#R18",
+    "PRD-v3#R19",
+    "OPENAPI-v7#/cancel",
+    "TECH-a13f#S04"
+  ],
+  "authority_policy": "synthetic fixture policy approved by product/technical owners; conflicts BLOCKED",
+  "fixture_boundary": "synthetic offline teaching fixture; replace every direct_use_inputs value before business use",
+  "page_id": "TD-P05",
+  "direct_use_inputs": {
+    "test_scope": "cancel API and refund side effect",
+    "requirement_contract": "seed/requirement-contract.json",
+    "risk_test_plan": "TD-P04 output",
+    "oracle_sources": [
+      "PRD-v3#R17",
+      "OPENAPI-v7#/cancel/responses/409"
+    ],
+    "data_environment": "synthetic in-memory implementation"
+  }
+}

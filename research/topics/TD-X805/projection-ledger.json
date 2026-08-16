@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-X805",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:b855e35bdf1f2c91f9189fcd7e37189acf6279e8f1ff3cf5017a382b75af7907",
+  "page_content_sha256": "sha256:8f15baca8a2b5216cc8c6b8177bdf86596929f5734d0666c685fb6ad1f81c3f9",
+  "claims": [
+    {
+      "claim_id": "TD-X805-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "guardrail 失败立即回滚；人工抽样具有代表性；不把离线 fixture 写成线上实验成功",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-X805#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-X805-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "10 个 opened 来源与离线 0→1→0 支持发布门禁形状；真实流量、用户、伦理、统计功效、人工标签和生产发布 NOT_RUN。；guardrail 指标不要超过五个。过多的指标会让自动回滚频繁误触发，最后被关掉。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-X805#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-X805-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "10 个 opened 来源与离线 0→1→0 支持发布门禁形状；真实流量、用户、伦理、统计功效、人工标签和生产发布 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-X805#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-X805-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L13-L13",
+      "meaning": "行动：写一个 Canary 停止规则；运行分流/guardrail fault；设计覆盖失败和低置信的人工抽样 预期：输出必须保留 source refs、owner、limitations 与 stop_state；不得自建 Oracle、自批例外或生成生产通过结论。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-X805#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-X805-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "灰度发布如果没有预设的回滚触发条件，它只是把事故推迟了几小时 失效形态 可核查的数字 它导致的错误结论 没有预设 MDE 就开实验 未计算最小可检测效应时，样本量往往不足以分辨真实差异；此时无论结果如何都不构成结论 小流量跑了 3 天没看出问题，被当成「新版本没问题」 分流不稳定 同一用户在不同请求间落到不同实验组时，实验结论与用户体验同时被破坏；分流一致性低于 99.9% 即不可用 指标波动被归因于新版本，实际来自分流抖动 guardrail 只看总体指标 总体指标平稳而最坏切片恶化 20pt 以上的情况很常见…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-X805#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-X805-METRIC-01",
+      "manuscript_locator": "manuscript.md:L9-L9",
+      "meaning": "灰度发布如果没有预设的回滚触发条件，它只是把事故推迟了几小时 渐进发布的价值在于「小流量时发现问题并停下」。如果没有预先定义什么情况算问题、谁有权停，那么小流量阶段只是在积累证据而不会触发动作。 下面三条是灰度形同虚设的三种形态。 失效形态 可核查的数字 它导致的错误结论 没有预设 MDE 就开实验 未计算最小可检测效应时，样本量往往不足以分辨真实差异；此时无论结果如何都不构成结论 小流量跑了 3 天没看出问题，被当成「新版本没问题」 分流不稳定 同一用户在不同请求间落到不同实验组时，实验结论与用户体验同时被破坏…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-X805#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-X805-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "在线实验、Canary 与人工抽样发布门禁：错误决定会造成什么 团队准备逐步放量新 Agent。测试开发要先过离线 blocker，再验证分流完整、最坏切片、失败/低置信样本和回滚时延。 Canary 第一职责是限制伤害，不是抢先证明收益。 本页 method 的可交付物是实验 manifest、Canary guardrail、人工样本账本与回滚收据；先固定风险与停止条件，再决定哪些检查交给 runner。 10 个 opened 来源与离线 0→1→0 支持发布门禁形状；真实流量、用户、伦理、统计功效、人工标…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-X805#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

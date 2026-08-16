@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T26",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:b0733c3a085b7e99a0003930ea8d14d3663f4a7174368aad69737848b162bfbb",
+  "page_content_sha256": "sha256:aa55238210eae9ce7c8b780baeefaf7b069c07cccf713969a878c3c4c696d3bc",
+  "claims": [
+    {
+      "claim_id": "TD-T26-DECISION-01",
+      "manuscript_locator": "manuscript.md:L11-L11",
+      "meaning": "Prompt 绑定 Input/Schema/Eval/Mutation；baseline 与 AI 使用同一完成定义；报告同时有质量、效率、成本和未知边界",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T26#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T26-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L17-L17",
+      "meaning": "本页只证明 fixture-tested 离线实验设计和门禁；真实 live 模型、practitioner 团队复核和 production 缺陷/ROI 结论均 NOT_RUN。；不要让写 Prompt 的人同时担任接受率的评判者。生成方评判自己的产出，接受率会系统性偏高。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T26#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T26-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "本页只证明 fixture-tested 离线实验设计和门禁；真实 live 模型、practitioner 团队复核和 production 缺陷/ROI 结论均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T26#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T26-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "行动：为一个需求写 Basis/风险/Oracle 输入合同；设计三个正向和三个负向 mutation；计算 time-to-accepted-test 和 cost-per-killed-mutation 预期：报告能分开候选数量、可接受数量、mutation kill、重复率、人工修复时间、成本和 unique defect yield。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T26#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T26-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "AI 生成用例的提效，必须减掉复核成本之后才算数 失效形态 可核查的数字 它导致的错误结论 用生成数量衡量提效 生成 200 条与有效 20 条是两回事；不减去复核与返工工时的提效数字不可用 「效率提升 10 倍」在下一次回归时被维护成本抵消 不与人工基线对照 没有 baseline 时无法判断提升来自 AI 还是这批用例本身更容易；对照缺失使归因正确率接近随机（50%） 把任务难度差异当成 AI 的贡献 不用变异证明检测力 一套不检查任何东西的用例通过率是 100%，检测力接近 0 全绿被当成质量证据 本页的做…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T26#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T26-METRIC-01",
+      "manuscript_locator": "manuscript.md:L15-L15",
+      "meaning": "AI 生成用例的提效，必须减掉复核成本之后才算数 生成 200 条用例只需要几分钟，这个数字很有说服力。但如果其中一半需要人工修改，另一半检测不到任何问题，净提效可能是负的。 下面三条是提效评估里最常见的三处失真。 失效形态 可核查的数字 它导致的错误结论 用生成数量衡量提效 生成 200 条与有效 20 条是两回事；不减去复核与返工工时的提效数字不可用 「效率提升 10 倍」在下一次回归时被维护成本抵消 不与人工基线对照 没有 baseline 时无法判断提升来自 AI 还是这批用例本身更容易；对照缺失使归因正…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T26#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T26-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "运行 productivity experiment manifest，保存 baseline、AI candidate、critic、accepted、mutation 和 reviewer receipt。：先用白话建立模型 Baseline：在没有 AI 候选的条件下，用同一任务和完成定义得到的对照结果。 Mutation：人为注入一个已知缺陷，检查测试是否能把它打红。 Accepted test：经过编译、运行、Oracle 审查且被具名 reviewer 接受的测试，不是生成出来的文本。 同一份退款需求…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T26#content_sections.teaching_blocks.11",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

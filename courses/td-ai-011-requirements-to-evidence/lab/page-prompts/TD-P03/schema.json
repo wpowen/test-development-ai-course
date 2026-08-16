@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "technical-contract.v1.1",
+  "type": "object",
+  "required": [
+    "page_id",
+    "status",
+    "components",
+    "interfaces",
+    "states",
+    "failure_modes",
+    "observability",
+    "security",
+    "requirement_mapping",
+    "review_questions",
+    "unknowns"
+  ],
+  "properties": {
+    "page_id": {
+      "const": "TD-P03"
+    },
+    "status": {
+      "enum": [
+        "ACCEPTED",
+        "PASS",
+        "PARTIAL",
+        "BLOCKED",
+        "UNKNOWN",
+        "RELEASE_CANDIDATE",
+        "NOT_RUN",
+        "PASS_SCHEMA",
+        "PASS_SEMANTIC",
+        "FAIL",
+        "SCHEMA_INVALID",
+        "REFUSED",
+        "INCOMPLETE",
+        "SOURCE_CONFLICT",
+        "UNSUPPORTED_RULE",
+        "SEMANTIC_UNKNOWN"
+      ]
+    },
+    "components": {
+      "type": "array",
+      "description": "Professional output records for components",
+      "items": {
+        "type": "object"
+      }
+    },
+    "interfaces": {
+      "type": "array",
+      "description": "Professional output records for interfaces",
+      "items": {
+        "type": "object"
+      }
+    },
+    "states": {
+      "type": "array",
+      "description": "Professional output records for states",
+      "items": {
+        "type": "object"
+      }
+    },
+    "failure_modes": {
+      "type": "array",
+      "description": "Professional output records for failure_modes",
+      "items": {
+        "type": "object"
+      }
+    },
+    "observability": {
+      "type": "array",
+      "description": "Professional output records for observability",
+      "items": {
+        "type": "object"
+      }
+    },
+    "security": {
+      "type": "array",
+      "description": "Professional output records for security",
+      "items": {
+        "type": "object"
+      }
+    },
+    "requirement_mapping": {
+      "type": "array",
+      "description": "Professional output records for requirement_mapping",
+      "items": {
+        "type": "object"
+      }
+    },
+    "review_questions": {
+      "type": "array",
+      "description": "Professional output records for review_questions",
+      "items": {
+        "type": "object"
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "description": "Professional output records for unknowns",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": false
+}

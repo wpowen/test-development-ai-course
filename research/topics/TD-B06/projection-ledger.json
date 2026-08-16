@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-B06",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:8662fcff1625f22e89c13e253ba360ffc9bcce949a10d90a677ee01de6c5ed5f",
+  "page_content_sha256": "sha256:e098a7cd9971532f7f90cd665b1930cf9fe6cc1fb88dfbd65910e71179a213f7",
+  "claims": [
+    {
+      "claim_id": "TD-B06-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "内部任务来自业务而非翻译题；Oracle 与权限 owner 明确；仓库能复现 0→1→0",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-B06#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-B06-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L20-L20",
+      "meaning": "任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。；不要一开始就追求覆盖全部业务。先让一个任务族的完整链路跑通，再横向复制。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-B06#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-B06-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L26-L26",
+      "meaning": "内部 Benchmark 为合成教学仓库；没有真实企业数据、标注团队、模型或发布连接。 本页仅 fixture/static；真实 model/provider、enterprise integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-B06#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-B06-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L9-L9",
+      "meaning": "行动：把一个公共 task 结构映射到退款风险；添加租户隔离 blocker；写出维护 owner 与废弃政策 预期：Prompt 包可静态审计且 model_execution=NOT_RUN；只有固定 Schema/Eval/Mutation 合同获得证据，没有模型能力结论。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-B06#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-B06-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "公共 Benchmark 测的是通用能力，你要发布的是具体业务 失效形态 可核查的数字 它导致的错误结论 用公共分数直接做选型决策 公共任务与业务任务的分布距离通常很大；指标与业务结果相关性低于 0.6 时该指标不具备决策价值 选了榜单第一的模型，上线后在自己场景里表现不如第二 只借分数不借方法 公共 Benchmark 真正可迁移的是任务设计、协议控制与报告规范这 3 类方法，分数本身不可迁移 花了很多精力追榜，内部却没有一套可复用的评测规范 内部基准没有维护 owner 无 owner 的内部基准通常在 2～…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-B06#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-B06-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "公共 Benchmark 测的是通用能力，你要发布的是具体业务 公共 Benchmark 的价值是方法而不是分数。直接拿它的分数做发布判断，等于用一场通用考试的成绩决定一个具体岗位的录用。 下面三条说明直接搬运公共分数的三种错位。 失效形态 可核查的数字 它导致的错误结论 用公共分数直接做选型决策 公共任务与业务任务的分布距离通常很大；指标与业务结果相关性低于 0.6 时该指标不具备决策价值 选了榜单第一的模型，上线后在自己场景里表现不如第二 只借分数不借方法 公共 Benchmark 真正可迁移的是任务设计、协…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-B06#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-B06-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L20-L20",
+      "meaning": "公共到企业：把 Benchmark 方法迁移到业务风险：先定位这一个专业失败 团队把公开题翻译成中文就当客服发布基准；题目没有企业 Oracle、权限边界、流量切片或事故回归，分数无法支持真实放行。 对 TD-B06 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-B06#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

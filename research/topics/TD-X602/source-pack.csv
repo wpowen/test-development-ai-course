@@ -1,0 +1,12 @@
+source_id,url,title,source_type,source_family,publisher_group,accessed_at,version_date,evidence_lane,supports,does_not_support,limitations,opened_status
+X602-S01,https://www.nist.gov/itl/ai-risk-management-framework,NIST AI RMF,government-framework,nist-rmf,nist,2026-08-11,current,professional-baseline,"模型训练、微调与更新 的机制和专业边界","本课程的真实业务效果","只支持局部方法，不代表组织阈值或生产结果",opened
+X602-S02,https://platform.openai.com/docs/guides/evals,OpenAI Evals guide,official-documentation,openai-evals,openai,2026-08-11,current,metrics-method,"模型训练、微调与更新 的机制和专业边界","本课程的真实业务效果","只支持局部方法，不代表组织阈值或生产结果",opened
+X602-S03,https://sre.google/workbook/canarying-releases/,Google SRE Canarying Releases,practitioner-book,google-sre-canary,google,2026-08-11,current,failure-counterevidence,"模型训练、微调与更新 的机制和专业边界","本课程的真实业务效果","只支持局部方法，不代表组织阈值或生产结果",opened
+X602-S04,https://fairlearn.org/main/user_guide/assessment/index.html,Fairlearn assessment,official-documentation,fairlearn-assessment,microsoft,2026-08-11,current,metrics-method,"模型训练、微调与更新 的机制和专业边界","本课程的真实业务效果","只支持局部方法，不代表组织阈值或生产结果",opened
+X602-S05,https://www.w3.org/TR/WCAG22/,WCAG 2.2,technical-standard,wcag-22,w3c,2026-08-11,current,inclusion-safety,"模型训练、微调与更新 的机制和专业边界","本课程的真实业务效果","只支持局部方法，不代表组织阈值或生产结果",opened
+X602-S06,https://slsa.dev/spec/v1.2/,SLSA 1.2,technical-standard,slsa-12,openssf,2026-08-11,current,security-governance,"模型训练、微调与更新 的实现、度量或反证","本课程的真实业务效果","只支持局部方法，不代表组织阈值或生产结果",opened
+X602-S07,https://opentelemetry.io/docs/specs/semconv/gen-ai/,OpenTelemetry GenAI conventions,technical-specification,otel-genai,opentelemetry,2026-08-11,current,practitioner-workflow,"模型训练、微调与更新 的实现、度量或反证","本课程的真实业务效果","只支持局部方法，不代表组织阈值或生产结果",opened
+X602-S08,https://huggingface.co/docs/transformers/training,Transformers training,official-documentation,hf-training,huggingface,2026-08-11,current,implementation,"模型训练、微调与更新 的实现、度量或反证","本课程的真实业务效果","只支持局部方法，不代表组织阈值或生产结果",opened
+X602-S09,https://mlflow.org/docs/latest/ml/model-registry/,MLflow Model Registry,official-documentation,mlflow-registry,mlflow,2026-08-11,current,practitioner-workflow,"模型训练、微调与更新 的实现、度量或反证","本课程的真实业务效果","只支持局部方法，不代表组织阈值或生产结果",opened
+X602-S10,https://github.com/EvolvingLMMs-Lab/lmms-eval,lmms-eval,primary-repository,lmms-eval,evolvinglmms,2026-08-11,current,implementation,"模型训练、微调与更新 的实现、度量或反证","本课程的真实业务效果","只支持局部方法，不代表组织阈值或生产结果",opened
+

@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-B03",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:d49eadbfdcea514e4757aec57766e59ce7e0f94612cc9f6150eff1e387f54f47",
+  "page_content_sha256": "sha256:511f946241bf449a1edea066f0f0ece086b9600481451fb8023194c5631ef252",
+  "claims": [
+    {
+      "claim_id": "TD-B03-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "每个指标有公式、分母和缺失规则；报告含样本量与区间；blocker 独立触发失败",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-B03#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-B03-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L20-L20",
+      "meaning": "任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。；不要用汇总数字反推逐题结果。汇总丢掉了每题的成功次数分布，而那正是区分能力与稳定性的信息。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-B03#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-B03-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L26-L26",
+      "meaning": "Fixture 不运行随机模型或 bootstrap；只验证 Metric Card 字段，数字不代表任何模型性能。 本页仅 fixture/static；真实 model/provider、enterprise integration、practitioner review、learner observation、live、production、publication 均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-B03#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-B03-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L9-L9",
+      "meaning": "行动：手算十题五次的 pass@k；把一个超时重新放回正确分母；增加 blocker 并验证均值不能抵消 预期：Prompt 包可静态审计且 model_execution=NOT_RUN；只有固定 Schema/Eval/Mutation 合同获得证据，没有模型能力结论。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-B03#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-B03-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "Accuracy、Pass@k、Resolved Rate 的分母不同，混着讲就是在比不同的东西 失效形态 可核查的数字 它导致的错误结论 用 pass@1 代表可靠性 pass@1 与 pass^k 的差距在长流程任务上可以非常大：公开结果中出现过 pass@1 为 61% 而 pass^8 仅 25% 「六成能做对」被读成「六成用户能用」 resolved rate 的分母含未尝试项 分母是否包含模型主动放弃的样本，会让同一份结果的 resolved rate 相差 5～15pt 两份报告数字不同，团队以为是…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-B03#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-B03-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "Accuracy、Pass@k、Resolved Rate 的分母不同，混着讲就是在比不同的东西 这三个指标经常出现在同一份报告里，读者默认它们可比。实际上它们的分母、重复次数与成功定义都不同，混讲会产生看似合理实则错误的结论。 下面三条给出混讲的三种后果。 失效形态 可核查的数字 它导致的错误结论 用 pass@1 代表可靠性 pass@1 与 pass^k 的差距在长流程任务上可以非常大：公开结果中出现过 pass@1 为 61% 而 pass^8 仅 25% 「六成能做对」被读成「六成用户能用」 resol…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-B03#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-B03-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L20-L20",
+      "meaning": "Metrics 与区间：Accuracy、Pass@k、Resolved Rate 不能混讲：先定位这一个专业失败 10 题各跑 5 次，8 题至少成功一次，因此 pass@5 很高；但单次 resolved rate 低、重试成本高且一次越权调用被平均 Judge 分掩盖。 对 TD-B03 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLO…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-B03#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

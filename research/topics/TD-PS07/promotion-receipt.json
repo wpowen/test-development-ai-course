@@ -1,0 +1,135 @@
+{
+  "schema_version": "page-promotion-receipt.v1",
+  "page_id": "TD-PS07",
+  "validated_at": "2026-08-15T14:44:09.109Z",
+  "reviewer": "validation-semantic-parity-verifier-2026-08-13",
+  "page_content_hash": "sha256:5e21be904cd3bae857d950d3fc7ca1df31005a0e8c7971e728211fd5ab7180ad",
+  "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
+  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_verdict": "PASS",
+  "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
+  "page_author_id": "course-page-projection-author-2026-08-13",
+  "reviewer_is_independent_of_author": true,
+  "research_package_files": [
+    "research-brief.md",
+    "source-pack.csv",
+    "research-runs.json",
+    "evidence-synthesis.md",
+    "engineering-blueprint.md",
+    "manuscript.md",
+    "comparison.md",
+    "lab-manifest.json",
+    "validation.md",
+    "projection-ledger.json"
+  ],
+  "research_inventory": [
+    {
+      "path": "research-brief.md",
+      "exists": true,
+      "sha256": "sha256:f084aae1836458ec60ab0b950f539b743ec03aaeeeed54397ecbf546cb7fa89c"
+    },
+    {
+      "path": "source-pack.csv",
+      "exists": true,
+      "sha256": "sha256:6318151c5718f87f1d13e32ecdc1447e5371a8d30d7a93856fe37d2489749c33"
+    },
+    {
+      "path": "research-runs.json",
+      "exists": true,
+      "sha256": "sha256:38798c15b7217b4a218512b644359668dba027f21a68bf0e3ea874860de76c47"
+    },
+    {
+      "path": "evidence-synthesis.md",
+      "exists": true,
+      "sha256": "sha256:5e107cad7a1c84c9c21c5a18e93cb9e222262094636e37d6d375a79ad2cb8c06"
+    },
+    {
+      "path": "engineering-blueprint.md",
+      "exists": true,
+      "sha256": "sha256:8712c57add73cbbeb8fd61fa53fc0fc2e534b1ef55064ba229dab00a6d8412e6"
+    },
+    {
+      "path": "manuscript.md",
+      "exists": true,
+      "sha256": "sha256:5bee3852ad63c8bf644da9d1703da71a2aa2e2166bce4767f669abbe9040e9da"
+    },
+    {
+      "path": "comparison.md",
+      "exists": true,
+      "sha256": "sha256:4b1a7f585c119ad2635de4974bb8294677ce5004b19f78de85d70ea26ca372a8"
+    },
+    {
+      "path": "lab-manifest.json",
+      "exists": true,
+      "sha256": "sha256:e0ef49895e91568b455da92457f999329afd37b6fac1b1496c0d29266b208257"
+    },
+    {
+      "path": "validation.md",
+      "exists": true,
+      "sha256": "sha256:ccda18cd74700f6dc971a7709c2a00313ddf8c5124df0ba60f9a696ae3a4eb5b"
+    },
+    {
+      "path": "projection-ledger.json",
+      "exists": true,
+      "sha256": "sha256:c9ce20387648bacec5f54a7028e622b51a406d2c33638a2386871cba9221c302"
+    }
+  ],
+  "editorial_score": 100,
+  "boundary_preservation_score": 100,
+  "executability_audit_ref": "research/executability-audit.json",
+  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit": {
+    "path": "../../executability-audit.json",
+    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "verdict": "PASS",
+    "finding_count": 0
+  },
+  "material_hashes": {
+    "materials/ui-mobile-automation/fixtures/ios-reschedule.json": "sha256:c872b0f4cdfc204e235114b9386631397fea4deb36d059cc4e5d9bc704f2fb19",
+    "materials/ui-mobile-automation/guides/ios-xcuitest-preflight.md": "sha256:2590c3f7f0c0a0a69da8c17de6fe9875685a2bc8e8a343fd24af2a0f187f2ddd",
+    "materials/ui-mobile-automation.zip": "sha256:9d7f84ee5168e1e5c16831604fda6460a12e0366c89da0285478647aaf8dea51",
+    "materials/ui-mobile-automation/scripts/ui_contract_lab.py": "sha256:fc84433464a670362214d6275faac57c73f616097efef17d102f01a82e80009e",
+    "materials/ui-mobile-automation/README.md": "sha256:76752e8d703cf2a53faf584c4c7a4798b7abc35f63d675cfda42a4d7269d98e1"
+  },
+  "learner_material_hashes": [
+    {
+      "href": "materials/ui-mobile-automation/fixtures/ios-reschedule.json",
+      "public_sha256": "sha256:c872b0f4cdfc204e235114b9386631397fea4deb36d059cc4e5d9bc704f2fb19",
+      "static_sha256": "sha256:c872b0f4cdfc204e235114b9386631397fea4deb36d059cc4e5d9bc704f2fb19",
+      "archive_member_sha256": "sha256:c872b0f4cdfc204e235114b9386631397fea4deb36d059cc4e5d9bc704f2fb19",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ui-mobile-automation/guides/ios-xcuitest-preflight.md",
+      "public_sha256": "sha256:2590c3f7f0c0a0a69da8c17de6fe9875685a2bc8e8a343fd24af2a0f187f2ddd",
+      "static_sha256": "sha256:2590c3f7f0c0a0a69da8c17de6fe9875685a2bc8e8a343fd24af2a0f187f2ddd",
+      "archive_member_sha256": "sha256:2590c3f7f0c0a0a69da8c17de6fe9875685a2bc8e8a343fd24af2a0f187f2ddd",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ui-mobile-automation.zip",
+      "public_sha256": "sha256:9d7f84ee5168e1e5c16831604fda6460a12e0366c89da0285478647aaf8dea51",
+      "static_sha256": "sha256:9d7f84ee5168e1e5c16831604fda6460a12e0366c89da0285478647aaf8dea51",
+      "archive_member_sha256": null,
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ui-mobile-automation/scripts/ui_contract_lab.py",
+      "public_sha256": "sha256:fc84433464a670362214d6275faac57c73f616097efef17d102f01a82e80009e",
+      "static_sha256": "sha256:fc84433464a670362214d6275faac57c73f616097efef17d102f01a82e80009e",
+      "archive_member_sha256": "sha256:fc84433464a670362214d6275faac57c73f616097efef17d102f01a82e80009e",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ui-mobile-automation/README.md",
+      "public_sha256": "sha256:76752e8d703cf2a53faf584c4c7a4798b7abc35f63d675cfda42a4d7269d98e1",
+      "static_sha256": "sha256:76752e8d703cf2a53faf584c4c7a4798b7abc35f63d675cfda42a4d7269d98e1",
+      "archive_member_sha256": "sha256:76752e8d703cf2a53faf584c4c7a4798b7abc35f63d675cfda42a4d7269d98e1",
+      "closure_verdict": "PASS"
+    }
+  ],
+  "verdict": "FAIL",
+  "findings": [
+    "independent editorial review does not pin current page content hash"
+  ]
+}

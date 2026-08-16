@@ -1,0 +1,135 @@
+{
+  "schema_version": "page-promotion-receipt.v1",
+  "page_id": "TD-PS05",
+  "validated_at": "2026-08-15T14:44:09.109Z",
+  "reviewer": "validation-semantic-parity-verifier-2026-08-13",
+  "page_content_hash": "sha256:16d80d13b10b3d9f0f53c728f68935b6e90c8fe682483770c900e62fc63a1a07",
+  "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
+  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_verdict": "PASS",
+  "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
+  "page_author_id": "course-page-projection-author-2026-08-13",
+  "reviewer_is_independent_of_author": true,
+  "research_package_files": [
+    "research-brief.md",
+    "source-pack.csv",
+    "research-runs.json",
+    "evidence-synthesis.md",
+    "engineering-blueprint.md",
+    "manuscript.md",
+    "comparison.md",
+    "lab-manifest.json",
+    "validation.md",
+    "projection-ledger.json"
+  ],
+  "research_inventory": [
+    {
+      "path": "research-brief.md",
+      "exists": true,
+      "sha256": "sha256:eef9cb3e5d7b456d222874880f07d555df32503e732330fefbd3acb769444cbd"
+    },
+    {
+      "path": "source-pack.csv",
+      "exists": true,
+      "sha256": "sha256:3bc8be035d159c195bf5df40e22a456641b427a8dfa83db2a1b10118be7ab35f"
+    },
+    {
+      "path": "research-runs.json",
+      "exists": true,
+      "sha256": "sha256:d8b104ed91ef2f5f918d897422e13e499ca9ae70f30ac4e7fc5636f869e34a95"
+    },
+    {
+      "path": "evidence-synthesis.md",
+      "exists": true,
+      "sha256": "sha256:483ec8bc3bc6aa6f18414d25a17ef26bad133fa7784175e24e0a33eb4ec1675a"
+    },
+    {
+      "path": "engineering-blueprint.md",
+      "exists": true,
+      "sha256": "sha256:afffde143848e717443bb0dd336cf7164bd5779befece47d0b657a89b7a3e933"
+    },
+    {
+      "path": "manuscript.md",
+      "exists": true,
+      "sha256": "sha256:0fa89e200555b970dc64de253e3af89d525fc4349a04ced709412abefe2b6212"
+    },
+    {
+      "path": "comparison.md",
+      "exists": true,
+      "sha256": "sha256:67211cd7be0d1b07bcdfbab6688c7f981a59949b6ff54cd852576e4b19ce357e"
+    },
+    {
+      "path": "lab-manifest.json",
+      "exists": true,
+      "sha256": "sha256:18cb03a86ccdd8b946300182e29ec9795b0477f69cecadf540d9565552dacc03"
+    },
+    {
+      "path": "validation.md",
+      "exists": true,
+      "sha256": "sha256:1b58d77d5d1499d104b3853928357b4fedad569c3612895e710b606ecea6e050"
+    },
+    {
+      "path": "projection-ledger.json",
+      "exists": true,
+      "sha256": "sha256:237758ed7bc19849a79774bbad666c0da2ec316f30ece81ce2d99edc2ac07b15"
+    }
+  ],
+  "editorial_score": 100,
+  "boundary_preservation_score": 100,
+  "executability_audit_ref": "research/executability-audit.json",
+  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit": {
+    "path": "../../executability-audit.json",
+    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "verdict": "PASS",
+    "finding_count": 0
+  },
+  "material_hashes": {
+    "materials/ui-mobile-automation/configs/web-compatibility-matrix.yaml": "sha256:cfded498d7dd3a6c222e2a98f4b4309278a4391f5cc9876be0eca23fa5dbd7c0",
+    "materials/ui-mobile-automation/guides/a11y-visual-regression.md": "sha256:5df4599eb9ec0d23bc12748e308a606777db4258f86b5df3eadcb49746c7a7bb",
+    "materials/ui-mobile-automation.zip": "sha256:9d7f84ee5168e1e5c16831604fda6460a12e0366c89da0285478647aaf8dea51",
+    "materials/ui-mobile-automation/scripts/ui_contract_lab.py": "sha256:fc84433464a670362214d6275faac57c73f616097efef17d102f01a82e80009e",
+    "materials/ui-mobile-automation/README.md": "sha256:76752e8d703cf2a53faf584c4c7a4798b7abc35f63d675cfda42a4d7269d98e1"
+  },
+  "learner_material_hashes": [
+    {
+      "href": "materials/ui-mobile-automation/configs/web-compatibility-matrix.yaml",
+      "public_sha256": "sha256:cfded498d7dd3a6c222e2a98f4b4309278a4391f5cc9876be0eca23fa5dbd7c0",
+      "static_sha256": "sha256:cfded498d7dd3a6c222e2a98f4b4309278a4391f5cc9876be0eca23fa5dbd7c0",
+      "archive_member_sha256": "sha256:cfded498d7dd3a6c222e2a98f4b4309278a4391f5cc9876be0eca23fa5dbd7c0",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ui-mobile-automation/guides/a11y-visual-regression.md",
+      "public_sha256": "sha256:5df4599eb9ec0d23bc12748e308a606777db4258f86b5df3eadcb49746c7a7bb",
+      "static_sha256": "sha256:5df4599eb9ec0d23bc12748e308a606777db4258f86b5df3eadcb49746c7a7bb",
+      "archive_member_sha256": "sha256:5df4599eb9ec0d23bc12748e308a606777db4258f86b5df3eadcb49746c7a7bb",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ui-mobile-automation.zip",
+      "public_sha256": "sha256:9d7f84ee5168e1e5c16831604fda6460a12e0366c89da0285478647aaf8dea51",
+      "static_sha256": "sha256:9d7f84ee5168e1e5c16831604fda6460a12e0366c89da0285478647aaf8dea51",
+      "archive_member_sha256": null,
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ui-mobile-automation/scripts/ui_contract_lab.py",
+      "public_sha256": "sha256:fc84433464a670362214d6275faac57c73f616097efef17d102f01a82e80009e",
+      "static_sha256": "sha256:fc84433464a670362214d6275faac57c73f616097efef17d102f01a82e80009e",
+      "archive_member_sha256": "sha256:fc84433464a670362214d6275faac57c73f616097efef17d102f01a82e80009e",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ui-mobile-automation/README.md",
+      "public_sha256": "sha256:76752e8d703cf2a53faf584c4c7a4798b7abc35f63d675cfda42a4d7269d98e1",
+      "static_sha256": "sha256:76752e8d703cf2a53faf584c4c7a4798b7abc35f63d675cfda42a4d7269d98e1",
+      "archive_member_sha256": "sha256:76752e8d703cf2a53faf584c4c7a4798b7abc35f63d675cfda42a4d7269d98e1",
+      "closure_verdict": "PASS"
+    }
+  ],
+  "verdict": "FAIL",
+  "findings": [
+    "independent editorial review does not pin current page content hash"
+  ]
+}

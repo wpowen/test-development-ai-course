@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-C01",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:891775c1303da6c80a1e4e0d330a0f6ca703f77d0157c8531dacfd85a9447ab6",
+  "page_content_sha256": "sha256:935a39cd8b7837ab4801bacc1d379ae614cc4e2f9857fc82bc031528c88d56d6",
+  "claims": [
+    {
+      "claim_id": "TD-C01-DECISION-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "自评无证据项标 UNKNOWN；作品区分 desk/fixture/live/production；文档明确不承诺就业或岗位结果",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-C01#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-C01-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L37-L37",
+      "meaning": "本页仅为 static/fixture-tested 职业自评；provider、model、integration、practitioner、learner、live、production、publication 均 NOT_RUN，不构成就业、晋升、薪资、地区需求或个体适配保证。；不要在包里放任何来自公司的真实数据、配置或架构图，包括「已脱敏」的截图。合成场景更安全，说服力也不差。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-C01#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-C01-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "本页仅为 static/fixture-tested 职业自评；provider、model、integration、practitioner、learner、live、production、publication 均 NOT_RUN，不构成就业、晋升、薪资、地区需求或个体适配保证。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-C01#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-C01-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L25-L25",
+      "meaning": "行动：完成五维能力自评并为每项添加 evidence_ref；选择两条可组合路线并写清岗位边界；设计一个能让坏版本变红的 90 天作品 预期：删除就业承诺，把每个能力等级绑定需求追踪、自动化、AI Eval、容量/韧性或治理作品，并给出 30/60/90 天复评。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-C01#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-C01-TABLE-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "能力迁移最常见的失败，是把「学过」当成「能证明」 失效形态 可核查的数字 它导致的错误结论 用课程完成度代替能力证据 读完 103 页与产出 1 份可复现工件是两件事；前者的可复验性为 0 简历上写「熟悉 AI 测试」，面试时拿不出可展示的东西 作品集里全是通过的结果 只有绿灯的作品集无法证明检查有效；至少需要 1 次故障注入证明它会红 对方无法判断这套东西到底能不能发现问题 缺口诊断停在「我还不熟悉 X」 没有绑定下一件工件与复评日期的缺口，其闭合率在 3 个月后接近 0 半年过去，缺口清单一字未改 本页的做法…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-C01#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-C01-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "四条岗位路径各自要的证据不同 同样的能力，不同路径要的证据形态不同。用一份通用简历投四类岗位，会在每一类上都显得准备不足。 第三列写的是这类岗位真正会被追问的东西——它比岗位描述上写的技能列表更接近实际。 岗位路径 核心能力 会被追问什么 对应工件 评测工程 把模糊质量要求变成可判定判据 你的 scorer 怎么校准的，误差多大 评测合同 + Judge 校准记录 质量平台 把证据链接进研发流水线 证据与代码版本怎么绑定的，fail-closed 吗 门禁配置 + 证据闭包清单 生产可靠性 把线上信号变成质量约束…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-C01#content_sections.teaching_blocks.3",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-C01-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L7-L7",
+      "meaning": "能力迁移最常见的失败，是把「学过」当成「能证明」 从传统测试转向 AI 质量工程时，多数人的自评基于「我读过、我试过」。而招聘方与团队需要的是可复验的证据：一份别人能打开、能跑、能质疑的工件。 下面三条是自评与证据之间的落差。 失效形态 可核查的数字 它导致的错误结论 用课程完成度代替能力证据 读完 103 页与产出 1 份可复现工件是两件事；前者的可复验性为 0 简历上写「熟悉 AI 测试」，面试时拿不出可展示的东西 作品集里全是通过的结果 只有绿灯的作品集无法证明检查有效；至少需要 1 次故障注入证明它会红…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-C01#content_sections.teaching_blocks.0",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

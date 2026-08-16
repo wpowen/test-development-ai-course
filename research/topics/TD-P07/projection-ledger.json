@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-P07",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:11617658a5dbd468a716f2e4bd7f4363fab07f3fe62c588e65b39246bb84fbe1",
+  "page_content_sha256": "sha256:c981f4b9c57ba45f3780e6722afd59cd6ec672506130b4848dd38ea8f98e7685",
+  "claims": [
+    {
+      "claim_id": "TD-P07-DECISION-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "运行结果可在同一夹具上复现；失败状态不会被强制二值化；原始证据足以支持缺陷归因",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-P07#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-P07-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "‘最终全部通过’若没有 selected tests、skipped、retry 和版本信息，只能算展示文字。；本阶段的准出条件不允许用「先过、后面补」跳过。跳过一次准出，等于把不确定性推给下游阶段，用返工代价偿还。；本包已通过静态合同和离线负控制；真实 AI provider/model 执行仍为 NOT_RUN，不能据此声称模型准确、企业可用或生产通过。；绿色截图和模型总结不能替代 Run Manifest；证据不足时保持 UNKNOWN，不允许 healer 猜根因或改断言转绿。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-P07#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-P07-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L27-L27",
+      "meaning": "本专题使用虚构的订单取消与退款资料包验证工件结构和离线流水线。它能证明流程可运行、冲突能阻断、预埋缺陷能被测试发现；不能证明模型能正确理解你公司的全部文档，也不能替代产品、研发、法务和发布责任人的确认。provider/model、真实集成、practitioner 盲审、learner 实际迁移、live、production 均为 NOT_RUN；fixture-only 结果不得升级为企业可用或发布证据。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-P07#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-P07-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L11-L11",
+      "meaning": "行动：给一次运行补齐 code/baseline/data/test hash；制造环境失败并确认状态是 BLOCKED 而不是 FAIL；检查重试是否记录每次结果 预期：baseline=PASS，mutation=FAIL，repair=PASS；mutation 报告包含测试 ID、期望 409、实际 202、代码版本和原始证据。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-P07#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-P07-TABLE-01",
+      "manuscript_locator": "manuscript.md:L3-L3",
+      "meaning": "一次绿色结果，需要的证据比你以为的多 失效形态 可核查的数字 它导致的错误结论 运行不记录版本 重放需要代码、配置、数据、判据 4 类版本；缺任一项时重放成功率为 0 「上次是好的」无法被验证，也无法被复现 失败不做归因就重跑 重跑通过的失败中包含真实缺陷的比例不为 0；直接重跑等于把它们放行 把间歇失败一律当成环境问题 UNKNOWN 被强行归类 健康的执行报告里 UNKNOWN 长期占 5%～15%；它归零通常是判据被放松而不是问题被解决 报告显示「全部已归因」，实际是把不确定的都塞进了最像的桶 本页要求每次…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-P07#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-P07-METRIC-01",
+      "manuscript_locator": "manuscript.md:L1-L1",
+      "meaning": "这一页的验收口径：可重放与可归因 P07-1 的可重放率决定这次执行的证据能不能在以后被复用；P07-2 的归因率决定失败能不能变成改进项。 P07-4 给 UNKNOWN 设的是下限而不是上限——它归零通常意味着判据被放松了。 编号 测什么 关键指标 复测频率 P07-1 可重放 四类版本记录缺失率 = 0；抽取 20 次运行可重放比例 ≥ 95% 每次执行 P07-2 失败归因 失败可归因到具体层的比例 ≥ 80%，其余标记 UNKNOWN 每次执行 P07-3 重跑纪律 未经归因即重跑的次数 = 0 每次执…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-P07#content_sections.teaching_blocks.4",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-P07-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L23-L23",
+      "meaning": "失败先分类，修复 Agent 才能被约束 至少区分 PRODUCT_FAIL、TEST_FAIL、ENV_BLOCKED、DEPENDENCY_BLOCKED、UNKNOWN。没有足够证据时保持 UNKNOWN；不要让 healer 为了转绿直接改断言、加 skip 或放宽阈值。 状态 例子 下一步 PRODUCT_FAIL SHIPPED 返回 202 建缺陷，保留 mutation/trace TEST_FAIL 测试数据未创建 修测试夹具，不改业务 Oracle ENV_BLOCKED 服务未启动 恢复环境…",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-P07#content_sections.teaching_blocks.6",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

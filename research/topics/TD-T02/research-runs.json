@@ -1,0 +1,48 @@
+{
+  "topic_id": "TD-T02",
+  "runs": [
+    {
+      "run_id": "TD-T02-architecture-20260811",
+      "route": "architecture-primary-docs",
+      "status": "opened-sources-synthesized",
+      "source_refs": [
+        "SRC-TRANSFORMER",
+        "SRC-RAG",
+        "SRC-RAGAS",
+        "SRC-ARES",
+        "SRC-RAG-SURVEY",
+        "SRC-OPENAI-EVALS",
+        "SRC-ANTHROPIC-AGENTS",
+        "SRC-ANTHROPIC-CONTEXT"
+      ]
+    },
+    {
+      "run_id": "TD-T02-measurement-20260811",
+      "route": "measurement-failure-counterevidence",
+      "status": "opened-sources-synthesized",
+      "source_refs": [
+        "SRC-RAG-SURVEY",
+        "SRC-OPENAI-EVALS",
+        "SRC-ANTHROPIC-AGENTS",
+        "SRC-ANTHROPIC-CONTEXT",
+        "SRC-NIST-AIRC",
+        "SRC-NIST-STATS",
+        "SRC-GOOGLE-SPLIT",
+        "SRC-GOOGLE-METRICS"
+      ]
+    }
+  ],
+  "comparison": {
+    "reviewer": "independent-validation-contract-reviewer",
+    "input_run_ids": [
+      "TD-T02-architecture-20260811",
+      "TD-T02-measurement-20260811"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "ACCEPT-WITH-FIXTURE-BOUNDARY"
+  },
+  "limitations": [
+    "合成数据的分布代表性与领域标签一致性尚未通过生产样本校准。",
+    "No live model or enterprise integration run"
+  ]
+}

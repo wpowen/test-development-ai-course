@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "test-basis-pack.v1.1",
+  "type": "object",
+  "required": [
+    "page_id",
+    "status",
+    "sources",
+    "claims",
+    "conflicts",
+    "unknowns",
+    "owner_questions",
+    "downstream_artifacts"
+  ],
+  "properties": {
+    "page_id": {
+      "const": "TD-P01"
+    },
+    "status": {
+      "enum": [
+        "ACCEPTED",
+        "PASS",
+        "PARTIAL",
+        "BLOCKED",
+        "UNKNOWN",
+        "RELEASE_CANDIDATE",
+        "NOT_RUN",
+        "PASS_SCHEMA",
+        "PASS_SEMANTIC",
+        "FAIL",
+        "SCHEMA_INVALID",
+        "REFUSED",
+        "INCOMPLETE",
+        "SOURCE_CONFLICT",
+        "UNSUPPORTED_RULE",
+        "SEMANTIC_UNKNOWN"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "description": "Professional output records for sources",
+      "items": {
+        "type": "object"
+      }
+    },
+    "claims": {
+      "type": "array",
+      "description": "Professional output records for claims",
+      "items": {
+        "type": "object"
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "description": "Professional output records for conflicts",
+      "items": {
+        "type": "object"
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "description": "Professional output records for unknowns",
+      "items": {
+        "type": "object"
+      }
+    },
+    "owner_questions": {
+      "type": "array",
+      "description": "Professional output records for owner_questions",
+      "items": {
+        "type": "object"
+      }
+    },
+    "downstream_artifacts": {
+      "type": "array",
+      "description": "Professional output records for downstream_artifacts",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": false
+}

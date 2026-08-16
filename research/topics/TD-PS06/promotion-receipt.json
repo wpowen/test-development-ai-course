@@ -1,0 +1,135 @@
+{
+  "schema_version": "page-promotion-receipt.v1",
+  "page_id": "TD-PS06",
+  "validated_at": "2026-08-15T14:44:09.109Z",
+  "reviewer": "validation-semantic-parity-verifier-2026-08-13",
+  "page_content_hash": "sha256:317ae07093fdb279cdd88b3f23e27297a8be7a22b8a420ed9dd4e6143bf7ea93",
+  "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
+  "editorial_review_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+  "editorial_review_verdict": "PASS",
+  "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
+  "page_author_id": "course-page-projection-author-2026-08-13",
+  "reviewer_is_independent_of_author": true,
+  "research_package_files": [
+    "research-brief.md",
+    "source-pack.csv",
+    "research-runs.json",
+    "evidence-synthesis.md",
+    "engineering-blueprint.md",
+    "manuscript.md",
+    "comparison.md",
+    "lab-manifest.json",
+    "validation.md",
+    "projection-ledger.json"
+  ],
+  "research_inventory": [
+    {
+      "path": "research-brief.md",
+      "exists": true,
+      "sha256": "sha256:58efa040387409d31e54da6c080e5fcc7e5a6efbe109367eede379322d94def0"
+    },
+    {
+      "path": "source-pack.csv",
+      "exists": true,
+      "sha256": "sha256:e893b1b39fcf36da3beccfbb63894142552afbe3fc70fec530fdfe8d83574045"
+    },
+    {
+      "path": "research-runs.json",
+      "exists": true,
+      "sha256": "sha256:86b6638bf6e4ed5ef7038edfdd725a97c38472d25267a853cd0fd2a863a48256"
+    },
+    {
+      "path": "evidence-synthesis.md",
+      "exists": true,
+      "sha256": "sha256:53dfcba3de4c4e07b5b1a1bdb9b25359c83bdfa3b0c37957a1d1db2d0f9a81e3"
+    },
+    {
+      "path": "engineering-blueprint.md",
+      "exists": true,
+      "sha256": "sha256:95874bb54ec30fdd2d59b85a1ea6c4b9ee95713fe49e3161d47035812d20e808"
+    },
+    {
+      "path": "manuscript.md",
+      "exists": true,
+      "sha256": "sha256:01cf7ac0ad668a3f6ef4271ee2797c21886353513585f396274bd8596b1cdf6c"
+    },
+    {
+      "path": "comparison.md",
+      "exists": true,
+      "sha256": "sha256:530fe9ed69561b5f57963139e7bcc840b3d8e06baca95439df7ab90984167aac"
+    },
+    {
+      "path": "lab-manifest.json",
+      "exists": true,
+      "sha256": "sha256:06de91cc3f8163f630f3921e3825727066edf7251403aa2cec5c4d89aad5068e"
+    },
+    {
+      "path": "validation.md",
+      "exists": true,
+      "sha256": "sha256:60103fcaf5e258d190d5c9972287126f30efd6d5033b61485815d30549b39576"
+    },
+    {
+      "path": "projection-ledger.json",
+      "exists": true,
+      "sha256": "sha256:da75aa4241986dbc6153259a4c23a6c53febf7d5a7b9524b8e4869d87aa1fcb4"
+    }
+  ],
+  "editorial_score": 100,
+  "boundary_preservation_score": 100,
+  "executability_audit_ref": "research/executability-audit.json",
+  "executability_audit_hash": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+  "executability_audit": {
+    "path": "../../executability-audit.json",
+    "sha256": "sha256:c5e537add453b940a28874800808d2d6e42d86e733020521539eb97cb33acf9b",
+    "verdict": "PASS",
+    "finding_count": 0
+  },
+  "material_hashes": {
+    "materials/ui-mobile-automation/fixtures/android-receiving.yaml": "sha256:c7ff8dc1ba5b126ca7eafa143cb44ba29726b565b92a753f1f092c62b820c251",
+    "materials/ui-mobile-automation/guides/android-device-matrix.md": "sha256:78b2567cde1f441593dd8f0010183e7ccfd0aff2ca7b49db9ea95f41af1b5687",
+    "materials/ui-mobile-automation.zip": "sha256:9d7f84ee5168e1e5c16831604fda6460a12e0366c89da0285478647aaf8dea51",
+    "materials/ui-mobile-automation/scripts/ui_contract_lab.py": "sha256:fc84433464a670362214d6275faac57c73f616097efef17d102f01a82e80009e",
+    "materials/ui-mobile-automation/README.md": "sha256:76752e8d703cf2a53faf584c4c7a4798b7abc35f63d675cfda42a4d7269d98e1"
+  },
+  "learner_material_hashes": [
+    {
+      "href": "materials/ui-mobile-automation/fixtures/android-receiving.yaml",
+      "public_sha256": "sha256:c7ff8dc1ba5b126ca7eafa143cb44ba29726b565b92a753f1f092c62b820c251",
+      "static_sha256": "sha256:c7ff8dc1ba5b126ca7eafa143cb44ba29726b565b92a753f1f092c62b820c251",
+      "archive_member_sha256": "sha256:c7ff8dc1ba5b126ca7eafa143cb44ba29726b565b92a753f1f092c62b820c251",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ui-mobile-automation/guides/android-device-matrix.md",
+      "public_sha256": "sha256:78b2567cde1f441593dd8f0010183e7ccfd0aff2ca7b49db9ea95f41af1b5687",
+      "static_sha256": "sha256:78b2567cde1f441593dd8f0010183e7ccfd0aff2ca7b49db9ea95f41af1b5687",
+      "archive_member_sha256": "sha256:78b2567cde1f441593dd8f0010183e7ccfd0aff2ca7b49db9ea95f41af1b5687",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ui-mobile-automation.zip",
+      "public_sha256": "sha256:9d7f84ee5168e1e5c16831604fda6460a12e0366c89da0285478647aaf8dea51",
+      "static_sha256": "sha256:9d7f84ee5168e1e5c16831604fda6460a12e0366c89da0285478647aaf8dea51",
+      "archive_member_sha256": null,
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ui-mobile-automation/scripts/ui_contract_lab.py",
+      "public_sha256": "sha256:fc84433464a670362214d6275faac57c73f616097efef17d102f01a82e80009e",
+      "static_sha256": "sha256:fc84433464a670362214d6275faac57c73f616097efef17d102f01a82e80009e",
+      "archive_member_sha256": "sha256:fc84433464a670362214d6275faac57c73f616097efef17d102f01a82e80009e",
+      "closure_verdict": "PASS"
+    },
+    {
+      "href": "materials/ui-mobile-automation/README.md",
+      "public_sha256": "sha256:76752e8d703cf2a53faf584c4c7a4798b7abc35f63d675cfda42a4d7269d98e1",
+      "static_sha256": "sha256:76752e8d703cf2a53faf584c4c7a4798b7abc35f63d675cfda42a4d7269d98e1",
+      "archive_member_sha256": "sha256:76752e8d703cf2a53faf584c4c7a4798b7abc35f63d675cfda42a4d7269d98e1",
+      "closure_verdict": "PASS"
+    }
+  ],
+  "verdict": "FAIL",
+  "findings": [
+    "independent editorial review does not pin current page content hash"
+  ]
+}

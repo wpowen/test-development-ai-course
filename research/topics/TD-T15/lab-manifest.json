@@ -1,0 +1,52 @@
+{
+  "topic_id": "TD-T15",
+  "page_id": "TD-T15",
+  "working_directory": "site/public/materials/llm-agent-quality/learner-materials",
+  "required_files": [
+    "scripts/agent_quality_lab.py",
+    "manifests/TD-T15.json",
+    "prompts/TD-T15/system.md",
+    "prompts/TD-T15/task.md",
+    "prompts/TD-T15/critic.md",
+    "prompts/TD-T15/input.json",
+    "prompts/TD-T15/output.schema.json",
+    "prompts/TD-T15/eval.json",
+    "prompts/TD-T15/mutation.json",
+    "prompts/TD-T15/manifest.json"
+  ],
+  "steps": [
+    {
+      "step_id": "baseline",
+      "kind": "baseline",
+      "command": "python3 scripts/agent_quality_lab.py --topic TD-T15 --phase baseline --report reports/td-t15/baseline.json",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "reports/td-t15/baseline.json"
+      ]
+    },
+    {
+      "step_id": "fault",
+      "kind": "fault",
+      "command": "python3 scripts/agent_quality_lab.py --topic TD-T15 --phase fault --report reports/td-t15/fault.json",
+      "expected_exit_code": 1,
+      "expected_artifacts": [
+        "reports/td-t15/fault.json"
+      ]
+    },
+    {
+      "step_id": "repair",
+      "kind": "repair",
+      "command": "python3 scripts/agent_quality_lab.py --topic TD-T15 --phase repair --report reports/td-t15/repair.json",
+      "expected_exit_code": 0,
+      "expected_artifacts": [
+        "reports/td-t15/repair.json"
+      ]
+    }
+  ],
+  "failure_cycle": {
+    "baseline_step_id": "baseline",
+    "fault_step_id": "fault",
+    "repair_step_id": "repair"
+  },
+  "evidence_boundary": "deterministic offline fixture only; model, browser, external tools, queues, live traffic, security review and practitioner review are NOT_RUN"
+}

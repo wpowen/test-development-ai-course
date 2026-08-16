@@ -1,0 +1,9 @@
+{
+  "topic_id":"TD-X502",
+  "runs":[
+    {"run_id":"TD-X502-R1","role":"evidence-builder","question":"建立权威工件、指标和门禁链","source_ids":["X502-S01","X502-S02","X502-S03","X502-S04","X502-S05"],"output_ref":"evidence-synthesis.md","verdict":"ACCEPT_WITH_LIMITS"},
+    {"run_id":"TD-X502-R2","role":"counterevidence-reviewer","question":"寻找平均值、自评、漂移与样本造成的假绿","source_ids":["X502-S06","X502-S07","X502-S08","X502-S09","X502-S10"],"output_ref":"comparison.md","verdict":"REQUIRE_INDEPENDENT_OWNER"}
+  ],
+  "comparison":{"reviewer":"independent-course-review","input_run_ids":["TD-X502-R1","TD-X502-R2"],"output_ref":"comparison.md","verdict":"MERGE_ONLY_AUDITABLE_CLAIMS"}
+}
+

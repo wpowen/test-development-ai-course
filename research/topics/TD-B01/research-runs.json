@@ -1,0 +1,48 @@
+{
+  "topic_id": "TD-B01",
+  "runs": [
+    {
+      "run_id": "TD-B01-architecture-20260811",
+      "route": "architecture-primary-docs",
+      "status": "opened-sources-synthesized",
+      "source_refs": [
+        "W3-01",
+        "W3-02",
+        "W3-03",
+        "W3-04",
+        "W3-05",
+        "W3-06",
+        "W3-07",
+        "W3-08"
+      ]
+    },
+    {
+      "run_id": "TD-B01-measurement-20260811",
+      "route": "measurement-failure-counterevidence",
+      "status": "opened-sources-synthesized",
+      "source_refs": [
+        "W3-05",
+        "W3-06",
+        "W3-07",
+        "W3-08",
+        "W3-09",
+        "W3-10",
+        "W3-11",
+        "W3-12"
+      ]
+    }
+  ],
+  "comparison": {
+    "reviewer": "independent-validation-contract-reviewer",
+    "input_run_ids": [
+      "TD-B01-architecture-20260811",
+      "TD-B01-measurement-20260811"
+    ],
+    "output_ref": "comparison.md",
+    "verdict": "ACCEPT-WITH-FIXTURE-BOUNDARY"
+  },
+  "limitations": [
+    "课程没有复现完整公开榜单或验证当前模型排名。",
+    "No live model or enterprise run"
+  ]
+}

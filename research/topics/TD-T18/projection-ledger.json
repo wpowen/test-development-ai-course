@@ -1,0 +1,90 @@
+{
+  "schema_version": "page-projection-ledger.v1",
+  "topic_id": "TD-T18",
+  "author_id": "course-page-projection-author-2026-08-13",
+  "manuscript_sha256": "sha256:a1e8e235a318bd083003fe7bd354d2f21a3d03ad312ff20ac5748fe8cc1b68fb",
+  "page_content_sha256": "sha256:964f8547f1e6a3a5c03d4bc4ced9cfe43e9dd57a9f2fdc718bb25bf95ea6d487",
+  "claims": [
+    {
+      "claim_id": "TD-T18-DECISION-01",
+      "manuscript_locator": "manuscript.md:L19-L19",
+      "meaning": "安全和权限先于可写副作用；fault 稳定变红且 repair 重新变绿；模型不批准自己的期望，人工 owner 和 NOT_RUN 边界明确",
+      "kind": "decision-rule",
+      "disposition": "projected",
+      "page_target": "TD-T18#content_sections.completion_check",
+      "rationale": "完成条件保留了研究中的可判定出口，学习者必须提供证据而非仅阅读页面。",
+      "owner": "course decision-rule owner"
+    },
+    {
+      "claim_id": "TD-T18-FAILURE-01",
+      "manuscript_locator": "manuscript.md:L34-L34",
+      "meaning": "安全、身份和权限检查必须先于任何可写副作用；被测模型、Judge 或 healer 不能批准自己的期望。；删除 Oracle、改变 expected、扩大权限、增加预算或无限重试都属于制造假绿。；注入故障要选有业务含义的，不要选会导致页面报错的。页面报错时所有测试都会红，测不出断言层次。",
+      "kind": "failure-mode",
+      "disposition": "projected",
+      "page_target": "TD-T18#content_sections.common_errors",
+      "rationale": "页面显式保留常见失败与修复入口，防止只展示成功路径。",
+      "owner": "course failure-mode owner"
+    },
+    {
+      "claim_id": "TD-T18-BOUNDARY-01",
+      "manuscript_locator": "manuscript.md:L32-L32",
+      "meaning": "Playwright 文档和公开实践支持测试 Agent 工作流；示例命令需目标项目和页面夹具，课程尚未对多个复杂企业 UI 测量生成成功率。 本页新增证据仅为确定性离线 fixture；真实模型、浏览器、工具、队列、组织审批和从业者评审均 NOT_RUN。",
+      "kind": "boundary",
+      "disposition": "projected",
+      "page_target": "TD-T18#content_sections.evidence_boundary",
+      "rationale": "页面逐字保留成熟度和证据边界，不把静态或 fixture 成功提升为 live、practitioner 或 production。",
+      "owner": "course evidence-boundary owner"
+    },
+    {
+      "claim_id": "TD-T18-ARTIFACT-01",
+      "manuscript_locator": "manuscript.md:L19-L19",
+      "meaning": "行动：运行 TD-T18 的 0/1/0 fixture 并解释命名 Oracle；检查 Prompt/Input/Schema/Eval/Mutation 的版本闭包；写出一个不同业务对象的权限、故障和 rollback 预期：固定 input、Schema、eval 和 mutation 已绑定；模型执行仍为 NOT_RUN。",
+      "kind": "artifact",
+      "disposition": "projected",
+      "page_target": "TD-T18#content_sections.learner_action",
+      "rationale": "页面把研究结论转换为学习者可执行动作和可检查工件出口。",
+      "owner": "course reusable-artifact owner"
+    },
+    {
+      "claim_id": "TD-T18-TABLE-01",
+      "manuscript_locator": "manuscript.md:L34-L34",
+      "meaning": "AI 生成的浏览器测试最容易犯的错，是把「页面能跑通」当成「业务做对了」 失效形态 可核查的数字 它导致的错误结论 生成的断言只检查元素存在 只断言元素存在的测试，其业务变异体杀伤率通常低于 30% 「生成了 80 条 E2E 且全绿」被当成覆盖充分 直接接受生成代码不做人工评审 生成脚本中包含硬等待、绝对定位、跳过步骤等反模式的比例不低；这些会在 1～2 个版本后集中失效 初期维护成本很低，半年后套件不可维护 用页面状态而非业务状态做判据 前端显示成功而后端未落库的场景，纯 UI 断言 100% 漏过 把「提示…",
+      "kind": "judgement-table",
+      "disposition": "condensed",
+      "page_target": "TD-T18#content_sections.teaching_blocks.0",
+      "rationale": "研究中的判断维度被压缩为页面中的真实表格；表格行保留条件、风险或处置差异。",
+      "owner": "course judgement-table owner"
+    },
+    {
+      "claim_id": "TD-T18-METRIC-01",
+      "manuscript_locator": "manuscript.md:L30-L30",
+      "meaning": "AI 生成的浏览器测试最容易犯的错，是把「页面能跑通」当成「业务做对了」 Browser Agent 生成测试的速度极快，通过率也很高。但它默认优化的目标是「让脚本跑绿」，而不是「验证业务发生了」——这两个目标在大多数时候一致，在最关键的时候不一致。 下面三条给出这个偏差的三种表现。 失效形态 可核查的数字 它导致的错误结论 生成的断言只检查元素存在 只断言元素存在的测试，其业务变异体杀伤率通常低于 30% 「生成了 80 条 E2E 且全绿」被当成覆盖充分 直接接受生成代码不做人工评审 生成脚本中包含硬等待、绝…",
+      "kind": "metric-definition",
+      "disposition": "condensed",
+      "page_target": "TD-T18#content_sections.teaching_blocks.0",
+      "rationale": "指标相关研究保留在具名教学块；任何固定数值按页面证据边界解释为场景参数或 UNKNOWN。",
+      "owner": "course metric-card owner"
+    },
+    {
+      "claim_id": "TD-T18-COUNTEREXAMPLE-01",
+      "manuscript_locator": "manuscript.md:L34-L34",
+      "meaning": "专业问题、失败成本与决策权 Agent 为退款后台生成端到端测试，页面绿色且截图漂亮，但断言只有按钮可见；healer 在 DOM 改版后把定位器改到“关闭”按钮，测试仍绿却没有提交退款复核。 Browser Agent 只使用隔离账户和无写权限环境；生成代码进入人工 review 后才能合并。 安全、身份和权限检查必须先于任何可写副作用；被测模型、Judge 或 healer 不能批准自己的期望。",
+      "kind": "counterexample",
+      "disposition": "condensed",
+      "page_target": "TD-T18#content_sections.teaching_blocks.7",
+      "rationale": "反例或错误路径进入独立教学块，学习者可以解释其为何假绿以及如何修复。",
+      "owner": "course counterexample owner"
+    }
+  ],
+  "counts": {
+    "total": 7,
+    "projected": 4,
+    "condensed": 3,
+    "deferred": 0,
+    "rejected": 0,
+    "unaccounted": 0
+  },
+  "reviewer": "course-page-projection-audit-agent-2026-08-13",
+  "verdict": "PASS",
+  "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes."
+}

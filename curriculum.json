@@ -1,0 +1,5555 @@
+{
+  "version": "4.0",
+  "career_id": "test-development-ai",
+  "last_verified": "2026-08-11",
+  "architecture_profile": "ai-quality-engineer",
+  "canonical_catalog": "research/course-catalog-manifest.json",
+  "migration_table": "research/course-catalog-migration.csv",
+  "release_scope": "internal-catalog-only",
+  "catalog_complete": false,
+  "course_count": 46,
+  "compatibility_course_count": 46,
+  "canonical_course_count": 117,
+  "courses": [
+    {
+      "course_id": "TD-BASE-01",
+      "title": "传统研发测试流程与 AI 变化点",
+      "stage_id": "TD-ST00",
+      "level": "L0-entry",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [],
+      "knowledge_dependencies": [
+        "研发流程",
+        "风险驱动测试"
+      ],
+      "professional_baseline": "需求到发布的质量责任和证据链",
+      "new_ai_capability": "识别模型 Prompt 数据工具加入后的新测试对象",
+      "learner_artifact": [
+        "传统流程与 AI 变化地图"
+      ],
+      "assessment": "为一个 AI 功能标出原流程和新增风险",
+      "proof": "变化点可追踪到系统和责任人",
+      "source_ids": [
+        "S23",
+        "S32"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-02",
+      "title": "测试设计、Oracle 与 Mutation 入场考核",
+      "stage_id": "TD-ST00",
+      "level": "L0-entry",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-01"
+      ],
+      "knowledge_dependencies": [
+        "等价类边界状态组合",
+        "断言与 Oracle"
+      ],
+      "professional_baseline": "把业务规则变成可失败的检查",
+      "new_ai_capability": "为后续概率性输出保留风险与判定思维",
+      "learner_artifact": [
+        "追踪矩阵",
+        "可执行测试",
+        "Mutation 报告"
+      ],
+      "assessment": "预埋业务缺陷必须稳定变红",
+      "proof": "RED→GREEN→回归 GREEN",
+      "source_ids": [
+        "S23",
+        "S32"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-03",
+      "title": "自动化工具链、Trace、CI 与发布基线",
+      "stage_id": "TD-ST00",
+      "level": "L0-entry",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-02"
+      ],
+      "knowledge_dependencies": [
+        "API UI 集成测试",
+        "Trace Log Diff",
+        "CI"
+      ],
+      "professional_baseline": "测试执行可重放且发布结论有证据",
+      "new_ai_capability": "为 AI Trace 和 Eval Gate 建立工程入口",
+      "learner_artifact": [
+        "测试仓库",
+        "CI Gate",
+        "证据链缺陷报告"
+      ],
+      "assessment": "失败可复现可定位并阻断发布",
+      "proof": "从 Commit 到报告和阻断形成闭环",
+      "source_ids": [
+        "S01",
+        "S23",
+        "S32"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-FOUND-01",
+      "title": "大模型从数据、训练到推理和监控",
+      "stage_id": "TD-ST01",
+      "level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_course_ids": [
+        "TD-BASE-03"
+      ],
+      "knowledge_dependencies": [
+        "软件版本与运行环境",
+        "模型生命周期"
+      ],
+      "professional_baseline": "版本和环境决定测试结论",
+      "new_ai_capability": "区分训练知识、后训练行为、推理配置和线上漂移",
+      "learner_artifact": [
+        "模型生命周期测试地图"
+      ],
+      "assessment": "为每一阶段写出可观察风险和测试证据",
+      "proof": "模型行为变化能定位到生命周期环节",
+      "source_ids": [
+        "S23",
+        "S24",
+        "S33"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-FOUND-02",
+      "title": "Token、Attention、Context 与概率生成",
+      "stage_id": "TD-ST01",
+      "level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_course_ids": [
+        "TD-FOUND-01"
+      ],
+      "knowledge_dependencies": [
+        "输入输出与状态",
+        "概率性生成"
+      ],
+      "professional_baseline": "输入边界和运行参数必须可控",
+      "new_ai_capability": "解释 tokenization 上下文位置 logits sampling 对结果的影响",
+      "learner_artifact": [
+        "推理参数到失败模式实验表"
+      ],
+      "assessment": "改变上下文或解码变量并解释输出差异",
+      "proof": "实验记录固定模型 Prompt 参数和输出",
+      "source_ids": [
+        "S23",
+        "S33"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-FOUND-03",
+      "title": "Embedding、RAG、Tool call 与 Agent loop",
+      "stage_id": "TD-ST01",
+      "level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_course_ids": [
+        "TD-FOUND-02"
+      ],
+      "knowledge_dependencies": [
+        "系统数据流",
+        "模型推理"
+      ],
+      "professional_baseline": "复杂系统必须分层定位",
+      "new_ai_capability": "拆解检索生成工具状态和轨迹",
+      "learner_artifact": [
+        "LLM RAG Agent 结构与 Trace 图"
+      ],
+      "assessment": "根据失败症状选择首查层和证据",
+      "proof": "每个节点有输入输出版本和责任边界",
+      "source_ids": [
+        "S34",
+        "S35",
+        "S23"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-FOUND-04",
+      "title": "大模型能力边界与 AI 测试对象",
+      "stage_id": "TD-ST01",
+      "level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_course_ids": [
+        "TD-FOUND-03"
+      ],
+      "knowledge_dependencies": [
+        "传统 Oracle",
+        "AI 系统结构"
+      ],
+      "professional_baseline": "风险决定 Oracle 和人工 Gate",
+      "new_ai_capability": "识别非确定性幻觉上下文工具权限隐私成本等边界",
+      "learner_artifact": [
+        "AI 失败分类与 Oracle 决策表"
+      ],
+      "assessment": "为高风险样例组合确定性语义和人工 Oracle",
+      "proof": "任何 blocker 不被平均分抵消",
+      "source_ids": [
+        "S08",
+        "S23",
+        "S24",
+        "S40"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-01",
+      "title": "用 AI 从 PRD/代码 Diff 建立风险模型",
+      "stage_id": "TD-ST02",
+      "level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_course_ids": [
+        "TD-FOUND-04"
+      ],
+      "knowledge_dependencies": [
+        "需求风险与追踪",
+        "反例审计"
+      ],
+      "professional_baseline": "风险分析与验收追踪",
+      "new_ai_capability": "让 AI 提取候选风险并保留证据引用",
+      "learner_artifact": [
+        "risk-matrix.json",
+        "traceability.md"
+      ],
+      "assessment": "注入缺失状态规则并检查是否识别",
+      "proof": "反例审计",
+      "source_ids": [
+        "S14",
+        "S32"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-02",
+      "title": "AI 生成自动化测试，但必须证明它会失败",
+      "stage_id": "TD-ST02",
+      "level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_course_ids": [
+        "TD-AI-01",
+        "TD-BASE-02"
+      ],
+      "knowledge_dependencies": [
+        "自动化结构",
+        "Mutation"
+      ],
+      "professional_baseline": "测试必须对产品缺陷敏感",
+      "new_ai_capability": "审查 AI 生成测试的检测力和伪覆盖",
+      "learner_artifact": [
+        "tests",
+        "mutation-report.json"
+      ],
+      "assessment": "产品 Mutation 使生成测试由绿变红",
+      "proof": "RED→GREEN",
+      "source_ids": [
+        "S01",
+        "S21"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-03",
+      "title": "用 AI 读 Trace/Log/Diff 做失败归因",
+      "stage_id": "TD-ST02",
+      "level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_course_ids": [
+        "TD-AI-02"
+      ],
+      "knowledge_dependencies": [
+        "失败证据链",
+        "反事实验证"
+      ],
+      "professional_baseline": "根因必须引用可复核证据",
+      "new_ai_capability": "用模型聚类和提出候选归因但不替代确认",
+      "learner_artifact": [
+        "evidence-linked-bug.md"
+      ],
+      "assessment": "删除关键证据后置信度下降",
+      "proof": "反事实检查",
+      "source_ids": [
+        "S14",
+        "S20",
+        "S22"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-04",
+      "title": "AI 生成属性、边界和 Fuzz 数据",
+      "stage_id": "TD-ST02",
+      "level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_course_ids": [
+        "TD-AI-02"
+      ],
+      "knowledge_dependencies": [
+        "边界与属性测试",
+        "最小反例"
+      ],
+      "professional_baseline": "生成数据服务风险覆盖",
+      "new_ai_capability": "让 AI 扩展候选生成器并自动缩小失败样例",
+      "learner_artifact": [
+        "generator.py",
+        "shrunk-counterexample.json"
+      ],
+      "assessment": "命中并缩小预埋边界缺陷",
+      "proof": "最小失败种子可重放",
+      "source_ids": [
+        "S14",
+        "S23"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-EVAL-01",
+      "title": "Eval 数据集、Dataset card、切片与 Holdout",
+      "stage_id": "TD-ST03",
+      "level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-FOUND-04"
+      ],
+      "knowledge_dependencies": [
+        "测试数据设计",
+        "AI 数据污染"
+      ],
+      "professional_baseline": "数据代表业务风险和边界",
+      "new_ai_capability": "管理黄金集风险切片来源版本和未见 Holdout",
+      "learner_artifact": [
+        "eval-cases.jsonl",
+        "dataset-card.md",
+        "holdout-manifest.json"
+      ],
+      "assessment": "重复污染和切片缺口被检测",
+      "proof": "数据来源和 Split 可审计",
+      "source_ids": [
+        "S05",
+        "S23",
+        "S36",
+        "S40"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-EVAL-02",
+      "title": "Scorer、Rubric、LLM Judge 与人工校准",
+      "stage_id": "TD-ST03",
+      "level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-EVAL-01"
+      ],
+      "knowledge_dependencies": [
+        "组合 Oracle",
+        "标注分歧"
+      ],
+      "professional_baseline": "判定规则需要可靠性证据",
+      "new_ai_capability": "设计确定性 Scorer 和校准过的模型 Judge",
+      "learner_artifact": [
+        "rubric.md",
+        "judge-calibration.json",
+        "disagreement-set.jsonl"
+      ],
+      "assessment": "Judge 对反例和人工分歧可解释",
+      "proof": "校准集和误判样例 preserved",
+      "source_ids": [
+        "S04",
+        "S05",
+        "S10",
+        "S40"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-05",
+      "title": "LLM 评测基础：黄金集、Rubric 与阈值",
+      "stage_id": "TD-ST03",
+      "level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-EVAL-02"
+      ],
+      "knowledge_dependencies": [
+        "Eval 数据集",
+        "组合 Oracle"
+      ],
+      "professional_baseline": "回归由风险和阈值决定",
+      "new_ai_capability": "把 LLM 行为转成可重复发布判断",
+      "learner_artifact": [
+        "eval_cases.jsonl",
+        "rubric.md"
+      ],
+      "assessment": "低质量 Snapshot 未达阈值",
+      "proof": "基线回归",
+      "source_ids": [
+        "S03",
+        "S04",
+        "S05",
+        "S13"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "td-ai-006-rag-eval-ci",
+      "title": "RAG 分层评测：检索、回答、引用与忠实性",
+      "stage_id": "TD-ST03",
+      "level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-AI-05",
+        "TD-FOUND-03"
+      ],
+      "knowledge_dependencies": [
+        "RAG 结构",
+        "Eval 数据与 Oracle"
+      ],
+      "professional_baseline": "复杂链路分层测试",
+      "new_ai_capability": "分别验证检索生成引用拒答和工具安全",
+      "learner_artifact": [
+        "eval repo",
+        "metrics report",
+        "CI gate"
+      ],
+      "assessment": "完成 PASS→FAIL→PASS",
+      "proof": "幻觉丢引用和 Injection Mutation 被阻断",
+      "source_ids": [
+        "S03",
+        "S04",
+        "S09",
+        "S10",
+        "S23",
+        "S34"
+      ],
+      "delivery_status": "fixture-tested"
+    },
+    {
+      "course_id": "TD-AI-07",
+      "title": "Prompt/模型/知识库 A/B 与版本回归",
+      "stage_id": "TD-ST03",
+      "level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-AI-05"
+      ],
+      "knowledge_dependencies": [
+        "实验设计",
+        "版本化依赖"
+      ],
+      "professional_baseline": "候选版本使用同一协议比较",
+      "new_ai_capability": "比较 Prompt 模型和知识库组合并检查关键 Slice",
+      "learner_artifact": [
+        "experiment-ledger.csv",
+        "ab-report.md"
+      ],
+      "assessment": "新版本在关键 Slice 触发回归",
+      "proof": "阈值门禁",
+      "source_ids": [
+        "S05",
+        "S10",
+        "S36"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-09",
+      "title": "LLM/RAG/Agent 安全红队",
+      "stage_id": "TD-ST03",
+      "level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-AI-05",
+        "TD-FOUND-04"
+      ],
+      "knowledge_dependencies": [
+        "威胁模型",
+        "拒答与权限"
+      ],
+      "professional_baseline": "安全测试包含攻击检测防御和复测",
+      "new_ai_capability": "测试注入泄露越权和过度代理权",
+      "learner_artifact": [
+        "attack-set.yaml",
+        "redteam-report.html"
+      ],
+      "assessment": "高风险攻击有明确阻断和残余风险",
+      "proof": "Injection 泄露和越权阻断",
+      "source_ids": [
+        "S03",
+        "S06",
+        "S08",
+        "S40"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-10",
+      "title": "多模态 AI 的文档与截图评测",
+      "stage_id": "TD-ST03",
+      "level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-EVAL-02"
+      ],
+      "knowledge_dependencies": [
+        "多模态输入",
+        "风险切片"
+      ],
+      "professional_baseline": "输入类型和业务风险决定覆盖",
+      "new_ai_capability": "测试 OCR 版面视觉事实和跨模态幻觉",
+      "learner_artifact": [
+        "multimodal-dataset",
+        "slice-report.json"
+      ],
+      "assessment": "OCR 和视觉幻觉 Mutation 被检测",
+      "proof": "分模态回归",
+      "source_ids": [
+        "S23",
+        "S37"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-08",
+      "title": "Agent 评测：最终结果、单步与轨迹",
+      "stage_id": "TD-ST04",
+      "level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-AI-05",
+        "TD-FOUND-03"
+      ],
+      "knowledge_dependencies": [
+        "Agent loop",
+        "状态与轨迹"
+      ],
+      "professional_baseline": "端到端结果和中间状态都需证据",
+      "new_ai_capability": "设计结果动作轨迹三层 Scorer",
+      "learner_artifact": [
+        "trajectory-cases.jsonl",
+        "agent-report.json"
+      ],
+      "assessment": "错工具错参数和伪成功被捕获",
+      "proof": "步骤级 Scorer",
+      "source_ids": [
+        "S06",
+        "S10",
+        "S35",
+        "S39"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-11",
+      "title": "Playwright Planner/Generator/Healer",
+      "stage_id": "TD-ST04",
+      "level": "L3-integrate",
+      "ai_lane": "agentize-work",
+      "prerequisite_course_ids": [
+        "TD-AI-02",
+        "TD-AI-08"
+      ],
+      "knowledge_dependencies": [
+        "自动化测试结构",
+        "Agent 轨迹"
+      ],
+      "professional_baseline": "业务 Oracle 与合并责任不能外包",
+      "new_ai_capability": "监督规划生成执行和修复 Agent",
+      "learner_artifact": [
+        "seed.spec.ts",
+        "specs",
+        "tests",
+        "trace"
+      ],
+      "assessment": "Healer 后产品 Mutation 仍使测试失败",
+      "proof": "产品 Mutation 保持检测力",
+      "source_ids": [
+        "S01",
+        "S02",
+        "S18"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-12",
+      "title": "Browser/API Agent 沙箱、工具与权限",
+      "stage_id": "TD-ST04",
+      "level": "L3-integrate",
+      "ai_lane": "agentize-work",
+      "prerequisite_course_ids": [
+        "TD-AI-08",
+        "TD-AI-09"
+      ],
+      "knowledge_dependencies": [
+        "工具协议",
+        "最小权限"
+      ],
+      "professional_baseline": "高风险动作需要权限和审计",
+      "new_ai_capability": "在沙箱验证工具选择参数副作用和人工确认",
+      "learner_artifact": [
+        "policy.yaml",
+        "agent-trace.json"
+      ],
+      "assessment": "越权动作被拒绝并留痕",
+      "proof": "副作用阻断",
+      "source_ids": [
+        "S06",
+        "S08",
+        "S25",
+        "S26"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-13",
+      "title": "自愈测试的反作弊门禁",
+      "stage_id": "TD-ST04",
+      "level": "L3-integrate",
+      "ai_lane": "agentize-work",
+      "prerequisite_course_ids": [
+        "TD-AI-11"
+      ],
+      "knowledge_dependencies": [
+        "Mutation",
+        "Semantic diff"
+      ],
+      "professional_baseline": "修复不能改变业务判定意图",
+      "new_ai_capability": "审计 Healer 的 locator 等待断言和 Oracle 变化",
+      "learner_artifact": [
+        "healer-policy.md",
+        "semantic-diff.json"
+      ],
+      "assessment": "删除断言或扩大等待不能通过",
+      "proof": "反作弊 Gate",
+      "source_ids": [
+        "S01",
+        "S21",
+        "S22"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-14",
+      "title": "Worker Workflow 与多 Agent 测试流水线",
+      "stage_id": "TD-ST04",
+      "level": "L3-integrate",
+      "ai_lane": "agentize-work",
+      "prerequisite_course_ids": [
+        "TD-AI-08",
+        "TD-AI-12"
+      ],
+      "knowledge_dependencies": [
+        "Handoff contract",
+        "独立验证"
+      ],
+      "professional_baseline": "职责分离和复核降低伪成功",
+      "new_ai_capability": "测试 Worker 并发重试 Handoff 预算和 Verifier",
+      "learner_artifact": [
+        "handoff-contract.json",
+        "verifier-report.md"
+      ],
+      "assessment": "独立 Verifier 拒绝伪成功并与单 Agent 对照",
+      "proof": "相同预算下的可重放对照",
+      "source_ids": [
+        "S10",
+        "S35",
+        "S39"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-15",
+      "title": "评测集、Prompt、模型与工具版本管理",
+      "stage_id": "TD-ST05",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-07",
+        "TD-AI-14"
+      ],
+      "knowledge_dependencies": [
+        "实验设计",
+        "依赖 Lineage"
+      ],
+      "professional_baseline": "质量结论必须可重放",
+      "new_ai_capability": "版本化全部 AI 运行依赖",
+      "learner_artifact": [
+        "experiment-ledger",
+        "version-manifest.json"
+      ],
+      "assessment": "历史实验可按版本重放",
+      "proof": "版本一致性",
+      "source_ids": [
+        "S05",
+        "S07",
+        "S24",
+        "S36"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-16",
+      "title": "把 AI 评测接进 CI/CD",
+      "stage_id": "TD-ST05",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-15"
+      ],
+      "knowledge_dependencies": [
+        "可靠 Scorer",
+        "版本清单",
+        "发布责任"
+      ],
+      "professional_baseline": "测试失败能够阻断合并",
+      "new_ai_capability": "用 AI 质量阈值 Slice Blocker 和 Waiver 控制发布",
+      "learner_artifact": [
+        "quality-gate.yml",
+        "waiver-template.md"
+      ],
+      "assessment": "阈值回归阻断合并并记录 Waiver",
+      "proof": "非零退出码",
+      "source_ids": [
+        "S03",
+        "S05",
+        "S07"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-17",
+      "title": "Trace、线上反馈与回归集闭环",
+      "stage_id": "TD-ST05",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-15",
+        "TD-AI-16"
+      ],
+      "knowledge_dependencies": [
+        "Trace",
+        "数据脱敏",
+        "Lineage"
+      ],
+      "professional_baseline": "线上失败成为可复现回归资产",
+      "new_ai_capability": "采集模型检索工具状态并转为 Eval case",
+      "learner_artifact": [
+        "feedback-to-eval pipeline"
+      ],
+      "assessment": "线上失败脱敏去重并进入回归集",
+      "proof": "Trace 到 Eval Lineage",
+      "source_ids": [
+        "S07",
+        "S24",
+        "S27",
+        "S30"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-18",
+      "title": "质量、成本、延迟与稳定性联合评估",
+      "stage_id": "TD-ST05",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-16"
+      ],
+      "knowledge_dependencies": [
+        "多目标决策",
+        "重复运行"
+      ],
+      "professional_baseline": "发布权衡不能只看单一指标",
+      "new_ai_capability": "构建质量成本延迟稳定性的 Pareto 门禁",
+      "learner_artifact": [
+        "pareto-report.html"
+      ],
+      "assessment": "模型切换由多目标阈值决定",
+      "proof": "多目标决策",
+      "source_ids": [
+        "S07",
+        "S10",
+        "S24",
+        "S31"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-19",
+      "title": "漂移、告警、Waiver、回滚与事故演练",
+      "stage_id": "TD-ST05",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-17",
+        "TD-AI-18"
+      ],
+      "knowledge_dependencies": [
+        "线上监控",
+        "事故响应"
+      ],
+      "professional_baseline": "异常必须能告警回滚和复盘",
+      "new_ai_capability": "治理模型数据 Prompt 和指标漂移",
+      "learner_artifact": [
+        "drift-runbook.md",
+        "incident-timeline.md"
+      ],
+      "assessment": "分布漂移触发告警和回滚演练",
+      "proof": "事故闭环",
+      "source_ids": [
+        "S07",
+        "S23",
+        "S24",
+        "S28",
+        "S29"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BENCH-01",
+      "title": "Benchmark 数据如何构造：任务、样本、标注与 Holdout",
+      "stage_id": "TD-ST06",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-EVAL-01",
+        "TD-AI-15"
+      ],
+      "knowledge_dependencies": [
+        "Dataset card",
+        "数据污染"
+      ],
+      "professional_baseline": "测试集需要代表性和独立性",
+      "new_ai_capability": "构造公开或内部 Benchmark 数据资产",
+      "learner_artifact": [
+        "benchmark-spec.md",
+        "dataset-card.md",
+        "holdout-manifest.json"
+      ],
+      "assessment": "来源重复泄漏和污染检查通过",
+      "proof": "数据 Lineage 可审计",
+      "source_ids": [
+        "S36",
+        "S37",
+        "S38",
+        "S40"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BENCH-02",
+      "title": "Benchmark 分数如何产生：Harness、Prompt、Scorer 与聚合",
+      "stage_id": "TD-ST06",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-BENCH-01"
+      ],
+      "knowledge_dependencies": [
+        "Eval protocol",
+        "Metric"
+      ],
+      "professional_baseline": "相同协议才能公平比较",
+      "new_ai_capability": "复现 Accuracy Pass@k Resolved rate Judge score 的计算链",
+      "learner_artifact": [
+        "harness-config.yaml",
+        "metric-card.md",
+        "reproduction-report.md"
+      ],
+      "assessment": "改变一个协议变量并解释分数变化",
+      "proof": "小型 Benchmark 分数可复现",
+      "source_ids": [
+        "S36",
+        "S37",
+        "S38",
+        "S39"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BENCH-03",
+      "title": "Benchmark 可信度：置信区间、方差、污染与可比性",
+      "stage_id": "TD-ST06",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-BENCH-02"
+      ],
+      "knowledge_dependencies": [
+        "统计不确定性",
+        "污染审计"
+      ],
+      "professional_baseline": "质量报告必须说明误差和限制",
+      "new_ai_capability": "审计榜单和模型对比的有效性",
+      "learner_artifact": [
+        "uncertainty-report.md",
+        "contamination-audit.json"
+      ],
+      "assessment": "识别不可比结果和虚假改进",
+      "proof": "报告包含样本数重复次数和限制",
+      "source_ids": [
+        "S37",
+        "S38",
+        "S40"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BENCH-04",
+      "title": "从公开榜单到企业内部 Benchmark",
+      "stage_id": "TD-ST06",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-BENCH-03",
+        "TD-AI-17"
+      ],
+      "knowledge_dependencies": [
+        "业务风险切片",
+        "生产反馈"
+      ],
+      "professional_baseline": "测试资产服务真实业务决策",
+      "new_ai_capability": "把公开方法迁移为私有业务 Benchmark 和维护政策",
+      "learner_artifact": [
+        "internal-benchmark-repo",
+        "maintenance-policy.md"
+      ],
+      "assessment": "真实失败回流且历史版本可解释",
+      "proof": "公开到内部的迁移证据",
+      "source_ids": [
+        "S27",
+        "S28",
+        "S30",
+        "S36",
+        "S40"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-04",
+      "title": "需求文档解析、可测试性与双向追踪",
+      "stage_id": "TD-ST00",
+      "level": "L0-entry",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-01"
+      ],
+      "knowledge_dependencies": [
+        "需求工程",
+        "业务规则",
+        "验收标准"
+      ],
+      "professional_baseline": "从测试依据识别条件、歧义、约束和未决决策",
+      "new_ai_capability": "为 AI 需求解析建立引用、反例和人工确认边界",
+      "learner_artifact": [
+        "requirements-review.md",
+        "traceability-matrix.csv"
+      ],
+      "assessment": "每个关键需求连接风险、测试条件、Oracle 和责任人",
+      "proof": "删除或冲突规则会触发追踪缺口",
+      "source_ids": [
+        "S41",
+        "S42",
+        "S32"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-05",
+      "title": "风险策略、测试层级与发布完成标准",
+      "stage_id": "TD-ST00",
+      "level": "L0-entry",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-04"
+      ],
+      "knowledge_dependencies": [
+        "风险驱动测试",
+        "unit component API integration system E2E"
+      ],
+      "professional_baseline": "把风险分配到最合适的测试层级并定义完成标准",
+      "new_ai_capability": "判断 AI 引入后哪些层级和门禁必须扩展",
+      "learner_artifact": [
+        "test-strategy.md",
+        "risk-level-matrix.csv"
+      ],
+      "assessment": "关键风险都有测试层级、证据和退出门槛",
+      "proof": "未覆盖关键风险阻断发布建议",
+      "source_ids": [
+        "S41",
+        "S42",
+        "S43"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-06",
+      "title": "测试数据、环境、依赖隔离与可重放",
+      "stage_id": "TD-ST00",
+      "level": "L0-entry",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-05"
+      ],
+      "knowledge_dependencies": [
+        "数据质量",
+        "环境配置",
+        "服务虚拟化"
+      ],
+      "professional_baseline": "测试结果必须能用版本化数据和环境重放",
+      "new_ai_capability": "为 Eval 数据、知识库、模型和工具版本建立共同基线",
+      "learner_artifact": [
+        "environment-manifest.yaml",
+        "test-data-card.md"
+      ],
+      "assessment": "同一版本清单可重现基线和故障",
+      "proof": "漂移或敏感数据违规会被检测",
+      "source_ids": [
+        "S42",
+        "S43",
+        "S24"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-07",
+      "title": "API、契约、集成与事件驱动测试",
+      "stage_id": "TD-ST00",
+      "level": "L1-foundation",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-06"
+      ],
+      "knowledge_dependencies": [
+        "HTTP 语义",
+        "OpenAPI",
+        "消息与最终一致性"
+      ],
+      "professional_baseline": "接口测试覆盖契约、业务语义、权限、幂等、限流、错误和兼容",
+      "new_ai_capability": "为流式、异步、结构化输出和工具调用接口建立基线",
+      "learner_artifact": [
+        "openapi-contract.yaml",
+        "integration-failure-matrix.md"
+      ],
+      "assessment": "正负向、依赖故障和兼容回归都可复现",
+      "proof": "只返回 200 但业务错误的响应仍失败",
+      "source_ids": [
+        "S44",
+        "S45",
+        "S61"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-08",
+      "title": "UI、兼容性、可访问性与用户旅程",
+      "stage_id": "TD-ST00",
+      "level": "L1-foundation",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-06"
+      ],
+      "knowledge_dependencies": [
+        "状态转换",
+        "设备浏览器矩阵",
+        "辅助技术"
+      ],
+      "professional_baseline": "从真实用户任务验证交互、恢复、兼容和可访问性",
+      "new_ai_capability": "为 AI UI 的流式状态、引用、确认和拒答体验建立检查",
+      "learner_artifact": [
+        "journey-map.md",
+        "compatibility-accessibility-matrix.csv"
+      ],
+      "assessment": "关键旅程在目标组合和错误恢复路径可完成",
+      "proof": "键盘或屏幕阅读器阻断会被报告",
+      "source_ids": [
+        "S41",
+        "S62",
+        "S01"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-09",
+      "title": "性能、负载、容量、长稳与成本",
+      "stage_id": "TD-ST00",
+      "level": "L2-control",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-07"
+      ],
+      "knowledge_dependencies": [
+        "工作负载模型",
+        "分位数",
+        "吞吐与饱和"
+      ],
+      "professional_baseline": "用基线、负载、压力、峰值、突发和长稳实验寻找容量边界",
+      "new_ai_capability": "为 TTFT、TPOT、Token 吞吐和 GPU/KV Cache 专题提供传统方法基线",
+      "learner_artifact": [
+        "workload-model.yaml",
+        "capacity-report.md"
+      ],
+      "assessment": "在目标负载下用 p95 p99 错误率饱和和成本做放行判断",
+      "proof": "超过容量拐点时门禁变红",
+      "source_ids": [
+        "S46",
+        "S47",
+        "S54"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-10",
+      "title": "可靠性、安全、可观测性、灾备与混沌",
+      "stage_id": "TD-ST00",
+      "level": "L2-control",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-09",
+        "TD-BASE-08"
+      ],
+      "knowledge_dependencies": [
+        "SLI SLO",
+        "威胁模型",
+        "故障恢复"
+      ],
+      "professional_baseline": "关键服务必须可检测、可降级、可恢复、可审计",
+      "new_ai_capability": "为 AI 服务的限流、重试、Fallback、越权和持续评测建立操作责任",
+      "learner_artifact": [
+        "slo.md",
+        "threat-model.md",
+        "chaos-experiment.md",
+        "runbook.md"
+      ],
+      "assessment": "受控故障触发信号、降级、恢复和复盘",
+      "proof": "错误预算和恢复目标决定发布动作",
+      "source_ids": [
+        "S47",
+        "S48",
+        "S49",
+        "S50",
+        "S60"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-21",
+      "title": "AI 接口服务：Streaming、结构化输出、工具与异步合同",
+      "stage_id": "TD-ST03",
+      "level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-BASE-07",
+        "TD-FOUND-04"
+      ],
+      "knowledge_dependencies": [
+        "HTTP 与契约测试",
+        "LLM 推理边界"
+      ],
+      "professional_baseline": "接口行为必须按合同和业务语义验证",
+      "new_ai_capability": "测试 SSE 事件、首 Token、截断、拒答、Schema、Tool call 和 Batch 状态",
+      "learner_artifact": [
+        "ai-api-contract-tests",
+        "stream-event-report.json"
+      ],
+      "assessment": "乱序、半流、重复工具和不完整输出均被检测",
+      "proof": "合同和语义两层门禁",
+      "source_ids": [
+        "S44",
+        "S55",
+        "S56",
+        "S57",
+        "S66"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-22",
+      "title": "AI 性能指标：TTFT、TPOT、ITL、Goodput 与成本",
+      "stage_id": "TD-ST05",
+      "level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-BASE-09",
+        "TD-AI-21"
+      ],
+      "knowledge_dependencies": [
+        "性能工作负载",
+        "流式时序",
+        "Token 计量"
+      ],
+      "professional_baseline": "性能结论必须绑定工作负载、分布和 SLO",
+      "new_ai_capability": "分离 Prefill、Decode、排队、端到端体验和单位成功任务成本",
+      "learner_artifact": [
+        "ai-performance-metric-card.md",
+        "workload.jsonl"
+      ],
+      "assessment": "同一请求能计算 TTFT TPOT ITL E2E throughput goodput 和 cost per success",
+      "proof": "指标起止点和 Token 来源可审计",
+      "source_ids": [
+        "S46",
+        "S51",
+        "S52",
+        "S54",
+        "S55"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-23",
+      "title": "AI 压测、容量拐点与瓶颈诊断",
+      "stage_id": "TD-ST05",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-22"
+      ],
+      "knowledge_dependencies": [
+        "open-loop closed-loop",
+        "队列与饱和",
+        "推理服务"
+      ],
+      "professional_baseline": "阶梯负载和长稳实验用于找容量与退化",
+      "new_ai_capability": "用 Prompt/输出长度、并发、Cache、Queue、KV 和 GPU 指标定位 Prefill/Decode 瓶颈",
+      "learner_artifact": [
+        "load-test-suite",
+        "capacity-curve.csv",
+        "bottleneck-report.md"
+      ],
+      "assessment": "注入队列或缓存压力并定位主要瓶颈",
+      "proof": "客户端、网关和服务端指标交叉印证",
+      "source_ids": [
+        "S46",
+        "S48",
+        "S51",
+        "S52",
+        "S53"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-24",
+      "title": "AI 服务稳定性：限流、超时、重试、Fallback 与降级",
+      "stage_id": "TD-ST05",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-21",
+        "TD-AI-23"
+      ],
+      "knowledge_dependencies": [
+        "错误预算",
+        "级联故障",
+        "接口幂等"
+      ],
+      "professional_baseline": "失败处理不能放大流量或破坏状态",
+      "new_ai_capability": "验证 RPM TPM 429 deadline 重试放大模型回退和工具副作用",
+      "learner_artifact": [
+        "fault-injection-suite",
+        "fallback-compatibility-report.md"
+      ],
+      "assessment": "429 5xx 断流和工具超时不会形成重试风暴或错误副作用",
+      "proof": "降级仍满足最低质量和数据政策",
+      "source_ids": [
+        "S48",
+        "S57",
+        "S59",
+        "S61"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-25",
+      "title": "AI Serving 可观测性：Trace、Queue、GPU 与 KV Cache",
+      "stage_id": "TD-ST05",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-23",
+        "TD-AI-17"
+      ],
+      "knowledge_dependencies": [
+        "OpenTelemetry",
+        "Prometheus",
+        "分层诊断"
+      ],
+      "professional_baseline": "监控回答什么坏了以及为什么坏了",
+      "new_ai_capability": "把模型 Prompt Token 检索工具 Judge Queue GPU KV 和成本连接为一次逻辑事务",
+      "learner_artifact": [
+        "telemetry-contract.yaml",
+        "dashboard.json",
+        "diagnostic-runbook.md"
+      ],
+      "assessment": "能从 TTFT TPOT 队列和缓存症状定位首查层",
+      "proof": "Trace Log Metric 和版本清单关联",
+      "source_ids": [
+        "S47",
+        "S49",
+        "S51",
+        "S53",
+        "S54"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-26",
+      "title": "测试职业演进：从执行者到 AI Quality Engineer",
+      "stage_id": "TD-ST07",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-19",
+        "TD-AI-25"
+      ],
+      "knowledge_dependencies": [
+        "全生命周期质量责任",
+        "AI 质量平台"
+      ],
+      "professional_baseline": "测试与开发共享质量但专业判断仍需证据所有者",
+      "new_ai_capability": "把机械执行转为风险建模、Eval、平台、可靠性和治理能力",
+      "learner_artifact": [
+        "career-transition-map.md",
+        "portfolio-plan.md"
+      ],
+      "assessment": "每个目标角色都有一项可运行项目和可审计工件",
+      "proof": "预测与已观察岗位信号分开",
+      "source_ids": [
+        "S41",
+        "S58",
+        "S59",
+        "S27",
+        "S28",
+        "S29",
+        "S30",
+        "S31"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-20",
+      "title": "AI QE 平台 Capstone",
+      "stage_id": "TD-ST07",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-BENCH-04",
+        "TD-AI-19",
+        "TD-AI-25",
+        "TD-AI-26"
+      ],
+      "knowledge_dependencies": [
+        "全部阶段工件",
+        "风险到证据闭环"
+      ],
+      "professional_baseline": "质量工程支撑发布和事故责任",
+      "new_ai_capability": "集成 Eval Agent Workflow CI Trace Benchmark 与治理",
+      "learner_artifact": [
+        "end-to-end AI quality repo"
+      ],
+      "assessment": "组合故障被阻断诊断修复并保留证据边界",
+      "proof": "Commit→CI→Trace→Regression→Rollback",
+      "source_ids": [
+        "S07",
+        "S23",
+        "S24",
+        "S36",
+        "S40",
+        "S59"
+      ],
+      "delivery_status": "planned"
+    }
+  ],
+  "canonical_topics": [
+    {
+      "canonical_id": "TD-000",
+      "title": "AI 时代测试开发的责任边界",
+      "stage_id": "CAT-00",
+      "learner_level": "L0-entry",
+      "ai_lane": "profession-baseline",
+      "prerequisite_ids": [],
+      "knowledge_tracks": [
+        "orientation"
+      ],
+      "controlling_question": "哪些责任保留、哪些被辅助、哪些成为新工作？",
+      "learner_artifact": "职业能力迁移图",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BASE-01",
+        "TD-F01"
+      ]
+    },
+    {
+      "canonical_id": "TD-001",
+      "title": "测试对象为什么从代码扩展到 AI 系统",
+      "stage_id": "CAT-00",
+      "learner_level": "L0-entry",
+      "ai_lane": "profession-baseline",
+      "prerequisite_ids": [
+        "TD-000"
+      ],
+      "knowledge_tracks": [
+        "orientation"
+      ],
+      "controlling_question": "模型、Prompt、数据、检索、工具、状态和 Judge 怎样共同决定结果？",
+      "learner_artifact": "AI 系统被测对象图",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-FOUND-04",
+        "TD-FP01",
+        "TD-T01"
+      ]
+    },
+    {
+      "canonical_id": "TD-002",
+      "title": "传统测试能力入场检查",
+      "stage_id": "CAT-00",
+      "learner_level": "L0-entry",
+      "ai_lane": "profession-baseline",
+      "prerequisite_ids": [
+        "TD-000"
+      ],
+      "knowledge_tracks": [
+        "orientation"
+      ],
+      "controlling_question": "没有 AI 时，学习者是否会做风险、Oracle、证据和发布判断？",
+      "learner_artifact": "入场能力评估表",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BASE-01",
+        "TD-F01"
+      ]
+    },
+    {
+      "canonical_id": "TD-003",
+      "title": "三条岗位路线",
+      "stage_id": "CAT-00",
+      "learner_level": "L0-entry",
+      "ai_lane": "profession-baseline",
+      "prerequisite_ids": [
+        "TD-001",
+        "TD-002"
+      ],
+      "knowledge_tracks": [
+        "orientation"
+      ],
+      "controlling_question": "AI 辅助测试、AI 系统测试、AI 质量平台分别需要什么深度？",
+      "learner_artifact": "个性化学习路线",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-C02",
+        "TD-C03",
+        "TD-C04"
+      ]
+    },
+    {
+      "canonical_id": "TD-201",
+      "title": "从训练到推理",
+      "stage_id": "CAT-01",
+      "learner_level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_ids": [
+        "TD-003"
+      ],
+      "knowledge_tracks": [
+        "ai-foundation"
+      ],
+      "controlling_question": "训练数据、对齐和推理阶段分别怎样影响测试？",
+      "learner_artifact": "模型生命周期图",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-FOUND-01",
+        "TD-F02"
+      ]
+    },
+    {
+      "canonical_id": "TD-202",
+      "title": "Token、Context 与 Attention",
+      "stage_id": "CAT-01",
+      "learner_level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_ids": [
+        "TD-201"
+      ],
+      "knowledge_tracks": [
+        "ai-foundation"
+      ],
+      "controlling_question": "为什么输入长度、位置和上下文组成会改变结果与成本？",
+      "learner_artifact": "Token/Context 实验记录",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-FOUND-02",
+        "TD-F03"
+      ]
+    },
+    {
+      "canonical_id": "TD-203",
+      "title": "概率生成与采样",
+      "stage_id": "CAT-01",
+      "learner_level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_ids": [
+        "TD-202"
+      ],
+      "knowledge_tracks": [
+        "ai-foundation"
+      ],
+      "controlling_question": "温度、top-p、seed 和多次采样怎样改变可重复性？",
+      "learner_artifact": "采样敏感性报告",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-FOUND-02",
+        "TD-F03"
+      ]
+    },
+    {
+      "canonical_id": "TD-204",
+      "title": "Prompt 与结构化输出",
+      "stage_id": "CAT-01",
+      "learner_level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_ids": [
+        "TD-203"
+      ],
+      "knowledge_tracks": [
+        "ai-foundation"
+      ],
+      "controlling_question": "格式约束能保证什么，不能保证什么？",
+      "learner_artifact": "Prompt/Schema 契约",
+      "delivery_status": "planned",
+      "evidence_maturity": "unmeasured",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-planned-canonical-topic",
+      "alias_ids": []
+    },
+    {
+      "canonical_id": "TD-205",
+      "title": "Embedding 与向量检索",
+      "stage_id": "CAT-01",
+      "learner_level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_ids": [
+        "TD-204"
+      ],
+      "knowledge_tracks": [
+        "ai-foundation"
+      ],
+      "controlling_question": "相似度、切分和索引怎样影响召回？",
+      "learner_artifact": "最小检索实验",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-FOUND-03",
+        "TD-F04"
+      ]
+    },
+    {
+      "canonical_id": "TD-206",
+      "title": "RAG 最小架构",
+      "stage_id": "CAT-01",
+      "learner_level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_ids": [
+        "TD-205"
+      ],
+      "knowledge_tracks": [
+        "ai-foundation"
+      ],
+      "controlling_question": "数据进入、检索、重排、生成和引用分别在哪里失败？",
+      "learner_artifact": "RAG 数据流图",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-FOUND-03",
+        "TD-F04",
+        "TD-T02"
+      ]
+    },
+    {
+      "canonical_id": "TD-207",
+      "title": "Tool Calling",
+      "stage_id": "CAT-01",
+      "learner_level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_ids": [
+        "TD-206"
+      ],
+      "knowledge_tracks": [
+        "ai-foundation"
+      ],
+      "controlling_question": "工具选择、参数、执行结果和副作用怎样被观测？",
+      "learner_artifact": "Tool Contract",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-FOUND-03",
+        "TD-F04"
+      ]
+    },
+    {
+      "canonical_id": "TD-208",
+      "title": "Agent、Worker 与 Workflow",
+      "stage_id": "CAT-01",
+      "learner_level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_ids": [
+        "TD-207"
+      ],
+      "knowledge_tracks": [
+        "ai-foundation"
+      ],
+      "controlling_question": "动态决策、固定路径和并行 Worker 有什么本质差异？",
+      "learner_artifact": "控制流与状态图",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-FOUND-03",
+        "TD-F04",
+        "TD-T02",
+        "TD-W01"
+      ]
+    },
+    {
+      "canonical_id": "TD-209",
+      "title": "Memory、State 与 Trace",
+      "stage_id": "CAT-01",
+      "learner_level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_ids": [
+        "TD-208"
+      ],
+      "knowledge_tracks": [
+        "ai-foundation"
+      ],
+      "controlling_question": "会话状态、持久状态、记忆和执行轨迹怎样区分？",
+      "learner_artifact": "状态与追踪模型",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-FOUND-03",
+        "TD-F04"
+      ]
+    },
+    {
+      "canonical_id": "TD-210",
+      "title": "AI 能力边界",
+      "stage_id": "CAT-01",
+      "learner_level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_ids": [
+        "TD-209"
+      ],
+      "knowledge_tracks": [
+        "ai-foundation"
+      ],
+      "controlling_question": "幻觉、过时知识、Prompt 敏感、越权、延迟和成本如何进入风险模型？",
+      "learner_artifact": "AI 风险登记册",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-FOUND-04",
+        "TD-F04",
+        "TD-T01"
+      ]
+    },
+    {
+      "canonical_id": "TD-X602",
+      "title": "训练、Fine-tuning 与模型更新质量",
+      "stage_id": "CAT-01",
+      "learner_level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_ids": [
+        "TD-210"
+      ],
+      "knowledge_tracks": [
+        "ai-foundation",
+        "model-lifecycle-gap"
+      ],
+      "controlling_question": "训练数据、适配、模型更新和回滚怎样进入应用团队可审计的质量合同？",
+      "learner_artifact": "模型更新测试计划与回归清单",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "deliver-canonical-page",
+      "alias_ids": [
+        "TD-X602"
+      ]
+    },
+    {
+      "canonical_id": "TD-101",
+      "title": "需求可测性与验收条件",
+      "stage_id": "CAT-02",
+      "learner_level": "L1-foundation",
+      "ai_lane": "profession-baseline",
+      "prerequisite_ids": [
+        "TD-210"
+      ],
+      "knowledge_tracks": [
+        "profession-lifecycle"
+      ],
+      "controlling_question": "如何从需求中识别歧义、约束、不变量和不可测条件？",
+      "learner_artifact": "需求质量审计表",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BASE-04",
+        "TD-P01",
+        "TD-P03"
+      ]
+    },
+    {
+      "canonical_id": "TD-102",
+      "title": "风险驱动测试策略",
+      "stage_id": "CAT-02",
+      "learner_level": "L1-foundation",
+      "ai_lane": "profession-baseline",
+      "prerequisite_ids": [
+        "TD-101"
+      ],
+      "knowledge_tracks": [
+        "profession-lifecycle"
+      ],
+      "controlling_question": "测什么、不测什么、为什么？",
+      "learner_artifact": "风险—测试层级矩阵",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BASE-05",
+        "TD-P04"
+      ]
+    },
+    {
+      "canonical_id": "TD-103",
+      "title": "用例设计与 Oracle",
+      "stage_id": "CAT-02",
+      "learner_level": "L1-foundation",
+      "ai_lane": "profession-baseline",
+      "prerequisite_ids": [
+        "TD-102"
+      ],
+      "knowledge_tracks": [
+        "profession-lifecycle"
+      ],
+      "controlling_question": "等价类、边界、状态、组合、属性和探索式测试如何形成判定？",
+      "learner_artifact": "Oracle 目录",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BASE-02",
+        "TD-P05"
+      ]
+    },
+    {
+      "canonical_id": "TD-104",
+      "title": "测试数据与环境",
+      "stage_id": "CAT-02",
+      "learner_level": "L1-foundation",
+      "ai_lane": "profession-baseline",
+      "prerequisite_ids": [
+        "TD-103"
+      ],
+      "knowledge_tracks": [
+        "profession-lifecycle"
+      ],
+      "controlling_question": "数据、账户、时间、依赖、隔离和清理怎样影响可信度？",
+      "learner_artifact": "测试数据与环境契约",
+      "delivery_status": "planned",
+      "evidence_maturity": "unmeasured",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BASE-06"
+      ]
+    },
+    {
+      "canonical_id": "TD-105",
+      "title": "自动化分层",
+      "stage_id": "CAT-02",
+      "learner_level": "L1-foundation",
+      "ai_lane": "profession-baseline",
+      "prerequisite_ids": [
+        "TD-104"
+      ],
+      "knowledge_tracks": [
+        "profession-lifecycle"
+      ],
+      "controlling_question": "单元、组件、契约、API、UI 和 E2E 怎样分工？",
+      "learner_artifact": "自动化金字塔与责任图",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BASE-03",
+        "TD-BASE-07",
+        "TD-P06"
+      ]
+    },
+    {
+      "canonical_id": "TD-106",
+      "title": "执行、证据与缺陷诊断",
+      "stage_id": "CAT-02",
+      "learner_level": "L1-foundation",
+      "ai_lane": "profession-baseline",
+      "prerequisite_ids": [
+        "TD-105"
+      ],
+      "knowledge_tracks": [
+        "profession-lifecycle"
+      ],
+      "controlling_question": "一次失败怎样从日志回到组件和根因？",
+      "learner_artifact": "失败证据包",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BASE-03",
+        "TD-P07"
+      ]
+    },
+    {
+      "canonical_id": "TD-107",
+      "title": "发布、Waiver 与回滚",
+      "stage_id": "CAT-02",
+      "learner_level": "L1-foundation",
+      "ai_lane": "profession-baseline",
+      "prerequisite_ids": [
+        "TD-106"
+      ],
+      "knowledge_tracks": [
+        "profession-lifecycle"
+      ],
+      "controlling_question": "哪些信号阻断发布，谁能接受例外？",
+      "learner_artifact": "发布门禁与回滚清单",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BASE-03",
+        "TD-BASE-05",
+        "TD-P08"
+      ]
+    },
+    {
+      "canonical_id": "TD-108",
+      "title": "生产质量闭环",
+      "stage_id": "CAT-02",
+      "learner_level": "L1-foundation",
+      "ai_lane": "profession-baseline",
+      "prerequisite_ids": [
+        "TD-107"
+      ],
+      "knowledge_tracks": [
+        "profession-lifecycle"
+      ],
+      "controlling_question": "线上事故如何转成测试和监控资产？",
+      "learner_artifact": "Incident-to-Regression 流程",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-P08"
+      ]
+    },
+    {
+      "canonical_id": "TD-X101",
+      "title": "静态测试、架构、代码与依赖质量",
+      "stage_id": "CAT-02",
+      "learner_level": "L1-foundation",
+      "ai_lane": "profession-baseline",
+      "prerequisite_ids": [
+        "TD-108"
+      ],
+      "knowledge_tracks": [
+        "profession-lifecycle",
+        "profession-baseline-gap"
+      ],
+      "controlling_question": "怎样把设计评审、静态分析、依赖与供应链风险连接到可阻断证据？",
+      "learner_artifact": "静态质量策略、规则集与依赖证据包",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "deliver-canonical-page",
+      "alias_ids": [
+        "TD-X101"
+      ]
+    },
+    {
+      "canonical_id": "TD-X102",
+      "title": "数据库、数据管道与迁移质量",
+      "stage_id": "CAT-02",
+      "learner_level": "L1-foundation",
+      "ai_lane": "profession-baseline",
+      "prerequisite_ids": [
+        "TD-X101"
+      ],
+      "knowledge_tracks": [
+        "profession-lifecycle",
+        "profession-baseline-gap"
+      ],
+      "controlling_question": "怎样验证 Schema、数据质量、批流处理、回填和迁移不会破坏业务不变量？",
+      "learner_artifact": "数据质量契约与迁移回滚实验",
+      "delivery_status": "outlined",
+      "evidence_maturity": "desk-researched",
+      "content_gate": "blocked",
+      "coverage_decision": "cover-via-existing-page-alias",
+      "alias_ids": [
+        "TD-PS08"
+      ]
+    },
+    {
+      "canonical_id": "TD-X103",
+      "title": "Web 兼容、可访问性与本地化质量",
+      "stage_id": "CAT-02",
+      "learner_level": "L1-foundation",
+      "ai_lane": "profession-baseline",
+      "prerequisite_ids": [
+        "TD-X102"
+      ],
+      "knowledge_tracks": [
+        "profession-lifecycle",
+        "profession-baseline-gap"
+      ],
+      "controlling_question": "怎样把浏览器差异、辅助技术、语言和视觉变化变成可维护门禁？",
+      "learner_artifact": "Web 兼容与可访问性测试矩阵",
+      "delivery_status": "outlined",
+      "evidence_maturity": "desk-researched",
+      "content_gate": "blocked",
+      "coverage_decision": "cover-via-existing-page-alias",
+      "alias_ids": [
+        "TD-BASE-08",
+        "TD-PS04",
+        "TD-PS05",
+        "TD-S02"
+      ]
+    },
+    {
+      "canonical_id": "TD-X104",
+      "title": "Android 质量工程",
+      "stage_id": "CAT-02",
+      "learner_level": "L1-foundation",
+      "ai_lane": "profession-baseline",
+      "prerequisite_ids": [
+        "TD-X103"
+      ],
+      "knowledge_tracks": [
+        "profession-lifecycle",
+        "profession-baseline-gap"
+      ],
+      "controlling_question": "怎样验证生命周期、同步、权限、系统版本和设备矩阵下的业务旅程？",
+      "learner_artifact": "Android 测试仓库与设备证据包",
+      "delivery_status": "outlined",
+      "evidence_maturity": "desk-researched",
+      "content_gate": "blocked",
+      "coverage_decision": "cover-via-existing-page-alias",
+      "alias_ids": [
+        "TD-BASE-08",
+        "TD-PS06",
+        "TD-S02"
+      ]
+    },
+    {
+      "canonical_id": "TD-X105",
+      "title": "iOS 质量工程",
+      "stage_id": "CAT-02",
+      "learner_level": "L1-foundation",
+      "ai_lane": "profession-baseline",
+      "prerequisite_ids": [
+        "TD-X104"
+      ],
+      "knowledge_tracks": [
+        "profession-lifecycle",
+        "profession-baseline-gap"
+      ],
+      "controlling_question": "怎样验证签名、权限、状态残留、系统弹窗和设备版本下的业务旅程？",
+      "learner_artifact": "iOS 测试仓库与设备证据包",
+      "delivery_status": "outlined",
+      "evidence_maturity": "desk-researched",
+      "content_gate": "blocked",
+      "coverage_decision": "cover-via-existing-page-alias",
+      "alias_ids": [
+        "TD-BASE-08",
+        "TD-PS07",
+        "TD-S02"
+      ]
+    },
+    {
+      "canonical_id": "TD-1001",
+      "title": "从业务风险到 Eval Task",
+      "stage_id": "CAT-03",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-X105"
+      ],
+      "knowledge_tracks": [
+        "eval-foundation"
+      ],
+      "controlling_question": "评测单位和失败成本怎样定义？",
+      "learner_artifact": "Eval Spec",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-EVAL-01",
+        "TD-BENCH-01",
+        "TD-T04",
+        "TD-B01",
+        "TD-F05"
+      ]
+    },
+    {
+      "canonical_id": "TD-1002",
+      "title": "数据采样与代表性",
+      "stage_id": "CAT-03",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-1001"
+      ],
+      "knowledge_tracks": [
+        "eval-foundation"
+      ],
+      "controlling_question": "数据来自哪里、覆盖哪些用户和风险切片？",
+      "learner_artifact": "Sampling Plan",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-EVAL-01",
+        "TD-BENCH-01",
+        "TD-T04",
+        "TD-B02",
+        "TD-F05"
+      ]
+    },
+    {
+      "canonical_id": "TD-1003",
+      "title": "标注与冲突处理",
+      "stage_id": "CAT-03",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-1002"
+      ],
+      "knowledge_tracks": [
+        "eval-foundation"
+      ],
+      "controlling_question": "谁标、怎样仲裁、如何记录不确定？",
+      "learner_artifact": "Annotation Guide",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-EVAL-01",
+        "TD-EVAL-02",
+        "TD-BENCH-01",
+        "TD-B02",
+        "TD-F05"
+      ]
+    },
+    {
+      "canonical_id": "TD-1004",
+      "title": "Dev、Regression 与 Holdout",
+      "stage_id": "CAT-03",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-1003"
+      ],
+      "knowledge_tracks": [
+        "eval-foundation"
+      ],
+      "controlling_question": "怎样避免对测试集过拟合？",
+      "learner_artifact": "Split Manifest",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-EVAL-01",
+        "TD-BENCH-01",
+        "TD-T04",
+        "TD-B02",
+        "TD-F05"
+      ]
+    },
+    {
+      "canonical_id": "TD-1005",
+      "title": "Scorer 与聚合",
+      "stage_id": "CAT-03",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-1004"
+      ],
+      "knowledge_tracks": [
+        "eval-foundation"
+      ],
+      "controlling_question": "分数如何从逐条结果产生？",
+      "learner_artifact": "Scorer Card",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-EVAL-02",
+        "TD-BENCH-02",
+        "TD-B01",
+        "TD-B03",
+        "TD-AG-01"
+      ]
+    },
+    {
+      "canonical_id": "TD-1006",
+      "title": "不确定性与显著性",
+      "stage_id": "CAT-03",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-1005"
+      ],
+      "knowledge_tracks": [
+        "eval-foundation"
+      ],
+      "controlling_question": "小样本和随机波动怎样限制结论？",
+      "learner_artifact": "Confidence Report",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BENCH-03",
+        "TD-B03",
+        "TD-B05",
+        "TD-AG-05"
+      ]
+    },
+    {
+      "canonical_id": "TD-1007",
+      "title": "污染与泄漏",
+      "stage_id": "CAT-03",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-1006"
+      ],
+      "knowledge_tracks": [
+        "eval-foundation"
+      ],
+      "controlling_question": "公开题、训练泄漏和调试访问怎样审计？",
+      "learner_artifact": "Contamination Audit",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BENCH-03",
+        "TD-B05"
+      ]
+    },
+    {
+      "canonical_id": "TD-1008",
+      "title": "Harness 与协议敏感性",
+      "stage_id": "CAT-03",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-1007"
+      ],
+      "knowledge_tracks": [
+        "eval-foundation"
+      ],
+      "controlling_question": "Prompt、工具、预算、超时和重试怎样改变分数？",
+      "learner_artifact": "Sensitivity Experiment",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BENCH-02",
+        "TD-B04"
+      ]
+    },
+    {
+      "canonical_id": "TD-301",
+      "title": "AI 解析 PRD",
+      "stage_id": "CAT-04",
+      "learner_level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_ids": [
+        "TD-1004"
+      ],
+      "knowledge_tracks": [
+        "ai-assisted-work"
+      ],
+      "controlling_question": "怎样让 AI 提取规则而不发明规则？",
+      "learner_artifact": "需求追踪矩阵",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-01",
+        "TD-BASE-04",
+        "TD-P01",
+        "TD-P02",
+        "TD-P03",
+        "TD-QP01",
+        "TD-FP01",
+        "TD-T05"
+      ]
+    },
+    {
+      "canonical_id": "TD-302",
+      "title": "AI 审查架构与代码 Diff",
+      "stage_id": "CAT-04",
+      "learner_level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_ids": [
+        "TD-301"
+      ],
+      "knowledge_tracks": [
+        "ai-assisted-work"
+      ],
+      "controlling_question": "怎样从变更定位影响面、风险和回归范围？",
+      "learner_artifact": "Diff 风险报告",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-01",
+        "TD-T05"
+      ]
+    },
+    {
+      "canonical_id": "TD-303",
+      "title": "AI 生成测试场景",
+      "stage_id": "CAT-04",
+      "learner_level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_ids": [
+        "TD-302"
+      ],
+      "knowledge_tracks": [
+        "ai-assisted-work"
+      ],
+      "controlling_question": "生成的场景怎样绑定风险、Oracle 和来源？",
+      "learner_artifact": "可追踪测试集",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-02",
+        "TD-T06"
+      ]
+    },
+    {
+      "canonical_id": "TD-304",
+      "title": "AI 生成边界、组合与 Fuzz 数据",
+      "stage_id": "CAT-04",
+      "learner_level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_ids": [
+        "TD-303"
+      ],
+      "knowledge_tracks": [
+        "ai-assisted-work"
+      ],
+      "controlling_question": "怎样证明生成数据覆盖了风险空间？",
+      "learner_artifact": "数据生成器与覆盖报告",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-04",
+        "TD-T07"
+      ]
+    },
+    {
+      "canonical_id": "TD-305",
+      "title": "AI 生成单元与组件测试",
+      "stage_id": "CAT-04",
+      "learner_level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_ids": [
+        "TD-304"
+      ],
+      "knowledge_tracks": [
+        "ai-assisted-work"
+      ],
+      "controlling_question": "怎样用 Mutation 证明不是“看起来像测试”？",
+      "learner_artifact": "红绿 Mutation 证据",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-02",
+        "TD-AI-13",
+        "TD-P06",
+        "TD-T06",
+        "TD-T19"
+      ]
+    },
+    {
+      "canonical_id": "TD-306",
+      "title": "AI 生成 API/契约测试",
+      "stage_id": "CAT-04",
+      "learner_level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_ids": [
+        "TD-305"
+      ],
+      "knowledge_tracks": [
+        "ai-assisted-work"
+      ],
+      "controlling_question": "怎样约束 Schema、状态、不变量和副作用？",
+      "learner_artifact": "API 测试仓库",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-02",
+        "TD-BASE-07",
+        "TD-P06",
+        "TD-PS01",
+        "TD-PS02",
+        "TD-PS03",
+        "TD-S01"
+      ]
+    },
+    {
+      "canonical_id": "TD-307",
+      "title": "AI 生成 UI/E2E 测试",
+      "stage_id": "CAT-04",
+      "learner_level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_ids": [
+        "TD-306"
+      ],
+      "knowledge_tracks": [
+        "ai-assisted-work"
+      ],
+      "controlling_question": "怎样控制选择器、等待、数据和跨页面状态？",
+      "learner_artifact": "可维护 E2E 测试",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-02",
+        "TD-P06",
+        "TD-PS04"
+      ]
+    },
+    {
+      "canonical_id": "TD-308",
+      "title": "AI 测试 Agent",
+      "stage_id": "CAT-04",
+      "learner_level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_ids": [
+        "TD-307"
+      ],
+      "knowledge_tracks": [
+        "ai-assisted-work"
+      ],
+      "controlling_question": "Planner、Generator、Healer 分别如何验收？",
+      "learner_artifact": "Test Agent 评测集",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-11",
+        "TD-AI-13",
+        "TD-T19",
+        "TD-T26"
+      ]
+    },
+    {
+      "canonical_id": "TD-309",
+      "title": "AI 分析失败与日志",
+      "stage_id": "CAT-04",
+      "learner_level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_ids": [
+        "TD-308"
+      ],
+      "knowledge_tracks": [
+        "ai-assisted-work"
+      ],
+      "controlling_question": "怎样聚类重复失败但保留证据和未知？",
+      "learner_artifact": "失败聚类与根因候选报告",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-03",
+        "TD-P07",
+        "TD-T08"
+      ]
+    },
+    {
+      "canonical_id": "TD-310",
+      "title": "AI 生成发布报告",
+      "stage_id": "CAT-04",
+      "learner_level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_ids": [
+        "TD-309"
+      ],
+      "knowledge_tracks": [
+        "ai-assisted-work"
+      ],
+      "controlling_question": "怎样从测试证据形成可审计结论而非自动批准？",
+      "learner_artifact": "发布决策草案",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-P08",
+        "TD-T26"
+      ]
+    },
+    {
+      "canonical_id": "TD-401",
+      "title": "LLM 测试任务定义",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-1008"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality"
+      ],
+      "controlling_question": "一条 Eval 的输入、参考、Rubric、切片和失败成本是什么？",
+      "learner_artifact": "Eval Contract",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-05",
+        "TD-T04",
+        "TD-T09"
+      ]
+    },
+    {
+      "canonical_id": "TD-402",
+      "title": "确定性与语义 Oracle",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-401"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality"
+      ],
+      "controlling_question": "规则、相似度、模型 Judge 和人工怎样组合？",
+      "learner_artifact": "Composite Oracle",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-EVAL-02",
+        "TD-AI-05",
+        "TD-P05",
+        "TD-T03",
+        "TD-T09"
+      ]
+    },
+    {
+      "canonical_id": "TD-403",
+      "title": "事实性、相关性与完整性",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-402"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality"
+      ],
+      "controlling_question": "不同质量维度怎样避免互相替代？",
+      "learner_artifact": "多维评分卡",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-05",
+        "TD-T09",
+        "TD-T11"
+      ]
+    },
+    {
+      "canonical_id": "TD-404",
+      "title": "拒答与安全边界",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-403"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality"
+      ],
+      "controlling_question": "应答、拒答、升级人工分别怎样判定？",
+      "learner_artifact": "拒答矩阵",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-05",
+        "TD-AI-09",
+        "TD-T09",
+        "TD-T11"
+      ]
+    },
+    {
+      "canonical_id": "TD-405",
+      "title": "Prompt/模型 A/B",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-404"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality"
+      ],
+      "controlling_question": "如何控制变量并解释差异？",
+      "learner_artifact": "A/B 实验与版本清单",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-07",
+        "TD-T13"
+      ]
+    },
+    {
+      "canonical_id": "TD-406",
+      "title": "多轮与长上下文",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-405"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality"
+      ],
+      "controlling_question": "记忆、指令冲突、上下文衰减怎样测试？",
+      "learner_artifact": "多轮状态数据集",
+      "delivery_status": "planned",
+      "evidence_maturity": "unmeasured",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-planned-canonical-topic",
+      "alias_ids": []
+    },
+    {
+      "canonical_id": "TD-407",
+      "title": "LLM-as-Judge 校准",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-406"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality"
+      ],
+      "controlling_question": "Judge 与人工不一致时怎么办？",
+      "learner_artifact": "Judge 校准报告",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-EVAL-02",
+        "TD-AI-05",
+        "TD-T14",
+        "TD-AG-01"
+      ]
+    },
+    {
+      "canonical_id": "TD-408",
+      "title": "非确定性与统计结论",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-407"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality"
+      ],
+      "controlling_question": "需要重复多少次、怎样报告区间和切片？",
+      "learner_artifact": "统计评测报告",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-05",
+        "TD-T03"
+      ]
+    },
+    {
+      "canonical_id": "TD-501",
+      "title": "知识库数据质量",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-206",
+        "TD-408"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality"
+      ],
+      "controlling_question": "来源、时效、重复、权限和切分怎样验收？",
+      "learner_artifact": "Knowledge Dataset Card",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "td-ai-006-rag-eval-ci",
+        "TD-T10",
+        "TD-T12"
+      ]
+    },
+    {
+      "canonical_id": "TD-502",
+      "title": "检索召回",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-501"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality"
+      ],
+      "controlling_question": "Recall@k、MRR、NDCG 和业务覆盖怎样选择？",
+      "learner_artifact": "Retrieval Eval",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "td-ai-006-rag-eval-ci",
+        "TD-T10",
+        "TD-T12"
+      ]
+    },
+    {
+      "canonical_id": "TD-503",
+      "title": "重排与上下文选择",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-502"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality"
+      ],
+      "controlling_question": "召回正确但上下文排序错误如何发现？",
+      "learner_artifact": "Reranker 对照实验",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "td-ai-006-rag-eval-ci",
+        "TD-T10",
+        "TD-T12"
+      ]
+    },
+    {
+      "canonical_id": "TD-504",
+      "title": "回答忠实性与引用",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-503"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality"
+      ],
+      "controlling_question": "回答是否由检索证据支持？",
+      "learner_artifact": "Answer/Citation Eval",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "td-ai-006-rag-eval-ci",
+        "TD-T11",
+        "TD-T12"
+      ]
+    },
+    {
+      "canonical_id": "TD-505",
+      "title": "无答案与冲突知识",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-504"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality"
+      ],
+      "controlling_question": "没有证据、证据冲突、旧政策时系统应怎样行为？",
+      "learner_artifact": "Abstention Dataset",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "td-ai-006-rag-eval-ci",
+        "TD-T11",
+        "TD-T12"
+      ]
+    },
+    {
+      "canonical_id": "TD-506",
+      "title": "多租户与权限过滤",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-505"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality"
+      ],
+      "controlling_question": "相关文档和有权访问的文档为什么不是一回事？",
+      "learner_artifact": "权限隔离测试集",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "td-ai-006-rag-eval-ci",
+        "TD-T12"
+      ]
+    },
+    {
+      "canonical_id": "TD-507",
+      "title": "RAG 性能与成本",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-506"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality"
+      ],
+      "controlling_question": "检索、重排、生成分别贡献多少延迟和成本？",
+      "learner_artifact": "RAG Trace 性能报告",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "td-ai-006-rag-eval-ci",
+        "TD-T12"
+      ]
+    },
+    {
+      "canonical_id": "TD-508",
+      "title": "RAG 回归与线上反馈",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-507"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality"
+      ],
+      "controlling_question": "线上失败怎样进入版本化回归集？",
+      "learner_artifact": "RAG CI Gate",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "td-ai-006-rag-eval-ci",
+        "TD-AI-07",
+        "TD-T12",
+        "TD-T13"
+      ]
+    },
+    {
+      "canonical_id": "TD-X501",
+      "title": "多模态 AI 评测",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-408"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality",
+        "ai-quality-gap"
+      ],
+      "controlling_question": "怎样分别验证文本、图像、音频、视频及跨模态对齐，而不是只看最终描述？",
+      "learner_artifact": "多模态 Eval 数据集与分层报告",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "deliver-canonical-page",
+      "alias_ids": [
+        "TD-AI-10",
+        "TD-X501"
+      ]
+    },
+    {
+      "canonical_id": "TD-X502",
+      "title": "多语言、可访问性与包容性 AI 评测",
+      "stage_id": "CAT-05",
+      "learner_level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-X501"
+      ],
+      "knowledge_tracks": [
+        "llm-rag-quality",
+        "ai-quality-gap"
+      ],
+      "controlling_question": "怎样验证不同语言、方言、读写能力和辅助技术场景下的质量差异？",
+      "learner_artifact": "多语言与可访问性切片评测",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "deliver-canonical-page",
+      "alias_ids": [
+        "TD-X502"
+      ]
+    },
+    {
+      "canonical_id": "TD-601",
+      "title": "Agent 测试分层",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-208",
+        "TD-408"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "最终结果、单步动作、轨迹和线程分别测什么？",
+      "learner_artifact": "Agent 测试策略",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-08",
+        "TD-T15",
+        "TD-W01",
+        "TD-AG-00",
+        "TD-AG-02"
+      ]
+    },
+    {
+      "canonical_id": "TD-602",
+      "title": "工具选择与参数",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-601"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "选错工具、参数错误和 Schema 漂移怎样检测？",
+      "learner_artifact": "Tool-call Dataset",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-08",
+        "TD-PS03",
+        "TD-T16",
+        "TD-AG-00",
+        "TD-AG-02"
+      ]
+    },
+    {
+      "canonical_id": "TD-901",
+      "title": "AI 威胁建模",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-602"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "资产、信任边界、数据流和攻击者能力怎样建模？",
+      "learner_artifact": "AI Threat Model",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-09",
+        "TD-BASE-10",
+        "TD-S04",
+        "TD-T17",
+        "TD-AG-06"
+      ]
+    },
+    {
+      "canonical_id": "TD-902",
+      "title": "Prompt Injection",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-901"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "直接和间接注入怎样穿过 RAG 与工具链？",
+      "learner_artifact": "Injection Test Set",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-09",
+        "TD-T17",
+        "TD-AG-06"
+      ]
+    },
+    {
+      "canonical_id": "TD-903",
+      "title": "数据泄露与隐私",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-901"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "Prompt、Trace、缓存、训练和工具参数在哪里泄露？",
+      "learner_artifact": "Data Boundary Review",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-09",
+        "TD-T17",
+        "TD-AG-06"
+      ]
+    },
+    {
+      "canonical_id": "TD-904",
+      "title": "Excessive Agency",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-901"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "过大权限、错误工具和不可逆副作用怎样阻断？",
+      "learner_artifact": "Authority Gate",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-09",
+        "TD-T17",
+        "TD-AG-06"
+      ]
+    },
+    {
+      "canonical_id": "TD-905",
+      "title": "多租户隔离",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-903",
+        "TD-904"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "数据、状态、Memory、索引和日志怎样隔离？",
+      "learner_artifact": "Tenant Isolation Plan",
+      "delivery_status": "planned",
+      "evidence_maturity": "unmeasured",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-planned-canonical-topic",
+      "alias_ids": []
+    },
+    {
+      "canonical_id": "TD-906",
+      "title": "供应链与模型依赖",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-901"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "模型、包、Prompt、插件和 MCP 变更怎样进入风险？",
+      "learner_artifact": "AI SBOM/Lineage",
+      "delivery_status": "planned",
+      "evidence_maturity": "unmeasured",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-planned-canonical-topic",
+      "alias_ids": []
+    },
+    {
+      "canonical_id": "TD-907",
+      "title": "安全评测与红队",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-902",
+        "TD-903",
+        "TD-904",
+        "TD-906"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "攻击集、成功标准、重放和修复怎样组织？",
+      "learner_artifact": "Red-team Harness",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-09",
+        "TD-T17",
+        "TD-AG-06",
+        "TD-AG-10"
+      ]
+    },
+    {
+      "canonical_id": "TD-908",
+      "title": "混沌、降级与灾备",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-907"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "Provider、向量库、工具或网络失败时系统怎样安全退化？",
+      "learner_artifact": "Resilience Experiment",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BASE-10",
+        "TD-AI-24",
+        "TD-PS10",
+        "TD-S04",
+        "TD-AG-10"
+      ]
+    },
+    {
+      "canonical_id": "TD-603",
+      "title": "权限与副作用",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-602",
+        "TD-901"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "可读、可写、审批和补偿边界怎样测试？",
+      "learner_artifact": "权限/副作用矩阵",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-12",
+        "TD-PS03",
+        "TD-T16",
+        "TD-AG-03"
+      ]
+    },
+    {
+      "canonical_id": "TD-604",
+      "title": "状态与并发隔离",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-603"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "多会话、多租户和并发任务如何避免串状态？",
+      "learner_artifact": "State Isolation Test",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-08",
+        "TD-W02",
+        "TD-AG-03"
+      ]
+    },
+    {
+      "canonical_id": "TD-605",
+      "title": "循环、重试与终止",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-604"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "怎样检测死循环、重复调用和错误终止？",
+      "learner_artifact": "Loop/Retry Gate",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-08",
+        "TD-W02",
+        "TD-AG-03"
+      ]
+    },
+    {
+      "canonical_id": "TD-606",
+      "title": "Handoff 与多 Agent",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-605"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "委派、合并、冲突和责任边界怎样验收？",
+      "learner_artifact": "Handoff Contract",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-14",
+        "TD-W02",
+        "TD-W03",
+        "TD-AG-04"
+      ]
+    },
+    {
+      "canonical_id": "TD-607",
+      "title": "Human-in-the-loop",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-606"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "哪些节点必须人工批准，超时和拒绝如何处理？",
+      "learner_artifact": "HITL 状态机",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-14",
+        "TD-W02",
+        "TD-AG-04"
+      ]
+    },
+    {
+      "canonical_id": "TD-608",
+      "title": "Agent 安全",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-907"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "Prompt injection、数据泄漏和 excessive agency 怎样进入轨迹测试？",
+      "learner_artifact": "Agent Red-team Set",
+      "delivery_status": "planned",
+      "evidence_maturity": "unmeasured",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-09",
+        "TD-AI-12"
+      ]
+    },
+    {
+      "canonical_id": "TD-609",
+      "title": "Browser/Computer-use Agent",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-603",
+        "TD-605",
+        "TD-608"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "UI 变化、等待、权限和不可逆操作怎样测试？",
+      "learner_artifact": "Browser Agent Harness",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-11",
+        "TD-AI-12",
+        "TD-T18"
+      ]
+    },
+    {
+      "canonical_id": "TD-610",
+      "title": "Agent 回归与 Benchmark",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-609"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security"
+      ],
+      "controlling_question": "任务成功、轨迹、成本和风险怎样形成内部基准？",
+      "learner_artifact": "Agent Benchmark",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-14",
+        "TD-W03",
+        "TD-AG-05"
+      ]
+    },
+    {
+      "canonical_id": "TD-X601",
+      "title": "公平性、伤害与人类监督有效性",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-907"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security",
+        "safety-governance-gap"
+      ],
+      "controlling_question": "怎样识别群体差异、错误自动化信任和无效人工复核？",
+      "learner_artifact": "公平性切片、伤害登记册与监督校准报告",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "deliver-canonical-page",
+      "alias_ids": [
+        "TD-X601"
+      ]
+    },
+    {
+      "canonical_id": "TD-X603",
+      "title": "长期 Memory、个性化与语义缓存质量",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-604",
+        "TD-903"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security",
+        "agent-quality-gap"
+      ],
+      "controlling_question": "怎样验证记忆写入、读取、遗忘、隔离、缓存命中和陈旧内容风险？",
+      "learner_artifact": "Memory/Cache 状态机与隐私回归集",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "deliver-canonical-page",
+      "alias_ids": [
+        "TD-X603"
+      ]
+    },
+    {
+      "canonical_id": "TD-X604",
+      "title": "模型路由、Provider Fallback 与工具协议漂移",
+      "stage_id": "CAT-06",
+      "learner_level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_ids": [
+        "TD-602",
+        "TD-906",
+        "TD-908"
+      ],
+      "knowledge_tracks": [
+        "agent-workflow-security",
+        "agent-quality-gap"
+      ],
+      "controlling_question": "多模型路由、降级、MCP/工具 Schema 变化时怎样保持语义、权限和可重放性？",
+      "learner_artifact": "路由兼容矩阵与 Fallback 回归包",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "deliver-canonical-page",
+      "alias_ids": [
+        "TD-X604"
+      ]
+    },
+    {
+      "canonical_id": "TD-701",
+      "title": "AI API 协议特点",
+      "stage_id": "CAT-07",
+      "learner_level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-207",
+        "TD-408",
+        "TD-X604"
+      ],
+      "knowledge_tracks": [
+        "serving-performance"
+      ],
+      "controlling_question": "流式、异步、结构化输出和工具事件怎样形成状态机？",
+      "learner_artifact": "AI API Contract",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-21",
+        "TD-PS01",
+        "TD-S01",
+        "TD-A01",
+        "TD-A02"
+      ]
+    },
+    {
+      "canonical_id": "TD-702",
+      "title": "TTFT、ITL/TPOT 与 E2E",
+      "stage_id": "CAT-07",
+      "learner_level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-701"
+      ],
+      "knowledge_tracks": [
+        "serving-performance"
+      ],
+      "controlling_question": "每个延迟指标从哪里开始、到哪里结束？",
+      "learner_artifact": "Metric Card",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BASE-09",
+        "TD-AI-22",
+        "TD-PS09",
+        "TD-S03",
+        "TD-A03",
+        "TD-AG-07"
+      ]
+    },
+    {
+      "canonical_id": "TD-703",
+      "title": "Token 与请求吞吐",
+      "stage_id": "CAT-07",
+      "learner_level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-702"
+      ],
+      "knowledge_tracks": [
+        "serving-performance"
+      ],
+      "controlling_question": "系统吞吐和单用户体验为什么可能相反？",
+      "learner_artifact": "吞吐—延迟曲线",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BASE-09",
+        "TD-AI-22",
+        "TD-PS09",
+        "TD-S03",
+        "TD-A03",
+        "TD-AG-07"
+      ]
+    },
+    {
+      "canonical_id": "TD-704",
+      "title": "Prefill、Decode、Batch 与 KV Cache",
+      "stage_id": "CAT-07",
+      "learner_level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-703"
+      ],
+      "knowledge_tracks": [
+        "serving-performance"
+      ],
+      "controlling_question": "Serving 内部阶段如何映射到外部症状？",
+      "learner_artifact": "瓶颈诊断图",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-23",
+        "TD-AI-25",
+        "TD-A05"
+      ]
+    },
+    {
+      "canonical_id": "TD-705",
+      "title": "工作负载建模",
+      "stage_id": "CAT-07",
+      "learner_level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-704"
+      ],
+      "knowledge_tracks": [
+        "serving-performance"
+      ],
+      "controlling_question": "Prompt/输出长度、缓存、流式、模型和到达模式怎样组合？",
+      "learner_artifact": "Workload Manifest",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BASE-09",
+        "TD-AI-23",
+        "TD-S03",
+        "TD-A04"
+      ]
+    },
+    {
+      "canonical_id": "TD-706",
+      "title": "LLM Serving 压测工具",
+      "stage_id": "CAT-07",
+      "learner_level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-705"
+      ],
+      "knowledge_tracks": [
+        "serving-performance"
+      ],
+      "controlling_question": "AIPerf、vLLM benchmark、k6/Locust 各自适合什么？",
+      "learner_artifact": "工具选择矩阵",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-23",
+        "TD-A04"
+      ]
+    },
+    {
+      "canonical_id": "TD-707",
+      "title": "容量、Goodput 与成本",
+      "stage_id": "CAT-07",
+      "learner_level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-706"
+      ],
+      "knowledge_tracks": [
+        "serving-performance"
+      ],
+      "controlling_question": "在 SLO 内成功完成的有效吞吐怎样计算？",
+      "learner_artifact": "容量与成本报告",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-18",
+        "TD-BASE-09",
+        "TD-AI-22",
+        "TD-AI-23",
+        "TD-PS09",
+        "TD-S03",
+        "TD-A03",
+        "TD-A04",
+        "TD-AG-07"
+      ]
+    },
+    {
+      "canonical_id": "TD-708",
+      "title": "限流、超时、重试和降级",
+      "stage_id": "CAT-07",
+      "learner_level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-707"
+      ],
+      "knowledge_tracks": [
+        "serving-performance"
+      ],
+      "controlling_question": "怎样避免重试风暴并验证 fallback？",
+      "learner_artifact": "Overload Runbook",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-24",
+        "TD-PS10",
+        "TD-A06"
+      ]
+    },
+    {
+      "canonical_id": "TD-AP01",
+      "title": "为什么 Agent 压测不是 API 压测",
+      "stage_id": "CAT-07",
+      "learner_level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-610",
+        "TD-708"
+      ],
+      "knowledge_tracks": [
+        "serving-performance"
+      ],
+      "controlling_question": "一次业务任务为什么会放大为多次模型和工具调用？",
+      "learner_artifact": "四层性能模型",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "deliver-canonical-page",
+      "alias_ids": [
+        "TD-AP01"
+      ]
+    },
+    {
+      "canonical_id": "TD-AP02",
+      "title": "Agent 指标体系",
+      "stage_id": "CAT-07",
+      "learner_level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-AP01"
+      ],
+      "knowledge_tracks": [
+        "serving-performance"
+      ],
+      "controlling_question": "怎样联合任务成功、延迟、步骤、重试、成本和资源？",
+      "learner_artifact": "Agent Metric Catalog",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "deliver-canonical-page",
+      "alias_ids": [
+        "TD-AP02"
+      ]
+    },
+    {
+      "canonical_id": "TD-AP03",
+      "title": "Agent 负载模型与数据集",
+      "stage_id": "CAT-07",
+      "learner_level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-AP02"
+      ],
+      "knowledge_tracks": [
+        "serving-performance"
+      ],
+      "controlling_question": "任务类型、路径深度、工具时延、失败概率和并发怎样建模？",
+      "learner_artifact": "Workload Dataset",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "deliver-canonical-page",
+      "alias_ids": [
+        "TD-AP03"
+      ]
+    },
+    {
+      "canonical_id": "TD-AP04",
+      "title": "Trace 与可观测数据结构",
+      "stage_id": "CAT-07",
+      "learner_level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-AP03"
+      ],
+      "knowledge_tracks": [
+        "serving-performance"
+      ],
+      "controlling_question": "哪些 span、事件、版本和业务字段必须保留？",
+      "learner_artifact": "Trace Schema",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "deliver-canonical-page",
+      "alias_ids": [
+        "TD-AP04"
+      ]
+    },
+    {
+      "canonical_id": "TD-AP05",
+      "title": "压测系统架构与工具选型",
+      "stage_id": "CAT-07",
+      "learner_level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-AP04"
+      ],
+      "knowledge_tracks": [
+        "serving-performance"
+      ],
+      "controlling_question": "负载发生器、Agent、依赖桩、Telemetry、分析和门禁怎样连接？",
+      "learner_artifact": "压测架构图",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "deliver-canonical-page",
+      "alias_ids": [
+        "TD-AP05"
+      ]
+    },
+    {
+      "canonical_id": "TD-AP06",
+      "title": "Agent 压测 SOP",
+      "stage_id": "CAT-07",
+      "learner_level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-AP05"
+      ],
+      "knowledge_tracks": [
+        "serving-performance"
+      ],
+      "controlling_question": "基线、爬坡、容量、突发、长稳、故障和恢复怎样执行？",
+      "learner_artifact": "可执行测试计划",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "deliver-canonical-page",
+      "alias_ids": [
+        "TD-AP06"
+      ]
+    },
+    {
+      "canonical_id": "TD-AP07",
+      "title": "诊断队列、重试与成本放大",
+      "stage_id": "CAT-07",
+      "learner_level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-AP06"
+      ],
+      "knowledge_tracks": [
+        "serving-performance"
+      ],
+      "controlling_question": "如何从症状反推模型、工具、状态、队列或策略问题？",
+      "learner_artifact": "瓶颈诊断报告",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "deliver-canonical-page",
+      "alias_ids": [
+        "TD-AP07"
+      ]
+    },
+    {
+      "canonical_id": "TD-AP08",
+      "title": "线上 SLO、告警与稳定性 Runbook",
+      "stage_id": "CAT-07",
+      "learner_level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-AP07"
+      ],
+      "knowledge_tracks": [
+        "serving-performance"
+      ],
+      "controlling_question": "怎样监控、告警、降级、回滚并把事故变成回归？",
+      "learner_artifact": "Agent Reliability Runbook",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "deliver-canonical-page",
+      "alias_ids": [
+        "TD-AP08"
+      ]
+    },
+    {
+      "canonical_id": "TD-1101",
+      "title": "AI 版本与 Lineage",
+      "stage_id": "CAT-08",
+      "learner_level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-508",
+        "TD-610",
+        "TD-708"
+      ],
+      "knowledge_tracks": [
+        "quality-platform-production"
+      ],
+      "controlling_question": "模型、Prompt、数据、知识库、工具和 Judge 怎样统一版本化？",
+      "learner_artifact": "Run Manifest",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-15",
+        "TD-T21",
+        "TD-AG-08"
+      ]
+    },
+    {
+      "canonical_id": "TD-1102",
+      "title": "Eval 接入 CI/CD",
+      "stage_id": "CAT-08",
+      "learner_level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-1101"
+      ],
+      "knowledge_tracks": [
+        "quality-platform-production"
+      ],
+      "controlling_question": "快速门禁、发布评测和人工审批怎样分层？",
+      "learner_artifact": "CI Workflow",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-16",
+        "TD-QP01",
+        "TD-QP02",
+        "TD-QP03",
+        "TD-T20"
+      ]
+    },
+    {
+      "canonical_id": "TD-1103",
+      "title": "质量—延迟—成本联合门禁",
+      "stage_id": "CAT-08",
+      "learner_level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-1102"
+      ],
+      "knowledge_tracks": [
+        "quality-platform-production"
+      ],
+      "controlling_question": "多目标怎样设硬底线与选择 Pareto 候选？",
+      "learner_artifact": "Release Scorecard",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-16",
+        "TD-AI-18",
+        "TD-T23",
+        "TD-AG-08"
+      ]
+    },
+    {
+      "canonical_id": "TD-1104",
+      "title": "AI Trace 与生产反馈",
+      "stage_id": "CAT-08",
+      "learner_level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-1103"
+      ],
+      "knowledge_tracks": [
+        "quality-platform-production"
+      ],
+      "controlling_question": "生产 Trace 如何安全转成回归资产？",
+      "learner_artifact": "Trace-to-Regression Pipeline",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-17",
+        "TD-BASE-10",
+        "TD-AI-25",
+        "TD-PS11",
+        "TD-QP04",
+        "TD-S04",
+        "TD-T22",
+        "TD-AG-08"
+      ]
+    },
+    {
+      "canonical_id": "TD-1105",
+      "title": "在线质量监控与漂移",
+      "stage_id": "CAT-08",
+      "learner_level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-1104"
+      ],
+      "knowledge_tracks": [
+        "quality-platform-production"
+      ],
+      "controlling_question": "没有实时答案标签时如何监控代理信号和抽样评审？",
+      "learner_artifact": "Drift Dashboard",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-17",
+        "TD-AI-19",
+        "TD-AI-25",
+        "TD-PS11",
+        "TD-T22",
+        "TD-T24",
+        "TD-AG-09"
+      ]
+    },
+    {
+      "canonical_id": "TD-1106",
+      "title": "告警、Waiver 与回滚",
+      "stage_id": "CAT-08",
+      "learner_level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-1105"
+      ],
+      "knowledge_tracks": [
+        "quality-platform-production"
+      ],
+      "controlling_question": "告警何时调查、阻断、降级或回滚？",
+      "learner_artifact": "Incident Runbook",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-19",
+        "TD-BASE-10",
+        "TD-PS12",
+        "TD-S04",
+        "TD-T24"
+      ]
+    },
+    {
+      "canonical_id": "TD-1107",
+      "title": "评测平台数据模型",
+      "stage_id": "CAT-08",
+      "learner_level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-1106"
+      ],
+      "knowledge_tracks": [
+        "quality-platform-production"
+      ],
+      "controlling_question": "Dataset、Run、Example、Score、Trace、Version 怎样关联？",
+      "learner_artifact": "Evaluation Schema",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-QP01",
+        "TD-QP02",
+        "TD-QP04"
+      ]
+    },
+    {
+      "canonical_id": "TD-1108",
+      "title": "质量治理与审计",
+      "stage_id": "CAT-08",
+      "learner_level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-1107"
+      ],
+      "knowledge_tracks": [
+        "quality-platform-production"
+      ],
+      "controlling_question": "权限、审批、证据保留和审计如何落地？",
+      "learner_artifact": "AI Quality Policy",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-QP03"
+      ]
+    },
+    {
+      "canonical_id": "TD-1009",
+      "title": "公共 Benchmark 解读",
+      "stage_id": "CAT-08",
+      "learner_level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-1105",
+        "TD-1008"
+      ],
+      "knowledge_tracks": [
+        "quality-platform-production"
+      ],
+      "controlling_question": "SWE-bench、Agent benchmark、HELM 等能说明什么？",
+      "learner_artifact": "Benchmark Review",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BENCH-04",
+        "TD-B06"
+      ]
+    },
+    {
+      "canonical_id": "TD-1010",
+      "title": "企业内部 Benchmark",
+      "stage_id": "CAT-08",
+      "learner_level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-1009"
+      ],
+      "knowledge_tracks": [
+        "quality-platform-production"
+      ],
+      "controlling_question": "怎样把真实任务、事故、成本和权限做成可维护基准？",
+      "learner_artifact": "Internal Benchmark Repo",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-BENCH-04",
+        "TD-B06"
+      ]
+    },
+    {
+      "canonical_id": "TD-X805",
+      "title": "在线实验、Canary 与人工抽样评审",
+      "stage_id": "CAT-08",
+      "learner_level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_ids": [
+        "TD-1105",
+        "TD-1006"
+      ],
+      "knowledge_tracks": [
+        "quality-platform-production",
+        "production-quality-gap"
+      ],
+      "controlling_question": "没有实时黄金答案时，怎样用 Canary、代理信号和人工抽样支持发布与回滚？",
+      "learner_artifact": "在线质量实验与抽样评审方案",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "deliver-canonical-page",
+      "alias_ids": [
+        "TD-X805",
+        "TD-AG-09"
+      ]
+    },
+    {
+      "canonical_id": "TD-1201",
+      "title": "AI 辅助测试项目",
+      "stage_id": "CAT-09",
+      "learner_level": "L4-operate",
+      "ai_lane": "capstone",
+      "prerequisite_ids": [
+        "TD-310",
+        "TD-1106"
+      ],
+      "knowledge_tracks": [
+        "capstone-career"
+      ],
+      "controlling_question": "能否把一次真实变更变成可追踪的 AI 辅助测试闭环？",
+      "learner_artifact": "项目仓库",
+      "delivery_status": "planned",
+      "evidence_maturity": "unmeasured",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-planned-canonical-topic",
+      "alias_ids": []
+    },
+    {
+      "canonical_id": "TD-1202",
+      "title": "RAG 质量项目",
+      "stage_id": "CAT-09",
+      "learner_level": "L4-operate",
+      "ai_lane": "capstone",
+      "prerequisite_ids": [
+        "TD-508",
+        "TD-1106"
+      ],
+      "knowledge_tracks": [
+        "capstone-career"
+      ],
+      "controlling_question": "能否让一个错误回答在 CI 中稳定变红并修复？",
+      "learner_artifact": "RAG Eval Repo",
+      "delivery_status": "planned",
+      "evidence_maturity": "unmeasured",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-planned-canonical-topic",
+      "alias_ids": []
+    },
+    {
+      "canonical_id": "TD-1203",
+      "title": "Agent 质量项目",
+      "stage_id": "CAT-09",
+      "learner_level": "L4-operate",
+      "ai_lane": "capstone",
+      "prerequisite_ids": [
+        "TD-610",
+        "TD-AP08",
+        "TD-1106"
+      ],
+      "knowledge_tracks": [
+        "capstone-career"
+      ],
+      "controlling_question": "能否联合验证结果、轨迹、权限、性能和成本？",
+      "learner_artifact": "Agent Quality Repo",
+      "delivery_status": "planned",
+      "evidence_maturity": "unmeasured",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-planned-canonical-topic",
+      "alias_ids": []
+    },
+    {
+      "canonical_id": "TD-1204",
+      "title": "AI 质量平台项目",
+      "stage_id": "CAT-09",
+      "learner_level": "L4-operate",
+      "ai_lane": "capstone",
+      "prerequisite_ids": [
+        "TD-1010",
+        "TD-X805"
+      ],
+      "knowledge_tracks": [
+        "capstone-career"
+      ],
+      "controlling_question": "能否连接数据、评测、Trace、发布和事故回流？",
+      "learner_artifact": "Quality Platform MVP",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-20",
+        "TD-T25"
+      ]
+    },
+    {
+      "canonical_id": "TD-1205",
+      "title": "岗位能力与作品集",
+      "stage_id": "CAT-09",
+      "learner_level": "L4-operate",
+      "ai_lane": "capstone",
+      "prerequisite_ids": [
+        "TD-1201",
+        "TD-1202",
+        "TD-1203",
+        "TD-1204"
+      ],
+      "knowledge_tracks": [
+        "capstone-career"
+      ],
+      "controlling_question": "如何用证据而不是“会用 AI”证明转型能力？",
+      "learner_artifact": "作品集与岗位映射",
+      "delivery_status": "outlined",
+      "evidence_maturity": "fixture-tested",
+      "content_gate": "blocked",
+      "coverage_decision": "retain-canonical-topic-and-migrate-aliases",
+      "alias_ids": [
+        "TD-AI-26",
+        "TD-C01",
+        "TD-C02",
+        "TD-C03",
+        "TD-R01"
+      ]
+    }
+  ],
+  "legacy_courses": [
+    {
+      "course_id": "TD-BASE-01",
+      "title": "传统研发测试流程与 AI 变化点",
+      "stage_id": "TD-ST00",
+      "level": "L0-entry",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [],
+      "knowledge_dependencies": [
+        "研发流程",
+        "风险驱动测试"
+      ],
+      "professional_baseline": "需求到发布的质量责任和证据链",
+      "new_ai_capability": "识别模型 Prompt 数据工具加入后的新测试对象",
+      "learner_artifact": [
+        "传统流程与 AI 变化地图"
+      ],
+      "assessment": "为一个 AI 功能标出原流程和新增风险",
+      "proof": "变化点可追踪到系统和责任人",
+      "source_ids": [
+        "S23",
+        "S32"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-02",
+      "title": "测试设计、Oracle 与 Mutation 入场考核",
+      "stage_id": "TD-ST00",
+      "level": "L0-entry",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-01"
+      ],
+      "knowledge_dependencies": [
+        "等价类边界状态组合",
+        "断言与 Oracle"
+      ],
+      "professional_baseline": "把业务规则变成可失败的检查",
+      "new_ai_capability": "为后续概率性输出保留风险与判定思维",
+      "learner_artifact": [
+        "追踪矩阵",
+        "可执行测试",
+        "Mutation 报告"
+      ],
+      "assessment": "预埋业务缺陷必须稳定变红",
+      "proof": "RED→GREEN→回归 GREEN",
+      "source_ids": [
+        "S23",
+        "S32"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-03",
+      "title": "自动化工具链、Trace、CI 与发布基线",
+      "stage_id": "TD-ST00",
+      "level": "L0-entry",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-02"
+      ],
+      "knowledge_dependencies": [
+        "API UI 集成测试",
+        "Trace Log Diff",
+        "CI"
+      ],
+      "professional_baseline": "测试执行可重放且发布结论有证据",
+      "new_ai_capability": "为 AI Trace 和 Eval Gate 建立工程入口",
+      "learner_artifact": [
+        "测试仓库",
+        "CI Gate",
+        "证据链缺陷报告"
+      ],
+      "assessment": "失败可复现可定位并阻断发布",
+      "proof": "从 Commit 到报告和阻断形成闭环",
+      "source_ids": [
+        "S01",
+        "S23",
+        "S32"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-FOUND-01",
+      "title": "大模型从数据、训练到推理和监控",
+      "stage_id": "TD-ST01",
+      "level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_course_ids": [
+        "TD-BASE-03"
+      ],
+      "knowledge_dependencies": [
+        "软件版本与运行环境",
+        "模型生命周期"
+      ],
+      "professional_baseline": "版本和环境决定测试结论",
+      "new_ai_capability": "区分训练知识、后训练行为、推理配置和线上漂移",
+      "learner_artifact": [
+        "模型生命周期测试地图"
+      ],
+      "assessment": "为每一阶段写出可观察风险和测试证据",
+      "proof": "模型行为变化能定位到生命周期环节",
+      "source_ids": [
+        "S23",
+        "S24",
+        "S33"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-FOUND-02",
+      "title": "Token、Attention、Context 与概率生成",
+      "stage_id": "TD-ST01",
+      "level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_course_ids": [
+        "TD-FOUND-01"
+      ],
+      "knowledge_dependencies": [
+        "输入输出与状态",
+        "概率性生成"
+      ],
+      "professional_baseline": "输入边界和运行参数必须可控",
+      "new_ai_capability": "解释 tokenization 上下文位置 logits sampling 对结果的影响",
+      "learner_artifact": [
+        "推理参数到失败模式实验表"
+      ],
+      "assessment": "改变上下文或解码变量并解释输出差异",
+      "proof": "实验记录固定模型 Prompt 参数和输出",
+      "source_ids": [
+        "S23",
+        "S33"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-FOUND-03",
+      "title": "Embedding、RAG、Tool call 与 Agent loop",
+      "stage_id": "TD-ST01",
+      "level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_course_ids": [
+        "TD-FOUND-02"
+      ],
+      "knowledge_dependencies": [
+        "系统数据流",
+        "模型推理"
+      ],
+      "professional_baseline": "复杂系统必须分层定位",
+      "new_ai_capability": "拆解检索生成工具状态和轨迹",
+      "learner_artifact": [
+        "LLM RAG Agent 结构与 Trace 图"
+      ],
+      "assessment": "根据失败症状选择首查层和证据",
+      "proof": "每个节点有输入输出版本和责任边界",
+      "source_ids": [
+        "S34",
+        "S35",
+        "S23"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-FOUND-04",
+      "title": "大模型能力边界与 AI 测试对象",
+      "stage_id": "TD-ST01",
+      "level": "L1-foundation",
+      "ai_lane": "ai-foundation",
+      "prerequisite_course_ids": [
+        "TD-FOUND-03"
+      ],
+      "knowledge_dependencies": [
+        "传统 Oracle",
+        "AI 系统结构"
+      ],
+      "professional_baseline": "风险决定 Oracle 和人工 Gate",
+      "new_ai_capability": "识别非确定性幻觉上下文工具权限隐私成本等边界",
+      "learner_artifact": [
+        "AI 失败分类与 Oracle 决策表"
+      ],
+      "assessment": "为高风险样例组合确定性语义和人工 Oracle",
+      "proof": "任何 blocker 不被平均分抵消",
+      "source_ids": [
+        "S08",
+        "S23",
+        "S24",
+        "S40"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-01",
+      "title": "用 AI 从 PRD/代码 Diff 建立风险模型",
+      "stage_id": "TD-ST02",
+      "level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_course_ids": [
+        "TD-FOUND-04"
+      ],
+      "knowledge_dependencies": [
+        "需求风险与追踪",
+        "反例审计"
+      ],
+      "professional_baseline": "风险分析与验收追踪",
+      "new_ai_capability": "让 AI 提取候选风险并保留证据引用",
+      "learner_artifact": [
+        "risk-matrix.json",
+        "traceability.md"
+      ],
+      "assessment": "注入缺失状态规则并检查是否识别",
+      "proof": "反例审计",
+      "source_ids": [
+        "S14",
+        "S32"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-02",
+      "title": "AI 生成自动化测试，但必须证明它会失败",
+      "stage_id": "TD-ST02",
+      "level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_course_ids": [
+        "TD-AI-01",
+        "TD-BASE-02"
+      ],
+      "knowledge_dependencies": [
+        "自动化结构",
+        "Mutation"
+      ],
+      "professional_baseline": "测试必须对产品缺陷敏感",
+      "new_ai_capability": "审查 AI 生成测试的检测力和伪覆盖",
+      "learner_artifact": [
+        "tests",
+        "mutation-report.json"
+      ],
+      "assessment": "产品 Mutation 使生成测试由绿变红",
+      "proof": "RED→GREEN",
+      "source_ids": [
+        "S01",
+        "S21"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-03",
+      "title": "用 AI 读 Trace/Log/Diff 做失败归因",
+      "stage_id": "TD-ST02",
+      "level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_course_ids": [
+        "TD-AI-02"
+      ],
+      "knowledge_dependencies": [
+        "失败证据链",
+        "反事实验证"
+      ],
+      "professional_baseline": "根因必须引用可复核证据",
+      "new_ai_capability": "用模型聚类和提出候选归因但不替代确认",
+      "learner_artifact": [
+        "evidence-linked-bug.md"
+      ],
+      "assessment": "删除关键证据后置信度下降",
+      "proof": "反事实检查",
+      "source_ids": [
+        "S14",
+        "S20",
+        "S22"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-04",
+      "title": "AI 生成属性、边界和 Fuzz 数据",
+      "stage_id": "TD-ST02",
+      "level": "L2-control",
+      "ai_lane": "use-ai-for-work",
+      "prerequisite_course_ids": [
+        "TD-AI-02"
+      ],
+      "knowledge_dependencies": [
+        "边界与属性测试",
+        "最小反例"
+      ],
+      "professional_baseline": "生成数据服务风险覆盖",
+      "new_ai_capability": "让 AI 扩展候选生成器并自动缩小失败样例",
+      "learner_artifact": [
+        "generator.py",
+        "shrunk-counterexample.json"
+      ],
+      "assessment": "命中并缩小预埋边界缺陷",
+      "proof": "最小失败种子可重放",
+      "source_ids": [
+        "S14",
+        "S23"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-EVAL-01",
+      "title": "Eval 数据集、Dataset card、切片与 Holdout",
+      "stage_id": "TD-ST03",
+      "level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-FOUND-04"
+      ],
+      "knowledge_dependencies": [
+        "测试数据设计",
+        "AI 数据污染"
+      ],
+      "professional_baseline": "数据代表业务风险和边界",
+      "new_ai_capability": "管理黄金集风险切片来源版本和未见 Holdout",
+      "learner_artifact": [
+        "eval-cases.jsonl",
+        "dataset-card.md",
+        "holdout-manifest.json"
+      ],
+      "assessment": "重复污染和切片缺口被检测",
+      "proof": "数据来源和 Split 可审计",
+      "source_ids": [
+        "S05",
+        "S23",
+        "S36",
+        "S40"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-EVAL-02",
+      "title": "Scorer、Rubric、LLM Judge 与人工校准",
+      "stage_id": "TD-ST03",
+      "level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-EVAL-01"
+      ],
+      "knowledge_dependencies": [
+        "组合 Oracle",
+        "标注分歧"
+      ],
+      "professional_baseline": "判定规则需要可靠性证据",
+      "new_ai_capability": "设计确定性 Scorer 和校准过的模型 Judge",
+      "learner_artifact": [
+        "rubric.md",
+        "judge-calibration.json",
+        "disagreement-set.jsonl"
+      ],
+      "assessment": "Judge 对反例和人工分歧可解释",
+      "proof": "校准集和误判样例 preserved",
+      "source_ids": [
+        "S04",
+        "S05",
+        "S10",
+        "S40"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-05",
+      "title": "LLM 评测基础：黄金集、Rubric 与阈值",
+      "stage_id": "TD-ST03",
+      "level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-EVAL-02"
+      ],
+      "knowledge_dependencies": [
+        "Eval 数据集",
+        "组合 Oracle"
+      ],
+      "professional_baseline": "回归由风险和阈值决定",
+      "new_ai_capability": "把 LLM 行为转成可重复发布判断",
+      "learner_artifact": [
+        "eval_cases.jsonl",
+        "rubric.md"
+      ],
+      "assessment": "低质量 Snapshot 未达阈值",
+      "proof": "基线回归",
+      "source_ids": [
+        "S03",
+        "S04",
+        "S05",
+        "S13"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "td-ai-006-rag-eval-ci",
+      "title": "RAG 分层评测：检索、回答、引用与忠实性",
+      "stage_id": "TD-ST03",
+      "level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-AI-05",
+        "TD-FOUND-03"
+      ],
+      "knowledge_dependencies": [
+        "RAG 结构",
+        "Eval 数据与 Oracle"
+      ],
+      "professional_baseline": "复杂链路分层测试",
+      "new_ai_capability": "分别验证检索生成引用拒答和工具安全",
+      "learner_artifact": [
+        "eval repo",
+        "metrics report",
+        "CI gate"
+      ],
+      "assessment": "完成 PASS→FAIL→PASS",
+      "proof": "幻觉丢引用和 Injection Mutation 被阻断",
+      "source_ids": [
+        "S03",
+        "S04",
+        "S09",
+        "S10",
+        "S23",
+        "S34"
+      ],
+      "delivery_status": "fixture-tested"
+    },
+    {
+      "course_id": "TD-AI-07",
+      "title": "Prompt/模型/知识库 A/B 与版本回归",
+      "stage_id": "TD-ST03",
+      "level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-AI-05"
+      ],
+      "knowledge_dependencies": [
+        "实验设计",
+        "版本化依赖"
+      ],
+      "professional_baseline": "候选版本使用同一协议比较",
+      "new_ai_capability": "比较 Prompt 模型和知识库组合并检查关键 Slice",
+      "learner_artifact": [
+        "experiment-ledger.csv",
+        "ab-report.md"
+      ],
+      "assessment": "新版本在关键 Slice 触发回归",
+      "proof": "阈值门禁",
+      "source_ids": [
+        "S05",
+        "S10",
+        "S36"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-09",
+      "title": "LLM/RAG/Agent 安全红队",
+      "stage_id": "TD-ST03",
+      "level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-AI-05",
+        "TD-FOUND-04"
+      ],
+      "knowledge_dependencies": [
+        "威胁模型",
+        "拒答与权限"
+      ],
+      "professional_baseline": "安全测试包含攻击检测防御和复测",
+      "new_ai_capability": "测试注入泄露越权和过度代理权",
+      "learner_artifact": [
+        "attack-set.yaml",
+        "redteam-report.html"
+      ],
+      "assessment": "高风险攻击有明确阻断和残余风险",
+      "proof": "Injection 泄露和越权阻断",
+      "source_ids": [
+        "S03",
+        "S06",
+        "S08",
+        "S40"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-10",
+      "title": "多模态 AI 的文档与截图评测",
+      "stage_id": "TD-ST03",
+      "level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-EVAL-02"
+      ],
+      "knowledge_dependencies": [
+        "多模态输入",
+        "风险切片"
+      ],
+      "professional_baseline": "输入类型和业务风险决定覆盖",
+      "new_ai_capability": "测试 OCR 版面视觉事实和跨模态幻觉",
+      "learner_artifact": [
+        "multimodal-dataset",
+        "slice-report.json"
+      ],
+      "assessment": "OCR 和视觉幻觉 Mutation 被检测",
+      "proof": "分模态回归",
+      "source_ids": [
+        "S23",
+        "S37"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-08",
+      "title": "Agent 评测：最终结果、单步与轨迹",
+      "stage_id": "TD-ST04",
+      "level": "L3-integrate",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-AI-05",
+        "TD-FOUND-03"
+      ],
+      "knowledge_dependencies": [
+        "Agent loop",
+        "状态与轨迹"
+      ],
+      "professional_baseline": "端到端结果和中间状态都需证据",
+      "new_ai_capability": "设计结果动作轨迹三层 Scorer",
+      "learner_artifact": [
+        "trajectory-cases.jsonl",
+        "agent-report.json"
+      ],
+      "assessment": "错工具错参数和伪成功被捕获",
+      "proof": "步骤级 Scorer",
+      "source_ids": [
+        "S06",
+        "S10",
+        "S35",
+        "S39"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-11",
+      "title": "Playwright Planner/Generator/Healer",
+      "stage_id": "TD-ST04",
+      "level": "L3-integrate",
+      "ai_lane": "agentize-work",
+      "prerequisite_course_ids": [
+        "TD-AI-02",
+        "TD-AI-08"
+      ],
+      "knowledge_dependencies": [
+        "自动化测试结构",
+        "Agent 轨迹"
+      ],
+      "professional_baseline": "业务 Oracle 与合并责任不能外包",
+      "new_ai_capability": "监督规划生成执行和修复 Agent",
+      "learner_artifact": [
+        "seed.spec.ts",
+        "specs",
+        "tests",
+        "trace"
+      ],
+      "assessment": "Healer 后产品 Mutation 仍使测试失败",
+      "proof": "产品 Mutation 保持检测力",
+      "source_ids": [
+        "S01",
+        "S02",
+        "S18"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-12",
+      "title": "Browser/API Agent 沙箱、工具与权限",
+      "stage_id": "TD-ST04",
+      "level": "L3-integrate",
+      "ai_lane": "agentize-work",
+      "prerequisite_course_ids": [
+        "TD-AI-08",
+        "TD-AI-09"
+      ],
+      "knowledge_dependencies": [
+        "工具协议",
+        "最小权限"
+      ],
+      "professional_baseline": "高风险动作需要权限和审计",
+      "new_ai_capability": "在沙箱验证工具选择参数副作用和人工确认",
+      "learner_artifact": [
+        "policy.yaml",
+        "agent-trace.json"
+      ],
+      "assessment": "越权动作被拒绝并留痕",
+      "proof": "副作用阻断",
+      "source_ids": [
+        "S06",
+        "S08",
+        "S25",
+        "S26"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-13",
+      "title": "自愈测试的反作弊门禁",
+      "stage_id": "TD-ST04",
+      "level": "L3-integrate",
+      "ai_lane": "agentize-work",
+      "prerequisite_course_ids": [
+        "TD-AI-11"
+      ],
+      "knowledge_dependencies": [
+        "Mutation",
+        "Semantic diff"
+      ],
+      "professional_baseline": "修复不能改变业务判定意图",
+      "new_ai_capability": "审计 Healer 的 locator 等待断言和 Oracle 变化",
+      "learner_artifact": [
+        "healer-policy.md",
+        "semantic-diff.json"
+      ],
+      "assessment": "删除断言或扩大等待不能通过",
+      "proof": "反作弊 Gate",
+      "source_ids": [
+        "S01",
+        "S21",
+        "S22"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-14",
+      "title": "Worker Workflow 与多 Agent 测试流水线",
+      "stage_id": "TD-ST04",
+      "level": "L3-integrate",
+      "ai_lane": "agentize-work",
+      "prerequisite_course_ids": [
+        "TD-AI-08",
+        "TD-AI-12"
+      ],
+      "knowledge_dependencies": [
+        "Handoff contract",
+        "独立验证"
+      ],
+      "professional_baseline": "职责分离和复核降低伪成功",
+      "new_ai_capability": "测试 Worker 并发重试 Handoff 预算和 Verifier",
+      "learner_artifact": [
+        "handoff-contract.json",
+        "verifier-report.md"
+      ],
+      "assessment": "独立 Verifier 拒绝伪成功并与单 Agent 对照",
+      "proof": "相同预算下的可重放对照",
+      "source_ids": [
+        "S10",
+        "S35",
+        "S39"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-15",
+      "title": "评测集、Prompt、模型与工具版本管理",
+      "stage_id": "TD-ST05",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-07",
+        "TD-AI-14"
+      ],
+      "knowledge_dependencies": [
+        "实验设计",
+        "依赖 Lineage"
+      ],
+      "professional_baseline": "质量结论必须可重放",
+      "new_ai_capability": "版本化全部 AI 运行依赖",
+      "learner_artifact": [
+        "experiment-ledger",
+        "version-manifest.json"
+      ],
+      "assessment": "历史实验可按版本重放",
+      "proof": "版本一致性",
+      "source_ids": [
+        "S05",
+        "S07",
+        "S24",
+        "S36"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-16",
+      "title": "把 AI 评测接进 CI/CD",
+      "stage_id": "TD-ST05",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-15"
+      ],
+      "knowledge_dependencies": [
+        "可靠 Scorer",
+        "版本清单",
+        "发布责任"
+      ],
+      "professional_baseline": "测试失败能够阻断合并",
+      "new_ai_capability": "用 AI 质量阈值 Slice Blocker 和 Waiver 控制发布",
+      "learner_artifact": [
+        "quality-gate.yml",
+        "waiver-template.md"
+      ],
+      "assessment": "阈值回归阻断合并并记录 Waiver",
+      "proof": "非零退出码",
+      "source_ids": [
+        "S03",
+        "S05",
+        "S07"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-17",
+      "title": "Trace、线上反馈与回归集闭环",
+      "stage_id": "TD-ST05",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-15",
+        "TD-AI-16"
+      ],
+      "knowledge_dependencies": [
+        "Trace",
+        "数据脱敏",
+        "Lineage"
+      ],
+      "professional_baseline": "线上失败成为可复现回归资产",
+      "new_ai_capability": "采集模型检索工具状态并转为 Eval case",
+      "learner_artifact": [
+        "feedback-to-eval pipeline"
+      ],
+      "assessment": "线上失败脱敏去重并进入回归集",
+      "proof": "Trace 到 Eval Lineage",
+      "source_ids": [
+        "S07",
+        "S24",
+        "S27",
+        "S30"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-18",
+      "title": "质量、成本、延迟与稳定性联合评估",
+      "stage_id": "TD-ST05",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-16"
+      ],
+      "knowledge_dependencies": [
+        "多目标决策",
+        "重复运行"
+      ],
+      "professional_baseline": "发布权衡不能只看单一指标",
+      "new_ai_capability": "构建质量成本延迟稳定性的 Pareto 门禁",
+      "learner_artifact": [
+        "pareto-report.html"
+      ],
+      "assessment": "模型切换由多目标阈值决定",
+      "proof": "多目标决策",
+      "source_ids": [
+        "S07",
+        "S10",
+        "S24",
+        "S31"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-19",
+      "title": "漂移、告警、Waiver、回滚与事故演练",
+      "stage_id": "TD-ST05",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-17",
+        "TD-AI-18"
+      ],
+      "knowledge_dependencies": [
+        "线上监控",
+        "事故响应"
+      ],
+      "professional_baseline": "异常必须能告警回滚和复盘",
+      "new_ai_capability": "治理模型数据 Prompt 和指标漂移",
+      "learner_artifact": [
+        "drift-runbook.md",
+        "incident-timeline.md"
+      ],
+      "assessment": "分布漂移触发告警和回滚演练",
+      "proof": "事故闭环",
+      "source_ids": [
+        "S07",
+        "S23",
+        "S24",
+        "S28",
+        "S29"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BENCH-01",
+      "title": "Benchmark 数据如何构造：任务、样本、标注与 Holdout",
+      "stage_id": "TD-ST06",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-EVAL-01",
+        "TD-AI-15"
+      ],
+      "knowledge_dependencies": [
+        "Dataset card",
+        "数据污染"
+      ],
+      "professional_baseline": "测试集需要代表性和独立性",
+      "new_ai_capability": "构造公开或内部 Benchmark 数据资产",
+      "learner_artifact": [
+        "benchmark-spec.md",
+        "dataset-card.md",
+        "holdout-manifest.json"
+      ],
+      "assessment": "来源重复泄漏和污染检查通过",
+      "proof": "数据 Lineage 可审计",
+      "source_ids": [
+        "S36",
+        "S37",
+        "S38",
+        "S40"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BENCH-02",
+      "title": "Benchmark 分数如何产生：Harness、Prompt、Scorer 与聚合",
+      "stage_id": "TD-ST06",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-BENCH-01"
+      ],
+      "knowledge_dependencies": [
+        "Eval protocol",
+        "Metric"
+      ],
+      "professional_baseline": "相同协议才能公平比较",
+      "new_ai_capability": "复现 Accuracy Pass@k Resolved rate Judge score 的计算链",
+      "learner_artifact": [
+        "harness-config.yaml",
+        "metric-card.md",
+        "reproduction-report.md"
+      ],
+      "assessment": "改变一个协议变量并解释分数变化",
+      "proof": "小型 Benchmark 分数可复现",
+      "source_ids": [
+        "S36",
+        "S37",
+        "S38",
+        "S39"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BENCH-03",
+      "title": "Benchmark 可信度：置信区间、方差、污染与可比性",
+      "stage_id": "TD-ST06",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-BENCH-02"
+      ],
+      "knowledge_dependencies": [
+        "统计不确定性",
+        "污染审计"
+      ],
+      "professional_baseline": "质量报告必须说明误差和限制",
+      "new_ai_capability": "审计榜单和模型对比的有效性",
+      "learner_artifact": [
+        "uncertainty-report.md",
+        "contamination-audit.json"
+      ],
+      "assessment": "识别不可比结果和虚假改进",
+      "proof": "报告包含样本数重复次数和限制",
+      "source_ids": [
+        "S37",
+        "S38",
+        "S40"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BENCH-04",
+      "title": "从公开榜单到企业内部 Benchmark",
+      "stage_id": "TD-ST06",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-BENCH-03",
+        "TD-AI-17"
+      ],
+      "knowledge_dependencies": [
+        "业务风险切片",
+        "生产反馈"
+      ],
+      "professional_baseline": "测试资产服务真实业务决策",
+      "new_ai_capability": "把公开方法迁移为私有业务 Benchmark 和维护政策",
+      "learner_artifact": [
+        "internal-benchmark-repo",
+        "maintenance-policy.md"
+      ],
+      "assessment": "真实失败回流且历史版本可解释",
+      "proof": "公开到内部的迁移证据",
+      "source_ids": [
+        "S27",
+        "S28",
+        "S30",
+        "S36",
+        "S40"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-04",
+      "title": "需求文档解析、可测试性与双向追踪",
+      "stage_id": "TD-ST00",
+      "level": "L0-entry",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-01"
+      ],
+      "knowledge_dependencies": [
+        "需求工程",
+        "业务规则",
+        "验收标准"
+      ],
+      "professional_baseline": "从测试依据识别条件、歧义、约束和未决决策",
+      "new_ai_capability": "为 AI 需求解析建立引用、反例和人工确认边界",
+      "learner_artifact": [
+        "requirements-review.md",
+        "traceability-matrix.csv"
+      ],
+      "assessment": "每个关键需求连接风险、测试条件、Oracle 和责任人",
+      "proof": "删除或冲突规则会触发追踪缺口",
+      "source_ids": [
+        "S41",
+        "S42",
+        "S32"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-05",
+      "title": "风险策略、测试层级与发布完成标准",
+      "stage_id": "TD-ST00",
+      "level": "L0-entry",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-04"
+      ],
+      "knowledge_dependencies": [
+        "风险驱动测试",
+        "unit component API integration system E2E"
+      ],
+      "professional_baseline": "把风险分配到最合适的测试层级并定义完成标准",
+      "new_ai_capability": "判断 AI 引入后哪些层级和门禁必须扩展",
+      "learner_artifact": [
+        "test-strategy.md",
+        "risk-level-matrix.csv"
+      ],
+      "assessment": "关键风险都有测试层级、证据和退出门槛",
+      "proof": "未覆盖关键风险阻断发布建议",
+      "source_ids": [
+        "S41",
+        "S42",
+        "S43"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-06",
+      "title": "测试数据、环境、依赖隔离与可重放",
+      "stage_id": "TD-ST00",
+      "level": "L0-entry",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-05"
+      ],
+      "knowledge_dependencies": [
+        "数据质量",
+        "环境配置",
+        "服务虚拟化"
+      ],
+      "professional_baseline": "测试结果必须能用版本化数据和环境重放",
+      "new_ai_capability": "为 Eval 数据、知识库、模型和工具版本建立共同基线",
+      "learner_artifact": [
+        "environment-manifest.yaml",
+        "test-data-card.md"
+      ],
+      "assessment": "同一版本清单可重现基线和故障",
+      "proof": "漂移或敏感数据违规会被检测",
+      "source_ids": [
+        "S42",
+        "S43",
+        "S24"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-07",
+      "title": "API、契约、集成与事件驱动测试",
+      "stage_id": "TD-ST00",
+      "level": "L1-foundation",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-06"
+      ],
+      "knowledge_dependencies": [
+        "HTTP 语义",
+        "OpenAPI",
+        "消息与最终一致性"
+      ],
+      "professional_baseline": "接口测试覆盖契约、业务语义、权限、幂等、限流、错误和兼容",
+      "new_ai_capability": "为流式、异步、结构化输出和工具调用接口建立基线",
+      "learner_artifact": [
+        "openapi-contract.yaml",
+        "integration-failure-matrix.md"
+      ],
+      "assessment": "正负向、依赖故障和兼容回归都可复现",
+      "proof": "只返回 200 但业务错误的响应仍失败",
+      "source_ids": [
+        "S44",
+        "S45",
+        "S61"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-08",
+      "title": "UI、兼容性、可访问性与用户旅程",
+      "stage_id": "TD-ST00",
+      "level": "L1-foundation",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-06"
+      ],
+      "knowledge_dependencies": [
+        "状态转换",
+        "设备浏览器矩阵",
+        "辅助技术"
+      ],
+      "professional_baseline": "从真实用户任务验证交互、恢复、兼容和可访问性",
+      "new_ai_capability": "为 AI UI 的流式状态、引用、确认和拒答体验建立检查",
+      "learner_artifact": [
+        "journey-map.md",
+        "compatibility-accessibility-matrix.csv"
+      ],
+      "assessment": "关键旅程在目标组合和错误恢复路径可完成",
+      "proof": "键盘或屏幕阅读器阻断会被报告",
+      "source_ids": [
+        "S41",
+        "S62",
+        "S01"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-09",
+      "title": "性能、负载、容量、长稳与成本",
+      "stage_id": "TD-ST00",
+      "level": "L2-control",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-07"
+      ],
+      "knowledge_dependencies": [
+        "工作负载模型",
+        "分位数",
+        "吞吐与饱和"
+      ],
+      "professional_baseline": "用基线、负载、压力、峰值、突发和长稳实验寻找容量边界",
+      "new_ai_capability": "为 TTFT、TPOT、Token 吞吐和 GPU/KV Cache 专题提供传统方法基线",
+      "learner_artifact": [
+        "workload-model.yaml",
+        "capacity-report.md"
+      ],
+      "assessment": "在目标负载下用 p95 p99 错误率饱和和成本做放行判断",
+      "proof": "超过容量拐点时门禁变红",
+      "source_ids": [
+        "S46",
+        "S47",
+        "S54"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-BASE-10",
+      "title": "可靠性、安全、可观测性、灾备与混沌",
+      "stage_id": "TD-ST00",
+      "level": "L2-control",
+      "ai_lane": "profession-baseline",
+      "prerequisite_course_ids": [
+        "TD-BASE-09",
+        "TD-BASE-08"
+      ],
+      "knowledge_dependencies": [
+        "SLI SLO",
+        "威胁模型",
+        "故障恢复"
+      ],
+      "professional_baseline": "关键服务必须可检测、可降级、可恢复、可审计",
+      "new_ai_capability": "为 AI 服务的限流、重试、Fallback、越权和持续评测建立操作责任",
+      "learner_artifact": [
+        "slo.md",
+        "threat-model.md",
+        "chaos-experiment.md",
+        "runbook.md"
+      ],
+      "assessment": "受控故障触发信号、降级、恢复和复盘",
+      "proof": "错误预算和恢复目标决定发布动作",
+      "source_ids": [
+        "S47",
+        "S48",
+        "S49",
+        "S50",
+        "S60"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-21",
+      "title": "AI 接口服务：Streaming、结构化输出、工具与异步合同",
+      "stage_id": "TD-ST03",
+      "level": "L2-control",
+      "ai_lane": "test-ai-systems",
+      "prerequisite_course_ids": [
+        "TD-BASE-07",
+        "TD-FOUND-04"
+      ],
+      "knowledge_dependencies": [
+        "HTTP 与契约测试",
+        "LLM 推理边界"
+      ],
+      "professional_baseline": "接口行为必须按合同和业务语义验证",
+      "new_ai_capability": "测试 SSE 事件、首 Token、截断、拒答、Schema、Tool call 和 Batch 状态",
+      "learner_artifact": [
+        "ai-api-contract-tests",
+        "stream-event-report.json"
+      ],
+      "assessment": "乱序、半流、重复工具和不完整输出均被检测",
+      "proof": "合同和语义两层门禁",
+      "source_ids": [
+        "S44",
+        "S55",
+        "S56",
+        "S57",
+        "S66"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-22",
+      "title": "AI 性能指标：TTFT、TPOT、ITL、Goodput 与成本",
+      "stage_id": "TD-ST05",
+      "level": "L3-integrate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-BASE-09",
+        "TD-AI-21"
+      ],
+      "knowledge_dependencies": [
+        "性能工作负载",
+        "流式时序",
+        "Token 计量"
+      ],
+      "professional_baseline": "性能结论必须绑定工作负载、分布和 SLO",
+      "new_ai_capability": "分离 Prefill、Decode、排队、端到端体验和单位成功任务成本",
+      "learner_artifact": [
+        "ai-performance-metric-card.md",
+        "workload.jsonl"
+      ],
+      "assessment": "同一请求能计算 TTFT TPOT ITL E2E throughput goodput 和 cost per success",
+      "proof": "指标起止点和 Token 来源可审计",
+      "source_ids": [
+        "S46",
+        "S51",
+        "S52",
+        "S54",
+        "S55"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-23",
+      "title": "AI 压测、容量拐点与瓶颈诊断",
+      "stage_id": "TD-ST05",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-22"
+      ],
+      "knowledge_dependencies": [
+        "open-loop closed-loop",
+        "队列与饱和",
+        "推理服务"
+      ],
+      "professional_baseline": "阶梯负载和长稳实验用于找容量与退化",
+      "new_ai_capability": "用 Prompt/输出长度、并发、Cache、Queue、KV 和 GPU 指标定位 Prefill/Decode 瓶颈",
+      "learner_artifact": [
+        "load-test-suite",
+        "capacity-curve.csv",
+        "bottleneck-report.md"
+      ],
+      "assessment": "注入队列或缓存压力并定位主要瓶颈",
+      "proof": "客户端、网关和服务端指标交叉印证",
+      "source_ids": [
+        "S46",
+        "S48",
+        "S51",
+        "S52",
+        "S53"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-24",
+      "title": "AI 服务稳定性：限流、超时、重试、Fallback 与降级",
+      "stage_id": "TD-ST05",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-21",
+        "TD-AI-23"
+      ],
+      "knowledge_dependencies": [
+        "错误预算",
+        "级联故障",
+        "接口幂等"
+      ],
+      "professional_baseline": "失败处理不能放大流量或破坏状态",
+      "new_ai_capability": "验证 RPM TPM 429 deadline 重试放大模型回退和工具副作用",
+      "learner_artifact": [
+        "fault-injection-suite",
+        "fallback-compatibility-report.md"
+      ],
+      "assessment": "429 5xx 断流和工具超时不会形成重试风暴或错误副作用",
+      "proof": "降级仍满足最低质量和数据政策",
+      "source_ids": [
+        "S48",
+        "S57",
+        "S59",
+        "S61"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-25",
+      "title": "AI Serving 可观测性：Trace、Queue、GPU 与 KV Cache",
+      "stage_id": "TD-ST05",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-23",
+        "TD-AI-17"
+      ],
+      "knowledge_dependencies": [
+        "OpenTelemetry",
+        "Prometheus",
+        "分层诊断"
+      ],
+      "professional_baseline": "监控回答什么坏了以及为什么坏了",
+      "new_ai_capability": "把模型 Prompt Token 检索工具 Judge Queue GPU KV 和成本连接为一次逻辑事务",
+      "learner_artifact": [
+        "telemetry-contract.yaml",
+        "dashboard.json",
+        "diagnostic-runbook.md"
+      ],
+      "assessment": "能从 TTFT TPOT 队列和缓存症状定位首查层",
+      "proof": "Trace Log Metric 和版本清单关联",
+      "source_ids": [
+        "S47",
+        "S49",
+        "S51",
+        "S53",
+        "S54"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-26",
+      "title": "测试职业演进：从执行者到 AI Quality Engineer",
+      "stage_id": "TD-ST07",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-AI-19",
+        "TD-AI-25"
+      ],
+      "knowledge_dependencies": [
+        "全生命周期质量责任",
+        "AI 质量平台"
+      ],
+      "professional_baseline": "测试与开发共享质量但专业判断仍需证据所有者",
+      "new_ai_capability": "把机械执行转为风险建模、Eval、平台、可靠性和治理能力",
+      "learner_artifact": [
+        "career-transition-map.md",
+        "portfolio-plan.md"
+      ],
+      "assessment": "每个目标角色都有一项可运行项目和可审计工件",
+      "proof": "预测与已观察岗位信号分开",
+      "source_ids": [
+        "S41",
+        "S58",
+        "S59",
+        "S27",
+        "S28",
+        "S29",
+        "S30",
+        "S31"
+      ],
+      "delivery_status": "planned"
+    },
+    {
+      "course_id": "TD-AI-20",
+      "title": "AI QE 平台 Capstone",
+      "stage_id": "TD-ST07",
+      "level": "L4-operate",
+      "ai_lane": "build-ai-quality-system",
+      "prerequisite_course_ids": [
+        "TD-BENCH-04",
+        "TD-AI-19",
+        "TD-AI-25",
+        "TD-AI-26"
+      ],
+      "knowledge_dependencies": [
+        "全部阶段工件",
+        "风险到证据闭环"
+      ],
+      "professional_baseline": "质量工程支撑发布和事故责任",
+      "new_ai_capability": "集成 Eval Agent Workflow CI Trace Benchmark 与治理",
+      "learner_artifact": [
+        "end-to-end AI quality repo"
+      ],
+      "assessment": "组合故障被阻断诊断修复并保留证据边界",
+      "proof": "Commit→CI→Trace→Regression→Rollback",
+      "source_ids": [
+        "S07",
+        "S23",
+        "S24",
+        "S36",
+        "S40",
+        "S59"
+      ],
+      "delivery_status": "planned"
+    }
+  ]
+}
