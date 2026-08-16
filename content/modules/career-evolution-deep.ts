@@ -2245,7 +2245,7 @@ const content: Record<string, DeepPageContent> = {
         "可编译运行比例 < 80% 时阻断，先修生成约束"
       ],
       "statistical": [
-        "双臂对比以 95% CI 是否重叠判定，禁止用点估计差值宣布提效",
+        "双臂对比预注册效应量/非劣界，并以配对或聚类 bootstrap 95% CI 判定；禁止用点估计差值或两个 CI 是否重叠宣布提效",
         "用例样本 < 50 条时提效结论记为证据不足"
       ],
       "acceptance": [

@@ -1417,7 +1417,7 @@ export const references: Record<string, ReferenceEntry> = {
   "R-WEBDRIVER": {
     id: "R-WEBDRIVER",
     kind: "standard",
-    title: "WebDriver（W3C 推荐标准）",
+    title: "WebDriver 2（W3C Working Draft）",
     role: "协议边界",
     publisher: "W3C",
     url: "https://www.w3.org/TR/webdriver2/",

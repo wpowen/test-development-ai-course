@@ -1892,7 +1892,7 @@ const content: Record<string, DeepPageContent> = {
       ],
       "statistical": [
         "切片结论一律带 Wilson 95% CI；样本 < 30 条时只报区间不报点估计",
-        "版本间切片对比以 CI 是否重叠判定，不用点估计差值"
+        "版本间切片对比预注册效应量/非劣界，对同切片配对差值做任务级或聚类 bootstrap 95% CI；不以两个 CI 是否重叠判定"
       ],
       "acceptance": [
         "评测集与生产分布的已知偏差，由数据 owner 列出并签字接受",
@@ -2621,7 +2621,7 @@ const content: Record<string, DeepPageContent> = {
         "重复次数 k < 3 或原始运行记录缺失时阻断，本轮结论作废"
       ],
       "statistical": [
-        "回归判定以 CI 是否重叠为准，禁止用点估计差值下结论",
+        "回归判定以预注册效应量/非劣界和任务级或聚类 bootstrap 95% CI 为准，禁止用点估计差值或两个 CI 是否重叠下结论",
         "任务聚类未修正时，区间须显式标注为乐观估计并不得用于发布判断"
       ],
       "acceptance": [

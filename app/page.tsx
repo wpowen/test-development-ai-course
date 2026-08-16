@@ -223,7 +223,8 @@ export default function Home() {
             <h2>{current.architecture.title}</h2>
             {current.architecture.visual && <figure className="course-visual">
               <a href={current.architecture.visual.src} target="_blank" rel="noreferrer" aria-label={`打开高清原图：${current.architecture.visual.alt}`}>
-                <img src={current.architecture.visual.src} alt={current.architecture.visual.alt} loading="lazy" />
+                {/* eslint-disable-next-line @next/next/no-img-element -- local SVG architecture diagrams are already static assets; preserve direct SVG loading and browser-native zoom */}
+                <img src={current.architecture.visual.src} alt={current.architecture.visual.alt} loading="lazy" decoding="async" />
               </a>
               <figcaption>{current.architecture.caption} 手机端可在图内左右滑动，点击图片可打开高清原图。</figcaption>
             </figure>}

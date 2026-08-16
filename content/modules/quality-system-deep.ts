@@ -759,7 +759,7 @@ const content: Record<string, DeepPageContent> = {
       ],
       "statistical": [
         "各切片指标给出 95% CI；单切片样本 < 30 条时只报区间不报排名",
-        "切片间差距以区间是否重叠判定，禁止用点估计宣布无差距"
+        "切片间差距报告预注册效应量/非劣界及分层或聚类 bootstrap 95% CI；不以区间重叠或点估计宣布无差距"
       ],
       "acceptance": [
         "10pt 至 20pt 之间的残余群体差距，由具名负责人签字接受并写入发布记录",

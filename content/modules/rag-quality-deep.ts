@@ -745,7 +745,7 @@ const content: Record<string, DeepPageContent> = {
       ],
       "statistical": [
         "切片指标一律带 Wilson 95% CI；单切片样本 < 30 条时只报区间不报点估计",
-        "版本间检索对比以 CI 是否重叠判定，禁止用 Recall 点估计差值下结论"
+        "版本间检索对比预注册效应量/非劣界；对同任务配对差值做任务级或聚类 bootstrap 95% CI，不以两个 CI 是否重叠判定"
       ],
       "acceptance": [
         "长尾查询切片的低召回，由产品 owner 签字接受或列入下一轮语料补充",
@@ -2205,7 +2205,7 @@ const content: Record<string, DeepPageContent> = {
       ],
       "statistical": [
         "各 locale 任务成功率给出 95% CI，样本 < 30 条时只报区间不报点估计",
-        "locale 间差距以区间是否重叠判定，禁止用点估计排名"
+        "locale 间差距报告预注册效应量与分层/聚类 95% CI；任务不配对时只作描述性比较，不以区间重叠作显著性判定"
       ],
       "acceptance": [
         "带已知缺陷发布的 locale 清单，由本地化 owner 逐个签字接受",
@@ -2558,7 +2558,7 @@ const content: Record<string, DeepPageContent> = {
         "两侧评分器版本不一致的对比次数 > 0 时阻断，结果作废"
       ],
       "statistical": [
-        "以 95% CI 是否重叠判定差异，禁止用点估计差值宣布改进",
+        "以预注册效应量/非劣界及配对或聚类 bootstrap 95% CI 判定差异，禁止用点估计差值宣布改进",
         "每侧重复次数 k < 3 或样本 < 100 条时结论记为证据不足"
       ],
       "acceptance": [

@@ -365,7 +365,7 @@ const content: Record<string, DeepPageContent> = {
         "重复提交下副作用重复发生次数 > 0 时阻断"
       ],
       "statistical": [
-        "关键接口按 pass^k（k ≥ 3）执行，回归判定以 95% CI 是否重叠为准",
+        "关键接口按经验 pass^k（k ≥ 3）报告；解析近似仅限 IID/同一 p 假设，回归以预注册非劣界及配对或聚类 bootstrap 95% CI 判定，不以两个 CI 是否重叠为准",
         "样本 < 100 次调用时可追溯率结论记为证据不足"
       ],
       "acceptance": [
