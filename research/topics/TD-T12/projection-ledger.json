@@ -3,7 +3,7 @@
   "topic_id": "TD-T12",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:47d4636873196ab6590b8ca45c60f5334128e1899e5c2ac990451a92d75954df",
-  "page_content_sha256": "sha256:9b047500d3d6c2573aa772410cdc3d4d803d6f5fe81786f5630d5ae84080c040",
+  "page_content_sha256": "sha256:20579055c323fca30c5a15ac20eac609f7a6ab3d38f7a0e428f96cf566b25fcc",
   "claims": [
     {
       "claim_id": "TD-T12-DECISION-01",
@@ -18,7 +18,7 @@
     {
       "claim_id": "TD-T12-FAILURE-01",
       "manuscript_locator": "manuscript.md:L41-L41",
-      "meaning": "无答案、权限与端到端 RAG Gate 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；跨租户测试要用真实的权限隔离机制，不要用查询条件模拟。两者的失效方式完全不同。",
+      "meaning": "RAG 端到端门禁：无答案与权限 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；跨租户测试要用真实的权限隔离机制，不要用查询条件模拟。两者的失效方式完全不同。",
       "kind": "failure-mode",
       "disposition": "projected",
       "page_target": "TD-T12#content_sections.common_errors",

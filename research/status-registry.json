@@ -218,7 +218,7 @@
         "TD-AG-09",
         "TD-AG-10"
       ],
-      "artifact_hash": "sha256:274e01c4e05a18796fdabf8174ae86217df6e6cc47d39f52b33ee3ea7a0658b8",
+      "artifact_hash": "sha256:9392fd09ce1aaa56f793c157abf78b08cee9d92608bbc6fae556e87fa310d49c",
       "status": "superseded",
       "supersedes": [],
       "evidence_refs": [
@@ -339,7 +339,7 @@
         "TD-AG-09",
         "TD-AG-10"
       ],
-      "artifact_hash": "sha256:1708bad7affe327e76ef244a26a79e62f534e98e4d194b67c9b86451ce2035a7",
+      "artifact_hash": "sha256:c58524756af9caefecabf9a5883e930c41945b09048909eafb6cb88d5073de42",
       "status": "superseded",
       "supersedes": [],
       "evidence_refs": [
@@ -460,7 +460,7 @@
         "TD-AG-09",
         "TD-AG-10"
       ],
-      "artifact_hash": "sha256:9a5e4d2b13f403a149e6c5862694158eb5a4ac4e1d6842d079f516f44daccb9d",
+      "artifact_hash": "sha256:9066d0dce319b4c2d765ea57fdf4952fc35c5934a3b95ec44b812ddc910742d2",
       "status": "superseded",
       "supersedes": [],
       "evidence_refs": [
@@ -581,7 +581,7 @@
         "TD-AG-09",
         "TD-AG-10"
       ],
-      "artifact_hash": "sha256:a76ad6e4bf70b6d42b3e1dc179d7821fc75c7b80369cafcab603ef49a30f2268",
+      "artifact_hash": "sha256:c43fa63e798ba1b38205ceb39db57c4ad9ed81e641fd8cda9d219ee72f9b990f",
       "status": "superseded",
       "supersedes": [],
       "evidence_refs": [
@@ -944,7 +944,7 @@
         "TD-AG-09",
         "TD-AG-10"
       ],
-      "artifact_hash": "sha256:2412ae2c976fef3e9ae18b0c604881a47564ec39f8523745558ab49f9615c8b4",
+      "artifact_hash": "sha256:ca77df8c9754ab5a70151408a81dbdca8073f78f0c06c3c25ac589920d525824",
       "status": "current",
       "supersedes": [
         "course-audit-04",

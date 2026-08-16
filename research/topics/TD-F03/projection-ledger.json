@@ -3,7 +3,7 @@
   "topic_id": "TD-F03",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:82b4508393dc28d137620ec0bfb5b0d20b132253d2d067b739e2673f4ed2354c",
-  "page_content_sha256": "sha256:fd08ef74002cfbef17dd1c2627f3ccf3650c2f1e5536f68366244752fd377f91",
+  "page_content_sha256": "sha256:55280ed653812e9fc6265ecc346b3e9fadedbda2030599dfd3863723ab08d8c0",
   "claims": [
     {
       "claim_id": "TD-F03-DECISION-01",
@@ -18,7 +18,7 @@
     {
       "claim_id": "TD-F03-FAILURE-01",
       "manuscript_locator": "manuscript.md:L33-L33",
-      "meaning": "Token、Context 与非确定性：为什么一次 PASS 不够 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；比较时要区分措辞差异与结论差异。把措辞不同算成失败，会让所有生成任务都不可测。",
+      "meaning": "Token、Context 与采样非确定性 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；比较时要区分措辞差异与结论差异。把措辞不同算成失败，会让所有生成任务都不可测。",
       "kind": "failure-mode",
       "disposition": "projected",
       "page_target": "TD-F03#content_sections.common_errors",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-F03-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L33-L33",
-      "meaning": "Token、Context 与非确定性：为什么一次 PASS 不够：解释 baseline → fault → repair 在 materials/ai-foundations-eval 运行三个 Manifest 步骤；它们共用 expected contract，fault 只修改 TD-F03 声明的 observation。 0 表示合成基线满足合同，1 表示 `repeat_count=1` 触发 FAIL，阻止把单次成功写成稳定证据 被独立 Oracle 捕获，最后的 0 表示 observatio…",
+      "meaning": "Token、Context 与采样非确定性：解释 baseline → fault → repair 在 materials/ai-foundations-eval 运行三个 Manifest 步骤；它们共用 expected contract，fault 只修改 TD-F03 声明的 observation。 0 表示合成基线满足合同，1 表示 `repeat_count=1` 触发 FAIL，阻止把单次成功写成稳定证据 被独立 Oracle 捕获，最后的 0 表示 observation 恢复而 expect…",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-F03#content_sections.teaching_blocks.13",

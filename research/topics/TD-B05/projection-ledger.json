@@ -3,7 +3,7 @@
   "topic_id": "TD-B05",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:8b187be0d4039c804e676b2637f8d40832643b57c71c924c179a94befcd073d3",
-  "page_content_sha256": "sha256:77331e0bbf8cffeb8fa44c433fddf622d1cc43eef0109b935ddec2e8bc4468a1",
+  "page_content_sha256": "sha256:5cf0b10cd2845741759baf136247faa71cbb9d5342f2627dfdc7712b88dd44c7",
   "claims": [
     {
       "claim_id": "TD-B05-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-B05-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L20-L20",
-      "meaning": "污染与不确定性：隐藏测试也不是万能证明：先定位这一个专业失败 候选只跑一次就高 1.5%，部分题在训练说明里可直接找到答案，Harness 版本还升级；团队却宣布显著能力提升。 对 TD-B05 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
+      "meaning": "Benchmark 污染与不确定性：先定位这一个专业失败 候选只跑一次就高 1.5%，部分题在训练说明里可直接找到答案，Harness 版本还升级；团队却宣布显著能力提升。 对 TD-B05 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-B05#content_sections.teaching_blocks.7",

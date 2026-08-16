@@ -3,7 +3,7 @@
   "topic_id": "TD-F04",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:2c88b009fef1c7648ecb1c275f503f90ca7029cc76f778c151a90a0f7a18c24a",
-  "page_content_sha256": "sha256:7715edd62ef6f2ec87a1fc2d52f6583698f1fd6b9d0fb90036ee5b95fb07cb5b",
+  "page_content_sha256": "sha256:b4a36828775692cc9f75085ecd10415f406f43526039ac35aeec088ec9772893",
   "claims": [
     {
       "claim_id": "TD-F04-DECISION-01",
@@ -18,7 +18,7 @@
     {
       "claim_id": "TD-F04-FAILURE-01",
       "manuscript_locator": "manuscript.md:L33-L33",
-      "meaning": "从 LLM 到 RAG、Agent 与 Workflow：被测边界如何扩张 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；不要按产品命名或团队分工来切分组件。切分依据只有一个：下一步由什么决定。",
+      "meaning": "LLM、RAG、Agent 与 Workflow 的测试边界 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；不要按产品命名或团队分工来切分组件。切分依据只有一个：下一步由什么决定。",
       "kind": "failure-mode",
       "disposition": "projected",
       "page_target": "TD-F04#content_sections.common_errors",

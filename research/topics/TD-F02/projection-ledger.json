@@ -3,7 +3,7 @@
   "topic_id": "TD-F02",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:db9fc84cd0776868a8e20431f135ff67275c05c292dd3cb79d32b117ed941e05",
-  "page_content_sha256": "sha256:96019c84d3b66cafc071958c81d765b418d710d5cab03174bf6f245c4396bd98",
+  "page_content_sha256": "sha256:0127f3083fc198523485311b4cbf024805721ee3582ad7f032e58b1ca4ba3b69",
   "claims": [
     {
       "claim_id": "TD-F02-DECISION-01",
@@ -18,7 +18,7 @@
     {
       "claim_id": "TD-F02-FAILURE-01",
       "manuscript_locator": "manuscript.md:L33-L33",
-      "meaning": "模型生命周期：一次错误究竟来自哪里 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；不要用同一个模型来判断自己的错误来自哪个阶段。阶段归属是确定性排查，靠记录不靠推理。",
+      "meaning": "大模型生命周期与失败归因 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；不要用同一个模型来判断自己的错误来自哪个阶段。阶段归属是确定性排查，靠记录不靠推理。",
       "kind": "failure-mode",
       "disposition": "projected",
       "page_target": "TD-F02#content_sections.common_errors",

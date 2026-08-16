@@ -8,6 +8,7 @@ const scriptRoot = path.dirname(fileURLToPath(import.meta.url));
 const packageRoot = path.dirname(scriptRoot);
 const siteRoot = path.join(packageRoot, "site");
 const integrityScript = path.join(scriptRoot, "generate-course-integrity-manifests.mjs");
+const staticExportScript = path.join(siteRoot, "scripts", "export-static.ts");
 
 const promotionFailure = (failure) => /^[A-Z0-9-]+: promotion FAIL$/.test(failure);
 
@@ -45,7 +46,12 @@ const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPat
 if (isMain) {
   // Static export must happen before receipts are written, otherwise receipts
   // can pin a stale dist hash even when public and ZIP artifacts are healthy.
-  execFileSync("npm", ["run", "export:static"], { cwd: siteRoot, stdio: "inherit" });
+  // Do not call the release wrapper here: the wrapper validates integrity
+  // before this command has a chance to refresh it. The direct exporter is
+  // deterministic and has no external side effect; the subsequent integrity
+  // write binds its exact static hashes, and the normal release gate verifies
+  // the complete chain afterwards.
+  execFileSync(process.execPath, [staticExportScript], { cwd: siteRoot, stdio: "inherit" });
   const result = spawnSync(process.execPath, [integrityScript, "--write"], {
     cwd: packageRoot,
     encoding: "utf8",

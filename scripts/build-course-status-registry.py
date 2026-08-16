@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import argparse
 from pathlib import Path
 
 
@@ -25,6 +26,9 @@ def digest(data: bytes) -> str:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--check", action="store_true", help="fail instead of rewriting a stale registry")
+    args = parser.parse_args()
     tutorial = json.loads((ROOT / "tutorial/tutorial-site.json").read_text(encoding="utf-8"))
     page_ids = [page["page_id"] for page in tutorial["pages"]]
     scope_hash = digest(json.dumps(page_ids, ensure_ascii=False, separators=(",", ":")).encode())
@@ -57,7 +61,12 @@ def main() -> None:
         "records": records,
     }
     target = ROOT / "research/status-registry.json"
-    target.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    serialized = json.dumps(output, ensure_ascii=False, indent=2) + "\n"
+    if args.check:
+        if not target.is_file() or target.read_text(encoding="utf-8") != serialized:
+            raise SystemExit("status registry drift")
+    else:
+        target.write_text(serialized, encoding="utf-8")
     print(f"status registry: {len(records)} records; current scope {len(page_ids)} pages")
 
 

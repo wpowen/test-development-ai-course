@@ -3,7 +3,7 @@
   "topic_id": "TD-C04",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:aaaf4bd4adf91ca356879e00ff96a70118daa53ecd870697ce4f99214a851d52",
-  "page_content_sha256": "sha256:91b32f4ae6506d35537a6b17c3ad75776eb4a5a60b7f2fcb80f2df3e4088b824",
+  "page_content_sha256": "sha256:3c22191bfa6d913a9a4a4adda655c4fd6257202defaeed0d738bfa0fc0b62838",
   "claims": [
     {
       "claim_id": "TD-C04-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-C04-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L7-L7",
-      "meaning": "编辑 organization-level-adapter.yaml：组织、source_ref、owner、version、effective_from、四状态映射和阈值 owner。：版本化 Prompt/Eval/Mutation 本页 Prompt 只生成 TD-C04 的结构化候选，不替代 owner、Oracle 或组织政策。 输出必须保留 UNKNOWN、NOT_RUN、BLOCKED 和适用范围。 prompt 读取 TD-C04 的批准 fixture，输出符合 Schema 的候选工件；不得猜…",
+      "meaning": "编辑 organization-level-adapter.yaml：组织、source_ref、owner、version、effective_from、四状态映射和阈值 owner。：版本化 Prompt/Eval/Mutation 本页 Prompt 只生成 TD-C04 的结构化候选，不替代 owner、Oracle 或组织政策。 输出必须保留 UNKNOWN、NOT_RUN、BLOCKED 和适用范围。 prompt # TD-C04 · Task Prompt v2.0 > 单次任务提示词。角色与红线…",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-C04#content_sections.teaching_blocks.10",

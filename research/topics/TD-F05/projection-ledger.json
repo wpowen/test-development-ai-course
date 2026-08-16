@@ -3,7 +3,7 @@
   "topic_id": "TD-F05",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:df2096554a95db7839e429ca2dca0a86b3a50b6c9a497f6ded4bf00b16583045",
-  "page_content_sha256": "sha256:1dbe4bbf0e3025ec8c25686e5ab203469efd59c0ce5ded7b6891b841b04b5529",
+  "page_content_sha256": "sha256:66df2690fbd051476ce8215593a12e258b755504a64818f901f5c2f3b44c63c7",
   "claims": [
     {
       "claim_id": "TD-F05-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-F05-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L10-L10",
-      "meaning": "为一个分类、一个 RAG、一个 Agent 任务各填写 task/population、failure_cost、definition、slices、statistic、threshold owner、uncertainty 和 failure_action。：版本化 Prompt/Eval/Mutation 本页 Prompt 只生成 TD-F05 的结构化候选，不替代 owner、Oracle 或组织政策。 输出必须保留 UNKNOWN、NOT_RUN、BLOCKED 和适用范围。 prompt 读取 TD-…",
+      "meaning": "为一个分类、一个 RAG、一个 Agent 任务各填写 task/population、failure_cost、definition、slices、statistic、threshold owner、uncertainty 和 failure_action。：版本化 Prompt/Eval/Mutation 本页 Prompt 只生成 TD-F05 的结构化候选，不替代 owner、Oracle 或组织政策。 输出必须保留 UNKNOWN、NOT_RUN、BLOCKED 和适用范围。 prompt # TD-F…",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-F05#content_sections.teaching_blocks.10",

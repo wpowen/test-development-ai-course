@@ -24,6 +24,10 @@
 /.playwright-cli/
 /outputs/
 /work/
+
+# independently versioned site source and generated tutorial projection
+site/
+tutorial/
 node_modules/
 __pycache__/
 *.pyc

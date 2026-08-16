@@ -3,7 +3,7 @@
   "topic_id": "TD-B03",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:d49eadbfdcea514e4757aec57766e59ce7e0f94612cc9f6150eff1e387f54f47",
-  "page_content_sha256": "sha256:511f946241bf449a1edea066f0f0ece086b9600481451fb8023194c5631ef252",
+  "page_content_sha256": "sha256:2ee2a3790e79797f878e24d8243f832e850a6347cf5e429ff2152953412887f3",
   "claims": [
     {
       "claim_id": "TD-B03-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-B03-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L20-L20",
-      "meaning": "Metrics 与区间：Accuracy、Pass@k、Resolved Rate 不能混讲：先定位这一个专业失败 10 题各跑 5 次，8 题至少成功一次，因此 pass@5 很高；但单次 resolved rate 低、重试成本高且一次越权调用被平均 Judge 分掩盖。 对 TD-B03 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLO…",
+      "meaning": "Benchmark 指标：Accuracy、Pass@k、Resolved Rate 与置信区间：先定位这一个专业失败 10 题各跑 5 次，8 题至少成功一次，因此 pass@5 很高；但单次 resolved rate 低、重试成本高且一次越权调用被平均 Judge 分掩盖。 对 TD-B03 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/B…",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-B03#content_sections.teaching_blocks.7",

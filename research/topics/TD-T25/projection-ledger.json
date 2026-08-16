@@ -3,7 +3,7 @@
   "topic_id": "TD-T25",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:eb361e01c13f35da5dd00687d6ad3af74ad2d1e718e963a0bb30278963bd2ed2",
-  "page_content_sha256": "sha256:1c0974434b81d98b1fbf01644a742c66499f9a9246c744f655a977438c374811",
+  "page_content_sha256": "sha256:6f66cff2f265b72cd559126baa0e4ae5334383f61365d841c27d2691c5861b3e",
   "claims": [
     {
       "claim_id": "TD-T25-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-T25-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L20-L20",
-      "meaning": "Capstone：交付 AI Quality Fixture Release Candidate：先定位这一个专业失败 退款 RAG+Agent 同时可能引用过期政策、越权调用工具、在并发下变慢或因 Judge 漂移假绿。只提交文档、聊天截图或最终绿色报告无法证明系统会杀死这些故障。 对 TD-T25 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN…",
+      "meaning": "Capstone：AI Quality Fixture Release Candidate：先定位这一个专业失败 退款 RAG+Agent 同时可能引用过期政策、越权调用工具、在并发下变慢或因 Judge 漂移假绿。只提交文档、聊天截图或最终绿色报告无法证明系统会杀死这些故障。 对 TD-T25 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BL…",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-T25#content_sections.teaching_blocks.7",

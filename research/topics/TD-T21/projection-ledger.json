@@ -3,7 +3,7 @@
   "topic_id": "TD-T21",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:e02cdaa455faeeb115216cf4ff8a7f680c4f835e19256d37efd9260dea305713",
-  "page_content_sha256": "sha256:ec5968f88db58caf914ac35eb6338e10ce56210b4f222233f832b398c91deb4f",
+  "page_content_sha256": "sha256:2a523711c6a78d58743f81329f01b88aa4119f5aabc25422280eea1563ae96c6",
   "claims": [
     {
       "claim_id": "TD-T21-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-T21-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L20-L20",
-      "meaning": "Lineage：每个分数都能回到当时的版本：先定位这一个专业失败 报告称候选 B 提升 6%，但 A/B 同时改变模型、知识库、Prompt 与 Judge；没有 lineage 就无法把提升归因给任何组件。 对 TD-T21 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
+      "meaning": "模型与评测 Lineage 追踪：先定位这一个专业失败 报告称候选 B 提升 6%，但 A/B 同时改变模型、知识库、Prompt 与 Judge；没有 lineage 就无法把提升归因给任何组件。 对 TD-T21 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-T21#content_sections.teaching_blocks.7",

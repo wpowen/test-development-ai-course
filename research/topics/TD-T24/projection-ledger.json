@@ -3,7 +3,7 @@
   "topic_id": "TD-T24",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:b887f5d4359737bb90bafd6237aa9f85d9647be387ecf8bd756ea560be174ced",
-  "page_content_sha256": "sha256:3337f8d1ce61cd77c431d1ddbb4828897c7f790ebf2bf8a1f6773bafb8d63d70",
+  "page_content_sha256": "sha256:498a4552a19c3a98494169703b8d6b42db3b7bcac9fc19bade8b2fbcb83ae6ae",
   "claims": [
     {
       "claim_id": "TD-T24-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-T24-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L20-L20",
-      "meaning": "漂移、Waiver 与回滚：质量系统的恢复闭环：先定位这一个专业失败 退款正确率缓慢下降，Judge 分却保持稳定；原因可能是输入分布、知识库、模型或 Judge 自身漂移。只调模型或放宽阈值都可能修错层。 对 TD-T24 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
+      "meaning": "漂移、Waiver 与回滚闭环：先定位这一个专业失败 退款正确率缓慢下降，Judge 分却保持稳定；原因可能是输入分布、知识库、模型或 Judge 自身漂移。只调模型或放宽阈值都可能修错层。 对 TD-T24 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-T24#content_sections.teaching_blocks.7",

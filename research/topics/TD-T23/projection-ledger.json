@@ -3,7 +3,7 @@
   "topic_id": "TD-T23",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:a421040ec38340beef20e0758e2954653cc1f2e87a71e93989c746d5a2f0ed65",
-  "page_content_sha256": "sha256:58e5f4a6193975a7119de744b13bbabe0460ac09a30c21d3bb6e9fd38d7f3c77",
+  "page_content_sha256": "sha256:7628e6bb7f4f78a3ee169c1fb738031d8bb21ebad743d265179f77a872ab40f0",
   "claims": [
     {
       "claim_id": "TD-T23-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-T23-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L20-L20",
-      "meaning": "质量、延迟与成本：联合 Gate 而不是一个综合分：先定位这一个专业失败 候选 B 平均延迟低 20%，却在长输入退款任务下降、p99 TTFT 上升、工具重试翻倍；只看均值会把退化写成优化。 对 TD-T23 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
+      "meaning": "质量、延迟与成本联合门禁：先定位这一个专业失败 候选 B 平均延迟低 20%，却在长输入退款任务下降、p99 TTFT 上升、工具重试翻倍；只看均值会把退化写成优化。 对 TD-T23 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-T23#content_sections.teaching_blocks.7",

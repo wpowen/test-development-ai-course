@@ -3,7 +3,7 @@
   "topic_id": "TD-T01",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:490b0f2a593cbb7c60365b16fab9bb6a9a1ec9e61ecc53fd14da10ca9c264996",
-  "page_content_sha256": "sha256:4d8c4739fba0a6bc4f72bbe3beebc75ccbeefe73e660bb1025b0e68278a31cfe",
+  "page_content_sha256": "sha256:a05adaaba5e223e22b54e99ba854ba3f94f48217ba4a2852f15dc2445ab5cbd3",
   "claims": [
     {
       "claim_id": "TD-T01-DECISION-01",
@@ -18,7 +18,7 @@
     {
       "claim_id": "TD-T01-FAILURE-01",
       "manuscript_locator": "manuscript.md:L37-L37",
-      "meaning": "Eval Contract：先写发布问题，再选指标 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；填不出的项要如实留空并标注需要谁来定，不要临时编一个说法填满。空白比编造更有价值。",
+      "meaning": "Eval Contract 与指标选择 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；填不出的项要如实留空并标注需要谁来定，不要临时编一个说法填满。空白比编造更有价值。",
       "kind": "failure-mode",
       "disposition": "projected",
       "page_target": "TD-T01#content_sections.common_errors",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-T01-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L37-L37",
-      "meaning": "平均 0.92 分，仍然不能回答能否发布 如果报告没写测哪个模型/Prompt/索引、覆盖什么流量、谁承担退款错误、0.92 的分母和阈值依据是什么，数字无法支持决定。 合同应先声明 decision 和 failure cost，再选择能观察该风险的数据与 Oracle。缺 owner、来源或权限时进入 UNKNOWN/BLOCKED。 Eval Contract：先写发布问题，再选指标 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。",
+      "meaning": "平均 0.92 分，仍然不能回答能否发布 如果报告没写测哪个模型/Prompt/索引、覆盖什么流量、谁承担退款错误、0.92 的分母和阈值依据是什么，数字无法支持决定。 合同应先声明 decision 和 failure cost，再选择能观察该风险的数据与 Oracle。缺 owner、来源或权限时进入 UNKNOWN/BLOCKED。 Eval Contract 与指标选择 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-T01#content_sections.teaching_blocks.7",

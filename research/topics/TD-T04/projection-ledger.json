@@ -3,7 +3,7 @@
   "topic_id": "TD-T04",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:cc6ad4df70dff4e031d1cd9e031b0320fd25c8fb92ac0e8517931e54dc0a503b",
-  "page_content_sha256": "sha256:1c91d0951151a453126fdb08d5d75b6c7cf37a106d505bb482828490fa9c2261",
+  "page_content_sha256": "sha256:f06566f6b9391eb3399dd2a2bb695a9c9308cfaf9e515d42581ea63d97e27ebb",
   "claims": [
     {
       "claim_id": "TD-T04-DECISION-01",
@@ -18,7 +18,7 @@
     {
       "claim_id": "TD-T04-FAILURE-01",
       "manuscript_locator": "manuscript.md:L37-L37",
-      "meaning": "重复运行与统计：从一次结果到可解释分布 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；不要在三个口径里挑一个支持既定结论的来报。三个都要报，并说明发布决定依据哪一个。",
+      "meaning": "重复运行、统计与结果分布 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；不要在三个口径里挑一个支持既定结论的来报。三个都要报，并说明发布决定依据哪一个。",
       "kind": "failure-mode",
       "disposition": "projected",
       "page_target": "TD-T04#content_sections.common_errors",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-T04-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L37-L37",
-      "meaning": "重复运行与统计：从一次结果到可解释分布：解释 baseline → fault → repair 在 materials/ai-foundations-eval 运行三个 Manifest 步骤；它们共用 expected contract，fault 只修改 TD-T04 声明的 observation。 0 表示合成基线满足合同，1 表示 `blocker_separate=false` 触发 FAIL，阻止平均分吞掉高风险事件 被独立 Oracle 捕获，最后的 0 表示 observation 恢复而 e…",
+      "meaning": "重复运行、统计与结果分布：解释 baseline → fault → repair 在 materials/ai-foundations-eval 运行三个 Manifest 步骤；它们共用 expected contract，fault 只修改 TD-T04 声明的 observation。 0 表示合成基线满足合同，1 表示 `blocker_separate=false` 触发 FAIL，阻止平均分吞掉高风险事件 被独立 Oracle 捕获，最后的 0 表示 observation 恢复而 expected…",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-T04#content_sections.teaching_blocks.12",

@@ -3,7 +3,7 @@
   "topic_id": "TD-C03",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:c52519d06d2c2163c0a3c48a20f9415a5bc76813420c2e816f2f933cee97084f",
-  "page_content_sha256": "sha256:c6c5bfb485e6e35b8e65ddfce93b5e085c940f64a03f319222770828e9e52437",
+  "page_content_sha256": "sha256:dadcaf693b0e027201b5b474fc573f1a1e812631b8525f487696e7fec90e0543",
   "claims": [
     {
       "claim_id": "TD-C03-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-C03-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L26-L26",
-      "meaning": "为至少五个维度填写 claim、responsibility_state、evidence_refs、gap_route、next_artifact、reviewer 和 maturity。：版本化 Prompt/Eval/Mutation 本页 Prompt 只生成 TD-C03 的结构化候选，不替代 owner、Oracle 或组织政策。 输出必须保留 UNKNOWN、NOT_RUN、BLOCKED 和适用范围。 prompt 读取 TD-C03 的批准 fixture，输出符合 Schema 的候选工件；不…",
+      "meaning": "为至少五个维度填写 claim、responsibility_state、evidence_refs、gap_route、next_artifact、reviewer 和 maturity。：版本化 Prompt/Eval/Mutation 本页 Prompt 只生成 TD-C03 的结构化候选，不替代 owner、Oracle 或组织政策。 输出必须保留 UNKNOWN、NOT_RUN、BLOCKED 和适用范围。 prompt # TD-C03 · Task Prompt v2.0 > 单次任务提示词。角色与…",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-C03#content_sections.teaching_blocks.13",

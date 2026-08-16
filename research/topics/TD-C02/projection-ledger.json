@@ -3,7 +3,7 @@
   "topic_id": "TD-C02",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:ca7272a68ab98b9e46b42436dfc0627e27ced3556b8e6f75347c69b67acdc512",
-  "page_content_sha256": "sha256:53419d9c75d56f893645fcc73d5bb9591d33753604604b3d5af29d2f1f998bb8",
+  "page_content_sha256": "sha256:4222e93d2439d92a5942c2936b83df44378e0d78709a22995bed50a15b5ff41a",
   "claims": [
     {
       "claim_id": "TD-C02-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-C02-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L22-L22",
-      "meaning": "为一个测试主题填写 responsibility-map：当前状态、允许的决定、禁止的决定、证据路径、故障变异和 reviewer。：版本化 Prompt/Eval/Mutation 本页 Prompt 只生成 TD-C02 的结构化候选，不替代 owner、Oracle 或组织政策。 输出必须保留 UNKNOWN、NOT_RUN、BLOCKED 和适用范围。 prompt 读取 TD-C02 的批准 fixture，输出符合 Schema 的候选工件；不得猜测职级、阈值、就业或生产结论。 1.0.0 mater…",
+      "meaning": "为一个测试主题填写 responsibility-map：当前状态、允许的决定、禁止的决定、证据路径、故障变异和 reviewer。：版本化 Prompt/Eval/Mutation 本页 Prompt 只生成 TD-C02 的结构化候选，不替代 owner、Oracle 或组织政策。 输出必须保留 UNKNOWN、NOT_RUN、BLOCKED 和适用范围。 prompt # TD-C02 · Task Prompt v2.0 > 单次任务提示词。角色与红线在 `system-v1.md`，本文件只说这一次做什…",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-C02#content_sections.teaching_blocks.11",

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { createHash } from "node:crypto";
-import { execFileSync } from "node:child_process";
+import { execFileSync, spawnSync } from "node:child_process";
 import {
   cpSync,
   existsSync,
@@ -60,14 +60,39 @@ const allFiles = (directory) => {
 };
 const run = (command, args, cwd = root) => execFileSync(command, args, { cwd, stdio: "inherit" });
 const output = (command, args, cwd = root) => execFileSync(command, args, { cwd, encoding: "utf8" }).trim();
+const promotionFailure = (failure) => /^[A-Z0-9-]+: promotion FAIL$/.test(failure);
+
+const assertFixtureIntegrity = () => {
+  const result = spawnSync(process.execPath, [path.join(scriptRoot, "generate-course-integrity-manifests.mjs")], {
+    cwd: root,
+    encoding: "utf8",
+    maxBuffer: 16 * 1024 * 1024,
+  });
+  if (result.error) throw result.error;
+  let summary;
+  try {
+    summary = JSON.parse(result.stdout);
+  } catch {
+    throw new Error("integrity gate did not emit a machine-readable summary");
+  }
+  const unexpected = [
+    ...(summary.problems ?? []),
+    ...(summary.gateFailures ?? []).filter((failure) => !promotionFailure(failure)),
+  ];
+  const promotionBlockers = (summary.gateFailures ?? []).filter(promotionFailure);
+  if (unexpected.length > 0 || promotionBlockers.length !== summary.publicPageCount) {
+    throw new Error(`fixture integrity gate failed: unexpected=${JSON.stringify(unexpected)}, promotionBlockers=${promotionBlockers.length}, publicPages=${summary.publicPageCount}`);
+  }
+};
 
 const assertSourceGates = () => {
   run("npm", ["test"], siteRoot);
   run("npm", ["run", "lint"], siteRoot);
   run("node", [path.join(scriptRoot, "sync-tutorial-package.mjs"), "--check"]);
   run("node", [path.join(scriptRoot, "sync-solution-architecture-coverage.mjs"), "--check"]);
-  run("node", [path.join(scriptRoot, "generate-course-integrity-manifests.mjs")]);
-  run("python3", [path.join(factory, "scripts/validate_career_package.py"), root]);
+  assertFixtureIntegrity();
+  run("python3", [path.join(scriptRoot, "build-page-projection-ledgers.py"), "--check"]);
+  run("python3", [path.join(scriptRoot, "build-course-status-registry.py"), "--check"]);
 };
 
 const assembleCandidate = () => {
@@ -141,6 +166,7 @@ const assembleCandidate = () => {
     return {
       page_id: pageId,
       verdict: receipt.verdict,
+      higher_maturity_blocker: receipt.findings,
       research_package_complete: receipt.research_inventory?.every((item) => item.exists === true) ?? false,
       editorial_score: receipt.editorial_score,
       boundary_preservation_score: receipt.boundary_preservation_score,

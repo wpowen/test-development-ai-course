@@ -3,7 +3,7 @@
   "topic_id": "TD-FP01",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:6140020cdd2955f80f14131f197728cee5a77a479a0d40472d6895c4d131266e",
-  "page_content_sha256": "sha256:5597aa81cc85c50746af5308ba4abf06b1af11957982d9a55bae07cbef473f6a",
+  "page_content_sha256": "sha256:3bd1a5e0b138065a2c527210cebc795809344ac308a99a7f1d45d460e312e0ea",
   "claims": [
     {
       "claim_id": "TD-FP01-DECISION-01",
@@ -18,7 +18,7 @@
     {
       "claim_id": "TD-FP01-FAILURE-01",
       "manuscript_locator": "manuscript.md:L49-L49",
-      "meaning": "Prompt 小白第一课：从一句指令到可验证 Prompt Package 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。",
+      "meaning": "Prompt Package 入门：从指令到可验证评测单元 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。",
       "kind": "failure-mode",
       "disposition": "projected",
       "page_target": "TD-FP01#content_sections.common_errors",

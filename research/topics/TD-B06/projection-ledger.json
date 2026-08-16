@@ -3,7 +3,7 @@
   "topic_id": "TD-B06",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:8662fcff1625f22e89c13e253ba360ffc9bcce949a10d90a677ee01de6c5ed5f",
-  "page_content_sha256": "sha256:e098a7cd9971532f7f90cd665b1930cf9fe6cc1fb88dfbd65910e71179a213f7",
+  "page_content_sha256": "sha256:595e1ce9f1f1b3eb639d69349d78bd1519c9fce69447a9b4e15c3db6bd6e7ce4",
   "claims": [
     {
       "claim_id": "TD-B06-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-B06-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L20-L20",
-      "meaning": "公共到企业：把 Benchmark 方法迁移到业务风险：先定位这一个专业失败 团队把公开题翻译成中文就当客服发布基准；题目没有企业 Oracle、权限边界、流量切片或事故回归，分数无法支持真实放行。 对 TD-B06 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
+      "meaning": "Benchmark 方法的企业化迁移：先定位这一个专业失败 团队把公开题翻译成中文就当客服发布基准；题目没有企业 Oracle、权限边界、流量切片或事故回归，分数无法支持真实放行。 对 TD-B06 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-B06#content_sections.teaching_blocks.7",

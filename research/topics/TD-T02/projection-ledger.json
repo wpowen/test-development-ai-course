@@ -3,7 +3,7 @@
   "topic_id": "TD-T02",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:79ec4aa6caf33c79d1b20e900923f772e0b7bc9addbeb7270ac5b56fc17625bd",
-  "page_content_sha256": "sha256:e0b1f059cfc75095f032933587adab7e25abb95f69b636653f80b11b6067d0aa",
+  "page_content_sha256": "sha256:77ab0e1b282878f2815f73e1f9977bdebf9f8d1aa4d0fe93a81868de88676691",
   "claims": [
     {
       "claim_id": "TD-T02-DECISION-01",
@@ -18,7 +18,7 @@
     {
       "claim_id": "TD-T02-FAILURE-01",
       "manuscript_locator": "manuscript.md:L33-L33",
-      "meaning": "Dataset、Slice 与 Holdout：让评测不会越调越假 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；holdout 必须在任何调优之前抽取。从已经用过的集合里事后划出一部分，它不是 holdout。",
+      "meaning": "Eval Dataset、Slice 与 Holdout 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；holdout 必须在任何调优之前抽取。从已经用过的集合里事后划出一部分，它不是 holdout。",
       "kind": "failure-mode",
       "disposition": "projected",
       "page_target": "TD-T02#content_sections.common_errors",

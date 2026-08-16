@@ -3,7 +3,7 @@
   "topic_id": "TD-B02",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:a986ba88b6633f54291c5e7d90420af2089607dbf8fde34a4c0232efbb154062",
-  "page_content_sha256": "sha256:852a994b4588802c9035221a685d41a6373c084088363b445c0510d786a39b48",
+  "page_content_sha256": "sha256:ae7a86d29548255c1b6c7542217225e98c44b7750a15b2e0924e9324c030f1f9",
   "claims": [
     {
       "claim_id": "TD-B02-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-B02-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L20-L20",
-      "meaning": "Dataset、Split 与 Sealed Holdout：防止越调越假：先定位这一个专业失败 客服数据 99% 是简单 FAQ，随机采样掩盖少量高风险退款；同一 incident 的改写还跨 train/dev/holdout 出现，导致虚高。 对 TD-B02 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
+      "meaning": "Benchmark 数据集：Split 与 Sealed Holdout：先定位这一个专业失败 客服数据 99% 是简单 FAQ，随机采样掩盖少量高风险退款；同一 incident 的改写还跨 train/dev/holdout 出现，导致虚高。 对 TD-B02 先冻结输入、版本和原始观察，再沿架构图寻找首个断点；仍存在的 blocker 不接受平均分、阈值放宽或模型自评抵消。 任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-B02#content_sections.teaching_blocks.7",

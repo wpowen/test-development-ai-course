@@ -11,6 +11,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import argparse
 from collections import Counter
 from pathlib import Path
 
@@ -218,10 +219,11 @@ def build_claims(page: dict, manuscript: str) -> list[dict]:
     return claims
 
 
-def build() -> list[Path]:
+def build(check: bool = False) -> tuple[list[Path], list[str]]:
     tutorial = read_json(TUTORIAL_PATH)
     pages = tutorial.get("pages", [])
     written: list[Path] = []
+    drifted: list[str] = []
     for page in pages:
         page_id = str(page["page_id"])
         topic_dir = TOPICS_ROOT / page_id
@@ -249,14 +251,25 @@ def build() -> list[Path]:
             "evidence_boundary": "Static research-to-page fidelity only; model, practitioner, learner, publication and production validation remain separate NOT_RUN lanes.",
         }
         output = topic_dir / "projection-ledger.json"
-        output.write_text(json.dumps(ledger, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        serialized = json.dumps(ledger, ensure_ascii=False, indent=2) + "\n"
+        if check:
+            if not output.is_file() or output.read_text(encoding="utf-8") != serialized:
+                drifted.append(page_id)
+        else:
+            output.write_text(serialized, encoding="utf-8")
         written.append(output)
-    return written
+    return written, drifted
 
 
 def main() -> None:
-    written = build()
-    print(json.dumps({"projection_ledgers": len(written), "verdict": "PASS"}, ensure_ascii=False))
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--check", action="store_true", help="fail instead of rewriting stale ledgers")
+    args = parser.parse_args()
+    written, drifted = build(check=args.check)
+    verdict = "FAIL" if drifted else "PASS"
+    print(json.dumps({"projection_ledgers": len(written), "drifted_page_ids": drifted, "verdict": verdict}, ensure_ascii=False))
+    if drifted:
+        raise SystemExit("projection ledger drift: " + ", ".join(drifted))
 
 
 if __name__ == "__main__":

@@ -3,7 +3,7 @@
   "topic_id": "TD-T03",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:31a36ea9e2000be3604de7b3dd8f97058b56f7485c0c0e7cee48199d97cd43ef",
-  "page_content_sha256": "sha256:cc6ae59e7cfe50b3b3a577014864fc67242187d600ac106b95a0af3f57829f18",
+  "page_content_sha256": "sha256:322ea292d7cbc6216d4a01abdabb0afe8b6ae809755d973e9d7c6b70ed342942",
   "claims": [
     {
       "claim_id": "TD-T03-DECISION-01",
@@ -18,7 +18,7 @@
     {
       "claim_id": "TD-T03-FAILURE-01",
       "manuscript_locator": "manuscript.md:L37-L37",
-      "meaning": "Composite Oracle：规则、语义 Judge 与人工如何组合 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；下移时要验证结果一致。有些看似可以用规则判定的逻辑，实际有例外情况需要语义判断。",
+      "meaning": "Composite Oracle：规则、Judge 与人工评审组合 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；下移时要验证结果一致。有些看似可以用规则判定的逻辑，实际有例外情况需要语义判断。",
       "kind": "failure-mode",
       "disposition": "projected",
       "page_target": "TD-T03#content_sections.common_errors",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-T03-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L37-L37",
-      "meaning": "语义 9 分也不能覆盖一次越权工具调用 模型回答礼貌且政策解释大体正确，但在身份未验证时调用 refund_order。若把权限检查和语义分数加权求平均，严重失败会被高分冲掉。 Composite Oracle 的顺序是：确定性 blocker 先执行；语义评价补充连续质量；新颖、高风险或分歧样例进入人工。 Composite Oracle：规则、语义 Judge 与人工如何组合 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。",
+      "meaning": "语义 9 分也不能覆盖一次越权工具调用 模型回答礼貌且政策解释大体正确，但在身份未验证时调用 refund_order。若把权限检查和语义分数加权求平均，严重失败会被高分冲掉。 Composite Oracle 的顺序是：确定性 blocker 先执行；语义评价补充连续质量；新颖、高风险或分歧样例进入人工。 Composite Oracle：规则、Judge 与人工评审组合 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-T03#content_sections.teaching_blocks.7",

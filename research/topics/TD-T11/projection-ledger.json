@@ -3,7 +3,7 @@
   "topic_id": "TD-T11",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:038c59757849a8615428e1ac640f283a3d629ffccffbd09f362e01a2ba7e66ae",
-  "page_content_sha256": "sha256:3e733336b242d6c7b06ecade8b4e099bc5cd1677fc1e9b56d0a1b4d698edf371",
+  "page_content_sha256": "sha256:53183cda381f8f31b0f457f090ecdf60e8897df52edae59c6f45c72485d9b51e",
   "claims": [
     {
       "claim_id": "TD-T11-DECISION-01",
@@ -18,7 +18,7 @@
     {
       "claim_id": "TD-T11-FAILURE-01",
       "manuscript_locator": "manuscript.md:L44-L44",
-      "meaning": "Faithfulness 与 Citation：回答真的被证据支持吗 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；拆 claim 时不要把一句话拆得太细。拆到「可以独立判断真假」为止，过细会让核查成本失控。",
+      "meaning": "Faithfulness 与 Citation 评估 的诊断从症状、版本和原始证据开始；在定位层级前改 Prompt 会破坏可比较基线。；拆 claim 时不要把一句话拆得太细。拆到「可以独立判断真假」为止，过细会让核查成本失控。",
       "kind": "failure-mode",
       "disposition": "projected",
       "page_target": "TD-T11#content_sections.common_errors",
