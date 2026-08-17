@@ -1,20 +1,20 @@
 {
   "schema_version": "page-promotion-receipt.v1",
   "page_id": "TD-B04",
-  "validated_at": "2026-08-17T10:12:48.269Z",
+  "validated_at": "2026-08-17T11:25:09.917Z",
   "reviewer": "validation-semantic-parity-verifier-2026-08-13",
   "page_content_hash": "sha256:83445e3aa9372ff5acc00f1e13a3b28b94afb137fb02ccde5cb2be66f81fd18b",
-  "evidence_run_id": "integrity-2026-08-17T10-13-38-083Z-a1eea9f9",
+  "evidence_run_id": "integrity-2026-08-17T11-25-57-810Z-a58824e5",
   "input_content_sha256": "sha256:630e9af78378326947d9a515bf9b38c5cce32c5ba190c20ac3db3e8d3e2a5749",
   "validator": {
     "path": "scripts/generate-course-integrity-manifests.mjs",
     "sha256": "sha256:ca41cee466e99d6ba822ca70a9fda99daaa4f66b849802fadb730c1bc1f8b976"
   },
-  "run_started_at": "2026-08-17T10:12:48.118Z",
-  "run_finished_at": "2026-08-17T10:13:38.086Z",
+  "run_started_at": "2026-08-17T11:25:09.782Z",
+  "run_finished_at": "2026-08-17T11:25:57.811Z",
   "run_exit_code": 0,
   "editorial_review_ref": "research/editorial-review-2026-08-11-final.json",
-  "editorial_review_hash": "sha256:b72caf34029b1cd4dbff04c87163cce767110df205ef6ab7252e7a0eebff0950",
+  "editorial_review_hash": "sha256:422d2708e82c48a7b8b45f18e45a1960f16b0674fe5694c0ddb642963de89459",
   "editorial_review_verdict": "PASS",
   "editorial_reviewer_id": "validation-semantic-parity-verifier-2026-08-13",
   "page_author_id": "course-page-projection-author-2026-08-13",
@@ -87,16 +87,16 @@
     {
       "path": "projection-ledger.json",
       "exists": true,
-      "sha256": "sha256:bc8a79028fe40aaabfc4657abd0e794f5b7fa58358f67622cab3c963ddcd3724"
+      "sha256": "sha256:fdd569f847086e03a60293ab533132254ea2fbe2558d1db3ad8e12585e410931"
     }
   ],
   "editorial_score": 100,
   "boundary_preservation_score": 100,
   "executability_audit_ref": "research/executability-audit.json",
-  "executability_audit_hash": "sha256:20873daf78df938bfc87bcaf82fe656ab6f1993b1d4bfe2f58bf1a1755c4a5ec",
+  "executability_audit_hash": "sha256:9040ee841831f93f6a85154a60d23e2b5247457fa16d298430384a967f79a44a",
   "executability_audit": {
     "path": "../../executability-audit.json",
-    "sha256": "sha256:20873daf78df938bfc87bcaf82fe656ab6f1993b1d4bfe2f58bf1a1755c4a5ec",
+    "sha256": "sha256:9040ee841831f93f6a85154a60d23e2b5247457fa16d298430384a967f79a44a",
     "verdict": "PASS",
     "finding_count": 0
   },

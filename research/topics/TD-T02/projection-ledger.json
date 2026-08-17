@@ -3,7 +3,7 @@
   "topic_id": "TD-T02",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:79ec4aa6caf33c79d1b20e900923f772e0b7bc9addbeb7270ac5b56fc17625bd",
-  "page_content_sha256": "sha256:77ab0e1b282878f2815f73e1f9977bdebf9f8d1aa4d0fe93a81868de88676691",
+  "page_content_sha256": "sha256:111ecab04d06abf2e003b1dbe40669a7dfa9ab73eac2fd34a57ae207294d88d3",
   "claims": [
     {
       "claim_id": "TD-T02-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-T02-METRIC-01",
       "manuscript_locator": "manuscript.md:L41-L41",
-      "meaning": "评测集越调越假，是因为它已经变成了训练集的一部分 数据集是评测体系里唯一一个会被自己的使用过程破坏的组件。每看一次 Holdout，它就少一分作为 Holdout 的价值。 下面三条是数据集失效的三种典型路径，它们的共同特征是：过程中每一步看起来都合理。 失效形态 可核查的数字 它导致的错误结论 用同一批数据反复调优 Holdout 每被开封 1 次，其无偏性就下降一档；通行纪律是每个版本至多开封 1 次 分数持续上涨被读成能力提升，实际是对这批题的过拟合 训练数据污染评测集 污染率的唯一可接受值是 0；哪怕 1…",
+      "meaning": "评测集越调越假，是因为它已经变成了训练集的一部分 数据集是评测体系里唯一一个会被自己的使用过程破坏的组件。每看一次 Holdout，它就少一分作为 Holdout 的价值。 它们的共同特征是：过程中每一步看起来都合理。 失效形态 可核查的数字 它导致的错误结论 用同一批数据反复调优 Holdout 每被开封 1 次，其无偏性就下降一档；通行纪律是每个版本至多开封 1 次 分数持续上涨被读成能力提升，实际是对这批题的过拟合 训练数据污染评测集 污染率的唯一可接受值是 0；哪怕 1% 的重合也足以让排名失真 模型「表…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-T02#content_sections.teaching_blocks.0",

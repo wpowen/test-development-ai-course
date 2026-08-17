@@ -3,7 +3,7 @@
   "topic_id": "TD-AG-05",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:4c6eeb2f260643fbd0768c9ddcc0f2295379071d8390b1d713ba58dafb530cc1",
-  "page_content_sha256": "sha256:887dd389a5a63d22a0517f0bd8beacfddc0a814894d6f8b4b5d0f22a9838d034",
+  "page_content_sha256": "sha256:97c76fb5e8ae1f8d806e717404fc9ffb030307cbff724349cb1c080c6d33df46",
   "claims": [
     {
       "claim_id": "TD-AG-05-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-AG-05-METRIC-01",
       "manuscript_locator": "manuscript.md:L3-L3",
-      "meaning": "所有指标从「一个数」变成「一个分布」，这是本模块最重要的范式改动 一个函数对同样输入返回不同结果，在传统软件里是 bug，在 LLM 驱动的 Agent 里是正常行为。布尔门禁套在这样的系统上，得到的不是宽松的结论，是错误的结论。 下面三条说明单次判定漏掉了什么。 失效形态 可核查的数字 它导致的错误结论 用 pass@1 当发布依据 τ-bench 公开结果中 pass@1 为 61% 而 pass^8 仅 25%；两者的差距就是一致性缺口 「六成能做对」被读成「六成用户能用」 错误注入下只看 pass@k C…",
+      "meaning": "所有指标从「一个数」变成「一个分布」，这是本模块最重要的范式改动 一个函数对同样输入返回不同结果，在传统软件里是 bug，在 LLM 驱动的 Agent 里是正常行为。布尔门禁套在这样的系统上，得到的不是宽松的结论，是错误的结论。 失效形态 可核查的数字 它导致的错误结论 用 pass@1 当发布依据 τ-bench 公开结果中 pass@1 为 61% 而 pass^8 仅 25%；两者的差距就是一致性缺口 「六成能做对」被读成「六成用户能用」 错误注入下只看 pass@k Claw-Eval 观察到在错误注入…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-AG-05#content_sections.teaching_blocks.0",

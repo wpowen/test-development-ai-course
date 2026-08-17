@@ -3,7 +3,7 @@
   "topic_id": "TD-W01",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:45da1c58a114ffaf43483f2a5ab244f8cd7bb8163422788b2369385dcea3f9c0",
-  "page_content_sha256": "sha256:61afd6baa59efbb8b7a5f2d1e88a7321ca9acd5dc6c01f01bcb155cbddbbbdd9",
+  "page_content_sha256": "sha256:0768ed9ec0fbb0d08b94c69db3f38b3d28b3b5bed09bc736b394b02c1283fa0e",
   "claims": [
     {
       "claim_id": "TD-W01-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-W01-METRIC-01",
       "manuscript_locator": "manuscript.md:L19-L19",
-      "meaning": "判据是路径由谁决定，不是产品叫什么名字 「我们的 Agent」这个说法在多数产品里同时指三种不同的东西：固定路由的 Workflow、自主决策的 Agent、异步执行的 Worker。它们的失败模式与测试方法完全不同。 下面三条说明混为一谈的代价。 失效形态 可核查的数字 它导致的错误结论 三种结构混在一起算总成功率 一个总体 92% 的成功率里，自主 Agent 部分可能只有 71%，而固定 Workflow 有 99% 整体看起来达标，风险最高的那部分从未被单独看见 把 Workflow 当 Agent 测…",
+      "meaning": "判据是路径由谁决定，不是产品叫什么名字 「我们的 Agent」这个说法在多数产品里同时指三种不同的东西：固定路由的 Workflow、自主决策的 Agent、异步执行的 Worker。它们的失败模式与测试方法完全不同。 失效形态 可核查的数字 它导致的错误结论 三种结构混在一起算总成功率 一个总体 92% 的成功率里，自主 Agent 部分可能只有 71%，而固定 Workflow 有 99% 整体看起来达标，风险最高的那部分从未被单独看见 把 Workflow 当 Agent 测 路径固定的流程不需要 pass…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-W01#content_sections.teaching_blocks.0",

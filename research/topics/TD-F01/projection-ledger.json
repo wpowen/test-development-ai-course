@@ -3,7 +3,7 @@
   "topic_id": "TD-F01",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:6fb18553ebdf504ddf495d4bd604a9b332328583e4762d782c3f779df0c679a0",
-  "page_content_sha256": "sha256:7ba705f2e5deaff91d4f111bb36fce6ace3472e3000a622a454c96effd5d3f58",
+  "page_content_sha256": "sha256:807c9fb29b8f23a45aae0a990c023f390ff868eb7c611a7bd09e286a636ff8d4",
   "claims": [
     {
       "claim_id": "TD-F01-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-F01-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "把测试开发定义成「找 Bug」，AI 一进来就会取代你 如果这份工作的定义是执行用例、提交缺陷，那么它确实是最容易被自动化的那一类。这一页要先把工作重新定义清楚，再谈 AI 该改哪里。 下面三条是职业定义不清带来的具体后果。 失效形态 可核查的数字 它导致的错误结论 把产出定义为缺陷数量 缺陷数量随被测系统质量提高而下降；用它衡量价值时，质量越好的项目测试价值越低，这个指标方向是反的 「这个季度只提了 8 个 Bug」被读成工作不饱和 不区分方法、判据、工件与责任 这 4 件事各自可以独立缺失；混为一谈时无法定位…",
+      "meaning": "把测试开发定义成「找 Bug」，AI 一进来就会取代你 如果这份工作的定义是执行用例、提交缺陷，那么它确实是最容易被自动化的那一类。这一页要先把工作重新定义清楚，再谈 AI 该改哪里。 失效形态 可核查的数字 它导致的错误结论 把产出定义为缺陷数量 缺陷数量随被测系统质量提高而下降；用它衡量价值时，质量越好的项目测试价值越低，这个指标方向是反的 「这个季度只提了 8 个 Bug」被读成工作不饱和 不区分方法、判据、工件与责任 这 4 件事各自可以独立缺失；混为一谈时无法定位到底哪一环没做 「测试做过了」这句话不携…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-F01#content_sections.teaching_blocks.0",

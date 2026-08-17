@@ -3,7 +3,7 @@
   "topic_id": "TD-PS09",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:544521db62ed7c8b0b470495561274e726cfeddce315a91c62e6e9976531032d",
-  "page_content_sha256": "sha256:b81570bfc9fbf7d6b5be776c262853b644fb5b0b78f352ad066b972d96624ae6",
+  "page_content_sha256": "sha256:f8bc014784f323008d39c85a31ef61ebd645ce8175d80b86c3d2015facb95723",
   "claims": [
     {
       "claim_id": "TD-PS09-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-PS09-METRIC-01",
       "manuscript_locator": "manuscript.md:L29-L29",
-      "meaning": "QPS 在 Agent 系统上不再是一个有意义的指标 传统性能测试的分母是请求。Agent 的一次任务可能包含十几次模型调用与工具调用，用请求做分母会得到一个既好看又无用的数字。 下面三条说明沿用旧口径会得到什么。 失效形态 可核查的数字 它导致的错误结论 用入口 QPS 衡量容量 入口返回 2xx 时任务可能仍在后台执行；用请求做分母的容量结论在生产上通常高估 2～5 倍 按压测结论扩容，上线后仍然排队 按平均输入输出长度压测 输出长度是长尾分布，按均值压测时 p99 长上下文带来的显存与延迟压力完全没有出现…",
+      "meaning": "QPS 在 Agent 系统上不再是一个有意义的指标 传统性能测试的分母是请求。Agent 的一次任务可能包含十几次模型调用与工具调用，用请求做分母会得到一个既好看又无用的数字。 失效形态 可核查的数字 它导致的错误结论 用入口 QPS 衡量容量 入口返回 2xx 时任务可能仍在后台执行；用请求做分母的容量结论在生产上通常高估 2～5 倍 按压测结论扩容，上线后仍然排队 按平均输入输出长度压测 输出长度是长尾分布，按均值压测时 p99 长上下文带来的显存与延迟压力完全没有出现 容量数字漂亮，真实流量下 KV Ca…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-PS09#content_sections.teaching_blocks.0",

@@ -3,7 +3,7 @@
   "topic_id": "TD-X601",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:4cb754a1e9fb0d77ff6450f2c19b587b2af25b26f29010f960188d2d74cd76c0",
-  "page_content_sha256": "sha256:cf13e8217fabfd3ca991306c6f146b3cd885768144a61d58eaa9b19f1b4d2f6e",
+  "page_content_sha256": "sha256:d04f1ba96a3ac208e6a4742114eada7dbd29da1f5c9d0f1c2e7b0816f866a866",
   "claims": [
     {
       "claim_id": "TD-X601-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-X601-METRIC-01",
       "manuscript_locator": "manuscript.md:L3-L3",
-      "meaning": "整体指标达标而某个群体系统性更差，这件事平均分永远看不出来 公平性问题的特征是：它在总体指标上完全不可见。一个 91% 的整体准确率，可以由 95% 和 62% 两个群体组成，而报告里只会出现 91。 下面三条是公平性与人工复核环节最常见的三种失效。 失效形态 可核查的数字 它导致的错误结论 只报总体指标不做分组 群体间差距可达 30pt 以上而总体指标只变动数个百分点，完全被平均掉 「整体质量达标」被当成「对所有用户都达标」 人工复核样本不独立 复核样本若由系统按置信度筛选，会系统性避开最容易出错的部分，覆盖率…",
+      "meaning": "整体指标达标而某个群体系统性更差，这件事平均分永远看不出来 公平性问题的特征是：它在总体指标上完全不可见。一个 91% 的整体准确率，可以由 95% 和 62% 两个群体组成，而报告里只会出现 91。 失效形态 可核查的数字 它导致的错误结论 只报总体指标不做分组 群体间差距可达 30pt 以上而总体指标只变动数个百分点，完全被平均掉 「整体质量达标」被当成「对所有用户都达标」 人工复核样本不独立 复核样本若由系统按置信度筛选，会系统性避开最容易出错的部分，覆盖率再高也无效 人工复核通过率 98% 被当成质量证据…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-X601#content_sections.teaching_blocks.0",

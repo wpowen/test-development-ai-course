@@ -3,7 +3,7 @@
   "topic_id": "TD-AP08",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:37fd0ca0eb46a61035908c81d218fb9c059824d53b35d187c70ba8a9c19432c9",
-  "page_content_sha256": "sha256:e0087e04b9b61707b3c846749126b355287de95fb7c41a6d00b78906bb87206a",
+  "page_content_sha256": "sha256:4f95e2d278877833e92651cb082b18f575d47ebe53036635d68d0e91815505d8",
   "claims": [
     {
       "claim_id": "TD-AP08-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-AP08-METRIC-01",
       "manuscript_locator": "manuscript.md:L7-L7",
-      "meaning": "把压测结论留在报告里，它三个月后就只是一份归档文件 性能工作最常见的终点是一份 PDF。它无法在凌晨三点告诉值班的人该做什么，也无法阻止同一个问题下个季度再来一次。 下面三条是性能结论没有接进运行时的后果。 失效形态 可核查的数字 它导致的错误结论 SLI 用请求成功率而不是 good task 入口成功率可以在任务大量失败的情况下保持 99%以上，两者的差额就是被掩盖的失败 SLO 长期达标，用户投诉持续存在 只有单窗口告警 单窗口要么太灵敏产生大量误报，要么太迟钝错过快速烧尽；多窗口 burn-rate 才能…",
+      "meaning": "把压测结论留在报告里，它三个月后就只是一份归档文件 性能工作最常见的终点是一份 PDF。它无法在凌晨三点告诉值班的人该做什么，也无法阻止同一个问题下个季度再来一次。 失效形态 可核查的数字 它导致的错误结论 SLI 用请求成功率而不是 good task 入口成功率可以在任务大量失败的情况下保持 99%以上，两者的差额就是被掩盖的失败 SLO 长期达标，用户投诉持续存在 只有单窗口告警 单窗口要么太灵敏产生大量误报，要么太迟钝错过快速烧尽；多窗口 burn-rate 才能同时覆盖这 2 种情况 告警要么被静音，要…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-AP08#content_sections.teaching_blocks.0",

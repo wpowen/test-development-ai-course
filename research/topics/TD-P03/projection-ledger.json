@@ -3,7 +3,7 @@
   "topic_id": "TD-P03",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:55c6f9eaf44483b2d0d7fa788843b862e4b834b5cb0c854c6abfda0fe5193a90",
-  "page_content_sha256": "sha256:f4ee3e2702c7a4efdebf436e9fca8c07c34b95df75c7f6173dfc9244b5ede6d1",
+  "page_content_sha256": "sha256:d354dbb5ebbae0e8dce20d4a8fcdc7cb8ee6d80af7bee08816465eaf73a880ec",
   "claims": [
     {
       "claim_id": "TD-P03-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-P03-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L23-L23",
-      "meaning": "技术文档里真正决定测试设计的，是状态与失败恢复而不是接口列表 技术方案通常写得很详细，但详细的部分往往是接口定义；而缺陷更多来自状态转换与失败恢复，这两部分常常只有一两句话。 下面三条是只读接口列表的后果。 失效形态 可核查的数字 它导致的错误结论 只提取接口不提取状态机 状态转换缺陷无法通过接口级用例发现；非法转换这类缺陷 100% 落在状态维度上 接口测试很完整，订单能从「已取消」跳回「待支付」 失败恢复路径不提取 失败路径通常只在文档里占几行，但它对应的代码分支在生产上被执行的次数不为 0 正常路径全绿，异…",
+      "meaning": "技术文档里真正决定测试设计的，是状态与失败恢复而不是接口列表 技术方案通常写得很详细，但详细的部分往往是接口定义；而缺陷更多来自状态转换与失败恢复，这两部分常常只有一两句话。 失效形态 可核查的数字 它导致的错误结论 只提取接口不提取状态机 状态转换缺陷无法通过接口级用例发现；非法转换这类缺陷 100% 落在状态维度上 接口测试很完整，订单能从「已取消」跳回「待支付」 失败恢复路径不提取 失败路径通常只在文档里占几行，但它对应的代码分支在生产上被执行的次数不为 0 正常路径全绿，异常路径从未被执行过 并发与幂等假…",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-P03#content_sections.teaching_blocks.0",

@@ -3,7 +3,7 @@
   "topic_id": "TD-B02",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:a986ba88b6633f54291c5e7d90420af2089607dbf8fde34a4c0232efbb154062",
-  "page_content_sha256": "sha256:ae7a86d29548255c1b6c7542217225e98c44b7750a15b2e0924e9324c030f1f9",
+  "page_content_sha256": "sha256:009ef9732ce3d215df671bf575d3ca1f831ac6f551a83ac6c9d551ab81659fdb",
   "claims": [
     {
       "claim_id": "TD-B02-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-B02-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "数据集只有一类角色时，你无法同时回答「够不够好」和「有没有变差」 多数团队只维护一份评测集，并用它同时做能力评估、难例攻坚和回归防护。这三件事对数据的要求互相冲突，一份数据满足不了。 下面三条说明单一数据集的三种失效。 失效形态 可核查的数字 它导致的错误结论 用同一份数据反复调优 反复调优的数据集会逐步失去区分度；通行纪律是 sealed holdout 每个版本至多开封 1 次 分数持续上涨被读成能力提升，实际是对这批题的过拟合 只有难例没有代表性样本 全部由难例组成的数据集，其分数与真实用户体验的相关性会显…",
+      "meaning": "数据集只有一类角色时，你无法同时回答「够不够好」和「有没有变差」 多数团队只维护一份评测集，并用它同时做能力评估、难例攻坚和回归防护。这三件事对数据的要求互相冲突，一份数据满足不了。 失效形态 可核查的数字 它导致的错误结论 用同一份数据反复调优 反复调优的数据集会逐步失去区分度；通行纪律是 sealed holdout 每个版本至多开封 1 次 分数持续上涨被读成能力提升，实际是对这批题的过拟合 只有难例没有代表性样本 全部由难例组成的数据集，其分数与真实用户体验的相关性会显著低于 0.6 的可用门槛 模型在难…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-B02#content_sections.teaching_blocks.0",

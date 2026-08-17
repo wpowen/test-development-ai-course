@@ -3,7 +3,7 @@
   "topic_id": "TD-P04",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:7d494f5157ba95fba9f9bde7542f8fd3b39b68b821bce3c6ea502e48c0d22cb6",
-  "page_content_sha256": "sha256:8ca5ad818aecabb6deff0144f0da35867ee246151aeb2374d946c92d35309aa1",
+  "page_content_sha256": "sha256:866bfb48546ff3f987f993ef41c896ec9992e8bc7aff18476c7d4fd6090a7595",
   "claims": [
     {
       "claim_id": "TD-P04-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-P04-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "风险策略缺位时，测试量会均匀分布在所有地方 没有风险排序时，最自然的做法是平均用力——每个功能都写差不多数量的用例。而缺陷与失败成本从来不是均匀分布的。 下面三条是缺少风险策略的后果。 失效形态 可核查的数字 它导致的错误结论 用例数量平均分配 失败成本在不同功能间可相差数个量级；平均分配时高风险部分的投入明显不足 「覆盖率 85%」掩盖了核心链路的薄弱 不区分测试层级 同一个缺陷在单元层发现与在 E2E 层发现的定位成本可相差 10 倍以上 所有验证都堆在 E2E，套件慢且难以定位 风险没有具名 owner 无…",
+      "meaning": "风险策略缺位时，测试量会均匀分布在所有地方 没有风险排序时，最自然的做法是平均用力——每个功能都写差不多数量的用例。而缺陷与失败成本从来不是均匀分布的。 失效形态 可核查的数字 它导致的错误结论 用例数量平均分配 失败成本在不同功能间可相差数个量级；平均分配时高风险部分的投入明显不足 「覆盖率 85%」掩盖了核心链路的薄弱 不区分测试层级 同一个缺陷在单元层发现与在 E2E 层发现的定位成本可相差 10 倍以上 所有验证都堆在 E2E，套件慢且难以定位 风险没有具名 owner 无 owner 的风险条目在下一轮…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-P04#content_sections.teaching_blocks.0",

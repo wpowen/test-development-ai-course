@@ -3,7 +3,7 @@
   "topic_id": "TD-AG-00",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:afd549993f417d1831f6fdabca1ed2ff5b1c70ecc1f057af12efeaca1844ad37",
-  "page_content_sha256": "sha256:9c122abc27d8e3955c25161cad082dc0ac42d7eeecb99fcc3594405cb3220277",
+  "page_content_sha256": "sha256:9b588b10e12bcfeeebd1f3049f605742d1c49eab215a0c39773b01d6ee75c7a4",
   "claims": [
     {
       "claim_id": "TD-AG-00-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-AG-00-METRIC-01",
       "manuscript_locator": "manuscript.md:L16-L16",
-      "meaning": "上一代测试体系的骨架仍然成立，但有五处结构性假设已经失效 把 Agent 当成「输出更长的接口」来测，不会立刻出错，只会让一整类失败长期不可见。这一页要先说清楚哪些旧假设已经不能用了。 下面四条各对应架构图上的一个域，它们是这套 8 域 36 维划分存在的理由。 失效的旧假设 可核查的数字 它导致的错误结论 瀑布式布尔门禁能套在非确定性系统上 τ-bench 公开结果中 GPT-4o 零售任务 pass@1 为 61%、pass^8 仅 25%；单次通过率完全掩盖一致性崩塌 「六成任务能完成」被读成「可以上线」…",
+      "meaning": "上一代测试体系的骨架仍然成立，但有五处结构性假设已经失效 把 Agent 当成「输出更长的接口」来测，不会立刻出错，只会让一整类失败长期不可见。这一页要先说清楚哪些旧假设已经不能用了。 它们是这套 8 域 36 维划分存在的理由。 失效的旧假设 可核查的数字 它导致的错误结论 瀑布式布尔门禁能套在非确定性系统上 τ-bench 公开结果中 GPT-4o 零售任务 pass@1 为 61%、pass^8 仅 25%；单次通过率完全掩盖一致性崩塌 「六成任务能完成」被读成「可以上线」 只评最终输出就够了 只对终局打分…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-AG-00#content_sections.teaching_blocks.0",

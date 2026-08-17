@@ -3,7 +3,7 @@
   "topic_id": "TD-B06",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:8662fcff1625f22e89c13e253ba360ffc9bcce949a10d90a677ee01de6c5ed5f",
-  "page_content_sha256": "sha256:595e1ce9f1f1b3eb639d69349d78bd1519c9fce69447a9b4e15c3db6bd6e7ce4",
+  "page_content_sha256": "sha256:25dd8d99dc8e86cbe96acd3ebca421e4519be62f2ab729e24fd80b72699bdd7b",
   "claims": [
     {
       "claim_id": "TD-B06-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-B06-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "公共 Benchmark 测的是通用能力，你要发布的是具体业务 公共 Benchmark 的价值是方法而不是分数。直接拿它的分数做发布判断，等于用一场通用考试的成绩决定一个具体岗位的录用。 下面三条说明直接搬运公共分数的三种错位。 失效形态 可核查的数字 它导致的错误结论 用公共分数直接做选型决策 公共任务与业务任务的分布距离通常很大；指标与业务结果相关性低于 0.6 时该指标不具备决策价值 选了榜单第一的模型，上线后在自己场景里表现不如第二 只借分数不借方法 公共 Benchmark 真正可迁移的是任务设计、协…",
+      "meaning": "公共 Benchmark 测的是通用能力，你要发布的是具体业务 公共 Benchmark 的价值是方法而不是分数。直接拿它的分数做发布判断，等于用一场通用考试的成绩决定一个具体岗位的录用。 失效形态 可核查的数字 它导致的错误结论 用公共分数直接做选型决策 公共任务与业务任务的分布距离通常很大；指标与业务结果相关性低于 0.6 时该指标不具备决策价值 选了榜单第一的模型，上线后在自己场景里表现不如第二 只借分数不借方法 公共 Benchmark 真正可迁移的是任务设计、协议控制与报告规范这 3 类方法，分数本身不…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-B06#content_sections.teaching_blocks.0",

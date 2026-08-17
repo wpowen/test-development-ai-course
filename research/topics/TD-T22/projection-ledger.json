@@ -3,7 +3,7 @@
   "topic_id": "TD-T22",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:ff18d3dbe77c318f18ff4e8d2358b9ca2c66ffd31cf3514c5cbe0f72664c65e0",
-  "page_content_sha256": "sha256:74e5132f500e88e0a8a3a588caf55593a9779f4f8851a91fc392fd6b9083770e",
+  "page_content_sha256": "sha256:60f93d8e28b21068bba7ae1bd3630f1b57e83d50600472d70d24b733ff08a152",
   "claims": [
     {
       "claim_id": "TD-T22-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-T22-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "线上出过的问题如果没进回归集，它一定会再出一次 生产失败是质量系统最贵也最真实的输入。多数团队会修复它，但不会把它转成回归用例——于是同一个问题在下一个版本原样复现。 下面三条是这条闭环断裂的三个位置。 失效形态 可核查的数字 它导致的错误结论 修复但不固化为回归用例 未固化的缺陷复发率显著高于已固化的；一次固化的成本通常在 1 小时以内，一次复发的成本远高于此 「这个问题上个月修过了」成为复盘里反复出现的一句话 生产 trace 未脱敏就进测试环境 生产 trace 含真实用户数据；未脱敏引入测试环境即构成数据…",
+      "meaning": "线上出过的问题如果没进回归集，它一定会再出一次 生产失败是质量系统最贵也最真实的输入。多数团队会修复它，但不会把它转成回归用例——于是同一个问题在下一个版本原样复现。 失效形态 可核查的数字 它导致的错误结论 修复但不固化为回归用例 未固化的缺陷复发率显著高于已固化的；一次固化的成本通常在 1 小时以内，一次复发的成本远高于此 「这个问题上个月修过了」成为复盘里反复出现的一句话 生产 trace 未脱敏就进测试环境 生产 trace 含真实用户数据；未脱敏引入测试环境即构成数据违规，可接受次数为 0 为了复现方便…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-T22#content_sections.teaching_blocks.0",

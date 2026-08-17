@@ -3,7 +3,7 @@
   "topic_id": "TD-AP07",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:cbf58375c9db7cb2c8c2d0d3ac5e28621ceacaaa04fb54b9515ac4c56258d71a",
-  "page_content_sha256": "sha256:8a1c9f391a3ef73c611b858698c2d3a6c66250635a4a0bd279a959fe6fa52733",
+  "page_content_sha256": "sha256:18b3264ca58320998bcb7719c38baec2ddc2421f351c07d1f5446ea882559799",
   "claims": [
     {
       "claim_id": "TD-AP07-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-AP07-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "短时压测跑得很好的系统，可能在第三天开始变慢 泄漏、缓存膨胀、碎片化都不会在十分钟的压测里出现。它们的共同特征是：单次观测完全正常，只有斜率能暴露问题。 下面三条是长稳测试要区分的三种形态，它们在短窗口内看起来一样。 失效形态 可核查的数字 它导致的错误结论 把冷启动上升当成泄漏 冷启动与缓存热身通常在前 30 分钟内趋于平台期；泄漏则斜率持续为正不收敛 刚跑 20 分钟就下泄漏结论，随后花几天排查一个不存在的问题 只看内存不看清理成功率 有界缓存的内存也会上升到平台期；区分它与泄漏需要看 cleanup 成功率…",
+      "meaning": "短时压测跑得很好的系统，可能在第三天开始变慢 泄漏、缓存膨胀、碎片化都不会在十分钟的压测里出现。它们的共同特征是：单次观测完全正常，只有斜率能暴露问题。 它们在短窗口内看起来一样。 失效形态 可核查的数字 它导致的错误结论 把冷启动上升当成泄漏 冷启动与缓存热身通常在前 30 分钟内趋于平台期；泄漏则斜率持续为正不收敛 刚跑 20 分钟就下泄漏结论，随后花几天排查一个不存在的问题 只看内存不看清理成功率 有界缓存的内存也会上升到平台期；区分它与泄漏需要看 cleanup 成功率是否为 100% 把正常的缓存增长当…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-AP07#content_sections.teaching_blocks.0",

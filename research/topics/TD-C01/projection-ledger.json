@@ -3,7 +3,7 @@
   "topic_id": "TD-C01",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:891775c1303da6c80a1e4e0d330a0f6ca703f77d0157c8531dacfd85a9447ab6",
-  "page_content_sha256": "sha256:fe0cac60fe2906e60784dc3f90aba4e4a041f46eee9269deea1ab3fd07dd7bce",
+  "page_content_sha256": "sha256:81db0e1f9570406ac3e25576fbd353280f2542963d0c3848db89ab0f0c1fcfae",
   "claims": [
     {
       "claim_id": "TD-C01-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-C01-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L7-L7",
-      "meaning": "能力迁移最常见的失败，是把「学过」当成「能证明」 从传统测试转向 AI 质量工程时，多数人的自评基于「我读过、我试过」。而招聘方与团队需要的是可复验的证据：一份别人能打开、能跑、能质疑的工件。 下面三条是自评与证据之间的落差。 失效形态 可核查的数字 它导致的错误结论 用课程完成度代替能力证据 读完 103 页与产出 1 份可复现工件是两件事；前者的可复验性为 0 简历上写「熟悉 AI 测试」，面试时拿不出可展示的东西 作品集里全是通过的结果 只有绿灯的作品集无法证明检查有效；至少需要 1 次故障注入证明它会红…",
+      "meaning": "能力迁移最常见的失败，是把「学过」当成「能证明」 从传统测试转向 AI 质量工程时，多数人的自评基于「我读过、我试过」。而招聘方与团队需要的是可复验的证据：一份别人能打开、能跑、能质疑的工件。 失效形态 可核查的数字 它导致的错误结论 用课程完成度代替能力证据 读完 103 页与产出 1 份可复现工件是两件事；前者的可复验性为 0 简历上写「熟悉 AI 测试」，面试时拿不出可展示的东西 作品集里全是通过的结果 只有绿灯的作品集无法证明检查有效；至少需要 1 次故障注入证明它会红 对方无法判断这套东西到底能不能发现…",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-C01#content_sections.teaching_blocks.0",

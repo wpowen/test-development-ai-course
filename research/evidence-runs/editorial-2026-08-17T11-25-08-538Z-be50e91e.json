@@ -1,0 +1,16 @@
+{
+  "schema_version": "evidence-run.v1",
+  "run_id": "editorial-2026-08-17T11-25-08-538Z-be50e91e",
+  "command": "node scripts/build-independent-editorial-review.mjs",
+  "started_at": "2026-08-17T11:25:08.023Z",
+  "finished_at": "2026-08-17T11:25:08.538Z",
+  "exit_code": 0,
+  "validator": {
+    "path": "scripts/build-independent-editorial-review.mjs",
+    "sha256": "sha256:8f17714224a97edd45761f3c01e8a2c3c9d8463f459f66013406ea9036b30d82"
+  },
+  "input_hashes": {
+    "course": "sha256:630e9af78378326947d9a515bf9b38c5cce32c5ba190c20ac3db3e8d3e2a5749",
+    "tutorial": "sha256:7be5d210eed2eed45fdfad040c76fdbe7971ef2441464b81555545593e2a9a5e"
+  }
+}

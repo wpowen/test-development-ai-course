@@ -3,7 +3,7 @@
   "topic_id": "TD-F05",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:df2096554a95db7839e429ca2dca0a86b3a50b6c9a497f6ded4bf00b16583045",
-  "page_content_sha256": "sha256:66df2690fbd051476ce8215593a12e258b755504a64818f901f5c2f3b44c63c7",
+  "page_content_sha256": "sha256:f08bd4933cc38364149bb62caba78cb1bb4f73d177703518f4a3028af6f93d05",
   "claims": [
     {
       "claim_id": "TD-F05-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-F05-METRIC-01",
       "manuscript_locator": "manuscript.md:L4-L4",
-      "meaning": "先选指标再想任务，是指标体系失效的标准起点 F1、Recall@k、ROUGE、延迟、QPS 都是好指标，问题在于它们各自只适合回答特定问题。从指标出发选任务，得到的一定是「测得出来的东西」而不是「该测的东西」。 下面三条是指标与任务错配的典型形态。 失效形态 可核查的数字 它导致的错误结论 用准确率描述极不平衡的任务 正例占比 1% 时，全部预测为负例的准确率是 99%，而召回为 0 「准确率 99%」被当成效果很好，实际一个正例都没找到 用单一指标覆盖不同失败成本 漏检与误检的业务代价常相差 3 倍以上；用…",
+      "meaning": "先选指标再想任务，是指标体系失效的标准起点 F1、Recall@k、ROUGE、延迟、QPS 都是好指标，问题在于它们各自只适合回答特定问题。从指标出发选任务，得到的一定是「测得出来的东西」而不是「该测的东西」。 失效形态 可核查的数字 它导致的错误结论 用准确率描述极不平衡的任务 正例占比 1% 时，全部预测为负例的准确率是 99%，而召回为 0 「准确率 99%」被当成效果很好，实际一个正例都没找到 用单一指标覆盖不同失败成本 漏检与误检的业务代价常相差 3 倍以上；用 1 个指标时两者被强行等权 优化了总分…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-F05#content_sections.teaching_blocks.0",

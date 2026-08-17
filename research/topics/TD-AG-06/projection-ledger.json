@@ -3,7 +3,7 @@
   "topic_id": "TD-AG-06",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:33d732ace807426089c72d0ca1ba9c9cf5153d073304f941004a565df4fa2216",
-  "page_content_sha256": "sha256:9f7dd0f61d443aa2d92c275175538f590c8e9413ebbb0c41d9cfac362a92c2e2",
+  "page_content_sha256": "sha256:789f8f064cc3f6845f11fc388c2c4ef52b992ab28d3396490933daea1ef63ce6",
   "claims": [
     {
       "claim_id": "TD-AG-06-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-AG-06-METRIC-01",
       "manuscript_locator": "manuscript.md:L16-L16",
-      "meaning": "攻击面已从用户输入转移到运行时数据通道 安全不再是发布前的一道门禁，而是贯穿四个证据环的持续对抗。原因是攻击的入口变了：工具描述、工具返回、检索内容都直接进上下文，且没有等价检查。 下面四条覆盖这一层的主要攻击面。 失效形态 可核查的数字 它导致的错误结论 工具描述只在连接时审一次 连接时与运行时之间存在信任落差；rug-pull 在缺 hash 校验时的检出率 = 0 首次接入评审通过，此后任何变更都不再被看见 用提示层约束高危动作 MCPTox 实测多数流行 Agent 攻击成功率超过 60%，最高 72%，…",
+      "meaning": "攻击面已从用户输入转移到运行时数据通道 安全不再是发布前的一道门禁，而是贯穿四个证据环的持续对抗。原因是攻击的入口变了：工具描述、工具返回、检索内容都直接进上下文，且没有等价检查。 失效形态 可核查的数字 它导致的错误结论 工具描述只在连接时审一次 连接时与运行时之间存在信任落差；rug-pull 在缺 hash 校验时的检出率 = 0 首次接入评审通过，此后任何变更都不再被看见 用提示层约束高危动作 MCPTox 实测多数流行 Agent 攻击成功率超过 60%，最高 72%，且能力更强的模型往往更顺从 以为写…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-AG-06#content_sections.teaching_blocks.0",

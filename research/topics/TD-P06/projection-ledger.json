@@ -3,7 +3,7 @@
   "topic_id": "TD-P06",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:635f2b7824bc81343458414fb2b6fbff88b428c40509eeafcba2c3aebd56fd73",
-  "page_content_sha256": "sha256:e398c0cbd6f72b74f648f7c0c0010b49e9f5292953c9b0e7f8fbcb275ed222da",
+  "page_content_sha256": "sha256:ea18fada06c7832a3ebe5f6f1dfd7e7f1fb7ebacfbd4b221c257faf210ffea15",
   "claims": [
     {
       "claim_id": "TD-P06-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-P06-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "把所有验证都堆在 E2E，套件会同时变慢和变脆 E2E 能测的东西最多，因此它最容易成为默认选项。代价是：它最慢、最脆、定位成本最高，而且大部分它验证的东西本可以在更低层完成。 下面三条是分层缺失的后果。 失效形态 可核查的数字 它导致的错误结论 业务规则放到 UI 层验证 同一规则在单元层验证与在 UI 层验证的执行耗时可相差 100 倍以上，定位成本相差 10 倍以上 回归越跑越久，最终被裁剪 契约测试缺失 服务间不兼容只能在集成时暴露；缺契约测试时这类问题的提前发现率为 0 各自测试全绿，集成时才发现字段对…",
+      "meaning": "把所有验证都堆在 E2E，套件会同时变慢和变脆 E2E 能测的东西最多，因此它最容易成为默认选项。代价是：它最慢、最脆、定位成本最高，而且大部分它验证的东西本可以在更低层完成。 失效形态 可核查的数字 它导致的错误结论 业务规则放到 UI 层验证 同一规则在单元层验证与在 UI 层验证的执行耗时可相差 100 倍以上，定位成本相差 10 倍以上 回归越跑越久，最终被裁剪 契约测试缺失 服务间不兼容只能在集成时暴露；缺契约测试时这类问题的提前发现率为 0 各自测试全绿，集成时才发现字段对不上 接口测试只断言状态码…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-P06#content_sections.teaching_blocks.0",

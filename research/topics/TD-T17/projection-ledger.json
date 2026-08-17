@@ -3,7 +3,7 @@
   "topic_id": "TD-T17",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:e760cd3b312ecb2db5e9508455d4f4411fd15c3d3fbb5e3e6e42d36fa33f511c",
-  "page_content_sha256": "sha256:1184e9a19e946bf7c248762ab3155223800801fae1311997941abd2b6354c912",
+  "page_content_sha256": "sha256:0227eadae9a068c1e90cee35e61432440fb09e58652a17927d1e3cfff53b994f",
   "claims": [
     {
       "claim_id": "TD-T17-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-T17-METRIC-01",
       "manuscript_locator": "manuscript.md:L26-L26",
-      "meaning": "攻击面已经从用户输入转移到运行时数据通道 把提示注入理解成「用户在输入框里写坏话」，会让你的防线建在错误的位置。真正的注入来自 Agent 在运行时读进上下文的东西：检索到的文档、工具返回、网页内容、工单正文。 下面三条描述这个转移带来的三类新失效。 失效形态 可核查的数字 它导致的错误结论 只在用户输入侧做注入防护 工具描述与工具响应直接进上下文且无等价检查，这个信任落差是主要攻击面；实测多数流行 Agent 攻击成功率超过 60%，最高达 72% 输入过滤做得很完善，而攻击根本不走输入 按轮次而不是按轨迹评估…",
+      "meaning": "攻击面已经从用户输入转移到运行时数据通道 把提示注入理解成「用户在输入框里写坏话」，会让你的防线建在错误的位置。真正的注入来自 Agent 在运行时读进上下文的东西：检索到的文档、工具返回、网页内容、工单正文。 失效形态 可核查的数字 它导致的错误结论 只在用户输入侧做注入防护 工具描述与工具响应直接进上下文且无等价检查，这个信任落差是主要攻击面；实测多数流行 Agent 攻击成功率超过 60%，最高达 72% 输入过滤做得很完善，而攻击根本不走输入 按轮次而不是按轨迹评估护栏 延迟触发与跨会话攻击把风险证据分散…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-T17#content_sections.teaching_blocks.0",

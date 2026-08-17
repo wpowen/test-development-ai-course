@@ -3,7 +3,7 @@
   "topic_id": "TD-T09",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:50cca82620eeec6926dc9160bea2dbd9e1bcfa622f45c7a85a357a036f721de7",
-  "page_content_sha256": "sha256:33affe064fb8bba6a11458aaf72de722706d3fe7104aa56f31ae142a6b85d693",
+  "page_content_sha256": "sha256:47f2066ea702d11cd6c7ec8681dba7e56dd17bcf9ffb522844855a0aae5b5272",
   "claims": [
     {
       "claim_id": "TD-T09-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-T09-METRIC-01",
       "manuscript_locator": "manuscript.md:L41-L41",
-      "meaning": "RAG 答错的时候，一半以上的原因在索引之前就已经埋好了 团队排查 RAG 问题时，第一反应通常是调 Prompt 或换模型。但语料层的缺陷会伪装成生成层的缺陷：模型答得很流畅、引用也给了，只是那份文档三个月前就作废了。 下面三条是语料治理缺位时的典型形态，它们都不会在任何一条报错日志里出现。 失效形态 可核查的数字 它导致的错误结论 同一政策的新旧两版同时在索引里 冲突文档共存时，检索命中旧版的概率接近 50%，而回答不会提示存在冲突 把「模型有时对有时错」归因于随机性，实际是每次命中了不同版本 文档删除没有传…",
+      "meaning": "RAG 答错的时候，一半以上的原因在索引之前就已经埋好了 团队排查 RAG 问题时，第一反应通常是调 Prompt 或换模型。但语料层的缺陷会伪装成生成层的缺陷：模型答得很流畅、引用也给了，只是那份文档三个月前就作废了。 它们都不会在任何一条报错日志里出现。 失效形态 可核查的数字 它导致的错误结论 同一政策的新旧两版同时在索引里 冲突文档共存时，检索命中旧版的概率接近 50%，而回答不会提示存在冲突 把「模型有时对有时错」归因于随机性，实际是每次命中了不同版本 文档删除没有传播到索引 删除传播延迟每多 1 天，…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-T09#content_sections.teaching_blocks.0",

@@ -3,7 +3,7 @@
   "topic_id": "TD-T05",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:465a6fb280f3e05b066697248ace71ca103ade942d5562033d7d3174d35c2ea2",
-  "page_content_sha256": "sha256:8ede61edf0e8f192370b5a99897c708612aa8086a0f50dcd60953303851272e4",
+  "page_content_sha256": "sha256:6734018bffabfc21883d11aabb6d8d0f7a3068150d4b065aa21cc91e1242e951",
   "claims": [
     {
       "claim_id": "TD-T05-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-T05-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "让 AI 读需求提风险，最先坏掉的不是准确率，是可追溯性 AI 从 PRD 和代码 Diff 里提风险，产出速度比人快一个量级。问题从来不在它提得少，而在于它提的东西你无法核对——一份没有引用的风险清单，和一份凭印象写的风险清单，可信度是一样的。 下面三条是这类任务真实的失败形态。它们的共同特征是：产出看起来专业，且不会报错。 失效形态 可核查的数字 它导致的错误结论 风险候选不带原文引用 无引用的候选无法在 1 次抽查内被证伪，复核成本反而高于人工重读全文 把 AI 的措辞自信度当成依据强度，把「可能存在并发问…",
+      "meaning": "让 AI 读需求提风险，最先坏掉的不是准确率，是可追溯性 AI 从 PRD 和代码 Diff 里提风险，产出速度比人快一个量级。问题从来不在它提得少，而在于它提的东西你无法核对——一份没有引用的风险清单，和一份凭印象写的风险清单，可信度是一样的。 它们的共同特征是：产出看起来专业，且不会报错。 失效形态 可核查的数字 它导致的错误结论 风险候选不带原文引用 无引用的候选无法在 1 次抽查内被证伪，复核成本反而高于人工重读全文 把 AI 的措辞自信度当成依据强度，把「可能存在并发问题」写进测试设计 模型编造了 PR…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-T05#content_sections.teaching_blocks.0",

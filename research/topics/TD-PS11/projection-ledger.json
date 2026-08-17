@@ -3,7 +3,7 @@
   "topic_id": "TD-PS11",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:8fd5d49170178ed3812cb4751d8c23653525338306e5ab71bd39340c0edd6bf0",
-  "page_content_sha256": "sha256:976ba1c4c3ad11275329f664fdf9f7975b62e03746aebdabc1699d9c8cc30b9a",
+  "page_content_sha256": "sha256:2e4690c41820c77f0d8c49f51252bf275885a423ca4aba9dad92dbf5870a6f2f",
   "claims": [
     {
       "claim_id": "TD-PS11-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-PS11-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "可观测性一直缺一类信号，AI 系统让这个缺口无法再忽略 Trace、指标、日志三件套解决的是「系统在做什么」。它们回答不了「系统做得对不对」——传统系统里这个问题靠测试在发布前回答，而 AI 系统的质量会在运行时漂移。 下面三条说明这个缺口的后果。 失效形态 可核查的数字 它导致的错误结论 只监控延迟、错误率与吞吐 质量漂移不改变任何一项传统信号；上线后停止质量评估的团队在 30～60 天内必然出现质量退化 监控面板一片绿，用户投诉持续上升 Trace 不覆盖模型与工具 span 缺 generation 与 t…",
+      "meaning": "可观测性一直缺一类信号，AI 系统让这个缺口无法再忽略 Trace、指标、日志三件套解决的是「系统在做什么」。它们回答不了「系统做得对不对」——传统系统里这个问题靠测试在发布前回答，而 AI 系统的质量会在运行时漂移。 失效形态 可核查的数字 它导致的错误结论 只监控延迟、错误率与吞吐 质量漂移不改变任何一项传统信号；上线后停止质量评估的团队在 30～60 天内必然出现质量退化 监控面板一片绿，用户投诉持续上升 Trace 不覆盖模型与工具 span 缺 generation 与 tool span 时，一次失败…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-PS11#content_sections.teaching_blocks.0",

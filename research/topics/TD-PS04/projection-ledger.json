@@ -3,7 +3,7 @@
   "topic_id": "TD-PS04",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:ea1a16fbd31a5cc8a6e10cb7f428f1df5460681fdfe0401d0a70300b17ab2e6d",
-  "page_content_sha256": "sha256:fbcf3dc45844f5e92c645db03d755ea1e5b718c079bd1c4ff0a247a8a6545ddb",
+  "page_content_sha256": "sha256:fe9de115b1d9f84f93a2db257b73c3e2da802cbd05737c3a6d19af306e6ed8c1",
   "claims": [
     {
       "claim_id": "TD-PS04-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-PS04-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "UI 自动化最大的成本从来不是写，是维护——AI 生成的界面让这件事更难 一套 E2E 套件的价值在半年后才显现，也在半年后才崩塌。崩塌的原因几乎总是同一个：定位器绑在了会变的东西上。当界面里出现模型生成的文本时，「会变的东西」占比大幅上升。 下面三条是 UI 自动化的三种典型腐坏方式。 失效形态 可核查的数字 它导致的错误结论 用可见文本作为定位器 模型生成的界面文案每次措辞都可能不同，文本定位器在这类区域的失效率接近 100% 把用例失败归因为「页面又改了」，实际是文案本来就不该被当成锚点 用硬等待代替条件等…",
+      "meaning": "UI 自动化最大的成本从来不是写，是维护——AI 生成的界面让这件事更难 一套 E2E 套件的价值在半年后才显现，也在半年后才崩塌。崩塌的原因几乎总是同一个：定位器绑在了会变的东西上。当界面里出现模型生成的文本时，「会变的东西」占比大幅上升。 失效形态 可核查的数字 它导致的错误结论 用可见文本作为定位器 模型生成的界面文案每次措辞都可能不同，文本定位器在这类区域的失效率接近 100% 把用例失败归因为「页面又改了」，实际是文案本来就不该被当成锚点 用硬等待代替条件等待 流式输出的首字延迟波动很大，固定等待要么不…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-PS04#content_sections.teaching_blocks.0",

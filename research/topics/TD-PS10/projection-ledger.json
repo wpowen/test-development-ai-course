@@ -3,7 +3,7 @@
   "topic_id": "TD-PS10",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:851920c908505bc5b68d33f1fb551e2ea6442b52f5685846c8ada8da6f042871",
-  "page_content_sha256": "sha256:3ce7fe1b7711b9385aa2871bdc589a2737108eae0e481ce72bc98d9dab31b674",
+  "page_content_sha256": "sha256:145238a0cd5a33eafaeb96a68b3e31e7d1430523cd25a9ede4dc37b9f3953307",
   "claims": [
     {
       "claim_id": "TD-PS10-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-PS10-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "重试在传统系统里几乎免费，在 Agent 系统里每一次都在烧钱并可能重复执行副作用 超时、重试、熔断、限流、降级——这套稳定性模式的前提是「重试的代价可以忽略」。在 Agent 系统上这个前提不成立：一次重试会重放整条工具链。 下面三条是沿用旧假设的后果。 失效形态 可核查的数字 它导致的错误结论 按次数设置重试预算 同样是 3 次重试，短请求与长上下文任务的成本可能相差 1～2 个数量级，次数无法表达真实预算 重试配置在测试环境合理，在生产上把成本预算打穿 重试不区分动作是否可逆 对不可逆动作的重试会重复执行副…",
+      "meaning": "重试在传统系统里几乎免费，在 Agent 系统里每一次都在烧钱并可能重复执行副作用 超时、重试、熔断、限流、降级——这套稳定性模式的前提是「重试的代价可以忽略」。在 Agent 系统上这个前提不成立：一次重试会重放整条工具链。 失效形态 可核查的数字 它导致的错误结论 按次数设置重试预算 同样是 3 次重试，短请求与长上下文任务的成本可能相差 1～2 个数量级，次数无法表达真实预算 重试配置在测试环境合理，在生产上把成本预算打穿 重试不区分动作是否可逆 对不可逆动作的重试会重复执行副作用；缺幂等保护时重复的发生概…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-PS10#content_sections.teaching_blocks.0",

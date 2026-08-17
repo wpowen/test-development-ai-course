@@ -3,7 +3,7 @@
   "topic_id": "TD-B03",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:d49eadbfdcea514e4757aec57766e59ce7e0f94612cc9f6150eff1e387f54f47",
-  "page_content_sha256": "sha256:2ee2a3790e79797f878e24d8243f832e850a6347cf5e429ff2152953412887f3",
+  "page_content_sha256": "sha256:997f8b1f5f3412e7a1b643822b37233441d1ac38f64c4c504256a378051f6bda",
   "claims": [
     {
       "claim_id": "TD-B03-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-B03-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "Accuracy、Pass@k、Resolved Rate 的分母不同，混着讲就是在比不同的东西 这三个指标经常出现在同一份报告里，读者默认它们可比。实际上它们的分母、重复次数与成功定义都不同，混讲会产生看似合理实则错误的结论。 下面三条给出混讲的三种后果。 失效形态 可核查的数字 它导致的错误结论 用 pass@1 代表可靠性 pass@1 与 pass^k 的差距在长流程任务上可以非常大：公开结果中出现过 pass@1 为 61% 而 pass^8 仅 25% 「六成能做对」被读成「六成用户能用」 resol…",
+      "meaning": "Accuracy、Pass@k、Resolved Rate 的分母不同，混着讲就是在比不同的东西 这三个指标经常出现在同一份报告里，读者默认它们可比。实际上它们的分母、重复次数与成功定义都不同，混讲会产生看似合理实则错误的结论。 失效形态 可核查的数字 它导致的错误结论 用 pass@1 代表可靠性 pass@1 与 pass^k 的差距在长流程任务上可以非常大：公开结果中出现过 pass@1 为 61% 而 pass^8 仅 25% 「六成能做对」被读成「六成用户能用」 resolved rate 的分母含未尝…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-B03#content_sections.teaching_blocks.0",

@@ -3,7 +3,7 @@
   "topic_id": "TD-FP01",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:6140020cdd2955f80f14131f197728cee5a77a479a0d40472d6895c4d131266e",
-  "page_content_sha256": "sha256:3bd1a5e0b138065a2c527210cebc795809344ac308a99a7f1d45d460e312e0ea",
+  "page_content_sha256": "sha256:a48dceea6929ae0dbf3eab1e888714339d492ba61a7022f40fb2c660861446aa",
   "claims": [
     {
       "claim_id": "TD-FP01-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-FP01-METRIC-01",
       "manuscript_locator": "manuscript.md:L57-L57",
-      "meaning": "把一句指令直接当 Prompt 用，你会得到一个无法复现、无法验收的结果 一句「帮我生成测试用例」也能出结果，这正是它的危险之处：它能用，但用不了第二次——你说不清这次为什么好、下次为什么差。 下面三条是把 Prompt 当一句话而不是当一个包的后果。 失效形态 可核查的数字 它导致的错误结论 只保存指令不保存输入与 Schema 复现一次结果至少需要指令、输入、输出 Schema、模型版本 4 类信息，缺任一项复现成功率为 0 「上次效果很好」无法被复现，也无法被改进 没有输出 Schema 自由文本输出无法被…",
+      "meaning": "把一句指令直接当 Prompt 用，你会得到一个无法复现、无法验收的结果 一句「帮我生成测试用例」也能出结果，这正是它的危险之处：它能用，但用不了第二次——你说不清这次为什么好、下次为什么差。 失效形态 可核查的数字 它导致的错误结论 只保存指令不保存输入与 Schema 复现一次结果至少需要指令、输入、输出 Schema、模型版本 4 类信息，缺任一项复现成功率为 0 「上次效果很好」无法被复现，也无法被改进 没有输出 Schema 自由文本输出无法被程序消费，人工整理成本随产出量线性上升；生成 100 条的整…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-FP01#content_sections.teaching_blocks.0",

@@ -3,7 +3,7 @@
   "topic_id": "TD-AG-01",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:49d6e630570d44762d8c7e4b2ba036ed206e83ec8b1a6e194a984aa1f6b7c0b0",
-  "page_content_sha256": "sha256:247e439e33a678ddbaa74a6ef6a0e70feb7440cfdcf5bfb86279b2f3d62fc515",
+  "page_content_sha256": "sha256:b2988e15c759aa60e8a5e830f5c6125164f6d2e464593d204792bb4ec11cfee4",
   "claims": [
     {
       "claim_id": "TD-AG-01-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-AG-01-METRIC-01",
       "manuscript_locator": "manuscript.md:L16-L16",
-      "meaning": "整套体系依赖 judge 打分，而 judge 本身通常从未被测过 这是评估体系里最大的盲区：你所有数字的准确性上限，就是那个 judge 的一致性上限。如果整个模块只能落地一件事，落地这一页。 下面三条给出这个盲区的量级与形态。 失效形态 可核查的数字 它导致的错误结论 judge 未与人工双标做过一致性检验 方差分解研究显示 judge 分歧在安全分类任务中可贡献高达 44% 的总方差，与被测模型本身的差异相当 把 judge 的噪声当成模型能力波动 供应商静默更新导致校准漂移 公开复盘中出现过一致性从 0.…",
+      "meaning": "整套体系依赖 judge 打分，而 judge 本身通常从未被测过 这是评估体系里最大的盲区：你所有数字的准确性上限，就是那个 judge 的一致性上限。如果整个模块只能落地一件事，落地这一页。 失效形态 可核查的数字 它导致的错误结论 judge 未与人工双标做过一致性检验 方差分解研究显示 judge 分歧在安全分类任务中可贡献高达 44% 的总方差，与被测模型本身的差异相当 把 judge 的噪声当成模型能力波动 供应商静默更新导致校准漂移 公开复盘中出现过一致性从 0.72 掉到 0.58 而团队数周无感…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-AG-01#content_sections.teaching_blocks.0",

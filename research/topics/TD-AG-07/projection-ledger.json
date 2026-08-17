@@ -3,7 +3,7 @@
   "topic_id": "TD-AG-07",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:ac4b3c71169bba3d0f919911d13580c527895b9108385f82ca4f744d628b8174",
-  "page_content_sha256": "sha256:7660fdbcd1ff1cb38c53cf8c98eb77d26d896c425d5c084c88b720744318417a",
+  "page_content_sha256": "sha256:b5a10b567e59e3d340a66e7fa2b7ec68b2ca2123242d30b1416c7c451715d740",
   "claims": [
     {
       "claim_id": "TD-AG-07-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-AG-07-METRIC-01",
       "manuscript_locator": "manuscript.md:L24-L24",
-      "meaning": "成本不是运维指标，它是一等质量指标 Agent 的成本是长尾分布：中位数很便宜，而失控案例能烧掉几个数量级。用均值做预算，等于假装尾部不存在。 下面三条是把成本当二等指标的后果。 失效形态 可核查的数字 它导致的错误结论 报成本均值 成本长尾分布下均值被大量廉价请求拉低；失控案例可比中位数高 2～3 个数量级 按均值做预算，实际账单被少量任务占据 没有单任务硬上限 缺硬上限时失控任务不会自行停止；公开案例中出现过连续运行 11 天的 Agent 把「任务还在处理中」当成正常状态 不算评估基础设施自身成本 评估基础…",
+      "meaning": "成本不是运维指标，它是一等质量指标 Agent 的成本是长尾分布：中位数很便宜，而失控案例能烧掉几个数量级。用均值做预算，等于假装尾部不存在。 失效形态 可核查的数字 它导致的错误结论 报成本均值 成本长尾分布下均值被大量廉价请求拉低；失控案例可比中位数高 2～3 个数量级 按均值做预算，实际账单被少量任务占据 没有单任务硬上限 缺硬上限时失控任务不会自行停止；公开案例中出现过连续运行 11 天的 Agent 把「任务还在处理中」当成正常状态 不算评估基础设施自身成本 评估基础设施通常占 Agent 运营成本的…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-AG-07#content_sections.teaching_blocks.0",

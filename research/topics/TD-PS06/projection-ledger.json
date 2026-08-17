@@ -3,7 +3,7 @@
   "topic_id": "TD-PS06",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:01cf7ac0ad668a3f6ef4271ee2797c21886353513585f396274bd8596b1cdf6c",
-  "page_content_sha256": "sha256:821640b9727ea8d61d03159c6734db158b67329aa18ac30bc8ee6db5b1e4e1f4",
+  "page_content_sha256": "sha256:996fe1913a9ff9ce3156cd3faecfb7d5805fde5e6334e8cf057edf3414973776",
   "claims": [
     {
       "claim_id": "TD-PS06-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-PS06-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "Android 测试的老难题是生命周期与同步，端侧模型把这两件事同时变难了 Activity 重建、进程被杀、权限被撤销——这些是 Android 自动化一直要处理的。端侧推理加入之后，它们各自多了一种新的失败形态：推理中途被打断。 下面三条是端侧 AI 引入的新失效，它们都建立在老问题之上。 失效形态 可核查的数字 它导致的错误结论 按页面加载完成作为同步条件 流式生成的首字延迟波动常在 1～5 秒区间，页面已加载而内容仍在流入；固定等待在这种场景下的失败率显著上升 把间歇失败归因为「设备慢」，实际是同步条件选…",
+      "meaning": "Android 测试的老难题是生命周期与同步，端侧模型把这两件事同时变难了 Activity 重建、进程被杀、权限被撤销——这些是 Android 自动化一直要处理的。端侧推理加入之后，它们各自多了一种新的失败形态：推理中途被打断。 它们都建立在老问题之上。 失效形态 可核查的数字 它导致的错误结论 按页面加载完成作为同步条件 流式生成的首字延迟波动常在 1～5 秒区间，页面已加载而内容仍在流入；固定等待在这种场景下的失败率显著上升 把间歇失败归因为「设备慢」，实际是同步条件选错了对象 进程被杀后不验证恢复 低内…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-PS06#content_sections.teaching_blocks.0",

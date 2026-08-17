@@ -3,7 +3,7 @@
   "topic_id": "TD-T14",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:e99f4d63a460e460a4966fbfcf0521b2a1e3d780e7d4c142dc29a7cb0b8f6d64",
-  "page_content_sha256": "sha256:e69a64d25bf1e3e7e518da4f92c994a62bd4aede4b4b771381e9608ddbaf0108",
+  "page_content_sha256": "sha256:742058375bd10644d5e4e0fa12662d74a8a802d374fba2fb128cbb3de59850e0",
   "claims": [
     {
       "claim_id": "TD-T14-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-T14-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "整套评测都靠 Judge 打分，而 Judge 本身从来没被测过 这是评测体系里最大的盲区，也是本模块的收尾页：你所有数字的准确性上限，就是那个 Judge 的一致性上限。而这件事在多数团队里从未被量化。 下面三条给出这个盲区的量级与形态。 失效形态 可核查的数字 它导致的错误结论 Judge 未与人工双标做过一致性检验 Judge 分歧在安全分类这类任务上可贡献高达 44% 的总方差，与被测模型本身的差异相当 把 Judge 的噪声当成模型能力波动，追着调 Prompt 与温度 成对比较只跑一个方向 位置偏置存…",
+      "meaning": "整套评测都靠 Judge 打分，而 Judge 本身从来没被测过 这是评测体系里最大的盲区，也是本模块的收尾页：你所有数字的准确性上限，就是那个 Judge 的一致性上限。而这件事在多数团队里从未被量化。 失效形态 可核查的数字 它导致的错误结论 Judge 未与人工双标做过一致性检验 Judge 分歧在安全分类这类任务上可贡献高达 44% 的总方差，与被测模型本身的差异相当 把 Judge 的噪声当成模型能力波动，追着调 Prompt 与温度 成对比较只跑一个方向 位置偏置存在时，A/B 与 B/A 两个方向的…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-T14#content_sections.teaching_blocks.0",

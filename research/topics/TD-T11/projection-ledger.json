@@ -3,7 +3,7 @@
   "topic_id": "TD-T11",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:038c59757849a8615428e1ac640f283a3d629ffccffbd09f362e01a2ba7e66ae",
-  "page_content_sha256": "sha256:53183cda381f8f31b0f457f090ecdf60e8897df52edae59c6f45c72485d9b51e",
+  "page_content_sha256": "sha256:8e05111fb8c478df56167b16622a0f03a4aa2769f91ea4177ab7e328ec0c8abc",
   "claims": [
     {
       "claim_id": "TD-T11-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-T11-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L44-L44",
-      "meaning": "给了引用不等于说了实话，这两件事要分开测 「回答带引用」是 RAG 产品最常见的信任设计，也是最容易被误读的一个。引用存在、引用指向正确文档、回答内容真的被那段文字支持——这是三件递进的事，多数系统只测了第一件。 下面三条按这三层依次给出失效形态。 失效形态 可核查的数字 它导致的错误结论 只检查引用字段非空 引用非空率可以做到 100%，而其中指向错误 chunk 的比例在未校验系统里并不低 「每句话都有出处」被当成可信度证据，用户点开才发现对不上 引用对了但回答做了原文没有的推论 把回答拆成原子声明后，无证据…",
+      "meaning": "给了引用不等于说了实话，这两件事要分开测 「回答带引用」是 RAG 产品最常见的信任设计，也是最容易被误读的一个。引用存在、引用指向正确文档、回答内容真的被那段文字支持——这是三件递进的事，多数系统只测了第一件。 失效形态 可核查的数字 它导致的错误结论 只检查引用字段非空 引用非空率可以做到 100%，而其中指向错误 chunk 的比例在未校验系统里并不低 「每句话都有出处」被当成可信度证据，用户点开才发现对不上 引用对了但回答做了原文没有的推论 把回答拆成原子声明后，无证据支撑的声明往往集中在 1～2 句总结…",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-T11#content_sections.teaching_blocks.0",

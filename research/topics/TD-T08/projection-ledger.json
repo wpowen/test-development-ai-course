@@ -3,7 +3,7 @@
   "topic_id": "TD-T08",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:ff8c2165c4774b3fe5343632508bb7857e1e770d4ba578169a95fa35fc3d074b",
-  "page_content_sha256": "sha256:53ee783f51e62e1df864be294b7b6d7a53f154c021cd969985f8241642710b88",
+  "page_content_sha256": "sha256:692f1384ad1b8369fe30e29bd4e46c92c9f0efb082ad1f72ed8e09e24cd3bca7",
   "claims": [
     {
       "claim_id": "TD-T08-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-T08-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L14-L14",
-      "meaning": "AI 把失败聚成 12 类很快，把 UNKNOWN 聚没了也很快 失败聚类是 AI 最擅长的辅助场景之一：它能在几秒内把上千条失败按相似度归堆。危险也恰在这里——聚类天然倾向于把每一条都分进某个桶，包括那些本该留在 UNKNOWN 的。 下面三条说明为什么本页坚持「只追加原始事件」和「无控制实验不得升级为根因」这两条硬约束。 失效形态 可核查的数字 它导致的错误结论 聚类结果覆盖了原始证据 原始事件一旦被聚合覆盖，重新聚类的可能性归零；只追加存储是唯一能保住这个能力的结构，代价是存储量增加约 1 个数量级 换一套…",
+      "meaning": "AI 把失败聚成 12 类很快，把 UNKNOWN 聚没了也很快 失败聚类是 AI 最擅长的辅助场景之一：它能在几秒内把上千条失败按相似度归堆。危险也恰在这里——聚类天然倾向于把每一条都分进某个桶，包括那些本该留在 UNKNOWN 的。 失效形态 可核查的数字 它导致的错误结论 聚类结果覆盖了原始证据 原始事件一旦被聚合覆盖，重新聚类的可能性归零；只追加存储是唯一能保住这个能力的结构，代价是存储量增加约 1 个数量级 换一套聚类假设想重算时，发现原始数据已经不在了 把相似度当因果 同一簇内的失败共享表象特征，根因…",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-T08#content_sections.teaching_blocks.0",

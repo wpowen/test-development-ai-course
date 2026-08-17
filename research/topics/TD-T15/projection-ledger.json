@@ -3,7 +3,7 @@
   "topic_id": "TD-T15",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:7b1c5c08c9fa31c32ae9206927682437e41d053b119092f9c3a58e14447388a7",
-  "page_content_sha256": "sha256:5b81fe499aef4b37d08184136d5af86fb867a503cfad3fafd86f45644992c5a8",
+  "page_content_sha256": "sha256:b57fbd3d2fcfba2a9d6cd175b3a4fc4019e3223d715c31fde5dd0bb68171eda3",
   "claims": [
     {
       "claim_id": "TD-T15-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-T15-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L26-L26",
-      "meaning": "只看最后一句回答，你会漏掉九成发生在中途的失败 Agent 与单次模型调用最大的差别是：它在给出回答之前做了十几个决定，而每个决定都可能错。只对终局打分的评估，对这十几个决定完全无感。 下面三条给出终局评估漏掉的东西，第一条的数量级是本页存在的全部理由。 失效形态 可核查的数字 它导致的错误结论 只对最终输出打分 只评终局的评估会漏掉约 90% 发生在执行中途的失败模式 「答案对了」被当成「过程对了」，而 Agent 可能是靠 3 次多余的写操作凑出来的 轨迹不落盘就下安全结论 缺轨迹级评估会系统性漏掉约 44%…",
+      "meaning": "只看最后一句回答，你会漏掉九成发生在中途的失败 Agent 与单次模型调用最大的差别是：它在给出回答之前做了十几个决定，而每个决定都可能错。只对终局打分的评估，对这十几个决定完全无感。 第一条的数量级是本页存在的全部理由。 失效形态 可核查的数字 它导致的错误结论 只对最终输出打分 只评终局的评估会漏掉约 90% 发生在执行中途的失败模式 「答案对了」被当成「过程对了」，而 Agent 可能是靠 3 次多余的写操作凑出来的 轨迹不落盘就下安全结论 缺轨迹级评估会系统性漏掉约 44% 的安全违规与约 13% 的鲁棒…",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-T15#content_sections.teaching_blocks.0",

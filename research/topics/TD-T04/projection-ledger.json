@@ -3,7 +3,7 @@
   "topic_id": "TD-T04",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:cc6ad4df70dff4e031d1cd9e031b0320fd25c8fb92ac0e8517931e54dc0a503b",
-  "page_content_sha256": "sha256:f06566f6b9391eb3399dd2a2bb695a9c9308cfaf9e515d42581ea63d97e27ebb",
+  "page_content_sha256": "sha256:150e4b73470afd39eb1c10210d740b1d50ad2c97bbd1f1710d8d49793ba10a97",
   "claims": [
     {
       "claim_id": "TD-T04-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-T04-METRIC-01",
       "manuscript_locator": "manuscript.md:L11-L11",
-      "meaning": "把点估计当结论，是统计上最省事也最容易被推翻的做法 重复运行的成本很高，所以它最容易被砍成一次。但一次运行给出的不是「一个不够精确的答案」，而是「一个无法判断精度的答案」——这两者性质完全不同。 下面三条说明省掉分布之后，你实际失去了什么能力。 失效形态 可核查的数字 它导致的错误结论 用点估计差值判断版本回归 两个版本 84% 与 87% 的差距，在样本 100 条时其 95% CI 通常大幅重叠，不构成显著差异 把噪声当改进，发版庆祝；下个版本掉回去时又归因于「数据变难」 忽略任务聚类做区间估计 同一任务的多…",
+      "meaning": "把点估计当结论，是统计上最省事也最容易被推翻的做法 重复运行的成本很高，所以它最容易被砍成一次。但一次运行给出的不是「一个不够精确的答案」，而是「一个无法判断精度的答案」——这两者性质完全不同。 你实际失去了什么能力。 失效形态 可核查的数字 它导致的错误结论 用点估计差值判断版本回归 两个版本 84% 与 87% 的差距，在样本 100 条时其 95% CI 通常大幅重叠，不构成显著差异 把噪声当改进，发版庆祝；下个版本掉回去时又归因于「数据变难」 忽略任务聚类做区间估计 同一任务的多次重复不是独立样本，按独立…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-T04#content_sections.teaching_blocks.0",

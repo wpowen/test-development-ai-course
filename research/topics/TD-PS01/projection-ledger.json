@@ -3,7 +3,7 @@
   "topic_id": "TD-PS01",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:7fc0fccc7c861a1800a2bc56df66615b05030f69ff3a0dfdd494bff26e418d2f",
-  "page_content_sha256": "sha256:2ed386978dd134f2c3338a3dabeb6e7dbdca6f00a0c57c547be288bb52af74d4",
+  "page_content_sha256": "sha256:9bc9d1ae523bbc73a09dfe101ae0153fa71e4590bd10069a867ae44dad3074ed",
   "claims": [
     {
       "claim_id": "TD-PS01-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-PS01-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L24-L24",
-      "meaning": "HTTP 200 从来就不等于业务成功，接上 AI 之后这个落差变得更大 退款 API 返回 200 只说明请求被接受了。钱有没有动、账本平不平、事件有没有发出去，都在响应体之外。这个老问题在 AI 系统里被放大：模型还会用自然语言告诉你「已为您退款」。 下面三条是只测协议层时漏掉的东西。 失效形态 可核查的数字 它导致的错误结论 只断言状态码与响应 Schema 协议层断言能覆盖的失败类型不足全部失败的一半；账本不平、事件未发这两类 100% 漏过 接口测试全绿，对账在月底才发现差额 把模型的自述当成执行结果…",
+      "meaning": "HTTP 200 从来就不等于业务成功，接上 AI 之后这个落差变得更大 退款 API 返回 200 只说明请求被接受了。钱有没有动、账本平不平、事件有没有发出去，都在响应体之外。这个老问题在 AI 系统里被放大：模型还会用自然语言告诉你「已为您退款」。 失效形态 可核查的数字 它导致的错误结论 只断言状态码与响应 Schema 协议层断言能覆盖的失败类型不足全部失败的一半；账本不平、事件未发这两类 100% 漏过 接口测试全绿，对账在月底才发现差额 把模型的自述当成执行结果 模型说「已完成」与业务状态真的变更之…",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-PS01#content_sections.teaching_blocks.0",

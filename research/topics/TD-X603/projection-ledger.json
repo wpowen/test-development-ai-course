@@ -3,7 +3,7 @@
   "topic_id": "TD-X603",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:c2a33770d4f9902d90cbf2a3dd09dea839c595de2e7ea40738fea93db2ad0c8e",
-  "page_content_sha256": "sha256:f261dac3f937ab507513e08bdfd59aba8c081d87f352b696c96ddbf1bfea3a34",
+  "page_content_sha256": "sha256:33cf397d1f49a2205fe93091f9512d95796ee37319ae4897d09eb0eb0ef5c769",
   "claims": [
     {
       "claim_id": "TD-X603-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-X603-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L23-L23",
-      "meaning": "长期记忆是唯一一个会把今天的错误带到明天的组件 其余组件的错误随会话结束而消失。记忆不会——一条被污染的记忆会在此后每一次检索中继续生效，而且没有任何报错。 下面三条是记忆治理缺位的三种形态，第三条在多租户产品里是合规红线。 失效形态 可核查的数字 它导致的错误结论 记忆写入没有 TTL 无 TTL 的偏好记忆会无限期生效；用户 6 个月前的 1 次临时选择仍在影响今天的输出 把「个性化不准」归因为模型，实际是记忆过期机制不存在 记忆投毒后无检测手段 污染注入的成功次数必须是 0，污染存活轮数也必须是 0；一条存…",
+      "meaning": "长期记忆是唯一一个会把今天的错误带到明天的组件 其余组件的错误随会话结束而消失。记忆不会——一条被污染的记忆会在此后每一次检索中继续生效，而且没有任何报错。 第三条在多租户产品里是合规红线。 失效形态 可核查的数字 它导致的错误结论 记忆写入没有 TTL 无 TTL 的偏好记忆会无限期生效；用户 6 个月前的 1 次临时选择仍在影响今天的输出 把「个性化不准」归因为模型，实际是记忆过期机制不存在 记忆投毒后无检测手段 污染注入的成功次数必须是 0，污染存活轮数也必须是 0；一条存活的污染记忆会持续影响后续所有会话…",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-X603#content_sections.teaching_blocks.0",

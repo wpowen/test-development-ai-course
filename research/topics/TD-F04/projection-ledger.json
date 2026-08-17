@@ -3,7 +3,7 @@
   "topic_id": "TD-F04",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:2c88b009fef1c7648ecb1c275f503f90ca7029cc76f778c151a90a0f7a18c24a",
-  "page_content_sha256": "sha256:b4a36828775692cc9f75085ecd10415f406f43526039ac35aeec088ec9772893",
+  "page_content_sha256": "sha256:a08f7e6274205d75d23769110d36cb32d601531accfa2f78c8e27c72d3b4f9f9",
   "claims": [
     {
       "claim_id": "TD-F04-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-F04-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L33-L33",
-      "meaning": "把 Agent 当 LLM 测，会漏掉九成发生在中途的失败 这一页是分类页，看起来是概念课。它实际上决定了后面所有模块对你是否适用——分类错了，方案整套都是错的。 下面三条说明分类错误的代价。判据是「路径由谁决定」，不是产品叫什么名字。 失效形态 可核查的数字 它导致的错误结论 把多步 Agent 当单次 LLM 调用测，只评最终输出 只对最终输出打分的评估会漏掉约 90% 发生在执行中途的失败模式 线上一堆「答案看起来对但做错了事」的投诉，而评测报告一片绿 轨迹不透明就下安全结论 缺轨迹级评估会系统性漏掉约 4…",
+      "meaning": "把 Agent 当 LLM 测，会漏掉九成发生在中途的失败 这一页是分类页，看起来是概念课。它实际上决定了后面所有模块对你是否适用——分类错了，方案整套都是错的。 判据是「路径由谁决定」，不是产品叫什么名字。 失效形态 可核查的数字 它导致的错误结论 把多步 Agent 当单次 LLM 调用测，只评最终输出 只对最终输出打分的评估会漏掉约 90% 发生在执行中途的失败模式 线上一堆「答案看起来对但做错了事」的投诉，而评测报告一片绿 轨迹不透明就下安全结论 缺轨迹级评估会系统性漏掉约 44% 的安全违规与约 13%…",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-F04#content_sections.teaching_blocks.0",

@@ -3,7 +3,7 @@
   "topic_id": "TD-T10",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:3849eb7f53bf22180d1ad30e434e30e5a3d4f9a6bd3a172e09fb329a3e068062",
-  "page_content_sha256": "sha256:609cc1c3139ef4e346e6f4fa2995fad602afaf8418a32a094cfdafea06f90427",
+  "page_content_sha256": "sha256:656ce9b1083aab3cb440cfb93ed26c3ee388714b21d9bba4f0875f638addb1a0",
   "claims": [
     {
       "claim_id": "TD-T10-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-T10-METRIC-01",
       "manuscript_locator": "manuscript.md:L45-L45",
-      "meaning": "把检索故障和生成故障混在一起，你会一直在调错的那一半 RAG 答错只有两种可能：该给的证据没检索到，或者证据检索到了但没用好。这两类的修复方向完全相反，而端到端评测把它们合成了一个数字。 下面三条说明不拆开会付出什么代价。 失效形态 可核查的数字 它导致的错误结论 只看端到端正确率，不看 Recall@k 检索未命中时生成层无论怎么调都无法答对，这部分失败占比在语料治理不佳的系统里常达 40% 以上 反复调 Prompt 和温度，而问题在检索侧一步都没动 top-k 取值凭经验设定 k 从 3 提到 10 通常能…",
+      "meaning": "把检索故障和生成故障混在一起，你会一直在调错的那一半 RAG 答错只有两种可能：该给的证据没检索到，或者证据检索到了但没用好。这两类的修复方向完全相反，而端到端评测把它们合成了一个数字。 失效形态 可核查的数字 它导致的错误结论 只看端到端正确率，不看 Recall@k 检索未命中时生成层无论怎么调都无法答对，这部分失败占比在语料治理不佳的系统里常达 40% 以上 反复调 Prompt 和温度，而问题在检索侧一步都没动 top-k 取值凭经验设定 k 从 3 提到 10 通常能提升 Recall 但同时引入更多干…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-T10#content_sections.teaching_blocks.0",

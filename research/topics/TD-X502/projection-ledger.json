@@ -3,7 +3,7 @@
   "topic_id": "TD-X502",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:13f6fba0214e9dd4679bf94fef559f1c9769102fc0ea90d10f5ea83d16edf686",
-  "page_content_sha256": "sha256:6183dd11b9669f42c58ad415a8314b161f69901b25fa6366a938f368f3555501",
+  "page_content_sha256": "sha256:b1eaa04f52562ab7d36a102a7635a7bf53f160b354fddcb532abe4a3e1165dcd",
   "claims": [
     {
       "claim_id": "TD-X502-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-X502-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "用英文平均分外推其他语言，是本页要拆掉的唯一一个假设 多语言支持最常见的验收方式是：英文测充分，其他语言抽查。这个做法隐含一个从未被验证的假设——模型能力在语言之间是可迁移的。 下面三条说明这个假设在哪些地方成立、在哪些地方不成立，而后者恰好是用户最容易遇到的地方。 失效形态 可核查的数字 它导致的错误结论 用英文指标外推低资源语言 同一任务在高资源与低资源语言之间的表现差距常达 20pt 以上，且差距随任务复杂度放大 宣布「支持 30 种语言」，其中 20 种从未被单独测过 RTL 与复杂字形只做了显示测试 阿…",
+      "meaning": "用英文平均分外推其他语言，是本页要拆掉的唯一一个假设 多语言支持最常见的验收方式是：英文测充分，其他语言抽查。这个做法隐含一个从未被验证的假设——模型能力在语言之间是可迁移的。 而后者恰好是用户最容易遇到的地方。 失效形态 可核查的数字 它导致的错误结论 用英文指标外推低资源语言 同一任务在高资源与低资源语言之间的表现差距常达 20pt 以上，且差距随任务复杂度放大 宣布「支持 30 种语言」，其中 20 种从未被单独测过 RTL 与复杂字形只做了显示测试 阿拉伯语、希伯来语的双向文本在截断、拼接、光标定位处会出…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-X502#content_sections.teaching_blocks.0",

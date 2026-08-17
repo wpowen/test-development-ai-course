@@ -3,7 +3,7 @@
   "topic_id": "TD-T13",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:c9ddfd4b4c5d2c86d7d87dfbee6ad015e883655fcf663748029356f0bd28f133",
-  "page_content_sha256": "sha256:21cb9fe164878c0c8d484ae8e5f3b47f70997d8da799a44e1c2a15aba912547c",
+  "page_content_sha256": "sha256:c90cf606c67899024f19f16970cbc146a17b7f0391c38caeaca3e1235eb456c7",
   "claims": [
     {
       "claim_id": "TD-T13-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-T13-METRIC-01",
       "manuscript_locator": "manuscript.md:L28-L28",
-      "meaning": "A/B 比出来的差异，多数时候是实验设计的差异 换 Prompt、换模型、换知识库之后分数变了，这个观察本身几乎没有信息量——因为同时变的往往不止一个东西，而且没变的那次也会有波动。 下面三条是 AI 版本对比里最常见的三种伪差异。 失效形态 可核查的数字 它导致的错误结论 同时改动 Prompt 与知识库再做对比 两个变量同时改动时，归因所需的实验从 1 次变成至少 3 次（各改一个 + 都改） 「新版本更好」被归给 Prompt，实际贡献来自知识库更新 两次运行用了不同的评分器版本 评分器换版本会整体平移分数…",
+      "meaning": "A/B 比出来的差异，多数时候是实验设计的差异 换 Prompt、换模型、换知识库之后分数变了，这个观察本身几乎没有信息量——因为同时变的往往不止一个东西，而且没变的那次也会有波动。 失效形态 可核查的数字 它导致的错误结论 同时改动 Prompt 与知识库再做对比 两个变量同时改动时，归因所需的实验从 1 次变成至少 3 次（各改一个 + 都改） 「新版本更好」被归给 Prompt，实际贡献来自知识库更新 两次运行用了不同的评分器版本 评分器换版本会整体平移分数，平移量可达 3～5pt，足以掩盖或伪造一次真实差…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-T13#content_sections.teaching_blocks.0",

@@ -3,7 +3,7 @@
   "topic_id": "TD-AP06",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:c09feaef8734a69999c7289c56fccfd4582548be832905f26739dc67e389e80e",
-  "page_content_sha256": "sha256:eded867d6a902e24768c26b6b0dd891647563bba73cdc4ff732ec05a1d2f38ef",
+  "page_content_sha256": "sha256:5d78aa22cf46a8803b5351d6ce920c21a0119d9120c5aee830d239066ee98b33",
   "claims": [
     {
       "claim_id": "TD-AP06-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-AP06-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "超时与重试的四个词 多层重试是 Agent 延迟失控最常见的原因。下面四个词决定你能不能把它算清楚。 术语 一句话解释 总 deadline 一次任务允许的最长时间；所有层的超时之和必须小于它，否则外层永远等不到内层结束 重试预算 一次任务允许的重试总次数；它是任务级的，不是每层各自的 重试放大 网关、SDK、Agent、Tool 各自重试三次，最坏情况是 81 次调用 安全降级 超预算时的可接受终态，如只读结果、转人工、明确拒绝；它不是失败 更完整的中英对照与易混辨析见方法论 02 术语表；这里只收本页判断真正…",
+      "meaning": "超时与重试的四个词 多层重试是 Agent 延迟失控最常见的原因。每一层单独看都合理，叠起来的放大倍数却很少有人算过。 术语 一句话解释 总 deadline 一次任务允许的最长时间；所有层的超时之和必须小于它，否则外层永远等不到内层结束 重试预算 一次任务允许的重试总次数；它是任务级的，不是每层各自的 重试放大 网关、SDK、Agent、Tool 各自重试三次，最坏情况是 81 次调用 安全降级 超预算时的可接受终态，如只读结果、转人工、明确拒绝；它不是失败 更完整的中英对照与易混辨析见方法论 02 术语表；这…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-AP06#content_sections.teaching_blocks.1",

@@ -3,7 +3,7 @@
   "topic_id": "TD-AG-10",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:b1cacb2544ef4c28d21b8176f02c05bbce210a422a61ad4269c3ea996fe8f3cf",
-  "page_content_sha256": "sha256:c8bac19ea21bc39b62b3aed2848e97f6a36bd62c210268969b8bdc86a288f030",
+  "page_content_sha256": "sha256:3e2123c7fec501309bf1aa52dc416b793da32f301b71cad674d71a037332e89e",
   "claims": [
     {
       "claim_id": "TD-AG-10-DECISION-01",
@@ -68,7 +68,7 @@
     {
       "claim_id": "TD-AG-10-COUNTEREXAMPLE-01",
       "manuscript_locator": "manuscript.md:L15-L15",
-      "meaning": "金融与交易场景里，陈旧数据加正确推理等于错误结论 这一页是高风险适配器：前面九页的方法在这里仍然成立，但阈值、时效与执行边界需要单独加严。 下面四条是这类场景特有的失效，它们在纯文本评估下完全看不出来。 失效形态 可核查的数字 它导致的错误结论 行情数据时效不做独立断言 决策时刻的数据新鲜度需要单独校验；陈旧数据加正确推理仍然得到错误结论，而文本 judge 对此的检出率为 0 回答逻辑完美，依据的是几分钟前的价格 建议类与执行类混在一起算总分 信息类回答与下单、划转、提币这类动作类的阈值要求不同，混算会让动作类…",
+      "meaning": "金融与交易场景里，陈旧数据加正确推理等于错误结论 这一页是高风险适配器：前面九页的方法在这里仍然成立，但阈值、时效与执行边界需要单独加严。 它们在纯文本评估下完全看不出来。 失效形态 可核查的数字 它导致的错误结论 行情数据时效不做独立断言 决策时刻的数据新鲜度需要单独校验；陈旧数据加正确推理仍然得到错误结论，而文本 judge 对此的检出率为 0 回答逻辑完美，依据的是几分钟前的价格 建议类与执行类混在一起算总分 信息类回答与下单、划转、提币这类动作类的阈值要求不同，混算会让动作类被大量信息类稀释 总分 92%…",
       "kind": "counterexample",
       "disposition": "condensed",
       "page_target": "TD-AG-10#content_sections.teaching_blocks.0",

@@ -3,7 +3,7 @@
   "topic_id": "TD-A01",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:2ff93c623c81e8a2290f7f604c6b663f65488d63d5f61beab49b47b96781991e",
-  "page_content_sha256": "sha256:96432330935f3dc259d4f29f220ddb1a26169ebfb85e8a2a4df044fba7627040",
+  "page_content_sha256": "sha256:8d745f9bfed5e2db494d2b491ab10af8a59e62454b7ea71b22e7a3d8af04e2fc",
   "claims": [
     {
       "claim_id": "TD-A01-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-A01-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "把生成式接口当普通 REST 测，五个测试面里只覆盖了一个 普通 API 的契约是「同样输入给同样输出」。生成式接口没有这个契约，它有的是版本化的行为、算力约束和按量计费——这三件事在传统接口测试里都不存在。 下面三条是沿用普通 API 思路时漏掉的部分。 失效形态 可核查的数字 它导致的错误结论 只测协议层不测生成 manifest 生成结果由模型版本、提示版本、解码参数共同决定，这 3 类字段任一变化都会让历史结果失去可比性 接口没改而输出变了，被归因为「模型不稳定」 不记录 token 与成本 生成式接口按…",
+      "meaning": "把生成式接口当普通 REST 测，五个测试面里只覆盖了一个 普通 API 的契约是「同样输入给同样输出」。生成式接口没有这个契约，它有的是版本化的行为、算力约束和按量计费——这三件事在传统接口测试里都不存在。 失效形态 可核查的数字 它导致的错误结论 只测协议层不测生成 manifest 生成结果由模型版本、提示版本、解码参数共同决定，这 3 类字段任一变化都会让历史结果失去可比性 接口没改而输出变了，被归因为「模型不稳定」 不记录 token 与成本 生成式接口按量计费，单次调用成本可相差 1～2 个数量级；不…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-A01#content_sections.teaching_blocks.0",

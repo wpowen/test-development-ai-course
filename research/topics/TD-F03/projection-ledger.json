@@ -3,7 +3,7 @@
   "topic_id": "TD-F03",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:82b4508393dc28d137620ec0bfb5b0d20b132253d2d067b739e2673f4ed2354c",
-  "page_content_sha256": "sha256:55280ed653812e9fc6265ecc346b3e9fadedbda2030599dfd3863723ab08d8c0",
+  "page_content_sha256": "sha256:9b254f3eb1361526472ce202e27f3d5e6b6a990a10a3ecb2c7715d7f8d42612c",
   "claims": [
     {
       "claim_id": "TD-F03-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-F03-METRIC-01",
       "manuscript_locator": "manuscript.md:L41-L41",
-      "meaning": "一次 PASS 证明不了任何事，而这正是绝大多数评测在做的事 传统软件里，同样输入返回不同结果是 bug；在模型驱动的系统里这是正常行为。把布尔判定套在非确定性系统上，得到的不是宽松的结论，是错误的结论。 下面三条给出一次判定会漏掉什么。第二条的数量级差距是本页存在的全部理由。 失效形态 可核查的数字 它导致的错误结论 用单次通过率当发布依据 τ-bench 公开结果中，GPT-4o 在零售 Agent 任务上 pass@1 为 61%，pass^8 仅 25% 「六成能做对」被读成「六成用户能用」，实际连续 8…",
+      "meaning": "一次 PASS 证明不了任何事，而这正是绝大多数评测在做的事 传统软件里，同样输入返回不同结果是 bug；在模型驱动的系统里这是正常行为。把布尔判定套在非确定性系统上，得到的不是宽松的结论，是错误的结论。 第二条的数量级差距是本页存在的全部理由。 失效形态 可核查的数字 它导致的错误结论 用单次通过率当发布依据 τ-bench 公开结果中，GPT-4o 在零售 Agent 任务上 pass@1 为 61%，pass^8 仅 25% 「六成能做对」被读成「六成用户能用」，实际连续 8 次全对的只有四分之一 只固定…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-F03#content_sections.teaching_blocks.0",

@@ -3,7 +3,7 @@
   "topic_id": "TD-A05",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:64bf9f33a39132b2f8a6b7e5656cd8ef3ea342cd7cc77912ff6cd9a5d218fdbe",
-  "page_content_sha256": "sha256:4cb732b8d12131a9bf14d50a1a064ebd6b38867718f58c3d0821edd092d7d745",
+  "page_content_sha256": "sha256:082ec54d74a240c3be4517df22324bf0ef98d7f5a2c95c832d41004255289f17",
   "claims": [
     {
       "claim_id": "TD-A05-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-A05-METRIC-01",
       "manuscript_locator": "manuscript.md:L7-L7",
-      "meaning": "同一个「变慢了」，可能来自五个完全不同的地方 排队、prefill、decode、KV Cache、下游依赖——这五处都会表现为延迟上升，而它们的修复手段完全不同。 下面三条是不分段就下结论的后果。 失效形态 可核查的数字 它导致的错误结论 看到 TTFT 上升就加 GPU TTFT 上升有排队、prefill、准入 3 个可能来源；不分段时归因正确率接近随机 扩容后延迟没有改善，因为瓶颈在准入队列 同时改多个变量做优化 同时改 2 个变量时归因需要至少 3 次实验；一次实验的结论不可归因 优化有效但不知道是哪一…",
+      "meaning": "同一个「变慢了」，可能来自五个完全不同的地方 排队、prefill、decode、KV Cache、下游依赖——这五处都会表现为延迟上升，而它们的修复手段完全不同。 失效形态 可核查的数字 它导致的错误结论 看到 TTFT 上升就加 GPU TTFT 上升有排队、prefill、准入 3 个可能来源；不分段时归因正确率接近随机 扩容后延迟没有改善，因为瓶颈在准入队列 同时改多个变量做优化 同时改 2 个变量时归因需要至少 3 次实验；一次实验的结论不可归因 优化有效但不知道是哪一项起的作用，下次无法复用 忽略 K…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-A05#content_sections.teaching_blocks.0",

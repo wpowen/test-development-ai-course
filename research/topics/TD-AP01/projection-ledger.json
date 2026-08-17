@@ -3,7 +3,7 @@
   "topic_id": "TD-AP01",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:01a947528df689c8178e9d1234af0935b5198b75e4d5442b46ed2f9e462e573d",
-  "page_content_sha256": "sha256:93ea7e96d95d3f3ac385c107e64519f55b1edad2cd7c5980a61c79bba8192164",
+  "page_content_sha256": "sha256:6a74f1801929cb00e58c08c1dff6a2e815f3a9d6b314740214a5c5f191ee0739",
   "claims": [
     {
       "claim_id": "TD-AP01-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-AP01-METRIC-01",
       "manuscript_locator": "manuscript.md:L7-L7",
-      "meaning": "压测单位选错，后面每一个数字都在描述另一个系统 Agent 压测里最贵的错误发生在第一步：把「一次请求」当成压测单位。一次任务可能包含十几次模型调用与工具调用，两者之间没有固定比例。 下面三条都是这一个错误的不同表现，它们共同的后果是得到一个既好看又无法换算成业务量的数字。 失效形态 可核查的数字 它导致的错误结论 用入口 2xx 代表任务成功 网关返回成功时任务可能仍在后台失败；两者的差额在异步 Agent 上通常不为 0，且不体现在任何入口指标里 可用性 99.9% 与用户完成率之间出现无法解释的落差 按平均…",
+      "meaning": "压测单位选错，后面每一个数字都在描述另一个系统 Agent 压测里最贵的错误发生在第一步：把「一次请求」当成压测单位。一次任务可能包含十几次模型调用与工具调用，两者之间没有固定比例。 它们共同的后果是得到一个既好看又无法换算成业务量的数字。 失效形态 可核查的数字 它导致的错误结论 用入口 2xx 代表任务成功 网关返回成功时任务可能仍在后台失败；两者的差额在异步 Agent 上通常不为 0，且不体现在任何入口指标里 可用性 99.9% 与用户完成率之间出现无法解释的落差 按平均输入输出长度构造请求 输出长度是长…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-AP01#content_sections.teaching_blocks.0",

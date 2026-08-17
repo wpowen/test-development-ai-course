@@ -3,7 +3,7 @@
   "topic_id": "TD-A03",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:05a3c90903707a34168e2aebb8d84b9562bb31e2bd434850ea530fb287a3c0be",
-  "page_content_sha256": "sha256:1e386c80a6454072d7fe967a3790aac4de012e88bcdf01522d1652bbfd6eace8",
+  "page_content_sha256": "sha256:a5621da68bb789df68ba3fe6258cdaf42879c1cfaaf46423affbd57cdb5dd4aa",
   "claims": [
     {
       "claim_id": "TD-A03-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-A03-METRIC-01",
       "manuscript_locator": "manuscript.md:L1-L1",
-      "meaning": "指标算错分母，比不算更危险 AI serving 的指标看起来和普通服务一样：延迟、吞吐、成功率。但它们的分母都变了，而分母的变化不会体现在指标名字上。 下面三条是分母选错的典型后果。 失效形态 可核查的数字 它导致的错误结论 用请求数做吞吐分母 一次任务可能包含 5～15 次生成调用，请求数与业务完成量之间没有固定比例 吞吐数字很高，无法换算成业务容量 把 TTFT 和端到端时长混用 流式场景下两者可相差 1 个数量级以上；混用会让体验结论与容量结论互相污染 为了压端到端时长去限制输出长度，体感并没有改善 成功…",
+      "meaning": "指标算错分母，比不算更危险 AI serving 的指标看起来和普通服务一样：延迟、吞吐、成功率。但它们的分母都变了，而分母的变化不会体现在指标名字上。 失效形态 可核查的数字 它导致的错误结论 用请求数做吞吐分母 一次任务可能包含 5～15 次生成调用，请求数与业务完成量之间没有固定比例 吞吐数字很高，无法换算成业务容量 把 TTFT 和端到端时长混用 流式场景下两者可相差 1 个数量级以上；混用会让体验结论与容量结论互相污染 为了压端到端时长去限制输出长度，体感并没有改善 成功率不扣除质量不达标的完成 完成但…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-A03#content_sections.teaching_blocks.0",

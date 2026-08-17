@@ -3,7 +3,7 @@
   "topic_id": "TD-T18",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:a1e8e235a318bd083003fe7bd354d2f21a3d03ad312ff20ac5748fe8cc1b68fb",
-  "page_content_sha256": "sha256:443978704d5a9803910fde2f9a13758bfa3d32fad1508d5c5b301535b7ca4beb",
+  "page_content_sha256": "sha256:49f79f5916d43e864577699e35dfa0115de93285e3c01348c873b9e9cf49fbd3",
   "claims": [
     {
       "claim_id": "TD-T18-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-T18-METRIC-01",
       "manuscript_locator": "manuscript.md:L30-L30",
-      "meaning": "AI 生成的浏览器测试最容易犯的错，是把「页面能跑通」当成「业务做对了」 Browser Agent 生成测试的速度极快，通过率也很高。但它默认优化的目标是「让脚本跑绿」，而不是「验证业务发生了」——这两个目标在大多数时候一致，在最关键的时候不一致。 下面三条给出这个偏差的三种表现。 失效形态 可核查的数字 它导致的错误结论 生成的断言只检查元素存在 只断言元素存在的测试，其业务变异体杀伤率通常低于 30% 「生成了 80 条 E2E 且全绿」被当成覆盖充分 直接接受生成代码不做人工评审 生成脚本中包含硬等待、绝…",
+      "meaning": "AI 生成的浏览器测试最容易犯的错，是把「页面能跑通」当成「业务做对了」 Browser Agent 生成测试的速度极快，通过率也很高。但它默认优化的目标是「让脚本跑绿」，而不是「验证业务发生了」——这两个目标在大多数时候一致，在最关键的时候不一致。 失效形态 可核查的数字 它导致的错误结论 生成的断言只检查元素存在 只断言元素存在的测试，其业务变异体杀伤率通常低于 30% 「生成了 80 条 E2E 且全绿」被当成覆盖充分 直接接受生成代码不做人工评审 生成脚本中包含硬等待、绝对定位、跳过步骤等反模式的比例不低…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-T18#content_sections.teaching_blocks.0",

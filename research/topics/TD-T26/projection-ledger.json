@@ -3,7 +3,7 @@
   "topic_id": "TD-T26",
   "author_id": "course-page-projection-author-2026-08-13",
   "manuscript_sha256": "sha256:b0733c3a085b7e99a0003930ea8d14d3663f4a7174368aad69737848b162bfbb",
-  "page_content_sha256": "sha256:d74de2fe689125640ec31c655d396632c9e8e82bf1b2d44a7734fc865418d410",
+  "page_content_sha256": "sha256:835c387eb6e257011a914046cc2f89db8f8cd7e7ec532c63054c7a3c178bd4e4",
   "claims": [
     {
       "claim_id": "TD-T26-DECISION-01",
@@ -58,7 +58,7 @@
     {
       "claim_id": "TD-T26-METRIC-01",
       "manuscript_locator": "manuscript.md:L15-L15",
-      "meaning": "AI 生成用例的提效，必须减掉复核成本之后才算数 生成 200 条用例只需要几分钟，这个数字很有说服力。但如果其中一半需要人工修改，另一半检测不到任何问题，净提效可能是负的。 下面三条是提效评估里最常见的三处失真。 失效形态 可核查的数字 它导致的错误结论 用生成数量衡量提效 生成 200 条与有效 20 条是两回事；不减去复核与返工工时的提效数字不可用 「效率提升 10 倍」在下一次回归时被维护成本抵消 不与人工基线对照 没有 baseline 时无法判断提升来自 AI 还是这批用例本身更容易；对照缺失使归因正…",
+      "meaning": "AI 生成用例的提效，必须减掉复核成本之后才算数 生成 200 条用例只需要几分钟，这个数字很有说服力。但如果其中一半需要人工修改，另一半检测不到任何问题，净提效可能是负的。 失效形态 可核查的数字 它导致的错误结论 用生成数量衡量提效 生成 200 条与有效 20 条是两回事；不减去复核与返工工时的提效数字不可用 「效率提升 10 倍」在下一次回归时被维护成本抵消 不与人工基线对照 没有 baseline 时无法判断提升来自 AI 还是这批用例本身更容易；对照缺失使归因正确率接近随机（50%） 把任务难度差异当…",
       "kind": "metric-definition",
       "disposition": "condensed",
       "page_target": "TD-T26#content_sections.teaching_blocks.0",
