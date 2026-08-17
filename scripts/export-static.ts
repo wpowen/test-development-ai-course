@@ -3,6 +3,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { firstUsablePath, getTechnicalBlockPresentation, pages, publicModules, releaseScope, sourceNotes } from "../content/course.ts";
 import { glossary, glossaryCategories } from "../content/glossary.ts";
+import { moduleOverviews } from "../content/module-overviews.ts";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const outputDir = resolve(here, "../dist-github-pages");
@@ -14,15 +15,37 @@ const publicPages = pages.map((page) => ({
     technicalPresentation: getTechnicalBlockPresentation(block),
   })),
 }));
-const payload = JSON.stringify({
+const indexPages = publicPages.map(({ id, title, summary, artifact, moduleId, type, status, duration, display_number, prerequisites }) => ({
+  id,
+  title,
+  summary,
+  artifact,
+  moduleId,
+  type,
+  status,
+  duration,
+  display_number,
+  prerequisites,
+}));
+const indexPayload = JSON.stringify({
   firstUsablePath,
   modules: publicModules,
-  pages: publicPages,
+  pages: indexPages,
   releaseScope,
   sourceNotes,
-  glossary,
-  glossaryCategories,
+  moduleOverviews,
 })
+  .replaceAll("<", "\\u003c")
+  .replaceAll("\u2028", "\\u2028")
+  .replaceAll("\u2029", "\\u2029");
+const modulePayloads = new Map(publicModules.map((module) => [
+  module.id,
+  JSON.stringify({ pages: publicPages.filter((page) => page.moduleId === module.id) })
+    .replaceAll("<", "\\u003c")
+    .replaceAll("\u2028", "\\u2028")
+    .replaceAll("\u2029", "\\u2029"),
+]));
+const glossaryPayload = JSON.stringify({ glossary, glossaryCategories })
   .replaceAll("<", "\\u003c")
   .replaceAll("\u2028", "\\u2028")
   .replaceAll("\u2029", "\\u2029");
@@ -41,6 +64,10 @@ const initialContent = `<div class="crumb">${escapeHtml(initialModule?.title ?? 
 <section class="why"><b>为什么测试开发需要这一页</b><p>${escapeHtml(initialPage.why)}</p></section>
 <section class="practice"><b>完整目录和交互正在载入</b><p>首课正文已经可读；课程数据加载完成后会自动显示目录、脚本物料、架构流程与学习进度。</p></section>`;
 
+const staticModuleNavigation = String.raw`function renderNav(){const q=document.getElementById("tutorial-search").value.trim().toLowerCase();const current=currentId();const done=completed();let out="";for(const m of DATA.modules){const group=DATA.pages.filter(p=>p.moduleId===m.id&&(!q||(p.id+" "+p.title+" "+p.summary+" "+p.artifact).toLowerCase().includes(q)));if(!group.length)continue;out+="<section><button data-id=\""+esc(m.id)+"\" class=\"module-overview "+(m.id===current?"active":"")+"\"><span><b>"+esc(m.title)+"</b><small>"+esc(m.subtitle)+"</small></span><i>模块全景 · "+group.length+" 页</i></button>"+group.map(p=>"<button data-id=\""+esc(p.id)+"\" class=\""+(p.id===current?"active":"")+"\"><span class=num>"+String(p.display_number).padStart(2,"0")+"</span><span><b>"+esc(p.title)+"</b><small>"+esc(p.type)+" · "+statusLabel[p.status]+"</small></span><i class=\"dot "+(done.includes(p.id)?"done":p.status)+"\"></i></button>").join("")+"</section>"}document.getElementById("course-nav").innerHTML=out;document.querySelectorAll("#course-nav button").forEach(b=>b.onclick=()=>go(b.dataset.id));document.querySelectorAll("#reference-nav button").forEach(b=>{b.classList.toggle("active",b.dataset.reference===current);b.onclick=()=>go(b.dataset.reference)})}`;
+
+const staticModuleProjection = String.raw`function renderModuleOverview(){const m=DATA.modules.find(module=>module.id===currentId());const overview=DATA.moduleOverviews[m.id];if(!overview){location.hash=DATA.firstUsablePath[0];return}const byId=new Map(DATA.pages.filter(page=>page.moduleId===m.id).map(page=>[page.id,page]));let body="<div class=crumb>模块全景 › "+esc(m.id)+"</div><div class=meta><span>"+esc(m.id)+"</span><span>"+byId.size+" 页</span><span>"+overview.stages.length+" 个阶段</span></div><h1>"+esc(m.title)+"</h1><p class=lead>"+esc(overview.thesis)+"</p>";body+="<section class=module-panorama><div class=eyebrow>全景：架构与流程</div><figure class=course-visual><a href=\""+esc(overview.panorama.src)+"\" target=_blank rel=noreferrer aria-label=\"打开高清原图："+esc(overview.panorama.alt)+"\"><img loading=lazy src=\""+esc(overview.panorama.src)+"\" alt=\""+esc(overview.panorama.alt)+"\"></a><figcaption>"+esc(m.subtitle)+" 手机端可在图内左右滑动，点击图片可打开高清原图。</figcaption></figure></section>";body+="<section class=module-logic><h2>这个模块是怎么组织的</h2>"+overview.logic.map(paragraph=>"<p>"+esc(paragraph)+"</p>").join("")+"</section><section class=module-stages><h2>逐段导览</h2><p>阶段顺序即依赖顺序。每一段的出口工件是下一段的输入。</p><ol>"+overview.stages.map((stage,index)=>"<li><div class=stage-head><b>"+String(index+1).padStart(2,"0")+"</b><div><h3>"+esc(stage.name)+"</h3><p>"+esc(stage.question)+"</p></div></div><p class=stage-output><span>出口工件</span>"+esc(stage.output)+"</p><div class=stage-pages>"+stage.pages.map(pageId=>{const page=byId.get(pageId);return page?"<button data-go=\""+esc(pageId)+"\"><span class=num>"+String(page.display_number).padStart(2,"0")+"</span><span><b>"+esc(page.title)+"</b><small>"+esc(page.duration)+" · "+esc(page.artifact)+"</small></span></button>":""}).join("")+"</div></li>").join("")+"</ol></section><section class=module-boundary><h2>这个模块不负责什么</h2><ul>"+overview.boundary.map(item=>"<li>"+esc(item)+"</li>").join("")+"</ul></section>";document.getElementById("tutorial-content").innerHTML=body;document.querySelectorAll("[data-go]").forEach(button=>button.onclick=()=>go(button.dataset.go))}`;
+
 const html = String.raw`<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="测试开发 × AI：需求生命周期、接口与 Web/移动端自动化、AI 性能可靠性，以及 Jira/GitLab/K8s 质量平台实战。">
@@ -53,7 +80,10 @@ const html = String.raw`<!doctype html>
 <header class="top"><button class="menu" id="menu">目录</button><button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="true" aria-controls="side" aria-label="收起课程目录" title="收起课程目录">«</button><div class="brand">测试开发 × AI<small>从传统测试到 AI 质量工程</small></div><div class="progress"><span id="progressText"></span><div class="bar"><i id="progress-bar"></i></div></div><a class="github-star" href="https://github.com/wpowen/test-development-ai-tutorial" target="_blank" rel="noreferrer" aria-label="前往 GitHub 为测试开发 AI 教程点 Star"><span>★</span>GitHub Star · 支持项目</a></header>
 <aside class="side" id="side"><div class="summary"><div class="eyebrow">公开学习版</div><h2>测试开发 × AI 实战</h2><p>只展示已通过逐题研究、正文、实操与验证门禁的内容。</p><div class="stats" id="stats"></div></div><label class="search" for="tutorial-search"><span>搜索课程</span><input id="tutorial-search" aria-label="搜索课程" placeholder="输入需求、执行证据、TTFT、Agent…"></label><nav class="reference-nav" id="reference-nav" aria-label="参考"><button type="button" data-reference="glossary"><b>术语表</b><small>${glossary.length} 条 · 不懂的词先查这里</small></button><button type="button" data-reference="design"><b>设计思路</b><small>内容凭什么可信、页面为什么这样排</small></button></nav><nav class="nav" id="course-nav"></nav></aside>
 <main class="reader"><article class="inner" id="tutorial-content">${initialContent}</article><aside id="page-toc" hidden></aside></main>
-<script>const COURSE_DATA=${payload};const DATA=COURSE_DATA;
+<script>const COURSE_INDEX=${indexPayload};const DATA={...COURSE_INDEX,glossary:[],glossaryCategories:[]};const moduleCache=new Map();let glossaryLoaded=false;
+async function loadModule(moduleId){if(moduleCache.has(moduleId))return moduleCache.get(moduleId);const response=await fetch("course-modules/"+moduleId+".json");if(!response.ok)throw new Error("无法加载模块数据："+moduleId);const data=await response.json();moduleCache.set(moduleId,data.pages);return data.pages}
+async function loadPage(id){const meta=DATA.pages.find(page=>page.id===id)||DATA.pages[0];const pagesForModule=await loadModule(meta.moduleId);return pagesForModule.find(page=>page.id===meta.id)||pagesForModule[0]}
+async function loadGlossary(){if(glossaryLoaded)return;const response=await fetch("glossary.json");if(!response.ok)throw new Error("无法加载术语表");const data=await response.json();DATA.glossary=data.glossary;DATA.glossaryCategories=data.glossaryCategories;glossaryLoaded=true}
 const statusLabel={"desk-researched":"资料已审","fixture-tested":"实验已跑"};
 const esc=(v)=>String(v??"").replace(/[&<>\"']/g,(c)=>({"&":"&amp;","<":"&lt;",">":"&gt;",'\"':"&quot;","'":"&#39;"}[c]));
 const completed=()=>JSON.parse(localStorage.getItem("career-ai-completed")||"[]");
@@ -82,6 +112,14 @@ document.getElementById("tutorial-search").oninput=renderNav;document.getElement
 await rm(outputDir, { recursive: true, force: true });
 await cp(publicDir, outputDir, { recursive: true });
 await mkdir(outputDir, { recursive: true });
+await mkdir(resolve(outputDir, "course-modules"), { recursive: true });
+await writeFile(resolve(outputDir, "course-index.json"), indexPayload, "utf8");
+await writeFile(resolve(outputDir, "glossary.json"), glossaryPayload, "utf8");
+await Promise.all([...modulePayloads].map(([moduleId, modulePayload]) => writeFile(
+  resolve(outputDir, "course-modules", `${moduleId}.json`),
+  modulePayload,
+  "utf8",
+)));
 const publishedHtml = html
   // The static renderer is intentionally kept as a single-file artifact; these small
   // projection edits keep its visible surface aligned with the dynamic app.
@@ -90,9 +128,25 @@ const publishedHtml = html
   .replace('const referenceIds=["glossary","design"];', 'const referenceIds=["glossary"];')
   .replace(/function renderDesign\(\)\{[\s\S]*?function render\(\)/, "function render()")
   .replace('if(id==="design"){renderDesign();return}', "")
+  .replace('function renderGlossary(){const', 'async function renderGlossary(){await loadGlossary();if(currentId()!=="glossary")return;const')
+  .replace(/function renderNav\(\)\{[\s\S]*?\}\n(?:async )?function renderGlossary\(\)/, `${staticModuleNavigation}\nasync function renderGlossary()`)
+  .replace(
+    'const currentId=()=>{const id=location.hash.slice(1);return DATA.pages.some(p=>p.id===id)||referenceIds.includes(id)?id:DATA.firstUsablePath[0]};',
+    'const currentId=()=>{const id=location.hash.slice(1);return DATA.pages.some(p=>p.id===id)||DATA.modules.some(module=>module.id===id)||referenceIds.includes(id)?id:DATA.firstUsablePath[0]};',
+  )
+  .replace(
+    'function render(){const id=currentId();if(id==="glossary")',
+    `${staticModuleProjection}\nasync function render(){const id=currentId();if(DATA.modules.some(module=>module.id===id)){renderModuleOverview();return}if(id==="glossary")`,
+  )
+  .replace('if(id==="glossary"){renderGlossary();return}', 'if(id==="glossary"){await renderGlossary();return}')
+  .replace(
+    'const p=DATA.pages.find(x=>x.id===id)||DATA.pages[0];',
+    'const pageMeta=DATA.pages.find(x=>x.id===id)||DATA.pages[0];document.getElementById("tutorial-content").innerHTML="<section class=practice><b>正在载入课程页面</b><p>按模块加载内容，避免首次下载整套 103 页课程。</p></section>";const p=await loadPage(pageMeta.id);if(currentId()!==id)return;',
+  )
+  .replace('renderNav();render()}', 'renderNav();void render().catch(error=>{document.getElementById("tutorial-content").innerHTML="<section class=practice><b>页面载入失败</b><p>"+esc(error.message)+"</p></section>"})}')
   .replace('<article class=\\"glossary-entry "+x.kind+"\\"><h2>', '<article class=\\"glossary-entry "+x.kind+"\\"><div class=glossary-category-label>"+esc(x.category)+"<small>"+(x.kind==="core"?"核心术语":"页面术语")+"</small></div><h2>')
   .replace('body+="<nav class=pager>"', 'body+="<section class=glossary-footer><span class=eyebrow>阅读辅助</span><p>遇到不熟的词？打开完整术语表，查看机制、测试关注点、例子、误区和来源。</p><a href=#glossary>打开术语表（"+DATA.glossary.length+" 条） →</a></section>";body+="<nav class=pager>"')
-  .replace("</style>", ".glossary-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}.glossary-detail-grid section{padding:12px 14px;border-radius:9px;background:#f7f9f6}.glossary-category-label{display:flex;align-items:center;gap:8px;margin-bottom:7px;color:var(--forest);font-size:11px;font-weight:800}.glossary-category-label small{padding:2px 7px;border:1px solid var(--line);border-radius:99px;color:var(--muted);font-size:10px;font-weight:600}.glossary-footer{margin:32px 0 8px;padding:18px 20px;border:1px solid #cfdcd6;border-radius:12px;background:#f5f9f7}.glossary-footer p{margin:4px 0 8px;color:var(--muted);font-size:13px}.glossary-footer a{color:var(--forest);font-size:12px;font-weight:800}</style>");
+  .replace("</style>", ".glossary-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}.glossary-detail-grid section{padding:12px 14px;border-radius:9px;background:#f7f9f6}.glossary-category-label{display:flex;align-items:center;gap:8px;margin-bottom:7px;color:var(--forest);font-size:11px;font-weight:800}.glossary-category-label small{padding:2px 7px;border:1px solid var(--line);border-radius:99px;color:var(--muted);font-size:10px;font-weight:600}.glossary-footer{margin:32px 0 8px;padding:18px 20px;border:1px solid #cfdcd6;border-radius:12px;background:#f5f9f7}.glossary-footer p{margin:4px 0 8px;color:var(--muted);font-size:13px}.glossary-footer a{color:var(--forest);font-size:12px;font-weight:800}.nav button.module-overview{display:block;margin:5px 0;padding:10px;border:1px solid #c8d7d0;background:#f7faf8}.nav button.module-overview span{display:block}.nav button.module-overview small{margin-top:2px}.nav button.module-overview i{display:block;margin-top:4px;color:var(--forest);font-size:10px;font-style:normal;font-weight:800}.module-panorama,.module-logic,.module-stages,.module-boundary{margin:30px 0;padding:22px;border:1px solid var(--line);border-radius:12px;background:white}.module-stages ol{display:grid;gap:14px;padding:0;list-style:none}.module-stages li{padding:16px;border:1px solid #d8e2dd;border-radius:10px;background:#f8faf8}.stage-head{display:flex;gap:12px}.stage-head>b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--forest);color:white;font:11px ui-monospace}.stage-head h3,.stage-head p{margin:0}.stage-head p{color:var(--muted);font-size:13px}.stage-output{margin:12px 0}.stage-output span{display:inline-block;margin-right:8px;color:var(--forest);font-size:11px;font-weight:800}.stage-pages{display:grid;gap:6px}.stage-pages button{display:grid;grid-template-columns:28px 1fr;gap:8px;padding:9px;border:1px solid var(--line);border-radius:7px;background:white;text-align:left;cursor:pointer}.stage-pages button:hover{border-color:var(--forest)}</style>");
 await writeFile(resolve(outputDir, "index.html"), publishedHtml, "utf8");
 
 const localMaterialPaths = [...new Set(
