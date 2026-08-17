@@ -2,6 +2,7 @@ import { catalogPages, firstUsablePath, getTechnicalBlockPresentation, pages, pu
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 import { auditTutorialPages } from "./audit-executability.ts";
+import { moduleOverviews } from "../content/module-overviews.ts";
 
 const errors: string[] = [];
 const byId = new Map(pages.map((page) => [page.id, page]));
@@ -234,6 +235,45 @@ for (const [moduleId, modulePages] of byModule) {
           `from other ${moduleId} pages; module builders must write page-specific prose`,
       );
     }
+  }
+}
+
+/**
+ * 模块全景（「总」层）与页面（「分」层）的双向交叉校验。
+ *
+ * 全景图上画出来的每一段，必须对应真实存在、且属于本模块的页面；反过来，
+ * 本模块的每一页都必须出现在某一段里。少了任一方向，全景图就会变成一张
+ * 好看但和内容对不上的示意图——这正是它要替读者解决的问题。
+ *
+ * 与页面层「架构图节点必须被正文引用」是同一个机制：让声明与内容之间的
+ * 漂移变成构建错误，而不是等读者发现。
+ */
+for (const group of publicModules) {
+  const groupPages = pages.filter((page) => page.moduleId === group.id);
+  if (!groupPages.length) continue;
+
+  const overview = moduleOverviews[group.id];
+  if (!overview) {
+    errors.push(`${group.id} has ${groupPages.length} public pages but no module overview; run scripts/build-module-overviews.py`);
+    continue;
+  }
+
+  const staged = overview.stages.flatMap((stage) => stage.pages);
+  const owned = new Set(groupPages.map((page) => page.id));
+
+  for (const pageId of staged) {
+    if (!owned.has(pageId)) {
+      errors.push(`${group.id} overview stages reference ${pageId}, which is not a public page of this module`);
+    }
+  }
+  for (const page of groupPages) {
+    if (!staged.includes(page.id)) {
+      errors.push(`${page.id} is public in ${group.id} but appears in no overview stage; the panorama would omit it`);
+    }
+  }
+  const duplicated = staged.filter((id, index) => staged.indexOf(id) !== index);
+  for (const id of new Set(duplicated)) {
+    errors.push(`${group.id} overview places ${id} in more than one stage; each page belongs to exactly one`);
   }
 }
 

@@ -348,3 +348,48 @@ a.reference-title:hover { color: var(--forest); text-decoration: underline; }
   .planned-grid, .page-nav, .material-grid { grid-template-columns: 1fr; }
   .page-nav .next { text-align: left; }
 }
+
+/* ---- 模块全景（「总」层）---------------------------------------------- */
+/* 侧栏模块标题从静态文字改为全景入口。保留原有 h3/p 的字号与间距，
+   只是把它们包进按钮里，避免侧栏在两级导航之间出现视觉断层。 */
+.nav-module { display: block; width: 100%; padding: 0 0 4px; border: 0; border-radius: 8px; background: none; text-align: left; cursor: pointer; }
+.nav-module:hover { background: rgba(21, 94, 75, .05); }
+.nav-module h3 { color: var(--ink); }
+.nav-module:hover h3 { color: var(--forest); }
+.nav-module.active { background: rgba(21, 94, 75, .09); }
+.nav-module.active h3 { color: var(--forest); }
+.nav-module-hint { display: block; margin: 0 8px 6px; color: var(--forest); font-size: 9px; font-weight: 700; letter-spacing: .08em; }
+
+.crumb-link { padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
+.crumb-link:hover { color: var(--forest); text-decoration-color: var(--forest); }
+
+.module-view .eyebrow { margin: 0 0 6px; color: var(--forest); font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+.module-view h1 { margin: 0 0 10px; }
+.module-view .lead { font-size: 17px; line-height: 1.65; }
+.module-view h2 { margin: 38px 0 12px; font-size: 19px; }
+
+.module-panorama { margin-top: 26px; }
+.module-logic p { margin: 0 0 14px; line-height: 1.85; }
+.module-stages .section-note { margin: 0 0 18px; padding: 10px 14px; border-left: 3px solid var(--forest); background: var(--canvas); color: var(--muted); font-size: 13px; line-height: 1.7; }
+.module-stages ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+
+.module-stage { padding: 16px 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
+.stage-head { display: flex; gap: 14px; align-items: baseline; }
+.stage-head > b { flex: none; color: var(--forest); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 15px; }
+.stage-head h3 { margin: 0 0 3px; font-size: 16px; }
+.stage-question { margin: 0; color: var(--muted); font-size: 13px; }
+.stage-output { margin: 12px 0 12px 34px; font-size: 13px; }
+.stage-output span { display: inline-block; margin-right: 8px; padding: 2px 8px; border-radius: 999px; background: var(--lime); font-size: 11px; font-weight: 700; }
+.stage-pages { display: grid; gap: 6px; margin-left: 34px; }
+.stage-page { display: flex; gap: 10px; align-items: baseline; width: 100%; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--canvas); text-align: left; cursor: pointer; }
+.stage-page:hover { border-color: var(--forest); background: white; }
+.stage-page .page-number { flex: none; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
+.stage-page .page-name { font-size: 14px; font-weight: 600; }
+.stage-page .page-name small { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; font-weight: 400; }
+
+.module-boundary ul { margin: 0; padding: 14px 18px 14px 34px; border-radius: 12px; background: var(--orange); }
+.module-boundary li { margin: 4px 0; font-size: 13px; line-height: 1.7; }
+
+@media (max-width: 680px) {
+  .stage-output, .stage-pages { margin-left: 0; }
+}

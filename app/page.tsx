@@ -5,6 +5,7 @@ import { firstUsablePath, getTechnicalBlockPresentation, pages, publicModules } 
 import { glossary } from "../content/glossary";
 import { references, referencesByPage, resolveReferences, type ReferenceEntry } from "../content/references";
 import { GlossaryView } from "./reference-views";
+import { ModuleOverviewView } from "./module-view";
 
 const statusLabel = (status: string) => status === "fixture-tested" ? "实验已跑" : "资料已审";
 const GITHUB_REPOSITORY_URL = "https://github.com/wpowen/test-development-ai-tutorial";
@@ -49,7 +50,9 @@ export default function Home() {
   // 目录默认展开；收起状态记在 localStorage，换页和刷新都保持不变。
   // 初值固定为 false 而不是读 localStorage，避免服务端渲染与首帧不一致。
   const [navCollapsed, setNavCollapsed] = useState(false);
-  const [view, setView] = useState<"lesson" | ReferenceView>("lesson");
+  const [view, setView] = useState<"lesson" | "module" | ReferenceView>("lesson");
+  // 模块全景（「总」层）当前展示的模块；view === "module" 时有效。
+  const [moduleId, setModuleId] = useState<string>(publicModules[0].id);
   const [copied, setCopied] = useState<string | null>(null);
 
   useEffect(() => {
@@ -57,6 +60,9 @@ export default function Home() {
       const id = window.location.hash.replace("#", "");
       if ((REFERENCE_VIEWS as readonly string[]).includes(id)) {
         setView(id as ReferenceView);
+      } else if (publicModules.some((item) => item.id === id)) {
+        setView("module");
+        setModuleId(id);
       } else {
         setView("lesson");
         setCurrentId(pages.some((page) => page.id === id) ? id : firstUsablePath[0]);
@@ -182,8 +188,15 @@ export default function Home() {
             const groupPages = visiblePages.filter((page) => page.moduleId === group.id);
             if (!groupPages.length) return null;
             return <section key={group.id}>
-              <h3>{group.title}</h3>
-              <p>{group.subtitle}</p>
+              <button
+                className={`nav-module ${view === "module" && moduleId === group.id ? "active" : ""}`}
+                onClick={() => setHash(group.id)}
+                title="打开模块全景"
+              >
+                <h3>{group.title}</h3>
+                <p>{group.subtitle}</p>
+                <small className="nav-module-hint">全景 · {groupPages.length} 页</small>
+              </button>
               {groupPages.map((page) => <button
                 key={page.id}
                 data-page-id={page.id}
@@ -200,10 +213,15 @@ export default function Home() {
       </aside>
 
       {view === "glossary" && <GlossaryView onOpenPage={openFromReference} />}
+      {view === "module" && <ModuleOverviewView
+        module={publicModules.find((item) => item.id === moduleId)!}
+        pages={visiblePages.filter((page) => page.moduleId === moduleId)}
+        onOpenPage={setHash}
+      />}
       {view === "lesson" && <>
       <main className="reader">
         <div className="reader-inner">
-          <div className="breadcrumb"><span>{currentModule.title}</span><span>›</span><span>{current.id}</span></div>
+          <div className="breadcrumb"><button className="crumb-link" onClick={() => setHash(currentModule.id)}>{currentModule.title}</button><span>›</span><span>{current.id}</span></div>
           <div className="lesson-meta">
             <span className={`status-badge ${current.status}`}>{statusLabel(current.status)}</span>
             <span>{current.type}</span><span>{current.duration}</span><span>更新于 2026-08-10</span>
