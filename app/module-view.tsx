@@ -48,7 +48,7 @@ export function ModuleOverviewView({ module, pages, onOpenPage }: Props) {
               {/* eslint-disable-next-line @next/next/no-img-element -- 与页面级架构图一致，本地静态 SVG 直接加载，保留浏览器原生缩放 */}
               <img src={overview.panorama.src} alt={overview.panorama.alt} loading="lazy" decoding="async" />
             </a>
-            <figcaption>{module.subtitle}　手机端可在图内左右滑动，点击图片可打开高清原图。</figcaption>
+            <figcaption>{module.subtitle} 手机端可在图内左右滑动，点击图片可打开高清原图。</figcaption>
           </figure>
         </section>
 
