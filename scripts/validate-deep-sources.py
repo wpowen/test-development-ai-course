@@ -164,6 +164,40 @@ def check_evolution(page_id: str, section: dict) -> list[str]:
     return problems
 
 
+
+# 表格预告句：「下面三条是…」这类只宣告下文、不携带信息的句子。
+#
+# 它们曾经占 104 处，几乎每页一条。成因是 intro 早先被类型定义成定长二元组，
+# 一段必须写满两句；内容只够一句时，第二句就只能用来预告表格。类型已放开成
+# string[]，这条门禁负责拦住复发——一段介绍写几句由内容决定，不由结构决定。
+#
+# 判据：句子以「下面/以下」开头，且不含长度 ≥ 10 的实质分句。
+ANNOUNCE = re.compile(r"^(下面|以下)")
+ANNOUNCE_MIN_CLAUSE = 10
+
+
+def check_intro(page_id: str, section_name: str, section: dict) -> list[str]:
+    intro = section.get("intro")
+    if intro is None:
+        return []
+    if isinstance(intro, str):
+        intro = [intro]
+    if not intro:
+        return [f"{page_id}.{section_name}.intro: 一段都没有"]
+    problems = []
+    for index, line in enumerate(intro):
+        for sentence in (s for s in line.split("。") if s.strip()):
+            if not ANNOUNCE.match(sentence):
+                continue
+            tail = sentence.split("，", 1)[1] if "，" in sentence else ""
+            if len(tail) < ANNOUNCE_MIN_CLAUSE:
+                problems.append(
+                    f"{page_id}.{section_name}.intro 第 {index + 1} 段是表格预告，不携带信息："
+                    f"「{sentence[:32]}」"
+                )
+    return problems
+
+
 CHECKS = {
     "failure": check_failure,
     "metrics": check_metrics,
@@ -185,6 +219,11 @@ def main() -> int:
         for page_id, page in pages.items():
             if enforced:
                 enforced_pages += 1
+            # 预告句对所有段落生效，不限于纳入强制的四段。
+            for section_name, section in page.items():
+                if isinstance(section, dict):
+                    problems.extend(check_intro(page_id, section_name, section))
+
             for section_name, check in CHECKS.items():
                 section = page.get(section_name)
                 required = enforced if section_name != "evolution" else slug in ENFORCED_EVOLUTION
