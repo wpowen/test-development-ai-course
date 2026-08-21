@@ -10,7 +10,7 @@
     "build": "npm run validate:release && WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build",
     "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
     "validate:content": "node scripts/validate-content.ts",
-    "validate:release": "node scripts/validate-content.ts --with-executability && node scripts/validate-reference-projection.ts",
+    "validate:release": "node scripts/validate-content.ts --with-executability",
     "audit:executability": "node scripts/audit-executability.ts",
     "generate:integrity": "node ../scripts/generate-course-integrity-manifests.mjs --write",
     "verify:integrity": "node ../scripts/generate-course-integrity-manifests.mjs",

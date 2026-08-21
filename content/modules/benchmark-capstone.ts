@@ -46,7 +46,7 @@ const capstoneReleaseReview: TutorialBlock = {
 
 const specs: QualityBenchmarkSpec[] = [
   {
-    id: "TD-B01", moduleId: "TD-M06", title: "Benchmark 流水线：总分背后有七个可变组件", type: "概念", duration: "50 分钟", prerequisites: ["TD-T21"],
+    id: "TD-B01", moduleId: "TD-M06", title: "Benchmark 流水线：七个可变组件", type: "概念", duration: "50 分钟", prerequisites: ["TD-T21"],
     summary: "把任务、数据、协议、运行环境、Scorer、聚合和报告拆开，判断一个 Benchmark 分数能说明什么。",
     why: "同一模型在两个榜单分数不同，常常来自 Prompt、工具、超时、版本、Scorer 或聚合差异，而不只是模型能力。",
     outcomes: ["画出完整 Benchmark 数据流", "区分模型能力与 harness 影响", "从总分追到逐题结果和适用边界"], artifact: "Benchmark 七段流水线与审计清单",
@@ -61,7 +61,7 @@ const specs: QualityBenchmarkSpec[] = [
     sources: ["S36", "S37", "S38", "S40"], boundary: "课程没有复现完整公开榜单，也不对当前模型排名作时效性承诺；只验证流水线合同。", architecture: ["任务定义", "Dataset/Split", "Prompt/Protocol", "Model/Harness", "Scorer", "Aggregation/CI", "Report/Limitations"],
   },
   {
-    id: "TD-B02", moduleId: "TD-M06", title: "Dataset、Split 与 Sealed Holdout：防止越调越假", type: "项目", duration: "65 分钟", prerequisites: ["TD-B01"],
+    id: "TD-B02", moduleId: "TD-M06", title: "Benchmark 数据集：Split 与 Sealed Holdout", type: "项目", duration: "65 分钟", prerequisites: ["TD-B01"],
     summary: "从真实任务抽样、标注和去重，建立 representative、challenge、regression 与 sealed holdout 四类数据角色。",
     why: "随机按行切分会让同一事件跨组泄漏；反复查看 Holdout 会把最终验证集磨成开发集。",
     outcomes: ["定义抽样框、纳入排除和风险切片", "组织标注争议与 Dataset Card", "按实体和时间去重并封存 Holdout"], artifact: "Dataset Card、Split Manifest 与 Holdout 访问合同",
@@ -76,7 +76,7 @@ const specs: QualityBenchmarkSpec[] = [
     sources: ["S23", "S37", "S38", "S40"], boundary: "本页只在离线合成 Fixture 中验证 Split 与 Holdout 合同；没有运行真实模型或企业数据集成，也没有完成领域从业者评审、隐私许可审查或 production 验证。", architecture: ["任务与失败池", "采样/去重", "Representative", "Challenge", "Regression", "Sealed Holdout", "访问审计/版本"],
   },
   {
-    id: "TD-B03", moduleId: "TD-M06", title: "Metrics 与区间：Accuracy、Pass@k、Resolved Rate 不能混讲", type: "项目", duration: "65 分钟", prerequisites: ["TD-B02"],
+    id: "TD-B03", moduleId: "TD-M06", title: "Benchmark 指标：Accuracy、Pass@k、Resolved Rate 与置信区间", type: "项目", duration: "65 分钟", prerequisites: ["TD-B02"],
     summary: "从逐题记录计算 accuracy、pass@k、resolved rate、Judge score 与置信区间，理解分母和重复采样。",
     why: "多次尝试后的 pass@k 可以很高，同时单次成功率、成本和安全 blocker 很差；一个均值无法表达这些差异。",
     outcomes: ["给常见指标写 Metric Card", "解释 k、重复次数和聚合对结论的影响", "同时报告切片、blocker 与不确定性"], artifact: "Metric Card、逐题 ledger 与区间报告",
@@ -91,7 +91,7 @@ const specs: QualityBenchmarkSpec[] = [
     sources: ["S36", "S38", "S39", "S40"], boundary: "Fixture 不运行随机模型或 bootstrap；只验证 Metric Card 字段，数字不代表任何模型性能。", architecture: ["逐题多次 Runs", "Raw Ledger", "确定性 Oracle", "Judge/校准", "Metric Calculator", "Slice/Confidence", "Decision Gate"],
   },
   {
-    id: "TD-B04", moduleId: "TD-M06", title: "Harness 敏感性：固定模型，一次只改一个协议变量", type: "诊断", duration: "55 分钟", prerequisites: ["TD-B03"],
+    id: "TD-B04", moduleId: "TD-M06", title: "Harness 敏感性与控制变量实验", type: "诊断", duration: "55 分钟", prerequisites: ["TD-B03"],
     summary: "固定模型与数据，单独改变 Prompt、工具、上下文、超时或重试，定位分数对 Harness 的敏感性。",
     why: "Benchmark 测到模型与运行系统的组合；同时改 Prompt、工具和重试会产生无法归因的分数变化。",
     outcomes: ["列出主要 Harness 变量", "设计单变量对照实验", "区分模型能力、工具能力和系统工程贡献"], artifact: "Harness 单变量敏感性与复现实验报告",
@@ -106,7 +106,7 @@ const specs: QualityBenchmarkSpec[] = [
     sources: ["S36", "S37", "S38", "S39"], boundary: "没有运行公开 Benchmark 或真实 Harness；合成合同只证明单变量字段不可缺。", architecture: ["Locked Dataset", "Locked Model", "Protocol Variant A/B", "Harness/Tools", "Raw Runs", "Paired Comparison", "有限归因"],
   },
   {
-    id: "TD-B05", moduleId: "TD-M06", title: "污染与不确定性：隐藏测试也不是万能证明", type: "诊断", duration: "60 分钟", prerequisites: ["TD-B04"],
+    id: "TD-B05", moduleId: "TD-M06", title: "Benchmark 污染与不确定性", type: "诊断", duration: "60 分钟", prerequisites: ["TD-B04"],
     summary: "审计样本量、重复运行、置信区间、近重复污染、隐藏测试访问和跨版本可比性。",
     why: "公开题过拟合、小样本波动或 Harness 更新，都可能让 1.5% 的差异失去意义。",
     outcomes: ["识别统计与污染风险", "设计 canary、访问日志和轮换", "把报告分为可信、存疑和不可比较"], artifact: "Benchmark 污染、不确定性与版本审计报告",
@@ -121,7 +121,7 @@ const specs: QualityBenchmarkSpec[] = [
     sources: ["S37", "S38", "S40", "S23"], boundary: "课程不能确认闭源模型训练数据，也没有真实隐藏测试基础设施；只演示 fail-closed 审计。", architecture: ["Candidate Results", "Version Compatibility", "Duplicate/Exposure Audit", "Sealed Canary", "Paired Uncertainty", "可信度分类", "Rebaseline/Owner"],
   },
   {
-    id: "TD-B06", moduleId: "TD-M06", title: "公共到企业：把 Benchmark 方法迁移到业务风险", type: "项目", duration: "90 分钟", prerequisites: ["TD-B05", "TD-T22"],
+    id: "TD-B06", moduleId: "TD-M06", title: "Benchmark 方法的企业化迁移", type: "项目", duration: "90 分钟", prerequisites: ["TD-B05", "TD-T22"],
     summary: "借鉴 HELM、SWE-bench、AgentBench 的任务、协议和报告思想，建立企业内部风险基准。",
     why: "公共分数帮助理解通用能力，却不覆盖企业政策引用、租户隔离、退款权限、中文长对话和维护责任。",
     outcomes: ["选择可迁移的公共 Benchmark 组件", "从业务任务和事故建立内部协议", "定义版本、访问、轮换、争议与废弃政策"], artifact: "企业内部 Benchmark 最小仓库与治理卡",
@@ -136,7 +136,7 @@ const specs: QualityBenchmarkSpec[] = [
     sources: ["S37", "S38", "S39", "S40"], boundary: "内部 Benchmark 为合成教学仓库；没有真实企业数据、标注团队、模型或发布连接。", architecture: ["公共方法参考", "业务风险目录", "内部四类 Dataset", "Candidate Adapters", "Composite Scorer", "Versioned Report", "Maintenance/Release Owner"],
   },
   {
-    id: "TD-T25", moduleId: "TD-M07", title: "Capstone：交付 AI Quality Fixture Release Candidate", type: "项目", duration: "210 分钟", prerequisites: ["TD-T12", "TD-T17", "TD-T20", "TD-T24", "TD-B06"],
+    id: "TD-T25", moduleId: "TD-M07", title: "Capstone：AI Quality Fixture Release Candidate", type: "项目", duration: "210 分钟", prerequisites: ["TD-T12", "TD-T17", "TD-T20", "TD-T24", "TD-B06"],
     summary: "消费 PRD、风险、Trace、Dataset、Prompt、Scorer、CI、性能、Waiver 与回滚工件，完成端到端质量仓库。",
     why: "会用零散工具不等于能交付职业方案；Capstone 必须让坏版本安全失败、定位、修复并保留全链证据。",
     outcomes: ["组装完整 AI 质量架构与追踪", "交付可运行 baseline/fault/repair Gate", "用 Evidence/Inference/Unknown 解释风险与剩余缺口"], artifact: "AI Quality Engineering Capstone Fixture Release Candidate",

@@ -1,16 +1,22 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { access, mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 import vm from "node:vm";
 
-import { catalogPages, pages, releaseScope } from "../content/course.ts";
+import { catalogPages, pages, publicModules, releaseScope } from "../content/course.ts";
+import { moduleOverviews } from "../content/module-overviews.ts";
 
 const siteRoot = fileURLToPath(new URL("..", import.meta.url));
 const html = await readFile(new URL("../dist-github-pages/index.html", import.meta.url), "utf8");
+const staticIndex = JSON.parse(await readFile(new URL("../dist-github-pages/course-index.json", import.meta.url), "utf8"));
+const staticGlossary = JSON.parse(await readFile(new URL("../dist-github-pages/glossary.json", import.meta.url), "utf8"));
+const staticModulesText = await Promise.all(
+  publicModules.map((module) => readFile(new URL(`../dist-github-pages/course-modules/${module.id}.json`, import.meta.url), "utf8")),
+).then((modules) => modules.join("\n"));
 const courseSource = await readFile(new URL("../content/course.ts", import.meta.url), "utf8");
 
 function validateMaterials(...args) {
@@ -20,31 +26,57 @@ function validateMaterials(...args) {
   });
 }
 
-test("static GitHub Pages export contains the professional curriculum", () => {
+test("static GitHub Pages export contains the professional curriculum", async () => {
+  assert.ok(Buffer.byteLength(html) < 250_000, "the entry shell must not inline every lesson and glossary record");
   assert.deepEqual(pages.map((page) => page.id), releaseScope.promisedPageIds);
-  for (const id of releaseScope.promisedPageIds) assert.match(html, new RegExp(`"id":"${id}"`));
+  for (const id of releaseScope.promisedPageIds) assert.match(JSON.stringify(staticIndex.pages), new RegExp(`"id":"${id}"`));
   for (const id of catalogPages.map((page) => page.id).filter((id) => !releaseScope.promisedPageIds.includes(id))) {
-    assert.doesNotMatch(html, new RegExp(`"id":"${id}"`));
+    assert.doesNotMatch(JSON.stringify(staticIndex.pages), new RegExp(`"id":"${id}"`));
   }
-  assert.match(html, /专业主路径已完成/);
+  assert.match(html, /已标记完成/);
+  assert.doesNotMatch(html, /firstUsablePath|专业主路径已完成|当前深度路径/);
+  assert.equal(staticIndex.defaultPageId, pages[0].id);
   assert.match(html, /localStorage/);
   assert.match(html, /输入需求、执行证据、TTFT/);
   assert.match(html, />搜索课程</);
+  assert.match(html, /id="document-job-nav"/);
+  assert.match(html, /readerJobFilter/);
+  for (const label of ["Learn · 学会", "Do · 完成任务", "Look up · 查证", "Understand · 理解", "Report / Decide · 报告决策"]) {
+    assert.match(html, new RegExp(label));
+  }
+  assert.match(html, /class=references-card/);
+  assert.match(html, /class=block-refs/);
+  assert.match(html, /不能证明/);
+  assert.match(html, /逐命题 Deep Research、独立审阅和生产验证尚未完成/);
+  assert.doesNotMatch(html, /已经完成逐题研究|已通过逐题研究/);
   assert.match(html, /https:\/\/github\.com\/wpowen\/test-development-ai-tutorial/);
   assert.match(html, /GitHub Star/);
   assert.match(html, /id="nav-toggle"/);
   assert.match(html, /career-ai-nav-collapsed/);
   assert.match(html, /aria-controls="side"/);
   assert.match(html, /id="reference-nav"/);
+  assert.match(JSON.stringify(staticIndex), /"moduleOverviews":\{/);
+  assert.match(html, /function renderModuleOverview\(\)/);
+  assert.match(html, /模块全景/);
+  assert.ok(html.includes('module-overview "+(m.id===current?"active":"")'), "navigation must link every module to its panorama");
+  assert.match(html, /DATA\.modules\.some\(module=>module\.id===id\)/);
+  for (const [moduleId, overview] of Object.entries(moduleOverviews)) {
+    assert.deepEqual(staticIndex.moduleOverviews[moduleId], overview);
+    const moduleData = JSON.parse(await readFile(new URL(`../dist-github-pages/course-modules/${moduleId}.json`, import.meta.url), "utf8"));
+    assert.ok(moduleData.pages.length > 0);
+  }
+  assert.match(html, /course-modules\//);
+  assert.match(html, /glossary\.json/);
   assert.match(html, /data-reference="glossary"/);
   assert.doesNotMatch(html, /data-reference="design"/);
   assert.match(html, />术语表</);
-  assert.match(html, /"glossary":\[/);
-  assert.match(html, /AI（人工智能）/);
-  assert.match(html, /机制：/);
-  assert.match(html, /测试开发看什么：/);
-  assert.match(html, /延伸来源：/);
-  assert.match(html, /打开术语表（"\+DATA\.glossary\.length\+" 条）/);
+  assert.ok(staticGlossary.glossary.length > 0);
+  assert.match(JSON.stringify(staticGlossary), /AI（人工智能）/);
+  assert.match(JSON.stringify(staticGlossary), /机制：/);
+  assert.match(JSON.stringify(staticGlossary), /测试开发看什么：/);
+  assert.match(JSON.stringify(staticGlossary), /延伸来源：/);
+  assert.equal(staticIndex.glossaryCount, staticGlossary.glossary.length);
+  assert.match(html, /打开术语表（"\+DATA\.glossaryCount\+" 条）/);
   assert.equal((html.match(/"moduleId":"TD-/g) ?? []).length, releaseScope.promisedPageIds.length);
   assert.match(html, new RegExp(`"validatedAt":"${releaseScope.validatedAt}"`));
   assert.match(html, /DATA\.releaseScope\.validatedAt/);
@@ -52,17 +84,17 @@ test("static GitHub Pages export contains the professional curriculum", () => {
   assert.doesNotMatch(html, /"status":"outlined"|"status":"blocked"/);
   assert.doesNotMatch(html, /仅保留知识位置|本页尚未开发|本页尚未通过逐题研究|提纲\/待重写/);
   assert.match(html, /需求文档到执行证据|需求契约/);
-  for (const material of ["api-ai-automation.zip", "ui-mobile-automation.zip", "reliability-chaos-observability.zip", "quality-platform-integrations.zip"]) assert.match(html, new RegExp(material));
-  assert.match(html, /basis_gate_and_candidate_review\.py/);
-  assert.match(html, /gitlab_sha_junit_gate\.py/);
-  assert.match(html, /ephemeral_namespace_cleanup\.py/);
-  assert.match(html, /event_replay_and_reconcile\.py/);
+  for (const material of ["api-ai-automation.zip", "ui-mobile-automation.zip", "reliability-chaos-observability.zip", "quality-platform-integrations.zip"]) assert.match(staticModulesText, new RegExp(material));
+  assert.match(staticModulesText, /basis_gate_and_candidate_review\.py/);
+  assert.match(staticModulesText, /gitlab_sha_junit_gate\.py/);
+  assert.match(staticModulesText, /ephemeral_namespace_cleanup\.py/);
+  assert.match(staticModulesText, /event_replay_and_reconcile\.py/);
   assert.doesNotMatch(html, /本页完成后|你会带走|轮到你动手|你应该看到 \/ 得出|别踩这个坑/);
   assert.match(courseSource, /incompleteStatuses[^;]+planned[^;]+outlined[^;]+blocked/s);
-  assert.doesNotMatch(html, /"technicalPresentation":\{"kind":"legacy-untyped"/);
+  assert.doesNotMatch(staticModulesText, /"technicalPresentation":\{"kind":"legacy-untyped"/);
   assert.doesNotMatch(html, /未分类技术内容（不可复制）/);
-  assert.match(html, /"technicalPresentation":\{"kind":"command"/);
-  assert.match(html, /"technicalPresentation":\{"kind":"prompt"/);
+  assert.match(staticModulesText, /"technicalPresentation":\{"kind":"command"/);
+  assert.match(staticModulesText, /"technicalPresentation":\{"kind":"prompt"/);
   assert.match(html, /复制使用/);
   assert.match(html, /不可复制/);
   assert.match(html, /<details class=materials><summary>/);
@@ -78,6 +110,10 @@ test("static GitHub Pages export contains the professional curriculum", () => {
   );
   assert.match(html, /technicalPresentation\.content/);
   assert.doesNotMatch(html, /clipboard\.writeText\(p\.blocks\[Number\(b\.dataset\.copy\)\]\.code\)/);
+});
+
+test("static export excludes unreferenced internal material surfaces", async () => {
+  await assert.rejects(access(new URL("../dist-github-pages/materials/internal-topics/README.md", import.meta.url)));
 });
 
 test("static export ships syntactically valid client JavaScript", () => {

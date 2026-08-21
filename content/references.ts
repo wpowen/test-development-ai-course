@@ -1417,7 +1417,7 @@ export const references: Record<string, ReferenceEntry> = {
   "R-WEBDRIVER": {
     id: "R-WEBDRIVER",
     kind: "standard",
-    title: "WebDriver（W3C 推荐标准）",
+    title: "WebDriver 2（W3C Working Draft）",
     role: "协议边界",
     publisher: "W3C",
     url: "https://www.w3.org/TR/webdriver2/",
@@ -1508,7 +1508,7 @@ export const referencesByPage: Record<string, string[]> = {
   "TD-AP03": ["R-LANGFUSE", "R-OTEL-SEMCONV-GENAI", "R-OTEL-SPEC", "R-PHOENIX", "R-TRITON-SERVER"],
   "TD-AP04": ["R-GOOGLE-SRE-SLO", "R-K6", "R-LOCUST", "R-PROMETHEUS"],
   "TD-AP05": ["R-K6", "R-PROMETHEUS", "R-SGLANG", "R-VLLM"],
-  "TD-AP06": ["R-GOOGLE-SRE-SLO", "R-POLLY", "R-RESILIENCE4J", "R-TOXIPROXY"],
+  "TD-AP06": ["R-GOOGLE-SRE-SLO", "R-POLLY", "R-RESILIENCE4J", "R-RFC9110", "R-TOXIPROXY"],
   "TD-AP07": ["R-EVIDENTLY", "R-GOOGLE-SRE-SLO", "R-K6", "R-PROMETHEUS"],
   "TD-AP08": ["R-ARGO-ROLLOUTS", "R-GOOGLE-SRE-SLO", "R-OTEL-SPEC", "R-PROMETHEUS"],
   "TD-B01": ["R-HELM", "R-INSPECT-AI", "R-LM-EVAL-HARNESS", "R-OPENCOMPASS"],

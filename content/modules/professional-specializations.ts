@@ -74,7 +74,7 @@ const specialtyContractBlocks = (id: SpecialtyPageId, bundle: SpecialtyBundle): 
 
 export const professionalSpecializationPages: TutorialPage[] = ([
   {
-    id: "TD-PS01", moduleId: "TD-M08", order: 1, title: "API 业务契约：从 HTTP 结果到可验证副作用", type: "跟做", status: "desk-researched", duration: "55 分钟",
+    id: "TD-PS01", moduleId: "TD-M08", order: 1, title: "API 业务契约与副作用验证", type: "跟做", status: "desk-researched", duration: "55 分钟",
     summary: "以订单取消与退款 API 为业务场景，建立协议、Schema、业务不变量和副作用四层断言。",
     why: "生产事故常发生在接口返回成功、状态却没有推进，或重试造成重复副作用的瞬间。测试开发需要证明业务结果，而不是收集 200 数量。",
     prerequisites: ["TD-P08"], outcomes: ["拆出协议、Schema、业务和副作用 Oracle", "为幂等与错误模型设计可重放请求", "把 Trace 和状态证据接入发布判断"], artifact: "API 业务契约测试包与运行 Manifest",
@@ -91,7 +91,7 @@ export const professionalSpecializationPages: TutorialPage[] = ([
     materials: [{ title: "API 取消契约夹具", description: "订单取消 OpenAPI、错误模型和状态不变量。", href: "materials/api-ai-automation/fixtures/order-cancel.openapi.yaml", kind: "fixture", validation: "static-reviewed" }, { title: "API 运行 Manifest", description: "记录环境、数据、Trace 和副作用断言。", href: "materials/api-ai-automation/guides/api-run-manifest.md", kind: "guide", validation: "static-reviewed" }, ...apiExecutableMaterials],
   },
   {
-    id: "TD-PS02", moduleId: "TD-M08", order: 2, title: "OpenAPI Schema 与属性测试：让坏请求和破坏性变更变红", type: "跟做", status: "desk-researched", duration: "50 分钟",
+    id: "TD-PS02", moduleId: "TD-M08", order: 2, title: "OpenAPI Schema 与属性测试", type: "跟做", status: "desk-researched", duration: "50 分钟",
     summary: "围绕支付意图 API，结合正反例、Schema 变异和业务属性测试，识别只校验格式的假覆盖。", why: "Schema 通过不等于业务正确；结构化 API 最容易把测试退化成字段类型检查。", prerequisites: ["TD-PS01"], outcomes: ["从 OpenAPI 生成受控正反例", "区分 Schema 失败和业务属性失败", "用 mutation 证明测试确实有检测力"], artifact: "OpenAPI 负向测试集、属性清单与 mutation 报告",
     blocks: [
       { title: "场景：支付意图的边界不是字段类型", body: ["支付意图包含 amount、currency、merchant_id、customer_id 和 return_url。除了 required/type，还要检查金额大于零、币种与商户配置匹配、客户只能访问自己的意图、过期意图不能再次确认。", "把每个字段约束映射到风险和 Oracle，避免生成大量没有业务意义的随机字符串。"] },
@@ -105,7 +105,7 @@ export const professionalSpecializationPages: TutorialPage[] = ([
     materials: [{ title: "支付意图规范夹具", description: "含边界、错误和跨字段约束的 OpenAPI 文件。", href: "materials/api-ai-automation/fixtures/payment-intent.openapi.yaml", kind: "fixture", validation: "static-reviewed" }, { title: "Schema Mutation 清单", description: "可审查的破坏性变更与预期失败。", href: "materials/api-ai-automation/configs/schema-mutations.yaml", kind: "config", validation: "static-reviewed" }, ...apiExecutableMaterials],
   },
   {
-    id: "TD-PS03", moduleId: "TD-M08", order: 3, title: "契约、事件与鉴权：测试跨服务边界的真实兼容性", type: "诊断", status: "desk-researched", duration: "55 分钟",
+    id: "TD-PS03", moduleId: "TD-M08", order: 3, title: "跨服务契约、事件与鉴权测试", type: "诊断", status: "desk-researched", duration: "55 分钟",
     summary: "以购物车结算事件为例，覆盖消费者契约、版本兼容、租户隔离、重复投递、乱序和补偿。", why: "服务间测试如果只依赖共享 Mock，会让提供者和消费者各自绿色、集成后却失败。", prerequisites: ["TD-PS02"], outcomes: ["建立消费者驱动契约与版本策略", "验证鉴权、租户和事件不变量", "沿 Trace 诊断最终一致性问题"], artifact: "Pact/事件契约包、权限矩阵和补偿诊断记录",
     blocks: [
       { title: "场景：结算不是一个同步响应", body: ["Checkout 服务接受购物车后发布 order.created，库存、支付和通知消费者异步处理。业务要求同一 order_id 只能产生一次支付意图，跨租户事件不能被消费，库存失败必须进入可追踪补偿状态。"] },
@@ -217,7 +217,7 @@ export const professionalSpecializationPages: TutorialPage[] = ([
     materials: [{ title: "订单助手实验卡", description: "工具超时、429、空检索和停止条件。", href: "materials/reliability-chaos-observability/fixtures/order-assistant-chaos.yaml", kind: "fixture", validation: "static-reviewed" }, { title: "Chaos 授权与复验指南", description: "隔离、观察、回滚和残留清理。", href: "materials/reliability-chaos-observability/guides/chaos-experiment-sop.md", kind: "guide", validation: "static-reviewed" }, ...reliabilityExecutableMaterials],
   },
   {
-    id: "TD-PS11", moduleId: "TD-M08", order: 11, title: "线上可观测性：把 AI 质量、Trace、成本和 SLO 接成一条链", type: "概念", status: "desk-researched", duration: "50 分钟",
+    id: "TD-PS11", moduleId: "TD-M08", order: 11, title: "线上可观测性：质量、Trace、成本与 SLO 链路", type: "概念", status: "desk-researched", duration: "50 分钟",
     summary: "以生产客服 Agent 为场景，设计脱敏 Trace、指标、日志和质量回流，明确托管模型内部不可见时的未知项。", why: "没有输入、检索、工具、模型版本和最终结果的关联，线上质量下降只能靠猜；过度采集又会泄露敏感数据。", prerequisites: ["TD-PS10"], outcomes: ["定义 AI 观测字段和脱敏边界", "把质量事件连接到 Trace 与版本 Manifest", "建立告警、调查和回归回流路径"], artifact: "AI 可观测性字段契约、Dashboard 设计和事故样例",
     blocks: [
       { title: "场景：正确率下降但 Judge 没变", body: ["客服退款正确率连续下降，Judge 分数保持稳定，可能是知识库索引过期、输入分布变化、Judge 漂移或工具错误。需要同时查看质量切片、检索版本、Trace、成本和用户反馈。"] },

@@ -183,7 +183,7 @@ const wave3Extra: Record<string, string[]> = {
 
 const contracts: PageContract[] = [
   {
-    id: "TD-A01", moduleId: "TD-M09", title: "普通 API 与 AI API：从确定性响应到版本化生成服务", type: "概念", duration: "45 分钟",
+    id: "TD-A01", moduleId: "TD-M09", title: "普通 API 与 AI API：确定性响应与版本化生成服务", type: "概念", duration: "45 分钟",
     summary: "用同一张契约图比较普通 REST 与生成式 AI API，识别协议、模型行为、算力、成本和生产可靠性五个测试面。",
     why: "只复用状态码与 JSON 断言，会漏掉模型/Prompt/Schema/Tool 版本、流式阶段、Token 成本、概率行为和服务内部不可见项。",
     prerequisites: ["TD-F04", "TD-PS01"], outcomes: ["区分普通 API 与 AI API 的共同面和新增面", "建立版本 Manifest 与错误分类", "明确供应商内部版本的 UNKNOWN 边界"], artifact: "AI API 测试面、请求 Manifest 与错误分类表",

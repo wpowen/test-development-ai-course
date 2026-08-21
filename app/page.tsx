@@ -1,13 +1,22 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { firstUsablePath, getTechnicalBlockPresentation, pages, publicModules } from "../content/course";
+import { getTechnicalBlockPresentation, pages, publicModules, releaseScope } from "../content/course";
 import { glossary } from "../content/glossary";
 import { references, referencesByPage, resolveReferences, type ReferenceEntry } from "../content/references";
 import { GlossaryView } from "./reference-views";
+import { ModuleOverviewView } from "./module-view";
 
 const statusLabel = (status: string) => status === "fixture-tested" ? "实验已跑" : "资料已审";
 const GITHUB_REPOSITORY_URL = "https://github.com/wpowen/test-development-ai-tutorial";
+const DEFAULT_PAGE_ID = pages[0]?.id ?? "";
+const READER_JOB_LABELS = {
+  learn: "Learn · 学会",
+  do: "Do · 完成任务",
+  "look-up": "Look up · 查证",
+  understand: "Understand · 理解",
+  "report-decide": "Report / Decide · 报告决策",
+} as const;
 
 const REFERENCE_KIND_LABEL: Record<ReferenceEntry["kind"], string> = {
   repo: "开源实现",
@@ -42,14 +51,17 @@ function setHash(id: string) {
 }
 
 export default function Home() {
-  const [currentId, setCurrentId] = useState(firstUsablePath[0]);
+  const [currentId, setCurrentId] = useState(DEFAULT_PAGE_ID);
   const [query, setQuery] = useState("");
+  const [readerJob, setReaderJob] = useState<"all" | keyof typeof READER_JOB_LABELS>("all");
   const [completed, setCompleted] = useState<string[]>([]);
   const [mobileNav, setMobileNav] = useState(false);
   // 目录默认展开；收起状态记在 localStorage，换页和刷新都保持不变。
   // 初值固定为 false 而不是读 localStorage，避免服务端渲染与首帧不一致。
   const [navCollapsed, setNavCollapsed] = useState(false);
-  const [view, setView] = useState<"lesson" | ReferenceView>("lesson");
+  const [view, setView] = useState<"lesson" | "module" | ReferenceView>("lesson");
+  // 模块全景（「总」层）当前展示的模块；view === "module" 时有效。
+  const [moduleId, setModuleId] = useState<string>(publicModules[0].id);
   const [copied, setCopied] = useState<string | null>(null);
 
   useEffect(() => {
@@ -57,9 +69,12 @@ export default function Home() {
       const id = window.location.hash.replace("#", "");
       if ((REFERENCE_VIEWS as readonly string[]).includes(id)) {
         setView(id as ReferenceView);
+      } else if (publicModules.some((item) => item.id === id)) {
+        setView("module");
+        setModuleId(id);
       } else {
         setView("lesson");
-        setCurrentId(pages.some((page) => page.id === id) ? id : firstUsablePath[0]);
+        setCurrentId(pages.some((page) => page.id === id) ? id : DEFAULT_PAGE_ID);
       }
       setMobileNav(false);
     };
@@ -82,9 +97,12 @@ export default function Home() {
   const next = currentIndex < pages.length - 1 ? pages[currentIndex + 1] : undefined;
   const visiblePages = useMemo(() => {
     const keyword = query.trim().toLowerCase();
-    if (!keyword) return pages;
-    return pages.filter((page) => `${page.id} ${page.title} ${page.summary} ${page.artifact}`.toLowerCase().includes(keyword));
-  }, [query]);
+    return pages.filter((page) => {
+      const matchesJob = readerJob === "all" || page.documentContract?.readerJob === readerJob;
+      const matchesQuery = !keyword || `${page.id} ${page.title} ${page.summary} ${page.artifact}`.toLowerCase().includes(keyword);
+      return matchesJob && matchesQuery;
+    });
+  }, [query, readerJob]);
 
   const toggleComplete = () => {
     const updated = completed.includes(current.id)
@@ -129,7 +147,7 @@ export default function Home() {
     <div className={`app-shell ${navCollapsed ? "nav-collapsed" : ""}`}>
       <header className="topbar">
         <button className="mobile-menu" onClick={() => setMobileNav(!mobileNav)} aria-label="打开课程目录">目录</button>
-        <a className="brand" href={`#${firstUsablePath[0]}`}>
+        <a className="brand" href={`#${DEFAULT_PAGE_ID}`}>
           <span className="brand-mark">QE</span>
           <span><b>测试开发 × AI</b><small>从会测试，到会验证 AI 系统</small></span>
         </a>
@@ -153,16 +171,16 @@ export default function Home() {
           <span aria-hidden="true">★</span><b>GitHub Star</b><small>支持项目</small>
         </a>
         <div className="top-progress">
-          <span>专业主路径已完成 {completed.filter((id) => firstUsablePath.includes(id)).length}/{firstUsablePath.length}</span>
-          <div><i style={{ width: `${(completed.filter((id) => firstUsablePath.includes(id)).length / firstUsablePath.length) * 100}%` }} /></div>
+          <span>已标记完成 {completed.filter((id) => pages.some((page) => page.id === id)).length}/{pages.length} 页</span>
+          <div><i style={{ width: `${(completed.filter((id) => pages.some((page) => page.id === id)).length / pages.length) * 100}%` }} /></div>
         </div>
       </header>
 
-      <aside id="course-sidebar" className={`sidebar ${mobileNav ? "open" : ""}`} aria-hidden={navCollapsed}>
+      <aside id="course-sidebar" className={`sidebar ${mobileNav ? "open" : ""}`} aria-hidden={navCollapsed && !mobileNav}>
         <div className="course-summary">
           <p className="eyebrow">当前可用版本</p>
           <h2>从传统测试到 AI 质量工程</h2>
-          <p>这里只展示已经完成逐题研究、正文、实操和验证门禁的内容。内部研究路线图不会混入公开课程。</p>
+          <p>这里只展示已通过本地内容、结构和离线夹具门禁的页面；逐命题 Deep Research、独立审阅和生产验证尚未完成。</p>
           <div className="summary-stats"><span><b>{pages.length}</b> 可学习页面</span><span><b>{publicModules.length}</b> 已交付模块</span></div>
         </div>
         <div className="course-search">
@@ -172,6 +190,12 @@ export default function Home() {
             <input id="course-search-input" aria-label="搜索课程" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="输入 RAG、Agent、CI…" />
           </div>
         </div>
+        <nav className="document-job-nav" aria-label="按阅读任务筛选">
+          <button className={readerJob === "all" ? "active" : ""} onClick={() => setReaderJob("all")}>全部文档</button>
+          {Object.entries(READER_JOB_LABELS).map(([job, label]) => (
+            <button key={job} className={readerJob === job ? "active" : ""} onClick={() => setReaderJob(job as keyof typeof READER_JOB_LABELS)}>{label}</button>
+          ))}
+        </nav>
         <nav className="reference-nav" aria-label="参考">
           <button className={view === "glossary" ? "active" : ""} onClick={() => setHash("glossary")}>
             <b>术语表</b><small>{glossary.length} 条 · 不懂的词先查这里</small>
@@ -182,8 +206,15 @@ export default function Home() {
             const groupPages = visiblePages.filter((page) => page.moduleId === group.id);
             if (!groupPages.length) return null;
             return <section key={group.id}>
-              <h3>{group.title}</h3>
-              <p>{group.subtitle}</p>
+              <button
+                className={`nav-module ${view === "module" && moduleId === group.id ? "active" : ""}`}
+                onClick={() => setHash(group.id)}
+                title="打开模块全景"
+              >
+                <h3>{group.title}</h3>
+                <p>{group.subtitle}</p>
+                <small className="nav-module-hint">全景 · {groupPages.length} 页</small>
+              </button>
               {groupPages.map((page) => <button
                 key={page.id}
                 data-page-id={page.id}
@@ -200,13 +231,18 @@ export default function Home() {
       </aside>
 
       {view === "glossary" && <GlossaryView onOpenPage={openFromReference} />}
+      {view === "module" && <ModuleOverviewView
+        module={publicModules.find((item) => item.id === moduleId)!}
+        pages={visiblePages.filter((page) => page.moduleId === moduleId)}
+        onOpenPage={setHash}
+      />}
       {view === "lesson" && <>
       <main className="reader">
         <div className="reader-inner">
-          <div className="breadcrumb"><span>{currentModule.title}</span><span>›</span><span>{current.id}</span></div>
+          <div className="breadcrumb"><button className="crumb-link" onClick={() => setHash(currentModule.id)}>{currentModule.title}</button><span>›</span><span>{current.id}</span></div>
           <div className="lesson-meta">
             <span className={`status-badge ${current.status}`}>{statusLabel(current.status)}</span>
-            <span>{current.type}</span><span>{current.duration}</span><span>更新于 2026-08-10</span>
+            <span>{current.type}</span><span>{current.duration}</span><span>更新于 {releaseScope.validatedAt}</span>
           </div>
           <h1>{current.title}</h1>
           <p className="lead">{current.summary}</p>
@@ -223,7 +259,8 @@ export default function Home() {
             <h2>{current.architecture.title}</h2>
             {current.architecture.visual && <figure className="course-visual">
               <a href={current.architecture.visual.src} target="_blank" rel="noreferrer" aria-label={`打开高清原图：${current.architecture.visual.alt}`}>
-                <img src={current.architecture.visual.src} alt={current.architecture.visual.alt} loading="lazy" />
+                {/* eslint-disable-next-line @next/next/no-img-element -- local SVG architecture diagrams are already static assets; preserve direct SVG loading and browser-native zoom */}
+                <img src={current.architecture.visual.src} alt={current.architecture.visual.alt} loading="lazy" decoding="async" />
               </a>
               <figcaption>{current.architecture.caption} 手机端可在图内左右滑动，点击图片可打开高清原图。</figcaption>
             </figure>}
@@ -348,7 +385,7 @@ export default function Home() {
       <aside className="right-rail">
         <p className="eyebrow">本页导航</p>
         {current.blocks.map((block, index) => <button key={block.title} onClick={() => document.getElementById(`section-${index}`)?.scrollIntoView({ behavior: "smooth" })}>{index + 1}. {block.title}</button>)}
-        <div className="route-card"><b>当前深度路径</b><p>{firstUsablePath.join(" → ")}</p><small>测试依据 → 需求契约 → 评审 → 风险 → Oracle → 自动化 → 执行证据 → 变更回归</small></div>
+        <div className="route-card"><b>{current.documentContract ? READER_JOB_LABELS[current.documentContract.readerJob] : "文档任务"}</b><p>{current.documentContract?.scope.inScope[0]}</p><small>按任务与文档类型进入；页面顺序不代表规定的使用顺序。</small></div>
       </aside>
       </>}
     </div>

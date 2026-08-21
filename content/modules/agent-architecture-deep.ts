@@ -974,7 +974,7 @@ export const agentDeepBlocks = (pageId: string): TutorialBlock[] => {
     {
       title: "先把本页要用到的词说清楚",
       body: [
-        "下面四个词在本页反复出现。它们不是术语表里的条目，而是本页判断的组成部分——读不准其中任何一个，后面的表格都会被误读。",
+        "读不准其中任何一个，后面的表格都会被误读。",
       ],
       table: {
         headers: ["术语", "一句话解释"],

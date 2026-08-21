@@ -42,7 +42,7 @@
       "version": "career learner package 2026-08-13",
       "checked_at": "2026-08-13",
       "level": "任何背景；先填写起点与 Unknown",
-      "purpose": "用责任证据、自评、差距路由和证据窗口制定学习路线，不用年限或头衔猜职级",
+      "purpose": "用责任证据、自评、差距路由和证据窗口制定证据缺口行动计划，不用年限或头衔猜职级",
       "limits": ["不保证就业、薪资或晋升", "组织 band 与内部 policy 为 INTERNAL-UNKNOWN"],
       "fallback": "复制空白模板，只填一个真实工件和一个独立 reviewer 后再扩展",
       "exit_artifact": "responsibility-map、自评、gap routes 和下一窗口证据计划"

@@ -12,6 +12,7 @@ import { aiServingCareerPages } from "./modules/ai-serving-career.ts";
 import { advancedQualityGapPageIds, advancedQualityGapPages } from "./modules/advanced-quality-gaps.ts";
 import { careerEvolutionPageIds, careerEvolutionPages } from "./modules/career-evolution.ts";
 import { agentArchitectureSystemPages } from "./modules/agent-architecture-system.ts";
+import { buildPageDocumentContract, type PageDocumentContract } from "./page-document-contracts.ts";
 
 type TutorialBlockBase = {
   title: string;
@@ -221,6 +222,7 @@ export type TutorialPage = {
    */
   references?: string[];
   evidenceBoundary: string;
+  documentContract?: PageDocumentContract;
   architecture?: {
     title: string;
     caption: string;
@@ -1388,6 +1390,7 @@ export const pages: TutorialPage[] = catalogPages
   })
   .map((page, index) => ({
     ...page,
+    documentContract: buildPageDocumentContract(page),
     order: index + 1,
     display_number: index + 1,
     architecture: page.architecture ? {
@@ -1496,11 +1499,9 @@ export const sourceNotes: Record<string, { title: string; url: string }> = {
   S102: { title: "CloudEvents Specification 1.0.2", url: "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md" },
 };
 
-export const firstUsablePath = [professionRealityPage.id, ...requirementsTestingLifecyclePages.map((page) => page.id)];
-
 export const releaseScope = {
-  mode: "pilot-path" as const,
+  mode: "validated-subset" as const,
   promisedPageIds: pages.map((page) => page.id),
   catalogComplete: false,
-  validatedAt: "2026-08-13",
+  validatedAt: "2026-08-18",
 };

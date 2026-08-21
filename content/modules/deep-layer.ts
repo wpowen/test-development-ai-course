@@ -46,7 +46,7 @@ export type DeepPageContent = {
    * 失效点：不写「本页介绍 X」，写「不做 X 会得到什么错误结论」。
    * 每行第二列必须含可核查的数字，否则门禁判为「正确的废话」。
    */
-  failure?: DeepRefs & { title: string; intro: [string, string]; table: DeepTable };
+  failure?: DeepRefs & { title: string; intro: string[]; table: DeepTable };
   /** 术语前置：本页判断真正依赖的词 */
   terms: DeepRefs & { title: string; intro: string; rows: [string, string][] };
   /**
@@ -73,7 +73,7 @@ export type DeepPageContent = {
   mechanism?: DeepRefs & { title: string; body: [string, string, ...string[]] };
   evolution?: DeepRefs & {
     title: string;
-    intro: [string, string];
+    intro: string[];
     table: DeepTable;
     invariantTitle: string;
     invariant: [string, string, ...string[]];
@@ -85,23 +85,23 @@ export type DeepPageContent = {
    * 混在一张表里会退化成工具清单——「先选工具再找场景」正是本课程反复拆解的坏味道。
    * 表里的版本号一律不手写，由 `refs` 指向的引用条目在渲染时提供。
    */
-  toolchain?: DeepRefs & { title: string; intro: [string, string]; table: DeepTable };
+  toolchain?: DeepRefs & { title: string; intro: string[]; table: DeepTable };
   /**
    * 架构索引：把本页架构图的节点逐个映射到正文段落与出口工件。
    * 第一列的节点名必须逐字出现在该页 `architecture.nodes` 中。
    */
-  archref?: DeepRefs & { title: string; intro: [string, string]; table: DeepTable };
+  archref?: DeepRefs & { title: string; intro: string[]; table: DeepTable };
   /** 核心判断表 */
-  method: DeepRefs & { title: string; intro: [string, string]; table: DeepTable };
+  method: DeepRefs & { title: string; intro: string[]; table: DeepTable };
   /**
    * 指标卡：本页方法的验收口径。
    * 「关键指标」列必须写成可判定阈值（含 ≥ ≤ 数字 % 分位或统计量），不能写「良好」「合理」。
    */
-  metrics?: DeepRefs & { title: string; intro: [string, string]; table: DeepTable };
+  metrics?: DeepRefs & { title: string; intro: string[]; table: DeepTable };
   /** 反例：看起来对但不成立 */
-  counter: DeepRefs & { title: string; intro: [string, string]; table: DeepTable };
+  counter: DeepRefs & { title: string; intro: string[]; table: DeepTable };
   /** 诊断树 */
-  diagnosis: DeepRefs & { title: string; intro: [string, string]; table: DeepTable };
+  diagnosis: DeepRefs & { title: string; intro: string[]; table: DeepTable };
   /** 演练：可运行命令或手工步骤 */
   drill: DeepRefs & {
     title: string;
@@ -117,7 +117,7 @@ export type DeepPageContent = {
    */
   gate?: DeepRefs & {
     title: string;
-    intro: [string, string];
+    intro: string[];
     redline: [string, string, ...string[]];
     statistical: [string, string, ...string[]];
     acceptance: [string, string, ...string[]];
@@ -150,7 +150,7 @@ const withRefs = <T extends TutorialBlock>(block: T, source: DeepRefs): T =>
 
 const renderGate = (gate: NonNullable<DeepPageContent["gate"]>): TutorialBlock => withRefs({
   title: gate.title,
-  body: [gate.intro[0], gate.intro[1]],
+  body: [...gate.intro],
   table: {
     headers: ["门禁段", "判据", "不满足时的处置"],
     rows: [
@@ -176,6 +176,12 @@ const renderGate = (gate: NonNullable<DeepPageContent["gate"]>): TutorialBlock =
  *   （页面自身的物料、Prompt、命令、实验说明）
  *   tail  反例 → 诊断树 → 演练 → 三段式门禁 → 带走物
  */
+/**
+ * intro 早先是定长二元组 `[string, string]`，每一段都必须写满两句。
+ * 内容够一句时，第二句就退化成「下面三条是…」这类表格预告——模板感不是
+ * 行文随意，是类型逼出来的。改成 `string[]` 后段数由内容决定；
+ * scripts/validate-deep-sources.py 负责拦住空数组和预告句复发。
+ */
 export type DeepBlocks = { head: TutorialBlock[]; tail: TutorialBlock[] };
 
 export const EMPTY_DEEP_BLOCKS: DeepBlocks = { head: [], tail: [] };
@@ -185,7 +191,7 @@ export const renderDeepBlocks = (content: DeepPageContent): DeepBlocks => ({
     ...(content.failure
       ? [withRefs({
           title: content.failure.title,
-          body: [content.failure.intro[0], content.failure.intro[1]],
+          body: [...content.failure.intro],
           table: content.failure.table,
         }, content.failure)]
       : []),
@@ -206,7 +212,7 @@ export const renderDeepBlocks = (content: DeepPageContent): DeepBlocks => ({
       ? [
           withRefs({
             title: content.evolution.title,
-            body: [content.evolution.intro[0], content.evolution.intro[1]],
+            body: [...content.evolution.intro],
             table: content.evolution.table,
           }, content.evolution),
           {
@@ -219,26 +225,26 @@ export const renderDeepBlocks = (content: DeepPageContent): DeepBlocks => ({
     ...(content.toolchain
       ? [withRefs({
           title: content.toolchain.title,
-          body: [content.toolchain.intro[0], content.toolchain.intro[1]],
+          body: [...content.toolchain.intro],
           table: content.toolchain.table,
         }, content.toolchain)]
       : []),
     ...(content.archref
       ? [withRefs({
           title: content.archref.title,
-          body: [content.archref.intro[0], content.archref.intro[1]],
+          body: [...content.archref.intro],
           table: content.archref.table,
         }, content.archref)]
       : []),
     withRefs({
       title: content.method.title,
-      body: [content.method.intro[0], content.method.intro[1]],
+      body: [...content.method.intro],
       table: content.method.table,
     }, content.method),
     ...(content.metrics
       ? [withRefs({
           title: content.metrics.title,
-          body: [content.metrics.intro[0], content.metrics.intro[1]],
+          body: [...content.metrics.intro],
           table: content.metrics.table,
         }, content.metrics)]
       : []),
@@ -246,12 +252,12 @@ export const renderDeepBlocks = (content: DeepPageContent): DeepBlocks => ({
   tail: [
     withRefs({
       title: content.counter.title,
-      body: [content.counter.intro[0], content.counter.intro[1]],
+      body: [...content.counter.intro],
       table: content.counter.table,
     }, content.counter),
     withRefs({
       title: content.diagnosis.title,
-      body: [content.diagnosis.intro[0], content.diagnosis.intro[1]],
+      body: [...content.diagnosis.intro],
       table: content.diagnosis.table,
     }, content.diagnosis),
     withRefs({
@@ -298,7 +304,7 @@ export const renderSupplement = (content: DeepSupplement): DeepBlocks => ({
     ...(content.failure
       ? [withRefs({
           title: content.failure.title,
-          body: [content.failure.intro[0], content.failure.intro[1]],
+          body: [...content.failure.intro],
           table: content.failure.table,
         }, content.failure)]
       : []),
@@ -308,21 +314,21 @@ export const renderSupplement = (content: DeepSupplement): DeepBlocks => ({
     ...(content.toolchain
       ? [withRefs({
           title: content.toolchain.title,
-          body: [content.toolchain.intro[0], content.toolchain.intro[1]],
+          body: [...content.toolchain.intro],
           table: content.toolchain.table,
         }, content.toolchain)]
       : []),
     ...(content.archref
       ? [withRefs({
           title: content.archref.title,
-          body: [content.archref.intro[0], content.archref.intro[1]],
+          body: [...content.archref.intro],
           table: content.archref.table,
         }, content.archref)]
       : []),
     ...(content.metrics
       ? [withRefs({
           title: content.metrics.title,
-          body: [content.metrics.intro[0], content.metrics.intro[1]],
+          body: [...content.metrics.intro],
           table: content.metrics.table,
         }, content.metrics)]
       : []),
