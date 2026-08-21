@@ -1,4 +1,4 @@
-import { catalogPages, firstUsablePath, getTechnicalBlockPresentation, pages, publicModules, releaseScope, sourceNotes } from "../content/course.ts";
+import { catalogPages, getTechnicalBlockPresentation, pages, publicModules, releaseScope, sourceNotes } from "../content/course.ts";
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 import { auditTutorialPages } from "./audit-executability.ts";
@@ -16,11 +16,11 @@ for (const page of catalogPages.filter((candidate) => candidate.id.startsWith("T
 if (catalogPages.length < 60) errors.push(`internal knowledge catalog must preserve the full topic map, found ${catalogPages.length}`);
 if (pages.length < 8) errors.push(`public tutorial needs at least 8 delivered pages, found ${pages.length}`);
 if (byId.size !== pages.length) errors.push("page IDs must be unique");
-if (releaseScope.mode !== "pilot-path") errors.push("current release must declare pilot-path scope");
-if (releaseScope.catalogComplete) errors.push("pilot-path release cannot claim catalogComplete=true");
+if (releaseScope.mode !== "validated-subset") errors.push("current release must declare validated-subset scope");
+if (releaseScope.catalogComplete) errors.push("validated-subset release cannot claim catalogComplete=true");
 if (new Set(releaseScope.promisedPageIds).size !== releaseScope.promisedPageIds.length) errors.push("promised IDs must be unique");
 if (releaseScope.promisedPageIds.join(",") !== pages.map((page) => page.id).join(",")) errors.push("promised IDs must exactly equal public page IDs");
-if (firstUsablePath[0] !== "TD-F01") errors.push("deep path must start with profession reality reconstruction");
+if (pages[0]?.id !== "TD-F01") errors.push("the stable default page must remain TD-F01");
 if (publicModules.some((module) => !pages.some((page) => page.moduleId === module.id))) errors.push("public navigation contains an empty module");
 
 /**
@@ -106,16 +106,16 @@ const bannedGenericPhrases = [
   "你会带走",
 ];
 
-for (const id of firstUsablePath) {
-  const page = byId.get(id);
-  if (!page) {
-    errors.push(`usable path references unknown page ${id}`);
-    continue;
-  }
-  if (["planned", "outlined"].includes(page.status)) errors.push(`usable path page ${id} is not delivered`);
-}
-
 for (const page of pages) {
+  const contract = page.documentContract;
+  const allowedTypes = new Set(["beginner-tutorial", "professional-how-to", "reference", "explanation", "decision-report"]);
+  if (!contract || !allowedTypes.has(contract.documentType)) errors.push(`${page.id} must declare one primary document contract`);
+  if (!contract?.audience.length || !contract.scope.inScope.length || !contract.scope.outOfScope.length || !contract.claims.length) errors.push(`${page.id} document contract is incomplete`);
+  if (contract?.documentType === "beginner-tutorial" && !contract.learningContract) errors.push(`${page.id} tutorial is missing learningContract`);
+  if (contract?.documentType === "professional-how-to" && !contract.procedure) errors.push(`${page.id} how-to is missing procedure and recovery`);
+  if (contract?.documentType === "reference" && !contract.referenceContract) errors.push(`${page.id} reference is missing referenceContract`);
+  if (contract?.documentType === "explanation" && !contract.explanationContract) errors.push(`${page.id} explanation is missing explanationContract`);
+  if (contract?.documentType === "decision-report" && !contract.reportContract) errors.push(`${page.id} report is missing reportContract`);
   if (["planned", "outlined", "blocked"].includes(page.status)) errors.push(`${page.id} exposes an incomplete page on the public surface`);
   for (const dependency of page.prerequisites) {
     if (!byId.has(dependency)) errors.push(`${page.id} references unknown prerequisite ${dependency}`);

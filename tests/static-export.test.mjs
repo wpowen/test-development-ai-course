@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { access, mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
@@ -33,10 +33,22 @@ test("static GitHub Pages export contains the professional curriculum", async ()
   for (const id of catalogPages.map((page) => page.id).filter((id) => !releaseScope.promisedPageIds.includes(id))) {
     assert.doesNotMatch(JSON.stringify(staticIndex.pages), new RegExp(`"id":"${id}"`));
   }
-  assert.match(html, /专业主路径已完成/);
+  assert.match(html, /已标记完成/);
+  assert.doesNotMatch(html, /firstUsablePath|专业主路径已完成|当前深度路径/);
+  assert.equal(staticIndex.defaultPageId, pages[0].id);
   assert.match(html, /localStorage/);
   assert.match(html, /输入需求、执行证据、TTFT/);
   assert.match(html, />搜索课程</);
+  assert.match(html, /id="document-job-nav"/);
+  assert.match(html, /readerJobFilter/);
+  for (const label of ["Learn · 学会", "Do · 完成任务", "Look up · 查证", "Understand · 理解", "Report / Decide · 报告决策"]) {
+    assert.match(html, new RegExp(label));
+  }
+  assert.match(html, /class=references-card/);
+  assert.match(html, /class=block-refs/);
+  assert.match(html, /不能证明/);
+  assert.match(html, /逐命题 Deep Research、独立审阅和生产验证尚未完成/);
+  assert.doesNotMatch(html, /已经完成逐题研究|已通过逐题研究/);
   assert.match(html, /https:\/\/github\.com\/wpowen\/test-development-ai-tutorial/);
   assert.match(html, /GitHub Star/);
   assert.match(html, /id="nav-toggle"/);
@@ -63,7 +75,8 @@ test("static GitHub Pages export contains the professional curriculum", async ()
   assert.match(JSON.stringify(staticGlossary), /机制：/);
   assert.match(JSON.stringify(staticGlossary), /测试开发看什么：/);
   assert.match(JSON.stringify(staticGlossary), /延伸来源：/);
-  assert.match(html, /打开术语表（"\+DATA\.glossary\.length\+" 条）/);
+  assert.equal(staticIndex.glossaryCount, staticGlossary.glossary.length);
+  assert.match(html, /打开术语表（"\+DATA\.glossaryCount\+" 条）/);
   assert.equal((html.match(/"moduleId":"TD-/g) ?? []).length, releaseScope.promisedPageIds.length);
   assert.match(html, new RegExp(`"validatedAt":"${releaseScope.validatedAt}"`));
   assert.match(html, /DATA\.releaseScope\.validatedAt/);
@@ -97,6 +110,10 @@ test("static GitHub Pages export contains the professional curriculum", async ()
   );
   assert.match(html, /technicalPresentation\.content/);
   assert.doesNotMatch(html, /clipboard\.writeText\(p\.blocks\[Number\(b\.dataset\.copy\)\]\.code\)/);
+});
+
+test("static export excludes unreferenced internal material surfaces", async () => {
+  await assert.rejects(access(new URL("../dist-github-pages/materials/internal-topics/README.md", import.meta.url)));
 });
 
 test("static export ships syntactically valid client JavaScript", () => {

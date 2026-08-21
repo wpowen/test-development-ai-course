@@ -193,7 +193,7 @@ const contracts: CareerContract[] = [
   },
   {
     id: "TD-R01",
-    title: "资源与学习路线索引",
+    title: "资源与任务入口索引",
     type: "参考",
     duration: "35 分钟",
     summary: "把书籍、课程、平台、框架和论文整理成带版本、检查日期、用途、限制与替代路径的资源索引。",
@@ -211,7 +211,7 @@ const contracts: CareerContract[] = [
     repair: "补版本/检查日期/适用 level/限制/出口工件；不确定的资源标 BLOCKED，不写成最佳实践。",
     boundary: "资源索引只证明 fixture-tested 整理和维护方法；live 链接可达性、practitioner 复用和 production 学习效果均 NOT_RUN，仍需独立验证。",
     practice: ["为测试背景、开发背景、零基础各选一条入口", "给一个过期链接写替代路径", "把一个资源连接到可运行课程工件"],
-    completion: ["每个资源有用途、版本和检查日期", "有 fallback 和限制说明", "学习路线以出口工件而不是书单长度结束"],
+    completion: ["每个资源有用途、版本和检查日期", "有 fallback 和限制说明", "每个任务入口都以出口工件而不是书单长度结束"],
     sourceIds: ["S23", "S60", "S62"],
     nodes: ["能力缺口", "学习背景", "资源记录", "版本/检查日期", "限制", "Fallback", "出口工件", "复核更新"],
     diagram: "flowchart TD\n  A[能力缺口] --> B[学习背景]\n  B --> C[资源记录]\n  C --> D[版本/检查日期]\n  D --> E{适用?}\n  E -->|否| F[Fallback]\n  E -->|是| G[出口工件]\n  F --> G\n  G --> H[复核更新]",
@@ -252,7 +252,7 @@ const careerWave5Expansion: Record<string, string[]> = {
     "计划迁移：30 天交 Metric Card 与数据集切片，60 天交 RAG 检索 fault 和证据支持报告，90 天交跨页面复评与 reviewer disagreement 处理。每阶段写继续/停止/回退条件，记录失败成本与 owner；不能把完成页面数、学习小时或证书换算成岗位等级。",
     "复评工件：交付 capability-self-assessment.json、gap-routing.json、30-60-90-evidence-plan.md 和 reviewer-diff.md。editable_fields 包括业务场景、风险人口、Oracle、reviewer、policy source_ref、复评日期和下一件工件；组织 policy 缺失时输出 INTERNAL-UNKNOWN。",
     "小白演练：同伴只读你的 JSON，必须能回答当前能决定什么、下一步做什么、坏版本如何变红、失败交给谁。若无法从字段找到命令、输入或原始结果，记录 BLOCKED 并补最小证据；不要用解释性段落替代可重放工件。",
-    "迁移边界：把计划换到 Agent、Serving 或传统自动化时重建数据、Oracle、失败成本和责任人。当前 provider/model/integration/practitioner/learner/live/production/publication 均 NOT_RUN，计划只证明学习路线可执行，不证明招聘、晋升、薪资或生产能力。",
+    "迁移边界：把计划换到 Agent、Serving 或传统自动化时重建数据、Oracle、失败成本和责任人。当前 provider/model/integration/practitioner/learner/live/production/publication 均 NOT_RUN，计划只证明任务入口与证据缺口行动可执行，不证明招聘、晋升、薪资或生产能力。",
   ],
   "TD-T26": [
     "worked decision：同一需求和风险集建立人工 baseline 与 AI candidate 对照。候选数量只作为输入，决策依赖 accepted-test、编译/运行通过、mutation kill、重复率、人工修复分钟、Token 成本和 unique defect yield；分母与完成定义先冻结，才能比较是否提效。",

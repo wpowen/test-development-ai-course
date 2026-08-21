@@ -364,7 +364,7 @@ const content: Record<string, DeepPageContent> = {
       ],
       "statistical": [
         "候选采纳率按批次记录，与上一批相比波动 > 20pt 时须排查 Basis 或 Prompt 变更",
-        "单批候选数 < 10 条时不据此评估生成质量，结论记为证据不足"
+        "单批候选 n 低于合同声明值时生成质量决策可标证据不足；仍报告点估计与宽 CI"
       ],
       "acceptance": [
         "风险召回率不可测这一事实，由测试负责人签字确认并写入报告",
@@ -697,7 +697,7 @@ const content: Record<string, DeepPageContent> = {
           [
             "T06-2",
             "检测力",
-            "核心模块 mutation score ≥ 70%，其中业务规则相关变异体 killed 率 ≥ 90%",
+            "核心模块 mutation score 与业务规则 killed 率对照预注册门槛；未杀死的业务规则变异体按红线统计，不套用 70%/90%",
             "每次发布"
           ],
           [
@@ -728,7 +728,7 @@ const content: Record<string, DeepPageContent> = {
       ],
       "statistical": [
         "mutation score 按模块分别统计并给出 95% CI，禁止只报全局单一数字",
-        "变异体总数 < 50 个时 mutation score 结论记为证据不足"
+        "变异体 n 低于合同声明值时 mutation score 决策可标证据不足；仍按模块报告点估计与宽 CI，不套用 n=50 或 70%/90%"
       ],
       "acceptance": [
         "被判为等价变异体的条目由 Reviewer 逐条署名，接受其不计入分母",
@@ -1079,7 +1079,7 @@ const content: Record<string, DeepPageContent> = {
           [
             "T07-3",
             "最小反例质量",
-            "失败样本 shrink 后可回放率 ≥ 95%，中位长度相对原始样本缩减 ≥ 80%",
+            "shrink 后可回放率与长度缩减对照预注册门槛和 CI；不可回放失败样本数按合同统计，不套用 95%/80%",
             "每次运行"
           ],
           [
@@ -1103,8 +1103,8 @@ const content: Record<string, DeepPageContent> = {
         "已确认缺陷未固化为回归用例的数量 > 0 时阻断修复闭环"
       ],
       "statistical": [
-        "缺陷发现率按单位用例数统计，与上一轮比较时以区间重叠判定是否有变化",
-        "运行样本 < 1000 条时不据此评估模糊测试的充分性，结论记为证据不足"
+        "缺陷发现率按单位用例数统计；与上一轮比较时预注册效应量并分析配对或聚类差值，不以两个边际区间是否重叠判定变化",
+        "运行 n 低于合同声明值时不评估模糊测试是否够，结论记为证据不足；仍报告点估计与宽 CI"
       ],
       "acceptance": [
         "选择两两覆盖而放弃更高阶交互的盲区，由测试负责人签字接受",
@@ -1444,7 +1444,7 @@ const content: Record<string, DeepPageContent> = {
           [
             "T08-3",
             "UNKNOWN 保留",
-            "UNKNOWN 比例 ≥ 5% 视为正常；连续 2 个版本 = 0 时须复查判据是否被放松",
+            "UNKNOWN 比例须写入合同并按版本对照；连续 2 个版本 = 0 时须复查判据是否被放松，不套用 5%",
             "每个版本"
           ],
           [
@@ -1468,7 +1468,7 @@ const content: Record<string, DeepPageContent> = {
         "无控制实验支撑的根因升级数量 > 0 时阻断，退回 UNKNOWN"
       ],
       "statistical": [
-        "簇内根因一致性用抽样验证，抽样 < 20 条时结论记为证据不足",
+        "簇内根因一致性用抽样验证；抽样 n 低于合同时决策可标证据不足，仍报告点估计与宽 CI",
         "版本间失败分布对比使用预注册距离/效应量及重采样区间；相同用例按配对或簇重采样，不以区间重叠或簇数量增减下结论"
       ],
       "acceptance": [

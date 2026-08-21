@@ -31,6 +31,10 @@ PACKAGE_ROOT = ROOT.parent
 MATERIALS = ROOT / "public/materials"
 SOURCE_PROJECTIONS = {
     "requirements-to-evidence": PACKAGE_ROOT / "courses/td-ai-011-requirements-to-evidence/lab",
+    "ai-assisted-testing": PACKAGE_ROOT / "courses/td-ai-assisted-testing/learner-materials",
+    "ai-foundations-eval": PACKAGE_ROOT / "courses/td-ai-foundations-eval/learner-materials",
+    "ai-quality-benchmark": PACKAGE_ROOT / "courses/td-ai-quality-benchmark/learner-materials",
+    "ai-serving-career": PACKAGE_ROOT / "courses/td-ai-serving-career/learner-materials",
     "api-ai-automation": PACKAGE_ROOT / "courses/td-ai-022-api-ai-automation/learner-materials",
     "ui-mobile-automation": PACKAGE_ROOT / "courses/td-ai-021-ui-mobile-automation/learner-materials",
     "reliability-chaos-observability": PACKAGE_ROOT / "courses/td-ai-020-reliability-chaos-observability/learner-materials",
@@ -65,6 +69,7 @@ SOURCE_ONLY_EXCLUSIONS = {
         "reports/mutation-new.json",
         "reports/repair-new.json",
     },
+    "ai-serving-career": {"evidence/TD-A01/baseline.json"},
 }
 
 AGENT_SOURCE_ROOT = PACKAGE_ROOT / "courses/td-ai-010-agent-load-stability"
@@ -409,6 +414,12 @@ def main() -> int:
                 raise AssertionError("custom materials_root requires --skip-source")
             validate_source_projection()
         bundles = discover_bundles()
+        if not args.skip_source:
+            public_only = sorted(set(bundles) - set(SOURCE_PROJECTIONS) - {"agent-load-stability"})
+            if public_only:
+                raise AssertionError(
+                    "public bundle has no canonical course source mapping: " + ", ".join(public_only)
+                )
         for bundle in bundles:
             validate_archive(bundle)
         if args.static_root:

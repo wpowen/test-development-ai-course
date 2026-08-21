@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 import { catalogPages, pages, releaseScope } from "../content/course.ts";
@@ -27,6 +28,12 @@ test("server-renders the test-development AI tutorial shell", async () => {
   assert.match(html, /GitHub Star/);
   assert.match(html, new RegExp(`${glossary.length}(?:<!-- -->)? 条`));
   assert.match(html, /不懂的词先查这里/);
+  assert.match(html, /aria-label="按阅读任务筛选"/);
+  for (const label of ["Learn · 学会", "Do · 完成任务", "Look up · 查证", "Understand · 理解", "Report / Decide · 报告决策"]) {
+    assert.match(html, new RegExp(label));
+  }
+  assert.match(html, /逐命题 Deep Research、独立审阅和生产验证尚未完成/);
+  assert.doesNotMatch(html, /已经完成逐题研究|已通过逐题研究/);
   assert.doesNotMatch(html, />设计思路</);
   assert.match(html, /机制|测试开发看什么|延伸来源/);
   assert.match(html, /打开术语表/);
@@ -43,6 +50,17 @@ test("server-renders the test-development AI tutorial shell", async () => {
   );
   assert.doesNotMatch(html, /未分类技术内容（不可复制）/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|SkeletonPreview/);
+});
+
+test("document-task navigation is styled and contains no retired learning-path UI", async () => {
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  const source = await readFile(new URL("../app/reference-views.tsx", import.meta.url), "utf8");
+  assert.match(css, /\.document-job-nav/);
+  assert.doesNotMatch(source, /三条路径|再从 TD-F01 顺着读|从 TD-F02 进/);
+});
+
+test("dynamic build excludes internal topic support files", async () => {
+  await assert.rejects(access(new URL("../dist/client/materials/internal-topics/README.md", import.meta.url)));
 });
 
 test("ships only validated public pages without empty catalog placeholders", async () => {

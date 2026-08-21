@@ -228,8 +228,8 @@
       "purpose": "保留测试背景、开发背景和零基础的差异化路径，但删除固定几个月即可达标的无依据承诺。",
       "rendered_path": "visuals/career-background-paths.svg",
       "editable_path": "visuals/career-visual-source.json",
-      "sha256": "2a088acb842603215174314783c56af8e301f450cdd5d36e320292f0c6e86599",
-      "alt_text": "三条并行学习路线从测试背景、开发背景和零基础出发，先做缺口诊断和不同先修，再汇合到同一个可运行项目与责任证据。",
+      "sha256": "c6ce91b06ef62ccb9facae3499e32b348b10fd0dbded7d5d853eb49e96ba408f",
+      "alt_text": "三类背景的任务入口从测试、开发和零基础出发，先做缺口诊断和不同先修，再汇合到同一个可运行项目与责任证据。",
       "caption": "起点只改变先修顺序，不改变完成条件；学习时长为 Unknown，不能从来源示例外推到个人。",
       "not_proof": "本图不证明职级、晋升时长、真实学习效果或就业结果；这些保持 NOT_RUN / INTERNAL-UNKNOWN。",
       "source_refs": [

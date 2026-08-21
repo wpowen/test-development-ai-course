@@ -60,6 +60,11 @@ a { color: inherit; }
 .search-box { display: flex; align-items: center; gap: 7px; padding: 9px 11px; border: 1px solid var(--line); border-radius: 9px; background: white; }
 .search-box span { color: var(--muted); font-size: 18px; }
 .search-box input { width: 100%; border: 0; outline: 0; background: transparent; font-size: 12px; }
+.document-job-nav { padding: 8px 12px 2px; display: flex; flex-wrap: wrap; gap: 6px; }
+.document-job-nav button { padding: 5px 8px; border: 1px solid var(--line); border-radius: 999px; background: white; color: var(--muted); font-size: 9px; line-height: 1.35; cursor: pointer; }
+.document-job-nav button:hover { border-color: var(--forest); color: var(--forest); }
+.document-job-nav button.active { border-color: var(--forest); background: var(--forest); color: white; }
+.document-job-nav button:focus-visible { outline: 2px solid var(--forest); outline-offset: 2px; }
 /* 术语表与设计思路没有右侧的本页导航，因此不需要给它留出 230px。 */
 .reader-wide { margin-right: 0; }
 
@@ -162,13 +167,6 @@ a.reference-title:hover { color: var(--forest); text-decoration: underline; }
 .design-sections div { display: grid; grid-template-columns: 118px minmax(0, 1fr); gap: 14px; padding-bottom: 9px; border-bottom: 1px dashed var(--line); }
 .design-sections dt { font-size: 12.5px; font-weight: 750; }
 .design-sections dd { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.7; }
-.design-paths { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-.design-paths li { padding: 14px 17px; border: 1px solid var(--line); border-radius: 11px; background: white; }
-.design-paths b { display: block; margin-bottom: 5px; font-size: 13px; }
-.design-paths > li > span { font-size: 12.5px; line-height: 1.8; color: var(--muted); }
-.design-paths button { padding: 1px 6px; border: 1px solid var(--line); border-radius: 6px; background: transparent; font-size: 12px; color: var(--forest); cursor: pointer; }
-.design-paths button:hover { border-color: var(--forest); }
-
 .course-nav section { padding: 17px 12px 5px; }
 .course-nav h3 { margin: 0 8px 3px; font-size: 12px; font-weight: 800; }
 .course-nav section > p { margin: 0 8px 9px; color: var(--muted); font-size: 10px; line-height: 1.45; }

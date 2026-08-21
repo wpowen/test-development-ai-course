@@ -14,7 +14,7 @@
     "test:semantic": "node --test ../scripts/validate-semantic-contracts.test.mjs",
     "validate:tevv": "node ../scripts/validate-tevv-governance.mjs",
     "validate:tutorial-projection": "node ../scripts/sync-tutorial-package.mjs --check",
-    "validate:release": "npm run validate:semantic && npm run validate:tevv && npm run verify:evidence-governance && npm run validate:tutorial-projection && node scripts/validate-content.ts --with-executability && node scripts/validate-reference-projection.ts",
+    "validate:release": "npm run validate:semantic && npm run validate:tevv && npm run verify:evidence-governance && npm run validate:tutorial-projection && node ../scripts/build-professional-visuals.mjs --check && node scripts/validate-content.ts --with-executability && node scripts/validate-reference-projection.ts",
     "audit:executability": "node scripts/audit-executability.ts",
     "generate:integrity": "node ../scripts/generate-course-integrity-manifests.mjs --write",
     "verify:integrity": "node ../scripts/generate-course-integrity-manifests.mjs",

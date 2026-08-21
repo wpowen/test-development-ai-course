@@ -122,7 +122,7 @@ const LAYERS = [
   },
   {
     name: "第 3 层 · 内容源",
-    what: "11 份 JSON，是全站唯一的事实来源",
+    what: "14 份 JSON，是深度正文层的事实来源",
     detail: "每页包含失效点、术语、能力演进、架构索引、方法表、指标卡、反例、诊断树、演练、门禁、带走物。改内容改这里。",
   },
   {
@@ -146,7 +146,7 @@ const PAGE_SECTIONS = [
   ["带走物", "这一页结束后你手上应该多出来的东西。"],
 ];
 
-export function DesignView({ onOpenPage }: { onOpenPage: (pageId: string) => void }) {
+export function DesignView() {
   return (
     <main className="reader reader-wide">
       <div className="reader-inner">
@@ -233,24 +233,6 @@ export function DesignView({ onOpenPage }: { onOpenPage: (pageId: string) => voi
           </p>
         </section>
 
-        <section className="design-section">
-          <h2>六、从哪里开始</h2>
-          <p>三条路径对应三种处境，不必按页码顺序读：</p>
-          <ul className="design-paths">
-            <li>
-              <b>刚接手，术语都不熟</b>
-              <span>先看 <button onClick={() => onOpenPage("__glossary__")}>术语表</button>，再从 TD-F01 顺着读。</span>
-            </li>
-            <li>
-              <b>要给新项目定测试策略</b>
-              <span>从 <button onClick={() => onOpenPage("TD-F02")}>TD-F02 模型生命周期</button> 进，重点看每页的指标卡与三段式门禁。</span>
-            </li>
-            <li>
-              <b>已有工程能力，缺 AI 判据</b>
-              <span>从 <button onClick={() => onOpenPage("TD-T03")}>TD-T03 Composite Oracle</button> 与 <button onClick={() => onOpenPage("TD-T14")}>TD-T14 Judge 校准</button> 进——这两页决定其余所有数字可不可信。</span>
-            </li>
-          </ul>
-        </section>
       </div>
     </main>
   );
