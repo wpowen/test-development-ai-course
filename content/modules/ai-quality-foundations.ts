@@ -280,7 +280,7 @@ const makePage = (spec: FoundationSpec): TutorialPage => {
 
 const specs: FoundationSpec[] = [
   {
-    id: "TD-FP01", title: "把一段 Prompt 变成可运行、可评测的版本化包", type: "跟做", duration: "75 分钟", prerequisites: ["TD-F01"],
+    id: "TD-FP01", title: "一段 Prompt 怎样变成能复现、能测试、能回滚的工程资产", type: "跟做", duration: "75 分钟", prerequisites: ["TD-F01"],
     summary: "认识 system、task、context/input、output/schema、eval、mutation、versioning 和 receipt；复制一套完整包，亲手跑出 baseline→fault→repair。",
     why: "一句看起来聪明的提示词既无法复现，也无法证明有用。测试开发需要把模型的候选生成与业务事实、输出合同、独立 Oracle、故障注入和人工责任分开，才能让 Prompt 真正进入研发测试流程。",
     outcomes: ["解释 Prompt 七个组成面的职责", "按 system→task→input→critic 顺序复制完整包", "用 Schema/Eval/Mutation 区分结构通过与语义可用", "运行 0→1→0 并保留 NOT_RUN 模型边界"],
@@ -307,7 +307,7 @@ const specs: FoundationSpec[] = [
     architecture: ["业务决策问题", "System 权限", "Task 目标", "Input·Context 证据", "Output·Schema", "Eval·Mutation Oracle", "Manifest·Receipt", "人工 Owner"],
   },
   {
-    id: "TD-F02", title: "大模型回答是怎么产生的，以及测试开发应在哪些环节排查失效", type: "概念", duration: "45 分钟", prerequisites: ["TD-FP01"],
+    id: "TD-F02", title: "大模型回答是怎么产生的，出错时应该查哪一层", type: "概念", duration: "45 分钟", prerequisites: ["TD-FP01"],
     summary: "从数据、预训练、后训练、评测、部署、推理到监控，建立测试开发能够使用的责任图和版本 Manifest。",
     why: "回答错误不等于基础模型错误。模型快照、Prompt、上下文、工具、索引或部署任一变化都可能产生同一症状；归因错误会让修复既昂贵又不可验证。",
     outcomes: ["区分训练期能力与本次推理配置", "为模型、Prompt、数据、工具和环境固定版本", "根据 Trace 把失败定位到可行动的生命周期层"],
@@ -327,7 +327,7 @@ const specs: FoundationSpec[] = [
     architecture: ["来源与训练边界", "模型快照", "Prompt·Context", "应用编排", "工具·检索", "Trace 报告", "人工发布 Gate"],
   },
   {
-    id: "TD-F03", title: "为什么同一个 Prompt 会得到不同结果", type: "概念", duration: "50 分钟", prerequisites: ["TD-F02"],
+    id: "TD-F03", title: "为什么同一个问题问几次，AI 的答案会不一样", type: "概念", duration: "50 分钟", prerequisites: ["TD-F02"],
     summary: "把 Token 预算、上下文位置、解码配置与运行波动转成边界用例、单变量实验和重复运行报告。",
     why: "字符数不等于 Token 数，完整输入不等于模型同等利用，温度为零也不保证跨后端完全确定；一次成功无法支撑稳定性结论。",
     outcomes: ["解释 Token、Context 与逐 Token 生成的测试含义", "区分确定性 Gate 与概率性重复运行", "设计只改变一个 Context 或解码变量的实验"], artifact: "推理变量—测试设计矩阵与重复运行计划",
@@ -339,7 +339,7 @@ const specs: FoundationSpec[] = [
     sources: ["S33", "S40", "S65", "S66"], boundary: "离线 Fixture 没有执行 Tokenizer 或模型推理；它只证明重复运行字段不能被省略。具体确定性、Context 行为和解码差异必须针对当前 Provider 实测。", architecture: ["原始输入", "Tokenizer", "有限 Context", "模型 Logits", "解码策略", "多次 Raw outputs", "分布与人工 Gate"],
   },
   {
-    id: "TD-F04", title: "LLM、RAG、Agent、Worker 和 Workflow 的测试边界", type: "概念", duration: "50 分钟", prerequisites: ["TD-F03"],
+    id: "TD-F04", title: "AI 应用只是回答问题，还是会查资料、调工具和改状态", type: "概念", duration: "50 分钟", prerequisites: ["TD-F03"],
     summary: "按控制权、状态与副作用区分 LLM、RAG、Agent、Worker 和固定 Workflow，并为新增层补齐 Trace 和 Gate。",
     why: "把所有 AI 应用都叫 Agent 会漏掉检索、队列、状态机、Handoff 和补偿；只看最终回答还会错过危险工具副作用。",
     outcomes: ["按谁决定下一步区分 Agent 与 Workflow", "为检索、工具、状态和 Handoff 定义证据", "在不可逆动作前设置权限与人工 Gate"], artifact: "AI 应用结构、信任边界与证据分层图",
@@ -351,7 +351,7 @@ const specs: FoundationSpec[] = [
     sources: ["S34", "S35", "S39", "S65"], boundary: "本页只做结构静态分析与离线 Fixture；真实 provider/model、工具/队列/数据库 integration 未运行，practitioner 复核、learner 理解观察、live、production 和 publication 均为 NOT_RUN。", architecture: ["用户目标", "检索·Context", "模型决策", "工具策略 Gate", "Worker·队列", "业务状态 Verifier", "人工升级·补偿"],
   },
   {
-    id: "TD-T01", title: "Eval Contract 要写什么，才能让评测结果可审计", type: "参考", duration: "55 分钟", prerequisites: ["TD-F04"],
+    id: "TD-T01", title: "评测开始前要约定什么，结果才不会各说各话", type: "参考", duration: "55 分钟", prerequisites: ["TD-F04"],
     summary: "把被测对象、业务风险、数据分布、Oracle、阈值、版本、owner 和 stop state 写成可审计的评测合同。",
     why: "先挑指标再找问题会产生漂亮但不可行动的分数；Eval 的价值是让一个具体发布决定获得边界清楚的证据。",
     outcomes: ["定义 Eval 的唯一决策问题", "写出风险切片、Oracle 和 blocker", "让 owner、版本与 stop state 进入合同"], artifact: "版本化 Eval Contract 与发布决策表",
@@ -363,7 +363,7 @@ const specs: FoundationSpec[] = [
     sources: ["S05", "S23", "S24", "S65"], boundary: "Prompt package 已版本化但 provider=none、model=NOT_RUN；Fixture 只杀死合同字段 mutation，不证明模型能可靠生成合同，也不批准真实业务阈值。", architecture: ["发布问题", "风险与 owner", "数据与切片", "Composite Oracle", "指标与阈值", "报告与 stop state", "人工发布决定"],
   },
   {
-    id: "TD-T02", title: "评测数据集怎么切：风险 Slice、去重与封存 Holdout", type: "概念", duration: "55 分钟", prerequisites: ["TD-T01"],
+    id: "TD-T02", title: "评测样例怎么分组，才能避免调参时偷看最终答案", type: "概念", duration: "55 分钟", prerequisites: ["TD-T01"],
     summary: "从失败成本设计样例与风险切片，管理来源、标签、去重、时间边界和封存 Holdout。",
     why: "开发者反复查看同一最终集并针对失败调 Prompt，会把回归集磨成训练材料；总分上升不再代表对新问题有效。",
     outcomes: ["从业务风险构造 Eval case 和 slice", "分开 development、validation 与 sealed holdout", "检测重复、污染和标签分歧"], artifact: "Eval dataset、数据卡、切片矩阵与 Holdout 清单",
@@ -375,7 +375,7 @@ const specs: FoundationSpec[] = [
     sources: ["S23", "S24", "S37", "S65"], boundary: "本页只用合成数据做静态拆分与 Fixture 检查；真实 provider/model、数据集 integration 未运行，practitioner 复核、learner 理解观察、live、production 和 publication 均为 NOT_RUN。", architecture: ["失败与风险池", "采样/去重", "Development set", "Validation set", "Sealed Holdout", "切片报告", "Owner adjudication"],
   },
   {
-    id: "TD-T03", title: "规则、模型评审器和人工复核如何组成可靠判定标准（Oracle）", type: "概念", duration: "60 分钟", prerequisites: ["TD-T02"],
+    id: "TD-T03", title: "AI 答案没有标准答案时，怎样判断它到底对不对", type: "概念", duration: "60 分钟", prerequisites: ["TD-T02"],
     summary: "用确定性 Gate、业务规则、语义评分与人工复核组成分层 Oracle，让高风险失败不能被平均分抵消。",
     why: "自然语言允许多种正确表达，但工具权限、引用来源和禁止副作用不能靠“看起来不错”判断；未校准 Judge 也会产生偏差。",
     outcomes: ["为不同风险选择主 Oracle", "将 blocker 与连续分数分开", "设计 Judge 校准和人工升级"], artifact: "风险—Oracle 决策表与分歧升级记录",
@@ -387,7 +387,7 @@ const specs: FoundationSpec[] = [
     sources: ["S04", "S10", "S23", "S65"], boundary: "本页 Composite Oracle 为工程设计；Fixture 没有运行 Judge 或权限系统，也没有领域人工双标，因此只能证明独立 Oracle 字段不可缺。", architecture: ["Eval case", "Schema Gate", "业务规则 Gate", "权限·副作用 Gate", "语义 Judge", "人工校准", "发布/升级决定"],
   },
   {
-    id: "TD-T04", title: "评测为什么要重复运行：如何用分布、差异和阻断规则判断结果", type: "参考", duration: "60 分钟", prerequisites: ["TD-T03"],
+    id: "TD-T04", title: "一次评测结果不稳定，重复几次后应该怎样下结论", type: "参考", duration: "60 分钟", prerequisites: ["TD-T03"],
     summary: "区分固定 Benchmark 表现与更广泛任务表现，保存重复运行分布、配对差异和 blocker。",
     why: "一次输出同时受样例、模型、解码和运行环境影响；只报均值会隐藏高风险切片和不确定性，也无法说明结论适用于哪些任务。",
     outcomes: ["声明要估计的 performance target", "为概率 case 设计重复与配对比较", "报告分布、区间和 blocker 而非单点分数"], artifact: "重复运行报告与发布解释模板",
@@ -399,7 +399,7 @@ const specs: FoundationSpec[] = [
     sources: ["S37", "S40", "S24", "S65"], boundary: "课程没有运行随机模型；五次是教学设计而非样本量建议。任何总体结论、显著性或生产阈值都需要真实数据与统计假设。", architecture: ["版本化 cases", "重复采样", "Raw run ledger", "独立 Scorer", "Slice aggregation", "不确定性说明", "Owner decision"],
   },
   {
-    id: "TD-T09", title: "RAG 检索前先管好语料：版本、分块、权限和删除", type: "诊断", duration: "60 分钟", prerequisites: ["TD-T04"],
+    id: "TD-T09", title: "知识库内容过期、重复或越权时，RAG 上线前怎么治理", type: "诊断", duration: "60 分钟", prerequisites: ["TD-T04"],
     summary: "在索引前检查文档权威、版本、生效期、chunk lineage、ACL 和删除传播，让检索证据可追溯。",
     why: "检索器可能准确召回一份已经过期或无权访问的文档；如果 corpus 本身不可信，调 Prompt 或 reranker 都无法修复答案。",
     outcomes: ["设计带 lineage 与 ACL 的 chunk schema", "阻止过期和冲突来源进入当前索引", "记录索引版本与删除传播"], artifact: "RAG corpus manifest、chunk schema 与准入报告",
@@ -411,7 +411,7 @@ const specs: FoundationSpec[] = [
     sources: ["S34", "S09", "S65", "S24"], boundary: "本页只检查合成语料准入字段与静态 lineage；真实 provider/model、文档库/OCR/embedding/向量库/ACL integration 未运行，practitioner 复核、learner 理解观察、live、production 和 publication 均为 NOT_RUN。", architecture: ["权威文档源", "版本/冲突 Gate", "分块与 metadata", "ACL 过滤", "版本化索引", "检索 Trace", "语料 owner"],
   },
   {
-    id: "TD-T10", title: "RAG 为什么没检索到：用 Recall、排序和查询切片定位", type: "诊断", duration: "65 分钟", prerequisites: ["TD-T09"],
+    id: "TD-T10", title: "知识库里明明有答案，RAG 为什么还是搜不到", type: "诊断", duration: "65 分钟", prerequisites: ["TD-T09"],
     summary: "用 gold document、top-k、Recall@k、Precision@k、MRR 和 miss reason 把检索故障与生成故障分开。",
     why: "模型可能凭参数记忆碰巧答对，即使检索漏掉最新政策；只看最终回答会把脆弱系统误判为可靠。",
     outcomes: ["建立 query—gold document 映射", "按查询切片评价召回与排序", "用检索 Trace 诊断过滤、改写和索引故障"], artifact: "检索 query set、gold 映射与 miss diagnosis 报告",
@@ -423,7 +423,7 @@ const specs: FoundationSpec[] = [
     sources: ["S34", "S09", "S24", "S37"], boundary: "页面定义检索评测语义；离线 Fixture 没有运行 embedding、向量库或 reranker，合成查询不能估计线上 Recall。", architecture: ["Query slices", "Query rewrite", "ACL/metadata filter", "Retriever", "Top-k ranking", "Gold comparison", "Miss reason/owner"],
   },
   {
-    id: "TD-T11", title: "回答有引用就可信吗？检查引用对齐与回答忠实度", type: "诊断", duration: "65 分钟", prerequisites: ["TD-T10"],
+    id: "TD-T11", title: "AI 回答带了引用，怎样判断引用真的支持答案", type: "诊断", duration: "65 分钟", prerequisites: ["TD-T10"],
     summary: "把回答拆成可核查声明，建立 claim—evidence 矩阵，区分 citation 存在、citation 对齐和语义忠实。",
     why: "引用一个真实文档 ID 不代表文档支持回答；模型可以在正确引用旁捏造关键政策，仍让表面 citation 检查通过。",
     outcomes: ["拆分关键声明并映射证据 span", "区分引用可解析与语义支持", "处理来源冲突、缺证据和自动 Scorer 分歧"], artifact: "声明—证据矩阵、Citation 报告与反例集",
@@ -435,7 +435,7 @@ const specs: FoundationSpec[] = [
     sources: ["S09", "S34", "S10", "S65"], boundary: "Fixture 只检查 `claims_supported` 合同字段；没有运行生成模型或自动 faithfulness scorer，也没有领域人工校准，不能声明真实准确率。", architecture: ["Retrieved Context", "Generated answer", "Atomic claims", "Evidence spans", "Faithfulness scorer", "Conflict/blocker", "Human policy owner"],
   },
   {
-    id: "TD-T12", title: "RAG 发布前要检查什么：拒答、权限隔离和检索质量门禁", type: "项目", duration: "90 分钟", prerequisites: ["TD-T09", "TD-T10", "TD-T11"],
+    id: "TD-T12", title: "RAG 上线前，哪些检索、拒答和权限问题必须拦住", type: "项目", duration: "90 分钟", prerequisites: ["TD-T09", "TD-T10", "TD-T11"],
     summary: "把语料准入、检索、faithfulness、无答案、租户权限和人工 Handoff 组合成端到端发布 Gate。",
     why: "真实 RAG 风险常出现在组件交界：没有证据时强答、跨租户检索、Prompt injection 绕过策略，或失败后仍产生工具副作用。",
     outcomes: ["为 no-answer 定义正确拒答与升级", "验证 tenant ACL 和零副作用", "用同一 Fixture 完成 baseline/fault/repair 项目证据"], artifact: "RAG 端到端 Gate、权限攻击集与人工升级 Runbook",
