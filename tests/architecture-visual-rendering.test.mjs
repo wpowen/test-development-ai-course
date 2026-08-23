@@ -13,7 +13,11 @@ test("architecture visuals are local SVGs with an explicitly bounded native-imag
 
   assert.ok(visuals.length > 0, "the course should contain architecture visuals");
   for (const { id, visual } of visuals) {
-    assert.match(visual.src, /^(?:\/?(?:visuals|materials)\/).+\.svg$/, `${id} must use a local SVG visual`);
+    assert.match(
+      visual.src,
+      /^(?:\/?(?:visuals|materials)\/).+\.svg(?:\?v=[a-f0-9]{12})?$/,
+      `${id} must use a local SVG visual with at most one content-hash cache key`,
+    );
     assert.ok(visual.alt.trim().length > 0, `${id} must provide meaningful alternative text`);
   }
 
