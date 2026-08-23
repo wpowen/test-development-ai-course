@@ -74,7 +74,7 @@ const specialtyContractBlocks = (id: SpecialtyPageId, bundle: SpecialtyBundle): 
 
 export const professionalSpecializationPages: TutorialPage[] = ([
   {
-    id: "TD-PS01", moduleId: "TD-M08", order: 1, title: "API 业务契约与副作用验证", type: "跟做", status: "desk-researched", duration: "55 分钟",
+    id: "TD-PS01", moduleId: "TD-M08", order: 1, title: "如何验证 API 的业务规则和真实副作用", type: "跟做", status: "desk-researched", duration: "55 分钟",
     summary: "以订单取消与退款 API 为业务场景，建立协议、Schema、业务不变量和副作用四层断言。",
     why: "生产事故常发生在接口返回成功、状态却没有推进，或重试造成重复副作用的瞬间。测试开发需要证明业务结果，而不是收集 200 数量。",
     prerequisites: ["TD-P08"], outcomes: ["拆出协议、Schema、业务和副作用 Oracle", "为幂等与错误模型设计可重放请求", "把 Trace 和状态证据接入发布判断"], artifact: "API 业务契约测试包与运行 Manifest",
@@ -91,7 +91,7 @@ export const professionalSpecializationPages: TutorialPage[] = ([
     materials: [{ title: "API 取消契约夹具", description: "订单取消 OpenAPI、错误模型和状态不变量。", href: "materials/api-ai-automation/fixtures/order-cancel.openapi.yaml", kind: "fixture", validation: "static-reviewed" }, { title: "API 运行 Manifest", description: "记录环境、数据、Trace 和副作用断言。", href: "materials/api-ai-automation/guides/api-run-manifest.md", kind: "guide", validation: "static-reviewed" }, ...apiExecutableMaterials],
   },
   {
-    id: "TD-PS02", moduleId: "TD-M08", order: 2, title: "OpenAPI Schema 与属性测试", type: "跟做", status: "desk-researched", duration: "50 分钟",
+    id: "TD-PS02", moduleId: "TD-M08", order: 2, title: "不止验证 Schema：用属性测试发现 API 测试盲区", type: "跟做", status: "desk-researched", duration: "50 分钟",
     summary: "围绕支付意图 API，结合正反例、Schema 变异和业务属性测试，识别只校验格式的假覆盖。", why: "Schema 通过不等于业务正确；结构化 API 最容易把测试退化成字段类型检查。", prerequisites: ["TD-PS01"], outcomes: ["从 OpenAPI 生成受控正反例", "区分 Schema 失败和业务属性失败", "用 mutation 证明测试确实有检测力"], artifact: "OpenAPI 负向测试集、属性清单与 mutation 报告",
     blocks: [
       { title: "场景：支付意图的边界不是字段类型", body: ["支付意图包含 amount、currency、merchant_id、customer_id 和 return_url。除了 required/type，还要检查金额大于零、币种与商户配置匹配、客户只能访问自己的意图、过期意图不能再次确认。", "把每个字段约束映射到风险和 Oracle，避免生成大量没有业务意义的随机字符串。"] },
@@ -105,7 +105,7 @@ export const professionalSpecializationPages: TutorialPage[] = ([
     materials: [{ title: "支付意图规范夹具", description: "含边界、错误和跨字段约束的 OpenAPI 文件。", href: "materials/api-ai-automation/fixtures/payment-intent.openapi.yaml", kind: "fixture", validation: "static-reviewed" }, { title: "Schema Mutation 清单", description: "可审查的破坏性变更与预期失败。", href: "materials/api-ai-automation/configs/schema-mutations.yaml", kind: "config", validation: "static-reviewed" }, ...apiExecutableMaterials],
   },
   {
-    id: "TD-PS03", moduleId: "TD-M08", order: 3, title: "跨服务契约、事件与鉴权测试", type: "诊断", status: "desk-researched", duration: "55 分钟",
+    id: "TD-PS03", moduleId: "TD-M08", order: 3, title: "跨服务事件为什么会出错：契约、鉴权与补偿测试", type: "诊断", status: "desk-researched", duration: "55 分钟",
     summary: "以购物车结算事件为例，覆盖消费者契约、版本兼容、租户隔离、重复投递、乱序和补偿。", why: "服务间测试如果只依赖共享 Mock，会让提供者和消费者各自绿色、集成后却失败。", prerequisites: ["TD-PS02"], outcomes: ["建立消费者驱动契约与版本策略", "验证鉴权、租户和事件不变量", "沿 Trace 诊断最终一致性问题"], artifact: "Pact/事件契约包、权限矩阵和补偿诊断记录",
     blocks: [
       { title: "场景：结算不是一个同步响应", body: ["Checkout 服务接受购物车后发布 order.created，库存、支付和通知消费者异步处理。业务要求同一 order_id 只能产生一次支付意图，跨租户事件不能被消费，库存失败必须进入可追踪补偿状态。"] },
@@ -119,7 +119,7 @@ export const professionalSpecializationPages: TutorialPage[] = ([
     materials: [{ title: "结算事件契约", description: "包含版本、租户和幂等字段的事件 Fixture。", href: "materials/api-ai-automation/fixtures/checkout-events.json", kind: "fixture", validation: "static-reviewed" }, { title: "消费者兼容矩阵", description: "记录版本变更、消费者依赖和阻断规则。", href: "materials/api-ai-automation/guides/consumer-compatibility.md", kind: "guide", validation: "static-reviewed" }, ...apiExecutableMaterials],
   },
   {
-    id: "TD-PS04", moduleId: "TD-M08", order: 4, title: "Web UI 关键旅程：隔离、定位器、网络控制与跨浏览器", type: "跟做", status: "desk-researched", duration: "50 分钟",
+    id: "TD-PS04", moduleId: "TD-M08", order: 4, title: "写出稳定的 Web UI 测试：从定位器到网络控制", type: "跟做", status: "desk-researched", duration: "50 分钟",
     summary: "围绕后台退款审批旅程，设计 Playwright 风格的稳定 UI 测试、网络控制和浏览器矩阵。", why: "UI 自动化最常见的失败不是产品逻辑，而是脆弱定位器、共享状态、第三方网络和错误等待。", prerequisites: ["TD-PS03"], outcomes: ["建立隔离且可重放的用户旅程", "选择可维护 Locator 和等待策略", "按用户风险裁剪浏览器与视口矩阵"], artifact: "退款审批 UI 套件、浏览器矩阵和 Trace 包",
     blocks: [
       { title: "场景：审批人看到的不是一个按钮", body: ["审批人打开待处理退款，需看到订单状态、金额、风险标签和审计记录；批准后 UI 显示处理中，并在异步完成后更新。需要覆盖空列表、权限不足、重复点击、网络失败和窄视口布局。"] },
@@ -133,7 +133,7 @@ export const professionalSpecializationPages: TutorialPage[] = ([
     materials: [{ title: "审批旅程 Fixture", description: "角色、订单状态、空态和错误态数据。", href: "materials/ui-mobile-automation/fixtures/refund-approval.json", kind: "fixture", validation: "static-reviewed" }, { title: "Playwright 旅程指南", description: "Locator、等待、隔离和 Trace 采集规则。", href: "materials/ui-mobile-automation/guides/web-journey-sop.md", kind: "guide", validation: "static-reviewed" }, ...uiExecutableMaterials],
   },
   {
-    id: "TD-PS05", moduleId: "TD-M08", order: 5, title: "Web UI 兼容性、无障碍与视觉回归", type: "诊断", status: "desk-researched", duration: "45 分钟",
+    id: "TD-PS05", moduleId: "TD-M08", order: 5, title: "Web 页面哪里不兼容：无障碍、响应式和视觉回归诊断", type: "诊断", status: "desk-researched", duration: "45 分钟",
     summary: "以客服工作台为场景，组合键盘可达性、响应式布局、国际化文本和视觉差异诊断。", why: "主路径点击通过仍可能让键盘用户无法完成任务、窄屏信息溢出或错误状态被遮挡。", prerequisites: ["TD-PS04"], outcomes: ["建立按用户风险裁剪的兼容矩阵", "区分自动 a11y 规则和人工语义审查", "定位视觉差异的真实原因"], artifact: "Web 兼容性与可访问性证据包",
     blocks: [
       { title: "场景：客服必须在不同输入方式下完成退款", body: ["客服工作台支持鼠标、键盘和辅助技术；退款金额、风险提示和确认对话框必须在 1280px 与 390px 视口可读，英文与中文长文本不能遮挡批准控件。"] },
@@ -147,7 +147,7 @@ export const professionalSpecializationPages: TutorialPage[] = ([
     materials: [{ title: "客服工作台矩阵", description: "浏览器、视口、语言和用户风险映射。", href: "materials/ui-mobile-automation/configs/web-compatibility-matrix.yaml", kind: "config", validation: "static-reviewed" }, { title: "a11y 与视觉 SOP", description: "自动检查、人工复核和基线审批步骤。", href: "materials/ui-mobile-automation/guides/a11y-visual-regression.md", kind: "guide", validation: "static-reviewed" }, ...uiExecutableMaterials],
   },
   {
-    id: "TD-PS06", moduleId: "TD-M08", order: 6, title: "Android 自动化：生命周期、同步、权限与设备矩阵", type: "诊断", status: "desk-researched", duration: "50 分钟",
+    id: "TD-PS06", moduleId: "TD-M08", order: 6, title: "排查 Android 自动化不稳定：生命周期、权限与设备差异", type: "诊断", status: "desk-researched", duration: "50 分钟",
     summary: "以扫码收货应用为业务场景，设计 Espresso/Appium 风格的离线测试策略，并明确未运行设备的证据边界。", why: "移动端失败经常来自生命周期、系统权限、网络切换和设备差异，单一模拟器绿不能代表用户可用。", prerequisites: ["TD-PS05"], outcomes: ["拆分 Android 测试层级与同步策略", "覆盖权限、后台恢复和设备差异", "用日志、截图和崩溃信息诊断失败"], artifact: "Android 设备矩阵、生命周期用例与失败包",
     blocks: [
       { title: "场景：仓库收货不能丢扫描状态", body: ["收货员扫描条码后上传库存；相机权限首次拒绝、应用切到后台、网络断开、屏幕旋转或低电量都不能让已扫描货物重复入库。服务端以幂等 receipt_id 作为独立 Oracle。"] },
@@ -161,7 +161,7 @@ export const professionalSpecializationPages: TutorialPage[] = ([
     materials: [{ title: "Android 收货 Fixture", description: "扫描、权限、网络和生命周期状态。", href: "materials/ui-mobile-automation/fixtures/android-receiving.yaml", kind: "fixture", validation: "static-reviewed" }, { title: "设备矩阵与失败包规范", description: "设备选择、logcat、截图和 Trace 采集。", href: "materials/ui-mobile-automation/guides/android-device-matrix.md", kind: "guide", validation: "static-reviewed" }, ...uiExecutableMaterials],
   },
   {
-    id: "TD-PS07", moduleId: "TD-M08", order: 7, title: "iOS 自动化：可访问性标识、权限、签名与状态残留", type: "诊断", status: "desk-researched", duration: "50 分钟",
+    id: "TD-PS07", moduleId: "TD-M08", order: 7, title: "排查 iOS 自动化失败：标识、权限、签名与状态清理", type: "诊断", status: "desk-researched", duration: "50 分钟",
     summary: "以医疗预约改期为场景，建立 XCUITest 关注的系统权限、模拟器/真机差异、动画同步和清理策略。", why: "iOS 测试常被签名、权限弹窗、动画和上一次运行残留干扰；一条 UI 通过不能证明预约状态可靠。", prerequisites: ["TD-PS06"], outcomes: ["设计可访问性标识驱动的定位策略", "覆盖权限、后台恢复和签名前置条件", "区分设备、应用和服务状态故障"], artifact: "iOS 预约改期测试包与 xcresult 证据规范",
     blocks: [
       { title: "场景：预约改期必须避免重复占号", body: ["患者选择新时段并确认，客户端可能遇到通知权限、网络切换、后台恢复和旧预约残留。服务端以 appointment_id 与 slot_version 约束重复提交和并发占用。"] },
@@ -175,7 +175,7 @@ export const professionalSpecializationPages: TutorialPage[] = ([
     materials: [{ title: "iOS 预约 Fixture", description: "预约、时段版本、权限和恢复状态。", href: "materials/ui-mobile-automation/fixtures/ios-reschedule.json", kind: "fixture", validation: "static-reviewed" }, { title: "XCUITest 运行前检查", description: "签名、权限、清理和 xcresult 采集。", href: "materials/ui-mobile-automation/guides/ios-xcuitest-preflight.md", kind: "guide", validation: "static-reviewed" }, ...uiExecutableMaterials],
   },
   {
-    id: "TD-PS08", moduleId: "TD-M08", order: 8, title: "数据与迁移：Schema 演进、回填、CDC 与回滚对账", type: "诊断", status: "desk-researched", duration: "60 分钟",
+    id: "TD-PS08", moduleId: "TD-M08", order: 8, title: "数据库迁移怎么测：从 Schema 演进到回滚对账", type: "诊断", status: "desk-researched", duration: "60 分钟",
     summary: "以订单状态字段迁移为场景，串联 expand-contract、分片回填、CDC 高水位、影子读和回滚对账。", why: "DDL 成功或 Job 退出码为零不能证明数据迁移正确；丢一片、错一条状态映射或回退 offset 都可能在切流后变成不可逆业务损失。", prerequisites: ["TD-PS03"], outcomes: ["设计前后兼容的 Schema 演进", "为分片回填与 CDC 定义守恒 Oracle", "在收缩前执行停止、回滚和影子读门禁"], artifact: "迁移 Manifest、分片对账报告与 expand-contract 决策记录",
     blocks: [
       { title: "场景：订单状态在线迁移", body: ["订单表从自由文本 status 迁移到 status_code 与状态维表，迁移期间旧服务仍读写 status，新服务双写并影子读。回填与 CDC 同时发生，必须证明主键集合、金额汇总、状态语义和变化事件都没有丢失。"] },
@@ -189,7 +189,7 @@ export const professionalSpecializationPages: TutorialPage[] = ([
     materials: [{ title: "TD-PS08 迁移输入夹具", description: "DDL、分片、高水位和守恒 Oracle 的离线场景。", href: "materials/api-ai-automation/fixtures/TD-PS08-input.json", kind: "fixture", validation: "fixture-tested" }, { title: "TD-PS08 迁移实验 Manifest", description: "具名 owner、baseline/fault/repair 与四项对账 Oracle。", href: "materials/api-ai-automation/manifests/TD-PS08.json", kind: "config", validation: "fixture-tested" }, ...apiExecutableMaterials],
   },
   {
-    id: "TD-PS09", moduleId: "TD-M08", order: 9, title: "性能与容量：到达率、尾延迟、Goodput 与单位成功成本", type: "诊断", status: "desk-researched", duration: "55 分钟",
+    id: "TD-PS09", moduleId: "TD-M08", order: 9, title: "定位 AI 系统延迟瓶颈：尾延迟、Goodput 与单位成功成本", type: "诊断", status: "desk-researched", duration: "55 分钟",
     summary: "以客服 Agent 流式回答和工具调用为场景，建立按切片、尾延迟、质量和成本联合决策的性能指标体系。", why: "平均延迟变快可能伴随长输入质量下降、工具调用放大和 p99 恶化；AI 性能必须与任务成功绑定。", prerequisites: ["TD-PS03"], outcomes: ["定义 AI 请求阶段指标与分母", "区分 TTFT、TPOT、端到端和 Goodput", "用质量、SLO 和成本做 Pareto 决策"], artifact: "AI 性能 workload、指标卡和容量决策报告",
     blocks: [
       { title: "场景：客服回答不是单一模型调用", body: ["客服 Agent 先检索政策，再调用模型并可能查询订单。短 FAQ 与长退款对话的输入、工具数、输出长度和风险完全不同；性能报告必须保留这些切片。"] },
@@ -203,7 +203,7 @@ export const professionalSpecializationPages: TutorialPage[] = ([
     materials: [{ title: "客服 Agent Workload", description: "输入长度、并发、工具比例和风险切片。", href: "materials/api-ai-automation/configs/ai-performance-workload.yaml", kind: "config", validation: "static-reviewed" }, { title: "AI 指标卡模板", description: "阶段指标、分母、分位数和联合门禁。", href: "materials/api-ai-automation/guides/ai-performance-metric-card.md", kind: "guide", validation: "static-reviewed" }, ...apiExecutableMaterials],
   },
   {
-    id: "TD-PS10", moduleId: "TD-M08", order: 10, title: "稳定性：超时、重试预算、熔断、限流与降级", type: "跟做", status: "desk-researched", duration: "55 分钟",
+    id: "TD-PS10", moduleId: "TD-M08", order: 10, title: "让服务在超时和过载下安全退化", type: "跟做", status: "desk-researched", duration: "55 分钟",
     summary: "以订单 AI 助手为对象，验证 deadline 传播、retry budget、熔断、load shedding、只读降级和恢复窗口。", why: "稳定性不是依赖不失败，而是局部失败不会因多层重试和恢复洪峰扩大，且资金类副作用在过载时保持安全。", prerequisites: ["TD-PS09"], outcomes: ["设计有界 timeout 与 retry budget", "验证过载拒绝、限流和只读降级", "用调用放大、副作用与恢复窗口判断稳定性"], artifact: "稳定性策略 Manifest、故障矩阵与 0/1/0 恢复报告",
     blocks: [
       { title: "场景：模型限流与工具超时叠加", body: ["订单助手依赖模型、检索与退款工具；入口重试、Agent 重试和 SDK 重试若同时生效，会把一次局部超时放大为队列级联。过载时系统必须优先拒绝低风险任务、关闭写工具或返回只读解释，不能继续累积不可逆副作用。"] },
@@ -217,7 +217,7 @@ export const professionalSpecializationPages: TutorialPage[] = ([
     materials: [{ title: "订单助手实验卡", description: "工具超时、429、空检索和停止条件。", href: "materials/reliability-chaos-observability/fixtures/order-assistant-chaos.yaml", kind: "fixture", validation: "static-reviewed" }, { title: "Chaos 授权与复验指南", description: "隔离、观察、回滚和残留清理。", href: "materials/reliability-chaos-observability/guides/chaos-experiment-sop.md", kind: "guide", validation: "static-reviewed" }, ...reliabilityExecutableMaterials],
   },
   {
-    id: "TD-PS11", moduleId: "TD-M08", order: 11, title: "线上可观测性：质量、Trace、成本与 SLO 链路", type: "概念", status: "desk-researched", duration: "50 分钟",
+    id: "TD-PS11", moduleId: "TD-M08", order: 11, title: "如何用 Trace、质量和成本看懂线上 AI 系统", type: "概念", status: "desk-researched", duration: "50 分钟",
     summary: "以生产客服 Agent 为场景，设计脱敏 Trace、指标、日志和质量回流，明确托管模型内部不可见时的未知项。", why: "没有输入、检索、工具、模型版本和最终结果的关联，线上质量下降只能靠猜；过度采集又会泄露敏感数据。", prerequisites: ["TD-PS10"], outcomes: ["定义 AI 观测字段和脱敏边界", "把质量事件连接到 Trace 与版本 Manifest", "建立告警、调查和回归回流路径"], artifact: "AI 可观测性字段契约、Dashboard 设计和事故样例",
     blocks: [
       { title: "场景：正确率下降但 Judge 没变", body: ["客服退款正确率连续下降，Judge 分数保持稳定，可能是知识库索引过期、输入分布变化、Judge 漂移或工具错误。需要同时查看质量切片、检索版本、Trace、成本和用户反馈。"] },
@@ -231,7 +231,7 @@ export const professionalSpecializationPages: TutorialPage[] = ([
     materials: [{ title: "Agent Trace 字段契约", description: "版本、Span、质量、成本和脱敏字段。", href: "materials/reliability-chaos-observability/configs/agent-trace-schema.yaml", kind: "config", validation: "static-reviewed" }, { title: "线上质量调查指南", description: "告警窗口、诊断树、回滚和回流。", href: "materials/reliability-chaos-observability/guides/ai-observability-investigation.md", kind: "guide", validation: "static-reviewed" }, ...reliabilityExecutableMaterials],
   },
   {
-    id: "TD-PS12", moduleId: "TD-M08", order: 12, title: "安全测试：身份、授权、输入、秘密与跨租户副作用", type: "项目", status: "desk-researched", duration: "65 分钟",
+    id: "TD-PS12", moduleId: "TD-M08", order: 12, title: "为 AI 助手建立可执行的安全测试门禁", type: "项目", status: "desk-researched", duration: "65 分钟",
     summary: "以退款助手为场景，从 threat model、角色权限矩阵、对象级授权、Prompt/工具边界和数据分类构建确定性安全 Oracle。", why: "接口拒绝一次恶意输入并不能证明安全；真正的控制目标是每次请求在身份、对象、功能和工具边界重新授权，且被拒绝路径没有跨租户读写或秘密泄漏。", prerequisites: ["TD-PS03", "TD-PS11"], outcomes: ["把资产与信任边界转成 abuse case", "验证身份、对象级/功能级权限和工具 allowlist", "用零副作用与脱敏证据判定拒绝结果"], artifact: "Threat model、权限负例矩阵、安全 Prompt 包与离线红绿报告",
     blocks: [
       { title: "场景：退款助手跨越三条信任边界", body: ["用户 token 经 Gateway 进入 Agent，Agent 读取订单并调用退款工具。攻击面包括过期或错 audience token、替换 order_id 的 BOLA、角色越权、Prompt 注入要求绕过策略、工具参数污染，以及 token/PII 被写入 Trace。"] },

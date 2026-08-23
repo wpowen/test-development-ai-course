@@ -202,7 +202,7 @@ const makePage = (spec: AssistedSpec): TutorialPage => {
 const specs: AssistedSpec[] = [
   {
     id: "TD-T05",
-    title: "冻结 Basis 与代码 Diff 的可追溯风险提取",
+    title: "从需求和代码 Diff 提取可追溯的测试风险",
     type: "项目",
     duration: "75 分钟",
     prerequisites: ["TD-T04"],
@@ -227,7 +227,7 @@ const specs: AssistedSpec[] = [
   },
   {
     id: "TD-T06",
-    title: "AI 测试候选生成与 Mutation 检测力验证",
+    title: "用变异测试（Mutation）验证 AI 生成测试的检测力",
     type: "项目",
     duration: "80 分钟",
     prerequisites: ["TD-T05"],
@@ -252,7 +252,7 @@ const specs: AssistedSpec[] = [
   },
   {
     id: "TD-T07",
-    title: "测试方法选择：Boundary、Combination、Property 与 Fuzz",
+    title: "边界值、组合、属性还是 Fuzz：测试方法怎么选",
     type: "项目",
     duration: "85 分钟",
     prerequisites: ["TD-T06"],
@@ -277,7 +277,7 @@ const specs: AssistedSpec[] = [
   },
   {
     id: "TD-T08",
-    title: "失败聚类与原始证据保留",
+    title: "相似失败不等于同一根因：保留原始证据再聚类",
     type: "诊断",
     duration: "80 分钟",
     prerequisites: ["TD-T07"],

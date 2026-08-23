@@ -36,7 +36,7 @@ const sourceArchitectureVisual = (pageId: string) => {
 
 const specs: AgentArchitectureSpec[] = [
   {
-    id: "TD-AG-00", moduleId: "TD-M12", title: "Agent 测试架构总览：D0–D7 与四证据环", type: "概念", prerequisites: ["TD-F04", "TD-T01"],
+    id: "TD-AG-00", moduleId: "TD-M12", title: "Agent 测试架构：D0–D7 与四个证据环", type: "概念", prerequisites: ["TD-F04", "TD-T01"],
     summary: "用 D0–D7、四证据环和运行时护栏画出 Agent 被测边界，知道一条结论从哪里来、由谁负责。",
     why: "把所有问题都叫作“模型不聪明”会漏掉工具、状态、权限、评估器和业务治理故障。",
     outcomes: ["区分模型、Agent、工具、Workflow、Worker 和 Judge", "将架构边界映射为风险、Oracle 和证据", "解释四证据环为何不能互相冒充", "交付一张可迁移的 Agent 测试架构图"],
@@ -52,7 +52,7 @@ const specs: AgentArchitectureSpec[] = [
     sourceIds: ["S24", "S39", "S65"],
   },
   {
-    id: "TD-AG-01", moduleId: "TD-M12", title: "D0 评估可信度：Judge 校准", type: "跟做", prerequisites: ["TD-AG-00", "TD-T03", "TD-T14"],
+    id: "TD-AG-01", moduleId: "TD-M12", title: "谁来评 Judge：建立人工金标、偏差探针和回退链", type: "跟做", prerequisites: ["TD-AG-00", "TD-T03", "TD-T14"],
     summary: "建立人工金标、Judge Card、偏差探针和停用回退链，理解评估器本身也是被测系统。",
     why: "未校准的 Judge 可能把冗长、位置或自偏好当成质量；后续所有数字都会继承这个错误。",
     outcomes: ["区分人人一致性与人机一致性", "设计顺序、长度、事实和自偏好探针", "为 Judge 换版建立重校准和停用条件"],
@@ -68,7 +68,7 @@ const specs: AgentArchitectureSpec[] = [
     sourceIds: ["S05", "S23", "S40"],
   },
   {
-    id: "TD-AG-02", moduleId: "TD-M12", title: "D1 轨迹 Span 归因", type: "跟做", prerequisites: ["TD-AG-00", "TD-T15", "TD-T16"],
+    id: "TD-AG-02", moduleId: "TD-M12", title: "Agent 第一步错在哪里：用 Span 和轨迹定位", type: "跟做", prerequisites: ["TD-AG-00", "TD-T15", "TD-T16"],
     summary: "同时评估 outcome、step 和 trajectory，并用 span 标签、首错位置和无效循环率定位 Agent 失败。",
     why: "最终结果偶然正确，不能抵消中途越权、错误参数、曲解观测或无限循环。",
     outcomes: ["建立 outcome/step/trajectory 三层 Oracle", "按工具、参数、观测利用、步骤必要性标记 span", "从首错位置生成可操作修复"],
@@ -84,7 +84,7 @@ const specs: AgentArchitectureSpec[] = [
     sourceIds: ["S10", "S70", "S72"],
   },
   {
-    id: "TD-AG-03", moduleId: "TD-M12", title: "D2 编排：交接、隔离、级联与熔断", type: "跟做", prerequisites: ["TD-AG-02", "TD-W01", "TD-W02"],
+    id: "TD-AG-03", moduleId: "TD-M12", title: "多 Agent 交接如何避免信息衰减和级联失败", type: "跟做", prerequisites: ["TD-AG-02", "TD-W01", "TD-W02"],
     summary: "为多 Agent handoff 建立 schema、上下文隔离和三重熔断，防止信息衰减和下游失败拖垮全局。",
     why: "每一次 A→B 交接都是新的断点；状态、权限和失败责任可能在边界处丢失。",
     outcomes: ["写出 handoff contract 和职责矩阵", "验证上下文最小可见与返回污染", "测试步数、时间、成本三类熔断"],
@@ -100,7 +100,7 @@ const specs: AgentArchitectureSpec[] = [
     sourceIds: ["S35", "S48", "S74"],
   },
   {
-    id: "TD-AG-04", moduleId: "TD-M12", title: "D3 人机协同：中断、接管与确认疲劳", type: "跟做", prerequisites: ["TD-AG-03", "TD-X601"],
+    id: "TD-AG-04", moduleId: "TD-M12", title: "人能否随时接管 Agent：测试中断、确认和控制权", type: "跟做", prerequisites: ["TD-AG-03", "TD-X601"],
     summary: "测试用户在关键步骤中断、接管和交回 Agent 的能力，区分可解释与真正可控。",
     why: "自主性越强，越需要证明人能及时停止、回滚并接管；弹窗很多不等于人真正拥有控制权。",
     outcomes: ["验证 N 步中断和脏状态清理", "验证接管前后上下文完整性", "识别确认疲劳和解释不等于正确"],
@@ -116,7 +116,7 @@ const specs: AgentArchitectureSpec[] = [
     sourceIds: ["S07", "S23", "S65"],
   },
   {
-    id: "TD-AG-05", moduleId: "TD-M12", title: "D4 可靠性分布：pass@k、pass^k 与长时程衰减", type: "项目", prerequisites: ["TD-AG-02", "TD-T04", "TD-B03"],
+    id: "TD-AG-05", moduleId: "TD-M12", title: "Agent 可靠性不能只看一次成功：用 pass@k 与 pass^k 比较重复运行", type: "项目", prerequisites: ["TD-AG-02", "TD-T04", "TD-B03"],
     summary: "把一次 PASS 改成重复运行分布，区分至少一次成功和每次都成功，并按任务时长观察 horizon 衰减。",
     why: "pass@k 可能很高而重复一致性很差；小样本点估计也不能支持生产承诺。",
     outcomes: ["正确计算 pass@k 与 pass^k", "声明 task/run/trajectory 单位和状态重置", "按时长桶输出区间和证据不足"],
@@ -132,7 +132,7 @@ const specs: AgentArchitectureSpec[] = [
     sourceIds: ["S36", "S38", "S39"],
   },
   {
-    id: "TD-AG-06", moduleId: "TD-M12", title: "D5 持续安全：注入、MCP 投毒、委托、沙箱与爆炸半径", type: "项目", prerequisites: ["TD-AG-03", "TD-AG-04", "TD-T17"],
+    id: "TD-AG-06", moduleId: "TD-M12", title: "持续验证 Agent 安全：注入、MCP 投毒与能力沙箱", type: "项目", prerequisites: ["TD-AG-03", "TD-AG-04", "TD-T17"],
     summary: "把不可信输入、工具描述、记忆、委托链和不可逆副作用放进持续对抗套件，并按轨迹审计护栏。",
     why: "只测用户输入或只依赖 Prompt 约束，无法防住间接注入、rug-pull、跨会话污染和组合越权。",
     outcomes: ["构造直接/间接/延迟/持久化攻击", "验证工具 manifest、最小权限和能力沙箱", "用可逆性×影响面×资金影响判断爆炸半径"],
@@ -148,7 +148,7 @@ const specs: AgentArchitectureSpec[] = [
     sourceIds: ["S07", "S08", "S50"],
   },
   {
-    id: "TD-AG-07", moduleId: "TD-M12", title: "D6 经济性：任务、步骤、尾延迟与成本预算", type: "项目", prerequisites: ["TD-AG-05", "TD-AP01", "TD-AP02"],
+    id: "TD-AG-07", moduleId: "TD-M12", title: "Agent 值不值得运行：任务成功、延迟和成本预算", type: "项目", prerequisites: ["TD-AG-05", "TD-AP01", "TD-AP02"],
     summary: "把 Agent task 拆成 step/tool trace，联合观察延迟、吞吐、Token、Judge 和人工成本，并验证预算会真正截断。",
     why: "均值掩盖长尾；重试可能提高 pass@k，却把成本和副作用放大数倍。",
     outcomes: ["建立 task→step→tool 指标树", "计算 P95/P99、goodput 和成本尾部", "测试 token、时间、步骤和金钱四类硬预算"],
@@ -164,7 +164,7 @@ const specs: AgentArchitectureSpec[] = [
     sourceIds: ["S51", "S53", "S73"],
   },
   {
-    id: "TD-AG-08", moduleId: "TD-M12", title: "D7 业务治理：规则、审计、四维版本与 ROI", type: "项目", prerequisites: ["TD-AG-06", "TD-AG-07", "TD-T21", "TD-T23"],
+    id: "TD-AG-08", moduleId: "TD-M12", title: "把 Agent 的业务规则、版本和审计责任连起来", type: "项目", prerequisites: ["TD-AG-06", "TD-AG-07", "TD-T21", "TD-T23"],
     summary: "把业务规则、Agent 委托、审计证据、模型/Prompt/工具/Memory 四维版本和风险接受连接起来。",
     why: "模型名不变也可能因 Prompt、工具或 Memory 变化而改变决策；平均质量分不能替代业务责任。",
     outcomes: ["建立业务硬规则和建议/执行分离", "生成可审计的 Agent 版本 lineage", "用人工基线和风险 owner 解释 ROI 与剩余风险"],
@@ -180,7 +180,7 @@ const specs: AgentArchitectureSpec[] = [
     sourceIds: ["S24", "S64", "S65"],
   },
   {
-    id: "TD-AG-09", moduleId: "TD-M12", title: "四证据环与三段门禁", type: "项目", prerequisites: ["TD-AG-05", "TD-AG-06", "TD-AG-08", "TD-T20", "TD-X805"],
+    id: "TD-AG-09", moduleId: "TD-M12", title: "从离线 CI 到线上评估：搭建四证据环门禁", type: "项目", prerequisites: ["TD-AG-05", "TD-AG-06", "TD-AG-08", "TD-T20", "TD-X805"],
     summary: "将离线 CI、沙箱回放、影子灰度和在线持续评估串成证据成熟度链，再执行硬红线、统计门禁和风险接受。",
     why: "静态通过、fixture 通过和生产有效是不同命题；跨环升级必须有新的输入、owner 和回滚证据。",
     outcomes: ["写出四环 entry/exit/hard-block 合同", "执行 0/1/0 的离线闭环", "区分 PASS、EVIDENCE-INSUFFICIENT、BLOCKED 和 risk accepted"],
@@ -196,7 +196,7 @@ const specs: AgentArchitectureSpec[] = [
     sourceIds: ["S07", "S24", "S65"],
   },
   {
-    id: "TD-AG-10", moduleId: "TD-M12", title: "高风险适配器：交易/金融 Agent 的时效、执行与能力沙箱", type: "项目", prerequisites: ["TD-AG-06", "TD-AG-08", "TD-AG-09"],
+    id: "TD-AG-10", moduleId: "TD-M12", title: "交易 Agent 如何安全上线：时效、执行隔离和分钟级回滚", type: "项目", prerequisites: ["TD-AG-06", "TD-AG-08", "TD-AG-09"],
     summary: "把交易场景作为高风险适配器学习：数据新鲜度、建议与执行分离、能力沙箱和分钟级回滚。",
     why: "金融示例不能直接变成所有 Agent 的通用规则；它的价值在于展示不可逆动作和实时数据如何改变测试责任。",
     outcomes: ["为行情/决策数据增加时间戳断言", "物理隔离建议与执行两类任务", "用工具硬限额而非 Prompt 约束控制高危动作"],

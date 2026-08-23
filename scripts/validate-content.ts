@@ -106,7 +106,24 @@ const bannedGenericPhrases = [
   "你会带走",
 ];
 
+const genericTitlePromise = /(全面掌握|轻松(?:入门|上手)|史上最|最全|一文(?:搞懂|读懂)|零基础.*精通)/;
+const titleOwners = new Map<string, string[]>();
+
 for (const page of pages) {
+  const owners = titleOwners.get(page.title) ?? [];
+  owners.push(page.id);
+  titleOwners.set(page.title, owners);
+}
+
+for (const [title, owners] of titleOwners) {
+  if (owners.length > 1) errors.push(`duplicate learner-facing title: ${title} (${owners.join(", ")})`);
+}
+
+for (const page of pages) {
+  const titleLength = [...page.title.replace(/\s/g, "")].length;
+  if (titleLength < 8 || titleLength > 42) errors.push(`${page.id} title length ${titleLength} is outside 8..42`);
+  if (genericTitlePromise.test(page.title)) errors.push(`${page.id} title contains an unverifiable generic promise`);
+  if (/^(?:入门|概述|总览|基础|实践|实战)$/.test(page.title)) errors.push(`${page.id} title does not identify its subject or reader result`);
   const contract = page.documentContract;
   const allowedTypes = new Set(["beginner-tutorial", "professional-how-to", "reference", "explanation", "decision-report"]);
   if (!contract || !allowedTypes.has(contract.documentType)) errors.push(`${page.id} must declare one primary document contract`);

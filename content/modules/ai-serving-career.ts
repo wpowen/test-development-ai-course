@@ -183,7 +183,7 @@ const wave3Extra: Record<string, string[]> = {
 
 const contracts: PageContract[] = [
   {
-    id: "TD-A01", moduleId: "TD-M09", title: "普通 API 与 AI API：确定性响应与版本化生成服务", type: "概念", duration: "45 分钟",
+    id: "TD-A01", moduleId: "TD-M09", title: "普通 API 和 AI API 的测试重点为什么不同", type: "概念", duration: "45 分钟",
     summary: "用同一张契约图比较普通 REST 与生成式 AI API，识别协议、模型行为、算力、成本和生产可靠性五个测试面。",
     why: "只复用状态码与 JSON 断言，会漏掉模型/Prompt/Schema/Tool 版本、流式阶段、Token 成本、概率行为和服务内部不可见项。",
     prerequisites: ["TD-F04", "TD-PS01"], outcomes: ["区分普通 API 与 AI API 的共同面和新增面", "建立版本 Manifest 与错误分类", "明确供应商内部版本的 UNKNOWN 边界"], artifact: "AI API 测试面、请求 Manifest 与错误分类表",
@@ -199,7 +199,7 @@ const contracts: PageContract[] = [
     completion: ["共同协议与 AI 新增变量分开", "未知供应商内部状态显式为 UNKNOWN", "错误分类能驱动重试或安全失败"], sourceIds: ["S44", "S56", "S57", "S58"], nodes: ["客户端", "HTTP/鉴权", "生成 Manifest", "模型/Prompt/Tool", "Token/成本", "Telemetry", "错误与发布门禁"],
   },
   {
-    id: "TD-A02", moduleId: "TD-M09", title: "AI API 协议：Streaming、Structured、Tool 与 Async", type: "跟做", duration: "60 分钟",
+    id: "TD-A02", moduleId: "TD-M09", title: "AI API 怎么测：流式输出、结构化结果与工具调用", type: "跟做", duration: "60 分钟",
     summary: "用四个状态机分别验证 SSE 流、结构化输出、工具调用和异步任务，避免最终文本掩盖中途失败与真实副作用。",
     why: "流中断、JSON 语义错误、工具重复执行和批任务部分失败，都可能在最终界面看似成功。",
     prerequisites: ["TD-A01"], outcomes: ["验证 SSE 事件顺序和取消", "分开 Schema 与业务语义 Oracle", "证明工具幂等和异步唯一终态"], artifact: "四协议状态机、故障矩阵与重放报告",
@@ -214,7 +214,7 @@ const contracts: PageContract[] = [
     practice: ["画出 SSE 合法与非法序列", "为 Structured 输出补三个业务不变量", "模拟断连重试并用副作用账本证明幂等"], completion: ["四类协议分别有过程 Oracle", "工具结果由真实状态 fixture 验证", "任务只有一个可解释终态"], sourceIds: ["S56", "S57", "S58"], nodes: ["请求", "SSE reducer", "Schema+语义", "Tool 权限/幂等", "Async 状态机", "副作用账本", "协议门禁"],
   },
   {
-    id: "TD-A03", moduleId: "TD-M09", title: "AI Serving 指标：TTFT、TPOT、ITL、Goodput 与单位成功成本", type: "跟做", duration: "55 分钟",
+    id: "TD-A03", moduleId: "TD-M09", title: "AI 服务快不快，应该看哪些指标", type: "跟做", duration: "55 分钟",
     summary: "从时间戳和 Token 事件计算用户体感、生成速度、有效吞吐与成本，并明确分母和切片。",
     why: "总延迟或 GPU 利用率不能区分排队、prefill 与 decode，也会把质量失败、截断和昂贵重试计入成功吞吐。",
     prerequisites: ["TD-A02", "TD-PS09"], outcomes: ["从事件计算 TTFT/TPOT/ITL", "定义质量约束的 Goodput", "计算含失败成本的 cost_per_success"], artifact: "指标公式卡、事件夹具与机器可读报告",
@@ -229,7 +229,7 @@ const contracts: PageContract[] = [
     practice: ["从一条 Token 时间线手算 TTFT/TPOT/ITL", "为聊天与批任务分别写 Goodput 条件", "把失败与重试费用纳入 cost_per_success"], completion: ["公式可由原始事件重算", "Goodput 不含质量或安全失败", "容量与成本结论标明 fixture-only"], sourceIds: ["S51", "S52", "S53", "S54"], nodes: ["到达", "Queue", "Prefill/首 Token", "Decode/ITL", "终态/质量", "Goodput", "成本门禁"],
   },
   {
-    id: "TD-A04", moduleId: "TD-M09", title: "AI Serving 负载与容量：从 Token 分布到 SLO 拐点", type: "跟做", duration: "60 分钟",
+    id: "TD-A04", moduleId: "TD-M09", title: "AI 服务能扛多少负载：从 Token 分布找到容量拐点", type: "跟做", duration: "60 分钟",
     summary: "组合输入/输出 Token、到达率、并发、缓存和质量切片，比较开放/封闭负载并找出 fixture 的 Goodput 拐点。",
     why: "固定 Hello Prompt 和固定并发会在系统变慢时自动降低发送速率，造成 coordinated omission，并掩盖排队和 dropped arrivals。",
     prerequisites: ["TD-A03"], outcomes: ["构建 Token 与场景工作负载", "比较 open/closed 模型", "给出 fixture Goodput 拐点和安全余量"], artifact: "工作负载 Manifest、阶梯实验与容量报告",
@@ -244,7 +244,7 @@ const contracts: PageContract[] = [
     practice: ["构造三类 Token 长度切片", "比较 open/closed 模型在变慢时的发送差异", "找出 fixture 拐点并写安全余量理由"], completion: ["到达守恒可核对", "容量基于 Goodput 而非裸 RPS", "没有将 fixture 数字写成硬件承诺"], sourceIds: ["S51", "S52", "S53"], nodes: ["Workload 分布", "Open/Closed 生成器", "Serving Queue", "Token 执行", "SLO/质量", "Goodput 拐点", "停止/恢复"],
   },
   {
-    id: "TD-A05", moduleId: "TD-M09", title: "AI Serving 瓶颈：Queue、GPU、KV Cache 与阶段诊断", type: "诊断", duration: "55 分钟",
+    id: "TD-A05", moduleId: "TD-M09", title: "定位 AI 服务延迟瓶颈：排队、GPU、KV Cache 与下游依赖", type: "诊断", duration: "55 分钟",
     summary: "沿用户症状、阶段指标、Trace、资源信号和单变量实验定位排队、prefill、decode、KV Cache 或下游瓶颈。",
     why: "“模型慢”不是根因；直接扩 GPU、缩 Prompt 或开缓存，可能只移动瓶颈并让质量或成本变差。",
     prerequisites: ["TD-A04"], outcomes: ["按 TTFT/TPOT 症状分流", "关联 queue/GPU/KV 与请求 Trace", "用单变量实验推翻候选根因"], artifact: "瓶颈诊断树、Trace 对照和实验记录",
@@ -259,7 +259,7 @@ const contracts: PageContract[] = [
     practice: ["为 TTFT 高、TPOT 高和 Agent 慢各画路径", "用 queue 占比和对照实验推翻一个错误根因", "为不可见的托管指标写 UNKNOWN"], completion: ["结论回链到慢请求和阶段证据", "相关性经过单变量实验", "内部指标缺失不被伪造"], sourceIds: ["S51", "S53", "S54", "S55"], nodes: ["用户症状", "Request Trace", "Queue/Prefill/Decode", "GPU/Memory", "KV Cache", "单变量实验", "诊断结论"],
   },
   {
-    id: "TD-A06", moduleId: "TD-M09", title: "AI Serving 韧性：限流、Timeout、Retry、Fallback 与 Degradation", type: "诊断", duration: "60 分钟",
+    id: "TD-A06", moduleId: "TD-M09", title: "AI 服务出错后如何限流、重试和安全降级", type: "诊断", duration: "60 分钟",
     summary: "按错误类别、deadline、次数/时间/Token/成本预算和副作用设计恢复；将 fallback 的质量与安全变化纳入门禁。",
     why: "生成请求昂贵且长尾明显；盲目重试会扩大排队和成本，工具调用可能重复执行，回退模型也会改变格式、质量与安全。",
     prerequisites: ["TD-A05"], outcomes: ["按错误分类重试或拒绝", "验证 deadline 与四类 retry budget", "为 fallback/degradation 设置独立质量 Gate"], artifact: "韧性状态机、故障矩阵与恢复证据",
@@ -274,7 +274,7 @@ const contracts: PageContract[] = [
     practice: ["为 400/401/429/5xx/超时写处理表", "计算一次重试风暴的 call/cost amplification", "为小模型 fallback 写独立质量切片"], completion: ["不可重试错误不会循环", "重试同时受四类预算约束", "回退失败时安全失败或转人工"], sourceIds: ["S46", "S57", "S59"], nodes: ["错误分类", "Deadline", "Retry Budget", "Backoff/Jitter", "幂等账本", "Fallback Gate", "恢复验证"],
   },
   {
-    id: "TD-C01", moduleId: "TD-M10", title: "职业能力迁移：岗位路径、自评证据与作品集边界", type: "项目", duration: "60 分钟",
+    id: "TD-C01", moduleId: "TD-M10", title: "传统测试能力如何映射到 AI Quality 岗位并形成证据", type: "项目", duration: "60 分钟",
     summary: "把传统测试能力映射到 Quality Engineering、AI Eval、开发者生产力和 Reliability/Platform，并用可复验工件完成自评。",
     why: "工具清单和就业口号不能证明能力；职业迁移需要当前基线、目标岗位责任、能力差距、作品证据和明确的非承诺边界。",
     prerequisites: ["TD-A06", "TD-T12"], outcomes: ["选择可组合而非互斥的岗位路径", "完成带证据的能力自评", "设计不夸大成熟度的作品集"], artifact: "岗位路径图、能力自评 JSON、90 天计划与作品集证据表",

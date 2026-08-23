@@ -187,7 +187,7 @@ const makePage = (spec: GapSpec): TutorialPage => {
 
 const specs: GapSpec[] = [
   {
-    id: "TD-X602", moduleId: "TD-M05", title: "训练、Fine-tuning 与模型更新的版本化验收", prerequisites: ["TD-Q10"],
+    id: "TD-X602", moduleId: "TD-M05", title: "模型更新怎么验收：锁定数据、训练配置和回滚目标", prerequisites: ["TD-Q10"],
     summary: "把训练数据、基座、代码、超参、holdout、候选模型和回滚目标锁进同一 lineage，再比较关键切片。",
     why: "只记录最终模型名无法复现实验；训练污染、数据许可、灾难性遗忘和回滚缺口会被一个平均分掩盖。",
     outcomes: ["建立训练运行与模型候选 lineage", "封存 holdout 并检测污染", "用版本漂移 mutation 验证阻断与回滚"],
@@ -206,7 +206,7 @@ const specs: GapSpec[] = [
     sources: ["S24","S40","S65","S66"], boundary: "10 个 opened 来源、双 research run 与确定性 0→1→0 支持工程合同；训练、模型调用、许可审查、从业者复核和生产收益 NOT_RUN。",
   },
   {
-    id: "TD-X101", moduleId: "TD-M00", title: "静态、架构、代码与依赖供应链门禁", prerequisites: ["TD-F04"],
+    id: "TD-X101", moduleId: "TD-M00", title: "代码合并前，如何用架构和供应链证据做门禁", prerequisites: ["TD-F04"],
     summary: "把 diff、架构边界、SBOM、provenance、签名、扫描发现与例外 owner 连成可审计合并门禁。",
     why: "零告警只代表已配置规则没有发现；语言盲区、私有依赖、未签名工件和过期例外仍可能存在。",
     outcomes: ["区分代码、架构与供应链证据", "为 critical 发现绑定 owner 和例外期限", "注入未签名依赖验证 fail-closed"],
@@ -225,7 +225,7 @@ const specs: GapSpec[] = [
     sources: ["S08","S41","S50","S64"], boundary: "10 个 opened 来源与 0→1→0 支持离线供应链合同；真实构建、漏洞利用、安全审计和生产风险 NOT_RUN。",
   },
   {
-    id: "TD-X501", moduleId: "TD-M03", title: "多模态关系与独立 Oracle 评测", prerequisites: ["TD-L03"],
+    id: "TD-X501", moduleId: "TD-M03", title: "多模态回答是否可信：验证跨模态关系与独立 Oracle", prerequisites: ["TD-L03"],
     summary: "验证图文、音画或视频时序之间的关系，在矛盾、缺模态和拒答场景中保留原始工件与人工复核。",
     why: "分别得到高单模态分数，不代表跨模态指代、时序和语义一致；同一模型描述图片再自评会复制偏差。",
     outcomes: ["建立配对模态 fixture 与关系 Oracle", "注入跨模态矛盾", "区分自动关系检查与人工语义判断"],
@@ -244,7 +244,7 @@ const specs: GapSpec[] = [
     sources: ["S23","S36","S37","S65"], boundary: "10 个 opened 来源与合成跨模态 fault 支持合同；真实设备、模型、标注者、污染与生产体验 NOT_RUN。",
   },
   {
-    id: "TD-X502", moduleId: "TD-M03", title: "多语言、可访问与包容性 AI 任务验收", prerequisites: ["TD-X501"],
+    id: "TD-X502", moduleId: "TD-M03", title: "多语言 AI 能否完成真实任务：从语言区域到可访问性", prerequisites: ["TD-X501"],
     summary: "从真实用户任务建立 locale、script、RTL、键盘、可访问名称和翻译语义矩阵，拒绝英文平均分外推。",
     why: "翻译文本存在不等于任务能完成；多数语言均值会掩盖关键 locale、键盘路径和屏幕阅读阻断。",
     outcomes: ["建立 locale 与辅助技术任务矩阵", "分开语言等价和交互可达性", "注入 locale/键盘/名称缺口"],
@@ -263,7 +263,7 @@ const specs: GapSpec[] = [
     sources: ["S23","S62","S65","S90"], boundary: "10 个 opened 来源与离线门禁支持合同；真实用户、辅助技术设备、文化伤害、法律和包容性结论 NOT_RUN。",
   },
   {
-    id: "TD-X601", moduleId: "TD-M05", title: "公平、伤害与 HITL 有效性门禁", prerequisites: ["TD-X502"],
+    id: "TD-X601", moduleId: "TD-M05", title: "公平与人工复核不是口号：怎样做成可审计门禁", prerequisites: ["TD-X502"],
     summary: "把群体切片、最坏结果、伤害 blocker、独立人工样本、override 与申诉效果连成可审计控制。",
     why: "一个平均公平分和流程图上的人工步骤，都不能证明严重伤害被发现或人工有权限改变结果。",
     outcomes: ["定义合法切片和伤害模型", "检验 HITL 的独立性、覆盖与权力", "阻断 aggregate-only 和自评故障"],
@@ -282,7 +282,7 @@ const specs: GapSpec[] = [
     sources: ["S07","S23","S40","S65"], boundary: "10 个 opened 来源与合成切片 fault 支持控制形状；受保护数据合法性、因果公平、真实伤害、专业复核和生产效果 NOT_RUN。",
   },
   {
-    id: "TD-X603", moduleId: "TD-M04", title: "长期 Memory、个性化与语义缓存治理", prerequisites: ["TD-A17"],
+    id: "TD-X603", moduleId: "TD-M04", title: "长期 Memory 会记错什么：个性化、隔离与删除治理", prerequisites: ["TD-A17"],
     summary: "用同意、目的、用户隔离、TTL、版本、删除回执和缓存失效防止跨用户泄露与陈旧个性化。",
     why: "相似答案不证明缓存可用；长期记忆一旦缺少主体、目的和删除传播，就可能泄露用户数据并固化旧模型行为。",
     outcomes: ["建立 Memory 生命周期与同意合同", "验证用户/租户隔离和删除回执", "注入跨用户陈旧缓存故障"],
@@ -301,7 +301,7 @@ const specs: GapSpec[] = [
     sources: ["S35","S49","S65","S66"], boundary: "10 个 opened 来源与离线隔离 fault 支持合同；真实隐私法律、用户同意、存储系统、删除传播与生产漂移 NOT_RUN。",
   },
   {
-    id: "TD-X604", moduleId: "TD-M04", title: "模型路由、Fallback 与工具协议漂移测试", prerequisites: ["TD-A20"],
+    id: "TD-X604", moduleId: "TD-M04", title: "模型或工具切换后，哪些契约必须重新验证", prerequisites: ["TD-A20"],
     summary: "每次模型、Provider、MCP server 或工具 fallback 都重新检查能力、区域、权限、Schema、幂等和副作用。",
     why: "把 fallback 当简单重试会静默降低结构化输出、上下文、数据区域和工具权限，并可能重复不可逆动作。",
     outcomes: ["建立能力/权限/协议路由合同", "检测 Schema 漂移和不安全 fallback", "验证副作用不会因重试重复"],
@@ -320,7 +320,7 @@ const specs: GapSpec[] = [
     sources: ["S39","S48","S49","S65"], boundary: "10 个 opened 来源与合成协议 fault 支持合同；真实 Provider、容量、区域合规、MCP server 和生产副作用 NOT_RUN。",
   },
   {
-    id: "TD-X805", moduleId: "TD-M05", title: "在线实验、Canary 与人工抽样发布门禁", prerequisites: ["TD-X604"],
+    id: "TD-X805", moduleId: "TD-M05", title: "从离线评测到 Canary：怎样安全地渐进发布", prerequisites: ["TD-X604"],
     summary: "用稳定分流、离线 blocker、小流量 guardrail、最坏切片、代表性人工样本和预置回滚控制渐进发布。",
     why: "总体 KPI 尚未变化不代表安全；分流污染、少数切片退化和只抽成功样本会让 Canary 给出假绿。",
     outcomes: ["建立稳定分流与预置回滚", "区分收益指标和 guardrail", "注入分流/guardrail/抽样故障"],

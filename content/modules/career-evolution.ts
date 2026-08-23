@@ -68,7 +68,7 @@ type CareerContract = {
 const contracts: CareerContract[] = [
   {
     id: "TD-C02",
-    title: "测试开发责任证据阶梯",
+    title: "职业成长不看年限：用责任和证据判断能力层级",
     type: "概念",
     duration: "50 分钟",
     summary: "把职业成长从年限和头衔改写为四种可观察的责任状态，并为每个状态绑定决策权、工件、故障和复评者。",
@@ -93,7 +93,7 @@ const contracts: CareerContract[] = [
   },
   {
     id: "TD-C03",
-    title: "能力自评与 30/60/90 天证据计划",
+    title: "把能力自评变成 30/60/90 天证据计划",
     type: "跟做",
     duration: "60 分钟",
     summary: "把自评表变成可复验的 JSON：每个能力主张都绑定证据、缺口路由、下一件工件和复评日期。",
@@ -118,7 +118,7 @@ const contracts: CareerContract[] = [
   },
   {
     id: "TD-C04",
-    title: "组织职级适配：P5–P9 能力映射",
+    title: "如何把公共能力模型映射到组织职级",
     type: "参考",
     duration: "40 分钟",
     summary: "学习如何把公共责任状态映射到具体组织的 band、岗位名称和阈值；没有组织来源时保持 INTERNAL-UNKNOWN。",
@@ -143,7 +143,7 @@ const contracts: CareerContract[] = [
   },
   {
     id: "TD-F05",
-    title: "AI 任务族与指标选择",
+    title: "面对不同 AI 任务，指标应该怎么选",
     type: "参考",
     duration: "55 分钟",
     summary: "用任务、人口、失败成本和 Oracle 选择指标；避免把 F1、Recall@k、ROUGE、延迟或 QPS 当成万能答案。",
@@ -168,7 +168,7 @@ const contracts: CareerContract[] = [
   },
   {
     id: "TD-T26",
-    title: "AI 测试用例生成提效与 Mutation 验证",
+    title: "用 Mutation 和对照实验验证 AI 生成测试是否真正提效",
     type: "项目",
     duration: "75 分钟",
     summary: "建立 baseline/control 与 AI candidate 对照，用编译、运行、Mutation、人工接受率、时间、成本和缺陷产出来验证真正提效。",
@@ -193,7 +193,7 @@ const contracts: CareerContract[] = [
   },
   {
     id: "TD-R01",
-    title: "资源与任务入口索引",
+    title: "AI 测试资源怎么选：用途、版本和替代路径索引",
     type: "参考",
     duration: "35 分钟",
     summary: "把书籍、课程、平台、框架和论文整理成带版本、检查日期、用途、限制与替代路径的资源索引。",
