@@ -269,7 +269,7 @@ const content: Record<string, DeepPageContent> = {
       ]
     },
     "archref": {
-      "title": "这张图的 7 个节点，本页各交付什么",
+      "title": "架构节点与交付物",
       "intro": [
         "这张图的关键设计是 webhook 与 REST 回读并存：webhook 只用来触发，事实一律以回读为准。把 webhook 当事实来源是这类集成最常见的错误。",
         "「Basis Gate/Source Pack」是本页的枢纽——它决定了 AI 拿到的依据是不是冻结且带版本的。"
@@ -363,7 +363,7 @@ const content: Record<string, DeepPageContent> = {
       }
     },
     "gate": {
-      "title": "这一页的出口判据",
+      "title": "完成标准与停止条件",
       "intro": [
         "这道门禁作用在 AI 产出进入执行之前。放到执行之后就失去意义——错误的依据已经变成了错误的动作。",
         "第三段要接受的是自动化范围：哪些动作可以由编排器直接执行、哪些必须人工批准，是权限决策不是技术决策。"
@@ -387,7 +387,7 @@ const content: Record<string, DeepPageContent> = {
   },
   "TD-QP02": {
     "failure": {
-      "title": "旧 SHA 的绿色 Pipeline 不能放行当前 MR",
+      "title": "常见失效方式：旧 SHA 的绿色 Pipeline 不能放行当前 MR",
       "intro": [
         "Pipeline、JUnit 和 status 必须绑定同一个 current SHA；局部绿灯跨版本传播会让质量门禁失去意义。",
         "先回读 MR HEAD，再聚合报告和 artifact，缺任何绑定都停在 BLOCKED。"
@@ -643,7 +643,7 @@ const content: Record<string, DeepPageContent> = {
       ]
     },
     "archref": {
-      "title": "这张图的 7 个节点，本页各交付什么",
+      "title": "架构节点与交付物",
       "intro": [
         "这张图的每个节点都绑在同一个 commit SHA 上。一旦某个环节的结论没有绑 SHA，它就可能被用来给另一份代码放行。",
         "「确定性聚合器」必须 fail-closed：报告缺失、格式异常、suite 数量对不上，一律判失败而不是跳过。"
@@ -737,7 +737,7 @@ const content: Record<string, DeepPageContent> = {
       }
     },
     "gate": {
-      "title": "这一页的出口判据",
+      "title": "完成标准与停止条件",
       "intro": [
         "这道门禁守的是「绿灯确实属于这份代码」。它不评价代码质量，只保证结论与对象的对应关系没有断。",
         "第三段要接受的是状态到达延迟：从流水线完成到状态写回总有窗口，这段时间的合并策略需要显式决定。"
@@ -761,7 +761,7 @@ const content: Record<string, DeepPageContent> = {
   },
   "TD-QP03": {
     "failure": {
-      "title": "共享临时环境会把隔离问题变成平台事故",
+      "title": "常见失效方式：共享临时环境会把隔离问题变成平台事故",
       "intro": [
         "namespace、RBAC、NetworkPolicy、Quota 和 cleanup 必须同时成立；只看到 Pod Running 不代表测试环境安全。",
         "先验证身份和边界，再执行测试，最后按 owner/TTL 回收并复核审计。"
@@ -803,19 +803,19 @@ const content: Record<string, DeepPageContent> = {
       "rows": [
         [
           "短生命周期 namespace",
-          "为一次运行创建、用完即销毁的隔离单元"
+          "给一次 MR 临时创建的独立房间；测试结束就销毁，避免和其他变更互相污染"
         ],
         [
           "ResourceQuota",
-          "限制这套环境能占用的资源上限；防止一次失控拖垮集群"
+          "给这个临时房间规定 CPU、内存等资源上限，防止一次失控拖垮整个集群"
         ],
         [
           "NetworkPolicy",
-          "限制它能访问什么；防止测试环境打到生产依赖"
+          "规定这个环境可以访问哪些网络目标，避免测试流量误打到生产依赖"
         ],
         [
           "TTL",
-          "到期自动回收；没有它，被遗忘的环境会持续计费"
+          "环境的自动过期时间；到点回收，避免被遗忘的环境持续占资源和费用"
         ]
       ],
       "refs": [
@@ -1033,7 +1033,7 @@ const content: Record<string, DeepPageContent> = {
       ]
     },
     "archref": {
-      "title": "这张图的 7 个节点，本页各交付什么",
+      "title": "架构节点与交付物",
       "intro": [
         "这张图描述一次临时测试环境的完整生命周期：申请、创建、限权、运行、回收。它的每一段都可能变成一个长期不被发现的资源与权限缺口。",
         "「TTL/Stop/Cleanup Worker」是最容易被省略也最容易积累成本的一节——没有强制回收的临时环境不会临时。"
@@ -1127,7 +1127,7 @@ const content: Record<string, DeepPageContent> = {
       }
     },
     "gate": {
-      "title": "这一页的出口判据",
+      "title": "完成标准与停止条件",
       "intro": [
         "这道门禁同时守安全与成本。它们看起来是两件事，实际由同一组配置决定：权限、配额、TTL。",
         "第三段要接受的是环境保真度：临时环境与生产总有差距，哪些差异可以接受需要明确。"
@@ -1151,7 +1151,7 @@ const content: Record<string, DeepPageContent> = {
   },
   "TD-QP04": {
     "failure": {
-      "title": "重复事件与部分成功需要两本账",
+      "title": "常见失效方式：重复事件与部分成功需要两本账",
       "intro": [
         "跨系统通知可能重复、乱序或响应丢失；只重试 HTTP 请求不能证明远端副作用恰好一次。",
         "Inbox 记录接收事实，Outbox 记录发送意图，adapter receipt 与对账任务共同决定是否可恢复。"
@@ -1424,7 +1424,7 @@ const content: Record<string, DeepPageContent> = {
       ]
     },
     "archref": {
-      "title": "这张图的 7 个节点，本页各交付什么",
+      "title": "架构节点与交付物",
       "intro": [
         "这张图把三个上游系统接进同一个状态机。跨系统集成的失败几乎都来自同三件事：重复、丢失、状态不一致。",
         "「Reconciliation/Trace/审计 Sink」是收口节点——它承认前面的机制一定会漏，因此需要一次周期性对账来兜底。"
@@ -1518,7 +1518,7 @@ const content: Record<string, DeepPageContent> = {
       }
     },
     "gate": {
-      "title": "这一页的出口判据",
+      "title": "完成标准与停止条件",
       "intro": [
         "这道门禁守的是跨系统一致性。它无法保证不出现不一致，能保证的是不一致会被发现并被修复。",
         "第三段要接受的是最终一致性窗口：三个系统之间总有状态延迟，这个窗口需要被明确而不是被假装不存在。"
@@ -1799,7 +1799,7 @@ const content: Record<string, DeepPageContent> = {
       ]
     },
     "failure": {
-      "title": "Capstone 最容易变成一次演示，而不是一次可被复核的交付",
+      "title": "常见失效方式：Capstone 最容易变成一次演示，而不是一次可被复核的交付",
       "intro": [
         "把前面所有模块串起来跑通一遍并不难。难的是让别人拿到你的产物之后，能独立判断它证明了什么、没证明什么。"
       ],
@@ -1830,7 +1830,7 @@ const content: Record<string, DeepPageContent> = {
       }
     },
     "archref": {
-      "title": "这张图的 7 个节点，本页各交付什么",
+      "title": "架构节点与交付物",
       "intro": [
         "这张图是全课程的收口：从需求与风险出发，经数据、提示、判据、基准、性能，最后到发布候选与人工门禁。",
         "每个节点都对应前面某个模块的产物。Capstone 的工作不是重做它们，是把它们接成一条可复核的链。"
@@ -1924,7 +1924,7 @@ const content: Record<string, DeepPageContent> = {
       }
     },
     "gate": {
-      "title": "这一页的出口判据",
+      "title": "完成标准与停止条件",
       "intro": [
         "这是全课程的出口门禁。它判断的不是你学会了多少，而是你交出的那份东西别人能不能用、能不能查。",
         "第三段是 Capstone 真正的产物：一份说清楚「这证明了什么、没证明什么」的签字记录。"

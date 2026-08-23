@@ -108,7 +108,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "archref": {
-      "title": "这张图的 8 个节点，本页各交付什么",
+      "title": "架构节点与交付物",
       "intro": [
         "这张图从业务决策问题出发而不是从「写什么指令」出发。先知道要回答什么问题，才谈得上判断输出好不好。",
         "「Eval·Mutation Oracle」是把这个包变成可验收对象的关键：没有它，Prompt 只是一段祈使句。"
@@ -210,7 +210,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "gate": {
-      "title": "这一页的出口判据",
+      "title": "完成标准与停止条件",
       "intro": [
         "这道门禁很轻，但它是整门课后续所有 AI 使用的前提：一个不完整的 Prompt 包，其产出无法被验收也无法被改进。",
         "第三段要接受的是模型输出的非确定性——包完整不代表输出一定对，它只保证你能判断对不对。"

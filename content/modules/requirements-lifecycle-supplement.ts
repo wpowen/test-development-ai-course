@@ -13,7 +13,7 @@ import { EMPTY_DEEP_BLOCKS, renderSupplement, type DeepBlocks, type DeepSuppleme
 const content: Record<string, DeepSupplement> = {
   "TD-F01": {
     "failure": {
-      "title": "把测试开发定义成「找 Bug」，AI 一进来就会取代你",
+      "title": "常见失效方式：把测试开发定义成「找 Bug」，AI 一进来就会取代你",
       "intro": [
         "本页是 profession-baseline / 入口评估：证明进入 AI 课之前具备传统测试职业定义。它不是 AI 原生课；反事实门禁下拿掉 AI 后中心问题仍然成立。如果这份工作的定义是执行用例、提交缺陷，那么它确实是最容易被自动化的那一类。"
       ],
@@ -107,7 +107,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "archref": {
-      "title": "这张图的 9 个节点，本页各交付什么",
+      "title": "架构节点与交付物",
       "intro": [
         "这张图是整门课的骨架：从需求规则一路到生产反馈，中间每一站都有一个必须回答的问题和一个具名负责人。",
         "本页不展开每一站的做法，它做的是定位——让你知道自己现在站在哪一站、能负责到哪一步。"
@@ -214,7 +214,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "gate": {
-      "title": "这一页的出口判据",
+      "title": "完成标准与停止条件",
       "intro": [
         "这道门禁在整门课的最前面，它拦的不是技术问题，而是「不知道自己在负责什么」这个更基础的问题。",
         "第三段在这里是自我确认：当前能负责到哪一站，以及下一站需要什么证据。"
@@ -326,7 +326,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "archref": {
-      "title": "这张图的 7 个节点，本页各交付什么",
+      "title": "架构节点与交付物",
       "intro": [
         "这张图是 TD-P01 到 TD-P08 共用的一条生命周期。八页走的是同一条路，区别在于每一页负责其中的哪一段。",
         "本页负责最上游的一段：把依据冻结下来，并让冲突显式可见。上游脏了，后面七站都在处理脏数据。"
@@ -423,7 +423,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "gate": {
-      "title": "这一页的出口判据",
+      "title": "完成标准与停止条件",
       "intro": [
         "这道门禁在整条生命周期的最上游，它的成本最低、收益最高：一次冻结通常只要几十分钟，而依据错误会污染其后每一步。",
         "第三段要接受的是依据的不完整——总有一部分信息只存在于某个人脑子里，这部分要被显式登记而不是被假设。"
@@ -541,7 +541,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "archref": {
-      "title": "这张图的 7 个节点，本页各交付什么",
+      "title": "架构节点与交付物",
       "intro": [
         "这张图与其余生命周期页不同：它单列了 Prompt、Schema、Eval 与 Mutation，因为本页要生成的是结构化契约而不是散文。",
         "「Mutation Runner」用来证明这套契约校验真的会红——否则它只是一个格式检查器。"
@@ -638,7 +638,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "gate": {
-      "title": "这一页的出口判据",
+      "title": "完成标准与停止条件",
       "intro": [
         "这道门禁把「需求评审」变成可机器检查的一部分：四要素齐不齐、能不能追溯，这两件事不需要人来判断。",
         "第三段留给语义：条款写全了不代表理解对了，语义正确性只能由业务方确认。"
@@ -756,7 +756,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "archref": {
-      "title": "这张图的 7 个节点，本页各交付什么",
+      "title": "架构节点与交付物",
       "intro": [
         "同一张图，本页负责把技术文档转成可测试契约——重点在状态机与失败恢复，而不是接口列表。",
         "接口通常写得最详细，也最容易被完整提取；状态与恢复往往只有几行，却是缺陷集中的地方。"
@@ -853,7 +853,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "gate": {
-      "title": "这一页的出口判据",
+      "title": "完成标准与停止条件",
       "intro": [
         "这道门禁拦的是「只测了文档里写得最详细的那部分」。技术文档的详略程度与缺陷分布并不一致。",
         "第三段要接受的是文档缺失：有些状态与恢复行为只存在于代码里，这部分需要显式登记为待补。"
@@ -877,7 +877,7 @@ const content: Record<string, DeepSupplement> = {
   },
   "TD-P04": {
     "failure": {
-      "title": "风险策略缺位时，测试量会均匀分布在所有地方",
+      "title": "常见失效方式：风险策略缺位时，测试量会均匀分布在所有地方",
       "intro": [
         "本页是 profession-baseline / 入口评估：按失败成本排序测试投入。它不是 AI 原生课；拿掉 AI 后风险分层仍然成立。没有排序时最自然的做法是平均用力，而失败成本从来不是均匀的。"
       ],
@@ -971,7 +971,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "archref": {
-      "title": "这张图的 7 个节点，本页各交付什么",
+      "title": "架构节点与交付物",
       "intro": [
         "同一张图，本页负责从契约推导风险，并决定每条风险在哪一层测。",
         "这一站不增加工作量，它改变工作量的分布——把投入从平均分配改成按失败成本分配。"
@@ -1068,7 +1068,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "gate": {
-      "title": "这一页的出口判据",
+      "title": "完成标准与停止条件",
       "intro": [
         "这道门禁决定了测试投入花在哪里。它不增加工作量，它改变工作量的分布。",
         "第三段是风险策略的实质：哪些风险决定不测，以及谁承担这个决定。"
@@ -1092,7 +1092,7 @@ const content: Record<string, DeepSupplement> = {
   },
   "TD-P05": {
     "failure": {
-      "title": "先让 AI 生成用例再补判据，你会得到一套自洽但无效的测试",
+      "title": "常见失效方式：先让 AI 生成用例再补判据，你会得到一套自洽但无效的测试",
       "intro": [
         "本页是 profession-baseline / 入口评估：独立 Oracle 必须先于用例生成。它不是 AI 原生课；拿掉 AI 后「同源判据没有检测力」仍然成立。如果判据由生成用例的同一次调用产出，用例和期望一定自洽，也发现不了实现缺陷。"
       ],
@@ -1105,12 +1105,12 @@ const content: Record<string, DeepSupplement> = {
         "rows": [
           [
             "判据由生成过程产出",
-            "同源判据的变异杀伤率显著低于独立判据；这类用例对实现缺陷的检出能力接近 0",
+            "独立 Oracle 数 = 0 时不能证明检测力；至少补 1 个独立判据，并用 Mutation 测量杀伤率",
             "「生成了 200 条用例且全部通过」被当成质量证据"
           ],
           [
             "从当前实现反推期望值",
-            "以实现为准的判据会把现有缺陷固化为期望；此后该缺陷的检出概率为 0",
+            "expected_source 指向被测实现时，独立来源数 = 0；该用例不能作为检测力证据",
             "回归套件从此以当前行为为准，失去发现回归的能力"
           ],
           [
@@ -1192,7 +1192,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "archref": {
-      "title": "这张图的 7 个节点，本页各交付什么",
+      "title": "架构节点与交付物",
       "intro": [
         "同一张图，本页负责在生成用例之前把判据固定下来。",
         "顺序是本页的全部内容：判据必须先于生成，且来源独立于被测实现，否则用例与期望同源。"
@@ -1289,7 +1289,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "gate": {
-      "title": "这一页的出口判据",
+      "title": "完成标准与停止条件",
       "intro": [
         "这道门禁是 AI 参与测试生成的前置条件。判据没固定就开始生成，后面所有产出都不可信。",
         "第三段要接受的是判据的不完整：不是所有期望都能写成断言，写不出来的部分必须显式交给人工。"
@@ -1313,7 +1313,7 @@ const content: Record<string, DeepSupplement> = {
   },
   "TD-P06": {
     "failure": {
-      "title": "把所有验证都堆在 E2E，套件会同时变慢和变脆",
+      "title": "常见失效方式：把所有验证都堆在 E2E，套件会同时变慢和变脆",
       "intro": [
         "本页是 profession-baseline / 入口评估：测试分层。它不是 AI 原生课；拿掉 AI 后「把规则堆在 E2E」仍然是错误策略。E2E 能测的最多，也最慢、最脆、定位最贵。"
       ],
@@ -1407,7 +1407,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "archref": {
-      "title": "这张图的 7 个节点，本页各交付什么",
+      "title": "架构节点与交付物",
       "intro": [
         "同一张图，本页负责把测试包接到自动化，并决定同一条规则落在哪一层。",
         "原则是「能形成独立 Oracle 就不扩大范围」：同一条规则应落在能够完整验证它的最低层，并用目标代码库实测定位成本。"
@@ -1504,7 +1504,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "gate": {
-      "title": "这一页的出口判据",
+      "title": "完成标准与停止条件",
       "intro": [
         "这道门禁保护的是套件的长期可用性。分层不合理的套件在半年后会因为太慢太脆而被绕过。",
         "第三段要接受的是分层带来的实现成本：低层验证需要更好的可测试性设计，这不是免费的。"
@@ -1528,7 +1528,7 @@ const content: Record<string, DeepSupplement> = {
   },
   "TD-P07": {
     "failure": {
-      "title": "一次绿色结果，需要的证据比你以为的多",
+      "title": "常见失效方式：一次绿色结果，需要的证据比你以为的多",
       "intro": [
         "本页是 profession-baseline / 入口评估：可重放执行与失败归因。它不是 AI 原生课；拿掉 AI 后 Run Manifest 仍然是证据。绿色结果至少要回答：哪个版本、什么判据、失败能否定位。"
       ],
@@ -1622,7 +1622,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "archref": {
-      "title": "这张图的 7 个节点，本页各交付什么",
+      "title": "架构节点与交付物",
       "intro": [
         "同一张图，本页负责执行与归因——把一次运行变成一份别人可以复核的记录。",
         "「跑通了」不是结论，可重放的 Run Manifest 加上失败归因才是。"
@@ -1719,7 +1719,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "gate": {
-      "title": "这一页的出口判据",
+      "title": "完成标准与停止条件",
       "intro": [
         "这道门禁把「测试通过」变成一份可以被别人复核的记录，而不是一句口头结论。",
         "第三段要接受的是长期无法归因的失败——它们的存在是正常的，把它们藏起来才不正常。"
@@ -1743,7 +1743,7 @@ const content: Record<string, DeepSupplement> = {
   },
   "TD-P08": {
     "failure": {
-      "title": "发布判断如果没有具名的人，事故时就没有人有权决定",
+      "title": "常见失效方式：发布判断如果没有具名的人，事故时就没有人有权决定",
       "intro": [
         "本页是 profession-baseline / 入口评估：具名发布责任。它不是 AI 原生课；拿掉 AI 后「没有签字的人就没有发布」仍然成立。它交付的不是一句结论，而是依据到决定的证据链和一个签字的人。"
       ],
@@ -1837,7 +1837,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "archref": {
-      "title": "这张图的 7 个节点，本页各交付什么",
+      "title": "架构节点与交付物",
       "intro": [
         "同一张图，本页是它的出口：把前七站的产物汇总成一条可审计的证据链。",
         "这一站交付的不是一个结论，而是一条从依据 hash 到发布签字的完整链路，以及一个具名的人。"
@@ -1934,7 +1934,7 @@ const content: Record<string, DeepSupplement> = {
       ]
     },
     "gate": {
-      "title": "这一页的出口判据",
+      "title": "完成标准与停止条件",
       "intro": [
         "这是整条生命周期的出口门禁，它汇总前七站的结论并要求一个签字的人。",
         "第三段在这一页是全部的重点：发布从来不是「没有问题」，而是「已知问题在知情前提下被接受」。"

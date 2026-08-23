@@ -168,7 +168,7 @@ const contracts: CareerContract[] = [
   },
   {
     id: "TD-T26",
-    title: "用 Mutation 和对照实验验证 AI 生成测试是否真正提效",
+    title: "AI 生成的测试是否真的提效：用 Mutation 和对照实验验证",
     type: "项目",
     duration: "75 分钟",
     summary: "建立 baseline/control 与 AI candidate 对照，用编译、运行、Mutation、人工接受率、时间、成本和缺陷产出来验证真正提效。",

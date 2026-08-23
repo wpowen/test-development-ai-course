@@ -183,7 +183,7 @@ const wave3Extra: Record<string, string[]> = {
 
 const contracts: PageContract[] = [
   {
-    id: "TD-A01", moduleId: "TD-M09", title: "普通 API 和 AI API 的测试重点为什么不同", type: "概念", duration: "45 分钟",
+    id: "TD-A01", moduleId: "TD-M09", title: "普通 API 与 AI API 的测试重点有什么不同", type: "概念", duration: "45 分钟",
     summary: "用同一张契约图比较普通 REST 与生成式 AI API，识别协议、模型行为、算力、成本和生产可靠性五个测试面。",
     why: "只复用状态码与 JSON 断言，会漏掉模型/Prompt/Schema/Tool 版本、流式阶段、Token 成本、概率行为和服务内部不可见项。",
     prerequisites: ["TD-F04", "TD-PS01"], outcomes: ["区分普通 API 与 AI API 的共同面和新增面", "建立版本 Manifest 与错误分类", "明确供应商内部版本的 UNKNOWN 边界"], artifact: "AI API 测试面、请求 Manifest 与错误分类表",
@@ -214,7 +214,7 @@ const contracts: PageContract[] = [
     practice: ["画出 SSE 合法与非法序列", "为 Structured 输出补三个业务不变量", "模拟断连重试并用副作用账本证明幂等"], completion: ["四类协议分别有过程 Oracle", "工具结果由真实状态 fixture 验证", "任务只有一个可解释终态"], sourceIds: ["S56", "S57", "S58"], nodes: ["请求", "SSE reducer", "Schema+语义", "Tool 权限/幂等", "Async 状态机", "副作用账本", "协议门禁"],
   },
   {
-    id: "TD-A03", moduleId: "TD-M09", title: "AI 服务快不快，应该看哪些指标", type: "跟做", duration: "55 分钟",
+    id: "TD-A03", moduleId: "TD-M09", title: "AI 服务性能怎么看：延迟、吞吐和成本指标怎么选", type: "跟做", duration: "55 分钟",
     summary: "从时间戳和 Token 事件计算用户体感、生成速度、有效吞吐与成本，并明确分母和切片。",
     why: "总延迟或 GPU 利用率不能区分排队、prefill 与 decode，也会把质量失败、截断和昂贵重试计入成功吞吐。",
     prerequisites: ["TD-A02", "TD-PS09"], outcomes: ["从事件计算 TTFT/TPOT/ITL", "定义质量约束的 Goodput", "计算含失败成本的 cost_per_success"], artifact: "指标公式卡、事件夹具与机器可读报告",

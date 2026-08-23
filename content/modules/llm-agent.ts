@@ -27,7 +27,7 @@ type TopicSpec = {
 
 const specs: TopicSpec[] = [
   {
-    id: "TD-T13", moduleId: "TD-M03", title: "公平比较 Prompt、模型和知识库版本", type: "跟做", duration: "55 分钟",
+    id: "TD-T13", moduleId: "TD-M03", title: "如何公平比较 Prompt、模型和知识库版本", type: "跟做", duration: "55 分钟",
     summary: "在同一数据集、同一评分协议和同一运行预算下比较候选版本，判断变化是否真实来自 Prompt、模型或知识库。",
     why: "同时更换模型、Prompt 和索引后看到分数上涨，无法知道改进来自哪里，也无法安全回滚。",
     prerequisites: ["TD-T12"], outcomes: ["设计单变量 A/B 实验", "锁定数据、参数、工具和评分版本", "按风险切片作出发布或拒绝决定"], artifact: "AI 候选版本 A/B 对比报告",
@@ -293,6 +293,18 @@ const wave5Buffer: Record<string, TutorialBlock> = {
   "TD-T18": { title: "T18 最后一步", body: ["把页面观察、业务状态、变异结果和人工批准分栏保存，未杀死变异的脚本不进入回归。迁移时还要保留同一 risk_id 与状态版本，才能比较修复前后的检测力。"] },
   "TD-W02": { title: "W02 最后一步", body: ["把事件状态、权限范围、幂等结果、预算停止和人工接管分栏保存，缺一项就不称恢复成功。迁移时还要保留 checkpoint 版本和 owner 责任，才能让下一位值班人员安全接手。"] },
 };
+const practiceByPage: Record<string, [string, string, string]> = {
+  "TD-T13": ["锁定同一数据集、评分器和预算，只更换 Prompt 运行一次 A/B", "故意同时更换模型和索引，确认报告标记 confounded", "按退款高风险切片决定发布、分流或回退"],
+  "TD-T14": ["准备含顺序翻转、冗长干扰和事实错误的 Judge 校准对", "让两名人工独立标注并比较人人、人机分歧", "为事实、安全和权限分歧写人工升级规则"],
+  "TD-T15": ["把退款 Agent 的 Trace 分别标成 outcome、step 和 trajectory 三层", "注入一次禁止的 refund_order 调用，确认 step 层变红", "写出一条合法替代路径，验证评测不会只认唯一黄金轨迹"],
+  "TD-T16": ["在沙箱分别运行合法查询、未认证退款和金额越界请求", "核对 policy_version、拒绝原因和 write_count=0", "为一个新工具写最小权限、审批条件和幂等键"],
+  "TD-T17": ["把间接注入放进知识文档并回放攻击集", "检查跨租户读取、敏感字段输出和工具写入是否分别被阻断", "记录仍未覆盖的编码、供应链和真实权限路径"],
+  "TD-T18": ["运行浏览器基线并保存页面、网络和后端状态证据", "把后端状态改成 auto_refunded，确认测试因业务 Oracle 失败", "审查 healer diff，拒绝删除状态断言或修改 expected"],
+  "TD-T19": ["分别制造纯 DOM 改名和业务按钮交换两类失败", "对照 healer diff 判断可自动修改、需审批和必须拒绝的内容", "修复后重放原业务 Mutation，确认检测力没有下降"],
+  "TD-W01": ["把退款系统画成固定 Workflow、Agent 和异步 Worker 三段", "标出每一步由代码、模型还是人工决定，以及状态存在哪里", "为三类组件分别选择分支覆盖、不变量、幂等和攻击测试"],
+  "TD-W02": ["注入 write-after-crash 并重放同一 message_id", "核对 checkpoint、幂等账本和业务写入次数是否仍为 1", "移除终止信号，确认次数、时间、Token 或成本预算能停止流程"],
+  "TD-W03": ["用同一模型、工具、任务和预算运行单 Agent 与多 Agent 对照", "重复运行并记录成功率、成本、延迟、冲突和人工升级", "根据同预算结果决定保留多 Agent、缩小范围或退回单 Agent"],
+};
 const buildLlmAgentPage = (spec: TopicSpec, index: number): TutorialPage => {
   const control = controls[spec.id];
   const reportDir = `reports/${spec.id.toLowerCase()}`;
@@ -317,7 +329,7 @@ const buildLlmAgentPage = (spec: TopicSpec, index: number): TutorialPage => {
       ...(wave5Takeaway[spec.id] ? [wave5Takeaway[spec.id]] : []),
       ...(wave5Buffer[spec.id] ? [wave5Buffer[spec.id]] : []),
     ],
-    practice: [`运行 ${spec.id} 的 0/1/0 fixture 并解释命名 Oracle`, "检查 Prompt/Input/Schema/Eval/Mutation 的版本闭包", "写出一个不同业务对象的权限、故障和 rollback"],
+    practice: practiceByPage[spec.id],
     completion: ["安全和权限先于可写副作用", "fault 稳定变红且 repair 重新变绿", "模型不批准自己的期望，人工 owner 和 NOT_RUN 边界明确"],
     sourceIds: spec.sourceIds,
     evidenceBoundary: `${spec.evidenceBoundary} 本页新增证据仅为确定性离线 fixture；真实模型、浏览器、工具、队列、组织审批和从业者评审均 NOT_RUN。`,

@@ -318,7 +318,7 @@ const deep: Record<string, DeepSpec> = {
         ["级联故障注入", "让下游返回错误、超时、空结果", "上游是重试、降级、还是无限循环"],
         ["三重熔断验证", "步数/时间/成本各注入一次超限", "「配置了」不等于「会触发」"],
       ],
-      caption: "必测反例：某金融科技公司的 Agent 在交易对账中进入失控循环，连续跑了 11 天。这是来源记录的真实事故，用于说明成本失控的量级。",
+      caption: "必测反例：Agent 在交易对账中进入失控循环并持续消耗预算。具体持续时间与成本必须从目标系统的 Trace 和账单测量。",
     },
     diagnosis: {
       headers: ["症状", "先怀疑", "下一步"],
@@ -620,7 +620,7 @@ const deep: Record<string, DeepSpec> = {
         ["D6-3 并发与资源隔离", "目标并发下 pass^k 不显著下降", "只看并发对延迟的影响，忽略对正确性的影响"],
         ["D6-4 可观测性与可复现", "trace_required_fields、capture_policy 与 replay_target 由场景配置；缺关键步骤则阻断归因", "采样率过低，关键失败没记录"],
       ],
-      caption: "评估基础设施自身成本要进预算——来源观测显示它通常占 Agent 运营成本的 10–25%。judge 调用、重复运行、trace 存储都不是免费的。",
+      caption: "评估基础设施自身成本要进预算。Judge 调用、重复运行和 Trace 存储都不是免费的，具体占比必须在目标系统单独计量。",
     },
     failureModes: {
       headers: ["现象", "根因", "检测手法"],
@@ -972,7 +972,7 @@ export const agentDeepBlocks = (pageId: string): TutorialBlock[] => {
       expected: `读完应能说出本页覆盖哪几维、每维判据长什么样、结果交给谁用；完整明细见 ${spec.chapter}。`,
     },
     {
-      title: "先把本页要用到的词说清楚",
+      title: "关键术语",
       body: [
         "读不准其中任何一个，后面的表格都会被误读。",
       ],

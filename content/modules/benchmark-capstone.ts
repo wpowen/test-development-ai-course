@@ -46,7 +46,7 @@ const capstoneReleaseReview: TutorialBlock = {
 
 const specs: QualityBenchmarkSpec[] = [
   {
-    id: "TD-B01", moduleId: "TD-M06", title: "一个 Benchmark 分数到底由什么决定", type: "概念", duration: "50 分钟", prerequisites: ["TD-T21"],
+    id: "TD-B01", moduleId: "TD-M06", title: "Benchmark 分数到底由哪些因素决定", type: "概念", duration: "50 分钟", prerequisites: ["TD-T21"],
     summary: "把任务、数据、协议、运行环境、Scorer、聚合和报告拆开，判断一个 Benchmark 分数能说明什么。",
     why: "同一模型在两个榜单分数不同，常常来自 Prompt、工具、超时、版本、Scorer 或聚合差异，而不只是模型能力。",
     outcomes: ["画出完整 Benchmark 数据流", "区分模型能力与 harness 影响", "从总分追到逐题结果和适用边界"], artifact: "Benchmark 七段流水线与审计清单",
@@ -106,7 +106,7 @@ const specs: QualityBenchmarkSpec[] = [
     sources: ["S36", "S37", "S38", "S39"], boundary: "没有运行公开 Benchmark 或真实 Harness；合成合同只证明单变量字段不可缺。", architecture: ["Locked Dataset", "Locked Model", "Protocol Variant A/B", "Harness/Tools", "Raw Runs", "Paired Comparison", "有限归因"],
   },
   {
-    id: "TD-B05", moduleId: "TD-M06", title: "Benchmark 为什么可能失真：污染、样本量与版本差异", type: "诊断", duration: "60 分钟", prerequisites: ["TD-B04"],
+    id: "TD-B05", moduleId: "TD-M06", title: "Benchmark 分数为什么会失真：污染、样本量和版本差异", type: "诊断", duration: "60 分钟", prerequisites: ["TD-B04"],
     summary: "审计样本量、重复运行、置信区间、近重复污染、隐藏测试访问和跨版本可比性。",
     why: "公开题过拟合、小样本波动或 Harness 更新，都可能让 1.5% 的差异失去意义。",
     outcomes: ["识别统计与污染风险", "设计 canary、访问日志和轮换", "把报告分为可信、存疑和不可比较"], artifact: "Benchmark 污染、不确定性与版本审计报告",
@@ -136,7 +136,7 @@ const specs: QualityBenchmarkSpec[] = [
     sources: ["S37", "S38", "S39", "S40"], boundary: "内部 Benchmark 为合成教学仓库；没有真实企业数据、标注团队、模型或发布连接。", architecture: ["公共方法参考", "业务风险目录", "内部四类 Dataset", "Candidate Adapters", "Composite Scorer", "Versioned Report", "Maintenance/Release Owner"],
   },
   {
-    id: "TD-T25", moduleId: "TD-M07", title: "交付可审计的 AI 质量候选发布版本（Release Candidate）", type: "项目", duration: "210 分钟", prerequisites: ["TD-T12", "TD-T17", "TD-T20", "TD-T24", "TD-B06"],
+    id: "TD-T25", moduleId: "TD-M07", title: "如何交付可审计的 AI 质量候选发布版本", type: "项目", duration: "210 分钟", prerequisites: ["TD-T12", "TD-T17", "TD-T20", "TD-T24", "TD-B06"],
     summary: "消费 PRD、风险、Trace、Dataset、Prompt、Scorer、CI、性能、Waiver 与回滚工件，完成端到端质量仓库。",
     why: "会用零散工具不等于能交付职业方案；Capstone 必须让坏版本安全失败、定位、修复并保留全链证据。",
     outcomes: ["组装完整 AI 质量架构与追踪", "交付可运行 baseline/fault/repair Gate", "用 Evidence/Inference/Unknown 解释风险与剩余缺口"], artifact: "AI Quality Engineering Capstone Fixture Release Candidate",

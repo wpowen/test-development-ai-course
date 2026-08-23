@@ -36,7 +36,7 @@ const sourceArchitectureVisual = (pageId: string) => {
 
 const specs: AgentArchitectureSpec[] = [
   {
-    id: "TD-AG-00", moduleId: "TD-M12", title: "Agent 测试架构：D0–D7 与四个证据环", type: "概念", prerequisites: ["TD-F04", "TD-T01"],
+    id: "TD-AG-00", moduleId: "TD-M12", title: "Agent 测试架构怎么搭：D0–D7 与四个证据环", type: "概念", prerequisites: ["TD-F04", "TD-T01"],
     summary: "用 D0–D7、四证据环和运行时护栏画出 Agent 被测边界，知道一条结论从哪里来、由谁负责。",
     why: "把所有问题都叫作“模型不聪明”会漏掉工具、状态、权限、评估器和业务治理故障。",
     outcomes: ["区分模型、Agent、工具、Workflow、Worker 和 Judge", "将架构边界映射为风险、Oracle 和证据", "解释四证据环为何不能互相冒充", "交付一张可迁移的 Agent 测试架构图"],
@@ -52,7 +52,7 @@ const specs: AgentArchitectureSpec[] = [
     sourceIds: ["S24", "S39", "S65"],
   },
   {
-    id: "TD-AG-01", moduleId: "TD-M12", title: "谁来评 Judge：建立人工金标、偏差探针和回退链", type: "跟做", prerequisites: ["TD-AG-00", "TD-T03", "TD-T14"],
+    id: "TD-AG-01", moduleId: "TD-M12", title: "Judge 评估器如何校准：人工金标、偏差探针和回退链", type: "跟做", prerequisites: ["TD-AG-00", "TD-T03", "TD-T14"],
     summary: "建立人工金标、Judge Card、偏差探针和停用回退链，理解评估器本身也是被测系统。",
     why: "未校准的 Judge 可能把冗长、位置或自偏好当成质量；后续所有数字都会继承这个错误。",
     outcomes: ["区分人人一致性与人机一致性", "设计顺序、长度、事实和自偏好探针", "为 Judge 换版建立重校准和停用条件"],
@@ -100,7 +100,7 @@ const specs: AgentArchitectureSpec[] = [
     sourceIds: ["S35", "S48", "S74"],
   },
   {
-    id: "TD-AG-04", moduleId: "TD-M12", title: "人能否随时接管 Agent：测试中断、确认和控制权", type: "跟做", prerequisites: ["TD-AG-03", "TD-X601"],
+    id: "TD-AG-04", moduleId: "TD-M12", title: "人能否随时接管 Agent：如何测试中断、确认和控制权", type: "跟做", prerequisites: ["TD-AG-03", "TD-X601"],
     summary: "测试用户在关键步骤中断、接管和交回 Agent 的能力，区分可解释与真正可控。",
     why: "自主性越强，越需要证明人能及时停止、回滚并接管；弹窗很多不等于人真正拥有控制权。",
     outcomes: ["验证 N 步中断和脏状态清理", "验证接管前后上下文完整性", "识别确认疲劳和解释不等于正确"],
@@ -164,7 +164,7 @@ const specs: AgentArchitectureSpec[] = [
     sourceIds: ["S51", "S53", "S73"],
   },
   {
-    id: "TD-AG-08", moduleId: "TD-M12", title: "把 Agent 的业务规则、版本和审计责任连起来", type: "项目", prerequisites: ["TD-AG-06", "TD-AG-07", "TD-T21", "TD-T23"],
+    id: "TD-AG-08", moduleId: "TD-M12", title: "Agent 业务规则、版本和审计责任如何关联", type: "项目", prerequisites: ["TD-AG-06", "TD-AG-07", "TD-T21", "TD-T23"],
     summary: "把业务规则、Agent 委托、审计证据、模型/Prompt/工具/Memory 四维版本和风险接受连接起来。",
     why: "模型名不变也可能因 Prompt、工具或 Memory 变化而改变决策；平均质量分不能替代业务责任。",
     outcomes: ["建立业务硬规则和建议/执行分离", "生成可审计的 Agent 版本 lineage", "用人工基线和风险 owner 解释 ROI 与剩余风险"],
@@ -377,7 +377,7 @@ const makePage = (spec: AgentArchitectureSpec): TutorialPage => {
     outcomes: spec.outcomes,
     artifact: spec.artifact,
     blocks: [
-      { title: "先把架构问题说清楚", body: [spec.problem, "本页先画边界、写责任和停止条件，再使用任何模型或自动化工具。"], warning: "真实模型、企业系统、生产凭证和从业者结论均 NOT_RUN。" },
+      { title: "系统边界与关键风险", body: [spec.problem, "本页先画边界、写责任和停止条件，再使用任何模型或自动化工具。"], warning: "真实模型、企业系统、生产凭证和从业者结论均 NOT_RUN。" },
       ...(wave4Expansion[spec.id] ? [{ title: `${spec.id} 专属 D0-D7 / 四环案例`, body: wave4Expansion[spec.id] }] : []),
       ...(wave5AgentExpansion[spec.id] ? [{ title: `${spec.id} Wave5 worked decision 与迁移`, body: wave5AgentExpansion[spec.id] }] : []),
       ...(wave6AgentOverview[spec.id] ? [{ title: `${spec.id} Wave6 架构专属决策`, body: wave6AgentOverview[spec.id] }] : []),
@@ -388,12 +388,12 @@ const makePage = (spec: AgentArchitectureSpec): TutorialPage => {
         `迁移 ${spec.id} 时，保留“${spec.title}”的风险主线，但必须替换数据、权限、工具、业务错误成本、owner、回滚和适用范围。新系统中的模型、集成、从业者复核、学习者迁移、live 与 production 证据不能继承本页 receipt。`,
         `完成标准是能用小白语言回答四问：测什么、谁判断、哪里停、下一份证据交给谁；答不出时写 UNKNOWN，并把 ${spec.repair} 拆成下一条可执行任务。`,
       ] },
-      { title: "按证据顺序执行", body: [spec.scenario], bullets: spec.workflow, technical: { kind: "diagram", content: spec.nodes.join(" → "), verification: `逐项核对 ${spec.nodes.join("、")} 的输入、观察点、Oracle、owner 和 stop state。` } },
+      { title: "执行步骤与证据记录", body: [spec.scenario], bullets: spec.workflow, technical: { kind: "diagram", content: spec.nodes.join(" → "), verification: `逐项核对 ${spec.nodes.join("、")} 的输入、观察点、Oracle、owner 和 stop state。` } },
       { title: "Metric Card 与独立 Oracle", body: [spec.metric, "Prompt 只能整理候选证据，不能制定业务规则、批准 waiver 或替代人工 owner。"], technical: { kind: "prompt", content: promptBody(`${promptBase}/task.md`), version: "1.0.0", promptPath: `${promptBase}/task.md`, manifestPath: `${promptBase}/manifest.json`, inputFixturePath: `${promptBase}/input.json`, outputSchemaPath: `${promptBase}/schema.json`, evaluationPath: `${promptBase}/eval.json` }, expected: "输出必须保留 Evidence、Inference、Unknown 与证据边界。" },
       { title: "Baseline / Fault / Repair：0/1/0", body: ["先运行正常合同，再注入一个命名故障，最后恢复同一合同。故障报告必须由独立 Oracle 点名，不能吞异常或改 expected。", `Fault 目标：${spec.failure}`], technical: { kind: "command", content: `python3 scripts/agent_architecture_lab.py --topic ${spec.id} --phase cycle --report-dir ${reportDir}`, manifestPath, stepId: "cycle", workingDirectory: WORKDIR, expectedExitCode: 0, expectedArtifacts: [`${reportDir}/baseline.json`, `${reportDir}/fault.json`, `${reportDir}/repair.json`, `${reportDir}/cycle-summary.json`] }, expected: "observed_exit_codes=[0,1,0]；模型 provider/model 保持 NOT_RUN。" },
       { title: "诊断与安全修复", body: [spec.failure, spec.repair], warning: "降低阈值、删除 Oracle、扩大权限、增加预算或无限重试都可能制造假绿。" },
       ...agentDeepBlocks(spec.id),
-      { title: "迁移到自己的项目", body: ["先替换脱敏输入、系统版本、风险切片和 owner，再重新设定场景化阈值；不要把 fixture 结果外推为 production。", spec.expected], bullets: ["保留可审计 manifest、raw evidence 和版本 hash", "为新场景补充人工 owner、回滚和失败动作", "真实模型/集成/从业者/学习者证据单独运行"] },
+      { title: "迁移与适用条件", body: ["先替换脱敏输入、系统版本、风险切片和 owner，再重新设定场景化阈值；不要把 fixture 结果外推为 production。", spec.expected], bullets: ["保留可审计 manifest、raw evidence 和版本 hash", "为新场景补充人工 owner、回滚和失败动作", "真实模型/集成/从业者/学习者证据单独运行"] },
     ],
     practice: [`运行 ${spec.id} 的 0/1/0 fixture 并解释 failed_oracle_ids`, "检查 Prompt/Input/Schema/Eval/Mutation 版本闭包", `将 ${spec.artifact} 迁移到一个低权限、可回滚的合成业务对象`],
     completion: ["术语、架构边界和独立 Oracle 能复述", "baseline/fault/repair 证据可重放且退出码精确", "知道 fixture-tested、NOT_RUN、BLOCKED 和 production 的差异"],

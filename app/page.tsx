@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { getTechnicalBlockPresentation, pages, publicModules, releaseScope } from "../content/course";
+import { getLearnerTechnicalBlockPresentation, pages, publicModules, releaseScope } from "../content/course";
 import { glossary } from "../content/glossary";
 import { references, referencesByPage, resolveReferences, type ReferenceEntry } from "../content/references";
 import { GlossaryView } from "./reference-views";
@@ -274,7 +274,7 @@ export default function Home() {
               })}</section>}
 
               {current.blocks.map((block, index) => {
-                const technical = getTechnicalBlockPresentation(block);
+                const technical = getLearnerTechnicalBlockPresentation(block);
                 const copyKey = `${current.id}-${index}`;
                 return <section className="content-block" key={block.title} id={`section-${index}`}>
                 <div className="section-index">{String(index + 1).padStart(2, "0")}</div>

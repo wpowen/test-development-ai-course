@@ -194,6 +194,21 @@ export const getTechnicalBlockPresentation = (block: TutorialBlock): TechnicalBl
   return undefined;
 };
 
+/**
+ * 学习者正文只展示 Prompt 的用途和交付入口，不内联工厂诊断、自我批判、
+ * A/B 变体与生成器维护说明。完整 Prompt 仍保留在版本化随课物料中。
+ */
+export const getLearnerTechnicalBlockPresentation = (block: TutorialBlock): TechnicalBlockPresentation | undefined => {
+  const presentation = getTechnicalBlockPresentation(block);
+  if (!presentation || presentation.kind !== "prompt") return presentation;
+  return {
+    ...presentation,
+    content: "完整 Prompt 已放在本页随课物料中。正文只保留用途、输入、输出和验收标准。",
+    copyable: false,
+    reason: "请从随课物料打开版本化 Prompt；输入、Schema、评测与 manifest 会一并提供。",
+  };
+};
+
 export type TutorialPage = {
   id: string;
   moduleId: string;

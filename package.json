@@ -30,8 +30,9 @@
     "test:technical-blocks": "node --test tests/technical-block-contract.test.mjs",
     "test:agent-visuals": "node --test tests/agent-architecture-visuals.test.mjs",
     "test:architecture-visuals": "node --test tests/architecture-visual-rendering.test.mjs",
+    "test:humanization": "node --test tests/content-humanization.test.mjs",
     "test:static": "npm run export:static && node --test tests/static-export.test.mjs",
-    "test": "npm run validate:content && npm run validate:materials && npm run typecheck && npm run test:agent-visuals && npm run test:architecture-visuals && npm run build && node --test tests/rendered-html.test.mjs && npm run test:static",
+    "test": "npm run validate:content && npm run validate:materials && npm run typecheck && npm run test:humanization && npm run test:agent-visuals && npm run test:architecture-visuals && npm run build && node --test tests/rendered-html.test.mjs && npm run test:static",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "validate:projection": "node scripts/validate-reference-projection.ts"
   },

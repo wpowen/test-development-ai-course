@@ -27,7 +27,7 @@ const rawProfessionRealityPage: TutorialPage = {
   id: "TD-F01",
   moduleId: "TD-M00",
   order: 0,
-  title: "测试开发如何与 AI 协作，又由谁承担发布责任",
+  title: "测试开发如何与 AI 协作，以及哪些发布责任必须由人承担",
   type: "跟做",
   status: "fixture-tested",
   duration: "90 分钟",

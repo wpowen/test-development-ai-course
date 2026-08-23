@@ -1,7 +1,7 @@
 import { access, cp, mkdir, readdir, rm, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { getTechnicalBlockPresentation, pages, publicModules, releaseScope, sourceNotes } from "../content/course.ts";
+import { getLearnerTechnicalBlockPresentation, pages, publicModules, releaseScope, sourceNotes } from "../content/course.ts";
 import { glossary, glossaryCategories } from "../content/glossary.ts";
 import { moduleOverviews } from "../content/module-overviews.ts";
 import { references, referencesByPage, resolveReferences } from "../content/references.ts";
@@ -20,7 +20,7 @@ const publicPages = pages.map((page) => {
     ...page,
     blocks: page.blocks.map((block) => ({
       ...block,
-      technicalPresentation: getTechnicalBlockPresentation(block),
+      technicalPresentation: getLearnerTechnicalBlockPresentation(block),
     })),
     resolvedReferences: resolveReferences(orderedReferenceIds),
   };

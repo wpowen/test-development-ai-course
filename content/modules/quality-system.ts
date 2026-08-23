@@ -160,7 +160,7 @@ export const buildQualityBenchmarkPage = (spec: QualityBenchmarkSpec): TutorialP
 
 const specs: QualityBenchmarkSpec[] = [
   {
-    id: "TD-T20", moduleId: "TD-M05", title: "把 AI 质量检查分层接入 CI", type: "项目", duration: "60 分钟", prerequisites: ["TD-T12", "TD-T14"],
+    id: "TD-T20", moduleId: "TD-M05", title: "AI 质量检查如何分层接入 CI，并阻断危险变更", type: "项目", duration: "60 分钟", prerequisites: ["TD-T12", "TD-T14"],
     summary: "把 Schema、权限、风险切片、语义评测和完整发布评测分层接入 CI，并用非零退出码阻止危险变更。",
     why: "只上传报告却不传播退出码、只看总平均或给评测 job 配 continue-on-error，都会制造 CI 假绿。",
     outcomes: ["设计 PR smoke、nightly regression 与 release candidate 三层 Gate", "把确定性 blocker 和统计性退化分开", "证明故障注入会令 CI exit 1"], artifact: "分层 AI Quality CI Workflow 与红绿证据包",
@@ -175,7 +175,7 @@ const specs: QualityBenchmarkSpec[] = [
     sources: ["S03", "S05", "S23", "S24"], boundary: "本地仅运行确定性 Fixture；没有云 CI、模型 Provider、企业审批或发布系统，因此只有 PASS-FIXTURE。", architecture: ["PR/候选版本", "L0 确定性 Gate", "L1 高风险 Smoke", "L2 Nightly 回归", "L3 RC/Holdout", "Artifact/退出码", "人工发布 Gate"],
   },
   {
-    id: "TD-T21", moduleId: "TD-M05", title: "评测运行的版本账本：数据、Prompt、模型、知识库、工具与 Scorer", type: "参考", duration: "50 分钟", prerequisites: ["TD-T20"],
+    id: "TD-T21", moduleId: "TD-M05", title: "评测运行要记录哪些版本：数据、Prompt、模型、知识库、工具和 Scorer", type: "参考", duration: "50 分钟", prerequisites: ["TD-T20"],
     summary: "为 Dataset、Prompt、模型、知识库、工具、Scorer 与运行环境建立可回放的版本账本。",
     why: "只记模型名和总分无法解释差异；浮动别名、被覆盖的 Prompt 或更新后的索引会让历史比较失效。",
     outcomes: ["设计完整 run manifest", "用 hash 和 snapshot 固定比较条件", "识别单变量实验与 confounded comparison"], artifact: "AI 评测 Version Lineage 账本与可比性检查器",
@@ -220,7 +220,7 @@ const specs: QualityBenchmarkSpec[] = [
     sources: ["S24", "S29", "S31", "S70"], boundary: "Fixture 不产生真实模型延迟、Token 或费用；任何性能/价格阈值均为 NOT_RUN/UNKNOWN。", architecture: ["版本化 Workload", "模型/路由候选", "质量 Scorer", "Trace/延迟分解", "Token/成本账本", "硬门禁/Pareto", "容量与产品 Owner"],
   },
   {
-    id: "TD-T24", moduleId: "TD-M05", title: "检测到漂移后，如何管理 Waiver 和整包回滚", type: "诊断", duration: "60 分钟", prerequisites: ["TD-T21", "TD-T22", "TD-T23"],
+    id: "TD-T24", moduleId: "TD-M05", title: "AI 系统发生漂移后，如何管理 Waiver 并整包回滚", type: "诊断", duration: "60 分钟", prerequisites: ["TD-T21", "TD-T22", "TD-T23"],
     summary: "区分输入、行为、Judge、质量、性能与成本漂移，设计有到期时间的 Waiver 和经过演练的整包回滚。",
     why: "AI 系统会随流量、知识、模型和依赖变化；静默换 Judge 或放宽阈值只会隐藏问题。",
     outcomes: ["建立按风险切片的多信号基线", "区分告警、调查、waiver 和阻断", "演练 Prompt/模型/知识库/工具整包回滚"], artifact: "AI 质量事故、Waiver 与 Rollback Runbook",

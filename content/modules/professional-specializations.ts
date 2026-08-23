@@ -133,7 +133,7 @@ export const professionalSpecializationPages: TutorialPage[] = ([
     materials: [{ title: "审批旅程 Fixture", description: "角色、订单状态、空态和错误态数据。", href: "materials/ui-mobile-automation/fixtures/refund-approval.json", kind: "fixture", validation: "static-reviewed" }, { title: "Playwright 旅程指南", description: "Locator、等待、隔离和 Trace 采集规则。", href: "materials/ui-mobile-automation/guides/web-journey-sop.md", kind: "guide", validation: "static-reviewed" }, ...uiExecutableMaterials],
   },
   {
-    id: "TD-PS05", moduleId: "TD-M08", order: 5, title: "Web 页面哪里不兼容：无障碍、响应式和视觉回归诊断", type: "诊断", status: "desk-researched", duration: "45 分钟",
+    id: "TD-PS05", moduleId: "TD-M08", order: 5, title: "Web 页面兼容性怎么测：无障碍、响应式和视觉回归", type: "诊断", status: "desk-researched", duration: "45 分钟",
     summary: "以客服工作台为场景，组合键盘可达性、响应式布局、国际化文本和视觉差异诊断。", why: "主路径点击通过仍可能让键盘用户无法完成任务、窄屏信息溢出或错误状态被遮挡。", prerequisites: ["TD-PS04"], outcomes: ["建立按用户风险裁剪的兼容矩阵", "区分自动 a11y 规则和人工语义审查", "定位视觉差异的真实原因"], artifact: "Web 兼容性与可访问性证据包",
     blocks: [
       { title: "场景：客服必须在不同输入方式下完成退款", body: ["客服工作台支持鼠标、键盘和辅助技术；退款金额、风险提示和确认对话框必须在 1280px 与 390px 视口可读，英文与中文长文本不能遮挡批准控件。"] },
@@ -189,7 +189,7 @@ export const professionalSpecializationPages: TutorialPage[] = ([
     materials: [{ title: "TD-PS08 迁移输入夹具", description: "DDL、分片、高水位和守恒 Oracle 的离线场景。", href: "materials/api-ai-automation/fixtures/TD-PS08-input.json", kind: "fixture", validation: "fixture-tested" }, { title: "TD-PS08 迁移实验 Manifest", description: "具名 owner、baseline/fault/repair 与四项对账 Oracle。", href: "materials/api-ai-automation/manifests/TD-PS08.json", kind: "config", validation: "fixture-tested" }, ...apiExecutableMaterials],
   },
   {
-    id: "TD-PS09", moduleId: "TD-M08", order: 9, title: "定位 AI 系统延迟瓶颈：尾延迟、Goodput 与单位成功成本", type: "诊断", status: "desk-researched", duration: "55 分钟",
+    id: "TD-PS09", moduleId: "TD-M08", order: 9, title: "AI 系统性能怎么测：尾延迟、Goodput 与单位成功成本", type: "诊断", status: "desk-researched", duration: "55 分钟",
     summary: "以客服 Agent 流式回答和工具调用为场景，建立按切片、尾延迟、质量和成本联合决策的性能指标体系。", why: "平均延迟变快可能伴随长输入质量下降、工具调用放大和 p99 恶化；AI 性能必须与任务成功绑定。", prerequisites: ["TD-PS03"], outcomes: ["定义 AI 请求阶段指标与分母", "区分 TTFT、TPOT、端到端和 Goodput", "用质量、SLO 和成本做 Pareto 决策"], artifact: "AI 性能 workload、指标卡和容量决策报告",
     blocks: [
       { title: "场景：客服回答不是单一模型调用", body: ["客服 Agent 先检索政策，再调用模型并可能查询订单。短 FAQ 与长退款对话的输入、工具数、输出长度和风险完全不同；性能报告必须保留这些切片。"] },
@@ -203,7 +203,7 @@ export const professionalSpecializationPages: TutorialPage[] = ([
     materials: [{ title: "客服 Agent Workload", description: "输入长度、并发、工具比例和风险切片。", href: "materials/api-ai-automation/configs/ai-performance-workload.yaml", kind: "config", validation: "static-reviewed" }, { title: "AI 指标卡模板", description: "阶段指标、分母、分位数和联合门禁。", href: "materials/api-ai-automation/guides/ai-performance-metric-card.md", kind: "guide", validation: "static-reviewed" }, ...apiExecutableMaterials],
   },
   {
-    id: "TD-PS10", moduleId: "TD-M08", order: 10, title: "让服务在超时和过载下安全退化", type: "跟做", status: "desk-researched", duration: "55 分钟",
+    id: "TD-PS10", moduleId: "TD-M08", order: 10, title: "超时和过载时，服务如何安全退化", type: "跟做", status: "desk-researched", duration: "55 分钟",
     summary: "以订单 AI 助手为对象，验证 deadline 传播、retry budget、熔断、load shedding、只读降级和恢复窗口。", why: "稳定性不是依赖不失败，而是局部失败不会因多层重试和恢复洪峰扩大，且资金类副作用在过载时保持安全。", prerequisites: ["TD-PS09"], outcomes: ["设计有界 timeout 与 retry budget", "验证过载拒绝、限流和只读降级", "用调用放大、副作用与恢复窗口判断稳定性"], artifact: "稳定性策略 Manifest、故障矩阵与 0/1/0 恢复报告",
     blocks: [
       { title: "场景：模型限流与工具超时叠加", body: ["订单助手依赖模型、检索与退款工具；入口重试、Agent 重试和 SDK 重试若同时生效，会把一次局部超时放大为队列级联。过载时系统必须优先拒绝低风险任务、关闭写工具或返回只读解释，不能继续累积不可逆副作用。"] },

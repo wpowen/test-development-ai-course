@@ -320,7 +320,7 @@ const specs: GapSpec[] = [
     sources: ["S39","S48","S49","S65"], boundary: "10 个 opened 来源与合成协议 fault 支持合同；真实 Provider、容量、区域合规、MCP server 和生产副作用 NOT_RUN。",
   },
   {
-    id: "TD-X805", moduleId: "TD-M05", title: "从离线评测到 Canary：怎样安全地渐进发布", prerequisites: ["TD-X604"],
+    id: "TD-X805", moduleId: "TD-M05", title: "离线评测如何走到 Canary，并安全渐进发布", prerequisites: ["TD-X604"],
     summary: "用稳定分流、离线 blocker、小流量 guardrail、最坏切片、代表性人工样本和预置回滚控制渐进发布。",
     why: "总体 KPI 尚未变化不代表安全；分流污染、少数切片退化和只抽成功样本会让 Canary 给出假绿。",
     outcomes: ["建立稳定分流与预置回滚", "区分收益指标和 guardrail", "注入分流/guardrail/抽样故障"],
