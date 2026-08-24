@@ -157,7 +157,7 @@ const makePage = (spec: GapSpec): TutorialPage => {
         expected: `PASS/0；${spec.repair} 该结果只覆盖同一合成合同。`,
       },
       {
-        title: `${spec.title}：把 fixture 迁移到真实项目还缺什么`,
+        title: `${spec.title}——迁移到真实项目前还缺哪些证据`,
         body: [
           ...spec.metrics,
           spec.boundary,

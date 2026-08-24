@@ -247,7 +247,7 @@ const careerWave4Expansion: Record<string, string[]> = {
 
 const careerWave5Expansion: Record<string, string[]> = {
   "TD-C03": [
-    "worked decision：把“我会 AI 测试”拆成可拒绝的 claim。输入基线记录传统 API/UI 能力、数据处理能力和风险沟通经验；决策表分别判断 guided-execution、independent-scoped-ownership、system-cross-team-leverage。每项 claim 必须有 artifact、evidence_ref、reviewer 和复评日期，没有证据就不能升级。",
+    "工作示例：把“我会 AI 测试”拆成可检查的能力主张。输入基线记录传统 API/UI 能力、数据处理能力和风险沟通经验；决策表分别判断在指导下执行、在限定范围内独立负责、跨团队复用。每项主张必须有工件、证据引用、复评人和复评日期，没有证据就不能升级。",
     "故障诊断：当自评 JSON 全部 PASS，却找不到原始运行记录，先检查 evidence_refs 是否可打开、是否包含版本 hash、是否由独立 Oracle 评判。若只有模型生成摘要，故障点是证据来源而非文字质量；repair 是补 receipt、重跑 mutation、更新 UNKNOWN，而不是修改 maturity 枚举。",
     "计划迁移：30 天交 Metric Card 与数据集切片，60 天交 RAG 检索 fault 和证据支持报告，90 天交跨页面复评与 reviewer disagreement 处理。每阶段写继续/停止/回退条件，记录失败成本与 owner；不能把完成页面数、学习小时或证书换算成岗位等级。",
     "复评工件：交付 capability-self-assessment.json、gap-routing.json、30-60-90-evidence-plan.md 和 reviewer-diff.md。editable_fields 包括业务场景、风险人口、Oracle、reviewer、policy source_ref、复评日期和下一件工件；组织 policy 缺失时输出 INTERNAL-UNKNOWN。",
@@ -255,7 +255,7 @@ const careerWave5Expansion: Record<string, string[]> = {
     "迁移边界：把计划换到 Agent、Serving 或传统自动化时重建数据、Oracle、失败成本和责任人。当前 provider/model/integration/practitioner/learner/live/production/publication 均 NOT_RUN，计划只证明任务入口与证据缺口行动可执行，不证明招聘、晋升、薪资或生产能力。",
   ],
   "TD-T26": [
-    "worked decision：同一需求和风险集建立人工 baseline 与 AI candidate 对照。候选数量只作为输入，决策依赖 accepted-test、编译/运行通过、mutation kill、重复率、人工修复分钟、Token 成本和 unique defect yield；分母与完成定义先冻结，才能比较是否提效。",
+    "工作示例：用同一份需求和风险集建立人工基线与 AI 候选结果的对照。候选数量只作为输入，真正要比较的是可接受测试、编译和运行结果、缺陷注入检出率、重复率、人工修复时间、Token 成本和新增缺陷收益；分母与完成定义先冻结，才能判断是否提效。",
     "故障诊断：AI 用例编译通过却杀不死金额边界 mutation，沿 Input→Schema→Oracle→Assertion→Data 逐层定位。若弱断言被删除后变绿，判为 Oracle 篡改；repair 只能修断言、数据或生成约束并重放同一 mutation，不能删除缺陷或降低阈值。",
     "实验迁移：正向 mutation 覆盖权限、边界、重复提交，负向 mutation 覆盖错字段、无效 fixture、过期需求。baseline 与 AI 使用同一环境、风险人口、预算、reviewer 和版本；一次只改生成策略，避免模型、框架、数据集同时变化导致归因 UNKNOWN。",
     "决策工件：交付 productivity-manifest.json、candidate-ledger.jsonl、mutation-report.md、reviewer-acceptance.json 和 cost-per-kill-card.md。每条结论回链 prompt/input/schema/eval/mutation hash；accepted 增长但 cost-per-kill 上升时必须给出 LIMITED-PILOT 或 BLOCKED，而不是写十倍提效。",
@@ -266,14 +266,14 @@ const careerWave5Expansion: Record<string, string[]> = {
 
 const careerWave6Expansion: Record<string, string[]> = {
   "TD-C03": [
-    "Wave6 worked decision：将一条自评 claim 从“我会做 RAG 测试”拆成任务、责任、输入、Oracle、失败成本和复评者。若只能展示 prompt 或最终答案，状态仍为 guided-execution；只有能独立选择数据切片、注入 retrieval fault、解释停止条件并交接报告，才可申请 project 级复评。",
+    "工作示例：将“我会做 RAG 测试”拆成任务、责任、输入、判断对错的依据、失败成本和复评人。若只能展示提示词或最终答案，仍然属于在指导下执行；只有能独立选择数据切片、注入检索故障、解释停止条件并交接报告，才可以申请项目级复评。",
     "故障诊断：自评表显示 PASS 但 reviewer 找不到原始数据，沿 claim→evidence_ref→manifest→receipt→reviewer 逐层检查。修复动作是补可打开路径、版本 hash、失败收据和复评日期；不能把“我记得做过”写成 Evidence。缺失字段传播为 UNKNOWN，并路由到下一件最小工件。",
     "决策分叉：30 天若数据集切片未覆盖高风险语言，选择“停止并补样本”；60 天若 mutation 未打红，选择“回退到 Oracle 设计”；90 天若跨页面复评分歧仍大，选择“升级导师/业务 owner”。三种选择都要写触发证据、成本、负责人和截止日期，而不是继续堆学习材料。",
     "迁移工件：交付 claim-ledger.jsonl、evidence-gap-report.md、reviewer-replay.md 和 30-60-90-decision-log.md。字段包括 source_ref、input_hash、oracle_id、failure_action、reviewer、policy_version、next_review；迁移到 Agent、Serving 或传统自动化时重建这些值，不能复制成熟度结论。",
     "小白复盘：同伴删掉一条 evidence_ref 后，你应能指出哪一个 claim 降级、哪个页面补课、何时重新运行。若一份计划没有停止条件、回退入口或责任 owner，它只是学习愿望清单，不是可以交给导师或团队执行的项目计划。",
   ],
   "TD-T26": [
-    "Wave6 worked decision：把“AI 生成 40 条用例”拆成候选、可运行、可接受、杀死缺陷和维护成本五层。baseline 与 AI 必须共享需求版本、风险人口、Oracle、mutation、预算和 reviewer；只有 accepted-test 与 unique defect yield 同时改善，才可提出有限试点。",
+    "工作示例：把“AI 生成 40 条用例”拆成候选、可运行、可接受、能检出已知缺陷和维护成本五层。人工基线与 AI 必须使用同一需求版本、风险样本、判断依据、缺陷注入、预算和复评人；只有可接受测试与新增缺陷收益同时改善，才可以提出有限试点。",
     "故障诊断：当 accepted-test 上升但 mutation kill 下降，先检查风险遗漏、弱断言、错误 fixture 和重复用例；当 kill 上升但人工修复分钟翻倍，检查维护成本与 reviewer 负担。每次只修一个层级并重放相同 mutation，保留前后 ledger，不能删除难测缺陷。",
     "决策分叉：候选数量增加但 cost-per-kill 超门禁时停止扩展；质量改善且成本持平时进入 sandbox；质量、成本、维护和审查都通过才进入有限组织试点。每个分叉绑定分母、样本量、失败成本、批准人和回滚，不用“节省时间”单独宣布提效。",
     "迁移工件：交付 accepted-ledger.jsonl、mutation-diagnosis.md、reviewer-load-card.json 和 pilot-entry-contract.yaml。换到 Playwright、Cypress、接口巡检或 Agent 时重建 schema、编译器、Oracle、数据、mutation 和 owner；模型、live、practitioner、learner、production ROI 继续 NOT_RUN。",
@@ -281,22 +281,34 @@ const careerWave6Expansion: Record<string, string[]> = {
   ],
 };
 
-const technicalBlocks = (page: CareerContract): TutorialBlock[] => [
-  ...(careerWave6Expansion[page.id] ? [{ title: `${page.id} Wave6 主题决策与故障诊断`, body: careerWave6Expansion[page.id] }] : []),
-  ...(careerWave5Expansion[page.id] ? [{ title: `${page.id} Wave5 专属 worked decision`, body: careerWave5Expansion[page.id] }] : []),
-  ...(careerWave4Expansion[page.id] ? [{ title: `${page.id} Wave4 责任案例与复评`, body: careerWave4Expansion[page.id] }] : []),
+const careerSectionStem: Record<string, string> = {
+  "TD-C02": "岗位责任与能力复评",
+  "TD-C03": "九十天能力证据计划",
+  "TD-C04": "公司职级标准映射",
+  "TD-F05": "任务类型与评测指标",
+  "TD-T26": "AI 测试提效对照实验",
+  "TD-R01": "学习资源选择与维护",
+};
+
+const technicalBlocks = (page: CareerContract): TutorialBlock[] => {
+  const section = careerSectionStem[page.id] ?? page.title;
+  return [
+  ...(careerWave6Expansion[page.id] ? [{ title: "从当前证据决定下一步怎么做", body: careerWave6Expansion[page.id] }] : []),
+  ...(careerWave5Expansion[page.id] ? [{ title: "把职业或提效判断写成可复核的决定", body: careerWave5Expansion[page.id] }] : []),
+  ...(careerWave4Expansion[page.id] ? [{ title: "用具体责任案例复评当前能力", body: careerWave4Expansion[page.id] }] : []),
   { title: `${page.id} 作品集案例与迁移实验`, body: [
     `${page.id} 不以“学过什么”作为完成标准，而以一件可展示作品证明责任：输入基线、风险假设、独立 Oracle、命名 fault、raw receipt、reviewer 和下一次复评。${page.workedExample} 是示例路径，不是就业、晋升或组织职级结论。`,
     `把 Evidence、Inference、Unknown 分三栏：Evidence 必须能打开；Inference 只描述当前样本支持的有限判断；Unknown 明确哪些模型、组织、live 或 production 条件未运行。没有 evidence_ref 的能力项保持 UNKNOWN。`,
     `迁移时用自己的业务重新填写错误成本、数据权限、owner、版本、回滚和可复用出口；先预测 ${page.id} 的 fault，再完成 0→1→0，并让 reviewer 独立检查结果。`,
     `小白的复盘顺序是：我能决定什么→哪个工件证明它→坏版本如何变红→失败后交给谁。页面完成数量、证书数量和工具清单都不能替代责任证据。`,
   ] },
-  { title: `${page.action}：先用白话建立模型`, body: [...page.definitions, page.workedExample, page.counterexample], expected: page.expected },
-  { title: `${page.action}：把决策写成可检查模型`, body: [page.control, "不要把年限、工具名称或生成数量当作能力/质量的替代证据。"], technical: { kind: "diagram", content: page.diagram, verification: `图中每个节点必须能回链到 ${page.id} 的输入、工件、Oracle 或 reviewer；缺失回链时保持 BLOCKED。`, implementationPath: `${bundle}/diagrams/${page.id}.mmd` } },
-  { title: `${page.action}：版本化 Prompt/Eval/Mutation`, body: [`本页 Prompt 只生成 ${page.id} 的结构化候选，不替代 owner、Oracle 或组织政策。`, `输出必须保留 UNKNOWN、NOT_RUN、BLOCKED 和适用范围。`], technical: { kind: "prompt", content: promptBody(`${bundle}/prompts/${page.id}/task-v1.md`), version: "1.0.0", promptPath: `${bundle}/prompts/${page.id}/task-v1.md`, manifestPath: `${bundle}/prompts/${page.id}/manifest.json`, inputFixturePath: `${bundle}/fixtures/${page.id}-input.json`, outputSchemaPath: `${bundle}/schemas/${page.id}-output.schema.json`, evaluationPath: `${bundle}/evals/${page.id}-eval.json` }, expected: "Prompt 结果必须可回链；模型执行状态保持 NOT_RUN。" },
-  { title: `${page.action}：重放 0 → 1 → 0`, body: [page.failure, page.repair, page.boundary], technical: { kind: "command", content: `python3 scripts/career_evolution_lab.py --manifest manifests/${page.id}.json --mode cycle`, manifestPath: `${bundle}/manifests/${page.id}.json`, stepId: "cycle", workingDirectory: bundle, expectedExitCode: 0, expectedArtifacts: [`evidence/${page.id}/baseline.json`, `evidence/${page.id}/fault.json`, `evidence/${page.id}/repair.json`, `evidence/${page.id}/cycle.json`] }, expected: "cycle 退出 0，内部步骤严格为 0/1/0；fault 失败是检测力证据。" },
-  { title: `${page.action}：迁移到新场景`, body: ["复制工件时只修改明确的 editable_fields；输入、版本、owner、Oracle、失败动作和限制必须重新审查。", page.boundary], warning: page.boundary },
-];
+  { title: `${section}：先用白话讲清核心概念`, body: [...page.definitions, page.workedExample, page.counterexample], expected: page.expected },
+  { title: `${section}：把判断过程写成可检查的模型`, body: [page.control, "不要把年限、工具名称或生成数量当作能力或质量的替代证据。"], technical: { kind: "diagram", content: page.diagram, verification: `图中每个节点必须能回链到 ${page.id} 的输入、工件、判断依据或复评人；缺失回链时保持阻断。`, implementationPath: `${bundle}/diagrams/${page.id}.mmd` } },
+  { title: `${section}：固定提示词、评测规则和缺陷注入版本`, body: [`本页提示词只生成 ${page.id} 的结构化候选，不替代负责人、判断依据或组织政策。`, `输出必须保留未知、未运行、已阻断和适用范围。`], technical: { kind: "prompt", content: promptBody(`${bundle}/prompts/${page.id}/task-v1.md`), version: "1.0.0", promptPath: `${bundle}/prompts/${page.id}/task-v1.md`, manifestPath: `${bundle}/prompts/${page.id}/manifest.json`, inputFixturePath: `${bundle}/fixtures/${page.id}-input.json`, outputSchemaPath: `${bundle}/schemas/${page.id}-output.schema.json`, evaluationPath: `${bundle}/evals/${page.id}-eval.json` }, expected: "提示词结果必须可以回查来源；真实模型执行状态保持未运行。" },
+  { title: `${section}：用基线、故障和修复三轮验证`, body: [page.failure, page.repair, page.boundary], technical: { kind: "command", content: `python3 scripts/career_evolution_lab.py --manifest manifests/${page.id}.json --mode cycle`, manifestPath: `${bundle}/manifests/${page.id}.json`, stepId: "cycle", workingDirectory: bundle, expectedExitCode: 0, expectedArtifacts: [`evidence/${page.id}/baseline.json`, `evidence/${page.id}/fault.json`, `evidence/${page.id}/repair.json`, `evidence/${page.id}/cycle.json`] }, expected: "三轮结果应依次为通过、失败、再次通过；中间失败证明检查规则确实能发现问题。" },
+  { title: `${section}：迁移到新场景时重新确认责任边界`, body: ["复制工件时只修改明确允许编辑的字段；输入、版本、负责人、判断依据、失败动作和限制必须重新审查。", page.boundary], warning: page.boundary },
+  ];
+};
 
 export const careerEvolutionPages = (contracts.map((page) => ({
   id: page.id,

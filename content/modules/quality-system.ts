@@ -78,7 +78,7 @@ export const buildQualityBenchmarkPage = (spec: QualityBenchmarkSpec): TutorialP
         warning: "任何缺少当前版本、独立 Oracle、具名 owner 或可重放报告的结论都保持 UNKNOWN/BLOCKED；本页不授权发布。",
       },
       {
-        title: `${spec.title}：把结论拆回可观察组件`,
+        title: `${spec.title}——把结论拆回可以检查的组件`,
         body: [spec.mechanism],
         bullets: spec.mechanismBullets,
         technical: {

@@ -288,42 +288,42 @@ const wave4Expansion: Record<string, string[]> = {
 
 const wave5AgentExpansion: Record<string, string[]> = {
   "TD-AG-02": [
-    "worked decision：把一次最终答复正确的轨迹拆成 outcome、step、trajectory 三层。fixture 让 Agent 先读政策、再查订单、最后误调用 refund_order；step Oracle 必须在写工具 span 变红，trajectory Oracle 记录首错、后续重试和副作用，outcome 只说明用户看到什么，三者不允许合并成一个总分。",
+    "工作示例：把一次最终答复正确的轨迹拆成结果、步骤、完整过程三层。离线夹具让 Agent 先读政策、再查订单、最后误调用退款工具；步骤判断规则必须在写工具调用处变红，过程判断规则记录首个错误、后续重试和副作用，结果层只说明用户看到什么，三者不能合并成一个总分。",
     "故障诊断：先检查 trace 是否包含 span_id、tool_name、参数、权限、观测快照、状态版本和 request_id；缺字段不能默认为安全。按首错顺序排查错误参数、过期观测、权限越界、重复调用和循环，修复只改一个变量，重放相同输入并保留 failed_oracle_ids 与 stop_reason，避免用终态文本掩盖过程风险。",
     "D1 迁移工件：交付 trajectory-ledger.jsonl、span-oracle.yaml、first-error-report.md、mutation-replay.json 和 owner-handoff.md。每个工具调用都要声明允许副作用、幂等键、取消动作与回滚 owner；换到浏览器、MCP、异步 Worker 时重建安全路径集合，不复制 refund_order 的结论或阈值。",
     "四环决策：离线环验证固定轨迹，沙箱环验证真实工具隔离，影子环观察真实步骤分布，在线环才讨论持续首错率。未运行环必须写 NOT_RUN；模型、provider、integration、practitioner、learner、live、production、publication 不能继承离线 receipt。硬副作用红线优先于 outcome 成功率。",
     "小白复盘：回答“哪一步错、谁能证明、哪里停止、失败交给谁”。同伴只看原始 trace 复算首错，若无法定位就输出 UNKNOWN/BLOCKED；不得通过删掉 span、扩大 allowlist、增加重试或修改 expected 让 cycle 变绿。",
   ],
   "TD-AG-05": [
-    "worked decision：四个任务各运行五次，分别演示 pass@5 高但 pass^5 低，以及短任务通过、长 horizon 循环。Oracle 按 task 聚合而非按 run 直接平均，明确状态重置、k、失败位置、成本与风险切片；重复运行成功一次不能替代连续每次成功的可靠性决定。",
+    "工作示例：四个任务各运行五次，分别演示五次中至少成功一次的概率很高，但连续五次都成功的概率很低，以及短任务通过、长链路任务循环。判断规则按任务聚合，而不是把运行次数直接平均；必须明确状态重置、重复次数、失败位置、成本与风险切片。重复运行成功一次不能替代连续稳定成功的可靠性判断。",
     "故障诊断：先查任务是否独立、fixture 是否重置、重试是否计入成本、失败是否被过滤，再查区间方法和 horizon 桶。若 pass@k 与 pass^k 方向冲突，保持 EVIDENCE-INSUFFICIENT 并补 clustered interval；不能改分母、删除失败 run 或提升预算来消除红灯。",
     "D4 迁移工件：交付 reliability-metric-card.json、raw-runs.jsonl、horizon-curve.csv、clustered-interval.md 和 rollback-decision.md。换到 RAG、Agent 规划或工具链时重建 task population、状态 reset、失败成本与最长轨迹，明确哪些指标支持扩容、回退或人工升级。",
     "四环决策：离线环证明计算和已知 mutation，沙箱环验证状态清理，影子环验证真实 workload 分布，在线环才可能讨论可靠性 SLO。后三环未运行，所有 production、live、practitioner、learner、provider/model、integration、publication 结论均 NOT_RUN。",
     "小白复盘：用一句话区分“至少一次成功”和“每次都成功”，再写一个导致 horizon 衰减的故障和一个可回滚修复。若只能报一个百分比，补齐分母、k、样本量、时间窗、owner 与 stop action 后再决策。",
   ],
   "TD-AG-07": [
-    "worked decision：把一次客服任务展开成 task→step→tool，混入短问答、长上下文和高风险写操作；固定 workload hash 后逐级增加 open-loop 到达率。Oracle 同时消费 planned/completed/failed/dropped/queued、TTFT、TPOT、P95/P99、goodput、Token、成本尾部和预算截断，平均 QPS 不能覆盖失败质量。",
+    "工作示例：把一次客服任务展开成任务、步骤、工具调用三层，混入短问答、长上下文和高风险写操作；固定工作负载版本后逐级增加开环到达率。判断规则同时检查计划、完成、失败、丢弃和排队数量，以及首 Token 延迟、每 Token 延迟、长尾延迟、有效吞吐、Token、成本尾部和预算截断。平均每秒请求数不能掩盖质量失败。",
     "故障诊断：先验证到达守恒，再区分排队、模型生成、工具等待、重试放大和资源尾部。P99 超限、goodput 下降、单位成功成本上升或副作用预算越界任一变红；修复按 deadline、幂等、retry 上限、风险降级顺序执行，不可只提高 timeout 或金钱预算。",
     "D6 迁移工件：交付 workload-manifest.json、task-step-tool-trace.jsonl、cost-card.md、budget-receipt.json 和 capacity-decision.md。重填 Token 分布、缓存命中、并发、价格时间、模型版本、质量门禁和 owner；账单或质量字段缺失时，cost_per_success 与 goodput 保持 UNKNOWN。",
     "四环决策：离线环验证账本和预算逻辑，沙箱环验证资源隔离，影子环观察真实人口，在线环才可讨论容量策略。未运行环不可写成生产 SLO；provider、model、integration、practitioner、learner、live、production、publication 均 NOT_RUN，失败收据仍需保留。",
     "小白复盘：解释裸吞吐、质量约束 goodput、P95/P99 与单位成功成本分别回答什么问题；让同伴从 raw trace 重算一个切片。任何分母对不上、失败被删除或长尾被均值隐藏，结论降级为 BLOCKED。",
   ],
   "TD-AG-08": [
-    "worked decision：同时变更模型、Prompt、工具清单与 Memory 快照，平均分上升但退款切片引用过期政策。D7 Oracle 先检查四维 lineage，再检查业务硬规则、审计链、风险 owner、补偿控制和 rollback；总体分不得抵消政策 blocker，模型也不能批准自己的 waiver。",
+    "工作示例：同时变更模型、提示词、工具清单与记忆快照后，平均分上升，但退款切片引用了过期政策。变更评审先检查四类版本来源，再检查业务硬规则、审计链、风险负责人、补偿控制和回滚；总体分不能抵消政策阻断项，模型也不能批准自己的例外放行。",
     "故障诊断：逐条回链 user、Agent、tool、evidence、policy version、审批人和时间戳；缺一项即审计断链。若规则过期、owner 缺失、expiry 缺失或风险接受范围过宽，修复补 source_ref、版本、人工 baseline、到期日与回滚目标，再重放高风险 slice。",
     "D7 迁移工件：交付 lineage-card.json、business-rule-ledger.md、risk-acceptance.json、audit-sample.jsonl 和 rollback-rehearsal.md。换到客服、内容或金融业务时重建失败成本、法规来源、人工基线与 delegation；没有组织 policy 就保持 INTERNAL-UNKNOWN，不复制示例批准。",
     "四环决策：离线环验证规则和版本闭合，沙箱环验证审批与回滚，影子环观察版本组合，在线环才讨论 ROI。后三环未运行，live/production/practitioner/learner/provider/model/integration/publication 均 NOT_RUN；风险接受必须有具名 owner、范围、补偿控制和到期日。",
     "小白复盘：从一条业务动作回答谁提出、谁决策、谁执行、依据哪条规则、谁批准、如何撤销；只要其中一项依赖猜测就写 UNKNOWN。不要用平均质量、节省工时或模型解释替代治理证据。",
   ],
   "TD-AG-09": [
-    "worked decision：同一高风险 Agent 依次进入 offline CI、sandbox、shadow、online 四环，但只为已运行环生成证据。三段门禁分开记录硬政策 blocker、统计证据不足和具名风险接受；上一环的 PASS 不能替下一环填补真实 population、回滚和 owner 缺口。",
+    "工作示例：同一个高风险 Agent 依次进入离线流水线、沙箱、影子流量和在线运行四个阶段，但只为真正运行过的阶段生成证据。三段门禁分别记录硬性政策阻断、统计证据不足和具名风险接受；上一阶段通过，不能替下一阶段填补真实用户样本、回滚和负责人缺口。",
     "故障诊断：若离线通过而沙箱无法清理状态，红点归 sandbox；若影子没有真实流量样本，红点归 evidence-insufficient；若在线无自动撤回，红点归 release hard-block。修复必须补对应环的输入、trace、统计方法或回滚演练，不能复制旧 receipt 或调整阈值求绿。",
     "四环迁移工件：交付 ring-plan.json、gate-receipts.jsonl、population-manifest.md、rollback-matrix.md 和 not-run-register.md。换到浏览器、飞书或交易 Agent 时重填工具、风险切片、采样、审批、回滚和 publication gate，保持环间边界清晰。",
     "小白复盘：说清离线能证明什么、不能证明什么；下一环需要谁、哪份输入、哪种停止条件。任何 provider/model/integration/practitioner/learner/live/production/publication 未运行，页面必须显式 NOT_RUN；硬红线不能被综合分抵消。",
     "决策练习：构造一个硬安全失败、一个统计区间不足、一个风险接受过期的案例，分别给出 BLOCKED、EVIDENCE-INSUFFICIENT、EXPIRED 三种状态和下一动作。这样学习者能把成熟度门变成可执行发布合同，而不是流程装饰。",
   ],
   "TD-AG-10": [
-    "worked decision：金融 Agent 读取带时间戳行情，生成建议，经双人批准后才可下单；fixture 注入过期行情、建议与执行混淆、超额度、审批人与执行人相同和重复提交。Oracle 分开检查 freshness、evidence、hard limit、dual approval、idempotency 与 rollback，任何越权在执行前红灯。",
+    "工作示例：金融 Agent 读取带时间戳的行情，生成建议，经双人批准后才可以下单；离线夹具分别注入过期行情、把建议误当执行、超额度、审批人与执行人相同、重复提交等故障。判断规则分别检查时效、证据、硬性额度、双人审批、幂等和回滚，任何越权都必须在执行前变红。",
     "故障诊断：先查报价时间窗和来源，再查建议/执行 API 是否隔离，随后核对仓位额度、审批人、幂等状态和 kill switch。修复只补一个控制并重放同一 market snapshot；不能用模型谨慎措辞、提高限额或删除订单失败来换绿，审计 trace 必须保留。",
     "高风险适配器工件：交付 high-risk-adapter.yaml、freshness-card.json、approval-ledger.jsonl、execution-blocker.md 和 rollback-drill.md。迁移到支付、采购或理赔时重填不可逆动作、额度、法规 source_ref、人工接管和回滚窗口；缺业务 owner 或 policy 时保持 BLOCKED。",
     "四环决策：离线环只验证合成行情和策略门禁，沙箱环验证模拟账户，影子环观察真实报价但禁止下单，在线环才可能讨论受控额度。后三环未运行，生产交易、收益、合规、live、practitioner、learner、provider/model、integration、publication 均 NOT_RUN。",
@@ -358,6 +358,8 @@ const wave6AgentOverview: Record<string, string[]> = {
   ],
 };
 
+const stripTerminalPunctuation = (text: string) => text.trim().replace(/[。；：，！？]+$/u, "");
+
 const makePage = (spec: AgentArchitectureSpec): TutorialPage => {
   const slug = spec.id.toLowerCase();
   const reportDir = `reports/${slug}`;
@@ -379,12 +381,12 @@ const makePage = (spec: AgentArchitectureSpec): TutorialPage => {
     blocks: [
       { title: "系统边界与关键风险", body: [spec.problem, "本页先画边界、写责任和停止条件，再使用任何模型或自动化工具。"], warning: "真实模型、企业系统、生产凭证和从业者结论均 NOT_RUN。" },
       ...(wave4Expansion[spec.id] ? [{ title: `${spec.id} 专属 D0-D7 / 四环案例`, body: wave4Expansion[spec.id] }] : []),
-      ...(wave5AgentExpansion[spec.id] ? [{ title: `${spec.id} Wave5 worked decision 与迁移`, body: wave5AgentExpansion[spec.id] }] : []),
-      ...(wave6AgentOverview[spec.id] ? [{ title: `${spec.id} Wave6 架构专属决策`, body: wave6AgentOverview[spec.id] }] : []),
-      { title: `${spec.id} 专属案例推演与迁移`, body: [
-        `${spec.id} 的练习从这个具体故障开始：${spec.problem}。先把它写成 Evidence（输入、trace、状态快照和版本），再写 Inference（为什么只能定位到 ${spec.title} 的风险），最后列出 Unknown（哪些真实条件没有运行）。`,
+      ...(wave5AgentExpansion[spec.id] ? [{ title: "用一个完整业务决策验证本页方法", body: wave5AgentExpansion[spec.id] }] : []),
+      ...(wave6AgentOverview[spec.id] ? [{ title: "把本页架构结论迁移到新的业务场景", body: wave6AgentOverview[spec.id] }] : []),
+      { title: `案例推演：${spec.title}`, body: [
+        `这页的练习从一个具体故障开始：${stripTerminalPunctuation(spec.problem)}。先把它写成事实证据（输入、调用链、状态快照和版本），再写有限推断（为什么问题属于“${spec.title}”所描述的风险），最后列出未知项（哪些真实条件没有运行）。`,
         `对 ${spec.id}，学员必须在 ${spec.nodes.join("、")} 中选出首个可观察断点，明确由谁拥有 Oracle、谁拥有停止权，以及故障从哪里开始影响用户或业务；只看最终文本不能替代过程证据。`,
-        `职业实验要求先预测 ${spec.id} 的 fault：${spec.failure}；再运行同一个 fixture 的 baseline、fault、repair，保留 failed_oracle_ids、退出码、输入 hash 和 reviewer，而不是修改 expected 或删掉失败样本。`,
+        `职业实验要求先预测会出现什么故障：${stripTerminalPunctuation(spec.failure)}；再用同一个离线夹具依次运行基线、故障和修复，保留失败规则编号、退出码、输入摘要和复评人，而不是修改预期结果或删掉失败样本。`,
         `迁移 ${spec.id} 时，保留“${spec.title}”的风险主线，但必须替换数据、权限、工具、业务错误成本、owner、回滚和适用范围。新系统中的模型、集成、从业者复核、学习者迁移、live 与 production 证据不能继承本页 receipt。`,
         `完成标准是能用小白语言回答四问：测什么、谁判断、哪里停、下一份证据交给谁；答不出时写 UNKNOWN，并把 ${spec.repair} 拆成下一条可执行任务。`,
       ] },

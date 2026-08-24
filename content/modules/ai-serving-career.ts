@@ -54,7 +54,7 @@ const servingActions: Record<ServingPageId, string> = {
 // transfer checklist. These paragraphs are deliberately not shared scaffolding.
 const wave3Expansion: Record<string, string[]> = {
   "TD-C01": [
-    "worked example：把 UI 自动化工程师的现有能力拆成需求追踪、故障注入、AI Eval、Serving 可靠性和沟通治理五列；每列只填当前能打开的工件。证书和工具名称放在背景，不放在能力结论里。",
+    "工作示例：把 UI 自动化工程师的现有能力拆成需求追踪、故障注入、AI 评测、在线服务可靠性和沟通治理五列；每列只填当前能打开的工件。证书和工具名称放在背景，不放在能力结论里。",
     "迁移条件：目标岗位必须写清负责、协作和禁止决定，并由具体组织 owner 提供 source_ref、版本和生效日期。没有这些组织证据时，公共责任状态只能用于学习规划，不能推断 P5/P6、薪资或录用。",
     "可观察工件：交付岗位路径图、能力自评 JSON、90 天计划和一份 portfolio receipt；每项 claim 都有 evidence_ref、reviewer、failure_cost、next_artifact 和 UNKNOWN 边界。",
     "实验步骤：先运行当前基线，再注入一条权限或 Oracle fault，最后修复并由独立 reviewer 复核。若作品只能展示成功截图，不能证明 independent-scoped-ownership。",
@@ -66,7 +66,7 @@ const wave3Expansion: Record<string, string[]> = {
     "复用清单：复制本页 portfolio receipt 到新项目时保留 claim、evidence_ref、failure_cost、decision_rights、owner、version、review_date 和 limitation 八列，只替换业务字段。当前 static/fixture、provider、model、integration、practitioner、learner、live、production、publication 均 NOT_RUN，不能向外宣称已验证。",
   ],
   "TD-A01": [
-    " worked example：退款解释接口同一请求连续出现两个不同结果时，先把 request_id、model_alias、prompt_hash、schema_hash、tool_version 和 region 写入一行 Manifest，再把每次差异归因到可见变量或 UNKNOWN。若只保存最终文本，无法判断是 Prompt 改动、动态路由还是模型内部修订；五层测试面必须分别给出 owner 和证据链接。",
+    "工作示例：退款解释接口对同一请求连续给出两个不同结果时，先把请求编号、模型别名、提示词摘要、结构摘要、工具版本和区域写入运行记录，再把每次差异归因到可见变量或未知原因。若只保存最终文本，无法判断是提示词改动、动态路由还是模型内部修订；五层测试面必须分别给出负责人和证据链接。",
     "迁移条件：把 fixture 迁移到真实 SDK 前，先固定 SDK 版本、鉴权租户、模型别名解析时间、采样参数与区域，并约定哪些供应商字段永远不可见。测试报告必须把“可复现”拆成协议可复现、输入可复现、路由可见性和行为复现四个结论，任何一个缺证据都只能写 UNKNOWN。",
     "可观察工件：交付一份带 hash 的 Manifest、一张错误分类表和一张版本可见性矩阵。复盘时抽查三条失败请求，确认每条都能从 request_id 找到原始输入、Oracle、重试决定和负责人；不能用 200、非空或漂亮文本替代版本证据。",
     "练习复盘：把一个浮动模型别名拆成四次调用记录，分别标出客户端可见、网关可见、供应商不可见和推断所得字段。对每个字段写“能否复现、由谁负责、缺失时怎么停”。如果学员只能写出一个总版本号，说明尚未理解生成服务的组合版本；应回到 Prompt、Schema、Tool 和采样层逐项补证。",
@@ -76,7 +76,7 @@ const wave3Expansion: Record<string, string[]> = {
     "小结练习：面对接口 200 但答案不稳定的问题，先收集五次相同输入的 request_id 和版本指纹，再判断是行为分布、路由漂移、Prompt 漂移还是字段不可见。每种候选都要有最小检查、阻断条件和修复后重放动作；如果只能说模型有随机性，说明还没有建立可审计测试面。",
   ],
   "TD-A02": [
-    " worked example：退款助手先发送 SSE delta，再要求结构化审批建议，随后调用订单查询工具并提交异步合规任务。学习者要分别画四张状态机，标出取消、断流、Schema 合法但语义错误、工具超时和异步部分失败的出口；最终文本相同也不能合并这些状态。",
+    "工作示例：退款助手先流式发送内容片段，再要求结构化审批建议，随后调用订单查询工具并提交异步合规任务。学习者要分别画四张状态机，标出取消、断流、结构合法但语义错误、工具超时和异步部分失败的出口；最终文本相同也不能合并这些状态。",
     "迁移条件：真实代理接入前逐项确认 SSE 心跳与代理缓冲、JSON Schema 版本、工具 allowlist/幂等键、task_id 回调签名和重放策略。任何一个状态没有明确 owner，就把该分支标为 BLOCKED，而不是用客户端重试掩盖；副作用账本必须独立于模型文本保存。",
     "可观察工件：交付事件 reducer、Schema+业务不变量清单、工具副作用账本和异步状态转移表。每个故障样例都记录“收到的最后事件、允许的下一事件、用户可见提示、是否重试和修复后终态”，这样新人可以直接复制表格改成自己的协议。",
     "练习复盘：给出一条 created、delta、tool_call、disconnect、retry、completed 的事件序列，让学习者标出第一个非法转移和最小修复。再把工具调用改成只读与写入两种模式，分别规定是否允许自动重试。最后把异步任务改成部分成功，要求输出“不可汇总为 completed”的理由和用户提示，避免只凭最终文本判定通过。",
@@ -87,7 +87,7 @@ const wave3Expansion: Record<string, string[]> = {
     "小结练习：把一条用户取消后仍收到结果的投诉拆成客户端取消、代理转发、服务生成、工具执行和回调落库五段，逐段写出可观察事件。最终报告同时给出用户可见结果、服务真实终态和是否产生副作用；三者不一致时优先修状态机和账本。",
   ],
   "TD-A03": [
-    " worked example：同一批请求中，短聊天首 Token 很快但长报告 TPOT 变慢；不要用平均总延迟覆盖差异。学习者从 raw event 逐行标出 arrival、queue_end、first_token、last_token、quality_pass 和 cost_attempt，再计算 TTFT、TPOT、ITL、Goodput 与 cost_per_success，最后按场景和质量切片。",
+    "工作示例：同一批请求中，短聊天很快输出第一个 Token，但长报告的每 Token 生成时间变慢；不要用平均总延迟覆盖差异。学习者从原始事件中逐行标出到达、排队结束、首个 Token、最后一个 Token、质量是否通过和本次尝试成本，再计算首 Token 延迟、每 Token 延迟、Token 间隔、有效吞吐和单次成功成本，最后按场景和质量切片。",
     "迁移条件：接入真实 telemetry 前先定义时钟来源、Token 计数口径、流式空事件、重试归属和质量判定 owner。p95 只有在样本量、时间窗、请求类型和失败分母一起固定时才可比较；指标卡要写明统计窗口和缺失字段的 UNKNOWN 处理，不能拿 GPU 利用率替代用户体感。",
     "可观察工件：交付公式卡、原始事件 CSV、机器可读重算报告和一张分母审计表。审查者随机删除一条失败费用或一个质量标记，报告应立即显示 Goodput 或单位成功成本变化；如果删除字段仍然不影响结论，说明指标 Oracle 没有真正消费证据。",
     "练习复盘：先给出五条请求的事件表，其中一条首 Token 缺失、一条质量失败、一条重试两次。学习者必须说明哪些行能进入 TTFT 分位数、哪些行仍进入 Goodput 分母、失败费用如何摊入 cost_per_success。再将聊天和批处理分开切片，解释为什么同一个 p95 在不同 Token 分布下不能直接比较。",
@@ -98,7 +98,7 @@ const wave3Expansion: Record<string, string[]> = {
     "小结练习：写一份指标审查单，逐项回答测量起点、测量终点、分母、切片、失败归属、重试归属、缺失处理和 owner。让另一名同学只看原始事件重算一次，再比较两份结果；若公式、分母或切片不同，先修定义卡再谈性能趋势。",
   ],
   "TD-A04": [
-    " worked example：容量阶梯包含短聊天、长报告和工具请求三种 Token 分布，open-loop 每秒计划到达数固定，closed-loop 只作为单用户诊断。每一级都记录 completed、failed、dropped、queued，学习者要解释为何 dropped 被隐藏时 Goodput 会虚高，以及为何变慢后 closed-loop 会自动减小压力。",
+    "工作示例：容量阶梯包含短聊天、长报告和工具请求三种 Token 分布。开环压测固定每秒计划到达数，闭环压测只用于单用户诊断。每一级都记录完成、失败、丢弃和排队数量；学习者要解释为什么隐藏丢弃请求会让有效吞吐虚高，以及为什么系统变慢后闭环压测会自动减小压力。",
     "迁移条件：迁移到真实压测前锁定 workload hash、输入/输出 Token 分布、缓存命中、到达率、并发、稳态时长、恢复窗口和停止条件。容量报告要把裸 RPS、SLO 合格吞吐和质量约束 Goodput 分开，并明确安全余量属于该版本、该流量切片，不能写成机器或供应商承诺。",
     "可观察工件：交付 workload Manifest、每级到达守恒表、阶梯曲线和停止/恢复记录。复盘者应能从计划到达数重新加总四类结果，并定位第一条 SLO 破坏发生在哪一级；若总数对不上，先修负载生成器或账本，不得继续解释拐点。",
     "练习复盘：将同一工作负载分别用 open-loop 和 closed-loop 运行，故意让响应时间在第三级翻倍。学习者要计算两种模型的实际到达数，并指出 closed-loop 为什么在系统变慢时自己减少压力。再把 dropped arrivals 从账本删除，要求写出被放大的 Goodput 与被掩盖的容量风险。",
@@ -109,7 +109,7 @@ const wave3Expansion: Record<string, string[]> = {
     "小结练习：对每个容量级别写继续、停止、回退三种决策，并绑定到到达守恒、Goodput、SLO、成本和恢复证据。遇到 queued 长时间不归零时不能只等结果，应检查负载发送器、账本完整性和停止条件是否生效。",
   ],
   "TD-A05": [
-    " worked example：一批长上下文请求 TTFT 上升，但 TPOT 稳定，GPU 利用率也同步升高。学习者先把 queue_time、prefill_time、decode_time、KV eviction、batch_size 和工具 span 放到同一 Trace，再降低到达率而不改变请求形状；若 TTFT 随 queue 占比下降，才可把排队升级为候选根因。",
+    "工作示例：一批长上下文请求的首 Token 延迟上升，但每 Token 生成时间稳定，GPU 利用率也同步升高。学习者先把排队、预填充、解码、KV 缓存淘汰、批大小和工具调用记录放到同一条链路追踪中，再降低到达率而不改变请求形状；只有首 Token 延迟随排队占比一起下降，才可以把排队列为候选根因。",
     "迁移条件：真实服务通常看不到托管队列和 KV profiler，因此每个结论要区分直接证据、支持证据和反证。改变并发、Prompt 长度或 batch 时只能选一个变量，并保留前后 trace、资源快照、质量结果和回滚动作；没有对照实验，Dashboard 的相关性只能写 UNKNOWN。",
     "可观察工件：交付症状分流表、慢请求 Trace 对照、候选根因账本和单变量实验记录。新人拿到一条“服务慢”告警时，按 TTFT/TPOT、queue、prefill/decode、GPU/KV、下游工具顺序填写下一检查与修复动作，而不是直接申请扩容。",
     "练习复盘：准备四条相同总时长但阶段分解不同的 Trace：排队长、prefill 长、decode 长、工具长。学习者必须分别给出首个检查、支持证据、反证和最小修复；若只凭 GPU 利用率选择 GPU，判定为相关性误判。然后用一次只改到达率的对照，验证哪条假设被推翻。",
@@ -120,7 +120,7 @@ const wave3Expansion: Record<string, string[]> = {
     "小结练习：给四个候选根因各写一条反证：Queue 反证是低到达率下 queue_time 仍低却 TTFT 高；Prefill 反证是输入长度不变而 prefill 不变；Decode 反证是 TPOT 稳定；KV 反证是无 eviction/preemption。诊断树必须能记录反证，否则只是按关键词猜答案。",
   ],
   "TD-A06": [
-    " worked example：主模型先返回 429，工具提交已成功但客户端超时，随后 fallback 质量门禁失败。学习者按错误类别建立状态机，计算 attempt、deadline、token、cost 和副作用四类预算，说明为什么查询既有 task 状态比再次提交安全，以及为什么 fallback 失败时必须安全失败或转人工。",
+    "工作示例：主模型先返回 429 限流，工具提交已成功但客户端超时，随后备用方案的质量门禁失败。学习者按错误类别建立状态机，计算尝试次数、截止时间、Token、费用和副作用四类预算，说明为什么查询已有任务状态比再次提交更安全，以及为什么备用方案不达标时必须安全失败或转人工。",
     "迁移条件：真实限流策略要读取 Retry-After 并确认租户配额、幂等语义和 fallback 模型的质量/安全基线。预算必须在网关、SDK、工具层共享一个请求级 deadline；任何一层自行重试都会制造放大。恢复演练还要记录用户提示、降级原因、费用和回滚 owner，不能只看可用率。",
     "可观察工件：交付错误矩阵、预算计算表、幂等副作用账本和降级质量切片。复盘者随机把 Retry-After 改短、把质量门禁置 false 或增加一次重试，cycle 应分别打红并指出放大、成本或质量原因；修复后再以同一 request_id 验证唯一终态。",
     "练习复盘：把网关、SDK、工具三层的重试参数列成表，计算最坏调用次数、最长耗时和 Token 成本；只要任一项超过请求级预算就必须阻断。再分别注入 400、429、超时、拒答和输出截断，要求学习者选择重试、等待、改参数、降级或人工升级，并写出理由。",
@@ -294,7 +294,7 @@ const technicalBlocks = (page: PageContract): TutorialBlock[] => {
   const id = page.id;
   const action = servingActions[id];
   const wave5 = id === "TD-C01" ? [
-    "Wave5 worked decision：把“我想转 AI 测试”改成可审查的岗位决策。先列 AI Eval、Serving 可靠性、质量平台治理三条路径，为每条填写可承担决策、最低工件、失败成本、组织 owner 和 90 天复评；只有工具熟练度而无独立 Oracle 时，仍是 guided-execution。",
+    "工作示例：把“我想转 AI 测试”改成可以审查的岗位决策。先列 AI 评测、在线服务可靠性、质量平台治理三条路径，为每条填写可承担的决定、最低工件、失败成本、组织负责人和 90 天复评；只有工具熟练度而没有独立判断依据时，仍属于在指导下执行。",
     "故障诊断：当 portfolio 评审者说“报告像模型摘要”，沿 Evidence→Inference→Unknown 回溯 raw input、fault、failed_oracle_ids、版本 hash、reviewer 和复评日期。缺一项就修证据链，不用术语或截图数量掩盖；修复后让另一名评审者仅凭 receipt 重建决定。",
     "主题实验：以 RAG 评测为例，baseline 使用固定检索集和人工 gold，fault 将过期文档置首位，repair 恢复有效期过滤与证据 Oracle。作品集同时展示检索命中、证据支持、最终答案和风险切片，不能只放回答文本或 F1。",
     "迁移工件：交付 role-decision-card.json、portfolio-receipt.json、organization-adapter-draft.yaml 和 90-day-review.md；editable_fields 含业务错误成本、数据权限、模型/Prompt 版本、复评人、回滚 owner、发布日期和适用人群。无组织 source_ref 时保持 INTERNAL-UNKNOWN。",
@@ -302,16 +302,16 @@ const technicalBlocks = (page: PageContract): TutorialBlock[] => {
     "边界复用：结构可复制到测试开发、RAG、Agent 或 Serving 岗位，但样本、Oracle、风险和组织 policy 必须重建。当前 static/fixture、provider、model、integration、practitioner、learner、live、production、publication 均 NOT_RUN。",
   ] : [];
   const wave6 = id === "TD-C01" ? [
-    "Wave6 决策练习：把传统接口测试经验映射到 AI Serving 责任时，先选一个低风险业务对象，再明确可决定范围、禁止动作、独立 Oracle、失败成本和交接人。岗位结论必须由作品证据支持，不能由模型名称、框架数量或工作年限替代；证据不足时回到 guided-execution。",
+    "迁移练习：把传统接口测试经验映射到 AI 在线服务职责时，先选一个低风险业务对象，再明确可以决定的范围、禁止动作、独立判断依据、失败成本和交接人。岗位结论必须由作品证据支持，不能由模型名称、框架数量或工作年限替代；证据不足时回到在指导下执行。",
     "诊断细节：作品集评审出现“版本可复现但风险不可复现”时，检查数据切片、业务规则、Prompt/Schema/Tool hash、模型别名解析时间和复评 owner。修复先补一个缺失字段并重跑 fault，保留前后 receipt；真实 provider 或 live 条件未运行时结论仍 UNKNOWN/NOT_RUN。",
     "可交付决定：分别写出“继续构建作品”“停止并补数据”“升级组织 owner”三种条件，绑定 evidence_ref、failure_cost、review_date 和 rollback。学习者要说明当前样本支持的有限判断，以及不能外推到哪个岗位、薪资或生产系统。",
     "迁移工件：在 portfolio receipt 外新增 role-scope-card、serving-version-matrix、reviewer-objection-log 和 next-experiment.md。每个 editable_field 写示例值、数据来源、责任人和缺失动作，复制到 RAG、Agent 或压测场景时必须重新签署。",
     "复盘任务：同伴随机删除一条版本字段或替换一条风险切片，要求指出哪一个结论必须降级、哪个 Oracle 需要重跑、谁拥有停止权。若无法定位，说明作品仍依赖口头解释，不具备直接复用条件。",
   ] : [];
   return [
-    ...(wave5.length ? [{ title: `${id} Wave5 专属职业决策`, body: wave5 }] : []),
-    ...(wave6.length ? [{ title: `${id} Wave6 主题决策与诊断`, body: wave6 }] : []),
-    { title: `${action}：主题化 worked example、迁移条件与复用工件`, body: [...wave3Expansion[id], ...(wave3Extra[id] ?? [])] },
+    ...(wave5.length ? [{ title: "用作品证据判断岗位方向", body: wave5 }] : []),
+    ...(wave6.length ? [{ title: "从现有测试经验迁移到 AI 质量职责", body: wave6 }] : []),
+    { title: `${action}：用一个业务例子验证方法，并说明迁移条件`, body: [...wave3Expansion[id], ...(wave3Extra[id] ?? [])] },
     { title: `${id} 专属责任四态与可复验证据`, body: [
       `针对 ${id}，不要把“会压测/会看指标”当作成熟度。请将责任状态写成 guided-execution、independent-scoped-ownership、system-cross-team-leverage 或 strategy-governance-mentoring，并为本页绑定输入版本、${page.artifact}、命名 fault、独立 Oracle、失败动作和 reviewer。`,
       "没有可打开的 evidence_ref 就保持 UNKNOWN；fixture-only 的 0/1/0 只证明测试资产能检测声明故障，不能升级成真实模型、供应商集成、从业者、学习者或 production 结论。",
