@@ -14,14 +14,17 @@
 
 import { moduleOverviews } from "../content/module-overviews";
 import { publicModules, type TutorialPage } from "../content/course";
+import type { GlossaryEntry } from "../content/glossary";
+import { GlossaryText } from "./glossary-interaction";
 
 type Props = {
   module: (typeof publicModules)[number];
   pages: TutorialPage[];
   onOpenPage: (pageId: string) => void;
+  onOpenTerm: (entry: GlossaryEntry) => void;
 };
 
-export function ModuleOverviewView({ module, pages, onOpenPage }: Props) {
+export function ModuleOverviewView({ module, pages, onOpenPage, onOpenTerm }: Props) {
   const overview = moduleOverviews[module.id];
   if (!overview) return null;
 
@@ -33,8 +36,8 @@ export function ModuleOverviewView({ module, pages, onOpenPage }: Props) {
         <div className="breadcrumb"><span>模块全景</span><span>›</span><span>{module.id}</span></div>
 
         <p className="eyebrow">{module.id} · {pages.length} 页 · {overview.stages.length} 个阶段</p>
-        <h1>{module.title}</h1>
-        <p className="lead">{overview.thesis}</p>
+        <h1><GlossaryText text={module.title} onOpen={onOpenTerm} /></h1>
+        <p className="lead"><GlossaryText text={overview.thesis} onOpen={onOpenTerm} /></p>
 
         <section className="module-panorama">
           <p className="eyebrow">全景：架构与流程</p>
@@ -48,13 +51,13 @@ export function ModuleOverviewView({ module, pages, onOpenPage }: Props) {
               {/* eslint-disable-next-line @next/next/no-img-element -- 与页面级架构图一致，本地静态 SVG 直接加载，保留浏览器原生缩放 */}
               <img src={overview.panorama.src} alt={overview.panorama.alt} loading="lazy" decoding="async" />
             </a>
-            <figcaption>{module.subtitle} 手机端可在图内左右滑动，点击图片可打开高清原图。</figcaption>
+            <figcaption><GlossaryText text={module.subtitle} onOpen={onOpenTerm} /> 手机端可在图内左右滑动，点击图片可打开高清原图。</figcaption>
           </figure>
         </section>
 
         <section className="module-logic">
           <h2>这个模块是怎么组织的</h2>
-          {overview.logic.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          {overview.logic.map((paragraph) => <p key={paragraph}><GlossaryText text={paragraph} onOpen={onOpenTerm} /></p>)}
         </section>
 
         <section className="module-stages">
@@ -68,11 +71,11 @@ export function ModuleOverviewView({ module, pages, onOpenPage }: Props) {
                 <div className="stage-head">
                   <b>{String(index + 1).padStart(2, "0")}</b>
                   <div>
-                    <h3>{stage.name}</h3>
-                    <p className="stage-question">{stage.question}</p>
+                    <h3><GlossaryText text={stage.name} onOpen={onOpenTerm} /></h3>
+                    <p className="stage-question"><GlossaryText text={stage.question} onOpen={onOpenTerm} /></p>
                   </div>
                 </div>
-                <p className="stage-output"><span>出口工件</span>{stage.output}</p>
+                <p className="stage-output"><span>出口工件</span><GlossaryText text={stage.output} onOpen={onOpenTerm} /></p>
                 <div className="stage-pages">
                   {stage.pages.map((pageId) => {
                     const page = byId.get(pageId);
@@ -92,7 +95,7 @@ export function ModuleOverviewView({ module, pages, onOpenPage }: Props) {
 
         <section className="module-boundary">
           <h2>这个模块不负责什么</h2>
-          <ul>{overview.boundary.map((item) => <li key={item}>{item}</li>)}</ul>
+          <ul>{overview.boundary.map((item) => <li key={item}><GlossaryText text={item} onOpen={onOpenTerm} /></li>)}</ul>
         </section>
       </div>
     </main>

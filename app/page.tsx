@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { getLearnerTechnicalBlockPresentation, pages, publicModules, releaseScope } from "../content/course";
-import { glossary } from "../content/glossary";
+import { glossary, type GlossaryEntry } from "../content/glossary";
 import { references, referencesByPage, resolveReferences, type ReferenceEntry } from "../content/references";
 import { GlossaryView } from "./reference-views";
 import { ModuleOverviewView } from "./module-view";
+import { GlossaryDrawer, GlossaryText } from "./glossary-interaction";
 
 const statusLabel = (status: string) => status === "fixture-tested" ? "实验已跑" : "资料已审";
 const GITHUB_REPOSITORY_URL = "https://github.com/wpowen/test-development-ai-tutorial";
@@ -63,6 +64,7 @@ export default function Home() {
   // 模块全景（「总」层）当前展示的模块；view === "module" 时有效。
   const [moduleId, setModuleId] = useState<string>(publicModules[0].id);
   const [copied, setCopied] = useState<string | null>(null);
+  const [selectedGlossaryEntry, setSelectedGlossaryEntry] = useState<GlossaryEntry | null>(null);
 
   useEffect(() => {
     const sync = () => {
@@ -77,6 +79,7 @@ export default function Home() {
         setCurrentId(pages.some((page) => page.id === id) ? id : DEFAULT_PAGE_ID);
       }
       setMobileNav(false);
+      setSelectedGlossaryEntry(null);
     };
     sync();
     const restoreTimer = window.setTimeout(() => {
@@ -126,6 +129,13 @@ export default function Home() {
     setCopied(key);
     window.setTimeout(() => setCopied(null), 1200);
   };
+
+  const openGlossaryEntry = useCallback((entry: GlossaryEntry) => setSelectedGlossaryEntry(entry), []);
+  const closeGlossaryEntry = useCallback(() => setSelectedGlossaryEntry(null), []);
+  const openFullGlossary = useCallback(() => {
+    setSelectedGlossaryEntry(null);
+    setHash("glossary");
+  }, []);
 
   const currentModule = publicModules.find((item) => item.id === current.moduleId)!;
 
@@ -235,6 +245,7 @@ export default function Home() {
         module={publicModules.find((item) => item.id === moduleId)!}
         pages={visiblePages.filter((page) => page.moduleId === moduleId)}
         onOpenPage={setHash}
+        onOpenTerm={openGlossaryEntry}
       />}
       {view === "lesson" && <>
       <main className="reader">
@@ -244,28 +255,28 @@ export default function Home() {
             <span className={`status-badge ${current.status}`}>{statusLabel(current.status)}</span>
             <span>{current.type}</span><span>{current.duration}</span><span>更新于 {releaseScope.validatedAt}</span>
           </div>
-          <h1>{current.title}</h1>
-          <p className="lead">{current.summary}</p>
+          <h1><GlossaryText text={current.title} onOpen={openGlossaryEntry} /></h1>
+          <p className="lead"><GlossaryText text={current.summary} onOpen={openGlossaryEntry} /></p>
 
           <section className="outcome-card">
-            <div><span>学完能做到</span><ul>{current.outcomes.map((item) => <li key={item}>{item}</li>)}</ul></div>
-            <div><span>本页必须交付</span><strong>{current.artifact}</strong><small>不是“看懂”就算完成，要留下能被下游使用和检查的工件。</small></div>
+            <div><span>学完能做到</span><ul>{current.outcomes.map((item) => <li key={item}><GlossaryText text={item} onOpen={openGlossaryEntry} /></li>)}</ul></div>
+            <div><span>本页必须交付</span><strong><GlossaryText text={current.artifact} onOpen={openGlossaryEntry} /></strong><small>不是“看懂”就算完成，要留下能被下游使用和检查的工件。</small></div>
           </section>
 
-          <section className="why-card"><b>为什么测试开发需要这一页</b><p>{current.why}</p></section>
+          <section className="why-card"><b>为什么测试开发需要这一页</b><p><GlossaryText text={current.why} onOpen={openGlossaryEntry} /></p></section>
 
           {current.architecture && <section className="architecture-card">
             <p className="eyebrow">架构 / 流程</p>
-            <h2>{current.architecture.title}</h2>
+            <h2><GlossaryText text={current.architecture.title} onOpen={openGlossaryEntry} /></h2>
             {current.architecture.visual && <figure className="course-visual">
               <a href={current.architecture.visual.src} target="_blank" rel="noreferrer" aria-label={`打开高清原图：${current.architecture.visual.alt}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element -- local SVG architecture diagrams are already static assets; preserve direct SVG loading and browser-native zoom */}
                 <img src={current.architecture.visual.src} alt={current.architecture.visual.alt} loading="lazy" decoding="async" />
               </a>
-              <figcaption>{current.architecture.caption} 手机端可在图内左右滑动，点击图片可打开高清原图。</figcaption>
+              <figcaption><GlossaryText text={current.architecture.caption} onOpen={openGlossaryEntry} /> 手机端可在图内左右滑动，点击图片可打开高清原图。</figcaption>
             </figure>}
-            <div className="architecture-flow">{current.architecture.nodes.map((node, index) => <div className="architecture-step" key={node}><b>{String(index + 1).padStart(2, "0")}</b><span>{node}</span></div>)}</div>
-            {!current.architecture.visual && <p>{current.architecture.caption}</p>}
+            <div className="architecture-flow">{current.architecture.nodes.map((node, index) => <div className="architecture-step" key={node}><b>{String(index + 1).padStart(2, "0")}</b><span><GlossaryText text={node} onOpen={openGlossaryEntry} /></span></div>)}</div>
+            {!current.architecture.visual && <p><GlossaryText text={current.architecture.caption} onOpen={openGlossaryEntry} /></p>}
           </section>}
 
               {current.prerequisites.length > 0 && <section className="prerequisites"><b>前置页面</b>{current.prerequisites.map((id) => {
@@ -279,10 +290,10 @@ export default function Home() {
                 return <section className="content-block" key={block.title} id={`section-${index}`}>
                 <div className="section-index">{String(index + 1).padStart(2, "0")}</div>
                 <div className="section-body">
-                  <h2>{block.title}</h2>
-                  {block.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                  {block.bullets && <ul>{block.bullets.map((item) => <li key={item}>{item}</li>)}</ul>}
-                  {block.table && <div className="table-wrap"><table><thead><tr>{block.table.headers.map((header) => <th key={header}>{header}</th>)}</tr></thead><tbody>{block.table.rows.map((row, rowIndex) => <tr key={`${block.title}-${rowIndex}`}>{row.map((cell, cellIndex) => <td key={`${rowIndex}-${cellIndex}`}>{cell}</td>)}</tr>)}</tbody></table>{block.table.caption && <small>{block.table.caption}</small>}</div>}
+                  <h2><GlossaryText text={block.title} onOpen={openGlossaryEntry} /></h2>
+                  {block.body.map((paragraph) => <p key={paragraph}><GlossaryText text={paragraph} onOpen={openGlossaryEntry} /></p>)}
+                  {block.bullets && <ul>{block.bullets.map((item) => <li key={item}><GlossaryText text={item} onOpen={openGlossaryEntry} /></li>)}</ul>}
+                  {block.table && <div className="table-wrap"><table><thead><tr>{block.table.headers.map((header) => <th key={header}><GlossaryText text={header} onOpen={openGlossaryEntry} /></th>)}</tr></thead><tbody>{block.table.rows.map((row, rowIndex) => <tr key={`${block.title}-${rowIndex}`}>{row.map((cell, cellIndex) => <td key={`${rowIndex}-${cellIndex}`}><GlossaryText text={cell} onOpen={openGlossaryEntry} /></td>)}</tr>)}</tbody></table>{block.table.caption && <small><GlossaryText text={block.table.caption} onOpen={openGlossaryEntry} /></small>}</div>}
                   {technical && <div className="code-box" data-technical-kind={technical.kind}>
                     <div><small>{technical.label}</small>{technical.workingDirectory && <small> · 工作目录：{technical.workingDirectory}</small>}</div>
                     {technical.copyable
@@ -291,8 +302,8 @@ export default function Home() {
                     <pre>{technical.content}</pre>
                     <small>{technical.reason}</small>
                   </div>}
-                  {block.expected && <div className="expected"><b>预期结果</b><p>{block.expected}</p></div>}
-                  {block.warning && <div className="warning"><b>常见误区</b><p>{block.warning}</p></div>}
+                  {block.expected && <div className="expected"><b>预期结果</b><p><GlossaryText text={block.expected} onOpen={openGlossaryEntry} /></p></div>}
+                  {block.warning && <div className="warning"><b>常见误区</b><p><GlossaryText text={block.warning} onOpen={openGlossaryEntry} /></p></div>}
                   {resolveReferences(block.refs).length > 0 && <p className="block-refs">
                     <span>依据</span>
                     {resolveReferences(block.refs).map((entry) => <a
@@ -311,12 +322,12 @@ export default function Home() {
               <section className="practice-card">
                 <p className="eyebrow">实操</p>
                 <h2>练习与项目替换</h2>
-                <ol>{current.practice.map((item) => <li key={item}>{item}</li>)}</ol>
+                <ol>{current.practice.map((item) => <li key={item}><GlossaryText text={item} onOpen={openGlossaryEntry} /></li>)}</ol>
               </section>
 
               <section className="completion-card">
                 <div><p className="eyebrow">完成检查</p><h2>满足这些条件，才算学完</h2></div>
-                <div>{current.completion.map((item) => <label key={item}><input type="checkbox" /> <span>{item}</span></label>)}</div>
+                <div>{current.completion.map((item) => <label key={item}><input type="checkbox" /> <span><GlossaryText text={item} onOpen={openGlossaryEntry} /></span></label>)}</div>
                 <button className={completed.includes(current.id) ? "completed" : ""} onClick={toggleComplete}>{completed.includes(current.id) ? "✓ 已标记完成" : "标记本页完成"}</button>
               </section>
 
@@ -388,6 +399,12 @@ export default function Home() {
         <div className="route-card"><b>{current.documentContract ? READER_JOB_LABELS[current.documentContract.readerJob] : "文档任务"}</b><p>{current.documentContract?.scope.inScope[0]}</p><small>按任务与文档类型进入；页面顺序不代表规定的使用顺序。</small></div>
       </aside>
       </>}
+      <GlossaryDrawer
+        entry={selectedGlossaryEntry}
+        onClose={closeGlossaryEntry}
+        onOpen={openGlossaryEntry}
+        onOpenGlossary={openFullGlossary}
+      />
     </div>
   );
 }

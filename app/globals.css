@@ -112,6 +112,38 @@ a { color: inherit; }
 .glossary-pages button:hover { border-color: var(--forest); color: var(--forest); }
 .glossary-empty { padding: 30px; text-align: center; color: var(--muted); font-size: 13px; }
 
+/* 正文术语交互 --------------------------------------------------------------
+   触发词保留正文的字号和行高，只用克制的虚线提示“这里可以点”；详情统一从
+   glossary.ts 读取。桌面右侧抽屉、移动端底部抽屉共用同一份 DOM。 */
+.glossary-term-trigger { display: inline; margin: 0; padding: 0 1px; border: 0; border-bottom: 1px dashed #5f8c7d; border-radius: 0; background: transparent; color: inherit; font: inherit; font-weight: inherit; line-height: inherit; letter-spacing: inherit; text-align: inherit; cursor: help; }
+.glossary-term-trigger:hover { color: var(--forest); border-bottom-style: solid; background: #edf6f1; }
+.glossary-term-trigger:focus-visible { outline: 2px solid var(--forest); outline-offset: 2px; border-radius: 2px; }
+.glossary-drawer-layer { position: fixed; z-index: 100; inset: 0; pointer-events: none; }
+.glossary-drawer-backdrop { position: absolute; inset: 0; width: 100%; border: 0; background: rgba(10, 30, 24, .34); opacity: 1; pointer-events: auto; cursor: default; }
+.glossary-drawer { position: absolute; z-index: 1; top: 0; right: 0; bottom: 0; width: min(440px, 92vw); display: grid; grid-template-rows: auto minmax(0, 1fr) auto; border-left: 1px solid var(--line); background: var(--paper); box-shadow: -20px 0 60px rgba(10, 30, 24, .18); pointer-events: auto; }
+.glossary-drawer > header { display: flex; justify-content: space-between; gap: 18px; padding: 24px 24px 18px; border-bottom: 1px solid var(--line); background: #f3f7f4; }
+.glossary-drawer > header span { display: block; margin-bottom: 7px; color: var(--forest); font-size: 11px; font-weight: 800; letter-spacing: .06em; }
+.glossary-drawer > header h2 { margin: 0; font-size: 24px; line-height: 1.25; }
+.glossary-drawer > header small { display: block; margin-top: 7px; color: var(--muted); line-height: 1.5; }
+.glossary-drawer > header > button { flex: none; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; background: white; color: var(--muted); font-size: 23px; line-height: 1; cursor: pointer; }
+.glossary-drawer > header > button:hover { border-color: var(--forest); color: var(--forest); }
+.glossary-drawer-content { padding: 20px 24px 32px; overflow-y: auto; }
+.glossary-drawer-content section { margin-bottom: 22px; }
+.glossary-drawer-content section > b { display: block; margin-bottom: 7px; color: var(--forest); font-size: 12px; }
+.glossary-drawer-content p, .glossary-drawer-content ul { margin: 0; color: #3f4a45; font-size: 13px; line-height: 1.78; }
+.glossary-drawer-content ul { padding-left: 20px; }
+.glossary-drawer-plain { padding: 16px; border-radius: 10px; background: #edf5f1; }
+.glossary-drawer-related { display: flex; flex-wrap: wrap; gap: 7px; }
+.glossary-drawer-related button, .glossary-drawer-related span { padding: 4px 8px; border: 1px solid var(--line); border-radius: 7px; background: white; color: var(--forest); font-size: 11px; }
+.glossary-drawer-related button { cursor: pointer; }
+.glossary-drawer-related button:hover { border-color: var(--forest); }
+.glossary-drawer-sources { padding: 0 !important; list-style: none; }
+.glossary-drawer-sources li { display: grid; gap: 2px; margin-bottom: 9px; }
+.glossary-drawer-sources a { color: var(--forest); font-weight: 700; }
+.glossary-drawer-sources small { color: var(--muted); font-size: 10px; }
+.glossary-drawer > footer { padding: 14px 24px; border-top: 1px solid var(--line); background: white; }
+.glossary-drawer > footer button { width: 100%; padding: 11px 14px; border: 0; border-radius: 8px; background: var(--forest); color: white; font-weight: 800; cursor: pointer; }
+
 /* 来源与延伸阅读 ------------------------------------------------------------
    引用卡片刻意做得比正文重：它是这个模块「不用去别处看」这个承诺的兑现处。
    「能证明 / 不能证明」用左边框色区分，让读者一眼看到限制而不是只看到工具名。 */
@@ -345,6 +377,11 @@ a.reference-title:hover { color: var(--forest); text-decoration: underline; }
   .section-index { padding: 0; }
   .planned-grid, .page-nav, .material-grid { grid-template-columns: 1fr; }
   .page-nav .next { text-align: left; }
+  .glossary-drawer-layer { display: flex; align-items: flex-end; }
+  .glossary-drawer { position: relative; top: auto; right: auto; bottom: auto; width: 100%; max-height: min(82vh, 720px); border-top: 1px solid var(--line); border-left: 0; border-radius: 18px 18px 0 0; box-shadow: 0 -20px 60px rgba(10, 30, 24, .2); }
+  .glossary-drawer > header { padding: 20px 18px 15px; }
+  .glossary-drawer-content { padding: 18px 18px 26px; }
+  .glossary-drawer > footer { padding: 12px 18px calc(12px + env(safe-area-inset-bottom)); }
 }
 
 /* ---- 模块全景（「总」层）---------------------------------------------- */

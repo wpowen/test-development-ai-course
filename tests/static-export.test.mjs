@@ -77,6 +77,12 @@ test("static GitHub Pages export contains the professional curriculum", async ()
   assert.match(JSON.stringify(staticGlossary), /延伸来源：/);
   assert.equal(staticIndex.glossaryCount, staticGlossary.glossary.length);
   assert.match(html, /打开术语表（"\+DATA\.glossaryCount\+" 条）/);
+  assert.match(html, /data-glossary-term/);
+  assert.match(html, /class=["']?glossary-drawer/);
+  assert.match(html, /aria-haspopup=dialog/);
+  assert.match(html, /event\.key==="Escape"/);
+  assert.match(html, /function terms\(/);
+  assert.match(html, /function openGlossaryTerm\(/);
   assert.equal((html.match(/"moduleId":"TD-/g) ?? []).length, releaseScope.promisedPageIds.length);
   assert.match(html, new RegExp(`"validatedAt":"${releaseScope.validatedAt}"`));
   assert.match(html, /DATA\.releaseScope\.validatedAt/);
