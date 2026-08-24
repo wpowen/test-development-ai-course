@@ -102,7 +102,10 @@ test("static GitHub Pages export contains the professional curriculum", async ()
   assert.match(staticModulesText, /"technicalPresentation":\{"kind":"command"/);
   assert.match(staticModulesText, /"technicalPresentation":\{"kind":"prompt"/);
   assert.match(html, /复制使用/);
-  assert.match(html, /不可复制/);
+  assert.match(html, /在页面运行/);
+  assert.match(html, /打开完整 Prompt/);
+  assert.match(html, /pyodide-lab-worker\.js/);
+  assert.doesNotMatch(html, /aria-label="不可复制"/);
   assert.match(html, /<details class=materials><summary>/);
   assert.doesNotMatch(html, /<details class=materials open>/);
   assert.doesNotMatch(html, /<section class=evidence>|>证据与边界</);

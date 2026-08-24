@@ -41,9 +41,11 @@ test("server-renders the test-development AI tutorial shell", async () => {
   assert.match(html, /aria-haspopup="dialog"/);
   assert.match(html, /测试开发如何与 AI 协作，以及哪些发布责任必须由人承担/);
   assert.doesNotMatch(html, /测试开发职业责任与 AI 授权边界/);
-  assert.match(html, /图示（不可运行）/);
-  assert.match(html, /aria-label="不可复制"/);
+  assert.match(html, /流程说明/);
   assert.match(html, />复制使用<\/button>/);
+  assert.match(html, />在页面运行<\/button>/);
+  assert.match(html, />打开完整 Prompt<\/button>/);
+  assert.doesNotMatch(html, /aria-label="不可复制"/);
   assert.match(html, /<details class="materials-card">/);
   assert.doesNotMatch(html, /<details class="materials-card" open>/);
   assert.doesNotMatch(html, />证据与边界</);
