@@ -42,13 +42,20 @@ const indexPages = publicPages.map(({ id, title, summary, artifact, moduleId, ty
   readerJob: documentContract?.readerJob,
   audience: documentContract?.audience,
 }));
+// 已注册但尚未进入公开模块表的概览留在内容源里，不写进静态导航数据。
+const publicModuleOverviews = Object.fromEntries(
+  publicModules.flatMap((module) => {
+    const overview = moduleOverviews[module.id];
+    return overview ? [[module.id, overview]] : [];
+  }),
+);
 const indexPayload = JSON.stringify({
   defaultPageId: pages[0]?.id ?? "",
   modules: publicModules,
   pages: indexPages,
   releaseScope,
   sourceNotes,
-  moduleOverviews,
+  moduleOverviews: publicModuleOverviews,
   glossaryCount: glossary.length,
 })
   .replaceAll("<", "\\u003c")
@@ -150,6 +157,9 @@ document.getElementById("tutorial-search").oninput=renderNav;document.querySelec
 
 await rm(outputDir, { recursive: true, force: true });
 await cp(publicDir, outputDir, { recursive: true });
+await Promise.all(Object.keys(moduleOverviews)
+  .filter((moduleId) => !publicModules.some((module) => module.id === moduleId))
+  .map((moduleId) => rm(resolve(outputDir, "visuals", "modules", `${moduleId}.svg`), { force: true })));
 await mkdir(outputDir, { recursive: true });
 await mkdir(resolve(outputDir, "course-modules"), { recursive: true });
 await writeFile(resolve(outputDir, "course-index.json"), indexPayload, "utf8");

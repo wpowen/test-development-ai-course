@@ -60,11 +60,19 @@ test("static GitHub Pages export contains the professional curriculum", async ()
   assert.match(html, /模块全景/);
   assert.ok(html.includes('module-overview "+(m.id===current?"active":"")'), "navigation must link every module to its panorama");
   assert.match(html, /DATA\.modules\.some\(module=>module\.id===id\)/);
+  const publicIds = new Set(publicModules.map((module) => module.id));
   for (const [moduleId, overview] of Object.entries(moduleOverviews)) {
+    if (!publicIds.has(moduleId)) {
+      assert.equal(staticIndex.moduleOverviews[moduleId], undefined, `${moduleId} stays out of the public nav payload`);
+      await assert.rejects(access(new URL(`../dist-github-pages/course-modules/${moduleId}.json`, import.meta.url)));
+      await assert.rejects(access(new URL(`../dist-github-pages/visuals/modules/${moduleId}.svg`, import.meta.url)));
+      continue;
+    }
     assert.deepEqual(staticIndex.moduleOverviews[moduleId], overview);
     const moduleData = JSON.parse(await readFile(new URL(`../dist-github-pages/course-modules/${moduleId}.json`, import.meta.url), "utf8"));
     assert.ok(moduleData.pages.length > 0);
   }
+  assert.doesNotMatch(html, /TD-M13|TD-AI-00|TD-AI-06|TD-AI-07|进入 Agent 测试入门/);
   assert.match(html, /course-modules\//);
   assert.match(html, /glossary\.json/);
   assert.match(html, /data-reference="glossary"/);
