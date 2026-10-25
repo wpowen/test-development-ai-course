@@ -21,19 +21,24 @@ type Props = {
   module: (typeof publicModules)[number];
   pages: TutorialPage[];
   onOpenPage: (pageId: string) => void;
+  onOpenPath: () => void;
   onOpenTerm: (entry: GlossaryEntry) => void;
 };
 
-export function ModuleOverviewView({ module, pages, onOpenPage, onOpenTerm }: Props) {
+export function ModuleOverviewView({ module, pages, onOpenPage, onOpenPath, onOpenTerm }: Props) {
   const overview = moduleOverviews[module.id];
   if (!overview) return null;
 
   const byId = new Map(pages.map((page) => [page.id, page]));
 
   return (
-    <main className="reader module-view">
+    <main className="reader reader-wide module-view">
       <div className="reader-inner">
-        <div className="breadcrumb"><span>模块全景</span><span>›</span><span>{module.id}</span></div>
+        <div className="breadcrumb">
+          <button type="button" className="crumb-link" onClick={onOpenPath}>课程路径</button>
+          <span>›</span>
+          <span>{module.id}</span>
+        </div>
 
         <p className="eyebrow">{module.id} · {pages.length} 页 · {overview.stages.length} 个阶段</p>
         <h1><GlossaryText text={module.title} onOpen={onOpenTerm} /></h1>
