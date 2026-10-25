@@ -8,6 +8,7 @@ import { GlossaryView } from "./reference-views";
 import { ModuleOverviewView } from "./module-view";
 import { PathOverview } from "./path-overview";
 import { GlossaryDrawer, GlossaryText } from "./glossary-interaction";
+import { TechnicalWorkbench } from "./technical-workbench";
 
 const statusLabel = (status: string) => status === "fixture-tested" ? "实验已跑" : "资料已审";
 const GITHUB_REPOSITORY_URL = "https://github.com/wpowen/test-development-ai-tutorial";
@@ -358,14 +359,15 @@ export default function Home() {
                   {block.body.map((paragraph) => <p key={paragraph}><GlossaryText text={paragraph} onOpen={openGlossaryEntry} /></p>)}
                   {block.bullets && <ul>{block.bullets.map((item) => <li key={item}><GlossaryText text={item} onOpen={openGlossaryEntry} /></li>)}</ul>}
                   {block.table && <div className="table-wrap"><table><thead><tr>{block.table.headers.map((header) => <th key={header}><GlossaryText text={header} onOpen={openGlossaryEntry} /></th>)}</tr></thead><tbody>{block.table.rows.map((row, rowIndex) => <tr key={`${block.title}-${rowIndex}`}>{row.map((cell, cellIndex) => <td key={`${rowIndex}-${cellIndex}`}><GlossaryText text={cell} onOpen={openGlossaryEntry} /></td>)}</tr>)}</tbody></table>{block.table.caption && <small><GlossaryText text={block.table.caption} onOpen={openGlossaryEntry} /></small>}</div>}
-                  {technical && <div className="code-box" id={technical.kind === "command" && index === workbenchIndex ? "technical-workbench" : undefined} data-technical-kind={technical.kind}>
-                    <div><small>{technical.label}</small>{technical.workingDirectory && <small> · 工作目录：{technical.workingDirectory}</small>}</div>
-                    {technical.copyable
-                      ? <button onClick={() => copy(technical.content, copyKey)}>{copied === copyKey ? "已复制" : "复制使用"}</button>
-                      : <span aria-label="不可复制">不可复制</span>}
-                    <pre>{technical.content}</pre>
-                    <small>{technical.reason}</small>
-                  </div>}
+                  {technical && <TechnicalWorkbench
+                    anchorId={technical.kind === "command" && index === workbenchIndex ? "technical-workbench" : undefined}
+                    pageId={current.id}
+                    blockIndex={index}
+                    block={block}
+                    presentation={technical}
+                    copied={copied === copyKey}
+                    onCopy={(content) => copy(content, copyKey)}
+                  />}
                   {block.expected && <div className="expected"><b>预期结果</b><p><GlossaryText text={block.expected} onOpen={openGlossaryEntry} /></p></div>}
                   {block.warning && <div className="warning"><b>常见误区</b><p><GlossaryText text={block.warning} onOpen={openGlossaryEntry} /></p></div>}
                   {resolveReferences(block.refs).length > 0 && <p className="block-refs">

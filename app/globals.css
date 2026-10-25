@@ -393,12 +393,36 @@ a.reference-title:hover { color: var(--accent); text-decoration: underline; }
 .table-wrap th:last-child, .table-wrap td:last-child { border-right: 0; }
 .table-wrap > small { display: block; padding: 9px 12px; color: var(--muted); background: var(--canvas); }
 .code-box { position: relative; margin: 20px 0; border: 1px solid #1e293b; border-radius: 8px; overflow: hidden; background: #0f172a; scroll-margin-top: calc(var(--top) + 12px); }
-.code-box > div { padding: 10px 108px 10px 14px; border-bottom: 1px solid #1e293b; }
 .code-box small { color: #94a3b8; font-size: 11px; }
-.code-box > small { display: block; padding: 0 16px 14px; }
-.code-box button, .code-box > span[aria-label] { position: absolute; top: 9px; right: 9px; padding: 5px 9px; border: 1px solid #334155; border-radius: 6px; background: #1e293b; color: #e2e8f0; font-size: 10px; }
-.code-box button { cursor: pointer; }
+.code-box button { padding: 5px 9px; border: 1px solid #334155; border-radius: 6px; background: #1e293b; color: #e2e8f0; font-size: 10px; cursor: pointer; }
 .code-box pre { min-width: 0; max-width: 100%; margin: 0; padding: 18px 16px; overflow-x: auto; overflow-wrap: anywhere; color: #e2e8f0; font: 12px/1.75 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre-wrap; }
+.technical-toolbar { min-height: 42px; padding: 8px 10px 8px 14px; display: flex; align-items: center; gap: 4px; border-bottom: 1px solid #1e293b; color: #94a3b8; }
+.technical-toolbar > div { margin-left: auto; display: flex; gap: 7px; }
+.technical-toolbar .primary-action { border-color: #334155; background: #1e293b; color: #e2e8f0; font-weight: 650; }
+.explanation-label { margin-left: auto; padding: 4px 8px; border: 1px solid #334155; border-radius: 6px; color: #94a3b8; font-size: 10px; }
+.technical-workbench > small { display: block; padding: 0 16px 14px; color: #94a3b8; line-height: 1.6; }
+.browser-lab-panel { padding: 16px; border-top: 1px solid var(--line); background: var(--canvas); color: var(--ink); }
+.lab-status { margin: 0; color: var(--ink); font-size: 13px; font-weight: 650; }
+.lab-error { padding: 13px 15px; border: 1px solid var(--line); border-radius: 8px; background: var(--soft); }
+.lab-error p { margin: 5px 0 0; color: #334155; font-size: 12px; }
+.lab-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.lab-tabs button { border-color: var(--line); background: var(--paper); color: var(--muted); }
+.lab-tabs button.active { border-color: var(--accent); background: var(--paper); color: var(--accent); }
+.browser-lab-panel textarea { width: 100%; min-height: 280px; padding: 14px; resize: vertical; border: 1px solid #1e293b; border-radius: 8px; background: #0f172a; color: #e2e8f0; font: 12px/1.7 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.browser-lab-panel > button, .lab-actions button { margin-top: 10px; border-color: var(--ink); background: var(--ink); color: #fff; }
+.lab-actions { display: flex; align-items: center; gap: 12px; }
+.lab-actions span { color: var(--ink); font-size: 12px; font-weight: 650; }
+.lab-result { padding: 15px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); }
+.lab-result.pass { border-color: #99f6e4; }
+.lab-result.fail { border-color: #cbd5e1; }
+.lab-result.pass > b { color: var(--accent); }
+.lab-result.fail > b { color: var(--ink); }
+.lab-result > pre, .lab-result article pre { margin-top: 10px; padding: 12px; border-radius: 6px; background: #0f172a; color: #e2e8f0; }
+.lab-result .stderr { color: #fecaca; }
+.lab-result details { margin-top: 13px; }
+.lab-result article { margin-top: 9px; padding-top: 9px; border-top: 1px solid var(--line); }
+.lab-result article small { margin-left: 8px; color: var(--muted); }
+.lab-result > small { display: block; margin-top: 12px; color: var(--muted); }
 .expected, .warning { margin: 16px 0; padding: 14px 16px; border-radius: 8px; border: 1px solid var(--line); background: var(--canvas); }
 .expected b, .warning b { font-size: 11px; color: var(--ink); }
 .expected p, .warning p { margin: 6px 0 0; font-size: 13px; line-height: 1.65; color: #334155; }
