@@ -91,6 +91,22 @@ test("cold-mirror shell keeps the locked tokens and does not reopen retired dire
   assert.doesNotMatch(`${css}\n${layout}\n${page}\n${pathOverview}`, /cdn\.tailwindcss|#155e4b|#0e4034|#2563eb|#d8f27a|TD-M13/);
 });
 
+test("reader fills the column between the rails and the page rail can collapse", async () => {
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  assert.match(css, /--rail:\s*200px/);
+  assert.match(css, /rail-collapsed/);
+  assert.match(css, /\.app-shell\.rail-collapsed \.reader\s*\{[^}]*margin-right:\s*0/);
+  assert.match(css, /\.reader-inner\s*\{[^}]*width:\s*100%/);
+  assert.match(page, /career-ai-rail-collapsed/);
+  assert.match(page, /rail-collapsed/);
+  assert.match(page, /收起本页导航/);
+  assert.match(page, /展开本页导航/);
+  assert.match(page, /aria-expanded=\{!railCollapsed\}/);
+  assert.doesNotMatch(css, /min\(760px/);
+  assert.doesNotMatch(css, /min\(880px/);
+});
+
 test("dynamic build excludes internal topic support files", async () => {
   await assert.rejects(access(new URL("../dist/client/materials/internal-topics/README.md", import.meta.url)));
 });

@@ -69,6 +69,8 @@ export default function Home() {
   // 目录默认展开；收起状态记在 localStorage，换页和刷新都保持不变。
   // 初值固定为 false 而不是读 localStorage，避免服务端渲染与首帧不一致。
   const [navCollapsed, setNavCollapsed] = useState(false);
+  // 本页导航默认展开。收起记在 localStorage，和左侧目录同一套时机，避免首帧和 SSR 不一致。
+  const [railCollapsed, setRailCollapsed] = useState(false);
   const [view, setView] = useState<"lesson" | "module" | "path" | ReferenceView>("lesson");
   // 从路径总览跳进实验台时，等课页挂上后再滚到 TD-F01 的 cycle 命令，避免被滚回页顶。
   const pendingLabScroll = useRef(false);
@@ -99,6 +101,7 @@ export default function Home() {
       const saved = window.localStorage.getItem("career-ai-completed");
       if (saved) setCompleted(JSON.parse(saved));
       setNavCollapsed(window.localStorage.getItem("career-ai-nav-collapsed") === "1");
+      setRailCollapsed(window.localStorage.getItem("career-ai-rail-collapsed") === "1");
     }, 0);
     window.addEventListener("hashchange", sync);
     return () => {
@@ -160,6 +163,12 @@ export default function Home() {
     window.localStorage.setItem("career-ai-nav-collapsed", next ? "1" : "0");
   };
 
+  const toggleRail = () => {
+    const next = !railCollapsed;
+    setRailCollapsed(next);
+    window.localStorage.setItem("career-ai-rail-collapsed", next ? "1" : "0");
+  };
+
   const copy = async (value: string, key: string) => {
     await navigator.clipboard.writeText(value);
     setCopied(key);
@@ -202,7 +211,7 @@ export default function Home() {
   }, [current]);
 
   return (
-    <div className={`app-shell ${navCollapsed ? "nav-collapsed" : ""}`}>
+    <div className={`app-shell${navCollapsed ? " nav-collapsed" : ""}${railCollapsed ? " rail-collapsed" : ""}`}>
       <header className="topbar">
         <button className="mobile-menu" onClick={() => setMobileNav(!mobileNav)} aria-label="打开课程目录">目录</button>
         <a className="brand" href={`#${PATH_HASH}`}>
@@ -232,6 +241,16 @@ export default function Home() {
           <span>已标记完成 {completed.filter((id) => pages.some((page) => page.id === id)).length}/{pages.length} 页</span>
           <div><i style={{ width: `${(completed.filter((id) => pages.some((page) => page.id === id)).length / pages.length) * 100}%` }} /></div>
         </div>
+        {view === "lesson" && <button
+          className="rail-toggle"
+          onClick={toggleRail}
+          aria-expanded={!railCollapsed}
+          aria-controls="page-rail"
+          aria-label={railCollapsed ? "展开本页导航" : "收起本页导航"}
+          title={railCollapsed ? "展开本页导航" : "收起本页导航"}
+        >
+          <span aria-hidden="true">{railCollapsed ? "«" : "»"}</span>
+        </button>}
       </header>
 
       <aside id="course-sidebar" className={`sidebar ${mobileNav ? "open" : ""}`} aria-hidden={navCollapsed && !mobileNav}>
@@ -459,7 +478,7 @@ export default function Home() {
         </div>
       </main>
 
-      <aside className="right-rail">
+      <aside id="page-rail" className="right-rail" aria-label="本页导航" aria-hidden={railCollapsed}>
         <p className="eyebrow">本页导航</p>
         {current.blocks.map((block, index) => <button key={block.title} onClick={() => document.getElementById(`section-${index}`)?.scrollIntoView({ behavior: "smooth" })}>{index + 1}. {block.title}</button>)}
         <div className="route-card"><b>{current.documentContract ? READER_JOB_LABELS[current.documentContract.readerJob] : "文档任务"}</b><p>{current.documentContract?.scope.inScope[0]}</p><small>按任务与文档类型进入；页面顺序不代表规定的使用顺序。</small></div>

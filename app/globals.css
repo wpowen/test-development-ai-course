@@ -112,6 +112,24 @@ a { color: inherit; }
 }
 .nav-toggle:hover { color: var(--ink); border-color: #cbd5e1; }
 .nav-toggle:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.rail-toggle {
+  flex: none;
+  margin-left: 10px;
+  margin-right: 12px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+}
+.rail-toggle:hover { color: var(--ink); border-color: #cbd5e1; }
+.rail-toggle:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 
 .sidebar {
   position: fixed;
@@ -142,7 +160,6 @@ a { color: inherit; }
 .document-job-nav button:hover { border-color: #cbd5e1; color: var(--ink); }
 .document-job-nav button.active { border-color: var(--accent); background: var(--accent); color: #fff; }
 .document-job-nav button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-.reader-wide { margin-right: 0; }
 
 .reference-nav { padding: 8px 10px 0; display: grid; gap: 5px; }
 .reference-nav button { width: 100%; padding: 8px 9px; display: block; text-align: left; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); cursor: pointer; }
@@ -316,19 +333,18 @@ a.reference-title:hover { color: var(--accent); text-decoration: underline; }
 .status-dot.done { background: var(--accent); }
 
 .reader { min-width: 0; margin-left: var(--side); margin-right: var(--rail); padding-top: var(--top); min-height: 100vh; overflow-x: clip; background: var(--canvas); }
+.reader-wide { margin-right: 0; }
 .reader-inner {
   min-width: 0;
-  width: min(760px, calc(100% - 56px));
-  margin: 0 auto;
-  padding: 40px 28px 96px;
+  width: 100%;
+  margin: 0;
+  padding: 40px 32px 96px;
   overflow-x: clip;
   background: var(--paper);
   min-height: calc(100vh - var(--top));
   border-left: 1px solid var(--line);
   border-right: 1px solid var(--line);
 }
-.reader-wide .reader-inner,
-.path-view .reader-inner { width: min(880px, calc(100% - 56px)); }
 .breadcrumb { display: flex; flex-wrap: wrap; gap: 8px; color: var(--muted); font-size: 11px; }
 .lesson-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 18px; color: var(--muted); font-size: 11px; }
 .lesson-meta > span:not(.status-badge) { padding-right: 8px; border-right: 1px solid var(--line); }
@@ -488,18 +504,20 @@ a.reference-title:hover { color: var(--accent); text-decoration: underline; }
 
 /* 收起态只在桌面生效。窄屏目录是抽屉，再叠 translate 会让抽屉打不开。 */
 @media (min-width: 761px) {
-  .sidebar, .reader, .brand { transition: transform .18s ease, margin-left .18s ease, width .18s ease; }
+  .sidebar, .reader, .brand, .right-rail { transition: transform .18s ease, margin-left .18s ease, margin-right .18s ease, width .18s ease; }
   .app-shell.nav-collapsed .sidebar { transform: translateX(-100%); visibility: hidden; }
   .app-shell.nav-collapsed .reader { margin-left: 0; }
   .app-shell.nav-collapsed .brand { width: auto; padding-right: 20px; border-right: 0; }
+  .app-shell.rail-collapsed .right-rail { transform: translateX(100%); visibility: hidden; }
+  .app-shell.rail-collapsed .reader { margin-right: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sidebar, .reader, .brand { transition: none; }
+  .sidebar, .reader, .brand, .right-rail { transition: none; }
 }
 
 @media (max-width: 1120px) {
-  .right-rail { display: none; }
+  .right-rail, .rail-toggle { display: none; }
   .reader { margin-right: 0; }
 }
 
@@ -515,7 +533,7 @@ a.reference-title:hover { color: var(--accent); text-decoration: underline; }
   .sidebar { width: min(90vw, var(--side)); transform: translateX(-105%); transition: transform .2s ease; box-shadow: 10px 0 40px rgba(15, 23, 42, .12); }
   .sidebar.open { transform: translateX(0); }
   .reader { margin: 0; }
-  .reader-inner, .reader-wide .reader-inner, .path-view .reader-inner { width: calc(100% - 32px); padding: 28px 16px 72px; }
+  .reader-inner, .reader-wide .reader-inner, .path-view .reader-inner { width: 100%; padding: 28px 16px 72px; }
   .reader h1 { font-size: 32px; }
   .lead { font-size: 16px; }
   .outcome-card { grid-template-columns: 1fr; }
