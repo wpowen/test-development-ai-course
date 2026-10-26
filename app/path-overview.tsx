@@ -3,11 +3,12 @@
 /**
  * 课程路径总览。
  *
- * 顶栏品牌回到这里。正文是已交付模块的路径网格，不是营销 Hero。
+ * 顶栏品牌回到这里。正文是课程模块的路径网格，不是营销 Hero。
  * 模块名单只来自 publicModules，不把未公开模块挂进导航。
  */
 
 import type { TutorialPage } from "../content/course";
+import { courseIntroduction } from "../content/site";
 
 type Props = {
   modules: readonly { id: string; title: string; subtitle: string }[];
@@ -28,18 +29,23 @@ export function PathOverview({ modules, pages, onOpenModule, onOpenPage, onOpenL
         <p className="home-kicker">Path overview</p>
         <h1>从传统测试到 AI 质量工程</h1>
         <p className="lead">
-          按模块推进：先建立专业测试骨架，再进入大模型、RAG、Agent 与质量系统。下面是已交付的 {modules.length} 个模块——点进任一路径即进入阅读器。
+          {courseIntroduction.description}
         </p>
         <div className="home-meta">
           <span><b>{pages.length}</b> 可学习页面</span>
-          <span><b>{modules.length}</b> 已交付模块</span>
-          <span>门禁：本地内容 · 结构 · 离线夹具</span>
+          <span><b>{modules.length}</b> 课程模块</span>
+          <span>案例 · 练习 · 随课物料</span>
         </div>
+
+        <section className="study-guide" aria-label="学习指南">
+          <h2>适合谁学</h2><p>{courseIntroduction.audience}</p>
+          <h2>从哪里开始</h2><p>{courseIntroduction.study}</p>
+        </section>
 
         <div className="lab-strip">
           <div>
             <b>浏览器实验台 · Technical Workbench</b>
-            <p>课页内的可执行命令保留红绿修复入口；不依赖把实验台改写成另一套页面。侧栏「浏览器实验台」会打开 TD-F01 的 cycle 命令。</p>
+            <p>{courseIntroduction.lab}</p>
           </div>
           <button type="button" onClick={onOpenLab}>打开 TD-F01 实验</button>
         </div>

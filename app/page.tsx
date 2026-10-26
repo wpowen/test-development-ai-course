@@ -9,9 +9,10 @@ import { ModuleOverviewView } from "./module-view";
 import { PathOverview } from "./path-overview";
 import { GlossaryDrawer, GlossaryText } from "./glossary-interaction";
 import { TechnicalWorkbench } from "./technical-workbench";
+import { GITHUB_REPOSITORY_URL } from "../content/site";
 
 const statusLabel = (status: string) => status === "fixture-tested" ? "实验已跑" : "资料已审";
-const GITHUB_REPOSITORY_URL = "https://github.com/wpowen/test-development-ai-tutorial";
+
 const DEFAULT_PAGE_ID = pages[0]?.id ?? "";
 const PATH_HASH = "path";
 const LAB_PAGE_ID = "TD-F01";
@@ -229,13 +230,13 @@ export default function Home() {
           <span aria-hidden="true">{navCollapsed ? "»" : "«"}</span>
         </button>
         <a
-          className="github-star"
+          className="repository-link"
           href={GITHUB_REPOSITORY_URL}
           target="_blank"
           rel="noreferrer"
-          aria-label="前往 GitHub 为测试开发 AI 教程点 Star"
+          aria-label="在 GitHub 查看课程源码与学习物料"
         >
-          <span aria-hidden="true">★</span><b>GitHub Star</b><small>支持项目</small>
+          <span aria-hidden="true">↗</span><b>GitHub 源码</b><small>课程与物料</small>
         </a>
         <div className="top-progress">
           <span>已标记完成 {completed.filter((id) => pages.some((page) => page.id === id)).length}/{pages.length} 页</span>

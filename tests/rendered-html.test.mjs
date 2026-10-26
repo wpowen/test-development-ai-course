@@ -24,8 +24,9 @@ test("server-renders the test-development AI tutorial shell", async () => {
   assert.match(html, /测试开发 × AI/);
   assert.match(html, /从传统测试到 AI 质量工程/);
   assert.match(html, />搜索课程</);
-  assert.match(html, /https:\/\/github\.com\/wpowen\/test-development-ai-tutorial/);
-  assert.match(html, /GitHub Star/);
+  assert.match(html, /https:\/\/github\.com\/wpowen\/test-development-ai-course/);
+  assert.match(html, /GitHub 源码/);
+  assert.doesNotMatch(html, /GitHub Star|点 Star|支持项目/);
   assert.match(html, new RegExp(`${glossary.length}(?:<!-- -->)? 条`));
   assert.match(html, /不懂的词先查这里/);
   assert.match(html, /aria-label="按阅读任务筛选"/);

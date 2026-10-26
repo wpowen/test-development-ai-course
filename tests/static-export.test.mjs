@@ -49,8 +49,9 @@ test("static GitHub Pages export contains the professional curriculum", async ()
   assert.match(html, /不能证明/);
   assert.match(html, /逐命题 Deep Research、独立审阅和生产验证尚未完成/);
   assert.doesNotMatch(html, /已经完成逐题研究|已通过逐题研究/);
-  assert.match(html, /https:\/\/github\.com\/wpowen\/test-development-ai-tutorial/);
-  assert.match(html, /GitHub Star/);
+  assert.match(html, /https:\/\/github\.com\/wpowen\/test-development-ai-course/);
+  assert.match(html, /GitHub 源码/);
+  assert.doesNotMatch(html, /GitHub Star|点 Star|支持项目/);
   assert.match(html, /id="nav-toggle"/);
   assert.match(html, /career-ai-nav-collapsed/);
   assert.match(html, /aria-controls="side"/);

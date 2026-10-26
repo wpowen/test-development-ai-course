@@ -71,7 +71,7 @@ a { color: inherit; }
 .top-progress span { display: block; font-size: 11px; color: var(--muted); margin-bottom: 5px; }
 .top-progress div { height: 3px; border-radius: 99px; background: var(--line); overflow: hidden; }
 .top-progress i { display: block; height: 100%; background: var(--accent); border-radius: inherit; transition: width .2s ease; }
-.github-star {
+.repository-link {
   flex: none;
   min-width: 120px;
   margin-left: 10px;
@@ -87,11 +87,11 @@ a { color: inherit; }
   text-decoration: none;
   line-height: 1.1;
 }
-.github-star > span { grid-row: 1 / 3; color: #94a3b8; font-size: 14px; }
-.github-star b { font-size: 11px; }
-.github-star small { margin-top: 2px; color: var(--muted); font-size: 9px; }
-.github-star:hover { border-color: #cbd5e1; }
-.github-star:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.repository-link > span { grid-row: 1 / 3; color: #94a3b8; font-size: 14px; }
+.repository-link b { font-size: 11px; }
+.repository-link small { margin-top: 2px; color: var(--muted); font-size: 9px; }
+.repository-link:hover { border-color: #cbd5e1; }
+.repository-link:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .mobile-menu { display: none; }
 
 /* 桌面端目录固定占侧栏宽度。收起后正文吃回这块宽度。移动端用 .mobile-menu，这里隐藏避免两套控件。 */
@@ -474,6 +474,9 @@ a.reference-title:hover { color: var(--accent); text-decoration: underline; }
 .home-meta { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
 .home-meta span { padding: 5px 9px; border: 1px solid var(--line); border-radius: 6px; font-size: 11px; color: var(--muted); background: var(--paper); }
 .home-meta b { color: var(--ink); }
+.study-guide { margin-top: 24px; }
+.study-guide h2 { margin: 18px 0 6px; font-size: 15px; }
+.study-guide p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
 .path-grid { margin-top: 36px; display: grid; gap: 10px; }
 .mod-card {
   display: grid;
@@ -525,9 +528,9 @@ a.reference-title:hover { color: var(--accent); text-decoration: underline; }
   .nav-toggle { display: none; }
   .brand { width: auto; flex: 1; padding: 0 12px; border: 0; }
   .brand small { display: none; }
-  .github-star { min-width: 0; margin-left: 0; margin-right: 10px; padding: 7px 9px; display: flex; gap: 5px; }
-  .github-star b { font-size: 10px; }
-  .github-star small { display: none; }
+  .repository-link { min-width: 0; margin-left: 0; margin-right: 10px; padding: 7px 9px; display: flex; gap: 5px; }
+  .repository-link b { font-size: 10px; }
+  .repository-link small { display: none; }
   .top-progress { display: none; }
   .mobile-menu { display: block; margin-left: 10px; padding: 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); font-size: 11px; }
   .sidebar { width: min(90vw, var(--side)); transform: translateX(-105%); transition: transform .2s ease; box-shadow: 10px 0 40px rgba(15, 23, 42, .12); }
