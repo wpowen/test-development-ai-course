@@ -175,7 +175,7 @@ export const getTechnicalBlockPresentation = (block: TutorialBlock): TechnicalBl
     return {
       kind: technical.kind,
       content: technical.content,
-      label: technical.kind === "formula" ? "公式（不可运行）" : technical.kind === "diagram" ? "图示（不可运行）" : "伪代码（不可运行）",
+      label: technical.kind === "formula" ? "公式说明" : technical.kind === "diagram" ? "流程说明" : "伪代码说明",
       copyable: false,
       runnable: false,
       reason: technical.verification || "解释性内容，不是可执行实现",
@@ -185,7 +185,7 @@ export const getTechnicalBlockPresentation = (block: TutorialBlock): TechnicalBl
     return {
       kind: "legacy-untyped",
       content: block.code,
-      label: "未分类技术内容（不可复制）",
+      label: "未分类技术内容",
       copyable: false,
       runnable: false,
       reason: "Migrate this block to a typed technical block before publication",
@@ -203,9 +203,9 @@ export const getLearnerTechnicalBlockPresentation = (block: TutorialBlock): Tech
   if (!presentation || presentation.kind !== "prompt") return presentation;
   return {
     ...presentation,
-    content: "完整 Prompt 已放在本页随课物料中。正文只保留用途、输入、输出和验收标准。",
+    content: "完整 Prompt、输入、Schema、评测和 manifest 可在页面工作台中直接打开。",
     copyable: false,
-    reason: "请从随课物料打开版本化 Prompt；输入、Schema、评测与 manifest 会一并提供。",
+    reason: "点击“打开完整 Prompt”，无需下载即可查看、编辑和复制完整包。",
   };
 };
 

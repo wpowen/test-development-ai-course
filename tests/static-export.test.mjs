@@ -60,11 +60,19 @@ test("static GitHub Pages export contains the professional curriculum", async ()
   assert.match(html, /模块全景/);
   assert.ok(html.includes('module-overview "+(m.id===current?"active":"")'), "navigation must link every module to its panorama");
   assert.match(html, /DATA\.modules\.some\(module=>module\.id===id\)/);
+  const publicIds = new Set(publicModules.map((module) => module.id));
   for (const [moduleId, overview] of Object.entries(moduleOverviews)) {
+    if (!publicIds.has(moduleId)) {
+      assert.equal(staticIndex.moduleOverviews[moduleId], undefined, `${moduleId} stays out of the public nav payload`);
+      await assert.rejects(access(new URL(`../dist-github-pages/course-modules/${moduleId}.json`, import.meta.url)));
+      await assert.rejects(access(new URL(`../dist-github-pages/visuals/modules/${moduleId}.svg`, import.meta.url)));
+      continue;
+    }
     assert.deepEqual(staticIndex.moduleOverviews[moduleId], overview);
     const moduleData = JSON.parse(await readFile(new URL(`../dist-github-pages/course-modules/${moduleId}.json`, import.meta.url), "utf8"));
     assert.ok(moduleData.pages.length > 0);
   }
+  assert.doesNotMatch(html, /TD-M13|TD-AI-00|TD-AI-06|TD-AI-07|进入 Agent 测试入门/);
   assert.match(html, /course-modules\//);
   assert.match(html, /glossary\.json/);
   assert.match(html, /data-reference="glossary"/);
@@ -102,7 +110,10 @@ test("static GitHub Pages export contains the professional curriculum", async ()
   assert.match(staticModulesText, /"technicalPresentation":\{"kind":"command"/);
   assert.match(staticModulesText, /"technicalPresentation":\{"kind":"prompt"/);
   assert.match(html, /复制使用/);
-  assert.match(html, /不可复制/);
+  assert.match(html, /在页面运行/);
+  assert.match(html, /打开完整 Prompt/);
+  assert.match(html, /pyodide-lab-worker\.js/);
+  assert.doesNotMatch(html, /aria-label="不可复制"/);
   assert.match(html, /<details class=materials><summary>/);
   assert.doesNotMatch(html, /<details class=materials open>/);
   assert.doesNotMatch(html, /<section class=evidence>|>证据与边界</);

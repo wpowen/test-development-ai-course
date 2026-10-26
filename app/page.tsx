@@ -1,16 +1,20 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { getLearnerTechnicalBlockPresentation, pages, publicModules, releaseScope } from "../content/course";
 import { glossary, type GlossaryEntry } from "../content/glossary";
 import { references, referencesByPage, resolveReferences, type ReferenceEntry } from "../content/references";
 import { GlossaryView } from "./reference-views";
 import { ModuleOverviewView } from "./module-view";
+import { PathOverview } from "./path-overview";
 import { GlossaryDrawer, GlossaryText } from "./glossary-interaction";
+import { TechnicalWorkbench } from "./technical-workbench";
 
 const statusLabel = (status: string) => status === "fixture-tested" ? "实验已跑" : "资料已审";
 const GITHUB_REPOSITORY_URL = "https://github.com/wpowen/test-development-ai-tutorial";
 const DEFAULT_PAGE_ID = pages[0]?.id ?? "";
+const PATH_HASH = "path";
+const LAB_PAGE_ID = "TD-F01";
 const READER_JOB_LABELS = {
   learn: "Learn · 学会",
   do: "Do · 完成任务",
@@ -46,9 +50,14 @@ const anchorText = (anchor: ReferenceEntry["anchor"]) =>
 const REFERENCE_VIEWS = ["glossary"] as const;
 type ReferenceView = (typeof REFERENCE_VIEWS)[number];
 
-function setHash(id: string) {
+function setHash(id: string, behavior: "top" | "keep" = "top") {
   window.location.hash = id;
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (behavior === "top") window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+/** 课页架构图会在首帧之后撑开高度，实验台锚点要补滚一次才落在命令块上。 */
+function scrollToWorkbench() {
+  document.getElementById("technical-workbench")?.scrollIntoView({ behavior: "auto", block: "start" });
 }
 
 export default function Home() {
@@ -60,7 +69,11 @@ export default function Home() {
   // 目录默认展开；收起状态记在 localStorage，换页和刷新都保持不变。
   // 初值固定为 false 而不是读 localStorage，避免服务端渲染与首帧不一致。
   const [navCollapsed, setNavCollapsed] = useState(false);
-  const [view, setView] = useState<"lesson" | "module" | ReferenceView>("lesson");
+  // 本页导航默认展开。收起记在 localStorage，和左侧目录同一套时机，避免首帧和 SSR 不一致。
+  const [railCollapsed, setRailCollapsed] = useState(false);
+  const [view, setView] = useState<"lesson" | "module" | "path" | ReferenceView>("lesson");
+  // 从路径总览跳进实验台时，等课页挂上后再滚到 TD-F01 的 cycle 命令，避免被滚回页顶。
+  const pendingLabScroll = useRef(false);
   // 模块全景（「总」层）当前展示的模块；view === "module" 时有效。
   const [moduleId, setModuleId] = useState<string>(publicModules[0].id);
   const [copied, setCopied] = useState<string | null>(null);
@@ -69,7 +82,9 @@ export default function Home() {
   useEffect(() => {
     const sync = () => {
       const id = window.location.hash.replace("#", "");
-      if ((REFERENCE_VIEWS as readonly string[]).includes(id)) {
+      if (id === PATH_HASH) {
+        setView("path");
+      } else if ((REFERENCE_VIEWS as readonly string[]).includes(id)) {
         setView(id as ReferenceView);
       } else if (publicModules.some((item) => item.id === id)) {
         setView("module");
@@ -86,6 +101,7 @@ export default function Home() {
       const saved = window.localStorage.getItem("career-ai-completed");
       if (saved) setCompleted(JSON.parse(saved));
       setNavCollapsed(window.localStorage.getItem("career-ai-nav-collapsed") === "1");
+      setRailCollapsed(window.localStorage.getItem("career-ai-rail-collapsed") === "1");
     }, 0);
     window.addEventListener("hashchange", sync);
     return () => {
@@ -94,7 +110,30 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!pendingLabScroll.current || view !== "lesson") return;
+    pendingLabScroll.current = false;
+    let lastTop = Number.NaN;
+    let stableTicks = 0;
+    const timer = window.setInterval(() => {
+      const node = document.getElementById("technical-workbench");
+      if (!node) return;
+      const top = node.getBoundingClientRect().top;
+      const settled = Math.abs(top - lastTop) < 2;
+      lastTop = top;
+      stableTicks = settled ? stableTicks + 1 : 0;
+      if (top < 40 || top > 160) scrollToWorkbench();
+      if (stableTicks >= 2 && top >= 40 && top <= 160) window.clearInterval(timer);
+    }, 140);
+    const stop = window.setTimeout(() => window.clearInterval(timer), 2200);
+    return () => {
+      window.clearInterval(timer);
+      window.clearTimeout(stop);
+    };
+  }, [view, currentId]);
+
   const current = pages.find((page) => page.id === currentId) ?? pages[0];
+  const workbenchIndex = current.blocks.findIndex((item) => getLearnerTechnicalBlockPresentation(item)?.kind === "command");
   const currentIndex = pages.findIndex((page) => page.id === current.id);
   const previous = currentIndex > 0 ? pages[currentIndex - 1] : undefined;
   const next = currentIndex < pages.length - 1 ? pages[currentIndex + 1] : undefined;
@@ -124,11 +163,29 @@ export default function Home() {
     window.localStorage.setItem("career-ai-nav-collapsed", next ? "1" : "0");
   };
 
+  const toggleRail = () => {
+    const next = !railCollapsed;
+    setRailCollapsed(next);
+    window.localStorage.setItem("career-ai-rail-collapsed", next ? "1" : "0");
+  };
+
   const copy = async (value: string, key: string) => {
     await navigator.clipboard.writeText(value);
     setCopied(key);
     window.setTimeout(() => setCopied(null), 1200);
   };
+
+  const openLab = useCallback(() => {
+    const labPage = pages.find((page) => page.id === LAB_PAGE_ID) ?? pages[0];
+    if (!labPage) return;
+    pendingLabScroll.current = true;
+    if (window.location.hash === `#${labPage.id}`) {
+      scrollToWorkbench();
+      pendingLabScroll.current = false;
+      return;
+    }
+    setHash(labPage.id, "keep");
+  }, []);
 
   const openGlossaryEntry = useCallback((entry: GlossaryEntry) => setSelectedGlossaryEntry(entry), []);
   const closeGlossaryEntry = useCallback(() => setSelectedGlossaryEntry(null), []);
@@ -154,10 +211,10 @@ export default function Home() {
   }, [current]);
 
   return (
-    <div className={`app-shell ${navCollapsed ? "nav-collapsed" : ""}`}>
+    <div className={`app-shell${navCollapsed ? " nav-collapsed" : ""}${railCollapsed ? " rail-collapsed" : ""}`}>
       <header className="topbar">
         <button className="mobile-menu" onClick={() => setMobileNav(!mobileNav)} aria-label="打开课程目录">目录</button>
-        <a className="brand" href={`#${DEFAULT_PAGE_ID}`}>
+        <a className="brand" href={`#${PATH_HASH}`}>
           <span className="brand-mark">QE</span>
           <span><b>测试开发 × AI</b><small>从会测试，到会验证 AI 系统</small></span>
         </a>
@@ -184,6 +241,16 @@ export default function Home() {
           <span>已标记完成 {completed.filter((id) => pages.some((page) => page.id === id)).length}/{pages.length} 页</span>
           <div><i style={{ width: `${(completed.filter((id) => pages.some((page) => page.id === id)).length / pages.length) * 100}%` }} /></div>
         </div>
+        {view === "lesson" && <button
+          className="rail-toggle"
+          onClick={toggleRail}
+          aria-expanded={!railCollapsed}
+          aria-controls="page-rail"
+          aria-label={railCollapsed ? "展开本页导航" : "收起本页导航"}
+          title={railCollapsed ? "展开本页导航" : "收起本页导航"}
+        >
+          <span aria-hidden="true">{railCollapsed ? "«" : "»"}</span>
+        </button>}
       </header>
 
       <aside id="course-sidebar" className={`sidebar ${mobileNav ? "open" : ""}`} aria-hidden={navCollapsed && !mobileNav}>
@@ -206,7 +273,10 @@ export default function Home() {
             <button key={job} className={readerJob === job ? "active" : ""} onClick={() => setReaderJob(job as keyof typeof READER_JOB_LABELS)}>{label}</button>
           ))}
         </nav>
-        <nav className="reference-nav" aria-label="参考">
+        <nav className="reference-nav" aria-label="参考与实验">
+          <button type="button" className="lab-entry" onClick={openLab}>
+            <b>浏览器实验台</b><small>Technical Workbench · 夹具红绿修复</small>
+          </button>
           <button className={view === "glossary" ? "active" : ""} onClick={() => setHash("glossary")}>
             <b>术语表</b><small>{glossary.length} 条 · 不懂的词先查这里</small>
           </button>
@@ -228,11 +298,11 @@ export default function Home() {
               {groupPages.map((page) => <button
                 key={page.id}
                 data-page-id={page.id}
-                className={`nav-page ${page.id === current.id ? "active" : ""}`}
+                className={`nav-page ${view === "lesson" && page.id === current.id ? "active" : ""}`}
                 onClick={() => setHash(page.id)}
               >
                 <span className="page-number">{String(page.display_number).padStart(2, "0")}</span>
-                <span className="page-name">{page.title}<small>{page.type} · {statusLabel(page.status)}</small></span>
+                <span className="page-name">{page.title}<small>{page.documentContract ? READER_JOB_LABELS[page.documentContract.readerJob] : page.type} · {statusLabel(page.status)} · {page.id}</small></span>
                 <span className={`status-dot ${completed.includes(page.id) ? "done" : page.status}`} />
               </button>)}
             </section>;
@@ -240,17 +310,31 @@ export default function Home() {
         </nav>
       </aside>
 
+      {view === "path" && <PathOverview
+        modules={publicModules}
+        pages={pages}
+        onOpenModule={setHash}
+        onOpenPage={setHash}
+        onOpenLab={openLab}
+      />}
       {view === "glossary" && <GlossaryView onOpenPage={openFromReference} />}
       {view === "module" && <ModuleOverviewView
         module={publicModules.find((item) => item.id === moduleId)!}
         pages={visiblePages.filter((page) => page.moduleId === moduleId)}
         onOpenPage={setHash}
+        onOpenPath={() => setHash(PATH_HASH)}
         onOpenTerm={openGlossaryEntry}
       />}
       {view === "lesson" && <>
       <main className="reader">
         <div className="reader-inner">
-          <div className="breadcrumb"><button className="crumb-link" onClick={() => setHash(currentModule.id)}>{currentModule.title}</button><span>›</span><span>{current.id}</span></div>
+          <div className="breadcrumb">
+            <button type="button" className="crumb-link" onClick={() => setHash(PATH_HASH)}>课程路径</button>
+            <span>›</span>
+            <button type="button" className="crumb-link" onClick={() => setHash(currentModule.id)}>{currentModule.title}</button>
+            <span>›</span>
+            <span>{current.id}</span>
+          </div>
           <div className="lesson-meta">
             <span className={`status-badge ${current.status}`}>{statusLabel(current.status)}</span>
             <span>{current.type}</span><span>{current.duration}</span><span>更新于 {releaseScope.validatedAt}</span>
@@ -294,14 +378,15 @@ export default function Home() {
                   {block.body.map((paragraph) => <p key={paragraph}><GlossaryText text={paragraph} onOpen={openGlossaryEntry} /></p>)}
                   {block.bullets && <ul>{block.bullets.map((item) => <li key={item}><GlossaryText text={item} onOpen={openGlossaryEntry} /></li>)}</ul>}
                   {block.table && <div className="table-wrap"><table><thead><tr>{block.table.headers.map((header) => <th key={header}><GlossaryText text={header} onOpen={openGlossaryEntry} /></th>)}</tr></thead><tbody>{block.table.rows.map((row, rowIndex) => <tr key={`${block.title}-${rowIndex}`}>{row.map((cell, cellIndex) => <td key={`${rowIndex}-${cellIndex}`}><GlossaryText text={cell} onOpen={openGlossaryEntry} /></td>)}</tr>)}</tbody></table>{block.table.caption && <small><GlossaryText text={block.table.caption} onOpen={openGlossaryEntry} /></small>}</div>}
-                  {technical && <div className="code-box" data-technical-kind={technical.kind}>
-                    <div><small>{technical.label}</small>{technical.workingDirectory && <small> · 工作目录：{technical.workingDirectory}</small>}</div>
-                    {technical.copyable
-                      ? <button onClick={() => copy(technical.content, copyKey)}>{copied === copyKey ? "已复制" : "复制使用"}</button>
-                      : <span aria-label="不可复制">不可复制</span>}
-                    <pre>{technical.content}</pre>
-                    <small>{technical.reason}</small>
-                  </div>}
+                  {technical && <TechnicalWorkbench
+                    anchorId={technical.kind === "command" && index === workbenchIndex ? "technical-workbench" : undefined}
+                    pageId={current.id}
+                    blockIndex={index}
+                    block={block}
+                    presentation={technical}
+                    copied={copied === copyKey}
+                    onCopy={(content) => copy(content, copyKey)}
+                  />}
                   {block.expected && <div className="expected"><b>预期结果</b><p><GlossaryText text={block.expected} onOpen={openGlossaryEntry} /></p></div>}
                   {block.warning && <div className="warning"><b>常见误区</b><p><GlossaryText text={block.warning} onOpen={openGlossaryEntry} /></p></div>}
                   {resolveReferences(block.refs).length > 0 && <p className="block-refs">
@@ -393,7 +478,7 @@ export default function Home() {
         </div>
       </main>
 
-      <aside className="right-rail">
+      <aside id="page-rail" className="right-rail" aria-label="本页导航" aria-hidden={railCollapsed}>
         <p className="eyebrow">本页导航</p>
         {current.blocks.map((block, index) => <button key={block.title} onClick={() => document.getElementById(`section-${index}`)?.scrollIntoView({ behavior: "smooth" })}>{index + 1}. {block.title}</button>)}
         <div className="route-card"><b>{current.documentContract ? READER_JOB_LABELS[current.documentContract.readerJob] : "文档任务"}</b><p>{current.documentContract?.scope.inScope[0]}</p><small>按任务与文档类型进入；页面顺序不代表规定的使用顺序。</small></div>

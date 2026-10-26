@@ -39,11 +39,16 @@ test("server-renders the test-development AI tutorial shell", async () => {
   assert.match(html, /打开术语表/);
   assert.match(html, /data-glossary-term=/);
   assert.match(html, /aria-haspopup="dialog"/);
+  assert.match(html, /浏览器实验台/);
+  assert.match(html, /id="technical-workbench"/);
+  assert.doesNotMatch(html, /cdn\.tailwindcss/);
   assert.match(html, /测试开发如何与 AI 协作，以及哪些发布责任必须由人承担/);
   assert.doesNotMatch(html, /测试开发职业责任与 AI 授权边界/);
-  assert.match(html, /图示（不可运行）/);
-  assert.match(html, /aria-label="不可复制"/);
+  assert.match(html, /流程说明/);
   assert.match(html, />复制使用<\/button>/);
+  assert.match(html, />在页面运行<\/button>/);
+  assert.match(html, />打开完整 Prompt<\/button>/);
+  assert.doesNotMatch(html, /aria-label="不可复制"/);
   assert.match(html, /<details class="materials-card">/);
   assert.doesNotMatch(html, /<details class="materials-card" open>/);
   assert.doesNotMatch(html, />证据与边界</);
@@ -60,6 +65,46 @@ test("document-task navigation is styled and contains no retired learning-path U
   const source = await readFile(new URL("../app/reference-views.tsx", import.meta.url), "utf8");
   assert.match(css, /\.document-job-nav/);
   assert.doesNotMatch(source, /三条路径|再从 TD-F01 顺着读|从 TD-F02 进/);
+});
+
+test("cold-mirror shell keeps the locked tokens and does not reopen retired directions", async () => {
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  const layout = await readFile(new URL("../app/layout.tsx", import.meta.url), "utf8");
+  const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  const pathOverview = await readFile(new URL("../app/path-overview.tsx", import.meta.url), "utf8");
+  assert.match(css, /--canvas:\s*#f8fafc/);
+  assert.match(css, /--paper:\s*#ffffff/);
+  assert.match(css, /--ink:\s*#0f172a/);
+  assert.match(css, /--muted:\s*#64748b/);
+  assert.match(css, /--line:\s*#e2e8f0/);
+  assert.match(css, /--accent:\s*#0f766e/);
+  assert.match(css, /--accent-soft:\s*#ccfbf1/);
+  assert.match(css, /--top:\s*52px/);
+  assert.match(css, /--side:\s*260px/);
+  assert.match(css, /--rail:\s*200px/);
+  assert.match(css, /IBM Plex Sans/);
+  assert.match(layout, /IBM_Plex_Sans/);
+  assert.match(css, /--font-plex/);
+  assert.match(page, /浏览器实验台/);
+  assert.match(page, /technical-workbench/);
+  assert.match(pathOverview, /进入首课/);
+  assert.doesNotMatch(`${css}\n${layout}\n${page}\n${pathOverview}`, /cdn\.tailwindcss|#155e4b|#0e4034|#2563eb|#d8f27a|TD-M13/);
+});
+
+test("reader fills the column between the rails and the page rail can collapse", async () => {
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
+  assert.match(css, /--rail:\s*200px/);
+  assert.match(css, /rail-collapsed/);
+  assert.match(css, /\.app-shell\.rail-collapsed \.reader\s*\{[^}]*margin-right:\s*0/);
+  assert.match(css, /\.reader-inner\s*\{[^}]*width:\s*100%/);
+  assert.match(page, /career-ai-rail-collapsed/);
+  assert.match(page, /rail-collapsed/);
+  assert.match(page, /收起本页导航/);
+  assert.match(page, /展开本页导航/);
+  assert.match(page, /aria-expanded=\{!railCollapsed\}/);
+  assert.doesNotMatch(css, /min\(760px/);
+  assert.doesNotMatch(css, /min\(880px/);
 });
 
 test("dynamic build excludes internal topic support files", async () => {
