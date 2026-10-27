@@ -66,12 +66,12 @@
   },
   {
     "id": "TD-PS05",
-    "src": "visuals/course/TD-PS05.svg?v=0dec420d6f69",
+    "src": "visuals/course/TD-PS05.svg?v=bdb94e1aae2a",
     "alt": "语义、键盘与视觉分开验收的对照与责任边界图：自动规则、任务旅程和骨架快照发现不同问题；机器判不了的语义和基线差异交给具名人工。"
   },
   {
     "id": "TD-PS06",
-    "src": "visuals/course/TD-PS06.svg?v=f915f4d864a4",
+    "src": "visuals/course/TD-PS06.svg?v=0d6253d46477",
     "alt": "生命周期被打断，库存仍只入账一次的状态与恢复边界图：客户端恢复与服务端幂等共同保护扫描状态；界面恢复不能替代库存账本对账。"
   },
   {
@@ -156,7 +156,7 @@
   },
   {
     "id": "TD-T06",
-    "src": "visuals/course/TD-T06.svg?v=14edde3ac315",
+    "src": "visuals/course/TD-T06.svg?v=255affcf2432",
     "alt": "同一候选在正常代码与变异代码上对照的对照与责任边界图：先证明批准实现上通过，再证明已知守卫被破坏时，相关断言确实变红。"
   },
   {
@@ -176,7 +176,7 @@
   },
   {
     "id": "TD-A02",
-    "src": "visuals/course/TD-A02.svg?v=b48bd21f9085",
+    "src": "visuals/course/TD-A02.svg?v=8ae8786f2e74",
     "alt": "四种协议的过程判据分别核对的对照与责任边界图：SSE、结构化、工具与异步各自验证过程；工具执行结果必须如实回填，账本另证真实副作用。"
   },
   {
@@ -206,7 +206,7 @@
   },
   {
     "id": "TD-T10",
-    "src": "visuals/course/TD-T10.svg?v=3a3b7626c350",
+    "src": "visuals/course/TD-T10.svg?v=6f92c26f9e69",
     "alt": "Gold 在哪一层丢失，就修哪一层的决策门禁图：检索和生成独立出分：先找必要证据是否存在、是否召回、如何排序及是否进入最终上下文。"
   },
   {
@@ -216,7 +216,7 @@
   },
   {
     "id": "TD-T12",
-    "src": "visuals/course/TD-T12.svg?v=a752b1fd1f30",
+    "src": "visuals/course/TD-T12.svg?v=e2b687d04e6a",
     "alt": "证据、权限与拒答共同约束 RAG 终态的决策门禁图：没有可用依据时拒答或交接；正确答案不能抵消跨租户检索和未授权副作用。"
   },
   {
@@ -241,7 +241,7 @@
   },
   {
     "id": "TD-T15",
-    "src": "visuals/course/TD-T15.svg?v=552b3c6ada95",
+    "src": "visuals/course/TD-T15.svg?v=513562b55ba2",
     "alt": "Agent 的结果、单步与轨迹分别判定的分层架构图：最终转人工可以正确，途中调用禁止的退款工具仍须失败；合法替代路径应被允许。"
   },
   {
@@ -276,7 +276,7 @@
   },
   {
     "id": "TD-W03",
-    "src": "visuals/course/TD-W03.svg?v=23efc8f1b2b8",
+    "src": "visuals/course/TD-W03.svg?v=23aadfda3d42",
     "alt": "单 Agent 与多 Agent 在同预算下比较的指标与证据图：相同任务、权限与总预算下重复运行，才能把架构收益和资源投入区分开。"
   },
   {
@@ -346,12 +346,12 @@
   },
   {
     "id": "TD-B04",
-    "src": "visuals/course/TD-B04.svg?v=87ffa7865141",
+    "src": "visuals/course/TD-B04.svg?v=da3c224195aa",
     "alt": "锁定模型数据测协议敏感度的指标与证据图：每轮只扰动一个协议变量，同题配对比较先量噪声底线，再做有限归因。"
   },
   {
     "id": "TD-B05",
-    "src": "visuals/course/TD-B05.svg?v=b9044db11c2b",
+    "src": "visuals/course/TD-B05.svg?v=d12cedd448cb",
     "alt": "污染与版本审计限制榜单结论的证据关系图：版本兼容、暴露审计、封存泄露信号和配对区间共同决定分数是否可比。"
   },
   {
@@ -361,7 +361,7 @@
   },
   {
     "id": "TD-QP01",
-    "src": "visuals/course/TD-QP01.svg?v=fca008cd6734",
+    "src": "visuals/course/TD-QP01.svg?v=b4bbf7463b86",
     "alt": "事件只触发回读，依据批准后执行的交互与权限边界图：Webhook 不拥有事实权威；回读需求、冻结依据、保留引用，再由具权限的人批准。"
   },
   {
@@ -421,17 +421,17 @@
   },
   {
     "id": "TD-AP01",
-    "src": "visuals/course/TD-AP01.svg?v=8dddb7818b82",
+    "src": "visuals/course/TD-AP01.svg?v=b36933affbb5",
     "alt": "任务分布与终态共同定义负载的证据关系图：容量结论先绑定任务分母、风险切片和业务 Oracle，再绑定 workload hash。"
   },
   {
     "id": "TD-AP02",
-    "src": "visuals/course/TD-AP02.svg?v=9b6a2452616b",
+    "src": "visuals/course/TD-AP02.svg?v=295d8b6f1518",
     "alt": "从关键路径找到真正的慢点的证据关系图：queue、model、tool 和 retry 分列观测；并行段按关键路径归因，不能算术相加。"
   },
   {
     "id": "TD-AP03",
-    "src": "visuals/course/TD-AP03.svg?v=24854bec89eb",
+    "src": "visuals/course/TD-AP03.svg?v=3812df21dcc9",
     "alt": "父子闭包与账本共同校验 Trace的分层架构图：任务根关联每次物理尝试；终态与账本可回读，才有故障归因和重放依据。"
   },
   {

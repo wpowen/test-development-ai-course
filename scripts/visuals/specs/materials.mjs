@@ -167,6 +167,7 @@ export default [
     sourceRefs: [ref(agentBody,'TD-AG-10 / scenario','执行任务必须在工具层拒绝'),ref(agentBody,'TD-AG-10 / workflow','将建议与执行数据集和 owner 物理分开')],
   }),
   ag('AG-DIM-ARCHITECTURE', ['TD-AG-00'], {
+    nativeLayout: 'architecture-panels',
     layout: 'layers', title: '从退款风险到具名停止动作',
     thesis: '总架构先显式画出状态、信任和副作用边界，再把 D0–D7、证据环、护栏和失败回灌连接起来。',
     focus: '退款工具权限越界：确定性策略 Oracle、受控执行边界与人工 owner 联合收口',
@@ -191,12 +192,13 @@ export default [
     sourceRefs: [ref(agentDeep,'TD-AG-09 / artifactNote','每个环必须声明五件事：population、统计方法、owner、hard block、rollback。'),ref(agentOriginal,'五 / 环3影子模式','不返回给用户、不执行任何动作')],
   }),
   ag('AG-DIM-GATE', ['TD-AG-09'], {
+    routing: 'outer-rails',
     layout: 'decision', title: '三段判断不能互相抵消',
     thesis: '硬政策回答有没有不可接受事件，统计回答证据支持什么，具名风险接受才决定剩余风险由谁承担。',
     focus: 'D0 失效使本轮评分不可用；样本不足是 EVIDENCE-INSUFFICIENT，不是通过',
     nodes: [n('pack','候选证据包',['四环输入 / Trace / 版本','Judge Card 与失败切片'],'input'),n('policy','Metric Card / policy',['population / 阈值 / 区间','参数 owner 与失败动作'],'control'),n('hard','第一段：硬政策',['安全、硬规则、不可逆确认','D0 校准失效使评分无效'],'control'),n('stats','第二段：统计证据',['按任务聚类或配对区间','不只看点估计'],'control'),n('insufficient','证据不足',['EVIDENCE-INSUFFICIENT','保留不足状态，补样本或限范围'],'risk'),n('coverage','风险接受前核护栏',['逐项验证失败模式的护栏','无覆盖不得接受，签名不可豁免'],'control'),n('accept','第三段：风险接受',['具名业务或发布 owner','不足仅限范围，仍非 PASS'],'control'),n('blocked','BLOCKED / 回滚',['硬红线失败不能豁免成总分','保留失败环与原始收据'],'risk'),n('decision','具名决定与反馈',['接受范围 / expiry / rollback','流水线不代签发布'],'evidence')],
     ranks: [['pack','policy'],['hard'],['stats','blocked'],['insufficient'],['coverage'],['accept','decision']],
-    edges: [e('pack','hard','先核红线'),e('policy','hard','政策配置','control'),e('hard','blocked','任一红线或 D0 失效','risk'),e('hard','stats','红线通过','control'),e('policy','stats','预声明统计合同','control'),e('stats','insufficient','样本或区间不足','risk'),e('stats','blocked','证据充分但未满足','risk'),e('stats','coverage','统计满足，检查剩余风险','control'),e('insufficient','coverage','不足列为风险，可限范围决定','control'),e('coverage','blocked','任一接受项无护栏覆盖','risk'),e('coverage','accept','覆盖有效且无硬阻断','control'),e('accept','decision','具名限范围，不改写统计状态','control'),e('accept','blocked','不接受剩余风险','risk'),e('insufficient','pack','补新证据后再审','feedback'),e('blocked','pack','修复并保留失败回灌','feedback')],
+    edges: [e('pack','hard','先核红线'),e('policy','hard','政策配置','control'),e('hard','blocked','任一红线或 D0 失效','risk'),e('hard','stats','红线通过','control'),e('policy','stats','预声明统计合同','control'),e('stats','insufficient','样本或区间不足','risk'),e('stats','blocked','证据充分但未满足','risk'),e('stats','coverage','统计满足，检查剩余风险','control'),e('insufficient','coverage','不足列为风险，可限范围决定','control'),e('coverage','blocked','任一接受项无护栏覆盖','risk'),e('coverage','accept','覆盖有效且无硬阻断','control'),e('accept','decision','具名限范围，不改写统计状态','control'),e('accept','blocked','不接受剩余风险','risk'),{...e('insufficient','pack','补新证据后再审','feedback'),routeSide:'left'},{...e('blocked','pack','修复并保留失败回灌','feedback'),routeSide:'right'}],
     sections: [s('硬政策独立阻断',['不可接受事件不能统计稀释','不得用综合分抵消 blocker'],'control'),s('统计方法预声明',['区间匹配任务聚类与配对结构','CI 是否重叠不是唯一回归判据']),s('有限决定不等于通过',['无护栏不得接受，签名不可豁免','不足保持原状态与受限范围','记录 owner、到期与回滚目标'],'control')],
     failure: 'D0 失效或确定性红线失败即直接 BLOCKED；无护栏不得接受。证据不足可具名有限决定，仍非 PASS，不自动授级或发布。',
     outcome: '交付分段门禁收据与具名风险接受记录。',
@@ -221,7 +223,7 @@ export default [
     edges: [e('d0','d1','校准评分','control'),e('d0','d4','校准分布判据','control'),e('d0','d7','校准治理评分','control'),e('d0','d2','校准协作评分','control'),e('d0','d3','校准交互评分','control'),e('d0','d5','校准安全评分','control'),e('d0','d6','校准资源评分','control'),e('d0','decision','失准则所有评分不可用','control'),e('d1','d2','轨迹支撑交接归因','evidence'),e('d2','d3','交接决定接管点'),e('rings','d1','按环记录轨迹'),e('rings','d4','按环重复执行'),e('rings','d5','持续对抗'),e('rings','d6','按环测资源'),e('d5','guard','输出强制控制','control'),e('d3','guard','有效人工确认','control'),e('d7','guard','业务硬规则强制控制','control'),e('d4','decision','可靠性证据','evidence'),e('d6','decision','经济性证据','evidence'),e('d7','decision','规则与责任','control'),e('guard','decision','停止回执','evidence'),e('d5','decision','已证越权直接 BLOCKED','risk'),e('d7','decision','已证硬规则违规直接阻断','risk'),e('decision','rings','失败回灌与复测','feedback'),e('decision','d0','Judge 重校准','feedback')],
     // Visible special-renderer bands supplement, never replace, nodes/edges.
     dependencyBands: [
-      { title:'四环执行 → 行为轨迹 → D4', detail:'离线、沙箱、影子、在线分别驱动 D1/D4/D5/D6；D1 轨迹支撑 D2 交接与 D3 接管，D4 按任务重复与时长桶形成可靠性证据，未执行保持 NOT_RUN。' },
+      { title:'四环执行 → 行为轨迹 → D4', detail:'四环按各自输入与覆盖范围横向驱动 D1、D4、D5、D6；D1 轨迹支撑 D2 交接与 D3 接管，D4 按任务重复与时长桶形成可靠性证据，未执行保持 NOT_RUN。' },
       { title:'D5 护栏 → 运行阻断', detail:'D5 将攻击风险接到最小权限、写前授权和 Kill Switch；D3 提供有效人工确认，D7 提供硬业务规则。已证越权或硬规则违规直接阻断，不等待 Judge，也不由总分或签名豁免。' },
       { title:'D6 / D7 证据 → 具名决定', detail:'D4 分布、D6 成本与暴露量、D7 规则与版本审计交给具名 owner；风险接受写清护栏、范围与到期条件，不代替独立硬阻断，不自动批准发布。' },
       { title:'失败回灌 → D0 重校准与下一轮', detail:'保留失败收据并转成回归案例，送回四环复测；Judge 偏差或换版回到 D0 重校准。D0 失效时所有域评分不可用，新一轮证据补齐前不继承通过结论。' },
@@ -331,7 +333,7 @@ export default [
     layout: 'comparison', title: '三个证据窗口各有退出条件',
     thesis: '用A/B/C窗口对比基线、故障和复评交付；课程30/60/90天是可编辑规划示例，不是测得工期或晋升时钟。',
     focus: '单位为顺序证据窗口；不按条长、日历坐标或百分比暗示实际进度',
-    nodes: [n('a','窗口 A：定基线',['交 Dataset / Metric Card','入口：任务、风险、Oracle 冻结']),n('b','窗口 B：做故障',['交 RAG retrieval fault 与报告','入口：A 工件可复核']),n('c','窗口 C：交付复评',['交独立 Oracle 与 reviewer 意见','入口：故障被检出且保留收据']),n('owner','owner 配置窗口',['实际起止、投入与验收人待定','30/60/90 只为课程规划示例'],'control'),n('stop','停止 / 回退 / 升级',['缺高风险切片：停止补样本','故障未打红：回到 Oracle'],'risk'),n('exit','证据出口',['工件 / hash / receipt / reviewer','不以学习小时替代交付'],'evidence'),n('next','下一轮计划',['保留分歧与责任范围','更新路由和复评日期'])],
+    nodes: [n('a','窗口 A：定基线',['交 Dataset / Metric Card','入口：任务、风险、Oracle 冻结']),n('b','窗口 B：做故障',['交 RAG retrieval fault 与报告','入口：A 工件可复核']),n('c','窗口 C：交付复评',['交独立 Oracle 与 reviewer 意见','入口：故障被检出且保留收据']),n('owner','owner 配置窗口',['实际起止、投入与验收人待定','30/60/90 只为课程规划示例'],'control'),n('stop','停止 / 回退 / 升级',['缺高风险切片：停止补样本','故障未打红：回到 Oracle'],'risk'),n('exit','证据出口',['工件 / hash / receipt / reviewer','不以学习小时替代交付'],'evidence'),n('next','下一轮计划',['next_artifact：待填写','reviewer：待具名','next_review：待填写','gap_route：待 Owner 确认'])],
     ranks: [['a','b','c'],['owner','stop'],['exit','next']],
     edges: [e('owner','a','定义窗口 A','control'),e('owner','b','定义窗口 B','control'),e('owner','c','定义窗口 C','control'),e('a','exit','基线工件','evidence'),e('b','exit','故障与修复收据','evidence'),e('c','exit','独立复评记录','evidence'),e('b','stop','故障未被检出','risk'),e('c','stop','分歧未闭合','risk'),e('exit','next','按新增证据更新','feedback'),e('stop','next','保留失败并重排','feedback')],
     sections: [s('来源与改写',['原文多年职级时间线是示例','课程改为证据窗口，不作期限承诺']),s('进入下一窗的条件',['按前窗工件与 reviewer 决定','窗口过期不等于能力升级'],'control'),s('要补的真实输入',['投入、起止日期、任务与 owner','未提供前不绘制数值甘特条'])],

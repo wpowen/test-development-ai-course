@@ -1,142 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1965" viewBox="0 0 1600 1965" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2318" viewBox="0 0 1600 2318" role="img" aria-labelledby="title desc" data-redraw-version="2">
 <title id="title">同一候选在正常代码与变异代码上对照</title><desc id="desc">先证明批准实现上通过，再证明已知守卫被破坏时，相关断言确实变红。 Baseline 与 Mutation 共用独立期望，分别回答能跑通和能杀错 0→1→0 只覆盖合成守卫；真实模型生成、仓库变异成本与生产效果 NOT_RUN。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-T06 / 架构节点与交付物;docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-T06 / 工作示例">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-T06&quot;,&quot;pageIds&quot;:[&quot;TD-T06&quot;],&quot;primaryPageIds&quot;:[&quot;TD-T06&quot;],&quot;layout&quot;:&quot;comparison&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-T06 / 架构节点与交付物&quot;,&quot;quote&quot;:&quot;Baseline 证明测试在正常代码上是绿的，Mutation 证明它在被破坏的代码上会红。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-T06 / 工作示例&quot;,&quot;quote&quot;:&quot;目标用例必须因为 actual 与 independent expected 不同而 KILLED，不能因为无关超时而变红。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;oracle&quot;,&quot;title&quot;:&quot;独立行为 Oracle&quot;},{&quot;id&quot;:&quot;candidate&quot;,&quot;title&quot;:&quot;AI 测试候选&quot;},{&quot;id&quot;:&quot;base&quot;,&quot;title&quot;:&quot;Baseline Runner&quot;},{&quot;id&quot;:&quot;mutate&quot;,&quot;title&quot;:&quot;Mutation Runner&quot;},{&quot;id&quot;:&quot;detect&quot;,&quot;title&quot;:&quot;目标行为检测&quot;},{&quot;id&quot;:&quot;classify&quot;,&quot;title&quot;:&quot;未杀死项分类&quot;},{&quot;id&quot;:&quot;review&quot;,&quot;title&quot;:&quot;Reviewer 处置&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;candidate&quot;,&quot;to&quot;:&quot;base&quot;,&quot;label&quot;:&quot;正常代码&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;candidate&quot;,&quot;to&quot;:&quot;mutate&quot;,&quot;label&quot;:&quot;相同候选&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;oracle&quot;,&quot;to&quot;:&quot;base&quot;,&quot;label&quot;:&quot;固定期望&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;oracle&quot;,&quot;to&quot;:&quot;detect&quot;,&quot;label&quot;:&quot;独立判据&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;base&quot;,&quot;to&quot;:&quot;mutate&quot;,&quot;label&quot;:&quot;仅 baseline 全绿后&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;mutate&quot;,&quot;to&quot;:&quot;detect&quot;,&quot;label&quot;:&quot;变异运行证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;detect&quot;,&quot;to&quot;:&quot;review&quot;,&quot;label&quot;:&quot;相关断言杀死&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;detect&quot;,&quot;to&quot;:&quot;classify&quot;,&quot;label&quot;:&quot;未杀死 / 不确定&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;classify&quot;,&quot;to&quot;:&quot;review&quot;,&quot;label&quot;:&quot;逐项归因与处置&quot;,&quot;kind&quot;:&quot;data&quot;}]}</metadata>
 <style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
-<rect width="1600" height="1965" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<rect width="1600" height="2318" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
 <text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-T06</text>
 <text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >同一候选在正常代码与变异代码上对照</text>
 <text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >先证明批准实现上通过，再证明已知守卫被破坏时，相关断言确实变红。</text>
-<g id="system-graph" data-region="64,234,1472,1126.3913092678508">
-<rect x="64" y="234" width="1472" height="1126.3913092678508" rx="14" fill="#fff" stroke="#d9e2ed" />
-<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
-<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >Baseline 与 Mutation 共用独立期望，分别回答能跑通和能杀错</text>
-<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >职责与对照</text>
-<g transform="translate(109.50548828788055 350) scale(0.7921240239900418)" data-graph-scale="0.7921240239900418" data-routing="dot">
-<path class="edge edge-data" d="M566 213 C566 273.21000000000004 533.62 286.97 529.44 341.19000000000005" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="candidate" data-to="base"/>
-<path class="edge edge-data" d="M654 213 C654 330.03 1145.59 238.55999999999995 1179.2 341.34000000000003" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="candidate" data-to="mutate"/>
-<path class="edge edge-control" d="M132 231 C132 361.1 286.59 282.23 413 313 C453.85 322.94000000000005 589.33 309.65 613.35 342.02" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e2" data-from="oracle" data-to="base"/>
-<path class="edge edge-control" d="M220 231 C220 266.79999999999995 241.08 523.37 265 550 C410.2 711.6700000000001 735.63 460.25 747.66 660.17" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e3" data-from="oracle" data-to="detect"/>
-<path class="edge edge-control" d="M750 450.5 C763.2 450.5 758.81 434.54999999999995 771 429.5 C858.46 393.27 896.99 392.21000000000004 984 429.5 C991.96 432.90999999999997 992.43 441.22 995.8 446.29999999999995" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e4" data-from="base" data-to="mutate"/>
-<path class="edge edge-evidence" d="M1181 549 C1181 707.65 853.3 519.26 836.66 660.29" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e5" data-from="mutate" data-to="detect"/>
-<path class="edge edge-evidence" d="M748 868 C748 897.6 967.28 947.74 1008.4 981.2" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e6" data-from="detect" data-to="review"/>
-<path class="edge edge-risk" d="M969 769.5 C982.2 769.5 977.81 753.55 990 748.5 C1064.73 717.55 1097.65 716.64 1172 748.5 C1179.96 751.9100000000001 1180.43 760.22 1183.8 765.3" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e7" data-from="detect" data-to="classify"/>
-<path class="edge edge-data" d="M1369 868 C1369 994.05 1119.87 869.3299999999999 1103.81 979.22" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e8" data-from="classify" data-to="review"/>
-<g id="node-oracle" class="node node-control" data-region="0,0,354,231">
-<rect x="0" y="0" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
-<rect x="18" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
-<text x="25" y="35" font-size="15" fill="#945c0b" font-weight="750" class="mono">01</text>
-<text x="22" y="76" font-size="28" fill="#945c0b" font-weight="700" >独立行为 Oracle</text>
-<text x="22" y="119" font-size="23" fill="#172b45" font-weight="450" >已激活数字商品不得自动</text>
-<text x="22" y="153" font-size="23" fill="#172b45" font-weight="450" >退款</text>
-<text x="22" y="187" font-size="23" fill="#172b45" font-weight="450" >期望来自批准规范</text>
+<g id="system-graph" data-region="64,234,1472,1480">
+<rect x="64" y="234" width="1472" height="1480" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="271" font-size="25" fill="#172b45" font-weight="700" >A  分区关系图 · 同号卡片为同一节点的复用</text>
+<text x="88" y="303" font-size="20" fill="#50647c" font-weight="450" >箭头条件沿用原始合同；重复卡片只缩短查线距离，不表示新增步骤或再次执行。</text>
+<g transform="translate(0 234)" data-graph-scale="1" data-routing="course-2-panels">
+<rect x="82" y="82" width="1436" height="1364" rx="12" fill="#fff" stroke="#d9e2ed" />
+<text x="104" y="113" font-size="23" fill="#215cbb" font-weight="700" >A1  同一候选、独立期望与正常 / 变异对照</text>
+<path class="edge edge-data" d="M670 313 L670 398 L380 398 L380 473" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="candidate" data-to="base"/>
+<path class="edge edge-data" d="M930 313 L930 398 L1220 398 L1220 473" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="candidate" data-to="mutate"/>
+<path class="edge edge-control" d="M640 564.5 L960 564.5" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e4" data-from="base" data-to="mutate"/>
+<path class="edge edge-control" d="M380 836 L380 656" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e2" data-from="oracle" data-to="base"/>
+<path class="edge edge-control" d="M640 927.5 L960 927.5" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e3" data-from="oracle" data-to="detect"/>
+<path class="edge edge-evidence" d="M1220 656 L1220 746 L1220 746 L1220 836" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e5" data-from="mutate" data-to="detect"/>
+<path class="edge edge-risk" d="M1090 1019 L1090 1099 L380 1099 L380 1199" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e7" data-from="detect" data-to="classify"/>
+<path class="edge edge-evidence" d="M1350 1019 L1350 1129 L1220 1129 L1220 1199" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e6" data-from="detect" data-to="review"/>
+<path class="edge edge-data" d="M640 1290.5 L960 1290.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e8" data-from="classify" data-to="review"/>
+<g id="node-TD-T06-candidate" class="node node-ai" data-region="540,130,520,183">
+<rect x="540" y="130" width="520" height="183" rx="14" fill="#f4effb" stroke="none" />
+<text x="560" y="158" font-size="16" fill="#7045a4" font-weight="750" class="mono">02</text>
+<text x="562" y="195" font-size="28" fill="#7045a4" font-weight="700" >AI 测试候选</text>
+<text x="562" y="238" font-size="23" fill="#172b45" font-weight="450" >静态门禁剔除恒真与空断言</text>
+<text x="562" y="272" font-size="23" fill="#172b45" font-weight="450" >候选不自动进入回归</text>
 </g>
-<g id="node-candidate" class="node node-ai" data-region="434,17,354,197">
-<rect x="434" y="17" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
-<rect x="452" y="34" width="36" height="25" rx="7" fill="#fff" stroke="none" />
-<text x="459" y="52" font-size="15" fill="#7045a4" font-weight="750" class="mono">02</text>
-<text x="456" y="93" font-size="28" fill="#7045a4" font-weight="700" >AI 测试候选</text>
-<text x="456" y="136" font-size="23" fill="#172b45" font-weight="450" >静态门禁剔除恒真与空断言</text>
-<text x="456" y="170" font-size="23" fill="#172b45" font-weight="450" >候选不自动进入回归</text>
+<g id="node-TD-T06-base" class="node node-process" data-region="120,473,520,183">
+<rect x="120" y="473" width="520" height="183" rx="14" fill="#eff4fa" stroke="none" />
+<text x="140" y="501" font-size="16" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="142" y="538" font-size="28" fill="#344f70" font-weight="700" >Baseline Runner</text>
+<text x="142" y="581" font-size="23" fill="#172b45" font-weight="450" >批准实现 + 同一组用例</text>
+<text x="142" y="615" font-size="23" fill="#172b45" font-weight="450" >先确认 PASS，再启动变异</text>
 </g>
-<g id="node-base" class="node node-process" data-region="397,353,354,197">
-<rect x="397" y="353" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
-<rect x="415" y="370" width="36" height="25" rx="7" fill="#fff" stroke="none" />
-<text x="422" y="388" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
-<text x="419" y="429" font-size="28" fill="#344f70" font-weight="700" >Baseline Runner</text>
-<text x="419" y="472" font-size="23" fill="#172b45" font-weight="450" >批准实现 + 同一组用例</text>
-<text x="419" y="506" font-size="23" fill="#172b45" font-weight="450" >先确认 PASS，再启动变异</text>
+<g id="node-TD-T06-mutate" class="node node-risk" data-region="960,473,520,183">
+<rect x="960" y="473" width="520" height="183" rx="14" fill="#fff0f0" stroke="none" />
+<text x="980" y="501" font-size="16" fill="#ad3e4c" font-weight="750" class="mono">04</text>
+<text x="982" y="538" font-size="28" fill="#ad3e4c" font-weight="700" >Mutation Runner</text>
+<text x="982" y="581" font-size="23" fill="#172b45" font-weight="450" >只反转退款业务守卫</text>
+<text x="982" y="615" font-size="23" fill="#172b45" font-weight="450" >共用同一独立 expected</text>
 </g>
-<g id="node-mutate" class="node node-risk" data-region="1004,353,354,197">
-<rect x="1004" y="353" width="354" height="197" rx="14" fill="#fff0f0" stroke="none" />
-<rect x="1022" y="370" width="36" height="25" rx="7" fill="#fff" stroke="none" />
-<text x="1029" y="388" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">04</text>
-<text x="1026" y="429" font-size="28" fill="#ad3e4c" font-weight="700" >Mutation Runner</text>
-<text x="1026" y="472" font-size="23" fill="#172b45" font-weight="450" >只反转退款业务守卫</text>
-<text x="1026" y="506" font-size="23" fill="#172b45" font-weight="450" >共用同一独立 expected</text>
+<g id="node-TD-T06-oracle" class="node node-control" data-region="120,836,520,183">
+<rect x="120" y="836" width="520" height="183" rx="14" fill="#fff5e5" stroke="none" />
+<text x="140" y="864" font-size="16" fill="#945c0b" font-weight="750" class="mono">01</text>
+<text x="142" y="901" font-size="28" fill="#945c0b" font-weight="700" >独立行为 Oracle</text>
+<text x="142" y="944" font-size="23" fill="#172b45" font-weight="450" >已激活数字商品不得自动退款</text>
+<text x="142" y="978" font-size="23" fill="#172b45" font-weight="450" >期望来自批准规范</text>
 </g>
-<g id="node-detect" class="node node-evidence" data-region="616,672,354,197">
-<rect x="616" y="672" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
-<rect x="634" y="689" width="36" height="25" rx="7" fill="#fff" stroke="none" />
-<text x="641" y="707" font-size="15" fill="#7045a4" font-weight="750" class="mono">05</text>
-<text x="638" y="748" font-size="28" fill="#7045a4" font-weight="700" >目标行为检测</text>
-<text x="638" y="791" font-size="23" fill="#172b45" font-weight="450" >actual 与 expected 对照</text>
-<text x="638" y="825" font-size="23" fill="#172b45" font-weight="450" >无关超时不算 KILLED</text>
+<g id="node-TD-T06-detect" class="node node-evidence" data-region="960,836,520,183">
+<rect x="960" y="836" width="520" height="183" rx="14" fill="#f4effb" stroke="none" />
+<text x="980" y="864" font-size="16" fill="#7045a4" font-weight="750" class="mono">05</text>
+<text x="982" y="901" font-size="28" fill="#7045a4" font-weight="700" >目标行为检测</text>
+<text x="982" y="944" font-size="23" fill="#172b45" font-weight="450" >actual 与 expected 对照</text>
+<text x="982" y="978" font-size="23" fill="#172b45" font-weight="450" >无关超时不算 KILLED</text>
 </g>
-<g id="node-classify" class="node node-process" data-region="1192,672,354,197">
-<rect x="1192" y="672" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
-<rect x="1210" y="689" width="36" height="25" rx="7" fill="#fff" stroke="none" />
-<text x="1217" y="707" font-size="15" fill="#344f70" font-weight="750" class="mono">06</text>
-<text x="1214" y="748" font-size="28" fill="#344f70" font-weight="700" >未杀死项分类</text>
-<text x="1214" y="791" font-size="23" fill="#172b45" font-weight="450" >survived / no coverage</text>
-<text x="1214" y="825" font-size="23" fill="#172b45" font-weight="450" >等价性与工具错误单独复核</text>
+<g id="node-TD-T06-classify" class="node node-process" data-region="120,1199,520,183">
+<rect x="120" y="1199" width="520" height="183" rx="14" fill="#eff4fa" stroke="none" />
+<text x="140" y="1227" font-size="16" fill="#344f70" font-weight="750" class="mono">06</text>
+<text x="142" y="1264" font-size="28" fill="#344f70" font-weight="700" >未杀死项分类</text>
+<text x="142" y="1307" font-size="23" fill="#172b45" font-weight="450" >survived / no coverage</text>
+<text x="142" y="1341" font-size="23" fill="#172b45" font-weight="450" >等价性与工具错误单独复核</text>
 </g>
-<g id="node-review" class="node node-control" data-region="883,991,354,197">
-<rect x="883" y="991" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
-<rect x="901" y="1008" width="36" height="25" rx="7" fill="#fff" stroke="none" />
-<text x="908" y="1026" font-size="15" fill="#945c0b" font-weight="750" class="mono">07</text>
-<text x="905" y="1067" font-size="28" fill="#945c0b" font-weight="700" >Reviewer 处置</text>
-<text x="905" y="1110" font-size="23" fill="#172b45" font-weight="450" >补断言或署名判定等价</text>
-<text x="905" y="1144" font-size="23" fill="#172b45" font-weight="450" >处置完整才入回归套件</text>
+<g id="node-TD-T06-review" class="node node-control" data-region="960,1199,520,183">
+<rect x="960" y="1199" width="520" height="183" rx="14" fill="#fff5e5" stroke="none" />
+<text x="980" y="1227" font-size="16" fill="#945c0b" font-weight="750" class="mono">07</text>
+<text x="982" y="1264" font-size="28" fill="#945c0b" font-weight="700" >Reviewer 处置</text>
+<text x="982" y="1307" font-size="23" fill="#172b45" font-weight="450" >补断言或署名判定等价</text>
+<text x="982" y="1341" font-size="23" fill="#172b45" font-weight="450" >处置完整才入回归套件</text>
 </g>
-<rect x="552.98" y="271" width="112" height="42" rx="6" fill="#fff" stroke="none" />
-<text x="608.98" y="299" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">正常代码</text>
-<rect x="1144.8" y="271" width="112" height="42" rx="6" fill="#fff" stroke="none" />
-<text x="1200.8" y="299" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">相同候选</text>
-<rect x="413" y="271" width="112" height="42" rx="6" fill="#fff" stroke="none" />
-<text x="469" y="299" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">固定期望</text>
-<rect x="265" y="430.5" width="112" height="42" rx="6" fill="#fff" stroke="none" />
-<text x="321" y="458.5" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">独立判据</text>
-<rect x="771" y="359.92999999999995" width="213" height="42" rx="6" fill="#fff" stroke="none" />
-<text x="877.5" y="387.92999999999995" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">仅 baseline 全绿后</text>
-<rect x="1167.3" y="590" width="156" height="42" rx="6" fill="#fff" stroke="none" />
-<text x="1245.3" y="618" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">变异运行证据</text>
-<rect x="943.4" y="909" width="156" height="42" rx="6" fill="#fff" stroke="none" />
-<text x="1021.4" y="937" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">相关断言杀死</text>
-<rect x="990" y="682.94" width="182" height="42" rx="6" fill="#fff" stroke="none" />
-<text x="1081" y="710.94" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">未杀死 / 不确定</text>
-<rect x="1350.8" y="909" width="177" height="42" rx="6" fill="#fff" stroke="none" />
-<text x="1439.3" y="937" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">逐项归因与处置</text>
+<rect x="316.53" y="353" width="146.94" height="40" rx="6" fill="#fff" stroke="none" />
+<text x="390" y="380" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  正常代码</text>
+<rect x="1136.53" y="353" width="146.94" height="40" rx="6" fill="#fff" stroke="none" />
+<text x="1210" y="380" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  相同候选</text>
+<rect x="675.7099999999999" y="506.5" width="248.58000000000007" height="40" rx="6" fill="#fff" stroke="none" />
+<text x="800" y="533.5" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  仅 baseline 全绿后</text>
+<rect x="306.53" y="741" width="146.94" height="40" rx="6" fill="#fff" stroke="none" />
+<text x="380" y="768" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  固定期望</text>
+<rect x="726.53" y="869.5" width="146.94" height="40" rx="6" fill="#fff" stroke="none" />
+<text x="800" y="896.5" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  独立判据</text>
+<rect x="1234.69" y="720" width="190.62" height="40" rx="6" fill="#fff" stroke="none" />
+<text x="1330" y="747" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  变异运行证据</text>
+<rect x="621.46" y="1054" width="217.08" height="40" rx="6" fill="#fff" stroke="none" />
+<text x="730" y="1081" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  未杀死 / 不确定</text>
+<rect x="1234.69" y="1079" width="190.62" height="40" rx="6" fill="#fff" stroke="none" />
+<text x="1330" y="1106" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  相关断言杀死</text>
+<rect x="693.77" y="1232.5" width="212.46" height="40" rx="6" fill="#fff" stroke="none" />
+<text x="800" y="1259.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  逐项归因与处置</text>
 </g>
 </g>
-<text x="64" y="1414.3913092678508" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
-<text x="98" y="1414.3913092678508" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
-<g id="detail-0" data-region="64,1444.3913092678508,470,174">
-<rect x="64" y="1444.3913092678508" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
-<rect x="84" y="1466.3913092678508" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
-<text x="106" y="1491.3913092678508" font-size="25" fill="#945c0b" font-weight="700" >固定什么再比较</text>
-<text x="88" y="1546.3913092678508" font-size="23" fill="#172b45" font-weight="450" >冻结 Basis、构建与独立 Oracle</text>
-<text x="88" y="1581.3913092678508" font-size="23" fill="#172b45" font-weight="450" >只改变 activated refund 守卫</text>
+<text x="64" y="1768" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1768" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1798,470,174">
+<rect x="64" y="1798" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1820" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="106" y="1845" font-size="25" fill="#945c0b" font-weight="700" >固定什么再比较</text>
+<text x="88" y="1900" font-size="23" fill="#172b45" font-weight="450" >冻结 Basis、构建与独立 Oracle</text>
+<text x="88" y="1935" font-size="23" fill="#172b45" font-weight="450" >只改变 activated refund 守卫</text>
 </g>
-<g id="detail-1" data-region="565,1444.3913092678508,470,174">
-<rect x="565" y="1444.3913092678508" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
-<rect x="585" y="1466.3913092678508" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
-<text x="607" y="1491.3913092678508" font-size="25" fill="#7045a4" font-weight="700" >怎样认定杀死</text>
-<text x="589" y="1546.3913092678508" font-size="23" fill="#172b45" font-weight="450" >目标 actual 与 expected 不同</text>
-<text x="589" y="1581.3913092678508" font-size="23" fill="#172b45" font-weight="450" >保留 case_id 与 mutation 收据</text>
+<g id="detail-1" data-region="565,1798,470,174">
+<rect x="565" y="1798" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1820" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="607" y="1845" font-size="25" fill="#7045a4" font-weight="700" >怎样认定杀死</text>
+<text x="589" y="1900" font-size="23" fill="#172b45" font-weight="450" >目标 actual 与 expected 不同</text>
+<text x="589" y="1935" font-size="23" fill="#172b45" font-weight="450" >保留 case_id 与 mutation 收据</text>
 </g>
-<g id="detail-2" data-region="1066,1444.3913092678508,470,174">
-<rect x="1066" y="1444.3913092678508" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
-<rect x="1086" y="1466.3913092678508" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
-<text x="1108" y="1491.3913092678508" font-size="25" fill="#ad3e4c" font-weight="700" >分开看检测盲区</text>
-<text x="1090" y="1546.3913092678508" font-size="23" fill="#172b45" font-weight="450" >no coverage 先补路径</text>
-<text x="1090" y="1581.3913092678508" font-size="23" fill="#172b45" font-weight="450" >等价变异需 Reviewer 署名</text>
+<g id="detail-2" data-region="1066,1798,470,174">
+<rect x="1066" y="1798" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1820" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="1108" y="1845" font-size="25" fill="#ad3e4c" font-weight="700" >分开看检测盲区</text>
+<text x="1090" y="1900" font-size="23" fill="#172b45" font-weight="450" >no coverage 先补路径</text>
+<text x="1090" y="1935" font-size="23" fill="#172b45" font-weight="450" >等价变异需 Reviewer 署名</text>
 </g>
-<g id="failure-and-output" data-region="64,1650.3913092678508,1472,148">
-<rect x="64" y="1650.3913092678508" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
-<text x="88" y="1689.3913092678508" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
-<text x="88" y="1734.3913092678508" font-size="23" fill="#ffdce2" font-weight="450" >baseline 失败即停止；无关超时、改 expected 求绿均不能算检测力。</text>
-<text x="88" y="1777.3913092678508" font-size="23" fill="#dce9fa" font-weight="450" >交付 mutation matrix、KILLED 证据、survived 处置及新增回归用例。</text>
+<g id="failure-and-output" data-region="64,2004,1472,148">
+<rect x="64" y="2004" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2043" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2088" font-size="23" fill="#ffdce2" font-weight="450" >baseline 失败即停止；无关超时、改 expected 求绿均不能算检测力。</text>
+<text x="88" y="2131" font-size="23" fill="#dce9fa" font-weight="450" >交付 mutation matrix、KILLED 证据、survived 处置及新增回归用例。</text>
 </g>
-<text x="64" y="1846.3913092678508" font-size="20" fill="#50647c" font-weight="450" >0→1→0 只覆盖合成守卫；真实模型生成、仓库变异成本与生产效果 NOT_RUN。</text>
-<text x="64" y="1885.3913092678508" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-T06 · 同一候选在正常代码与变异代码上对照</text>
-<path class="edge edge-data" d="M64 1925.3913092678508 L101 1925.3913092678508" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
-<text x="120" y="1931.3913092678508" font-size="18" fill="#50647c" font-weight="550" >数据</text>
-<path class="edge edge-control" d="M360 1925.3913092678508 L397 1925.3913092678508" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
-<text x="416" y="1931.3913092678508" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
-<path class="edge edge-evidence" d="M656 1925.3913092678508 L693 1925.3913092678508" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
-<text x="712" y="1931.3913092678508" font-size="18" fill="#50647c" font-weight="550" >证据</text>
-<path class="edge edge-feedback" d="M952 1925.3913092678508 L989 1925.3913092678508" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
-<text x="1008" y="1931.3913092678508" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
-<path class="edge edge-risk" d="M1248 1925.3913092678508 L1285 1925.3913092678508" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
-<text x="1304" y="1931.3913092678508" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
+<text x="64" y="2200" font-size="20" fill="#50647c" font-weight="450" >0→1→0 只覆盖合成守卫；真实模型生成、仓库变异成本与生产效果 NOT_RUN。</text>
+<text x="64" y="2239" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-T06 · 同一候选在正常代码与变异代码上对照</text>
+<path class="edge edge-data" d="M64 2279 L101 2279" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2285" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2279 L397 2279" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2285" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2279 L693 2279" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2285" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2279 L989 2279" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2285" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2279 L1285 2279" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2285" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

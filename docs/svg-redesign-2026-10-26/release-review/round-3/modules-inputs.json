@@ -1,0 +1,2366 @@
+[
+  {
+    "id": "TD-M00",
+    "path": "visuals/modules/TD-M00.svg",
+    "pageIds": [
+      "TD-F01",
+      "TD-P01",
+      "TD-P02",
+      "TD-P03",
+      "TD-P04",
+      "TD-P05",
+      "TD-P06",
+      "TD-P07",
+      "TD-P08"
+    ],
+    "layout": "flow",
+    "title": "完整测试生命周期｜模块全景",
+    "thesis": "需求到发布是一条链，每一站交出一个下游程序能直接消费的工件。",
+    "focus": "本模块学习路径 · 箭头表示学习先后与交付承接",
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "定位职责",
+        "body": [
+          "这条链上我负责哪几站？",
+          "产物：职业责任地图",
+          "TD-F01"
+        ],
+        "tone": "input"
+      },
+      {
+        "id": "s2",
+        "title": "冻结依据",
+        "body": [
+          "规则冲突时以哪一份为准？",
+          "产物：Test Basis Pack（带 hash）",
+          "TD-P01"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "s3",
+        "title": "建立契约",
+        "body": [
+          "需求能不能被程序消费？",
+          "产物：requirement / technical-contract.json",
+          "TD-P02 / TD-P03"
+        ],
+        "tone": "ai"
+      },
+      {
+        "id": "s4",
+        "title": "定测试策略",
+        "body": [
+          "测什么、在哪一层测？",
+          "产物：risk-test-plan.json",
+          "TD-P04"
+        ],
+        "tone": "data"
+      },
+      {
+        "id": "s5",
+        "title": "固定判据",
+        "body": [
+          "判据独立于被测实现吗？",
+          "产物：test-package.json 与 Oracle 清单",
+          "TD-P05"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "id": "s6",
+        "title": "接入自动化",
+        "body": [
+          "规则落在能验证它的最低层了吗？",
+          "产物：自动化骨架与追溯索引",
+          "TD-P06"
+        ],
+        "tone": "process"
+      },
+      {
+        "id": "s7",
+        "title": "执行与归因",
+        "body": [
+          "这次运行能被别人重放吗？",
+          "产物：run-manifest.json",
+          "TD-P07"
+        ],
+        "tone": "risk"
+      },
+      {
+        "id": "s8",
+        "title": "发布判断",
+        "body": [
+          "谁基于什么证据签字？",
+          "产物：端到端证据链",
+          "TD-P08"
+        ],
+        "tone": "input"
+      }
+    ],
+    "edges": [
+      {
+        "from": "s1",
+        "to": "s2",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s2",
+        "to": "s3",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s3",
+        "to": "s4",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s4",
+        "to": "s5",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s5",
+        "to": "s6",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s6",
+        "to": "s7",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s7",
+        "to": "s8",
+        "label": "学习次序",
+        "kind": "data"
+      }
+    ],
+    "ranks": [
+      [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      [
+        "s6",
+        "s5",
+        "s4"
+      ],
+      [
+        "s7",
+        "s8"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "为什么先学这一步",
+        "body": [
+          "测试工作被拆成八个动作时，最容易出问题的不是某一个动作本身，而是两个动作之间的交接。"
+        ],
+        "tone": "input"
+      },
+      {
+        "title": "怎样承接下一步",
+        "body": [
+          "顺序在这里是硬约束，不是建议。"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "title": "如何判断学会了",
+        "body": [
+          "AI 在这条链上承担的是生成候选和整理证据，不承担判据判定和发布决定。"
+        ],
+        "tone": "control"
+      }
+    ],
+    "failure": "阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。",
+    "outcome": "带走物：职业责任地图；Test Basis Pack（带 hash）；requirement / technical-contract.json；risk-test-plan.json；test-package.json 与 Oracle 清单；自动化骨架与追溯索引；run-manifest.json；端到端证据链。",
+    "boundary": "不覆盖 AI 系统特有的失败形态，那从 TD-M01 开始；不覆盖具体专项的测试手法（接口、UI、性能），那在 TD-M08；工件格式给的是最小必要字段，不是某一家工具链的规范。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "content/module-overviews.ts",
+        "locator": "TD-M00 / stages + logic + boundary",
+        "quote": "需求到发布是一条链，每一站交出一个下游程序能直接消费的工件。"
+      }
+    ],
+    "supplementalSources": [],
+    "primaryPageIds": [],
+    "sha256": "69be178fd1b6442d8d8af1758809d394992a71568ed16ae1e21cc56c23298ad0",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M00.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M00.png"
+  },
+  {
+    "id": "TD-M08",
+    "path": "visuals/modules/TD-M08.svg",
+    "pageIds": [
+      "TD-PS01",
+      "TD-PS02",
+      "TD-PS03",
+      "TD-PS04",
+      "TD-PS05",
+      "TD-PS06",
+      "TD-PS07",
+      "TD-PS08",
+      "TD-PS09",
+      "TD-PS10",
+      "TD-PS11",
+      "TD-PS12",
+      "TD-X101"
+    ],
+    "layout": "flow",
+    "title": "传统测试专项｜模块全景",
+    "thesis": "传统专项没有过时，过时的是它们原来的判据。",
+    "focus": "本模块学习路径 · 箭头表示学习先后与交付承接",
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "接口与契约",
+        "body": [
+          "副作用被验证了，还是只验证了返回码？",
+          "产物：契约测试包与权限矩阵",
+          "TD-PS01 / TD-PS02 / TD-PS03"
+        ],
+        "tone": "input"
+      },
+      {
+        "id": "s2",
+        "title": "端到端界面",
+        "body": [
+          "失败是产品坏了还是用例不稳？",
+          "产物：旅程套件与设备/浏览器矩阵",
+          "TD-PS04 / TD-PS05 / TD-PS06 / TD-PS07"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "s3",
+        "title": "数据与迁移",
+        "body": [
+          "回滚路径被验证过吗？",
+          "产物：迁移 Manifest 与对账报告",
+          "TD-PS08"
+        ],
+        "tone": "ai"
+      },
+      {
+        "id": "s4",
+        "title": "性能与稳定性",
+        "body": [
+          "过载时系统降级还是崩溃？",
+          "产物：容量决策报告与恢复证据",
+          "TD-PS09 / TD-PS10"
+        ],
+        "tone": "data"
+      },
+      {
+        "id": "s5",
+        "title": "线上可观测性",
+        "body": [
+          "线上出问题时能定位到哪一层？",
+          "产物：字段契约与 SLO 链路",
+          "TD-PS11"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "id": "s6",
+        "title": "安全与供应链",
+        "body": [
+          "依赖和身份的假设成立吗？",
+          "产物：威胁模型与联合门禁",
+          "TD-PS12 / TD-X101"
+        ],
+        "tone": "process"
+      }
+    ],
+    "edges": [
+      {
+        "from": "s1",
+        "to": "s2",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s2",
+        "to": "s3",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s3",
+        "to": "s4",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s4",
+        "to": "s5",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s5",
+        "to": "s6",
+        "label": "学习次序",
+        "kind": "data"
+      }
+    ],
+    "ranks": [
+      [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      [
+        "s6",
+        "s5",
+        "s4"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "为什么先学这一步",
+        "body": [
+          "接口、UI、数据、性能、安全这几项能力，在 AI 系统里全都还要用，但每一项的「什么算通过」都需要重新定义。"
+        ],
+        "tone": "input"
+      },
+      {
+        "title": "怎样承接下一步",
+        "body": [
+          "这个模块按被测对象组织，而不是按工具组织。"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "title": "如何判断学会了",
+        "body": [
+          "安全和供应链放在最后两页，因为它们检查的是前面所有层共有的假设——身份是不是真的被验证了，依赖是不是真的是你以为的那个版本。"
+        ],
+        "tone": "control"
+      }
+    ],
+    "failure": "阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。",
+    "outcome": "带走物：契约测试包与权限矩阵；旅程套件与设备/浏览器矩阵；迁移 Manifest 与对账报告；容量决策报告与恢复证据；字段契约与 SLO 链路；威胁模型与联合门禁。",
+    "boundary": "不覆盖模型本身的质量评测，那在 TD-M03；不覆盖 Agent 轨迹与工具调用，那在 TD-M04；设备与浏览器矩阵给的是选择方法，不是某个具体的矩阵清单。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "content/module-overviews.ts",
+        "locator": "TD-M08 / stages + logic + boundary",
+        "quote": "传统专项没有过时，过时的是它们原来的判据。"
+      }
+    ],
+    "supplementalSources": [],
+    "primaryPageIds": [],
+    "sha256": "9e3548edd8a4dfbefec0da91503a1e6abe2e0ea736cc10bf1a1d9e37ae9eaa9c",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M08.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M08.png"
+  },
+  {
+    "id": "TD-M01",
+    "path": "visuals/modules/TD-M01.svg",
+    "pageIds": [
+      "TD-FP01",
+      "TD-F02",
+      "TD-F03",
+      "TD-F04",
+      "TD-T01",
+      "TD-T02",
+      "TD-T03",
+      "TD-T04"
+    ],
+    "layout": "flow",
+    "title": "大模型与 AI 系统基础｜模块全景",
+    "thesis": "先弄清模型在哪一层出错，再决定在哪一层测。",
+    "focus": "本模块学习路径 · 箭头表示学习先后与交付承接",
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "建立最小可验证单元",
+        "body": [
+          "这次结果能被别人重跑出来吗？",
+          "产物：Prompt Package 与运行收据",
+          "TD-FP01"
+        ],
+        "tone": "input"
+      },
+      {
+        "id": "s2",
+        "title": "定位失败来源",
+        "body": [
+          "这个错误来自哪一层？",
+          "产物：生命周期责任图与推理变量矩阵",
+          "TD-F02 / TD-F03"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "s3",
+        "title": "划定被测边界",
+        "body": [
+          "被测的是模型、检索还是编排？",
+          "产物：结构与信任边界图",
+          "TD-F04"
+        ],
+        "tone": "ai"
+      },
+      {
+        "id": "s4",
+        "title": "定义评测合同",
+        "body": [
+          "发布要回答的问题是什么？",
+          "产物：Eval Contract 与 dataset 卡",
+          "TD-T01 / TD-T02"
+        ],
+        "tone": "data"
+      },
+      {
+        "id": "s5",
+        "title": "组合判据",
+        "body": [
+          "哪些由规则判，哪些必须人判？",
+          "产物：风险—Oracle 决策表",
+          "TD-T03"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "id": "s6",
+        "title": "从单次到分布",
+        "body": [
+          "这个差异是真实的还是噪声？",
+          "产物：重复运行报告与置信区间",
+          "TD-T04"
+        ],
+        "tone": "process"
+      }
+    ],
+    "edges": [
+      {
+        "from": "s1",
+        "to": "s2",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s2",
+        "to": "s3",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s3",
+        "to": "s4",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s4",
+        "to": "s5",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s5",
+        "to": "s6",
+        "label": "学习次序",
+        "kind": "data"
+      }
+    ],
+    "ranks": [
+      [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      [
+        "s6",
+        "s5",
+        "s4"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "为什么先学这一步",
+        "body": [
+          "一个错误的回答可能来自六个完全不同的地方：提示词写得有歧义、检索没召回、上下文被截断、采样温度太高、模型版本换了、或者判据本身就是错的。"
+        ],
+        "tone": "input"
+      },
+      {
+        "title": "怎样承接下一步",
+        "body": [
+          "后半部分处理一个更根本的问题：概率性系统里「通过」是什么意思。"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "title": "如何判断学会了",
+        "body": [
+          "Prompt Package 放在第一页，因为它是后面所有评测的最小单元。"
+        ],
+        "tone": "control"
+      }
+    ],
+    "failure": "阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。",
+    "outcome": "带走物：Prompt Package 与运行收据；生命周期责任图与推理变量矩阵；结构与信任边界图；Eval Contract 与 dataset 卡；风险—Oracle 决策表；重复运行报告与置信区间。",
+    "boundary": "不覆盖模型训练与微调，那在 TD-M05；不覆盖 RAG 的检索与忠实度细节，那在 TD-M03；统计部分只到区间估计与重复运行，不展开实验设计理论。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "content/module-overviews.ts",
+        "locator": "TD-M01 / stages + logic + boundary",
+        "quote": "先弄清模型在哪一层出错，再决定在哪一层测。"
+      }
+    ],
+    "supplementalSources": [],
+    "primaryPageIds": [],
+    "sha256": "b494ebdf821eb0203aaa055bd215148f70897e4d28f017a5fa93158caa4ba143",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M01.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M01.png"
+  },
+  {
+    "id": "TD-M02",
+    "path": "visuals/modules/TD-M02.svg",
+    "pageIds": [
+      "TD-T05",
+      "TD-T06",
+      "TD-T07",
+      "TD-T08"
+    ],
+    "layout": "flow",
+    "title": "AI 帮你做传统测试｜模块全景",
+    "thesis": "AI 生成的测试要先证明它能发现缺陷，再谈提效。",
+    "focus": "本模块学习路径 · 箭头表示学习先后与交付承接",
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "提取变更风险",
+        "body": [
+          "这次改动的风险面在哪里？",
+          "产物：带引用的风险候选包",
+          "TD-T05"
+        ],
+        "tone": "input"
+      },
+      {
+        "id": "s2",
+        "title": "生成并验证检测力",
+        "body": [
+          "这批用例杀掉了几个注入缺陷？",
+          "产物：候选包与 Mutation 处置报告",
+          "TD-T06"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "s3",
+        "title": "选择测试方法",
+        "body": [
+          "边界、组合、属性还是 Fuzz？",
+          "产物：方法决策矩阵与最小反例",
+          "TD-T07"
+        ],
+        "tone": "ai"
+      },
+      {
+        "id": "s4",
+        "title": "归类失败",
+        "body": [
+          "一百个失败是几个原因？",
+          "产物：失败聚类与假设账本",
+          "TD-T08"
+        ],
+        "tone": "data"
+      }
+    ],
+    "edges": [
+      {
+        "from": "s1",
+        "to": "s2",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s2",
+        "to": "s3",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s3",
+        "to": "s4",
+        "label": "学习次序",
+        "kind": "data"
+      }
+    ],
+    "ranks": [
+      [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      [
+        "s4"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "为什么先学这一步",
+        "body": [
+          "让模型生成一百条用例是容易的，难的是证明这一百条里有几条真的会在代码坏掉的时候变红。"
+        ],
+        "tone": "input"
+      },
+      {
+        "title": "怎样承接下一步",
+        "body": [
+          "Mutation 是这里的判据来源：往被测代码里注入已知缺陷，看这批用例杀掉几个。"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "title": "如何判断学会了",
+        "body": [
+          "风险提取放在生成之前，因为无差别生成会把测试预算平均分配到所有代码上，而缺陷分布从来不是均匀的。"
+        ],
+        "tone": "control"
+      }
+    ],
+    "failure": "阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。",
+    "outcome": "带走物：带引用的风险候选包；候选包与 Mutation 处置报告；方法决策矩阵与最小反例；失败聚类与假设账本。",
+    "boundary": "不覆盖 AI 系统本身的测试，这里 AI 是工具不是被测对象；不承诺提效数字，提效必须用 baseline 对照实验证明（见 TD-T26）；Mutation 用的是注入夹具，不是生产代码库。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "content/module-overviews.ts",
+        "locator": "TD-M02 / stages + logic + boundary",
+        "quote": "AI 生成的测试要先证明它能发现缺陷，再谈提效。"
+      }
+    ],
+    "supplementalSources": [],
+    "primaryPageIds": [],
+    "sha256": "f119df271a5c5941a681624639db1a0573447c309dcde95e8426d1cd2989c224",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M02.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M02.png"
+  },
+  {
+    "id": "TD-M09",
+    "path": "visuals/modules/TD-M09.svg",
+    "pageIds": [
+      "TD-A01",
+      "TD-A02",
+      "TD-A03",
+      "TD-A04",
+      "TD-A05",
+      "TD-A06"
+    ],
+    "layout": "flow",
+    "title": "AI 接口、性能与可靠性｜模块全景",
+    "thesis": "AI 接口的性能问题，一半出在协议状态机上，不在模型上。",
+    "focus": "本模块学习路径 · 箭头表示学习先后与交付承接",
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "识别被测面",
+        "body": [
+          "哪些行为是确定的，哪些是生成的？",
+          "产物：测试面与错误分类表",
+          "TD-A01"
+        ],
+        "tone": "input"
+      },
+      {
+        "id": "s2",
+        "title": "协议状态机",
+        "body": [
+          "中断后重试安全吗？",
+          "产物：四协议状态机与重放报告",
+          "TD-A02"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "s3",
+        "title": "统一指标口径",
+        "body": [
+          "TTFT 从哪一刻算起？",
+          "产物：指标公式卡与机器可读报告",
+          "TD-A03"
+        ],
+        "tone": "ai"
+      },
+      {
+        "id": "s4",
+        "title": "找容量拐点",
+        "body": [
+          "SLO 在哪个并发下开始破？",
+          "产物：阶梯实验与容量报告",
+          "TD-A04"
+        ],
+        "tone": "data"
+      },
+      {
+        "id": "s5",
+        "title": "瓶颈归因",
+        "body": [
+          "瓶颈在队列、GPU 还是 KV Cache？",
+          "产物：诊断树与 Trace 对照",
+          "TD-A05"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "id": "s6",
+        "title": "验证韧性",
+        "body": [
+          "过载时降级了还是雪崩了？",
+          "产物：韧性状态机与恢复证据",
+          "TD-A06"
+        ],
+        "tone": "process"
+      }
+    ],
+    "edges": [
+      {
+        "from": "s1",
+        "to": "s2",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s2",
+        "to": "s3",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s3",
+        "to": "s4",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s4",
+        "to": "s5",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s5",
+        "to": "s6",
+        "label": "学习次序",
+        "kind": "data"
+      }
+    ],
+    "ranks": [
+      [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      [
+        "s6",
+        "s5",
+        "s4"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "为什么先学这一步",
+        "body": [
+          "普通 API 请求进去响应出来，一次往返。"
+        ],
+        "tone": "input"
+      },
+      {
+        "title": "怎样承接下一步",
+        "body": [
+          "指标口径在这里必须先统一再测量。"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "title": "如何判断学会了",
+        "body": [
+          "最后两页处理过载。"
+        ],
+        "tone": "control"
+      }
+    ],
+    "failure": "阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。",
+    "outcome": "带走物：测试面与错误分类表；四协议状态机与重放报告；指标公式卡与机器可读报告；阶梯实验与容量报告；诊断树与 Trace 对照；韧性状态机与恢复证据。",
+    "boundary": "不覆盖 Agent 多步任务的性能，那在 TD-M11；不覆盖推理引擎内部实现，只到可观测的外部指标；容量结论绑定具体的模型版本与部署形态，换版本必须重测。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "content/module-overviews.ts",
+        "locator": "TD-M09 / stages + logic + boundary",
+        "quote": "AI 接口的性能问题，一半出在协议状态机上，不在模型上。"
+      }
+    ],
+    "supplementalSources": [],
+    "primaryPageIds": [],
+    "sha256": "e6955254792d273d3bd2bb7fa0988913275638e519125ba77937611d1ed81642",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M09.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M09.png"
+  },
+  {
+    "id": "TD-M03",
+    "path": "visuals/modules/TD-M03.svg",
+    "pageIds": [
+      "TD-T09",
+      "TD-T10",
+      "TD-T11",
+      "TD-T12",
+      "TD-X501",
+      "TD-X502",
+      "TD-T13",
+      "TD-T14"
+    ],
+    "layout": "flow",
+    "title": "测试 LLM 和 RAG｜模块全景",
+    "thesis": "RAG 的答案对不对，要拆成检索到了没有和有没有照着说两件事。",
+    "focus": "本模块学习路径 · 箭头表示学习先后与交付承接",
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "治理语料",
+        "body": [
+          "入库的东西版本、权限对吗？",
+          "产物：corpus manifest 与准入报告",
+          "TD-T09"
+        ],
+        "tone": "input"
+      },
+      {
+        "id": "s2",
+        "title": "评检索",
+        "body": [
+          "该召回的召回了吗？",
+          "产物：query set 与 miss 诊断",
+          "TD-T10"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "s3",
+        "title": "评忠实度",
+        "body": [
+          "答案里每句话有出处吗？",
+          "产物：声明—证据矩阵与反例集",
+          "TD-T11"
+        ],
+        "tone": "ai"
+      },
+      {
+        "id": "s4",
+        "title": "端到端门禁",
+        "body": [
+          "该拒答的拒答了吗？",
+          "产物：端到端 Gate 与权限攻击集",
+          "TD-T12"
+        ],
+        "tone": "data"
+      },
+      {
+        "id": "s5",
+        "title": "扩展模态与语言",
+        "body": [
+          "非文本、非中文场景下还成立吗？",
+          "产物：配对集与语言任务矩阵",
+          "TD-X501 / TD-X502"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "id": "s6",
+        "title": "版本对比",
+        "body": [
+          "换提示词、模型还是知识库导致的变化？",
+          "产物：A/B 对比报告",
+          "TD-T13"
+        ],
+        "tone": "process"
+      },
+      {
+        "id": "s7",
+        "title": "校准 Judge",
+        "body": [
+          "这个 Judge 和人一致吗？",
+          "产物：Judge 校准集与分歧矩阵",
+          "TD-T14"
+        ],
+        "tone": "risk"
+      }
+    ],
+    "edges": [
+      {
+        "from": "s1",
+        "to": "s2",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s2",
+        "to": "s3",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s3",
+        "to": "s4",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s4",
+        "to": "s5",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s5",
+        "to": "s6",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s6",
+        "to": "s7",
+        "label": "学习次序",
+        "kind": "data"
+      }
+    ],
+    "ranks": [
+      [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      [
+        "s6",
+        "s5",
+        "s4"
+      ],
+      [
+        "s7"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "为什么先学这一步",
+        "body": [
+          "端到端看一个 RAG 回答，只能得到「对」或「不对」，这个信号无法指导修复。"
+        ],
+        "tone": "input"
+      },
+      {
+        "title": "怎样承接下一步",
+        "body": [
+          "语料治理放在最前面，因为它决定了上限。"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "title": "如何判断学会了",
+        "body": [
+          "Judge 校准是这个模块的最后一页，也是所有语义评测的前提。"
+        ],
+        "tone": "control"
+      }
+    ],
+    "failure": "阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。",
+    "outcome": "带走物：corpus manifest 与准入报告；query set 与 miss 诊断；声明—证据矩阵与反例集；端到端 Gate 与权限攻击集；配对集与语言任务矩阵；A/B 对比报告；Judge 校准集与分歧矩阵。",
+    "boundary": "不覆盖向量库的工程选型与运维；不覆盖 Agent 的多步检索编排，那在 TD-M04；忠实度判据依赖标注质量，标注协议本身在 TD-T03。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "content/module-overviews.ts",
+        "locator": "TD-M03 / stages + logic + boundary",
+        "quote": "RAG 的答案对不对，要拆成检索到了没有和有没有照着说两件事。"
+      }
+    ],
+    "supplementalSources": [],
+    "primaryPageIds": [],
+    "sha256": "7ed3ee9b28fd55c65af696a8d8bc153209dc71e19950adb351d7fa6186b9ca8b",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M03.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M03.png"
+  },
+  {
+    "id": "TD-M04",
+    "approvedAsset": "docs/svg-redesign-2026-10-26/assets/TD-M04.review.svg",
+    "path": "visuals/modules/TD-M04.svg",
+    "pageIds": [
+      "TD-T15",
+      "TD-T16",
+      "TD-T17",
+      "TD-T18",
+      "TD-T19",
+      "TD-W01",
+      "TD-W02",
+      "TD-W03",
+      "TD-X603",
+      "TD-X604"
+    ],
+    "layout": "flow",
+    "title": "测试 Agent、Worker 与 Workflow｜模块全景",
+    "thesis": "Agent 的正确不在最终答案里，在它走过的每一步里。",
+    "focus": "本模块学习路径 · 箭头表示学习先后与交付承接",
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "三层评测模型",
+        "body": [
+          "结果对了，路径也对吗？",
+          "产物：三层评测模型与证据映射",
+          "TD-T15"
+        ],
+        "tone": "input"
+      },
+      {
+        "id": "s2",
+        "title": "工具与权限",
+        "body": [
+          "选错工具、传错参数会怎样？",
+          "产物：工具策略与故障注入集",
+          "TD-T16"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "s3",
+        "title": "安全边界",
+        "body": [
+          "被注入指令后它会做什么？",
+          "产物：攻击集与红队报告",
+          "TD-T17"
+        ],
+        "tone": "ai"
+      },
+      {
+        "id": "s4",
+        "title": "浏览器 Agent",
+        "body": [
+          "它生成的测试能被审查吗？",
+          "产物：生成测试包与审查记录",
+          "TD-T18"
+        ],
+        "tone": "data"
+      },
+      {
+        "id": "s5",
+        "title": "自愈风险",
+        "body": [
+          "这次变绿是修好了还是改掉了？",
+          "产物：反作弊检查与审计报告",
+          "TD-T19"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "id": "s6",
+        "title": "控制权划分",
+        "body": [
+          "谁决定下一步：代码还是模型？",
+          "产物：控制权对照图与状态模型",
+          "TD-W01 / TD-W02"
+        ],
+        "tone": "process"
+      },
+      {
+        "id": "s7",
+        "title": "编排与记忆",
+        "body": [
+          "多 Agent 真的比单 Agent 好吗？",
+          "产物：同预算实验、记忆门禁与路由矩阵",
+          "TD-W03 / TD-X603 / TD-X604"
+        ],
+        "tone": "risk"
+      }
+    ],
+    "edges": [
+      {
+        "from": "s1",
+        "to": "s2",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s2",
+        "to": "s3",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s3",
+        "to": "s4",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s4",
+        "to": "s5",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s5",
+        "to": "s6",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s6",
+        "to": "s7",
+        "label": "学习次序",
+        "kind": "data"
+      }
+    ],
+    "ranks": [
+      [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      [
+        "s6",
+        "s5",
+        "s4"
+      ],
+      [
+        "s7"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "为什么先学这一步",
+        "body": [
+          "一个 Agent 可以用完全错误的路径得到正确答案：调了不该调的工具、拿到了不该访问的数据、中间写坏了一条记录，但最后一句话看起来没问题。"
+        ],
+        "tone": "input"
+      },
+      {
+        "title": "怎样承接下一步",
+        "body": [
+          "工具调用和权限是 Agent 特有的风险面。"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "title": "如何判断学会了",
+        "body": [
+          "自愈测试单独占一页，因为它引入了一种新的失败：测试框架自动修复了失败的用例，把红改成绿，而产品缺陷还在。"
+        ],
+        "tone": "control"
+      }
+    ],
+    "failure": "阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。",
+    "outcome": "带走物：三层评测模型与证据映射；工具策略与故障注入集；攻击集与红队报告；生成测试包与审查记录；反作弊检查与审计报告；控制权对照图与状态模型；同预算实验、记忆门禁与路由矩阵。",
+    "boundary": "不覆盖 Agent 的性能与容量，那在 TD-M11；不覆盖 D0–D7 完整架构分域，那在 TD-M12；安全部分是测试视角的攻击集，不是完整的红队方法论。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "content/module-overviews.ts",
+        "locator": "TD-M04 / stages + logic + boundary",
+        "quote": "Agent 的正确不在最终答案里，在它走过的每一步里。"
+      }
+    ],
+    "supplementalSources": [],
+    "primaryPageIds": [],
+    "sha256": "895b24a0d0d981610db25a2fa74698e5867207b8fca00cab97702c86fd6c152e",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M04.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M04.png"
+  },
+  {
+    "id": "TD-M05",
+    "path": "visuals/modules/TD-M05.svg",
+    "pageIds": [
+      "TD-X602",
+      "TD-X601",
+      "TD-T20",
+      "TD-T21",
+      "TD-T22",
+      "TD-T23",
+      "TD-T24",
+      "TD-X805"
+    ],
+    "layout": "flow",
+    "title": "建设 AI 质量系统｜模块全景",
+    "thesis": "评测只有接进 CI 和生产回灌，才会持续有效。",
+    "focus": "本模块学习路径 · 箭头表示学习先后与交付承接",
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "模型更新验收",
+        "body": [
+          "新版本比旧版本好在哪个切片？",
+          "产物：更新 manifest 与污染门禁",
+          "TD-X602"
+        ],
+        "tone": "input"
+      },
+      {
+        "id": "s2",
+        "title": "公平与人工介入",
+        "body": [
+          "人工复核真的起作用了吗？",
+          "产物：群体切片报告与 override 账本",
+          "TD-X601"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "s3",
+        "title": "接入 CI",
+        "body": [
+          "哪一层该在几分钟内变红？",
+          "产物：分层 Quality CI Workflow",
+          "TD-T20"
+        ],
+        "tone": "ai"
+      },
+      {
+        "id": "s4",
+        "title": "版本谱系",
+        "body": [
+          "这两个分数可比吗？",
+          "产物：Lineage 账本与可比性检查",
+          "TD-T21"
+        ],
+        "tone": "data"
+      },
+      {
+        "id": "s5",
+        "title": "生产回灌",
+        "body": [
+          "线上这次失败进回归集了吗？",
+          "产物：Trace-to-Regression 转换记录",
+          "TD-T22"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "id": "s6",
+        "title": "三维联合门禁",
+        "body": [
+          "多花的成本换来了什么？",
+          "产物：质量—延迟—成本 Pareto",
+          "TD-T23"
+        ],
+        "tone": "process"
+      },
+      {
+        "id": "s7",
+        "title": "漂移与回滚",
+        "body": [
+          "豁免什么时候到期？",
+          "产物：Waiver、Canary 与回滚 Runbook",
+          "TD-T24 / TD-X805"
+        ],
+        "tone": "risk"
+      }
+    ],
+    "edges": [
+      {
+        "from": "s1",
+        "to": "s2",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s2",
+        "to": "s3",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s3",
+        "to": "s4",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s4",
+        "to": "s5",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s5",
+        "to": "s6",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s6",
+        "to": "s7",
+        "label": "学习次序",
+        "kind": "data"
+      }
+    ],
+    "ranks": [
+      [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      [
+        "s6",
+        "s5",
+        "s4"
+      ],
+      [
+        "s7"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "为什么先学这一步",
+        "body": [
+          "一次做得很好的评测，三个月后往往已经不反映真实质量了：模型换了版本、提示词被人改过、线上出现了评测集里没有的输入分布。"
+        ],
+        "tone": "input"
+      },
+      {
+        "title": "怎样承接下一步",
+        "body": [
+          "Lineage 是这里的基础设施。"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "title": "如何判断学会了",
+        "body": [
+          "门禁不能只卡质量。"
+        ],
+        "tone": "control"
+      }
+    ],
+    "failure": "阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。",
+    "outcome": "带走物：更新 manifest 与污染门禁；群体切片报告与 override 账本；分层 Quality CI Workflow；Lineage 账本与可比性检查；Trace-to-Regression 转换记录；质量—延迟—成本 Pareto；Waiver、Canary 与回滚 Runbook。",
+    "boundary": "不覆盖 MLOps 的训练流水线与特征工程；不覆盖具体 CI 平台的配置语法，给的是分层与门禁设计；所有闭环用夹具演示，未在生产环境验证。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "content/module-overviews.ts",
+        "locator": "TD-M05 / stages + logic + boundary",
+        "quote": "评测只有接进 CI 和生产回灌，才会持续有效。"
+      }
+    ],
+    "supplementalSources": [],
+    "primaryPageIds": [],
+    "sha256": "2a77789fec2010609caf1fb89ae2f7285802bb2ec9b2376e052f7601f875ff47",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M05.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M05.png"
+  },
+  {
+    "id": "TD-M06",
+    "path": "visuals/modules/TD-M06.svg",
+    "pageIds": [
+      "TD-B01",
+      "TD-B02",
+      "TD-B03",
+      "TD-B04",
+      "TD-B05",
+      "TD-B06"
+    ],
+    "layout": "flow",
+    "title": "Benchmark 与分数工程｜模块全景",
+    "thesis": "榜单分数是七个可变组件共同产生的，换任何一个都会变。",
+    "focus": "本模块学习路径 · 箭头表示学习先后与交付承接",
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "拆开流水线",
+        "body": [
+          "这个分数由哪七个组件决定？",
+          "产物：七段流水线与审计清单",
+          "TD-B01"
+        ],
+        "tone": "input"
+      },
+      {
+        "id": "s2",
+        "title": "数据与划分",
+        "body": [
+          "测试集被模型见过吗？",
+          "产物：Dataset Card 与 Holdout 合同",
+          "TD-B02"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "s3",
+        "title": "指标与区间",
+        "body": [
+          "这两个分数的差异显著吗？",
+          "产物：Metric Card 与逐题 ledger",
+          "TD-B03"
+        ],
+        "tone": "ai"
+      },
+      {
+        "id": "s4",
+        "title": "Harness 敏感性",
+        "body": [
+          "换个提示词模板会差多少？",
+          "产物：单变量敏感性报告",
+          "TD-B04"
+        ],
+        "tone": "data"
+      },
+      {
+        "id": "s5",
+        "title": "污染与不确定性",
+        "body": [
+          "训练集里有没有泄露？",
+          "产物：污染与版本审计报告",
+          "TD-B05"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "id": "s6",
+        "title": "企业化迁移",
+        "body": [
+          "怎么建自己的评测基准？",
+          "产物：内部 Benchmark 仓库与治理卡",
+          "TD-B06"
+        ],
+        "tone": "process"
+      }
+    ],
+    "edges": [
+      {
+        "from": "s1",
+        "to": "s2",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s2",
+        "to": "s3",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s3",
+        "to": "s4",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s4",
+        "to": "s5",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s5",
+        "to": "s6",
+        "label": "学习次序",
+        "kind": "data"
+      }
+    ],
+    "ranks": [
+      [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      [
+        "s6",
+        "s5",
+        "s4"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "为什么先学这一步",
+        "body": [
+          "同一个模型在同一个 Benchmark 上，不同团队跑出来的分数可以差好几个点，而且双方都没有作弊。"
+        ],
+        "tone": "input"
+      },
+      {
+        "title": "怎样承接下一步",
+        "body": [
+          "这个模块的作用是让你在看到一个分数时能问出正确的问题：这是 pass@1 还是 pass@10、holdout 有没有被模型见过、置信区间多宽、评分器是精确匹配还是模型判分。"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "title": "如何判断学会了",
+        "body": [
+          "最后一页讲企业内部怎么用。"
+        ],
+        "tone": "control"
+      }
+    ],
+    "failure": "阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。",
+    "outcome": "带走物：七段流水线与审计清单；Dataset Card 与 Holdout 合同；Metric Card 与逐题 ledger；单变量敏感性报告；污染与版本审计报告；内部 Benchmark 仓库与治理卡。",
+    "boundary": "不覆盖模型训练与预训练数据构建；不对任何公开榜单的具体分数做评价；污染检测用的是可复现的重叠度方法，不是训练数据审计。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "content/module-overviews.ts",
+        "locator": "TD-M06 / stages + logic + boundary",
+        "quote": "榜单分数是七个可变组件共同产生的，换任何一个都会变。"
+      }
+    ],
+    "supplementalSources": [],
+    "primaryPageIds": [],
+    "sha256": "d6e7c48ee2c34c8abc5bcaf72e6d526b5fae8b15b00a424d7c3230fafc5d148a",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M06.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M06.png"
+  },
+  {
+    "id": "TD-M07",
+    "path": "visuals/modules/TD-M07.svg",
+    "pageIds": [
+      "TD-QP01",
+      "TD-QP02",
+      "TD-QP03",
+      "TD-QP04",
+      "TD-T25"
+    ],
+    "layout": "flow",
+    "title": "专业专题与 Capstone｜模块全景",
+    "thesis": "把前面所有模块的工件接进真实工程系统，交出一条能审计的完整链路。",
+    "focus": "本模块学习路径 · 箭头表示学习先后与交付承接",
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "需求侧接入",
+        "body": [
+          "需求变更怎么触发重新验证？",
+          "产物：requirement event 与 Basis Gate 报告",
+          "TD-QP01"
+        ],
+        "tone": "input"
+      },
+      {
+        "id": "s2",
+        "title": "代码侧门禁",
+        "body": [
+          "这份证据属于哪个 commit？",
+          "产物：MR 门禁 Manifest 与 SHA status",
+          "TD-QP02"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "s3",
+        "title": "环境隔离",
+        "body": [
+          "并发跑的测试会互相串号吗？",
+          "产物：Ephemeral Environment Manifest",
+          "TD-QP03"
+        ],
+        "tone": "ai"
+      },
+      {
+        "id": "s4",
+        "title": "跨系统事件",
+        "body": [
+          "重复投递会重复执行吗？",
+          "产物：事件包与 Inbox/Outbox/DLQ 记录",
+          "TD-QP04"
+        ],
+        "tone": "data"
+      },
+      {
+        "id": "s5",
+        "title": "端到端交付",
+        "body": [
+          "这个版本凭什么可以发？",
+          "产物：Fixture Release Candidate",
+          "TD-T25"
+        ],
+        "tone": "evidence"
+      }
+    ],
+    "edges": [
+      {
+        "from": "s1",
+        "to": "s2",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s2",
+        "to": "s3",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s3",
+        "to": "s4",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s4",
+        "to": "s5",
+        "label": "学习次序",
+        "kind": "data"
+      }
+    ],
+    "ranks": [
+      [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      [
+        "s5",
+        "s4"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "为什么先学这一步",
+        "body": [
+          "前面每个模块交付的都是单点工件——一份契约、一个评测集、一份运行收据。"
+        ],
+        "tone": "input"
+      },
+      {
+        "title": "怎样承接下一步",
+        "body": [
+          "接进真实系统会暴露一类在单点演示里看不到的问题：事件重复投递导致重复执行、异步回写晚于发布判断、临时环境没回收导致数据串号、通知里带出了敏感字段。"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "title": "如何判断学会了",
+        "body": [
+          "Capstone 是一次完整的交付演练：从需求进来到发布候选出去，中间每一步的产物都可追溯，最后能回答「这个版本凭什么可以发」这个问题，并且答案是一条链而不是一句话。"
+        ],
+        "tone": "control"
+      }
+    ],
+    "failure": "阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。",
+    "outcome": "带走物：requirement event 与 Basis Gate 报告；MR 门禁 Manifest 与 SHA status；Ephemeral Environment Manifest；事件包与 Inbox/Outbox/DLQ 记录；Fixture Release Candidate。",
+    "boundary": "不覆盖 Jira / GitLab / K8s 的运维与安装；所有集成基于夹具与本地模拟，未接入生产实例；Capstone 产出的是 Release Candidate，不是已发布版本。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "content/module-overviews.ts",
+        "locator": "TD-M07 / stages + logic + boundary",
+        "quote": "把前面所有模块的工件接进真实工程系统，交出一条能审计的完整链路。"
+      }
+    ],
+    "supplementalSources": [],
+    "primaryPageIds": [],
+    "sha256": "530a95aa4a7f058c2dc0faf82b8875d435ed7f4ca2eded574d86c4ea3fa3f5e1",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M07.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M07.png"
+  },
+  {
+    "id": "TD-M10",
+    "path": "visuals/modules/TD-M10.svg",
+    "pageIds": [
+      "TD-C01",
+      "TD-C02",
+      "TD-C03",
+      "TD-C04",
+      "TD-F05",
+      "TD-T26",
+      "TD-R01"
+    ],
+    "layout": "flow",
+    "title": "职业演进｜模块全景",
+    "thesis": "职业能力用交付过的工件和承担过的责任衡量，不用年限衡量。",
+    "focus": "本模块学习路径 · 箭头表示学习先后与交付承接",
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "岗位路径",
+        "body": [
+          "从这里能走到哪几个岗位？",
+          "产物：路径图与作品集证据表",
+          "TD-C01"
+        ],
+        "tone": "input"
+      },
+      {
+        "id": "s2",
+        "title": "责任阶梯",
+        "body": [
+          "我现在在第几级？",
+          "产物：responsibility-map.json",
+          "TD-C02"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "s3",
+        "title": "自评与计划",
+        "body": [
+          "差距怎么变成可验收的产出？",
+          "产物：自评 JSON 与 90 天证据计划",
+          "TD-C03"
+        ],
+        "tone": "ai"
+      },
+      {
+        "id": "s4",
+        "title": "职级映射",
+        "body": [
+          "这套能力对应公司哪一级？",
+          "产物：P5–P9 映射与 threshold owner",
+          "TD-C04"
+        ],
+        "tone": "data"
+      },
+      {
+        "id": "s5",
+        "title": "任务族与指标",
+        "body": [
+          "这类任务该用什么指标？",
+          "产物：task-metric-card 与决策树",
+          "TD-F05"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "id": "s6",
+        "title": "提效举证",
+        "body": [
+          "AI 到底提效了多少？",
+          "产物：baseline-vs-AI 对照报告",
+          "TD-T26"
+        ],
+        "tone": "process"
+      },
+      {
+        "id": "s7",
+        "title": "资源索引",
+        "body": [
+          "下一步该读什么？",
+          "产物：resource-index.json 与分路图",
+          "TD-R01"
+        ],
+        "tone": "risk"
+      }
+    ],
+    "edges": [
+      {
+        "from": "s1",
+        "to": "s2",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s2",
+        "to": "s3",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s3",
+        "to": "s4",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s4",
+        "to": "s5",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s5",
+        "to": "s6",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s6",
+        "to": "s7",
+        "label": "学习次序",
+        "kind": "data"
+      }
+    ],
+    "ranks": [
+      [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      [
+        "s6",
+        "s5",
+        "s4"
+      ],
+      [
+        "s7"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "为什么先学这一步",
+        "body": [
+          "「三年测试经验」这句话不携带信息，因为它没说这三年里独立负责过什么、留下了哪些别人能检查的东西。"
+        ],
+        "tone": "input"
+      },
+      {
+        "title": "怎样承接下一步",
+        "body": [
+          "责任阶梯是这里的核心结构。"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "title": "如何判断学会了",
+        "body": [
+          "自评和计划部分要求把差距变成有期限的证据产出，而不是学习清单。"
+        ],
+        "tone": "control"
+      }
+    ],
+    "failure": "阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。",
+    "outcome": "带走物：路径图与作品集证据表；responsibility-map.json；自评 JSON 与 90 天证据计划；P5–P9 映射与 threshold owner；task-metric-card 与决策树；baseline-vs-AI 对照报告；resource-index.json 与分路图。",
+    "boundary": "不提供薪资数据与具体公司的职级标准；职级映射是方法，具体阈值必须由本组织的 owner 确定；不做职业建议，只提供举证结构。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "content/module-overviews.ts",
+        "locator": "TD-M10 / stages + logic + boundary",
+        "quote": "职业能力用交付过的工件和承担过的责任衡量，不用年限衡量。"
+      }
+    ],
+    "supplementalSources": [],
+    "primaryPageIds": [],
+    "sha256": "8ecfec9fb44d9c4167bd95753e467805b81ef66c953c5d8ff7a966bfe0e129af",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M10.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M10.png"
+  },
+  {
+    "id": "TD-M11",
+    "path": "visuals/modules/TD-M11.svg",
+    "pageIds": [
+      "TD-AP01",
+      "TD-AP02",
+      "TD-AP03",
+      "TD-AP04",
+      "TD-AP05",
+      "TD-AP06",
+      "TD-AP07",
+      "TD-AP08"
+    ],
+    "layout": "flow",
+    "title": "Agent 性能与稳定性工程｜模块全景",
+    "thesis": "Agent 的性能问题是多步累积的，单步指标看不出来。",
+    "focus": "本模块学习路径 · 箭头表示学习先后与交付承接",
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "定义工作负载",
+        "body": [
+          "压的是什么任务、什么分布？",
+          "产物：工作负载模型与 Oracle 证据卡",
+          "TD-AP01"
+        ],
+        "tone": "input"
+      },
+      {
+        "id": "s2",
+        "title": "建指标树",
+        "body": [
+          "任务级和步骤级怎么对齐？",
+          "产物：性能指标字典",
+          "TD-AP02"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "s3",
+        "title": "统一 Trace 语义",
+        "body": [
+          "一次 Tool Attempt 记哪些字段？",
+          "产物：Trace Schema 与字段治理表",
+          "TD-AP03"
+        ],
+        "tone": "ai"
+      },
+      {
+        "id": "s4",
+        "title": "开闭环对照",
+        "body": [
+          "测出来的延迟被低估了吗？",
+          "产物：开闭环对照报告",
+          "TD-AP04"
+        ],
+        "tone": "data"
+      },
+      {
+        "id": "s5",
+        "title": "容量与瓶颈",
+        "body": [
+          "拐点在哪，卡在哪一段？",
+          "产物：Synthetic 容量曲线与瓶颈证据",
+          "TD-AP05"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "id": "s6",
+        "title": "超时与降级",
+        "body": [
+          "重试预算会不会放大故障？",
+          "产物：策略与 0/1/0 证据",
+          "TD-AP06"
+        ],
+        "tone": "process"
+      },
+      {
+        "id": "s7",
+        "title": "长稳与漂移",
+        "body": [
+          "跑八小时之后还一样吗？",
+          "产物：长稳趋势与资源差分",
+          "TD-AP07"
+        ],
+        "tone": "risk"
+      },
+      {
+        "id": "s8",
+        "title": "SLO 与事故",
+        "body": [
+          "线上退化多久能被发现？",
+          "产物：SLO、告警与事故 Runbook",
+          "TD-AP08"
+        ],
+        "tone": "input"
+      }
+    ],
+    "edges": [
+      {
+        "from": "s1",
+        "to": "s2",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s2",
+        "to": "s3",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s3",
+        "to": "s4",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s4",
+        "to": "s5",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s5",
+        "to": "s6",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s6",
+        "to": "s7",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s7",
+        "to": "s8",
+        "label": "学习次序",
+        "kind": "data"
+      }
+    ],
+    "ranks": [
+      [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      [
+        "s6",
+        "s5",
+        "s4"
+      ],
+      [
+        "s7",
+        "s8"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "为什么先学这一步",
+        "body": [
+          "一次 Agent 任务包含十几到几十次模型调用和工具调用，每一步的延迟单看都正常，加起来用户等了两分钟。"
+        ],
+        "tone": "input"
+      },
+      {
+        "title": "怎样承接下一步",
+        "body": [
+          "Trace 语义是这个模块的地基。"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "title": "如何判断学会了",
+        "body": [
+          "开闭环负载对照单独占一页，因为 Coordinated Omission 在 Agent 压测里特别容易出现：客户端等上一个任务结束才发下一个，系统慢下来时压力自动减小，测出来的延迟分布比真实情况乐观得多。"
+        ],
+        "tone": "control"
+      }
+    ],
+    "failure": "阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。",
+    "outcome": "带走物：工作负载模型与 Oracle 证据卡；性能指标字典；Trace Schema 与字段治理表；开闭环对照报告；Synthetic 容量曲线与瓶颈证据；策略与 0/1/0 证据；长稳趋势与资源差分；SLO、告警与事故 Runbook。",
+    "boundary": "不覆盖模型推理引擎的内部优化；不覆盖 GPU 集群调度与资源编排；容量数据来自 synthetic 负载，未在生产流量下验证。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "content/module-overviews.ts",
+        "locator": "TD-M11 / stages + logic + boundary",
+        "quote": "Agent 的性能问题是多步累积的，单步指标看不出来。"
+      }
+    ],
+    "supplementalSources": [],
+    "primaryPageIds": [],
+    "sha256": "3d944481eeecd51db586ef9048438c0329783c9cda94c7b76a1f54a855d8d77e",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M11.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M11.png"
+  },
+  {
+    "id": "TD-M12",
+    "path": "visuals/modules/TD-M12.svg",
+    "pageIds": [
+      "TD-AG-00",
+      "TD-AG-01",
+      "TD-AG-02",
+      "TD-AG-03",
+      "TD-AG-04",
+      "TD-AG-05",
+      "TD-AG-06",
+      "TD-AG-07",
+      "TD-AG-08",
+      "TD-AG-09",
+      "TD-AG-10"
+    ],
+    "layout": "flow",
+    "title": "Agent 测试架构｜模块全景",
+    "thesis": "Agent 的验证面有八个域，任何一个域缺证据都不构成可发布。",
+    "focus": "本模块学习路径 · 箭头表示学习先后与交付承接",
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "架构总览",
+        "body": [
+          "八个域各覆盖什么？",
+          "产物：D0–D7 架构图与边界登记册",
+          "TD-AG-00"
+        ],
+        "tone": "input"
+      },
+      {
+        "id": "s2",
+        "title": "D0 评判可信",
+        "body": [
+          "评判标准本身可信吗？",
+          "产物：Judge Card 与金标集",
+          "TD-AG-01"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "s3",
+        "title": "D1–D2 轨迹与编排",
+        "body": [
+          "第一个错发生在哪一步？",
+          "产物：轨迹 ledger 与 handoff 契约",
+          "TD-AG-02 / TD-AG-03"
+        ],
+        "tone": "ai"
+      },
+      {
+        "id": "s4",
+        "title": "D3–D4 人机与可靠性",
+        "body": [
+          "连续做对十次的概率是多少？",
+          "产物：接管 Trace 与 pass^k 曲线",
+          "TD-AG-04 / TD-AG-05"
+        ],
+        "tone": "data"
+      },
+      {
+        "id": "s5",
+        "title": "D5 持续安全",
+        "body": [
+          "越权时爆炸半径多大？",
+          "产物：安全套件与红队报告",
+          "TD-AG-06"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "id": "s6",
+        "title": "D6–D7 经济与治理",
+        "body": [
+          "单位成功成本是多少？",
+          "产物：成本卡与 lineage 卡",
+          "TD-AG-07 / TD-AG-08"
+        ],
+        "tone": "process"
+      },
+      {
+        "id": "s7",
+        "title": "收拢为发布决定",
+        "body": [
+          "四个环都齐了吗？",
+          "产物：四证据环与三段门禁",
+          "TD-AG-09 / TD-AG-10"
+        ],
+        "tone": "risk"
+      }
+    ],
+    "edges": [
+      {
+        "from": "s1",
+        "to": "s2",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s2",
+        "to": "s3",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s3",
+        "to": "s4",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s4",
+        "to": "s5",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s5",
+        "to": "s6",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s6",
+        "to": "s7",
+        "label": "学习次序",
+        "kind": "data"
+      }
+    ],
+    "ranks": [
+      [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      [
+        "s6",
+        "s5",
+        "s4"
+      ],
+      [
+        "s7"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "为什么先学这一步",
+        "body": [
+          "Agent 系统的失败面比传统系统宽得多：评判本身可能不可信、轨迹里某一步错了、多 Agent 交接时状态丢了、人接管的时机太晚、成功率随任务时长衰减、被注入指令后越权、成本随重试爆炸、业务规则没有审计记录。"
+        ],
+        "tone": "input"
+      },
+      {
+        "title": "怎样承接下一步",
+        "body": [
+          "D0 排在最前面是有原因的：如果评判标准本身不可信，后面七个域的所有结论都不成立。"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "title": "如何判断学会了",
+        "body": [
+          "四证据环把八个域的产出收拢成发布决定：能力环证明它能做对、可靠性环证明它稳定地做对、安全环证明它不会做不该做的、经济环证明这件事划算。"
+        ],
+        "tone": "control"
+      }
+    ],
+    "failure": "阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。",
+    "outcome": "带走物：D0–D7 架构图与边界登记册；Judge Card 与金标集；轨迹 ledger 与 handoff 契约；接管 Trace 与 pass^k 曲线；安全套件与红队报告；成本卡与 lineage 卡；四证据环与三段门禁。",
+    "boundary": "不覆盖 Agent 框架的选型与实现；高风险适配器以交易/金融为例，其他行业需自行映射；全部门禁基于夹具运行，未接入真实交易系统。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "content/module-overviews.ts",
+        "locator": "TD-M12 / stages + logic + boundary",
+        "quote": "Agent 的验证面有八个域，任何一个域缺证据都不构成可发布。"
+      }
+    ],
+    "supplementalSources": [],
+    "primaryPageIds": [],
+    "sha256": "94b0a97d9258b3d116f58c0f880f45693e804dfd781b598c785a4d25221ec167",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M12.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M12.png"
+  },
+  {
+    "id": "TD-M13",
+    "path": "visuals/modules/TD-M13.svg",
+    "pageIds": [
+      "TD-AI-01",
+      "TD-AI-02",
+      "TD-AI-03",
+      "TD-AI-04",
+      "TD-AI-05"
+    ],
+    "layout": "flow",
+    "title": "补充研究与待验证主题｜模块全景",
+    "thesis": "先能开测，再进架构专章：五页只交付立场、边界、分层判定、首错入口和可发分叉。",
+    "focus": "本模块学习路径 · 箭头表示学习先后与交付承接",
+    "nodes": [
+      {
+        "id": "s1",
+        "title": "为何测 Agent",
+        "body": [
+          "只看最后一句会漏掉什么？",
+          "产物：一句话立场：不能只测最终答案",
+          "TD-AI-01"
+        ],
+        "tone": "input"
+      },
+      {
+        "id": "s2",
+        "title": "前 7 天开测",
+        "body": [
+          "被测边界和七日节奏画出来了吗？",
+          "产物：被测边界勾选与七日起步节奏",
+          "TD-AI-02"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "s3",
+        "title": "指标分层",
+        "body": [
+          "分层判定和默认门禁写下来了吗？",
+          "产物：一条分层判定；门禁默认 L1+L5+L7",
+          "TD-AI-03"
+        ],
+        "tone": "ai"
+      },
+      {
+        "id": "s4",
+        "title": "怎样发现问题",
+        "body": [
+          "这条失败轨迹的首错在哪一步？",
+          "产物：一条失败轨迹上的首错标注",
+          "TD-AI-04"
+        ],
+        "tone": "data"
+      },
+      {
+        "id": "s5",
+        "title": "迁移与验收",
+        "body": [
+          "最小门禁过了吗，下一步分叉是哪条？",
+          "产物：最小门禁清单与下一步分叉",
+          "TD-AI-05"
+        ],
+        "tone": "evidence"
+      }
+    ],
+    "edges": [
+      {
+        "from": "s1",
+        "to": "s2",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s2",
+        "to": "s3",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s3",
+        "to": "s4",
+        "label": "学习次序",
+        "kind": "data"
+      },
+      {
+        "from": "s4",
+        "to": "s5",
+        "label": "学习次序",
+        "kind": "data"
+      }
+    ],
+    "ranks": [
+      [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      [
+        "s5",
+        "s4"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "为什么先学这一步",
+        "body": [
+          "这五页的顺序不能换。"
+        ],
+        "tone": "input"
+      },
+      {
+        "title": "怎样承接下一步",
+        "body": [
+          "五段按阅读顺序固定为：为何测 Agent、前 7 天开测、指标分层、怎样发现问题、迁移与验收。"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "title": "如何判断学会了",
+        "body": [
+          "本模块的出口是一张最小门禁清单和一条下一步分叉，不是生产可发结论，也不是 D0–D7 架构专章。"
+        ],
+        "tone": "control"
+      }
+    ],
+    "failure": "阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。",
+    "outcome": "带走物：一句话立场：不能只测最终答案；被测边界勾选与七日起步节奏；一条分层判定；门禁默认 L1+L5+L7；一条失败轨迹上的首错标注；最小门禁清单与下一步分叉。",
+    "boundary": "不覆盖 D0–D7 架构分域与交易适配器，那在 TD-M12；不把夹具通过写成 live 或生产可发；不包含 TD-AI-00、TD-AI-06、TD-AI-07。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "content/module-overviews.ts",
+        "locator": "TD-M13 / stages + logic + boundary",
+        "quote": "先能开测，再进架构专章：五页只交付立场、边界、分层判定、首错入口和可发分叉。"
+      }
+    ],
+    "supplementalSources": [],
+    "primaryPageIds": [],
+    "sha256": "f45b9a40e6f8469a57269340a856c47dfc9ac623b3ade6725b1b90273efe3a5b",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M13.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M13.png"
+  }
+]

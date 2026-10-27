@@ -80,7 +80,7 @@ for (const spec of specs) {
     const scale = Number(svg.match(/data-graph-scale="([^"]+)"/)[1]);
     assert.ok(scale >= 0.78, `graph scale ${scale}`);
     assert.ok(23 * scale >= 18);
-    assert.ok(svg.includes('data-routing="outer-rails"'), 'complex topology must use independent rails');
+    assert.ok(/data-routing="(?:outer-rails|architecture-panels)"/.test(svg), 'complex topology must separate independent relations');
     const edges = [...svg.matchAll(/data-edge-id="e(\d+)" data-from="([^"]+)" data-to="([^"]+)"/g)];
     assert.equal(edges.length, spec.edges.length);
     for (const [i, match] of edges.entries()) assert.deepEqual(match.slice(1), [String(i), spec.edges[i].from, spec.edges[i].to]);
@@ -115,9 +115,23 @@ test('modules retain their original snake ranks and nop2 learning path', async (
   assert.ok(Number(svg.match(/data-graph-scale="([^"]+)"/)[1]) >= 0.78);
 });
 
-test('approved TD-M04 source, candidate and formal bytes remain equal to the experiment snapshot', async () => {
-  const report = JSON.parse(await readFile(new URL('../output/routing-experiment/report.json', import.meta.url), 'utf8'));
-  for (const [path, hash] of Object.entries(report.approvedHashes)) {
-    assert.equal(sha(await readFile(new URL('../' + path, import.meta.url))), hash, path);
-  }
+test('approved TD-M04 source and published variant retain the reviewed design', async () => {
+  const source = await readFile(new URL('../docs/svg-redesign-2026-10-26/assets/TD-M04.review.svg', import.meta.url), 'utf8');
+  assert.equal(sha(source), '7e02ea0b05d70835d9b2fd951873fa1a511e7c67e3a6bd9b5703cd635ab05e4e');
+  const published = await readFile(new URL('../docs/svg-redesign-2026-10-26/assets/TD-M04.published.svg', import.meta.url), 'utf8');
+  assert.equal(published.replace(/<metadata>[\s\S]*?<\/metadata>/, '').replace('data-redraw-version="2" ', '').replace('TD-M04 · 模块全景', '样图 01 · 待确认'), source);
+  assert.equal(sha(await readFile(new URL('../public/visuals/modules/TD-M04.svg', import.meta.url))), sha(published));
+});
+
+
+test('separate feedback corridors preserve conditions and independent arrow endpoints', async () => {
+  const spec = (await import('../scripts/visuals/specs/materials.mjs')).default.find(spec => spec.id === 'AG-DIM-GATE');
+  const plan = planRailGraph(spec, dimensionsFor(spec, wrap, widthOf), spec.ranks, wrap, widthOf);
+  const feedback = plan.edges.filter(route => route.edge.kind === 'feedback');
+  assert.equal(feedback.length, 2);
+  assert.deepEqual(feedback.map(route=>route.side), ['left','right']);
+  assert.ok(feedback[0].railX < plan.nodes.get('pack').x);
+  assert.ok(feedback[1].railX > plan.nodes.get('policy').x + plan.nodes.get('policy').w);
+  assert.notDeepEqual(feedback[0].targetPort, feedback[1].targetPort);
+  for (const route of feedback) assert.equal(normalize(route.label.lines.join('')), normalize(`${String(route.index+1).padStart(2,'0')} ${route.edge.label}`));
 });

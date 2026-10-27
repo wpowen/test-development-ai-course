@@ -88,8 +88,8 @@
 <g id="dependency-band-0" data-region="88,1809,1424,126">
 <rect x="88" y="1809" width="1424" height="126" rx="14" fill="#edf3ff" stroke="none" />
 <text x="112" y="1841" font-size="24" fill="#215cbb" font-weight="700" >四环执行 → 行为轨迹 → D4</text>
-<text x="112" y="1874" font-size="22" fill="#172b45" font-weight="450" >离线、沙箱、影子、在线分别驱动 D1/D4/D5/D6；D1 轨迹支撑 D2 交接与 D3 接管，D4 按任务重复与时长桶形成可靠性证</text>
-<text x="112" y="1907" font-size="22" fill="#172b45" font-weight="450" >据，未执行保持 NOT_RUN。</text>
+<text x="112" y="1874" font-size="22" fill="#172b45" font-weight="450" >四环按各自输入与覆盖范围横向驱动 D1、D4、D5、D6；D1 轨迹支撑 D2 交接与 D3 接管，D4 按任务重复与时长桶形成可靠</text>
+<text x="112" y="1907" font-size="22" fill="#172b45" font-weight="450" >性证据，未执行保持 NOT_RUN。</text>
 </g>
 <g id="dependency-band-1" data-region="88,1951,1424,126">
 <rect x="88" y="1951" width="1424" height="126" rx="14" fill="#fff0f0" stroke="none" />

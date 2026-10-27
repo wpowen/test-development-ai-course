@@ -1,484 +1,329 @@
-# course-2 第二轮复审及 TD-T16 独立修复复核
+# course-2 · 本轮最终复审
 
-结论：29 PASS、0 REWORK。当前 P1=0、P2=0，无本组部署阻断；原R2的6项非阻断P3全部保留。TD-T16的03号执行旁路问题已按当前实际截图和授权链正文确认修复。
+29 PASS，0 REWORK；本轮新实看 6，相同 SVG/规格继承 23。当前 P1/P2/P3 均为0。原报告保留在 round-3，独立实看及返工记录保留在 polish。
 
-本次范围仅TD-T16：实际view_image三个1600px原宽重叠裁块（y=0–1499、1400–2899、2800–3794），覆盖最新3795px截图全部图面；读取fresh course-2-inputs的10节点/18条有向边，核对四条sourceRefs及四环/七环授权链、绕过模型负控演练正文。几何/边闭包PASS未替代实际看图。
+## TD-T05 — PASS
 
-其余28张明确继承原R2审阅结果。本次逐项验证实际SVG/PNG SHA均未变化，JSON其他28项整体原样保留，以下28段逐图记录也原文保留；它们中的“实际查看”“完整查看”等描述属于原R2审阅者的证据，不是本次新增看图。原R2其他28图的6项P3不因T16修复而清除。
+图：`visuals/course/TD-T05.svg`
 
-原R2已复核的首轮21项问题中19项已解决、2项P3仍保留；8项旧P2原问题均已解决。本次额外关闭R2新发现的T16“03直连执行绕过写前链”P2一项，历史问题与修复证据仍保存在T16的prior_findings及repair_recheck中。
+SHA：`561e199ffc7e1144025d7b6d773ae357822cfe9e1434582e61d34f52d459399e`
 
-## TD-T16 修复判定
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-03正向基线现在从动作评测进入Identity verifier，与02“不预筛坏参数”的负控并列进入模型之外的写前授权链。05身份/租户、06 scope/Schema、08参数边界、09幂等/审批判定之后，10已核验所需审批或11合同明确无需人工审批才到adapter；17动作工具/参数分项结果独立进入收据，16重复键只查询已有收据。未见旧的action→adapter执行控制旁路，旧P2关闭，TD-T16 PASS。
+当前发现：无。
 
-## 证据与继承边界
+## TD-T06 — PASS
 
-JSON记录T16本次实际SVG/PNG SHA、完整裁块区域、正文核对、18条边核对及旧P2解决证据；其他28项保留原R2哈希与记录，并由组级inheritance明示继承。写入前再次核对当前字节，未漂移。组结果是图文审阅结论；真实凭据、写端点、补偿、组织批准及生产接受仍需要各自证据。本次仅修改course-2.json/md，没有修改候选、源码或部署。
+图：`visuals/course/TD-T06.svg`
 
-## 逐图结果
+SHA：`255affcf2432f34822436efd3667b13bd5605a23277a2562bfaee5bc769e209d`
 
-| ID | Verdict | Current findings |
-| --- | --- | --- |
-| TD-T05 | PASS | - |
-| TD-T06 | PASS | P3 |
-| TD-T07 | PASS | - |
-| TD-T08 | PASS | - |
-| TD-A01 | PASS | - |
-| TD-A02 | PASS | P3 |
-| TD-A03 | PASS | - |
-| TD-A04 | PASS | - |
-| TD-A05 | PASS | - |
-| TD-A06 | PASS | - |
-| TD-T09 | PASS | - |
-| TD-T10 | PASS | P3 |
-| TD-T11 | PASS | - |
-| TD-T12 | PASS | P3 |
-| TD-X501 | PASS | - |
-| TD-X502 | PASS | - |
-| TD-T13 | PASS | - |
-| TD-T14 | PASS | - |
-| TD-T15 | PASS | P3 |
-| TD-T16 | PASS | - |
-| TD-T17 | PASS | - |
-| TD-T18 | PASS | - |
-| TD-T19 | PASS | - |
-| TD-W01 | PASS | - |
-| TD-W02 | PASS | - |
-| TD-W03 | PASS | P3 |
-| TD-X603 | PASS | - |
-| TD-X604 | PASS | - |
-| TD-X602 | PASS | - |
+本轮独立实看与正文核对：[报告](polish/review-course2.json)。
 
-### TD-T05 - PASS
+{"status": "OLD_P3_CLOSED", "historical_report": "output/svg-release-20261027-polish/review-before/course-2.json", "old_findings": [{"issue": "两Runner对照布局的上半区右侧留白偏大。", "severity": "P3", "resolved": true, "closure_evidence": "候选02居中放在两Runner上方，03 Baseline与04 Mutation同排等宽；输入边01/02左右对称。01 Oracle独立位于下排，经03固定期望向上供Baseline、04独立判据向右供检测；原上半区单侧空置已消除，未把Oracle改成候选产物。"}], "new_findings_count": 0, "closure_does_not_waive_new_findings": true}
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-T05.svg
-SVG SHA-256: 561e199ffc7e1144025d7b6d773ae357822cfe9e1434582e61d34f52d459399e
-Screenshot SHA-256: fd4ffbd516d83454ea84b06dc1c38afed60d3d44c1bb8f0ff150aba6cb25cd70
+候选02居中放在两Runner上方，03 Baseline与04 Mutation同排等宽；输入边01/02左右对称。01 Oracle独立位于下排，经03固定期望向上供Baseline、04独立判据向右供检测；原上半区单侧空置已消除，未把Oracle改成候选产物。 B区三张检查卡、C区停止与交付、证据边界及图例均已实看，未见新的遮挡、歧义交叉或短孤行。
 
-核对“架构节点与交付物”“Fault预期退出2”及四类输入表：需求/设计、Diff、独立Oracle与生成器分权，缺diff_ref/虚构Oracle阻断，Owner接受后入Backlog；图未声称完整召回。
+批准实现baseline全绿后才启动mutation；相同候选、独立expected与目标actual比较，相关断言杀死才进入review。未杀死/不确定单独分类，no coverage先补路径，等价与工具错误复核，Reviewer处置完整才入回归；baseline失败停止与不改expected均可见。
 
-完整查看新截图：三输入分列，04→05标签贴边，05→06/07条件明确，Owner→Backlog可见；原顶部/底部大块留白已收紧，字号与深浅层级清楚。
+当前发现：无。
 
-No current concrete P1/P2/P3 finding.
+## TD-T07 — PASS
 
-Prior finding resolved=true: 主图纵向留白偏多，节点间距大于理解这条短证据链所需。
-当前图顶部三输入已靠近A区标题，底部Backlog有独立竖链，原大块上下空白已收紧，剩余空白服务于分支。
+图：`visuals/course/TD-T07.svg`
 
-### TD-T06 - PASS
+SHA：`857939ec942d745f81fea6c1e50d1220f356b51a9a77305e032f5d928ae61115`
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-T06.svg
-SVG SHA-256: 14edde3ac3150a0bb850e45b8f823cb3a02e59c3647e533df29fa6ad5d46c474
-Screenshot SHA-256: bee45162d081bf13f828c8c780dacff49cd2134501948cbb58f0fd4f673dab13
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-核对两个Runner表、工作示例及停止表：批准baseline全绿在先，同一候选反转退款守卫，独立expected因目标行为而KILLED；survived/no-coverage分类并由Reviewer处置，合成0→1→0边界可见。
+当前发现：无。
 
-完整查看新截图：Oracle独立供Baseline和检测，Baseline全绿后才Mutation，detect两出口明确；“退款”完整换行，原孤字已消失；上部右侧留白记P3。
+## TD-T08 — PASS
 
-- P3: 两Runner对照布局的上半区右侧留白偏大。
-  Evidence: Oracle与候选都位于上方左半，Mutation Runner上方右侧为空；主链可追踪且不影响通过。
-  Suggested fix: 在保持两个Runner并列的前提下，将输入卡片居中或减少A区宽度。
+图：`visuals/course/TD-T08.svg`
 
-Prior finding resolved=true: 关键业务规则出现单字孤行。
-当前Oracle中的“退款”作为完整词换行，原“款”单字孤行已消失。
+SHA：`a3b66f860b6169b593a6399da67627409ccd135edde89d85045b7569173f5670`
 
-### TD-T07 - PASS
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-T07.svg
-SVG SHA-256: 857939ec942d745f81fea6c1e50d1220f356b51a9a77305e032f5d928ae61115
-Screenshot SHA-256: 4e78b0b6fa9018559b07ef0f9baf5ae8c59aba9b0853b841551d80c14cc6f74d
+当前发现：无。
 
-核对四方法失败模型表及Fault：阈值→边界、交互→组合、不变量→属性、未知输入面→授权Fuzz；方法非互斥，固定seed、refund_count>1反例、shrink后验证及高阶盲区均保留。
+## TD-A01 — PASS
 
-完整查看新截图：四条橙色条件分别指向四方法，四条蓝色样本边在06汇入且终点可分辨，Shrink在下方；原上下排交叉已消除，非互斥说明可读。
+图：`visuals/course/TD-A01.svg`
 
-No current concrete P1/P2/P3 finding.
+SHA：`b1977fcd64cb992f0ee6e988ecb85526f5fd88d0e05be3f60ac4c29b5cac8b8c`
 
-Prior finding resolved=true: 四条方法分支上下两排，长边与采样汇入线交叉，增加追踪成本。
-四方法分支从同一上方节点展开，四个采样出口独立进入06，原跨排橙/蓝交叉已消除。
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-### TD-T08 - PASS
+当前发现：无。
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-T08.svg
-SVG SHA-256: a3b66f860b6169b593a6399da67627409ccd135edde89d85045b7569173f5670
-Screenshot SHA-256: 669d2638e15c150ddff0f9fdaa4ab5ac2bb3f90b780fcd4ad563aed93dd53a1b
+## TD-A02 — PASS
 
-核对架构表与证据流转：raw只追加、视图只读、候选簇不等于根因，控制实验与Owner后升级；缺trace/混合版本→UNKNOWN，修复用原始失败回放。
+图：`visuals/course/TD-A02.svg`
 
-完整查看新截图：只读引用→候选簇→假设→实验→Cause Gate主链及版本核验支流可追踪，UNKNOWN和修复分支独立，底部故障和边界完整。
+SHA：`8ae8786f2e742857d1bfef3e8cf30dde11460881650bb7aa2b2a40b0fd0e029b`
 
-No current concrete P1/P2/P3 finding.
+本轮独立实看与正文核对：[报告](polish/review-course2.json)。
 
-### TD-A01 - PASS
+{"status": "OLD_P3_CLOSED", "historical_report": "output/svg-release-20261027-polish/review-before/course-2.json", "old_findings": [{"issue": "四协议与工具子流程均可追踪，但证据汇总的外轨路程较长。", "severity": "P3", "resolved": true, "closure_evidence": "A1四列分别接收请求，SSE/Schema/Async各自用14/15/16短边到09账本引用、17/18/19本列侧边到10门禁引用；工具细节移到A2，查账与汇总移到A3。原跨多排汇总外轨已消除，三分区标题、04/06/07/08/09/10同号与“同一节点”说明可对照。"}], "new_findings_count": 0, "closure_does_not_waive_new_findings": true, "A02_B_typography_P3_recheck": {"severity": "P3", "issue": "B区“过程断言在哪里”将“不变量”拆开，续行只剩“变量”。", "resolved": true, "status": "CLOSED", "closure_evidence": "最新1600×4572截图B区左卡实看：y=4119为“SSE 查顺序与结束”，y=4154为“JSON 查字段不变量”，y=4189为“Tool 查执行、结果回填与失败回退”。“不变量”完整，无单独“变量”孤行；采用主动语义换行，未缩略原有断言含义。5个全宽重叠裁块覆盖0–4571全部像素行，A1/A2/A3、B/C、边界与图例均复查，未发现新P3。", "previous_report": "output/svg-release-20261027-polish/review-course2-before-A02.json", "previous_svg_sha256": "0e9b358bf0dd0decae42db78165c1c8edcdbb09f67e9cc928c273451575d965d", "previous_screenshot_sha256": "ae1c7b194d4d498ba4c09383da0fd20edd4f88344d10e1664ccf2f712d919308", "current_svg_sha256": "8ae8786f2e742857d1bfef3e8cf30dde11460881650bb7aa2b2a40b0fd0e029b", "current_screenshot_sha256": "d43a72aab816a0869bf38b07cd4e60946af8f551782b065d50ea4e33e26a0f4a"}}
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-A01.svg
-SVG SHA-256: b1977fcd64cb992f0ee6e988ecb85526f5fd88d0e05be3f60ac4c29b5cac8b8c
-Screenshot SHA-256: 0b1068cabff7ca672d3f82ab08819d225447ae3ed47517053048098c6ad55cc0
+A1四列分别接收请求，SSE/Schema/Async各自用14/15/16短边到09账本引用、17/18/19本列侧边到10门禁引用；工具细节移到A2，查账与汇总移到A3。原跨多排汇总外轨已消除，三分区标题、04/06/07/08/09/10同号与“同一节点”说明可对照。 最新1600×4572截图B区左卡实看：y=4119为“SSE 查顺序与结束”，y=4154为“JSON 查字段不变量”，y=4189为“Tool 查执行、结果回填与失败回退”。“不变量”完整，无单独“变量”孤行；采用主动语义换行，未缩略原有断言含义。5个全宽重叠裁块覆盖0–4571全部像素行，A1/A2/A3、B/C、边界与图例均复查，未发现新P3。
 
-核对五层合同及0→1→0示例：protocol/generation_manifest/behavior/serving_metrics/reliability各有独立证据；缺request_id与伪造内部revision被阻断，不可见版本为UNKNOWN。
+四协议分流没有串成同一执行链；SSE结束完整性、Schema与语义、Async唯一终态分别判定。工具05获准且幂等未命中才执行；06拒绝、09执行失败/超时/取消进入回退，08成功真实回填与11失败/未知真实回填都保留；07重复先查账、10超时未知先查幂等、12已有确认结果回填、13独立副作用读回、20回填时序和21至多一次副作用均保留。未观察到用自定义布局隐去成功/失败或引入重复执行。 本轮B区将原复合句按SSE/JSON主动分行，保留“顺序与结束”和“字段不变量”完整含义，正文快照及21条语义边未变化。
 
-用两个重叠原宽裁块覆盖0至3113全部像素行。01/02/04/05分发、03版本绑定、06内部不可见、07至10汇证和11限制传播均可按同号端口追踪；旧中心交叉束已拆外轨。
+当前发现：无。
 
-No current concrete P1/P2/P3 finding.
+## TD-A03 — PASS
 
-Prior finding resolved=true: 五层独立证据在中心交叉成束，难以把各判据与来源逐一对应。
-01/02/04/05输入和07至10汇证移至外轨，同号标签与端口能逐条对照；无原中央交叉束。
+图：`visuals/course/TD-A03.svg`
 
-### TD-A02 - PASS
+SHA：`2f06920a533ff0b68dee643279c0a1e705852aeb39be82cc61a5619e68605d06`
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-A02.svg
-SVG SHA-256: b48bd21f9085f1b1799f6be70ef5978b8793d3ca3da22c10c18315e9dcb8cc8d
-Screenshot SHA-256: d7bf2484d229e9752afa534023ebb23ccb80508b452c00cd33eea0b772a42b57
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-核对两张四协议状态转移表、业务例子和重放：SSE终止、JSON语义、Tool授权→执行→真实回填、Async唯一终态分别判定；未知先查幂等，side_effect_count=2必须失败，独立账本不依赖最终文本。
+当前发现：无。
 
-用三个重叠原宽裁块覆盖0至4638全部像素行。05授权幂等→执行、08成功→回填、09失败→07、10未知→账本、11失败真实回填、12已有结果→回填和20时序→门禁均实查；旧核心交叉已解，长证据轨仍费翻阅记P3。
+## TD-A04 — PASS
 
-- P3: 四协议与工具子流程均可追踪，但证据汇总的外轨路程较长。
-  Evidence: 14/15/16号业务状态证据与17/18/19号过程证据跨多排进入09/10，需按端口编号来回查看；未发现断路或标签错配。
-  Suggested fix: 后续可用四列协议概览配单独工具放大图减少查线距离，保留当前明确编号。
+图：`visuals/course/TD-A04.svg`
 
-Prior finding resolved=true: 工具成功/失败/重复请求与四种协议证据汇总挤在同一中心，安全回填链难以追踪。
-05执行前提、08成功回填、09失败、10查询状态、11失败回填、12已有结果均有独立轨道/编号，工具时序可逐边确认。
+SHA：`5a06a3d1a18352796d304b140a3cdfdbd8baad8bb458c08467fae71fe65246e3`
 
-### TD-A03 - PASS
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-A03.svg
-SVG SHA-256: 2f06920a533ff0b68dee643279c0a1e705852aeb39be82cc61a5619e68605d06
-Screenshot SHA-256: 805bd5804726316a43496e0d615bfe31a0f870b5241bbfe9dc7523ab9772b2a2
+当前发现：无。
 
-核对时间戳公式表及失败费用例子：TTFT起点按图声明，TPOT=(last−first)/(tokens−1)，ITL保留分布；图正确使用达标完成数/时间窗作为Goodput，所有失败重试费用在成本分子，缺字段UNKNOWN。
+## TD-A05 — PASS
 
-完整查看新截图：TPOT numerator/denominator分行但tokens−1保持完整，四指标汇总路径各有清楚箭头，Goodput/成本使用不同分母，图例及缺失边界可读。
+图：`visuals/course/TD-A05.svg`
 
-No current concrete P1/P2/P3 finding.
+SHA：`645ccd88f528bb4e9d21e7fd5cad8a35fd36f621d37b36c0da092bc9fc8cc123`
 
-Prior finding resolved=true: 公式英文被机械拆词，削弱指标卡精致度。
-当前TPOT公式分行保留完整(tokens−1)，不再将tokens拆成toke/ns。
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-### TD-A04 - PASS
+当前发现：无。
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-A04.svg
-SVG SHA-256: 5a06a3d1a18352796d304b140a3cdfdbd8baad8bb458c08467fae71fe65246e3
-Screenshot SHA-256: da8e3a528d2358464c65c5edfa8d65ab0f847f64a47eb8e11c80c8ecb26b667c
+## TD-A06 — PASS
 
-核对守恒与双模式实验：固定workload，open-loop外部到达，closed-loop诊断；planned=completed+failed+dropped+queued，先守恒再判断拐点，SLO失守停止并验证排空，fixture不代表真实容量。
+图：`visuals/course/TD-A06.svg`
 
-完整查看新截图：open/closed并列进入Serving，守恒与SLO分流再汇Goodput，停止恢复处条件贴边；所有计划结果和排空条件可读，未见假数据图形。
+SHA：`d472a78b358828f67c297a02841b624c7751232e080b60165d98e913259d9ce6`
 
-No current concrete P1/P2/P3 finding.
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-### TD-A05 - PASS
+当前发现：无。
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-A05.svg
-SVG SHA-256: 645ccd88f528bb4e9d21e7fd5cad8a35fd36f621d37b36c0da092bc9fc8cc123
-Screenshot SHA-256: be50d315c681ed514e06a5cf5bfe510c1e788a4f9cb54024b83d7a9856e09ab1
+## TD-T09 — PASS
 
-核对诊断合同及错误GPU归因故障：Queue/Prefill、Decode/GPU、KV及下游是候选分支；单变量、反证与同负载复跑在先，缺telemetry为UNKNOWN，GPU相关性不升级根因。
+图：`visuals/course/TD-T09.svg`
 
-用两个重叠原宽裁块覆盖0至3123全部行。01至04候选分支、05缺证UNKNOWN、06至09单变量实验和10结论逐号追踪；原实验汇入交叉集中已消除。
+SHA：`aef15259a958a8aa1115ff353469712abd97ee2b19a06e469d8d6f5850d0b61e`
 
-No current concrete P1/P2/P3 finding.
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-Prior finding resolved=true: 候选分支与实验汇入线交叉，单变量实验标签偏集中。
-06至09单变量实验边分轨进入实验，旧候选汇入区的集中交叉已移外侧。
+当前发现：无。
 
-### TD-A06 - PASS
+## TD-T10 — PASS
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-A06.svg
-SVG SHA-256: d472a78b358828f67c297a02841b624c7751232e080b60165d98e913259d9ce6
-Screenshot SHA-256: c8f543b2752227a69bc61e90c3f6bac856f250b13f1f8c1650d37df60c6a054c
+图：`visuals/course/TD-T10.svg`
 
-重新核对“四类预算”正文与0→1→0故障：当前error→safe覆盖400/401/策略拒绝，budget→safe为共享预算硬耗尽，budget→fallback仅主模型不可用且总预算尚足；fallback→recover也要求总预算未越界且质量/安全复核达标。图中这些条件与正文共享deadline和安全失败要求一致，首轮P2已修复。
+SHA：`6f92c26f9e69e5dab8b1055d8b30a20b2509585830416880e9256e71dce31b65`
 
-完整查看新截图并逐边比对新spec。硬耗尽红边实际终点为06安全失败，05Fallback入口明确总预算尚足；拒绝/重试/状态查询和质量失败出口均可辨，没有沿用旧候选。
+本轮独立实看与正文核对：[报告](polish/review-course2.json)。
 
-No current concrete P1/P2/P3 finding.
+{"status": "OLD_P3_CLOSED", "historical_report": "output/svg-release-20261027-polish/review-before/course-2.json", "old_findings": [{"issue": "最终top-k与缺失原因的入边在局部贴近交叉，仍需沿色线追踪。", "severity": "P3", "resolved": true, "closure_evidence": "A2左列语料→召回→排序→Context→生成构成连续主链；07最终top-k竖直进入Context。03/06/08/10四条缺失边在各自排向右进入07 Miss引用，不再穿越top-k成功边。A1独立qrels分别约束02/03，引用不表示重跑。"}], "new_findings_count": 0, "closure_does_not_waive_new_findings": true}
 
-Prior finding resolved=true: 预算耗尽仍连接可恢复成功的 Fallback，和本页共享预算硬停止条件矛盾。
-当前硬耗尽直接连safe；fallback入口写明主模型不可用且总预算尚足，恢复出口再核总预算，首轮语义矛盾已修复。
+A2左列语料→召回→排序→Context→生成构成连续主链；07最终top-k竖直进入Context。03/06/08/10四条缺失边在各自排向右进入07 Miss引用，不再穿越top-k成功边。A1独立qrels分别约束02/03，引用不表示重跑。 B区三张检查卡、C区停止与交付、证据边界及图例均已实看，未见新的遮挡、歧义交叉或短孤行。
 
-### TD-T09 - PASS
+独立qrels与语料/chunk lineage、raw query/rewrite/filters、候选doc_id/score/索引版本、top-k、最终Context分层。语料不存在、召回/过滤误伤、排序压出窗口、组装丢失各有实际出口到Miss/Owner。Context充分后才进入生成/引用；检索未召回不能靠最终答案正确借分，无gold/争议未裁决保留UNKNOWN。
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-T09.svg
-SVG SHA-256: aef15259a958a8aa1115ff353469712abd97ee2b19a06e469d8d6f5850d0b61e
-Screenshot SHA-256: 4d8b33d321e7c0d8b6b5b636b00d08bc63e60365f977142fd2335100b51281f6
+当前发现：无。
 
-核对embedding前准入和变更清单：owner/版本/ACL/冲突先核验，chunk保留lineage，current view可重建；删除与权限撤销传播索引缓存并负向验证，0→1→0仅字段合同。
+## TD-T11 — PASS
 
-完整查看新截图：01至04准入/分块/ACL/索引主链，06撤销传播、07current view及05/08正负Trace证据按端口独立追踪，当前版本与副本边界清楚。
+图：`visuals/course/TD-T11.svg`
 
-No current concrete P1/P2/P3 finding.
+SHA：`f33a842f0541eeff79cc8b826c269de517ccb2d0a62e361eecebf52353457a83`
 
-### TD-T10 - PASS
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-T10.svg
-SVG SHA-256: 3a3b7626c3504c9656de5cec88eedf1a12a0fc627f254cb357a5044294c11e81
-Screenshot SHA-256: 65b7f79099ea264e657502b19e9fdc8048faf112f946c03654d837bed1635f71
+当前发现：无。
 
-核对miss reason与mutation段：gold/qrels独立，先查语料→召回→排名→最终Context，丢失定位到对应层；Context有证据仍答错才转生成，relevant_doc_recalled=false即FAIL。
+## TD-T12 — PASS
 
-完整查看新截图：不存在分支贴红边，候选已召回贴蓝边；语料/召回/排序/组装四类丢失均有出口。最终top-k和miss入线仍局部交叉记P3，关键终点可辨。
+图：`visuals/course/TD-T12.svg`
 
-- P3: 最终top-k与缺失原因的入边在局部贴近交叉，仍需沿色线追踪。
-  Evidence: 04→05蓝色“最终top-k”在05/07上方穿过02/03→07的红色缺失分支；箭头终点明确，标签已不再漂移。
-  Suggested fix: 将top-k蓝边走05上方独立通道，避免贴着红色miss汇入边。
+SHA：`e2b687d04e6a1708c6ae1a19f2c9c35e0eab60a7516db5db0007886c16cf4bd3`
 
-Prior finding resolved=true: 召回成功与缺失分支的标签离实际边较远，首读时需要二次定位。
-候选已召回与不存在标签已分别贴各自蓝/红边；另记当前top-k/miss近邻交叉P3。
+本轮独立实看与正文核对：[报告](polish/review-course2.json)。
 
-### TD-T11 - PASS
+{"status": "OLD_P3_CLOSED", "historical_report": "output/svg-release-20261027-polish/review-before/course-2.json", "old_findings": [{"issue": "生成输出与无支撑交接支路仍有局部交叉。", "severity": "P3", "resolved": true, "closure_evidence": "生成04→05回答与引用竖直向下，04→06工具意图横向右行；05→07无支撑/冲突在下一排右行，原蓝红交叉消除。ACL→Gate的11号硬否决在ACL同排单独出边，A2分别汇总faith/policy/handoff。"}], "new_findings_count": 0, "closure_does_not_waive_new_findings": true}
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-T11.svg
-SVG SHA-256: f33a842f0541eeff79cc8b826c269de517ccb2d0a62e361eecebf52353457a83
-Screenshot SHA-256: bcadc282d5f21ea71acf5397438b7ba11c2311cce22b9d2fdf9dfb4b4f7165b9
+生成04→05回答与引用竖直向下，04→06工具意图横向右行；05→07无支撑/冲突在下一排右行，原蓝红交叉消除。ACL→Gate的11号硬否决在ACL同排单独出边，A2分别汇总faith/policy/handoff。 B区三张检查卡、C区停止与交付、证据边界及图例均已实看，未见新的遮挡、歧义交叉或短孤行。
 
-核对三层正文、验收表及术语：ID存在性、实际citation/span对齐、整份Context faithfulness独立；引用A但仅B支持仍对齐失败，关键无支撑/冲突独立阻断，Judge失准回人审。
+ACL在检索之前限定可见集合，空结果不得扩权；answerability gold独立，非空也可能不足。可用证据才生成，不足/冲突转具名Handoff，生成后逐claim核验；工具意图进入模型之外的Side-effect policy，独立副作用断言进Gate。跨租户/未授权写入单独阻断，质量总分不可抵消。
 
-用三个重叠原宽裁块覆盖0至4111全部行。04/05/06进入实际引用片段，07/08进引用对齐；09/10/11进整份Context忠实度；12/13/14/15/16进入blocker，18/19/20/21/22进分层报告。旧同色中央线束已被编号和跨线桥拆开。
+当前发现：无。
 
-No current concrete P1/P2/P3 finding.
+## TD-X501 — PASS
 
-Prior finding resolved=true: 三层独立判据的连接过密，整份上下文与实际被引片段两条证据线难以区分。
-实际被引片段04/05/06→07/08与整份Context09/10/11分开编号，blocker12至16与三层报告18至22端口明确。
+图：`visuals/course/TD-X501.svg`
 
-### TD-T12 - PASS
+SHA：`214347126a5d328adcc2ab8711f67b98899e6deba9ede8ef5d1b5efcb8c0b513`
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-T12.svg
-SVG SHA-256: a752b1fd1f30bde82a127087333b5a065952f7f50a0ac967d0180f56118e1f72
-Screenshot SHA-256: c5a74c13c97a606371f6d1afce95576e58b20e2a4150cd261364b24991daaa95
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-核对上线停止与mutation段：answerability有独立gold，非空也可能不足，无证据拒答或Handoff；跨租户和副作用独立blocker，acl_denied=false不能以扩权修复。
+当前发现：无。
 
-完整查看新截图：ACL→生成许可和越权blocker外侧边分开；无证据→Handoff、逐claim→Gate、工具意图→policy都可追踪，生成与冲突返向支路局部交叉仍记P3。
+## TD-X502 — PASS
 
-- P3: 生成输出与无支撑交接支路仍有局部交叉。
-  Evidence: 04→05/06蓝边在05上方与05→07红色回返边相交，但红蓝色与终点可辨，越权长边已移到外侧。
-  Suggested fix: 把05→07支路走左外缘后进入Handoff，避开生成输出分叉。
+图：`visuals/course/TD-X502.svg`
 
-Prior finding resolved=false: RAG 主链与交接/越权支路在中央交叉。
-越权blocker边已移外侧，但05→07红色无支撑返向边仍与04生成输出分叉局部交叉，保留P3。
+SHA：`db8a5afcc874136157e79ab4018cb3f8f84d709a40b25946c667b372412bc81a`
 
-### TD-X501 - PASS
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-X501.svg
-SVG SHA-256: 214347126a5d328adcc2ab8711f67b98899e6deba9ede8ef5d1b5efcb8c0b513
-Screenshot SHA-256: 646f081e60129bcec3be903f269d45c2f0d6612c04e1d8197fdd041c95fba3e0
+当前发现：无。
 
-核对关系正文与Fault：自然一致样本、单关系翻转、缺模态三组，pair/group指标独立于单模态；受保护Oracle与争议复核，alignment/independent同红，关键缺失无有效降级则阻断。
+## TD-T13 — PASS
 
-完整查看新截图：自然/关系翻转/缺模态三个对照并列，Oracle单独供判据，结果分pair/group后人工；不再有关键文字孤行，语义色和留白协调。
+图：`visuals/course/TD-T13.svg`
 
-No current concrete P1/P2/P3 finding.
+SHA：`6408860ed2bedfe22f9dd23f5ca36279296836b5b989ed2efe5d7917aef9f6d8`
 
-### TD-X502 - PASS
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-X502.svg
-SVG SHA-256: db8a5afcc874136157e79ab4018cb3f8f84d709a40b25946c667b372412bc81a
-Screenshot SHA-256: 93823e6ae3e0cdbaa6f811c0006b2283138cd11bdcc5e1ddaa55fb327c328a13
+当前发现：无。
 
-核对逐slice验收与Fault：locale/script/task、语义独立标注、键盘/名称/辅助技术分别留证；claimed−verified为空集，缺必要locale/可访问性阻断支持声明，不外推英文或整体包容性。
+## TD-T14 — PASS
 
-完整查看新截图：locale/语义/键盘与名称三分支清楚进入slice证据，Owner和支持集合分别约束声明；claimed−verified公式、未验证状态和WCAG/AT边界可读。
+图：`visuals/course/TD-T14.svg`
 
-No current concrete P1/P2/P3 finding.
+SHA：`bf506e1f4023ea56ad134afd2421508d23d6bac30ff2e322b9e9294b8cc4d346`
 
-### TD-T13 - PASS
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-T13.svg
-SVG SHA-256: 6408860ed2bedfe22f9dd23f5ca36279296836b5b989ed2efe5d7917aef9f6d8
-Screenshot SHA-256: edea12e2080ec8e2db560551f31c1d00ed487f4e7c511fee6e34294821160ede
+当前发现：无。
 
-核对配对差值验收和架构合同：同任务同Judge/预算重复运行，组件归因唯一变量，锁定字段混杂否决；高风险退款blocker不被总分抵消，保留完整A组合回滚。
+## TD-T15 — PASS
 
-完整查看新截图：A/B重复臂共用合同，锁定字段不一致红边走外侧，结果/台账分别汇Owner；存在少量曲线交叉但色彩与箭头可追踪，不构成P2。
+图：`visuals/course/TD-T15.svg`
 
-No current concrete P1/P2/P3 finding.
+SHA：`513562b55ba2b70282b5c565eb8e8d6bfd0928409ff6e8a7f1a5fd63133574c9`
 
-### TD-T14 - PASS
+本轮独立实看与正文核对：[报告](polish/review-course2.json)。
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-T14.svg
-SVG SHA-256: bf506e1f4023ea56ad134afd2421508d23d6bac30ff2e322b9e9294b8cc4d346
-Screenshot SHA-256: b9adb72b0bf4dee2d0170f0e95e4482f1bfd675bc57acecf251a13d684ba11f4
+{"status": "OLD_P3_CLOSED", "historical_report": "output/svg-release-20261027-polish/review-before/course-2.json", "old_findings": [{"issue": "三层并列评测的跨列紫色证据线仍有一次交叉。", "severity": "P3", "resolved": true, "closure_evidence": "state→outcome与ledger→step分别沿左/中列直下；右列用同号01/02引用单独接入Trajectory，03状态迁移沿右列左缘，04动作与观察序列沿右列内部，原跨三列同色交叉消除。三层并列进入同一Human decision，Policy另区写前约束与独立否决。"}], "new_findings_count": 0, "closure_does_not_waive_new_findings": true}
 
-核对五步校准及架构：先人人一致与rubric裁决、盲评/顺序交换/偏差探针、版本Judge、分歧矩阵；低可靠或关键错误停自动评分，金标复审与人审常设。
+state→outcome与ledger→step分别沿左/中列直下；右列用同号01/02引用单独接入Trajectory，03状态迁移沿右列左缘，04动作与观察序列沿右列内部，原跨三列同色交叉消除。三层并列进入同一Human decision，Policy另区写前约束与独立否决。 B区三张检查卡、C区停止与交付、证据边界及图例均已实看，未见新的遮挡、歧义交叉或短孤行。
 
-完整查看新截图：07人工共识走右外轨至matrix，09复审走左外轨至gold，已不再同路径双向贴合；01至08校准/停止顺序与正文一致。
+State支撑业务终态，ledger支撑单步，两者共同支撑Trajectory；三层分别向Human decision出结论，未改成先结果再单步的递进审批。Policy→Step写前约束与Policy→Human独立否决均保留；被后端拒绝的refund_order尝试仍记录且失败。缺轨迹/终态UNKNOWN；合法替代路径不被唯一黄金序列错杀。
 
-No current concrete P1/P2/P3 finding.
+当前发现：无。
 
-Prior finding resolved=true: 人工参考与复审反馈复用近乎同一条长曲线，双向关系不够清楚。
-07人工参考走右侧，09反馈走左侧，不再复用同一条双向贴合曲线。
+## TD-T16 — PASS
 
-### TD-T15 - PASS
+图：`visuals/course/TD-T16.svg`
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-T15.svg
-SVG SHA-256: 552b3c6ada9517775eca39053e70094650aa6d5e30e11dacac2fa4734576fae5
-Screenshot SHA-256: 8688aaa3e65bd23f6015ad2740e83bd22555e2bba90a60694e98e2f60054ff1e
+SHA：`e33bac53d461f184574845b057c6488ef8d718e161f980eac860d5926f2ab5d2`
 
-核对三层判定并列表及退款反例：outcome终态、step调用、trajectory状态序列分开，禁止refund_order即使最终转人工仍失败；允许安全替代路径，证据缺失UNKNOWN。
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-完整查看新截图：Outcome/Step/Trajectory三卡并列，Policy blocker单独否决，允许替代路径的文字完整；两条紫色跨列证据线相交记P3，不影响三层分别判定。
+当前发现：无。
 
-- P3: 三层并列评测的跨列紫色证据线仍有一次交叉。
-  Evidence: 01 state→05 trajectory 与02 ledger→04 step 在三层节点上方相交，同为紫色，需要沿终点箭头确认；三个判据卡与结果出口仍清楚。
-  Suggested fix: 使state与ledger各自分叉后沿外侧进入对应判据，减少同色交叉。
+## TD-T17 — PASS
 
-### TD-T16 - PASS
+图：`visuals/course/TD-T17.svg`
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-T16.svg
-SVG SHA-256: e33bac53d461f184574845b057c6488ef8d718e161f980eac860d5926f2ab5d2
-Screenshot SHA-256: a77f33d4827d710abd1814dacf05bb19ed0f4453523e9e7375e64f47cfaa6a31
+SHA：`e1ff365c2e05a565e1b624dc0581dfb5b916be35afc3ac5c9b4f87cc77280a9a`
 
-本次独立修复复审者：independent-content-and-visual-reviewer / TD-T16 repair follow-up。本项为实际查看当前修复版本，非继承通过。
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-实际读取 fresh course-2-inputs 的10节点/18条边及 sourceRefs 四个正文块，并加读“写前授权链的四个环节，缺一个就等于没有”“写前授权链的七个环节”“绕过模型直接测授权链：约45分钟”。正文要求所有可写工具在模型之外完成身份、租户、最小scope、Schema、参数边界、幂等和按合同需要的审批；模型候选不能自批。当前03将正向匹配结果送入identity，02将未预筛坏参数的负控送入同一identity，均沿05/06/08/09及10或11到adapter。工具选择/参数匹配独立出分，04动作失败与07/12/14/15写前拒绝分列，17独立送收据；16重复键只查询已有收据，不执行第二次写入。18要求失败/拒绝与zero-write对账。教学沙箱不证明真实凭据、写端点、补偿或组织批准有效，边界未被删去。
+当前发现：无。
 
-本次实际view_image三个1600px原宽裁块，y=0–1499、1400–2899、2800–3794，完整覆盖3795行。顶部03橙色外轨从动作评测向右后返回Identity verifier上方03端口，与02负控各有独立入口；旧action→adapter执行旁路已消失。05身份租户通过→registry、06 scope/Schema→policy、08边界通过→幂等、09新请求→审批均可循编号追踪；adapter只见10已核验所需审批与11契约明确无需人工审批两条控制入口。04/07/12/14/15红色失败/拒绝在底部有分开端口；13执行结果、16已有收据、17动作分项结果各入receipt，18对账独立。右侧长轨较密但跨线桥、编号和端点均可辨，无须猜测03是否经过安全链。标题/节点/B区/C区及页脚清晰，无孤立问号或行首逗号；长图本身未作为缺陷。
+## TD-T18 — PASS
 
-当前 findings：无；无P1/P2阻断。
+图：`visuals/course/TD-T18.svg`
 
-R2旧P2 resolved=true：03号控制边将动作匹配直接连到Sandbox adapter，合理读法会绕过写前安全链。
+SHA：`f55d7d5e9b3863304057999f2b97a53163ba2aea8d8d4428d156737f2777611b`
 
-当前03标签“正向基线匹配后仍走写前链”从action走橙色外轨，实际箭头落在Identity verifier顶部03端口（约x590,y1054），不再落adapter。02“不预筛坏参数”在identity顶部02端口并列进入；adapter控制入口仅10/11，均源于Human approval的合同判定。17紫色动作分项证据仍独立到receipt顶部17端口，不是可执行控制路径。因此原P2所述绕过写前授权的合理读法已被当前端点、条件和完整链消除。
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-旧SVG SHA-256: 2158d50dbcc2c3c35c9870ba4f12560bdc55b19540d0b41735fa06b24a8184aa
-旧PNG SHA-256: 389532f899f3aaef79bbda15190cc07969d11064d51902be89a0a66f48416861
+当前发现：无。
 
-首轮旧P2（拒绝边及双审批条件拥挤）维持resolved=true；当前独立外轨、分端口及跨线桥仍可追踪。
+## TD-T19 — PASS
 
-### TD-T17 - PASS
+图：`visuals/course/TD-T19.svg`
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-T17.svg
-SVG SHA-256: e1ff365c2e05a565e1b624dc0581dfb5b916be35afc3ac5c9b4f87cc77280a9a
-Screenshot SHA-256: 23ff1cb2f2c7957b06b66f113fc93bf4c8dcb8ed732d3777b8083413648b27f6
+SHA：`7ec37be89c85e4b098e002852096df2ad9b9b4e72bb89ef9c8fdd2fe4c88dbde`
 
-核对污染文档export_orders示例：数据不升级系统权限，检索、模型、工具授权和输出日志DLP分层；测试身份仅单订单，记录到达层与真实后果，口头拒绝不能抵消泄密。
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-完整查看新截图：不可信内容→隔离→模型后分工具授权/输出DLP，执行事实和阻断记录双路汇安全审查；局部线交叉可沿色与箭头识别，日志泄漏与口头拒绝边界可读。
+当前发现：无。
 
-No current concrete P1/P2/P3 finding.
+## TD-W01 — PASS
 
-### TD-T18 - PASS
+图：`visuals/course/TD-W01.svg`
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-T18.svg
-SVG SHA-256: f55d7d5e9b3863304057999f2b97a53163ba2aea8d8d4428d156737f2777611b
-Screenshot SHA-256: 4c452cd7cf2af946b37e6c8296c5fcebf804226bedaa796ec68e423e0042528b
+SHA：`e176b7bfc0fdb4bb954145f8559e4749c522f02309480d5d964d1d35fd47f458`
 
-核对风险PRD及业务变异：已激活商品manual_review_required，同候选先baseline再auto_refunded；独立状态Oracle，timeout/locator错误不计杀死，人工review且healer不得削弱期望。
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-完整查看新截图：同候选两臂、baseline先绿条件、Oracle独立expected均可追踪；Generator审查旁路已移右侧不再穿两Runner间核心区，业务变异/误报说明完整。
+当前发现：无。
 
-No current concrete P1/P2/P3 finding.
+## TD-W02 — PASS
 
-Prior finding resolved=true: 审查旁路穿越正常/故障对照的核心区域。
-Generator→Human审查旁路已放右侧，避开baseline→mutation之间的中心交叉，独立expected从右侧进入检测。
+图：`visuals/course/TD-W02.svg`
 
-### TD-T19 - PASS
+SHA：`10c031eaa03a4cf39b59006014bd5a156657772b695a5d25451b50ef28b44eb6`
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-T19.svg
-SVG SHA-256: 7ec37be89c85e4b098e002852096df2ad9b9b4e72bb89ef9c8fdd2fe4c88dbde
-Screenshot SHA-256: f3a362295229f70ceb761df8e893cfba97ac6664fcfd2582d159da51da548bcc
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-核对DOM改名/业务按钮交换和重放：仅非语义定位器候选，业务变化/不明转人工；anti-cheat拒删断言/改expected/跳步，原auto_refunded变异仍须被杀死，否则回滚补丁。
+当前发现：无。
 
-完整查看新截图：纯DOM/业务变化分叉、反作弊通过/拒绝、原变异杀死/存活双出口清楚；产品回归人工旁路已独立沿右侧到合并门禁，旧交叉点已移开。
+## TD-W03 — PASS
 
-No current concrete P1/P2/P3 finding.
+图：`visuals/course/TD-W03.svg`
 
-Prior finding resolved=true: 产品回归人工处理旁路穿过变异回退区域。
-产品缺陷人工处理旁路移到右侧外缘，未再穿过变异重跑/补丁回退局部区域。
+SHA：`23aadfda3d42f203de2a049ff4c9f3486f94c63eb365ad4af6e0d0c569f5f9e9`
 
-### TD-W01 - PASS
+本轮独立实看与正文核对：[报告](polish/review-course2.json)。
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-W01.svg
-SVG SHA-256: e176b7bfc0fdb4bb954145f8559e4749c522f02309480d5d964d1d35fd47f458
-Screenshot SHA-256: 59c2db16ac014fae2b7257ffb4d369437c18b5ecd1e89dc7a0c939034135cbd7
+{"status": "OLD_P3_CLOSED", "historical_report": "output/svg-release-20261027-polish/review-before/course-2.json", "old_findings": [{"issue": "并行实验输入与结果处仍有局部异色交叉。", "severity": "P3", "resolved": true, "closure_evidence": "任务顶栏经01/02左右外侧进入两臂，预算经03/04内部短支路进入两臂；05/06结果向中间Repeated trials汇总，07/08消耗沿两侧到成本卡。结果与成本无串联假边，原输入和中段交叉均消除。A2用同号引用作决策与混杂判定，未表示再次运行。"}], "new_findings_count": 0, "closure_does_not_waive_new_findings": true}
 
-核对三类测法与权限分型：按代码/模型/队列的决定权区分，可同产品混合；副作用与幂等点、共享状态、Agent不继承Worker写权限及真实Trace边界均保留。
+任务顶栏经01/02左右外侧进入两臂，预算经03/04内部短支路进入两臂；05/06结果向中间Repeated trials汇总，07/08消耗沿两侧到成本卡。结果与成本无串联假边，原输入和中段交叉均消除。A2用同号引用作决策与混杂判定，未表示再次运行。 B区三张检查卡、C区停止与交付、证据边界及图例均已实看，未见新的遮挡、歧义交叉或短孤行。
 
-用两个重叠原宽裁块覆盖0至3130全部行。01/02/03控制权分型、04queue→Worker、05/06/07状态及08至11证据各有同号端口；旧共享状态中心交叉已解。
+两臂共享任务、模型、工具、成功Oracle、总Token/时间/调用/重试及可比人工干预与调优投入；不因多角色增加scope。两臂重复结果分别进入配对差值分析，消耗分别进入协作/单位成功成本，blocker/p95/费用不被成功率吞掉。预算不齐或证据不足分别进Confounded/UNKNOWN，配对收益和代价共同支持按切片架构决定；不使用边际CI重叠判断优胜。
 
-No current concrete P1/P2/P3 finding.
+当前发现：无。
 
-Prior finding resolved=true: 分类图中证据与共享状态连线仍有集中交叉。
-控制分型、共享状态与Owner证据边均以外轨和编号进入节点，不再中心交叉汇束。
+## TD-X603 — PASS
 
-### TD-W02 - PASS
+图：`visuals/course/TD-X603.svg`
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-W02.svg
-SVG SHA-256: 10c031eaa03a4cf39b59006014bd5a156657772b695a5d25451b50ef28b44eb6
-Screenshot SHA-256: b77151c17d4dec50d20d165b9e8fbafb14b549a9ac04ab6d4c5e9a2102dfdcb7
+SHA：`80524533c927f7e665e697e227534d118e087438a7c93272f61a7099b32a377b`
 
-核对msg-42完整回放与交付/最终检查：动作receipt不等于任务完成，重投先checkpoint+receipt+当前scope，写后崩溃跳过已写；预算、审批超时handoff、损坏stopped与completed分开。
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-用三个重叠原宽裁块覆盖0至3959全部行。03重投→恢复、04/05/06输入证据、07completed、08stopped、09预算、10新动作、11跳过已提交、12预算停、13handoff、14至18回执/反馈/拒绝逐号核查，旧回返长线交叉已被外轨和跨线桥分隔。
+当前发现：无。
 
-No current concrete P1/P2/P3 finding.
+## TD-X604 — PASS
 
-Prior finding resolved=true: 恢复状态机多条回返线跨越主链并交叉，关键“跳过已提交写入”路径难以追踪。
-11跳过已提交写入、15崩溃重投、16正常确认、17有效handoff各有独立编号轨；07/08/12/13终止/交接条件可逐项核查。
+图：`visuals/course/TD-X604.svg`
 
-### TD-W03 - PASS
+SHA：`331f1600b8ec2a9c21fd220bb84b51e98c2768da9ea8a1d1257d13e9f62b8961`
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-W03.svg
-SVG SHA-256: 23efc8f1b2b882f32aafdb8dfbe8626c52673f2266f7b50784b8f52f3259b7b7
-Screenshot SHA-256: 42900079d44c5f74a6fb932d21a00902f37fab0f6dd308e547d5026eea021b61
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-核对并行实验架构及故障：冻结任务/工具、两臂相同总预算与重复数，配对差值及协作成本；预算工具干预不齐confounded，噪声内UNKNOWN，不以教学任务量代统计功效。
+当前发现：无。
 
-完整查看新截图：同资源实验两臂与逐任务配对结果、成本双流明确，混杂红边已移外侧；输入/结果的局部交叉保留P3，不把图高或轨线长度当阻断。
+## TD-X602 — PASS
 
-- P3: 并行实验输入与结果处仍有局部异色交叉。
-  Evidence: 01→04蓝边与02→03橙边在实验臂上方贴合，03→06蓝边与04→05紫边在中段交叉；预算混杂长红边已走外侧，箭头可追踪。
-  Suggested fix: 将共享任务和共享预算顶栏分开下发，再把两臂结果在底部汇总。
+图：`visuals/course/TD-X602.svg`
 
-Prior finding resolved=false: 两臂输入与结果交叉，削弱并行对照的清晰度。
-混杂长红边已移外侧，但任务/预算和结果/成本两处局部异色交叉仍存在，保留P3；路径与条件可追踪。
+SHA：`30c97a19ebe88bdaaa65b6205378f2a9486c4ace8c1221e7b515fc95128fbcf2`
 
-### TD-X603 - PASS
+本项 SVG 和规格字节未变，核验原实看 PNG 的 SHA 后继承已有 PASS；本轮新渲染仅作几何/QC检查，未冒充重新实看。
 
-output/svg-release-20261026/candidate/public/visuals/course/TD-X603.svg
-SVG SHA-256: 80524533c927f7e665e697e227534d118e087438a7c93272f61a7099b32a377b
-Screenshot SHA-256: 30933ad1a9a6eaf190a61206e09999e5dfe2a9fbdbe14c5542e155c35018da1c
-
-核对五环表、授权隔离反例、删除演练：隔离拒绝不授删除权，陈旧/污染失效且回溯历史；遗忘请求另核目标归属，主存/索引/缓存副本逐项读回与相似查询。
-
-用三个重叠原宽裁块覆盖0至4062全部行。06隔离拒绝、07纠错、09单独删除鉴权、10无权拒绝、11获准清副本、08纠错反馈及12至15回归证据逐号可查；三路不再在中心交叉，删除权限前提明确。
-
-No current concrete P1/P2/P3 finding.
-
-Prior finding resolved=true: 三路治理主题在主图中被交叉长边重新混在一起。
-隔离06、纠错07/08、删除09/10/11独立成轨，回归12至15各自入端口，旧中央交叉不再出现。
-
-### TD-X604 - PASS
-
-output/svg-release-20261026/candidate/public/visuals/course/TD-X604.svg
-SVG SHA-256: 331f1600b8ec2a9c21fd220bb84b51e98c2768da9ea8a1d1257d13e9f62b8961
-Screenshot SHA-256: 4e701f065d7c11dfcc15490faeeec1d36b24dc4300a44a2b21db18e59b04b129
-
-核对fallback安全链、四项重测及停止表：能力区域、Schema、重新授权、共同输入/输出检查与工具写前控制均保留；主路径失效重新选择，拒绝独立留痕，工具结果另查Oracle与账本。
-
-用三个重叠原宽裁块覆盖0至3696全部行。01至08完整主/备用安全链按顺序可查，04重新选择反馈独立，11至16拒绝标签紧贴源出线且在09分别有端口，09无工具/10工具结果分别进Trace。旧远距漂移和中心拒绝线束已解。
-
-No current concrete P1/P2/P3 finding.
-
-Prior finding resolved=true: 安全链被多条长拒绝边贯穿，条件标签远离所属门禁，难以逐级核对。
-11至16拒绝条件贴对应节点出线，09拒绝有分端口；主链01至08与反馈04可独立追踪。
-
-### TD-X602 - PASS
-
-output/svg-release-20261026/candidate/public/visuals/course/TD-X602.svg
-SVG SHA-256: 30c97a19ebe88bdaaa65b6205378f2a9486c4ace8c1221e7b515fc95128fbcf2
-Screenshot SHA-256: b73d483d2b52e1ea675cd6f7ba9fe0b742b3e26e04c6abd5221a408759879c4e
-
-核对Fault及回滚排查：基座/代码/超参/lineage可定位，封存holdout独立，污染使旧结论作废；配对切片、独立Owner和模型/Prompt/索引成组回滚，训练及生产NOT_RUN。
-
-完整查看新截图：lineage/快照/holdout三路进comparison，回滚组合独立供Owner，污染/许可失败红边独立到决定；回滚标题完整词换行，旧拆字已修。
-
-No current concrete P1/P2/P3 finding.
-
-Prior finding resolved=true: 决策节点标题“回滚”被拆字。
-08决策标题将“回滚”完整换行，不再拆为“回/滚”。
-
-Only current course-2.json/md updated. Round-1 reports, assets, source code and deployment unchanged.
+当前发现：无。

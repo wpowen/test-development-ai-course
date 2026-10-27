@@ -10,6 +10,14 @@ const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const dir=resolve(projectRoot,'docs/svg-redesign-2026-10-26');
 const receipt=JSON.parse(await readFile(resolve(dir,'published-release.json'),'utf8'));
 assert.equal(receipt.status,'REVIEWED_AND_PROMOTED');
+if(receipt.quality_requirement==='NO_OPEN_FINDINGS'){
+ const bytes=await readFile(resolve(dir,'polish-closure.json'));
+ assert.equal(sha(bytes),receipt.polish_closure_sha256,'Polish closure changed');
+ const closure=JSON.parse(bytes);
+ assert.equal(closure.status,'ALL_CLOSED');assert.equal(closure.finding_count,18);
+ assert.equal(closure.current_open_findings,0);assert.equal(closure.targets.length,18);
+ assert.ok(closure.targets.every(row=>row.status==='CLOSED'&&receipt.file_hashes['public/'+row.path]===row.reviewed_sha256),'Polish closure must bind current published SVGs');
+}
 assert.equal(Object.keys(receipt.file_hashes).length,133);
 const manifest=JSON.parse(await readFile(resolve(dir,'redraw-manifest.json'),'utf8'));
 assert.equal(sha(await readFile(resolve(dir,'redraw-manifest.json'))),receipt.manifest_sha256);
@@ -30,6 +38,7 @@ for(const [path,hash] of Object.entries(receipt.file_hashes))assert.equal(sha(aw
 for(const v of manifest.visuals){
  const review=reviews.get(v.path);assert.equal(review?.sha256,v.sha256,`Review stale: ${v.id}`);
  assert.equal(review.verdict,'PASS');assert.equal(review.visual_inspected,true);assert.equal(review.body_checked,true);
+ if(receipt.quality_requirement==='NO_OPEN_FINDINGS')assert.deepEqual(review.findings,[],`Open finding blocks the polish release: ${v.id}`);
  assert.ok(!review.findings.some(f=>/^P[12]$/.test(f.severity)&&!f.resolved&&!['FIXED','RESOLVED','CLOSED'].includes(f.status)));
  assert.equal(v.spec_sha256,sha(JSON.stringify(designs.get(v.path))),`Design changed: ${v.id}`);
  assert.equal(receipt.file_hashes['public/'+v.path],v.sha256);

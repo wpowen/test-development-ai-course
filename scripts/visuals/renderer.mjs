@@ -1,3 +1,6 @@
+import {render as renderArchitecture} from './layouts/architecture.mjs';
+import {render as renderCourse2} from './layouts/course-2.mjs';
+import {render as renderCourse3} from './layouts/course-3.mjs';
 import {wrapText, createDotSource, renderRoutedGraph} from './routing.mjs';
 /** Native SVG typography over explicit semantic graphs; no raster images. */
 export const palette = {
@@ -139,9 +142,9 @@ function special(c,s,y){
   c.region('reassessment',88,y+1300,1424,174,'#fff5e5','none');c.text(112,y+1341,'复评出口：工件 / evidence_ref → 独立 Reviewer → 分歧记录 → 下一轮',25,colors.control,700);c.text(112,y+1388,`Reviewer：${s.reassessment?.reviewer||'待填写'}   ·   review_date：${s.reassessment?.review_date||'待填写'}   ·   task_owner：待具名`,23,colors.ink);c.block(112,y+1430,'引用打不开、故障未检出或分歧未闭合时保留 UNKNOWN，修正 Oracle 或补工件后再复评。',1360,23,colors.muted,450,34);c.end();c.end();return y+h;
  }
  if(s.path.endsWith('career-evidence-gantt.svg')){
-  const h=690;c.region('evidence-windows',64,y,1472,h);c.text(88,y+45,'用证据窗口安排工作：先验收前窗，再决定下一窗',27,colors.ink,700);c.text(88,y+83,'顺序示意 · 30 / 60 / 90 天属于可编辑规划，不是实际工期或晋升承诺',21,colors.muted);
+  const h=960;c.region('evidence-windows',64,y,1472,h);c.text(88,y+45,'用证据窗口安排工作：先验收前窗，再决定下一窗',27,colors.ink,700);c.text(88,y+83,'顺序示意 · 30 / 60 / 90 天属于可编辑规划，不是实际工期或晋升承诺',21,colors.muted);
   for(let i=0;i<3;i++){const n=s.nodes[i],x=88+i*482;const tone=Object.values(palette)[i];c.region(`window-${i}`,x,y+127,452,306,tone.fill,'none','node');c.text(x+24,y+174,`0${i+1}`,20,tone.ink,750,'class="mono"');c.block(x+24,y+228,n.title,400,30,tone.ink,700,42);let ly=y+284;for(const str of n.body){ly+=c.block(x+24,ly,str,400,24,colors.ink,450,36)+14;}c.end();if(i<2)c.path(`M${x+457} ${y+280} L${x+468} ${y+280}`,'evidence');}
-  c.rect(88,y+474,1424,158,'#fff5e5','none',12);c.text(112,y+517,'进入下一窗的判据',26,colors.control,700);c.block(112,y+561,'先核对前窗工件、故障收据与 Reviewer；窗口到期不会自动授予能力或责任。故障未打红，回到 Oracle 设计；复评分歧未闭合，升级给 Owner。',1360,24,colors.ink,450,36);c.end();return y+h;
+  c.rect(88,y+474,1424,158,'#fff5e5','none',12);c.text(112,y+517,'进入下一窗的判据',26,colors.control,700);c.block(112,y+561,'先核对前窗工件、故障收据与 Reviewer；窗口到期不会自动授予能力或责任。故障未打红，回到 Oracle 设计；复评分歧未闭合，升级给 Owner。',1360,24,colors.ink,450,36);c.region('next-window-plan',88,y+665,1424,243,'#edf3ff','none');c.text(112,y+709,'下一轮计划 · 由 Owner 与 Reviewer 填写',26,colors.input,700);c.text(112,y+756,'next_artifact：待填写     reviewer：待具名',24,colors.ink);c.text(112,y+803,'next_review：待填写     gap_route：待 Owner 确认',24,colors.ink);c.text(112,y+867,'保留分歧与责任范围；未填写不代表已有个人计划或已通过复评。',22,colors.muted);c.end();c.end();return y+h;
  }
  if(s.path.endsWith('career-responsibility-ladder.svg')){
   const h=850;c.region('responsibility-ladder',64,y,1472,h);c.text(88,y+45,'责任范围逐级扩大，决定权必须另有明确授权',27,colors.ink,700);c.text(88,y+83,'成长方向示意 · 不按年限、课程数量或 P5–P9 直接授予职级',21,colors.muted);
@@ -201,7 +204,7 @@ export async function renderSpec(s,viz){
  if(!s.id||!s.title||!s.thesis||!s.path)throw Error('Incomplete spec');
  const ids=new Set(s.nodes.map(n=>n.id));if(ids.size!==s.nodes.length)throw Error(`${s.id}: duplicate node`);
  for(const e of s.edges)if(!ids.has(e.from)||!ids.has(e.to))throw Error(`${s.id}: invalid edge ${e.from}→${e.to}`);
- const c=new Canvas();let y=header(c,s);const sp=special(c,s,y);y=sp??await graph(c,s,y,viz);y=sections(c,s,y);const h=Math.ceil(footer(c,s,y));
+ const c=new Canvas();let y=header(c,s);const sp=renderArchitecture(c,s,y,{wrap,widthOf,palette,colors,esc})??renderCourse2(c,s,y,{wrap,widthOf,palette,colors,esc})??renderCourse3(c,s,y,{wrap,widthOf,palette,colors,esc})??special(c,s,y);y=sp??await graph(c,s,y,viz);y=sections(c,s,y);const h=Math.ceil(footer(c,s,y));
  const metadata={version:'2.0.0',id:s.id,pageIds:s.pageIds,primaryPageIds:s.primaryPageIds,layout:s.layout,sourceRefs:s.sourceRefs,supplementalSources:s.supplementalSources||[],nodes:s.nodes.map(({id,title})=>({id,title})),edges:s.edges};
  const desc=`${s.thesis} ${s.focus} ${s.boundary||''}`;
  return `<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="${h}" viewBox="0 0 1600 ${h}" role="img" aria-labelledby="title desc" data-redraw-version="2">\n<title id="title">${esc(s.title)}</title><desc id="desc">${esc(desc)}</desc><metadata data-source-ref="${esc(s.sourceRefs?.map(r=>r.path+'#'+r.locator).join(';'))}">${esc(JSON.stringify(metadata))}</metadata>\n<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style>${defs()}\n<rect width="1600" height="${h}" fill="${colors.paper}"/><rect width="10" height="174" fill="${colors.input}"/>\n${c.p.join('\n')}\n</svg>\n`;

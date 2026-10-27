@@ -705,7 +705,7 @@
       ],
       "rendered_path": "visuals/AG-DIM-ARCHITECTURE.svg",
       "editable_path": "visuals/agent-visual-source.json",
-      "sha256": "0c0379deba67d04701b1bcbcdc18d5ef409413e480bc29e7f1aecb5ae0aa30e5",
+      "sha256": "8816c2511554538ea65c243bee14620bcc9f4ee90d369d6730fba8daa41dde19",
       "rendering_layout": "layers",
       "body_refs": [
         {
@@ -835,7 +835,7 @@
       ],
       "rendered_path": "visuals/AG-DIM-GATE.svg",
       "editable_path": "visuals/agent-visual-source.json",
-      "sha256": "5e31beb0fa2d6d90d475ad784aecb0e08139e783cf5e28104c1c22fef7843577",
+      "sha256": "5ff7d24dfe5accd82e54802832a04887cae0bfb8a337462f93d8ff324ed1de46",
       "rendering_layout": "decision",
       "body_refs": [
         {
@@ -912,7 +912,7 @@
       ],
       "rendered_path": "visuals/AG-DIM-36.svg",
       "editable_path": "visuals/agent-visual-source.json",
-      "sha256": "6b76e5912d9af2abef90370bebbed59353d86b2ef5a5e64608b9b5c3f74898c1",
+      "sha256": "439e037aee1713a5d03533798118e26dc4052d8006c9b46c20ad46214932c63a",
       "rendering_layout": "dimensions",
       "body_refs": [
         {

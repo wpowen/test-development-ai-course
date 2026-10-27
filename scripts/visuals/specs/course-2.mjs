@@ -30,7 +30,7 @@ export default [
     sourceRefs: [r('TD-T05','架构节点与交付物','「独立 Oracle 注册表」与「风险候选生成」并列而不串联'),r('TD-T05','Fault 预期退出 2','故障删除审计风险的 diff_ref，并注入不存在的 SLA/Oracle。')],
   }),
   p({
-    id: 'TD-T06', layout: 'comparison', title: '同一候选在正常代码与变异代码上对照',
+    id: 'TD-T06', nativeLayout: 'course-2-panels', layout: 'comparison', title: '同一候选在正常代码与变异代码上对照',
     thesis: '先证明批准实现上通过，再证明已知守卫被破坏时，相关断言确实变红。',
     focus: 'Baseline 与 Mutation 共用独立期望，分别回答能跑通和能杀错',
     nodes: [
@@ -116,7 +116,7 @@ export default [
     sourceRefs: [r('TD-A01','把协议和决策写成可检查模型','把输入划为 protocol、generation_manifest、behavior、serving_metrics、reliability 五层；每层有独立证据与 owner。'),r('TD-A01','重放 0 → 1 → 0','删除 request_id 并把内部模型版本写成伪造的固定值')],
   }),
   p({
-    id: 'TD-A02', layout: 'comparison', title: '四种协议的过程判据分别核对',
+    id: 'TD-A02', nativeLayout: 'course-2-panels', layout: 'comparison', title: '四种协议的过程判据分别核对',
     thesis: 'SSE、结构化、工具与异步各自验证过程；工具执行结果必须如实回填，账本另证真实副作用。',
     focus: '工具请求经授权执行后，成功、失败与未知状态怎样回填并进入协议门禁',
     nodes: [
@@ -133,7 +133,7 @@ export default [
     ],
     edges: [e('request','sse','流式'),e('request','structured','结构化'),e('request','tool','工具请求'),e('request','async','异步'),e('tool','execute','获准且幂等未命中','control'),e('tool','fallback','授权拒绝或前置缺失','risk'),e('tool','ledger','重复请求：先查已有状态','evidence'),e('execute','refill','执行成功：先回填真实结果','control'),e('execute','fallback','失败、超时或取消','risk'),e('fallback','ledger','超时未知：查询幂等状态','evidence'),e('fallback','refill','回填失败/未知并安全回退','control'),e('ledger','refill','工具重复请求已有已确认结果','evidence'),e('execute','ledger','独立核对执行副作用','evidence'),e('sse','ledger','终态对应的业务状态','evidence'),e('structured','ledger','字段对应的业务状态','evidence'),e('async','ledger','任务与回调终态核对','evidence'),e('sse','gate','事件顺序与结束完整性','evidence'),e('structured','gate','结构与语义分别出分','evidence'),e('async','gate','状态集合与回调顺序','evidence'),e('refill','gate','执行→回填→后续内容的时序','evidence'),e('ledger','gate','业务终态与至多一次副作用','evidence')],
     ranks: [['request'],['sse','structured','async'],['tool','execute','fallback'],['refill','ledger'],['gate']],
-    sections: [s('过程断言在哪里','process','SSE 查顺序与结束，JSON 查字段不变量','Tool 查执行、结果回填与失败回退'),s('不能把失败写成成功','risk','工具获准但执行失败仍须回填失败','后续内容不能假定工具已经完成'),s('怎样安全恢复','control','断流重试先查幂等状态与真实账本','回调去重；副作用计数为二必须打红')],
+    sections: [s('过程断言在哪里','process','SSE 查顺序与结束\nJSON 查字段不变量','Tool 查执行、结果回填与失败回退'),s('不能把失败写成成功','risk','工具获准但执行失败仍须回填失败','后续内容不能假定工具已经完成'),s('怎样安全恢复','control','断流重试先查幂等状态与真实账本','回调去重；副作用计数为二必须打红')],
     failure: '取消、断流、工具失败或异步部分失败不能被最终文本掩盖；过程判据与副作用账本分别核对。',
     outcome: '交付四协议状态机、工具执行/回填时序、独立账本与故障重放报告。',
     boundary: '离线事件和账本 fixture 未运行真实 SSE、代理缓冲、工具或任务队列。',
@@ -247,7 +247,7 @@ export default [
     sourceRefs: [r('TD-T09','准入 Gate 发生在 embedding 之前','没有 owner、版本或权限的文档不进入当前索引'),r('TD-T09','带走一份语料准入与变更检查清单','权限与删除变更必须传播到索引与缓存')],
   }),
   p({
-    id: 'TD-T10', layout: 'decision', title: 'Gold 在哪一层丢失，就修哪一层',
+    id: 'TD-T10', nativeLayout: 'course-2-panels', layout: 'decision', title: 'Gold 在哪一层丢失，就修哪一层',
     thesis: '检索和生成独立出分：先找必要证据是否存在、是否召回、如何排序及是否进入最终上下文。',
     focus: 'Gold/qrels 约束下的召回、排序、上下文与生成故障分流',
     nodes: [
@@ -292,7 +292,7 @@ export default [
     sourceRefs: [r('TD-T11','给了引用不等于说了实话，这两件事的判据完全不同','第二层核查指定引用片段是否支持相邻 claim'),r('TD-T11','给了引用不等于说了实话，这两件事的判据完全不同','不能证明上下文事实正确、答案完整或引用对齐'),r('TD-T11','这一页的验收口径：逐条声明，不是整段打分','高风险错误引用单独阻断'),r('TD-T11','三个容易混淆的质量问题','citation alignment：引用是否对应声明')],
   }),
   p({
-    id: 'TD-T12', layout: 'decision', title: '证据、权限与拒答共同约束 RAG 终态',
+    id: 'TD-T12', nativeLayout: 'course-2-panels', layout: 'decision', title: '证据、权限与拒答共同约束 RAG 终态',
     thesis: '没有可用依据时拒答或交接；正确答案不能抵消跨租户检索和未授权副作用。',
     focus: '已知、无答案、冲突和越权各有可验证终态，先关 blocker 再谈质量',
     nodes: [
@@ -401,7 +401,7 @@ export default [
     sourceRefs: [r('TD-T14','校准的五个步骤与各自的判据','人人一致性低时，问题在评分标准而不在 Judge，先改 rubric。'),r('TD-T14','架构节点与交付物','Judge 违反预注册的关键错误、切片或稳定性门槛时必须停用并回退人审')],
   }),
   p({
-    id: 'TD-T15', layout: 'layers', title: 'Agent 的结果、单步与轨迹分别判定',
+    id: 'TD-T15', nativeLayout: 'course-2-panels', layout: 'layers', title: 'Agent 的结果、单步与轨迹分别判定',
     thesis: '最终转人工可以正确，途中调用禁止的退款工具仍须失败；合法替代路径应被允许。',
     focus: '三层并列证据与横切策略 blocker，不用一条黄金路径或一个总分替代',
     nodes: [
@@ -557,7 +557,7 @@ export default [
     sourceRefs: [r('TD-W02','W02 完整跟做：可恢复状态机的故障回放','正确结果是第二次只读幂等账本并恢复 checkpoint，业务写入总数仍为 1'),r('TD-W02','W02 交付演练：故障恢复要有人能接手','先读取最后 checkpoint，再核对 idempotency receipt 和当前 scope'),r('TD-W02','W02 交付演练：故障恢复要有人能接手','第三种应触发有预算的 handoff，不得绕过审批自动完成'),r('TD-W02','W02 最终检查：恢复结论必须可交接','避免把 stopped、failed 和 completed 混成一个成功字段')],
   }),
   p({
-    id: 'TD-W03', layout: 'metric', title: '单 Agent 与多 Agent 在同预算下比较',
+    id: 'TD-W03', nativeLayout: 'course-2-panels', layout: 'metric', title: '单 Agent 与多 Agent 在同预算下比较',
     thesis: '相同任务、权限与总预算下重复运行，才能把架构收益和资源投入区分开。',
     focus: '两条实验臂并列，共享预算控制，配对差值与协作代价一起支撑架构选择',
     nodes: [

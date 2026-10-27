@@ -181,7 +181,7 @@
       "TD-P01"
     ],
     "sha256": "87de43a546964ce05cade0aacece0e003f695f8a8d8a45a4c44cc81f972c86a3",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-P01.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-P01.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P01.png"
   },
   {
@@ -372,7 +372,7 @@
       "TD-P02"
     ],
     "sha256": "4ff1b236aa4dd283497088011d166097d6cf188a7c502256232d6da9468a8e0d",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-P02.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-P02.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P02.png"
   },
   {
@@ -575,7 +575,7 @@
       "TD-P03"
     ],
     "sha256": "504d851f609214f0133d331a3c08662f42361c16da2f65f11e75a9c90e6a8bfe",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-P03.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-P03.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P03.png"
   },
   {
@@ -752,7 +752,7 @@
       "TD-P04"
     ],
     "sha256": "296e553fdcbd4f061384ec4c1d5eb443342743e41422b1700ca72ed66ea303e6",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-P04.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-P04.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P04.png"
   },
   {
@@ -931,7 +931,7 @@
       "TD-P05"
     ],
     "sha256": "b8c28ab600262b0fa54e9bcb0e91fc7b97020323b749cbe927a3b774553ce5dc",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-P05.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-P05.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P05.png"
   },
   {
@@ -1122,7 +1122,7 @@
       "TD-P06"
     ],
     "sha256": "a475fa1b3ae11ea3f060bf24c451da3412f0142b7cd1a00d81c900b28084a618",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-P06.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-P06.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P06.png"
   },
   {
@@ -1307,7 +1307,7 @@
       "TD-P07"
     ],
     "sha256": "e588ed0bb7a496adf8ec6af951ef5a8e36c0cf273123b29b7497f90a18d173c4",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-P07.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-P07.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P07.png"
   },
   {
@@ -1498,7 +1498,7 @@
       "TD-P08"
     ],
     "sha256": "c6782300bf5d534095dd55712cfa1cd4d3f36dd40779c16e26ae0ed12d0ecd8a",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-P08.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-P08.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P08.png"
   },
   {
@@ -1717,7 +1717,7 @@
       "TD-PS01"
     ],
     "sha256": "e62da51f7379278d56c5fa1c4f467101ff4bf058b894d29e15258ac848845d49",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-PS01.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-PS01.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS01.png"
   },
   {
@@ -1930,7 +1930,7 @@
       "TD-PS02"
     ],
     "sha256": "9857d8fa8d351d50bb56297b3e2214d3f65a1d0812afd82bc7cd96dd1e1b173e",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-PS02.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-PS02.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS02.png"
   },
   {
@@ -2127,7 +2127,7 @@
       "TD-PS03"
     ],
     "sha256": "b88a7fb209b79c70c57bcea62441999cba71c1fae163886414c2d82b55a2ace8",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-PS03.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-PS03.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS03.png"
   },
   {
@@ -2312,7 +2312,7 @@
       "TD-PS04"
     ],
     "sha256": "cdbdde297e5e34c3a09db35bf2676daf7589dc3b77bcea1bf7197237f7a1a064",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-PS04.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-PS04.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS04.png"
   },
   {
@@ -2322,6 +2322,7 @@
       "TD-PS05"
     ],
     "supplementalSources": [],
+    "routing": "outer-rails",
     "layout": "comparison",
     "title": "语义、键盘与视觉分开验收",
     "thesis": "自动规则、任务旅程和骨架快照发现不同问题；机器判不了的语义和基线差异交给具名人工。",
@@ -2520,8 +2521,8 @@
     "primaryPageIds": [
       "TD-PS05"
     ],
-    "sha256": "0dec420d6f69d868bd2ca5f2c72b457b5b504fa6424ea6552a854f98eb39b5e3",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-PS05.svg",
+    "sha256": "bdb94e1aae2a42c575ff2ddfd1bab49fb1207329edda1991e6fbd5912b022c01",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-PS05.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS05.png"
   },
   {
@@ -2531,6 +2532,7 @@
       "TD-PS06"
     ],
     "supplementalSources": [],
+    "routing": "outer-rails",
     "layout": "state",
     "title": "生命周期被打断，库存仍只入账一次",
     "thesis": "客户端恢复与服务端幂等共同保护扫描状态；界面恢复不能替代库存账本对账。",
@@ -2644,7 +2646,8 @@
         "from": "restore",
         "to": "queue",
         "label": "恢复待同步项",
-        "kind": "feedback"
+        "kind": "feedback",
+        "routeSide": "left"
       },
       {
         "from": "sync",
@@ -2727,8 +2730,8 @@
     "primaryPageIds": [
       "TD-PS06"
     ],
-    "sha256": "f915f4d864a40dae4c5b74a4a7b36858bffc27c0398c8a7f5e9152d365cd068c",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-PS06.svg",
+    "sha256": "0d6253d46477e9727d5da4b4c3e1b872f83330a5cb497643f59899563c171d28",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-PS06.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS06.png"
   },
   {
@@ -2935,7 +2938,7 @@
       "TD-PS07"
     ],
     "sha256": "0a57f5a9e001233d55520470ec1d25cc3a0a180820e715bf5c7d00bc36a22562",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-PS07.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-PS07.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS07.png"
   },
   {
@@ -3154,7 +3157,7 @@
       "TD-PS08"
     ],
     "sha256": "2c8eb5acac1c3523fe64c8963b56f2e2280200a41f7cba86867b25f318c45558",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-PS08.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-PS08.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS08.png"
   },
   {
@@ -3361,7 +3364,7 @@
       "TD-PS09"
     ],
     "sha256": "9b050baf07ea7c69d36459aa373043a535541f69ffdb2a7b83cce7c7153ca8f0",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-PS09.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-PS09.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS09.png"
   },
   {
@@ -3580,7 +3583,7 @@
       "TD-PS10"
     ],
     "sha256": "6329cef3696256665bc38e65acb752e1aa64f4fd508691b18b71bfc980209eb2",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-PS10.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-PS10.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS10.png"
   },
   {
@@ -3789,7 +3792,7 @@
       "TD-PS11"
     ],
     "sha256": "f47f5c6be2d84f88341f9f4c69d041f08c080f36ffc3094cb06082df2413d95f",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-PS11.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-PS11.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS11.png"
   },
   {
@@ -4002,7 +4005,7 @@
       "TD-PS12"
     ],
     "sha256": "963d1c6998a78d9995266814f95f60c22d5d66fa4f3142d403231d8a9013cef6",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-PS12.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-PS12.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS12.png"
   },
   {
@@ -4215,7 +4218,7 @@
       "TD-X101"
     ],
     "sha256": "b7c0e5195917f539bf604917a742ba2cde65214c8a6170012c8120de77b986aa",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-X101.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-X101.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X101.png"
   },
   {
@@ -4428,7 +4431,7 @@
       "TD-FP01"
     ],
     "sha256": "0156bac39197e82be7b9ca41d1614522766506bc5dd247fa4cfff91e95e81d31",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-FP01.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-FP01.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-FP01.png"
   },
   {
@@ -4625,7 +4628,7 @@
       "TD-F02"
     ],
     "sha256": "f144c79d1112d4245146f767e1ff817ad8c94d5d8a510078cb05ae7509f8d34b",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-F02.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-F02.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-F02.png"
   },
   {
@@ -4844,7 +4847,7 @@
       "TD-F03"
     ],
     "sha256": "eff0c6343767e5ca72db58b69bf92e79f55b08d9b049fe934048b8982a16dddf",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-F03.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-F03.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-F03.png"
   },
   {
@@ -5063,7 +5066,7 @@
       "TD-F04"
     ],
     "sha256": "6fda135c0d4070ed3df04fcf42e667fb1e868c3f636370e648b1e480813af4b8",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-F04.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-F04.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-F04.png"
   },
   {
@@ -5264,7 +5267,7 @@
       "TD-T01"
     ],
     "sha256": "feb5a78e3396199ed1db5a11867f77d6e25a40c92df4c80d781619cf02b6c2dd",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T01.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T01.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T01.png"
   },
   {
@@ -5471,7 +5474,7 @@
       "TD-T02"
     ],
     "sha256": "6325a3c306ee20c4fbe86316b7170dc536d649aef732498c1a0473d4d94ac52d",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T02.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T02.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T02.png"
   },
   {
@@ -5696,7 +5699,7 @@
       "TD-T03"
     ],
     "sha256": "de4a8abe359375b376350c06b87f0f9c2fee6fe6d6e15f4e1f6d622181bfe3e7",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T03.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T03.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T03.png"
   },
   {
@@ -5905,7 +5908,7 @@
       "TD-T04"
     ],
     "sha256": "75ef2da69e3ad3fa25c888a54529193e5d0ecd9ccb650b7746ee236126cdb11f",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T04.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T04.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T04.png"
   }
 ]

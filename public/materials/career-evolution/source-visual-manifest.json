@@ -376,7 +376,7 @@
       "purpose": "单位为顺序证据窗口；不按条长、日历坐标或百分比暗示实际进度",
       "rendered_path": "visuals/career-evidence-gantt.svg",
       "editable_path": "visuals/career-visual-source.json",
-      "sha256": "bb8abf02a1fe5ed39d8899226e3bf5b1b6886117575d3b70a57acb1299a57fd5",
+      "sha256": "b933dd0aed51eb474c0ee3164f39db568b606d174a89a2a7ec9692551be6f92c",
       "alt_text": "三个证据窗口各有退出条件。用A/B/C窗口对比基线、故障和复评交付；课程30/60/90天是可编辑规划示例，不是测得工期或晋升时钟。 单位为顺序证据窗口；不按条长、日历坐标或百分比暗示实际进度",
       "caption": "用A/B/C窗口对比基线、故障和复评交付；课程30/60/90天是可编辑规划示例，不是测得工期或晋升时钟。 静态设计与 fixture 不证明个人能力、职级、晋升、就业或薪资；真实学习与组织效果 NOT_RUN，组织映射 INTERNAL-UNKNOWN。",
       "not_proof": "静态设计与 fixture 不证明个人能力、职级、晋升、就业或薪资；真实学习与组织效果 NOT_RUN，组织映射 INTERNAL-UNKNOWN。",

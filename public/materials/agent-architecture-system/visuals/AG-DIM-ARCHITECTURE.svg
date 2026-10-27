@@ -1,256 +1,308 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="4230" viewBox="0 0 1600 4230" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="5352" viewBox="0 0 1600 5352" role="img" aria-labelledby="title desc" data-redraw-version="2">
 <title id="title">从退款风险到具名停止动作</title><desc id="desc">总架构先显式画出状态、信任和副作用边界，再把 D0–D7、证据环、护栏和失败回灌连接起来。 退款工具权限越界：确定性策略 Oracle、受控执行边界与人工 owner 联合收口 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。</desc><metadata data-source-ref="content/modules/agent-architecture-system.ts#TD-AG-00 / workflow;content/modules/agent-architecture-system.ts#TD-AG-00 / expected;content/modules/agent-architecture-deep.ts#TD-AG-00 / dimensions.caption;content/modules/agent-architecture-deep.ts#TD-AG-00 / counter;content/modules/agent-architecture-deep.ts#TD-AG-09 / failureModes;docs/svg-redesign-2026-10-26/body-sources/material-pages.json#TD-AG-00 / summary">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;AG-DIM-ARCHITECTURE&quot;,&quot;pageIds&quot;:[&quot;TD-AG-00&quot;],&quot;primaryPageIds&quot;:[&quot;TD-AG-00&quot;],&quot;layout&quot;:&quot;layers&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;content/modules/agent-architecture-system.ts&quot;,&quot;locator&quot;:&quot;TD-AG-00 / workflow&quot;,&quot;quote&quot;:&quot;列出节点、状态、信任边界、工具和副作用&quot;},{&quot;path&quot;:&quot;content/modules/agent-architecture-system.ts&quot;,&quot;locator&quot;:&quot;TD-AG-00 / expected&quot;,&quot;quote&quot;:&quot;每条风险边都有证据、停止状态和责任人。&quot;},{&quot;path&quot;:&quot;content/modules/agent-architecture-deep.ts&quot;,&quot;locator&quot;:&quot;TD-AG-00 / dimensions.caption&quot;,&quot;quote&quot;:&quot;D0 校准所有分数&quot;},{&quot;path&quot;:&quot;content/modules/agent-architecture-deep.ts&quot;,&quot;locator&quot;:&quot;TD-AG-00 / counter&quot;,&quot;quote&quot;:&quot;四个环是横向驱动 D1/D4/D5/D6 的，不是串在末尾。&quot;},{&quot;path&quot;:&quot;content/modules/agent-architecture-deep.ts&quot;,&quot;locator&quot;:&quot;TD-AG-09 / failureModes&quot;,&quot;quote&quot;:&quot;发生一次即不可接受的事件不能做成区间判定&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/material-pages.json&quot;,&quot;locator&quot;:&quot;TD-AG-00 / summary&quot;,&quot;quote&quot;:&quot;用 D0–D7、四证据环和运行时护栏画出 Agent 被测边界，知道一条结论从哪里来、由谁负责。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;input&quot;,&quot;title&quot;:&quot;输入与风险&quot;},{&quot;id&quot;:&quot;d0&quot;,&quot;title&quot;:&quot;D0 评估可信&quot;},{&quot;id&quot;:&quot;behavior&quot;,&quot;title&quot;:&quot;D1–D3 行为边界&quot;},{&quot;id&quot;:&quot;distribution&quot;,&quot;title&quot;:&quot;D4 可靠性证据&quot;},{&quot;id&quot;:&quot;security&quot;,&quot;title&quot;:&quot;D5 安全信任边界&quot;},{&quot;id&quot;:&quot;cost&quot;,&quot;title&quot;:&quot;D6 效率资源边界&quot;},{&quot;id&quot;:&quot;business&quot;,&quot;title&quot;:&quot;D7 业务责任边界&quot;},{&quot;id&quot;:&quot;rings&quot;,&quot;title&quot;:&quot;四证据环&quot;},{&quot;id&quot;:&quot;guard&quot;,&quot;title&quot;:&quot;运行时护栏&quot;},{&quot;id&quot;:&quot;decision&quot;,&quot;title&quot;:&quot;决策与反馈&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;input&quot;,&quot;to&quot;:&quot;behavior&quot;,&quot;label&quot;:&quot;任务与状态流&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;d0&quot;,&quot;to&quot;:&quot;distribution&quot;,&quot;label&quot;:&quot;校准分数使用&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;d0&quot;,&quot;to&quot;:&quot;behavior&quot;,&quot;label&quot;:&quot;校准行为各域评分&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;d0&quot;,&quot;to&quot;:&quot;security&quot;,&quot;label&quot;:&quot;校准安全评分&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;d0&quot;,&quot;to&quot;:&quot;cost&quot;,&quot;label&quot;:&quot;校准资源评分&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;d0&quot;,&quot;to&quot;:&quot;business&quot;,&quot;label&quot;:&quot;校准治理评分&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;d0&quot;,&quot;to&quot;:&quot;decision&quot;,&quot;label&quot;:&quot;失准则所有评分不可用&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;behavior&quot;,&quot;to&quot;:&quot;distribution&quot;,&quot;label&quot;:&quot;完整轨迹&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;rings&quot;,&quot;to&quot;:&quot;behavior&quot;,&quot;label&quot;:&quot;各环执行&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;rings&quot;,&quot;to&quot;:&quot;distribution&quot;,&quot;label&quot;:&quot;各环重复与回放执行&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;rings&quot;,&quot;to&quot;:&quot;security&quot;,&quot;label&quot;:&quot;各环对抗&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;rings&quot;,&quot;to&quot;:&quot;cost&quot;,&quot;label&quot;:&quot;各环负载观测&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;security&quot;,&quot;to&quot;:&quot;guard&quot;,&quot;label&quot;:&quot;风险映射强制控制&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;business&quot;,&quot;to&quot;:&quot;guard&quot;,&quot;label&quot;:&quot;业务硬规则&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;distribution&quot;,&quot;to&quot;:&quot;decision&quot;,&quot;label&quot;:&quot;区间与失败切片&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;cost&quot;,&quot;to&quot;:&quot;decision&quot;,&quot;label&quot;:&quot;成本与暴露量&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;business&quot;,&quot;to&quot;:&quot;decision&quot;,&quot;label&quot;:&quot;规则与责任&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;guard&quot;,&quot;to&quot;:&quot;decision&quot;,&quot;label&quot;:&quot;拒绝与停止回执&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;security&quot;,&quot;to&quot;:&quot;decision&quot;,&quot;label&quot;:&quot;已证越权直接 BLOCKED&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;business&quot;,&quot;to&quot;:&quot;decision&quot;,&quot;label&quot;:&quot;已证硬规则违规直接阻断&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;decision&quot;,&quot;to&quot;:&quot;input&quot;,&quot;label&quot;:&quot;失败回灌&quot;,&quot;kind&quot;:&quot;feedback&quot;},{&quot;from&quot;:&quot;decision&quot;,&quot;to&quot;:&quot;d0&quot;,&quot;label&quot;:&quot;Judge 重校准&quot;,&quot;kind&quot;:&quot;feedback&quot;}]}</metadata>
 <style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
-<rect width="1600" height="4230" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<rect width="1600" height="5352" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
 <text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  AG-DIM-ARCHITECTURE</text>
 <text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >从退款风险到具名停止动作</text>
 <text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >总架构先显式画出状态、信任和副作用边界，再把 D0–D7、证据环、护栏和失败回灌连接起来。</text>
-<g id="system-graph" data-region="64,234,1472,3392">
-<rect x="64" y="234" width="1472" height="3392" rx="14" fill="#fff" stroke="#d9e2ed" />
-<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
-<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >退款工具权限越界：确定性策略 Oracle、受控执行边界与人工 owner 联合收口</text>
-<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
-<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
-<path d="M400 273 L400 349 L89 349 Q84 337 79 349 L63 349 L63 793 L79 793 Q84 781 89 793 L400 793 L400 847" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-data" d="M400 273 L400 349 L89 349 Q84 337 79 349 L63 349 L63 793 L79 793 Q84 781 89 793 L400 793 L400 847" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="input" data-to="behavior"/>
-<path d="M1057.5 273 L1057.5 349 L1090.75 349 Q1095.75 337 1100.75 349 L1357 349 Q1362 337 1367 349 L1380 349 L1380 807 L1367 807 Q1359 795 1351 807 L981 807 L981 847" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-control" d="M1057.5 273 L1057.5 349 L1090.75 349 Q1095.75 337 1100.75 349 L1357 349 Q1362 337 1367 349 L1380 349 L1380 807 L1367 807 Q1359 795 1351 807 L981 807 L981 847" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e1" data-from="d0" data-to="distribution"/>
-<path d="M866.25 273 L866.25 429 L899.5 429 Q904.5 417 909.5 429 L937.75 429 Q942.75 417 947.75 429 L976 429 Q981 417 986 429 L1090.75 429 Q1095.75 417 1100.75 429 L1357 429 Q1362 417 1367 429 L1375 429 Q1380 417 1385 429 L1398 429 L1398 821 L1391 821 Q1371 809 1351 821 L986 821 Q981 809 976 821 L502 821 L502 847" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-control" d="M866.25 273 L866.25 429 L899.5 429 Q904.5 417 909.5 429 L937.75 429 Q942.75 417 947.75 429 L976 429 Q981 417 986 429 L1090.75 429 Q1095.75 417 1100.75 429 L1357 429 Q1362 417 1367 429 L1375 429 Q1380 417 1385 429 L1398 429 L1398 821 L1391 821 Q1371 809 1351 821 L986 821 Q981 809 976 821 L502 821 L502 847" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e2" data-from="d0" data-to="behavior"/>
-<path d="M904.5 273 L904.5 509 L937.75 509 Q942.75 497 947.75 509 L976 509 Q981 497 986 509 L1090.75 509 Q1095.75 497 1100.75 509 L1357 509 Q1362 497 1367 509 L1386 509 L1386 1212 L1379 1212 Q1365 1200 1351 1212 L451 1212 L451 1252" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-control" d="M904.5 273 L904.5 509 L937.75 509 Q942.75 497 947.75 509 L976 509 Q981 497 986 509 L1090.75 509 Q1095.75 497 1100.75 509 L1357 509 Q1362 497 1367 509 L1386 509 L1386 1212 L1379 1212 Q1365 1200 1351 1212 L451 1212 L451 1252" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e3" data-from="d0" data-to="security"/>
-<path d="M1095.75 273 L1095.75 573 L1357 573 Q1362 561 1367 573 L1375 573 Q1380 561 1385 573 L1392 573 L1392 1226 L1379 1226 Q1365 1214 1351 1226 L981 1226 L981 1252" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-control" d="M1095.75 273 L1095.75 573 L1357 573 Q1362 561 1367 573 L1375 573 Q1380 561 1385 573 L1392 573 L1392 1226 L1379 1226 Q1365 1214 1351 1226 L981 1226 L981 1252" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e4" data-from="d0" data-to="cost"/>
-<path d="M942.75 273 L942.75 637 L976 637 Q981 625 986 637 L1357 637 Q1362 625 1367 637 L1374 637 L1374 1713 L1367 1713 Q1359 1701 1351 1713 L714 1713 L714 1739" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-control" d="M942.75 273 L942.75 637 L976 637 Q981 625 986 637 L1357 637 Q1362 625 1367 637 L1374 637 L1374 1713 L1367 1713 Q1359 1701 1351 1713 L714 1713 L714 1739" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e5" data-from="d0" data-to="business"/>
-<path d="M981 273 L981 717 L1356 717 L1356 2805 L841.4 2805 Q836.4 2793 831.4 2805 L714 2805 L714 2915" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-control" d="M981 273 L981 717 L1356 717 L1356 2805 L841.4 2805 Q836.4 2793 831.4 2805 L714 2805 L714 2915" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="d0" data-to="decision"/>
-<path d="M502 1044 L502 1120 L904.5 1120 L904.5 1044" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-evidence" d="M502 1044 L502 1120 L904.5 1120 L904.5 1044" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="behavior" data-to="distribution"/>
-<path d="M359.2 2404 L359.2 1984 L77 1984 L77 1058 L400 1058 L400 1044" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-data" d="M359.2 2404 L359.2 1984 L77 1984 L77 1058 L400 1058 L400 1044" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e8" data-from="rings" data-to="behavior"/>
-<path d="M481.6 2404 L481.6 2064 L364.2 2064 Q359.2 2052 354.2 2064 L89 2064 Q84 2052 79 2064 L70 2064 L70 1072 L79 1072 Q84 1060 89 1072 L497 1072 Q502 1060 507 1072 L899.5 1072 Q904.5 1060 909.5 1072 L981 1072 L981 1044" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-data" d="M481.6 2404 L481.6 2064 L364.2 2064 Q359.2 2052 354.2 2064 L89 2064 Q84 2052 79 2064 L70 2064 L70 1072 L79 1072 Q84 1060 89 1072 L497 1072 Q502 1060 507 1072 L899.5 1072 Q904.5 1060 909.5 1072 L981 1072 L981 1044" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e9" data-from="rings" data-to="distribution"/>
-<path d="M420.4 2404 L420.4 2144 L364.2 2144 Q359.2 2132 354.2 2144 L89 2144 Q84 2132 79 2144 L56 2144 L56 1463 L65 1463 Q77 1451 89 1463 L374.5 1463 L374.5 1449" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-data" d="M420.4 2404 L420.4 2144 L364.2 2144 Q359.2 2132 354.2 2144 L89 2144 Q84 2132 79 2144 L56 2144 L56 1463 L65 1463 Q77 1451 89 1463 L374.5 1463 L374.5 1449" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e10" data-from="rings" data-to="security"/>
-<path d="M542.8 2404 L542.8 2208 L486.6 2208 Q481.6 2196 476.6 2208 L425.4 2208 Q420.4 2196 415.4 2208 L364.2 2208 Q359.2 2196 354.2 2208 L89 2208 Q84 2196 79 2208 L68 2208 Q63 2196 58 2208 L49 2208 L49 1477 L65 1477 Q77 1465 89 1477 L446 1477 Q451 1465 456 1477 L522.5 1477 Q527.5 1465 532.5 1477 L930 1477 L930 1449" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-data" d="M542.8 2404 L542.8 2208 L486.6 2208 Q481.6 2196 476.6 2208 L425.4 2208 Q420.4 2196 415.4 2208 L364.2 2208 Q359.2 2196 354.2 2208 L89 2208 Q84 2196 79 2208 L68 2208 Q63 2196 58 2208 L49 2208 L49 1477 L65 1477 Q77 1465 89 1477 L446 1477 Q451 1465 456 1477 L522.5 1477 Q527.5 1465 532.5 1477 L930 1477 L930 1449" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e11" data-from="rings" data-to="cost"/>
-<path d="M527.5 1449 L527.5 1541 L456 1541 Q451 1529 446 1541 L89 1541 Q77 1529 65 1541 L61 1541 Q56 1529 51 1541 L42 1541 L42 2364 L58 2364 Q63 2352 68 2364 L79 2364 Q84 2352 89 2364 L354.2 2364 Q359.2 2352 364.2 2364 L415.4 2364 Q420.4 2352 425.4 2364 L476.6 2364 Q481.6 2352 486.6 2364 L537.8 2364 Q542.8 2352 547.8 2364 L930 2364 L930 2404" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-control" d="M527.5 1449 L527.5 1541 L456 1541 Q451 1529 446 1541 L89 1541 Q77 1529 65 1541 L61 1541 Q56 1529 51 1541 L42 1541 L42 2364 L58 2364 Q63 2352 68 2364 L79 2364 Q84 2352 89 2364 L354.2 2364 Q359.2 2352 364.2 2364 L415.4 2364 Q420.4 2352 425.4 2364 L476.6 2364 Q481.6 2352 486.6 2364 L537.8 2364 Q542.8 2352 547.8 2364 L930 2364 L930 2404" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e12" data-from="security" data-to="guard"/>
-<path d="M790.5 1936 L790.5 1984 L1351 1984 Q1368 1972 1385 1984 L1392 1984 L1392 2378 L1385 2378 Q1368 2366 1351 2378 L1032 2378 L1032 2404" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-control" d="M790.5 1936 L790.5 1984 L1351 1984 Q1368 1972 1385 1984 L1392 1984 L1392 2378 L1385 2378 Q1368 2366 1351 2378 L1032 2378 L1032 2404" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e13" data-from="business" data-to="guard"/>
-<path d="M1057.5 1044 L1057.5 1136 L1351 1136 Q1356 1124 1361 1136 L1368 1136 L1368 2819 L841.4 2819 Q836.4 2807 831.4 2819 L744.6 2819 L744.6 2915" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-evidence" d="M1057.5 1044 L1057.5 1136 L1351 1136 Q1356 1124 1361 1136 L1368 1136 L1368 2819 L841.4 2819 Q836.4 2807 831.4 2819 L744.6 2819 L744.6 2915" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e14" data-from="distribution" data-to="decision"/>
-<path d="M1032 1449 L1032 1525 L1351 1525 Q1362 1513 1373 1525 L1380 1525 L1380 2833 L841.4 2833 Q836.4 2821 831.4 2833 L775.2 2833 L775.2 2915" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-evidence" d="M1032 1449 L1032 1525 L1351 1525 Q1362 1513 1373 1525 L1380 1525 L1380 2833 L841.4 2833 Q836.4 2821 831.4 2833 L775.2 2833 L775.2 2915" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e15" data-from="cost" data-to="decision"/>
-<path d="M637.5 1936 L637.5 2048 L709 2048 Q714 2036 719 2048 L1351 2048 Q1362 2036 1373 2048 L1386 2048 L1386 2847 L1379 2847 Q1374 2835 1369 2847 L841.4 2847 Q836.4 2835 831.4 2847 L780.2 2847 Q775.2 2835 770.2 2847 L749.6 2847 Q744.6 2835 739.6 2847 L719 2847 Q714 2835 709 2847 L652.8 2847 L652.8 2915" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-control" d="M637.5 1936 L637.5 2048 L709 2048 Q714 2036 719 2048 L1351 2048 Q1362 2036 1373 2048 L1386 2048 L1386 2847 L1379 2847 Q1374 2835 1369 2847 L841.4 2847 Q836.4 2835 831.4 2847 L780.2 2847 Q775.2 2835 770.2 2847 L749.6 2847 Q744.6 2835 739.6 2847 L719 2847 Q714 2835 709 2847 L652.8 2847 L652.8 2915" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e16" data-from="business" data-to="decision"/>
-<path d="M981 2601 L981 2665 L1351 2665 Q1359 2653 1367 2665 L1374 2665 L1374 2861 L841.4 2861 Q836.4 2849 831.4 2861 L805.8 2861 L805.8 2915" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-evidence" d="M981 2601 L981 2665 L1351 2665 Q1359 2653 1367 2665 L1374 2665 L1374 2861 L841.4 2861 Q836.4 2849 831.4 2861 L805.8 2861 L805.8 2915" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e17" data-from="guard" data-to="decision"/>
-<path d="M451 1449 L451 1637 L89 1637 Q80.5 1625 72 1637 L63 1637 L63 2875 L591.6 2875 L591.6 2915" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-risk" d="M451 1449 L451 1637 L89 1637 Q80.5 1625 72 1637 L63 1637 L63 2875 L591.6 2875 L591.6 2915" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e18" data-from="security" data-to="decision"/>
-<path d="M714 1936 L714 2288 L547.8 2288 Q542.8 2276 537.8 2288 L486.6 2288 Q481.6 2276 476.6 2288 L425.4 2288 Q420.4 2276 415.4 2288 L364.2 2288 Q359.2 2276 354.2 2288 L89 2288 Q84 2276 79 2288 L68 2288 Q63 2276 58 2288 L35 2288 L35 2889 L586.6 2889 Q591.6 2877 596.6 2889 L617.2 2889 Q622.2 2877 627.2 2889 L647.8 2889 Q652.8 2877 657.8 2889 L683.4 2889 L683.4 2915" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-risk" d="M714 1936 L714 2288 L547.8 2288 Q542.8 2276 537.8 2288 L486.6 2288 Q481.6 2276 476.6 2288 L425.4 2288 Q420.4 2276 415.4 2288 L364.2 2288 Q359.2 2276 354.2 2288 L89 2288 Q84 2276 79 2288 L68 2288 Q63 2276 58 2288 L35 2288 L35 2889 L586.6 2889 Q591.6 2877 596.6 2889 L617.2 2889 Q622.2 2877 627.2 2889 L647.8 2889 Q652.8 2877 657.8 2889 L683.4 2889 L683.4 2915" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e19" data-from="business" data-to="decision"/>
-<path d="M622.2 2915 L622.2 2649 L84 2649 L84 287 L395 287 Q400 275 405 287 L502 287 L502 273" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-feedback" d="M622.2 2915 L622.2 2649 L84 2649 L84 287 L395 287 Q400 275 405 287 L502 287 L502 273" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e20" data-from="decision" data-to="input"/>
-<path d="M836.4 2915 L836.4 2745 L1362 2745 L1362 301 L1100.75 301 Q1095.75 289 1090.75 301 L1062.5 301 Q1057.5 289 1052.5 301 L1019.25 301 L1019.25 273" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
-<path class="edge edge-feedback" d="M836.4 2915 L836.4 2745 L1362 2745 L1362 301 L1100.75 301 Q1095.75 289 1090.75 301 L1062.5 301 Q1057.5 289 1052.5 301 L1019.25 301 L1019.25 273" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e21" data-from="decision" data-to="d0"/>
-<g id="node-input" class="node node-input" data-region="274,76,354,197">
-<rect x="274" y="76" width="354" height="197" rx="14" fill="#edf3ff" stroke="none" />
-<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
-<text x="299" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
-<text x="296" y="152" font-size="28" fill="#215cbb" font-weight="700" >输入与风险</text>
-<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >退款需求 / 状态持有者</text>
-<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >检索、队列与工具副作用</text>
+<g id="system-graph" data-region="64,234,1472,4514">
+<rect x="64" y="234" width="1472" height="4514" rx="14" fill="#fff" stroke="#d9e2ed" />
+<g transform="translate(0 234)" data-graph-scale="1" data-routing="architecture-panels">
+<text x="88" y="42" font-size="25" fill="#172b45" font-weight="700" >A  局部关系分区 · 同号卡片引用同一节点</text>
+<text x="88" y="76" font-size="20" fill="#50647c" font-weight="450" >分区呈现校准、执行、反馈、护栏和决定；重复引用不表示重复执行或先后放行。</text>
+<g id="panel-A1" data-region="84,88,1432,838">
+<rect x="84" y="88" width="1432" height="838" rx="14" fill="#fff" stroke="#dce5f0" />
+<text x="106" y="118" font-size="23" fill="#215cbb" font-weight="700" >A1  D0 校准五类评分；失准限制单独进入决定</text>
 </g>
-<g id="node-d0" class="node node-control" data-region="804,76,354,197">
-<rect x="804" y="76" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
-<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
-<text x="829" y="111" font-size="15" fill="#945c0b" font-weight="750" class="mono">02</text>
-<text x="826" y="152" font-size="28" fill="#945c0b" font-weight="700" >D0 评估可信</text>
-<text x="826" y="195" font-size="23" fill="#172b45" font-weight="450" >校准所有域的评分使用</text>
-<text x="826" y="229" font-size="23" fill="#172b45" font-weight="450" >指标构念与评估集卫生</text>
+<g id="panel-A2" data-region="84,1006,1432,646">
+<rect x="84" y="1006" width="1432" height="646" rx="14" fill="#fff" stroke="#dce5f0" />
+<text x="106" y="1036" font-size="23" fill="#215cbb" font-weight="700" >A2  四环按各自输入与覆盖范围横向执行</text>
 </g>
-<g id="node-behavior" class="node node-process" data-region="274,847,354,197">
-<rect x="274" y="847" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
-<rect x="292" y="864" width="36" height="25" rx="7" fill="#fff" stroke="none" />
-<text x="299" y="882" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
-<text x="296" y="923" font-size="28" fill="#344f70" font-weight="700" >D1–D3 行为边界</text>
-<text x="296" y="966" font-size="23" fill="#172b45" font-weight="450" >D1 单体轨迹 / D2 交接</text>
-<text x="296" y="1000" font-size="23" fill="#172b45" font-weight="450" >D3 中断、接管与授权</text>
+<g id="panel-A3" data-region="84,1732,1432,818">
+<rect x="84" y="1732" width="1432" height="818" rx="14" fill="#fff" stroke="#dce5f0" />
+<text x="106" y="1762" font-size="23" fill="#215cbb" font-weight="700" >A3  输入、完整轨迹与失败回灌分开追踪</text>
 </g>
-<g id="node-distribution" class="node node-evidence" data-region="804,847,354,197">
-<rect x="804" y="847" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
-<rect x="822" y="864" width="36" height="25" rx="7" fill="#fff" stroke="none" />
-<text x="829" y="882" font-size="15" fill="#7045a4" font-weight="750" class="mono">04</text>
-<text x="826" y="923" font-size="28" fill="#7045a4" font-weight="700" >D4 可靠性证据</text>
-<text x="826" y="966" font-size="23" fill="#172b45" font-weight="450" >任务重复与 Horizon</text>
-<text x="826" y="1000" font-size="23" fill="#172b45" font-weight="450" >按任务聚类估计区间</text>
+<g id="panel-A4" data-region="84,2630,1432,1191">
+<rect x="84" y="2630" width="1432" height="1191" rx="14" fill="#fff" stroke="#dce5f0" />
+<text x="106" y="2660" font-size="23" fill="#215cbb" font-weight="700" >A4  风险接到运行护栏；已证硬红线直接阻断</text>
 </g>
-<g id="node-security" class="node node-risk" data-region="274,1252,354,197">
-<rect x="274" y="1252" width="354" height="197" rx="14" fill="#fff0f0" stroke="none" />
-<rect x="292" y="1269" width="36" height="25" rx="7" fill="#fff" stroke="none" />
-<text x="299" y="1287" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">05</text>
-<text x="296" y="1328" font-size="28" fill="#ad3e4c" font-weight="700" >D5 安全信任边界</text>
-<text x="296" y="1371" font-size="23" fill="#172b45" font-weight="450" >不可信数据、身份与委托</text>
-<text x="296" y="1405" font-size="23" fill="#172b45" font-weight="450" >工具层拒绝越权</text>
+<g id="panel-A5" data-region="84,3901,1432,578">
+<rect x="84" y="3901" width="1432" height="578" rx="14" fill="#fff" stroke="#dce5f0" />
+<text x="106" y="3931" font-size="23" fill="#215cbb" font-weight="700" >A5  统计、成本、责任和停止回执支持具名决定</text>
 </g>
-<g id="node-cost" class="node node-process" data-region="804,1252,354,197">
-<rect x="804" y="1252" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
-<rect x="822" y="1269" width="36" height="25" rx="7" fill="#fff" stroke="none" />
-<text x="829" y="1287" font-size="15" fill="#344f70" font-weight="750" class="mono">06</text>
-<text x="826" y="1328" font-size="28" fill="#344f70" font-weight="700" >D6 效率资源边界</text>
-<text x="826" y="1371" font-size="23" fill="#172b45" font-weight="450" >延迟、成本、并发与隔离</text>
-<text x="826" y="1405" font-size="23" fill="#172b45" font-weight="450" >预算截断与可重放 Trace</text>
+<path class="edge edge-data" d="M640 1888.5 L960 1854.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="input" data-to="behavior"/>
+<path class="edge edge-control" d="M800 336 L800 386 L236 386 L236 521" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e1" data-from="d0" data-to="distribution"/>
+<path class="edge edge-control" d="M800 336 L800 386 L516 386 L516 521" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e2" data-from="d0" data-to="behavior"/>
+<path class="edge edge-control" d="M800 336 L800 386 L796 386 L796 521" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e3" data-from="d0" data-to="security"/>
+<path class="edge edge-control" d="M800 336 L800 386 L1076 386 L1076 521" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e4" data-from="d0" data-to="cost"/>
+<path class="edge edge-control" d="M800 336 L800 386 L1356 386 L1356 521" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e5" data-from="d0" data-to="business"/>
+<path class="edge edge-control" d="M640 838.5 L960 838.5" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="d0" data-to="decision"/>
+<path class="edge edge-evidence" d="M1220 1912 L1220 2135" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="behavior" data-to="distribution"/>
+<path class="edge edge-data" d="M272 1254 L272 1439" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e8" data-from="rings" data-to="behavior"/>
+<path class="edge edge-data" d="M624 1254 L624 1439" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e9" data-from="rings" data-to="distribution"/>
+<path class="edge edge-data" d="M975.9999999999999 1254 L976 1439" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e10" data-from="rings" data-to="security"/>
+<path class="edge edge-data" d="M1328 1254 L1328 1439" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e11" data-from="rings" data-to="cost"/>
+<path class="edge edge-control" d="M380 2810 L380 2973 L600 2973 L600 3043" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e12" data-from="security" data-to="guard"/>
+<path class="edge edge-control" d="M1220 2878 L1220 2973 L1000 2973 L1000 3043" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e13" data-from="business" data-to="guard"/>
+<path class="edge edge-evidence" d="M272 4081 L294 4266" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e14" data-from="distribution" data-to="decision"/>
+<path class="edge edge-evidence" d="M624 4081 L624 4266" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e15" data-from="cost" data-to="decision"/>
+<path class="edge edge-control" d="M976 4081 L976 4266" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e16" data-from="business" data-to="decision"/>
+<path class="edge edge-evidence" d="M1328 4081 L1306 4266" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e17" data-from="guard" data-to="decision"/>
+<path class="edge edge-risk" d="M380 3496 L382 3676" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e18" data-from="security" data-to="decision"/>
+<path class="edge edge-risk" d="M1220 3496 L1218 3676" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e19" data-from="business" data-to="decision"/>
+<path class="edge edge-feedback" d="M380 2135 L380 1980" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e20" data-from="decision" data-to="input"/>
+<path class="edge edge-feedback" d="M380 2250 L380 2405" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e21" data-from="decision" data-to="d0"/>
+<g id="node-d0" class="node node-control" data-region="500,153,600,183">
+<rect x="500" y="153" width="600" height="183" rx="14" fill="#fff5e5" stroke="none" />
+<text x="522" y="182" font-size="16" fill="#945c0b" font-weight="750" class="mono">02</text>
+<text x="522" y="226" font-size="28" fill="#945c0b" font-weight="700" >D0 评估可信</text>
+<text x="522" y="269" font-size="23" fill="#172b45" font-weight="450" >校准所有域的评分使用</text>
+<text x="522" y="303" font-size="23" fill="#172b45" font-weight="450" >指标构念与评估集卫生</text>
 </g>
-<g id="node-business" class="node node-control" data-region="537,1739,354,197">
-<rect x="537" y="1739" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
-<rect x="555" y="1756" width="36" height="25" rx="7" fill="#fff" stroke="none" />
-<text x="562" y="1774" font-size="15" fill="#945c0b" font-weight="750" class="mono">07</text>
-<text x="559" y="1815" font-size="28" fill="#945c0b" font-weight="700" >D7 业务责任边界</text>
-<text x="559" y="1858" font-size="23" fill="#172b45" font-weight="450" >硬规则 / 四维版本 / 审计</text>
-<text x="559" y="1892" font-size="23" fill="#172b45" font-weight="450" >具名 owner 风险接受</text>
+<g id="node-cal-distribution" class="node node-evidence" data-region="104,521,264,115">
+<rect x="104" y="521" width="264" height="115" rx="14" fill="#f4effb" stroke="none" />
+<text x="126" y="550" font-size="16" fill="#7045a4" font-weight="750" class="mono">04 · 同一节点</text>
+<text x="126" y="594" font-size="25" fill="#7045a4" font-weight="700" >D4 可靠性证据</text>
 </g>
-<g id="node-rings" class="node node-data" data-region="274,2404,354,197">
-<rect x="274" y="2404" width="354" height="197" rx="14" fill="#e9f7f4" stroke="none" />
-<rect x="292" y="2421" width="36" height="25" rx="7" fill="#fff" stroke="none" />
-<text x="299" y="2439" font-size="15" fill="#087b76" font-weight="750" class="mono">08</text>
-<text x="296" y="2480" font-size="28" fill="#087b76" font-weight="700" >四证据环</text>
-<text x="296" y="2523" font-size="23" fill="#172b45" font-weight="450" >离线 CI / 沙箱回放</text>
-<text x="296" y="2557" font-size="23" fill="#172b45" font-weight="450" >影子 / 在线持续</text>
+<g id="node-cal-behavior" class="node node-process" data-region="384,521,264,115">
+<rect x="384" y="521" width="264" height="115" rx="14" fill="#eff4fa" stroke="none" />
+<text x="406" y="550" font-size="16" fill="#344f70" font-weight="750" class="mono">03 · 同一节点</text>
+<text x="406" y="594" font-size="25" fill="#344f70" font-weight="700" >D1–D3 行为边界</text>
 </g>
-<g id="node-guard" class="node node-control" data-region="804,2404,354,197">
-<rect x="804" y="2404" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
-<rect x="822" y="2421" width="36" height="25" rx="7" fill="#fff" stroke="none" />
-<text x="829" y="2439" font-size="15" fill="#945c0b" font-weight="750" class="mono">09</text>
-<text x="826" y="2480" font-size="28" fill="#945c0b" font-weight="700" >运行时护栏</text>
-<text x="826" y="2523" font-size="23" fill="#172b45" font-weight="450" >最小权限、确认、熔断</text>
-<text x="826" y="2557" font-size="23" fill="#172b45" font-weight="450" >写前拦截与 Kill Switch</text>
+<g id="node-cal-security" class="node node-risk" data-region="664,521,264,115">
+<rect x="664" y="521" width="264" height="115" rx="14" fill="#fff0f0" stroke="none" />
+<text x="686" y="550" font-size="16" fill="#ad3e4c" font-weight="750" class="mono">05 · 同一节点</text>
+<text x="686" y="594" font-size="25" fill="#ad3e4c" font-weight="700" >D5 安全信任边界</text>
 </g>
-<g id="node-decision" class="node node-evidence" data-region="537,2915,354,197">
-<rect x="537" y="2915" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
-<rect x="555" y="2932" width="36" height="25" rx="7" fill="#fff" stroke="none" />
-<text x="562" y="2950" font-size="15" fill="#7045a4" font-weight="750" class="mono">10</text>
-<text x="559" y="2991" font-size="28" fill="#7045a4" font-weight="700" >决策与反馈</text>
-<text x="559" y="3034" font-size="23" fill="#172b45" font-weight="450" >独立 blocker / 剩余风险</text>
-<text x="559" y="3068" font-size="23" fill="#172b45" font-weight="450" >失败回灌与重校准</text>
+<g id="node-cal-cost" class="node node-process" data-region="944,521,264,115">
+<rect x="944" y="521" width="264" height="115" rx="14" fill="#eff4fa" stroke="none" />
+<text x="966" y="550" font-size="16" fill="#344f70" font-weight="750" class="mono">06 · 同一节点</text>
+<text x="966" y="594" font-size="25" fill="#344f70" font-weight="700" >D6 效率资源边界</text>
 </g>
-<rect x="95.69" y="327" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
-<text x="190" y="356" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  任务与状态流</text>
-<text x="404" y="837" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
-<rect x="1151.69" y="327" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
-<text x="1246" y="356" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  校准分数使用</text>
-<text x="985" y="837" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
-<rect x="1151.69" y="391" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
-<text x="1246" y="420" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  校准行为各域</text>
-<text x="1246" y="452" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">评分</text>
-<text x="506" y="837" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
-<rect x="1151.69" y="487" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
-<text x="1246" y="516" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  校准安全评分</text>
-<text x="455" y="1242" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
-<rect x="1151.69" y="551" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
-<text x="1246" y="580" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  校准资源评分</text>
-<text x="985" y="1242" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
-<rect x="1151.69" y="615" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
-<text x="1246" y="644" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  校准治理评分</text>
-<text x="718" y="1729" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
-<rect x="1151.69" y="679" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
-<text x="1246" y="708" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  失准则所有评</text>
-<text x="1246" y="740" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">分不可用</text>
-<text x="718" y="2905" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
-<rect x="643.53" y="1098" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
-<text x="716" y="1127" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  完整轨迹</text>
-<text x="908.5" y="1066" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
-<rect x="117.53" y="1962" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
-<text x="190" y="1991" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  各环执行</text>
-<text x="404" y="1066" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e8" stroke="#fff" stroke-width="4" paint-order="stroke">09</text>
-<rect x="95.69" y="2026" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
-<text x="190" y="2055" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">10  各环重复与回</text>
-<text x="190" y="2087" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">放执行</text>
-<text x="985" y="1066" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e9" stroke="#fff" stroke-width="4" paint-order="stroke">10</text>
-<rect x="117.53" y="2122" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
-<text x="190" y="2151" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">11  各环对抗</text>
-<text x="378.5" y="1471" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e10" stroke="#fff" stroke-width="4" paint-order="stroke">11</text>
-<rect x="95.69" y="2186" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
-<text x="190" y="2215" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e11">12  各环负载观测</text>
-<text x="934" y="1471" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e11" stroke="#fff" stroke-width="4" paint-order="stroke">12</text>
-<rect x="95.69" y="1503" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
-<text x="190" y="1532" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e12">13  风险映射强制</text>
-<text x="190" y="1564" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e12">控制</text>
-<text x="934" y="2394" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e12" stroke="#fff" stroke-width="4" paint-order="stroke">13</text>
-<rect x="1162.61" y="1962" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
-<text x="1246" y="1991" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e13">14  业务硬规则</text>
-<text x="1036" y="2394" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e13" stroke="#fff" stroke-width="4" paint-order="stroke">14</text>
-<rect x="1162.61" y="1098" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
-<text x="1246" y="1127" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e14">15  区间与失败</text>
-<text x="1246" y="1159" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e14">切片</text>
-<text x="748.6" y="2905" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e14" stroke="#fff" stroke-width="4" paint-order="stroke">15</text>
-<rect x="1151.69" y="1503" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
-<text x="1246" y="1532" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e15">16  成本与暴露量</text>
-<text x="779.2" y="2905" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e15" stroke="#fff" stroke-width="4" paint-order="stroke">16</text>
-<rect x="1162.61" y="2026" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
-<text x="1246" y="2055" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e16">17  规则与责任</text>
-<text x="656.8" y="2905" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e16" stroke="#fff" stroke-width="4" paint-order="stroke">17</text>
-<rect x="1162.61" y="2627" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
-<text x="1246" y="2656" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e17">18  拒绝与停止</text>
-<text x="1246" y="2688" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e17">回执</text>
-<text x="809.8" y="2905" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e17" stroke="#fff" stroke-width="4" paint-order="stroke">18</text>
-<rect x="95.69" y="1599" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
-<text x="190" y="1628" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e18">19  已证越权直接</text>
-<text x="190" y="1660" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e18">BLOCKED</text>
-<text x="595.6" y="2905" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e18" stroke="#fff" stroke-width="4" paint-order="stroke">19</text>
-<rect x="95.69" y="2250" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
-<text x="190" y="2279" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e19">20  已证硬规则违</text>
-<text x="190" y="2311" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e19">规直接阻断</text>
-<text x="687.4" y="2905" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e19" stroke="#fff" stroke-width="4" paint-order="stroke">20</text>
-<rect x="117.53" y="2627" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
-<text x="190" y="2656" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e20">21  失败回灌</text>
-<text x="506" y="295" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e20" stroke="#fff" stroke-width="4" paint-order="stroke">21</text>
-<rect x="1149.695" y="2723" width="192.61" height="44" rx="6" fill="#fff" stroke="none" />
-<text x="1246" y="2752" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e21">22  Judge 重校准</text>
-<text x="1023.25" y="295" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e21" stroke="#fff" stroke-width="4" paint-order="stroke">22</text>
+<g id="node-cal-business" class="node node-control" data-region="1224,521,264,115">
+<rect x="1224" y="521" width="264" height="115" rx="14" fill="#fff5e5" stroke="none" />
+<text x="1246" y="550" font-size="16" fill="#945c0b" font-weight="750" class="mono">07 · 同一节点</text>
+<text x="1246" y="594" font-size="25" fill="#945c0b" font-weight="700" >D7 业务责任边界</text>
+</g>
+<g id="node-invalid-d0" class="node node-control" data-region="120,781,520,115">
+<rect x="120" y="781" width="520" height="115" rx="14" fill="#fff5e5" stroke="none" />
+<text x="142" y="810" font-size="16" fill="#945c0b" font-weight="750" class="mono">02 · 同一节点</text>
+<text x="142" y="854" font-size="25" fill="#945c0b" font-weight="700" >D0 评估可信</text>
+</g>
+<g id="node-invalid-decision" class="node node-evidence" data-region="960,781,520,115">
+<rect x="960" y="781" width="520" height="115" rx="14" fill="#f4effb" stroke="none" />
+<text x="982" y="810" font-size="16" fill="#7045a4" font-weight="750" class="mono">10 · 同一节点</text>
+<text x="982" y="854" font-size="25" fill="#7045a4" font-weight="700" >决策与反馈</text>
+</g>
+<g id="node-rings" class="node node-data" data-region="104,1071,1392,183">
+<rect x="104" y="1071" width="1392" height="183" rx="14" fill="#e9f7f4" stroke="none" />
+<text x="126" y="1100" font-size="16" fill="#087b76" font-weight="750" class="mono">08</text>
+<text x="126" y="1144" font-size="28" fill="#087b76" font-weight="700" >四证据环</text>
+<text x="126" y="1187" font-size="23" fill="#172b45" font-weight="450" >离线 CI / 沙箱回放</text>
+<text x="126" y="1221" font-size="23" fill="#172b45" font-weight="450" >影子 / 在线持续</text>
+</g>
+<g id="node-run-behavior" class="node node-process" data-region="104,1439,336,183">
+<rect x="104" y="1439" width="336" height="183" rx="14" fill="#eff4fa" stroke="none" />
+<text x="126" y="1468" font-size="16" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="126" y="1512" font-size="28" fill="#344f70" font-weight="700" >D1–D3 行为边界</text>
+<text x="126" y="1555" font-size="23" fill="#172b45" font-weight="450" >D1 单体轨迹 / D2 交接</text>
+<text x="126" y="1589" font-size="23" fill="#172b45" font-weight="450" >D3 中断、接管与授权</text>
+</g>
+<g id="node-run-distribution" class="node node-evidence" data-region="456,1439,336,183">
+<rect x="456" y="1439" width="336" height="183" rx="14" fill="#f4effb" stroke="none" />
+<text x="478" y="1468" font-size="16" fill="#7045a4" font-weight="750" class="mono">04</text>
+<text x="478" y="1512" font-size="28" fill="#7045a4" font-weight="700" >D4 可靠性证据</text>
+<text x="478" y="1555" font-size="23" fill="#172b45" font-weight="450" >任务重复与 Horizon</text>
+<text x="478" y="1589" font-size="23" fill="#172b45" font-weight="450" >按任务聚类估计区间</text>
+</g>
+<g id="node-run-security" class="node node-risk" data-region="808,1439,336,183">
+<rect x="808" y="1439" width="336" height="183" rx="14" fill="#fff0f0" stroke="none" />
+<text x="830" y="1468" font-size="16" fill="#ad3e4c" font-weight="750" class="mono">05</text>
+<text x="830" y="1512" font-size="28" fill="#ad3e4c" font-weight="700" >D5 安全信任边界</text>
+<text x="830" y="1555" font-size="23" fill="#172b45" font-weight="450" >不可信数据、身份与委托</text>
+<text x="830" y="1589" font-size="23" fill="#172b45" font-weight="450" >工具层拒绝越权</text>
+</g>
+<g id="node-run-cost" class="node node-process" data-region="1160,1439,336,183">
+<rect x="1160" y="1439" width="336" height="183" rx="14" fill="#eff4fa" stroke="none" />
+<text x="1182" y="1468" font-size="16" fill="#344f70" font-weight="750" class="mono">06</text>
+<text x="1182" y="1512" font-size="28" fill="#344f70" font-weight="700" >D6 效率资源边界</text>
+<text x="1182" y="1555" font-size="23" fill="#172b45" font-weight="450" >延迟、成本、并发与隔离</text>
+<text x="1182" y="1589" font-size="23" fill="#172b45" font-weight="450" >预算截断与可重放 Trace</text>
+</g>
+<g id="node-input" class="node node-input" data-region="120,1797,520,183">
+<rect x="120" y="1797" width="520" height="183" rx="14" fill="#edf3ff" stroke="none" />
+<text x="142" y="1826" font-size="16" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="142" y="1870" font-size="28" fill="#215cbb" font-weight="700" >输入与风险</text>
+<text x="142" y="1913" font-size="23" fill="#172b45" font-weight="450" >退款需求 / 状态持有者</text>
+<text x="142" y="1947" font-size="23" fill="#172b45" font-weight="450" >检索、队列与工具副作用</text>
+</g>
+<g id="node-input-behavior" class="node node-process" data-region="960,1797,520,115">
+<rect x="960" y="1797" width="520" height="115" rx="14" fill="#eff4fa" stroke="none" />
+<text x="982" y="1826" font-size="16" fill="#344f70" font-weight="750" class="mono">03 · 同一节点</text>
+<text x="982" y="1870" font-size="25" fill="#344f70" font-weight="700" >D1–D3 行为边界</text>
+</g>
+<g id="node-feedback-decision" class="node node-evidence" data-region="120,2135,520,115">
+<rect x="120" y="2135" width="520" height="115" rx="14" fill="#f4effb" stroke="none" />
+<text x="142" y="2164" font-size="16" fill="#7045a4" font-weight="750" class="mono">10 · 同一节点</text>
+<text x="142" y="2208" font-size="25" fill="#7045a4" font-weight="700" >决策与反馈</text>
+</g>
+<g id="node-trace-distribution" class="node node-evidence" data-region="960,2135,520,115">
+<rect x="960" y="2135" width="520" height="115" rx="14" fill="#f4effb" stroke="none" />
+<text x="982" y="2164" font-size="16" fill="#7045a4" font-weight="750" class="mono">04 · 同一节点</text>
+<text x="982" y="2208" font-size="25" fill="#7045a4" font-weight="700" >D4 可靠性证据</text>
+</g>
+<g id="node-recalibrate-d0" class="node node-control" data-region="120,2405,520,115">
+<rect x="120" y="2405" width="520" height="115" rx="14" fill="#fff5e5" stroke="none" />
+<text x="142" y="2434" font-size="16" fill="#945c0b" font-weight="750" class="mono">02 · 同一节点</text>
+<text x="142" y="2478" font-size="25" fill="#945c0b" font-weight="700" >D0 评估可信</text>
+</g>
+<g id="node-guard-security" class="node node-risk" data-region="120,2695,520,115">
+<rect x="120" y="2695" width="520" height="115" rx="14" fill="#fff0f0" stroke="none" />
+<text x="142" y="2724" font-size="16" fill="#ad3e4c" font-weight="750" class="mono">05 · 同一节点</text>
+<text x="142" y="2768" font-size="25" fill="#ad3e4c" font-weight="700" >D5 安全信任边界</text>
+</g>
+<g id="node-business" class="node node-control" data-region="960,2695,520,183">
+<rect x="960" y="2695" width="520" height="183" rx="14" fill="#fff5e5" stroke="none" />
+<text x="982" y="2724" font-size="16" fill="#945c0b" font-weight="750" class="mono">07</text>
+<text x="982" y="2768" font-size="28" fill="#945c0b" font-weight="700" >D7 业务责任边界</text>
+<text x="982" y="2811" font-size="23" fill="#172b45" font-weight="450" >硬规则 / 四维版本 / 审计</text>
+<text x="982" y="2845" font-size="23" fill="#172b45" font-weight="450" >具名 owner 风险接受</text>
+</g>
+<g id="node-guard" class="node node-control" data-region="400,3043,800,183">
+<rect x="400" y="3043" width="800" height="183" rx="14" fill="#fff5e5" stroke="none" />
+<text x="422" y="3072" font-size="16" fill="#945c0b" font-weight="750" class="mono">09</text>
+<text x="422" y="3116" font-size="28" fill="#945c0b" font-weight="700" >运行时护栏</text>
+<text x="422" y="3159" font-size="23" fill="#172b45" font-weight="450" >最小权限、确认、熔断</text>
+<text x="422" y="3193" font-size="23" fill="#172b45" font-weight="450" >写前拦截与 Kill Switch</text>
+</g>
+<g id="node-hard-security" class="node node-risk" data-region="120,3381,520,115">
+<rect x="120" y="3381" width="520" height="115" rx="14" fill="#fff0f0" stroke="none" />
+<text x="142" y="3410" font-size="16" fill="#ad3e4c" font-weight="750" class="mono">05 · 同一节点</text>
+<text x="142" y="3454" font-size="25" fill="#ad3e4c" font-weight="700" >D5 安全信任边界</text>
+</g>
+<g id="node-hard-business" class="node node-control" data-region="960,3381,520,115">
+<rect x="960" y="3381" width="520" height="115" rx="14" fill="#fff5e5" stroke="none" />
+<text x="982" y="3410" font-size="16" fill="#945c0b" font-weight="750" class="mono">07 · 同一节点</text>
+<text x="982" y="3454" font-size="25" fill="#945c0b" font-weight="700" >D7 业务责任边界</text>
+</g>
+<g id="node-hard-decision" class="node node-evidence" data-region="250,3676,1100,115">
+<rect x="250" y="3676" width="1100" height="115" rx="14" fill="#f4effb" stroke="none" />
+<text x="272" y="3705" font-size="16" fill="#7045a4" font-weight="750" class="mono">10 · 同一节点</text>
+<text x="272" y="3749" font-size="25" fill="#7045a4" font-weight="700" >决策与反馈</text>
+</g>
+<g id="node-evidence-distribution" class="node node-evidence" data-region="104,3966,336,115">
+<rect x="104" y="3966" width="336" height="115" rx="14" fill="#f4effb" stroke="none" />
+<text x="126" y="3995" font-size="16" fill="#7045a4" font-weight="750" class="mono">04 · 同一节点</text>
+<text x="126" y="4039" font-size="25" fill="#7045a4" font-weight="700" >D4 可靠性证据</text>
+</g>
+<g id="node-evidence-cost" class="node node-process" data-region="456,3966,336,115">
+<rect x="456" y="3966" width="336" height="115" rx="14" fill="#eff4fa" stroke="none" />
+<text x="478" y="3995" font-size="16" fill="#344f70" font-weight="750" class="mono">06 · 同一节点</text>
+<text x="478" y="4039" font-size="25" fill="#344f70" font-weight="700" >D6 效率资源边界</text>
+</g>
+<g id="node-evidence-business" class="node node-control" data-region="808,3966,336,115">
+<rect x="808" y="3966" width="336" height="115" rx="14" fill="#fff5e5" stroke="none" />
+<text x="830" y="3995" font-size="16" fill="#945c0b" font-weight="750" class="mono">07 · 同一节点</text>
+<text x="830" y="4039" font-size="25" fill="#945c0b" font-weight="700" >D7 业务责任边界</text>
+</g>
+<g id="node-evidence-guard" class="node node-control" data-region="1160,3966,336,115">
+<rect x="1160" y="3966" width="336" height="115" rx="14" fill="#fff5e5" stroke="none" />
+<text x="1182" y="3995" font-size="16" fill="#945c0b" font-weight="750" class="mono">09 · 同一节点</text>
+<text x="1182" y="4039" font-size="25" fill="#945c0b" font-weight="700" >运行时护栏</text>
+</g>
+<g id="node-decision" class="node node-evidence" data-region="250,4266,1100,183">
+<rect x="250" y="4266" width="1100" height="183" rx="14" fill="#f4effb" stroke="none" />
+<text x="272" y="4295" font-size="16" fill="#7045a4" font-weight="750" class="mono">10</text>
+<text x="272" y="4339" font-size="28" fill="#7045a4" font-weight="700" >决策与反馈</text>
+<text x="272" y="4382" font-size="23" fill="#172b45" font-weight="450" >独立 blocker / 剩余风险</text>
+<text x="272" y="4416" font-size="23" fill="#172b45" font-weight="450" >失败回灌与重校准</text>
+</g>
+<rect x="703.69" y="1831.5" width="192.62" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="800" y="1860.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  任务与状态流</text>
+<rect x="139.69" y="424" width="192.62" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="236" y="453" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  校准分数使用</text>
+<rect x="397.85" y="424" width="236.3" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="516" y="453" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  校准行为各域评分</text>
+<rect x="699.69" y="424" width="192.62" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="796" y="453" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  校准安全评分</text>
+<rect x="979.69" y="424" width="192.62" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="1076" y="453" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  校准资源评分</text>
+<rect x="1259.69" y="424" width="192.62" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="1356" y="453" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  校准治理评分</text>
+<rect x="660.01" y="781.5" width="279.98" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="800" y="810.5" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  失准则所有评分不可用</text>
+<rect x="1145.53" y="2001.5" width="148.94" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="1220" y="2030.5" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  完整轨迹</text>
+<rect x="197.53" y="1332" width="148.94" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="272" y="1361" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  各环执行</text>
+<rect x="494.93" y="1332" width="258.14" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="624" y="1361" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">10  各环重复与回放执行</text>
+<rect x="901.53" y="1332" width="148.94" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="976" y="1361" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">11  各环对抗</text>
+<rect x="1231.69" y="1332" width="192.62" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="1328" y="1361" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e11">12  各环负载观测</text>
+<rect x="321.85" y="2916" width="236.3" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="440" y="2945" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e12">13  风险映射强制控制</text>
+<rect x="1074.61" y="2916" width="170.78" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="1160" y="2945" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e13">14  业务硬规则</text>
+<rect x="164.76999999999998" y="4154" width="214.46" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="272" y="4183" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e14">15  区间与失败切片</text>
+<rect x="527.69" y="4154" width="192.62" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="624" y="4183" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e15">16  成本与暴露量</text>
+<rect x="890.61" y="4154" width="170.78" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="976" y="4183" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e16">17  规则与责任</text>
+<rect x="1220.77" y="4154" width="214.46" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="1328" y="4183" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e17">18  拒绝与停止回执</text>
+<rect x="292.345" y="3564" width="295.31" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="440" y="3593" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e18">19  已证越权直接 BLOCKED</text>
+<rect x="1009.09" y="3564" width="301.82" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="1160" y="3593" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e19">20  已证硬规则违规直接阻断</text>
+<rect x="305.53" y="2035.5" width="148.94" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="380" y="2064.5" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e20">21  失败回灌</text>
+<rect x="281.695" y="2305.5" width="196.61" height="44" rx="5" fill="#fff" stroke="none" />
+<text x="380" y="2334.5" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e21">22  Judge 重校准</text>
 </g>
 </g>
-<text x="64" y="3680" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
-<text x="98" y="3680" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
-<g id="detail-0" data-region="64,3710,470,174">
-<rect x="64" y="3710" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
-<rect x="84" y="3732" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
-<text x="106" y="3757" font-size="25" fill="#7045a4" font-weight="700" >边界登记六要素</text>
-<text x="88" y="3812" font-size="23" fill="#172b45" font-weight="450" >风险 / Observable / 独立 Oracle</text>
-<text x="88" y="3847" font-size="23" fill="#172b45" font-weight="450" >fault / evidence / owner 与 stop</text>
+<text x="64" y="4802" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="4802" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,4832,470,174">
+<rect x="64" y="4832" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="4854" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="106" y="4879" font-size="25" fill="#7045a4" font-weight="700" >边界登记六要素</text>
+<text x="88" y="4934" font-size="23" fill="#172b45" font-weight="450" >风险 / Observable / 独立 Oracle</text>
+<text x="88" y="4969" font-size="23" fill="#172b45" font-weight="450" >fault / evidence / owner 与 stop</text>
 </g>
-<g id="detail-1" data-region="565,3710,470,174">
-<rect x="565" y="3710" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
-<rect x="585" y="3732" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
-<text x="607" y="3757" font-size="25" fill="#ad3e4c" font-weight="700" >评分与硬阻断分开</text>
-<text x="589" y="3812" font-size="23" fill="#172b45" font-weight="450" >D0 校准覆盖所有域评分</text>
-<text x="589" y="3847" font-size="23" fill="#172b45" font-weight="450" >已证确定性红线不等 Judge</text>
+<g id="detail-1" data-region="565,4832,470,174">
+<rect x="565" y="4832" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="4854" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="607" y="4879" font-size="25" fill="#ad3e4c" font-weight="700" >评分与硬阻断分开</text>
+<text x="589" y="4934" font-size="23" fill="#172b45" font-weight="450" >D0 校准覆盖所有域评分</text>
+<text x="589" y="4969" font-size="23" fill="#172b45" font-weight="450" >已证确定性红线不等 Judge</text>
 </g>
-<g id="detail-2" data-region="1066,3710,470,174">
-<rect x="1066" y="3710" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
-<rect x="1086" y="3732" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
-<text x="1108" y="3757" font-size="25" fill="#945c0b" font-weight="700" >证据成熟度</text>
-<text x="1090" y="3812" font-size="23" fill="#172b45" font-weight="450" >fixture 不升级为真实系统验证</text>
-<text x="1090" y="3847" font-size="23" fill="#172b45" font-weight="450" >跨环必须新增输入、owner 与回滚</text>
+<g id="detail-2" data-region="1066,4832,470,174">
+<rect x="1066" y="4832" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="4854" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="1108" y="4879" font-size="25" fill="#945c0b" font-weight="700" >证据成熟度</text>
+<text x="1090" y="4934" font-size="23" fill="#172b45" font-weight="450" >fixture 不升级为真实系统验证</text>
+<text x="1090" y="4969" font-size="23" fill="#172b45" font-weight="450" >跨环必须新增输入、owner 与回滚</text>
 </g>
-<g id="failure-and-output" data-region="64,3916,1472,148">
-<rect x="64" y="3916" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
-<text x="88" y="3955" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
-<text x="88" y="4000" font-size="23" fill="#ffdce2" font-weight="450" >D0 失效使所有评分不可用；已证确定性红线直接阻断，不等待 Judge。缺 Oracle、停止状态或 owner 仍未闭合。</text>
-<text x="88" y="4043" font-size="23" fill="#dce9fa" font-weight="450" >交付系统边界、风险到控制映射与决策反馈图。</text>
+<g id="failure-and-output" data-region="64,5038,1472,148">
+<rect x="64" y="5038" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="5077" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="5122" font-size="23" fill="#ffdce2" font-weight="450" >D0 失效使所有评分不可用；已证确定性红线直接阻断，不等待 Judge。缺 Oracle、停止状态或 owner 仍未闭合。</text>
+<text x="88" y="5165" font-size="23" fill="#dce9fa" font-weight="450" >交付系统边界、风险到控制映射与决策反馈图。</text>
 </g>
-<text x="64" y="4112" font-size="20" fill="#50647c" font-weight="450" >静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。</text>
-<text x="64" y="4151" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-AG-00 · 从退款风险到具名停止动作</text>
-<path class="edge edge-data" d="M64 4191 L101 4191" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
-<text x="120" y="4197" font-size="18" fill="#50647c" font-weight="550" >数据</text>
-<path class="edge edge-control" d="M360 4191 L397 4191" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
-<text x="416" y="4197" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
-<path class="edge edge-evidence" d="M656 4191 L693 4191" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
-<text x="712" y="4197" font-size="18" fill="#50647c" font-weight="550" >证据</text>
-<path class="edge edge-feedback" d="M952 4191 L989 4191" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
-<text x="1008" y="4197" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
-<path class="edge edge-risk" d="M1248 4191 L1285 4191" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
-<text x="1304" y="4197" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
+<text x="64" y="5234" font-size="20" fill="#50647c" font-weight="450" >静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。</text>
+<text x="64" y="5273" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-AG-00 · 从退款风险到具名停止动作</text>
+<path class="edge edge-data" d="M64 5313 L101 5313" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="5319" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 5313 L397 5313" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="5319" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 5313 L693 5313" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="5319" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 5313 L989 5313" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="5319" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 5313 L1285 5313" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="5319" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

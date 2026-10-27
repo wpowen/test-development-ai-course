@@ -1,30 +1,21 @@
 {
-  "reviewer": "Feynman — 独立内容与视觉复审",
+  "reviewer": "Independent visual reviewers plus verified inheritance of unchanged assets",
   "scope": "modules-aliases",
+  "review_round": "2026-10-27 P3 polish, final",
+  "reviewed_at_utc": "2026-10-27T02:01:12.905773+00:00",
   "count": 16,
-  "review_round": 2,
-  "reviewed_at_utc": "2026-10-26T17:27:36.627891+00:00",
-  "method": "全部当前截图经view_image实际查看；逐项按fresh inputs/sourceRefs核对实际正文或正文快照，复核首轮缺陷。Chrome几何/路由闭包仅作辅助，未据其PASS替代目检。长图长度本身不作为阻断。只评审隔离candidate，未以public旧图作为待审版本。",
-  "style_reference": "已确认TD-M04：浅底、多色语义卡片、主副标题层级、底部交付/边界区。新rail的外轨、编号端口和跨线桥按实际可追踪性评判；更长不自动阻断，更多线不自动通过。",
-  "style_assessment": "14张模块全景保持清楚的学习路线、浅底多色语义卡片和一致标题层级，按已确认TD-M04参照评判；两张兼容图使用编号外轨和跨线桥后，核心控制、证据和反馈可独立追踪。AG00决策端口仍稍密，仅记P3，不构成阻断。",
-  "input_files": [
-    {
-      "path": "docs/svg-redesign-2026-10-26/release-review/modules-inputs.json",
-      "sha256": "d9425cb8659fa5d0b2026f7d755daa9e0df2754f79e06dc87f02e6deaedc553a"
-    },
-    {
-      "path": "docs/svg-redesign-2026-10-26/release-review/aliases-inputs.json",
-      "sha256": "86859497c78fd187c4ab8f1c9a3c955562f699716b327e80943e5ec1026013a1"
-    }
-  ],
   "summary": {
     "PASS": 16,
     "REWORK": 0,
-    "P1": 0,
-    "P2": 0,
-    "P3": 1,
-    "deployment_blockers": []
+    "severity": {
+      "P1": 0,
+      "P2": 0,
+      "P3": 0
+    },
+    "fresh_visual_reviews": 1,
+    "inherited_unchanged_visual_reviews": 15
   },
+  "method": "Every changed SVG and full-height screenshot was independently viewed and checked against body sources. Unchanged SVG/specs retain previous real inspection with verified original PNG hashes; all 126 receive current rendered geometry checks. Not learner or industry acceptance.",
   "results": [
     {
       "id": "TD-M00",
@@ -34,8 +25,8 @@
       "body_checked": true,
       "verdict": "PASS",
       "findings": [],
-      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M00.svg",
-      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M00.png",
+      "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/modules/TD-M00.svg",
+      "screenshot": "output/svg-release-20261027-polish/screenshots-before/visuals__modules__TD-M00.png",
       "screenshot_sha256": "f5f219ade88d03aa0847f868248ada30eb52fff133cee6f0e71fbb1f6e552444",
       "render_input_sha256": "ba2eff14e8692679b68c6f28f8ceb275873f9d1246386dc6d37d3d983402c5e5",
       "dimensions": {
@@ -64,7 +55,20 @@
       ],
       "body_check_summary": "八阶段能力地图、先固定Oracle再构建可验收测试及课页路由一致；全景是学习承接，不是运行时因果。",
       "visual_check_summary": "八个编号阶段的蛇形学习顺序连续，问题、产物与页码均可读。",
-      "prior_findings": []
+      "prior_findings": [],
+      "review_inheritance": {
+        "mode": "UNCHANGED_SVG_AND_SPEC",
+        "source_report": "round-3/modules-aliases.json",
+        "source_report_sha256": "0567e4e09dc952826aadde31f1726d6d85986439e585aafdffd1860a531be72e",
+        "svg_sha256_verified": "69be178fd1b6442d8d8af1758809d394992a71568ed16ae1e21cc56c23298ad0",
+        "original_screenshot_sha256_verified": "f5f219ade88d03aa0847f868248ada30eb52fff133cee6f0e71fbb1f6e552444",
+        "explanation": "Inherited actual prior visual/body review; no new human/agent visual inspection claimed for this unchanged SVG."
+      },
+      "current_geometry_screenshot": {
+        "path": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M00.png",
+        "sha256": "f5f219ade88d03aa0847f868248ada30eb52fff133cee6f0e71fbb1f6e552444",
+        "evidence_scope": "Current Chrome geometry/QC; distinct from the visual inspection screenshot where inherited."
+      }
     },
     {
       "id": "TD-M08",
@@ -74,8 +78,8 @@
       "body_checked": true,
       "verdict": "PASS",
       "findings": [],
-      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M08.svg",
-      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M08.png",
+      "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/modules/TD-M08.svg",
+      "screenshot": "output/svg-release-20261027-polish/screenshots-before/visuals__modules__TD-M08.png",
       "screenshot_sha256": "e605ce2bf1b403cf7c9ecfdea7c6b7a5864ce771edb9052d0e5bb8dbe3b38b9b",
       "render_input_sha256": "510cc5170e671d1a055132c877e1c6f437fb4cb40806e642ef26d93c8a35dbee",
       "dimensions": {
@@ -104,7 +108,20 @@
       ],
       "body_check_summary": "六阶段专项性能路线及TTFT/端到端/容量/韧性边界与正文一致；未把教学或synthetic结果写成生产效果。",
       "visual_check_summary": "六阶段间距充足，少量页码在连字符处换行但可识别；控制问题无孤立标点。",
-      "prior_findings": []
+      "prior_findings": [],
+      "review_inheritance": {
+        "mode": "UNCHANGED_SVG_AND_SPEC",
+        "source_report": "round-3/modules-aliases.json",
+        "source_report_sha256": "0567e4e09dc952826aadde31f1726d6d85986439e585aafdffd1860a531be72e",
+        "svg_sha256_verified": "9e3548edd8a4dfbefec0da91503a1e6abe2e0ea736cc10bf1a1d9e37ae9eaa9c",
+        "original_screenshot_sha256_verified": "e605ce2bf1b403cf7c9ecfdea7c6b7a5864ce771edb9052d0e5bb8dbe3b38b9b",
+        "explanation": "Inherited actual prior visual/body review; no new human/agent visual inspection claimed for this unchanged SVG."
+      },
+      "current_geometry_screenshot": {
+        "path": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M08.png",
+        "sha256": "e605ce2bf1b403cf7c9ecfdea7c6b7a5864ce771edb9052d0e5bb8dbe3b38b9b",
+        "evidence_scope": "Current Chrome geometry/QC; distinct from the visual inspection screenshot where inherited."
+      }
     },
     {
       "id": "TD-M01",
@@ -114,8 +131,8 @@
       "body_checked": true,
       "verdict": "PASS",
       "findings": [],
-      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M01.svg",
-      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M01.png",
+      "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/modules/TD-M01.svg",
+      "screenshot": "output/svg-release-20261027-polish/screenshots-before/visuals__modules__TD-M01.png",
       "screenshot_sha256": "cfc3c7697b2799e9c943848466f8abb130c7068d3e1d25c8200d8577a44eb246",
       "render_input_sha256": "3ca4ae658de8ecdaefe8b7838ba84630610fced75ae8e66fb1fae221d08ef20c",
       "dimensions": {
@@ -151,7 +168,20 @@
           "resolved": true,
           "current_evidence": "当前六卡问句结尾均附着前词，首轮孤立问号问题未再出现。"
         }
-      ]
+      ],
+      "review_inheritance": {
+        "mode": "UNCHANGED_SVG_AND_SPEC",
+        "source_report": "round-3/modules-aliases.json",
+        "source_report_sha256": "0567e4e09dc952826aadde31f1726d6d85986439e585aafdffd1860a531be72e",
+        "svg_sha256_verified": "b494ebdf821eb0203aaa055bd215148f70897e4d28f017a5fa93158caa4ba143",
+        "original_screenshot_sha256_verified": "cfc3c7697b2799e9c943848466f8abb130c7068d3e1d25c8200d8577a44eb246",
+        "explanation": "Inherited actual prior visual/body review; no new human/agent visual inspection claimed for this unchanged SVG."
+      },
+      "current_geometry_screenshot": {
+        "path": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M01.png",
+        "sha256": "cfc3c7697b2799e9c943848466f8abb130c7068d3e1d25c8200d8577a44eb246",
+        "evidence_scope": "Current Chrome geometry/QC; distinct from the visual inspection screenshot where inherited."
+      }
     },
     {
       "id": "TD-M02",
@@ -161,8 +191,8 @@
       "body_checked": true,
       "verdict": "PASS",
       "findings": [],
-      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M02.svg",
-      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M02.png",
+      "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/modules/TD-M02.svg",
+      "screenshot": "output/svg-release-20261027-polish/screenshots-before/visuals__modules__TD-M02.png",
       "screenshot_sha256": "49039cf9839c59f4dcfef6e6daff2dfd979d4003bddb4d12fbbadfa43f52a1df",
       "render_input_sha256": "fd478ffb5b86b36a148b11310b7ef1998563f48af1fccd9af5d94bf85a0af0b5",
       "dimensions": {
@@ -198,7 +228,20 @@
           "resolved": true,
           "current_evidence": "Fuzz?完整排在同一行，B区句读附着前词，无行首逗号。"
         }
-      ]
+      ],
+      "review_inheritance": {
+        "mode": "UNCHANGED_SVG_AND_SPEC",
+        "source_report": "round-3/modules-aliases.json",
+        "source_report_sha256": "0567e4e09dc952826aadde31f1726d6d85986439e585aafdffd1860a531be72e",
+        "svg_sha256_verified": "f119df271a5c5941a681624639db1a0573447c309dcde95e8426d1cd2989c224",
+        "original_screenshot_sha256_verified": "49039cf9839c59f4dcfef6e6daff2dfd979d4003bddb4d12fbbadfa43f52a1df",
+        "explanation": "Inherited actual prior visual/body review; no new human/agent visual inspection claimed for this unchanged SVG."
+      },
+      "current_geometry_screenshot": {
+        "path": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M02.png",
+        "sha256": "49039cf9839c59f4dcfef6e6daff2dfd979d4003bddb4d12fbbadfa43f52a1df",
+        "evidence_scope": "Current Chrome geometry/QC; distinct from the visual inspection screenshot where inherited."
+      }
     },
     {
       "id": "TD-M09",
@@ -208,8 +251,8 @@
       "body_checked": true,
       "verdict": "PASS",
       "findings": [],
-      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M09.svg",
-      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M09.png",
+      "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/modules/TD-M09.svg",
+      "screenshot": "output/svg-release-20261027-polish/screenshots-before/visuals__modules__TD-M09.png",
       "screenshot_sha256": "75f42223e1d3b9a6a876e2c0d165ee1c265ab0d40c4ecd5480b7a60fed78d5e0",
       "render_input_sha256": "5903bffa72af1ed32d721ff2495779d9765704dba5509e6e58bfd32126554c8b",
       "dimensions": {
@@ -238,7 +281,20 @@
       ],
       "body_check_summary": "六阶段识别任务、协议、指标、容量、瓶颈和韧性与正文一致；TTFT需先定义，容量是版本/负载条件下结论。",
       "visual_check_summary": "六阶段蛇形线路可连续读，数字、问题、产物和边界层级明确。",
-      "prior_findings": []
+      "prior_findings": [],
+      "review_inheritance": {
+        "mode": "UNCHANGED_SVG_AND_SPEC",
+        "source_report": "round-3/modules-aliases.json",
+        "source_report_sha256": "0567e4e09dc952826aadde31f1726d6d85986439e585aafdffd1860a531be72e",
+        "svg_sha256_verified": "e6955254792d273d3bd2bb7fa0988913275638e519125ba77937611d1ed81642",
+        "original_screenshot_sha256_verified": "75f42223e1d3b9a6a876e2c0d165ee1c265ab0d40c4ecd5480b7a60fed78d5e0",
+        "explanation": "Inherited actual prior visual/body review; no new human/agent visual inspection claimed for this unchanged SVG."
+      },
+      "current_geometry_screenshot": {
+        "path": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M09.png",
+        "sha256": "75f42223e1d3b9a6a876e2c0d165ee1c265ab0d40c4ecd5480b7a60fed78d5e0",
+        "evidence_scope": "Current Chrome geometry/QC; distinct from the visual inspection screenshot where inherited."
+      }
     },
     {
       "id": "TD-M03",
@@ -248,8 +304,8 @@
       "body_checked": true,
       "verdict": "PASS",
       "findings": [],
-      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M03.svg",
-      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M03.png",
+      "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/modules/TD-M03.svg",
+      "screenshot": "output/svg-release-20261027-polish/screenshots-before/visuals__modules__TD-M03.png",
       "screenshot_sha256": "35d2f6204a94db8b891a66bfc5a5bbe837699940fd7fcc575f531df0aa98606e",
       "render_input_sha256": "493fa51e4eaa8fca8a28db7095f780d73923e336446154c97274d3468ba870c8",
       "dimensions": {
@@ -285,7 +341,20 @@
           "resolved": true,
           "current_evidence": "当前七卡与B区问句/句读随正文排布，未见孤立标点行。"
         }
-      ]
+      ],
+      "review_inheritance": {
+        "mode": "UNCHANGED_SVG_AND_SPEC",
+        "source_report": "round-3/modules-aliases.json",
+        "source_report_sha256": "0567e4e09dc952826aadde31f1726d6d85986439e585aafdffd1860a531be72e",
+        "svg_sha256_verified": "7ed3ee9b28fd55c65af696a8d8bc153209dc71e19950adb351d7fa6186b9ca8b",
+        "original_screenshot_sha256_verified": "35d2f6204a94db8b891a66bfc5a5bbe837699940fd7fcc575f531df0aa98606e",
+        "explanation": "Inherited actual prior visual/body review; no new human/agent visual inspection claimed for this unchanged SVG."
+      },
+      "current_geometry_screenshot": {
+        "path": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M03.png",
+        "sha256": "35d2f6204a94db8b891a66bfc5a5bbe837699940fd7fcc575f531df0aa98606e",
+        "evidence_scope": "Current Chrome geometry/QC; distinct from the visual inspection screenshot where inherited."
+      }
     },
     {
       "id": "TD-M04",
@@ -295,8 +364,8 @@
       "body_checked": true,
       "verdict": "PASS",
       "findings": [],
-      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M04.svg",
-      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M04.png",
+      "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/modules/TD-M04.svg",
+      "screenshot": "output/svg-release-20261027-polish/screenshots-before/visuals__modules__TD-M04.png",
       "screenshot_sha256": "5558f51b8a378c99cc93d84ca28918cc1d2777541c5f6118ec34a1f1791edd6e",
       "render_input_sha256": "72a02d1c9a5b3eecb9aca19798f9a968693a6963d0ee6fef98fac339bf60a169",
       "dimensions": {
@@ -325,7 +394,20 @@
       ],
       "body_check_summary": "实际模块正文的Agent工作流、角色、Policy Gate、工具边界、七视角与Outcome/Step/Trajectory三层判据已核对；授权由确定性层执行。",
       "visual_check_summary": "以已确认TD-M04自身作为风格参照：主流程、反馈、七视角和三层判定分区紧凑，蓝橙紫语义与正文层级清楚。",
-      "prior_findings": []
+      "prior_findings": [],
+      "review_inheritance": {
+        "mode": "UNCHANGED_SVG_AND_SPEC",
+        "source_report": "round-3/modules-aliases.json",
+        "source_report_sha256": "0567e4e09dc952826aadde31f1726d6d85986439e585aafdffd1860a531be72e",
+        "svg_sha256_verified": "895b24a0d0d981610db25a2fa74698e5867207b8fca00cab97702c86fd6c152e",
+        "original_screenshot_sha256_verified": "5558f51b8a378c99cc93d84ca28918cc1d2777541c5f6118ec34a1f1791edd6e",
+        "explanation": "Inherited actual prior visual/body review; no new human/agent visual inspection claimed for this unchanged SVG."
+      },
+      "current_geometry_screenshot": {
+        "path": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M04.png",
+        "sha256": "5558f51b8a378c99cc93d84ca28918cc1d2777541c5f6118ec34a1f1791edd6e",
+        "evidence_scope": "Current Chrome geometry/QC; distinct from the visual inspection screenshot where inherited."
+      }
     },
     {
       "id": "TD-M05",
@@ -335,8 +417,8 @@
       "body_checked": true,
       "verdict": "PASS",
       "findings": [],
-      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M05.svg",
-      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M05.png",
+      "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/modules/TD-M05.svg",
+      "screenshot": "output/svg-release-20261027-polish/screenshots-before/visuals__modules__TD-M05.png",
       "screenshot_sha256": "2858596f82d17c4d76a5098db6104d3f9cff4721d941ed9508283719b9e20a40",
       "render_input_sha256": "df97ca8594525cdb9ccdd850f643640fdb59526a24379c14ff3d205a5ed3dd08",
       "dimensions": {
@@ -372,7 +454,20 @@
           "resolved": true,
           "current_evidence": "生产回灌问句的“了吗？”完整尾行，未再孤立问号。"
         }
-      ]
+      ],
+      "review_inheritance": {
+        "mode": "UNCHANGED_SVG_AND_SPEC",
+        "source_report": "round-3/modules-aliases.json",
+        "source_report_sha256": "0567e4e09dc952826aadde31f1726d6d85986439e585aafdffd1860a531be72e",
+        "svg_sha256_verified": "2a77789fec2010609caf1fb89ae2f7285802bb2ec9b2376e052f7601f875ff47",
+        "original_screenshot_sha256_verified": "2858596f82d17c4d76a5098db6104d3f9cff4721d941ed9508283719b9e20a40",
+        "explanation": "Inherited actual prior visual/body review; no new human/agent visual inspection claimed for this unchanged SVG."
+      },
+      "current_geometry_screenshot": {
+        "path": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M05.png",
+        "sha256": "2858596f82d17c4d76a5098db6104d3f9cff4721d941ed9508283719b9e20a40",
+        "evidence_scope": "Current Chrome geometry/QC; distinct from the visual inspection screenshot where inherited."
+      }
     },
     {
       "id": "TD-M06",
@@ -382,8 +477,8 @@
       "body_checked": true,
       "verdict": "PASS",
       "findings": [],
-      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M06.svg",
-      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M06.png",
+      "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/modules/TD-M06.svg",
+      "screenshot": "output/svg-release-20261027-polish/screenshots-before/visuals__modules__TD-M06.png",
       "screenshot_sha256": "5cd5b9b96e7a2fcbcf856fe2a6895d707e82e9d9a2366fc28e4d4f016afe6984",
       "render_input_sha256": "e898d93922f97474b1c01a64bd4f9915887979c35e098a6c667e74ff123314ec",
       "dimensions": {
@@ -419,7 +514,20 @@
           "resolved": true,
           "current_evidence": "当前“决定？”“显著吗？”等问句均附着前词，B区无行首禁则标点。"
         }
-      ]
+      ],
+      "review_inheritance": {
+        "mode": "UNCHANGED_SVG_AND_SPEC",
+        "source_report": "round-3/modules-aliases.json",
+        "source_report_sha256": "0567e4e09dc952826aadde31f1726d6d85986439e585aafdffd1860a531be72e",
+        "svg_sha256_verified": "d6e7c48ee2c34c8abc5bcaf72e6d526b5fae8b15b00a424d7c3230fafc5d148a",
+        "original_screenshot_sha256_verified": "5cd5b9b96e7a2fcbcf856fe2a6895d707e82e9d9a2366fc28e4d4f016afe6984",
+        "explanation": "Inherited actual prior visual/body review; no new human/agent visual inspection claimed for this unchanged SVG."
+      },
+      "current_geometry_screenshot": {
+        "path": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M06.png",
+        "sha256": "5cd5b9b96e7a2fcbcf856fe2a6895d707e82e9d9a2366fc28e4d4f016afe6984",
+        "evidence_scope": "Current Chrome geometry/QC; distinct from the visual inspection screenshot where inherited."
+      }
     },
     {
       "id": "TD-M07",
@@ -429,8 +537,8 @@
       "body_checked": true,
       "verdict": "PASS",
       "findings": [],
-      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M07.svg",
-      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M07.png",
+      "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/modules/TD-M07.svg",
+      "screenshot": "output/svg-release-20261027-polish/screenshots-before/visuals__modules__TD-M07.png",
       "screenshot_sha256": "cc29d92da9b472392680db5dff81cda1e16db15f1aa6ee150521a879ed38f140",
       "render_input_sha256": "deb7f18c61b8d7f0c2ff998cccfc4e616291e614ec081222f21793d663c3da27",
       "dimensions": {
@@ -466,7 +574,20 @@
           "resolved": true,
           "current_evidence": "需求侧接入问句以“验证？”成词尾行显示；B区没有首轮行首标点。"
         }
-      ]
+      ],
+      "review_inheritance": {
+        "mode": "UNCHANGED_SVG_AND_SPEC",
+        "source_report": "round-3/modules-aliases.json",
+        "source_report_sha256": "0567e4e09dc952826aadde31f1726d6d85986439e585aafdffd1860a531be72e",
+        "svg_sha256_verified": "530a95aa4a7f058c2dc0faf82b8875d435ed7f4ca2eded574d86c4ea3fa3f5e1",
+        "original_screenshot_sha256_verified": "cc29d92da9b472392680db5dff81cda1e16db15f1aa6ee150521a879ed38f140",
+        "explanation": "Inherited actual prior visual/body review; no new human/agent visual inspection claimed for this unchanged SVG."
+      },
+      "current_geometry_screenshot": {
+        "path": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M07.png",
+        "sha256": "cc29d92da9b472392680db5dff81cda1e16db15f1aa6ee150521a879ed38f140",
+        "evidence_scope": "Current Chrome geometry/QC; distinct from the visual inspection screenshot where inherited."
+      }
     },
     {
       "id": "TD-M10",
@@ -476,8 +597,8 @@
       "body_checked": true,
       "verdict": "PASS",
       "findings": [],
-      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M10.svg",
-      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M10.png",
+      "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/modules/TD-M10.svg",
+      "screenshot": "output/svg-release-20261027-polish/screenshots-before/visuals__modules__TD-M10.png",
       "screenshot_sha256": "139e0e6deddf4c2c95d3ae5e0c21236cb2571b0542f7a7ed55cc585a89771997",
       "render_input_sha256": "a2239ea95c62be194f8e1429319158ebb64166368cd6eda0c578cb6b3b60e36a",
       "dimensions": {
@@ -513,7 +634,20 @@
           "resolved": true,
           "current_evidence": "当前七卡问句的问号均附着词语，B区句号随前文显示。"
         }
-      ]
+      ],
+      "review_inheritance": {
+        "mode": "UNCHANGED_SVG_AND_SPEC",
+        "source_report": "round-3/modules-aliases.json",
+        "source_report_sha256": "0567e4e09dc952826aadde31f1726d6d85986439e585aafdffd1860a531be72e",
+        "svg_sha256_verified": "8ecfec9fb44d9c4167bd95753e467805b81ef66c953c5d8ff7a966bfe0e129af",
+        "original_screenshot_sha256_verified": "139e0e6deddf4c2c95d3ae5e0c21236cb2571b0542f7a7ed55cc585a89771997",
+        "explanation": "Inherited actual prior visual/body review; no new human/agent visual inspection claimed for this unchanged SVG."
+      },
+      "current_geometry_screenshot": {
+        "path": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M10.png",
+        "sha256": "139e0e6deddf4c2c95d3ae5e0c21236cb2571b0542f7a7ed55cc585a89771997",
+        "evidence_scope": "Current Chrome geometry/QC; distinct from the visual inspection screenshot where inherited."
+      }
     },
     {
       "id": "TD-M11",
@@ -523,8 +657,8 @@
       "body_checked": true,
       "verdict": "PASS",
       "findings": [],
-      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M11.svg",
-      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M11.png",
+      "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/modules/TD-M11.svg",
+      "screenshot": "output/svg-release-20261027-polish/screenshots-before/visuals__modules__TD-M11.png",
       "screenshot_sha256": "c8ff9b162f0ccaa6ca7ed3a75cd601d07241c3e04fb3ce2ada5ec152fe349cd0",
       "render_input_sha256": "5c4e7e859e1d7f692db99788d46b178671554f5101d3e367ede7660d71e8df58",
       "dimensions": {
@@ -560,7 +694,20 @@
           "resolved": true,
           "current_evidence": "当前八卡问句结尾均附着词语，无孤立问号行或B区行首标点。"
         }
-      ]
+      ],
+      "review_inheritance": {
+        "mode": "UNCHANGED_SVG_AND_SPEC",
+        "source_report": "round-3/modules-aliases.json",
+        "source_report_sha256": "0567e4e09dc952826aadde31f1726d6d85986439e585aafdffd1860a531be72e",
+        "svg_sha256_verified": "3d944481eeecd51db586ef9048438c0329783c9cda94c7b76a1f54a855d8d77e",
+        "original_screenshot_sha256_verified": "c8ff9b162f0ccaa6ca7ed3a75cd601d07241c3e04fb3ce2ada5ec152fe349cd0",
+        "explanation": "Inherited actual prior visual/body review; no new human/agent visual inspection claimed for this unchanged SVG."
+      },
+      "current_geometry_screenshot": {
+        "path": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M11.png",
+        "sha256": "c8ff9b162f0ccaa6ca7ed3a75cd601d07241c3e04fb3ce2ada5ec152fe349cd0",
+        "evidence_scope": "Current Chrome geometry/QC; distinct from the visual inspection screenshot where inherited."
+      }
     },
     {
       "id": "TD-M12",
@@ -570,8 +717,8 @@
       "body_checked": true,
       "verdict": "PASS",
       "findings": [],
-      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M12.svg",
-      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M12.png",
+      "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/modules/TD-M12.svg",
+      "screenshot": "output/svg-release-20261027-polish/screenshots-before/visuals__modules__TD-M12.png",
       "screenshot_sha256": "b8eccdbab28e4567e299be3b9795b1a08e5087ad0285d396e640023bd5c0c902",
       "render_input_sha256": "2b1571307503fbcc74ac138befc60877edce0ea857f6bc8165bfee50e031c616",
       "dimensions": {
@@ -600,7 +747,20 @@
       ],
       "body_check_summary": "七阶段覆盖D0–D7与四环/三段门禁；D0先校准判据，夹具门禁不冒充交易集成，页面映射完整。",
       "visual_check_summary": "七阶段按学习先后连接，D1–D2与D3–D4的分组标题可读，没有把学习箭头误标为运行因果。",
-      "prior_findings": []
+      "prior_findings": [],
+      "review_inheritance": {
+        "mode": "UNCHANGED_SVG_AND_SPEC",
+        "source_report": "round-3/modules-aliases.json",
+        "source_report_sha256": "0567e4e09dc952826aadde31f1726d6d85986439e585aafdffd1860a531be72e",
+        "svg_sha256_verified": "94b0a97d9258b3d116f58c0f880f45693e804dfd781b598c785a4d25221ec167",
+        "original_screenshot_sha256_verified": "b8eccdbab28e4567e299be3b9795b1a08e5087ad0285d396e640023bd5c0c902",
+        "explanation": "Inherited actual prior visual/body review; no new human/agent visual inspection claimed for this unchanged SVG."
+      },
+      "current_geometry_screenshot": {
+        "path": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M12.png",
+        "sha256": "b8eccdbab28e4567e299be3b9795b1a08e5087ad0285d396e640023bd5c0c902",
+        "evidence_scope": "Current Chrome geometry/QC; distinct from the visual inspection screenshot where inherited."
+      }
     },
     {
       "id": "TD-M13",
@@ -610,8 +770,8 @@
       "body_checked": true,
       "verdict": "PASS",
       "findings": [],
-      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M13.svg",
-      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M13.png",
+      "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/modules/TD-M13.svg",
+      "screenshot": "output/svg-release-20261027-polish/screenshots-before/visuals__modules__TD-M13.png",
       "screenshot_sha256": "385004f3667ec5047653c29585e2b3ef622f4062e402667398df600477a9ad6f",
       "render_input_sha256": "aab1262ecc736e38410af8d1489e7752fe9211e0d46121c7cafafd98df379e6a",
       "dimensions": {
@@ -640,93 +800,598 @@
       ],
       "body_check_summary": "严格保留五页起步序列、默认L1+L5+L7、首错和最小门禁/下一分叉；不包含AI00/06/07，不替代M12或证明生产可发。",
       "visual_check_summary": "五节点、产物和边界清晰，B区简短但未遗漏本页核心出口；没有孤立问号或行首禁则标点。",
-      "prior_findings": []
+      "prior_findings": [],
+      "review_inheritance": {
+        "mode": "UNCHANGED_SVG_AND_SPEC",
+        "source_report": "round-3/modules-aliases.json",
+        "source_report_sha256": "0567e4e09dc952826aadde31f1726d6d85986439e585aafdffd1860a531be72e",
+        "svg_sha256_verified": "f45b9a40e6f8469a57269340a856c47dfc9ac623b3ade6725b1b90273efe3a5b",
+        "original_screenshot_sha256_verified": "385004f3667ec5047653c29585e2b3ef622f4062e402667398df600477a9ad6f",
+        "explanation": "Inherited actual prior visual/body review; no new human/agent visual inspection claimed for this unchanged SVG."
+      },
+      "current_geometry_screenshot": {
+        "path": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M13.png",
+        "sha256": "385004f3667ec5047653c29585e2b3ef622f4062e402667398df600477a9ad6f",
+        "evidence_scope": "Current Chrome geometry/QC; distinct from the visual inspection screenshot where inherited."
+      }
     },
     {
       "id": "TD-AG-00-compat",
       "path": "visuals/course/TD-AG-00.svg",
-      "sha256": "61bd5bb334736e2f8a365d126660942dd1cb2a7bd9317454074d09c56a0abfeb",
+      "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-AG-00.svg",
+      "sha256": "b6ec2fc298064c728e13d619e7a1c12b76b0b5ece0d3c2bae1be4949003241da",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AG-00.png",
+      "screenshot_sha256": "1c656e8996dff2a53397c310113515584587b73b18921f4b0644a3ff7e3ea23b",
+      "size": [
+        1600,
+        5352
+      ],
+      "crops": [
+        {
+          "path": "output/svg-release-20261027-polish/review-main-seven-round4-TD-AG-00-compat-y0-1799.png",
+          "sha256": "99ee1973626efd94bf3ae750ae7c742307385372637583398acfd2a7e75f62dd",
+          "x": [
+            0,
+            1599
+          ],
+          "y": [
+            0,
+            1799
+          ]
+        },
+        {
+          "path": "output/svg-release-20261027-polish/review-main-seven-round4-TD-AG-00-compat-y1600-3399.png",
+          "sha256": "b3be0d19981b0a7a032e7378310dbba97466ea3549d32ca32f927e13c6c84795",
+          "x": [
+            0,
+            1599
+          ],
+          "y": [
+            1600,
+            3399
+          ]
+        },
+        {
+          "path": "output/svg-release-20261027-polish/review-main-seven-round4-TD-AG-00-compat-y3200-4999.png",
+          "sha256": "45e2ebcfb08c2a56d655e6c02ca23e2b63e3dcfcfa43624c2aeb1ef305cda224",
+          "x": [
+            0,
+            1599
+          ],
+          "y": [
+            3200,
+            4999
+          ]
+        },
+        {
+          "path": "output/svg-release-20261027-polish/review-main-seven-round4-TD-AG-00-compat-y4800-5351.png",
+          "sha256": "bdaaa7939ef670520b123c80748994227fb2fb70780bd305c3f7a6dbe9008a83",
+          "x": [
+            0,
+            1599
+          ],
+          "y": [
+            4800,
+            5351
+          ]
+        }
+      ],
+      "spec_path": "scripts/visuals/specs/aliases.mjs",
+      "body_check_evidence": "对照本轮当前 spec 的 10 个节点、22 条关系及 SHA 未变的 TD-AG-00 正文来源重新核对：D0 校准所有域评分，失准则全部评分不可用；四环按各自输入和覆盖范围横向驱动 D1–D3/D4/D5/D6；决策回灌输入并重校准 D0；安全越权和业务硬规则违规各自独立否决，不等待 Judge，也不以统计证据、总分或具名接受抵消。具名决定、独立 Oracle、停止状态与 owner 缺口以及 NOT_RUN 边界保留。",
+      "visual_evidence": "本轮独立调用 view_image(detail=original) 查看四张 1600px 全宽裁块，覆盖 y=0–5351、每段重叠 200px。A1 校准五类评分并另列 07 失准限制；A2 09–12 从同一四环节点横向驱动四类对象，没有把四环逐一配给四域；A3 01/08、21/22 分别画输入轨迹和两种反馈；A4 13/14 接护栏，19/20 用左右独立红箭头直接进入同号决定；A5 15–18 为区间、成本、责任、停止回执的分离输入。顶端明确同号卡片是同一节点，不表示重复执行或先后放行。全图未见文字裁切、遮挡或标签归属不清；5352px 虽更长，分区标题和节点编号支持查找，未发现新的需优化 P3。",
+      "spec_check": {
+        "nativeLayout": "architecture-panels",
+        "semantic_node_count": 10,
+        "card_reference_count": 29,
+        "edge_count": 22,
+        "panel_count": 5,
+        "decision_width_px": 1100
+      },
       "visual_inspected": true,
       "body_checked": true,
       "verdict": "PASS",
-      "findings": [
+      "findings": [],
+      "old_issue_closure": [
         {
           "severity": "P3",
-          "issue": "决策节点顶边八个入端口过密，编号识别较费力。",
-          "evidence": "第三裁块中决策与反馈顶边的19、17、20、07、15、16、18等编号集中，橙红紫竖线距离接近；仍能用编号及跨线桥辨认，19/20硬阻断没有再共线。",
-          "suggested_fix": "加宽决策卡或把硬阻断端口与统计/责任证据分放两侧，给编号增加水平间隔。"
-        }
-      ],
-      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AG-00.svg",
-      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AG-00.png",
-      "screenshot_sha256": "32a417916e1100e6be28e94073b8caca7a819e4059c66d0a9ace13a7b28c779d",
-      "render_input_sha256": "6121a8aaa87b5335e4d86d3373c81632f277ce43302e53d1ee6d436244266702",
-      "dimensions": {
-        "width": 1600,
-        "height": 4230
-      },
-      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
-      "inspected_regions": [
-        {
-          "top": 0,
-          "height": 1550
+          "resolved": true,
+          "issue": "Earlier crowded decision-card ports",
+          "origin": "docs/svg-redesign-2026-10-26/release-review/modules-aliases.json",
+          "evidence": "早期“决定入口过密”问题在当前五分区保持关闭：A4 的 19/20 硬阻断各走独立端口，A5 的 15–18 四条证据/责任输入落在 1100px 决策卡的分离端口；07 失准限制在 A1 独立显示。复用的是同一个 10 号语义节点，而不是多个先后放行关卡。"
         },
         {
-          "top": 1430,
-          "height": 1550
-        },
-        {
-          "top": 2860,
-          "height": 1370
+          "severity": "P3",
+          "resolved": true,
+          "issue": "宽决策卡已疏开，但右侧同色控制外轨仍密集，长距离逐线回追费力。",
+          "origin": "output/svg-release-20261027-polish/review-main-seven-before-architecture.json",
+          "evidence": "上一轮两图各一条“右侧同色外轨密集、长距离追线费力”P3 已实质关闭：五分区取消原 x≈1444–1486 的纵贯外轨，各边只在所属分区内短距离连接。独立解析实际 SVG 确认 22/22 条边都完全落在单个分区，最大纵向跨度为 233px；编号、边类型、标签和物理端点均与当前 spec 一一匹配。不是仅换 SHA 或删除长边：22 条关系每条恰绘一次，十个语义节点完整正文各至少呈现一次。"
         }
       ],
-      "inspected_crops_match_current_png": true,
-      "batch_binding_checked": {
-        "candidate_sha": true,
-        "render_input_sha": true
+      "actual_viewed_ranges": {
+        "tool": "view_image",
+        "detail": "original",
+        "viewed_in_round": "round4",
+        "width_px": 1600,
+        "height_px": 5352,
+        "x_inclusive": [
+          0,
+          1599
+        ],
+        "y_inclusive": [
+          [
+            0,
+            1799
+          ],
+          [
+            1600,
+            3399
+          ],
+          [
+            3200,
+            4999
+          ],
+          [
+            4800,
+            5351
+          ]
+        ],
+        "overlap_px": 200,
+        "full_width": true,
+        "full_height": true,
+        "overview_used": false,
+        "inherited": false
       },
-      "source_refs_checked": [
+      "manifest_match": true,
+      "spec_sha256": "eaa36fdc7918f22a6da9cd865e89c3fa87fa0ed803cdae0d9a83c3ad05142d46",
+      "spec_file_sha256": "ef80f74192bc486b4c31a7550dbd2de42a01c1b1df306d2c2db90eecb26ecdfe",
+      "source_checks": [
         {
           "path": "content/modules/agent-architecture-system.ts",
           "locator": "TD-AG-00 / workflow",
           "quote": "列出节点、状态、信任边界、工具和副作用",
-          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+          "sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422",
+          "quote_present": true
         },
         {
           "path": "content/modules/agent-architecture-system.ts",
           "locator": "TD-AG-00 / expected",
           "quote": "每条风险边都有证据、停止状态和责任人。",
-          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+          "sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422",
+          "quote_present": true
         },
         {
           "path": "content/modules/agent-architecture-deep.ts",
           "locator": "TD-AG-00 / dimensions.caption",
           "quote": "D0 校准所有分数",
-          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+          "sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba",
+          "quote_present": true
         },
         {
           "path": "content/modules/agent-architecture-deep.ts",
           "locator": "TD-AG-00 / counter",
           "quote": "四个环是横向驱动 D1/D4/D5/D6 的，不是串在末尾。",
-          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+          "sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba",
+          "quote_present": true
         },
         {
           "path": "content/modules/agent-architecture-deep.ts",
           "locator": "TD-AG-09 / failureModes",
           "quote": "发生一次即不可接受的事件不能做成区间判定",
-          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+          "sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba",
+          "quote_present": true
         }
       ],
-      "body_check_summary": "实际正文workflow/expected、八域caption、四环counter及AG09硬红线已核对：D0覆盖所有评分；四环横向驱动D1/D4/D5/D6；D5/D7已证确定性红线不等Judge；owner/Oracle/停止状态与fixture边界齐全。",
-      "visual_check_summary": "全高4230px分三块重叠查看。02–07 D0轨、09–12四环执行、19/20独立红线和21/22反馈均可追踪，缺失的四环→D4已补为10。决策顶端端口较密但仍能识别，记P3。",
-      "prior_findings": [
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+        "sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4",
+        "page_ids": [
+          "TD-AG-00"
+        ]
+      },
+      "render_readback": {
+        "status": "PASS",
+        "render_sha256": "cf7591bda89bee64a7b89967afb7258a015cfba80bef1e602169abc644698b2f",
+        "semanticEdgeScope": "ROUTED_GRAPH",
+        "semanticEdgeMismatches": [],
+        "outside": [],
+        "overflow": [],
+        "overlaps": [],
+        "labelNodeCollisions": [],
+        "evidence_reused": null,
+        "independently_rerendered": false
+      },
+      "prior_round_review": {
+        "archive": "output/svg-release-20261027-polish/review-main-seven-before-architecture.json",
+        "archive_sha256": "74638444fd2d8f33effd2f0c97cec650788cc4ebb2bb37755fa610cbb1000250",
+        "svg_sha256": "db50bb1d1f10a2d895aeabc743da34c8b70b254c2366d86d3cc80b62ce0790dc",
+        "screenshot_sha256": "7ee824480c06e36e5421cb816a5b8cfdfafc84548a195671b6748f8265282c56",
+        "prior_findings": [
+          {
+            "severity": "P3",
+            "issue": "宽决策卡已疏开，但右侧同色控制外轨仍密集，长距离逐线回追费力。",
+            "status": "OPEN",
+            "resolved": false,
+            "blocking": false,
+            "classification": "residual_visual_polish",
+            "evidence": "原尺寸截图 x≈1444–1486、y≈690–1566 的 D0 控制轨多次按约 6px 间距并行，02/03/04/05/06/07 标签到目标卡之间有多次桥接；下部 y≈2388–3200 的 14/17 控制和 15/16/18 证据外轨仍交织。编号和端点可查，未丢边，但加宽决策卡没有解决这段外围总线的追踪负担。SVG 路由中右轨 x=1356/1374/1380/1386/1392/1398，加图组 x=88 后为当前截图坐标。",
+            "suggested_fix": "为同色长轨增加水平间距，或按 D0 校准、证据入决策分设轨道组；长轨中段补重复编号，保留现有独立端口及跨线桥。不要只再加宽决策卡。",
+            "location": {
+              "coordinate_space": "latest screenshot pixels",
+              "x": [
+                1444,
+                1486
+              ],
+              "y": [
+                690,
+                1566
+              ]
+            },
+            "related_ids": [
+              "AG-DIM-ARCHITECTURE",
+              "TD-AG-00-compat"
+            ]
+          }
+        ],
+        "prior_old_issue_closure": [
+          {
+            "severity": "P3",
+            "resolved": true,
+            "evidence": "原 P3 已关闭：原决策节点顶边编号拥挤，现宽卡及约 63px 入端口间距使硬红线与统计/责任输入均能辨认。旧记录称八个入端口，本轮当前 spec 实际为七条入边，另有两条反馈出边；未凭旧计数机械验收。右侧外轨残余密集单列新 P3。",
+            "origin": "docs/svg-redesign-2026-10-26/release-review/modules-aliases.json"
+          }
+        ]
+      },
+      "review_basis": "ROUND4_FRESH_VISUAL_AND_SEMANTIC_REVIEW",
+      "reviewed_at_utc": "2026-10-27T02:00:27.032155+00:00",
+      "visual_inspected_this_round": true,
+      "body_checked_this_round": true,
+      "resolved_findings": [
         {
-          "severity": "P2",
-          "issue": "D7规则证据和硬阻断共线，D0控制和反馈集中交叉；四环未显式驱动D4执行。",
+          "severity": "P3",
+          "issue": "宽决策卡已疏开，但右侧同色控制外轨仍密集，长距离逐线回追费力。",
+          "status": "CLOSED",
           "resolved": true,
-          "current_evidence": "D7规则责任17与硬阻断20独立端口；D0 02–07和反馈21/22分轨；新增10各环重复与回放执行明确指向D4。"
+          "blocking": false,
+          "classification": "residual_visual_polish",
+          "evidence": "原尺寸截图 x≈1444–1486、y≈690–1566 的 D0 控制轨多次按约 6px 间距并行，02/03/04/05/06/07 标签到目标卡之间有多次桥接；下部 y≈2388–3200 的 14/17 控制和 15/16/18 证据外轨仍交织。编号和端点可查，未丢边，但加宽决策卡没有解决这段外围总线的追踪负担。SVG 路由中右轨 x=1356/1374/1380/1386/1392/1398，加图组 x=88 后为当前截图坐标。",
+          "suggested_fix": "为同色长轨增加水平间距，或按 D0 校准、证据入决策分设轨道组；长轨中段补重复编号，保留现有独立端口及跨线桥。不要只再加宽决策卡。",
+          "location": {
+            "coordinate_space": "latest screenshot pixels",
+            "x": [
+              1444,
+              1486
+            ],
+            "y": [
+              690,
+              1566
+            ]
+          },
+          "related_ids": [
+            "AG-DIM-ARCHITECTURE",
+            "TD-AG-00-compat"
+          ],
+          "closed_in_round": "round4",
+          "closure_evidence": "上一轮两图各一条“右侧同色外轨密集、长距离追线费力”P3 已实质关闭：五分区取消原 x≈1444–1486 的纵贯外轨，各边只在所属分区内短距离连接。独立解析实际 SVG 确认 22/22 条边都完全落在单个分区，最大纵向跨度为 233px；编号、边类型、标签和物理端点均与当前 spec 一一匹配。不是仅换 SHA 或删除长边：22 条关系每条恰绘一次，十个语义节点完整正文各至少呈现一次。"
         }
-      ]
+      ],
+      "structure_verification": {
+        "id": "TD-AG-00-compat",
+        "edge_count": 22,
+        "edge_ids_unique": true,
+        "extra_edges": 0,
+        "full_node_count": 10,
+        "full_nodes": [
+          {
+            "id": "input",
+            "full_card": "node-input",
+            "all_body_lines_visible": true
+          },
+          {
+            "id": "d0",
+            "full_card": "node-d0",
+            "all_body_lines_visible": true
+          },
+          {
+            "id": "behavior",
+            "full_card": "node-run-behavior",
+            "all_body_lines_visible": true
+          },
+          {
+            "id": "distribution",
+            "full_card": "node-run-distribution",
+            "all_body_lines_visible": true
+          },
+          {
+            "id": "security",
+            "full_card": "node-run-security",
+            "all_body_lines_visible": true
+          },
+          {
+            "id": "cost",
+            "full_card": "node-run-cost",
+            "all_body_lines_visible": true
+          },
+          {
+            "id": "business",
+            "full_card": "node-business",
+            "all_body_lines_visible": true
+          },
+          {
+            "id": "rings",
+            "full_card": "node-rings",
+            "all_body_lines_visible": true
+          },
+          {
+            "id": "guard",
+            "full_card": "node-guard",
+            "all_body_lines_visible": true
+          },
+          {
+            "id": "decision",
+            "full_card": "node-decision",
+            "all_body_lines_visible": true
+          }
+        ],
+        "card_references": 29,
+        "panels": [
+          "panel-A1",
+          "panel-A2",
+          "panel-A3",
+          "panel-A4",
+          "panel-A5"
+        ],
+        "edge_ledger": [
+          {
+            "number": "01",
+            "from": "input",
+            "to": "behavior",
+            "kind": "data",
+            "label": "任务与状态流",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "02",
+            "from": "d0",
+            "to": "distribution",
+            "kind": "control",
+            "label": "校准分数使用",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "03",
+            "from": "d0",
+            "to": "behavior",
+            "kind": "control",
+            "label": "校准行为各域评分",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "04",
+            "from": "d0",
+            "to": "security",
+            "kind": "control",
+            "label": "校准安全评分",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "05",
+            "from": "d0",
+            "to": "cost",
+            "kind": "control",
+            "label": "校准资源评分",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "06",
+            "from": "d0",
+            "to": "business",
+            "kind": "control",
+            "label": "校准治理评分",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "07",
+            "from": "d0",
+            "to": "decision",
+            "kind": "control",
+            "label": "失准则所有评分不可用",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "08",
+            "from": "behavior",
+            "to": "distribution",
+            "kind": "evidence",
+            "label": "完整轨迹",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "09",
+            "from": "rings",
+            "to": "behavior",
+            "kind": "data",
+            "label": "各环执行",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "10",
+            "from": "rings",
+            "to": "distribution",
+            "kind": "data",
+            "label": "各环重复与回放执行",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "11",
+            "from": "rings",
+            "to": "security",
+            "kind": "data",
+            "label": "各环对抗",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "12",
+            "from": "rings",
+            "to": "cost",
+            "kind": "data",
+            "label": "各环负载观测",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "13",
+            "from": "security",
+            "to": "guard",
+            "kind": "control",
+            "label": "风险映射强制控制",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "14",
+            "from": "business",
+            "to": "guard",
+            "kind": "control",
+            "label": "业务硬规则",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "15",
+            "from": "distribution",
+            "to": "decision",
+            "kind": "evidence",
+            "label": "区间与失败切片",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "16",
+            "from": "cost",
+            "to": "decision",
+            "kind": "evidence",
+            "label": "成本与暴露量",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "17",
+            "from": "business",
+            "to": "decision",
+            "kind": "control",
+            "label": "规则与责任",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "18",
+            "from": "guard",
+            "to": "decision",
+            "kind": "evidence",
+            "label": "拒绝与停止回执",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "19",
+            "from": "security",
+            "to": "decision",
+            "kind": "risk",
+            "label": "已证越权直接 BLOCKED",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "20",
+            "from": "business",
+            "to": "decision",
+            "kind": "risk",
+            "label": "已证硬规则违规直接阻断",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "21",
+            "from": "decision",
+            "to": "input",
+            "kind": "feedback",
+            "label": "失败回灌",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          },
+          {
+            "number": "22",
+            "from": "decision",
+            "to": "d0",
+            "kind": "feedback",
+            "label": "Judge 重校准",
+            "actual_path_count": 1,
+            "label_present": true,
+            "physical_endpoints_on_correct_cards": true
+          }
+        ],
+        "method": "Independent read-only SVG parse against current spec; node numbers, full body text, edge IDs/kind/labels and physical endpoints checked.",
+        "all_edges_local_to_one_panel": true,
+        "max_vertical_span_px": 233.0
+      },
+      "independent_review": {
+        "report": "polish/review-main-seven.json",
+        "sha256": "1d58961f3555e3f8bc14945d927abd25e96c47e71f919002a87e5d6691c60ab8",
+        "reviewer": "independent-svg-reviewer-main-seven"
+      },
+      "prior_polish_findings": [
+        {
+          "severity": "P3",
+          "issue": "决策节点顶边八个入端口过密，编号识别较费力。",
+          "evidence": "第三裁块中决策与反馈顶边的19、17、20、07、15、16、18等编号集中，橙红紫竖线距离接近；仍能用编号及跨线桥辨认，19/20硬阻断没有再共线。",
+          "suggested_fix": "加宽决策卡或把硬阻断端口与统计/责任证据分放两侧，给编号增加水平间隔。",
+          "resolved": true,
+          "status": "CLOSED",
+          "closure_report": "polish/review-main-seven.json"
+        }
+      ],
+      "previous_review": {
+        "report": "round-3/modules-aliases.json",
+        "sha256": "0567e4e09dc952826aadde31f1726d6d85986439e585aafdffd1860a531be72e",
+        "svg_sha256": "61bd5bb334736e2f8a365d126660942dd1cb2a7bd9317454074d09c56a0abfeb"
+      },
+      "current_geometry_screenshot": {
+        "path": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AG-00.png",
+        "sha256": "1c656e8996dff2a53397c310113515584587b73b18921f4b0644a3ff7e3ea23b",
+        "evidence_scope": "Current Chrome geometry/QC; distinct from the visual inspection screenshot where inherited."
+      }
     },
     {
       "id": "TD-T26-compat",
@@ -736,8 +1401,8 @@
       "body_checked": true,
       "verdict": "PASS",
       "findings": [],
-      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T26.svg",
-      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T26.png",
+      "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T26.svg",
+      "screenshot": "output/svg-release-20261027-polish/screenshots-before/visuals__course__TD-T26.png",
       "screenshot_sha256": "0702fd8a7564f95d17ff21889849422c9e389a6242aec3ca8c9263c163c1c422",
       "render_input_sha256": "94195a67e340c0e2ef19534b22a758767cf0ad830326fef1a4a54f8984ca2de1",
       "dimensions": {
@@ -782,7 +1447,20 @@
       ],
       "body_check_summary": "实际TD-T26反例/机制与C03机制已核对：同任务同验收对照、accepted/mutation检测力、含复核返工的总工时、独立评审、证据到期和缺口路由齐全；不承诺个人能力或就业，组织映射INTERNAL-UNKNOWN。",
       "visual_check_summary": "全高2776px分两块重叠查看。01–05主链、07/08/09三类UNKNOWN输入和06/10复评反馈各自可辨，没有把生成量当提效结论。",
-      "prior_findings": []
+      "prior_findings": [],
+      "review_inheritance": {
+        "mode": "UNCHANGED_SVG_AND_SPEC",
+        "source_report": "round-3/modules-aliases.json",
+        "source_report_sha256": "0567e4e09dc952826aadde31f1726d6d85986439e585aafdffd1860a531be72e",
+        "svg_sha256_verified": "140da3fbb626f1f99f942065afee74e3bae26b2417eb56afbc079c6aadf51a75",
+        "original_screenshot_sha256_verified": "0702fd8a7564f95d17ff21889849422c9e389a6242aec3ca8c9263c163c1c422",
+        "explanation": "Inherited actual prior visual/body review; no new human/agent visual inspection claimed for this unchanged SVG."
+      },
+      "current_geometry_screenshot": {
+        "path": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T26.png",
+        "sha256": "0702fd8a7564f95d17ff21889849422c9e389a6242aec3ca8c9263c163c1c422",
+        "evidence_scope": "Current Chrome geometry/QC; distinct from the visual inspection screenshot where inherited."
+      }
     }
   ]
 }

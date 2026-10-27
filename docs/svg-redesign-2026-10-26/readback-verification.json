@@ -20,32 +20,116 @@
       "alt": "测试 Agent、Worker 与 Workflow模块全景：7 个阶段依次为 三层评测模型、工具与权限、安全边界、浏览器 Agent、自愈风险、控制权划分、编排与记忆，每段标注出口工件与控制问题。"
     },
     {
-      "id": "TD-T16",
-      "src": "visuals/course/TD-T16.svg?v=e33bac53d461",
+      "id": "TD-A02",
+      "src": "visuals/course/TD-A02.svg?v=8ae8786f2e74",
       "width": 1600,
-      "height": 3795,
-      "alt": "动作先对照任务，再过写前授权的交互与权限边界图：动作正确性与执行权限分别验证：工具和参数符合批准任务，仍须通过模型之外的身份、边界、幂等与审批。"
-    },
-    {
-      "id": "TD-T11",
-      "src": "visuals/course/TD-T11.svg?v=f33a842f0541",
-      "width": 1600,
-      "height": 4111,
-      "alt": "真实引用与上下文支撑分别判定的证据关系图：先查引用存在，再核对实际引用片段与 claim；整份 Context 能支持声明也不能抵消引错文档。"
-    },
-    {
-      "id": "TD-X603",
-      "src": "visuals/course/TD-X603.svg?v=80524533c927",
-      "width": 1600,
-      "height": 4062,
-      "alt": "隔离拒绝、纠错与授权删除分三路的状态与恢复边界图：跨用户命中触发拒绝与隔离修复，陈旧内容触发失效与纠错；只有经核验的遗忘请求才授权删除目标副本。"
+      "height": 4572,
+      "alt": "四种协议的过程判据分别核对的对照与责任边界图：SSE、结构化、工具与异步各自验证过程；工具执行结果必须如实回填，账本另证真实副作用。"
     },
     {
       "id": "TD-AG-00",
       "src": "materials/agent-architecture-system/visuals/AG-DIM-ARCHITECTURE.svg",
       "width": 1600,
-      "height": 4230,
+      "height": 5352,
       "alt": "从退款风险到具名停止动作的分层架构图：总架构先显式画出状态、信任和副作用边界，再把 D0–D7、证据环、护栏和失败回灌连接起来。"
+    },
+    {
+      "id": "TD-AG-09",
+      "src": "materials/agent-architecture-system/visuals/AG-DIM-FOUR-RINGS.svg",
+      "width": 1600,
+      "height": 1989,
+      "alt": "四环各有独立的证据出口的对照与责任边界图：四环按输入与副作用边界区分证据强度；exit 合格只允许申请下一个环，不能替代该环真实运行。"
+    },
+    {
+      "id": "TD-AP01",
+      "src": "visuals/course/TD-AP01.svg?v=b36933affbb5",
+      "width": 1600,
+      "height": 2568,
+      "alt": "任务分布与终态共同定义负载的证据关系图：容量结论先绑定任务分母、风险切片和业务 Oracle，再绑定 workload hash。"
+    },
+    {
+      "id": "TD-AP02",
+      "src": "visuals/course/TD-AP02.svg?v=295d8b6f1518",
+      "width": 1600,
+      "height": 1740,
+      "alt": "从关键路径找到真正的慢点的证据关系图：queue、model、tool 和 retry 分列观测；并行段按关键路径归因，不能算术相加。"
+    },
+    {
+      "id": "TD-AP03",
+      "src": "visuals/course/TD-AP03.svg?v=3812df21dcc9",
+      "width": 1600,
+      "height": 2173,
+      "alt": "父子闭包与账本共同校验 Trace的分层架构图：任务根关联每次物理尝试；终态与账本可回读，才有故障归因和重放依据。"
+    },
+    {
+      "id": "TD-B04",
+      "src": "visuals/course/TD-B04.svg?v=da3c224195aa",
+      "width": 1600,
+      "height": 2198,
+      "alt": "锁定模型数据测协议敏感度的指标与证据图：每轮只扰动一个协议变量，同题配对比较先量噪声底线，再做有限归因。"
+    },
+    {
+      "id": "TD-B05",
+      "src": "visuals/course/TD-B05.svg?v=d12cedd448cb",
+      "width": 1600,
+      "height": 2308,
+      "alt": "污染与版本审计限制榜单结论的证据关系图：版本兼容、暴露审计、封存泄露信号和配对区间共同决定分数是否可比。"
+    },
+    {
+      "id": "TD-PS05",
+      "src": "visuals/course/TD-PS05.svg?v=bdb94e1aae2a",
+      "width": 1600,
+      "height": 3241,
+      "alt": "语义、键盘与视觉分开验收的对照与责任边界图：自动规则、任务旅程和骨架快照发现不同问题；机器判不了的语义和基线差异交给具名人工。"
+    },
+    {
+      "id": "TD-PS06",
+      "src": "visuals/course/TD-PS06.svg?v=0d6253d46477",
+      "width": 1600,
+      "height": 2698,
+      "alt": "生命周期被打断，库存仍只入账一次的状态与恢复边界图：客户端恢复与服务端幂等共同保护扫描状态；界面恢复不能替代库存账本对账。"
+    },
+    {
+      "id": "TD-QP01",
+      "src": "visuals/course/TD-QP01.svg?v=b4bbf7463b86",
+      "width": 1600,
+      "height": 2635,
+      "alt": "事件只触发回读，依据批准后执行的交互与权限边界图：Webhook 不拥有事实权威；回读需求、冻结依据、保留引用，再由具权限的人批准。"
+    },
+    {
+      "id": "TD-T06",
+      "src": "visuals/course/TD-T06.svg?v=255affcf2432",
+      "width": 1600,
+      "height": 2318,
+      "alt": "同一候选在正常代码与变异代码上对照的对照与责任边界图：先证明批准实现上通过，再证明已知守卫被破坏时，相关断言确实变红。"
+    },
+    {
+      "id": "TD-T10",
+      "src": "visuals/course/TD-T10.svg?v=6f92c26f9e69",
+      "width": 1600,
+      "height": 3192,
+      "alt": "Gold 在哪一层丢失，就修哪一层的决策门禁图：检索和生成独立出分：先找必要证据是否存在、是否召回、如何排序及是否进入最终上下文。"
+    },
+    {
+      "id": "TD-T12",
+      "src": "visuals/course/TD-T12.svg?v=e2b687d04e6a",
+      "width": 1600,
+      "height": 3193,
+      "alt": "证据、权限与拒答共同约束 RAG 终态的决策门禁图：没有可用依据时拒答或交接；正确答案不能抵消跨租户检索和未授权副作用。"
+    },
+    {
+      "id": "TD-T15",
+      "src": "visuals/course/TD-T15.svg?v=513562b55ba2",
+      "width": 1600,
+      "height": 2640,
+      "alt": "Agent 的结果、单步与轨迹分别判定的分层架构图：最终转人工可以正确，途中调用禁止的退款工具仍须失败；合法替代路径应被允许。"
+    },
+    {
+      "id": "TD-W03",
+      "src": "visuals/course/TD-W03.svg?v=23aadfda3d42",
+      "width": 1600,
+      "height": 3527,
+      "alt": "单 Agent 与多 Agent 在同预算下比较的指标与证据图：相同任务、权限与总预算下重复运行，才能把架构收益和资源投入区分开。"
     },
     {
       "id": "TD-C03",
@@ -53,20 +137,134 @@
       "width": 1600,
       "height": 2383,
       "alt": "五维证据与目标逐项对照的对照与责任边界图：来源雷达只有职级示例等级，没有当前学习者测量；改用五维定性证据矩阵，不画虚构数值轮廓。"
+    }
+  ],
+  "mobileEmbedded": [
+    {
+      "id": "TD-M04",
+      "viewport": 226,
+      "content": 760,
+      "farRight": 534,
+      "overflow": "auto"
     },
     {
-      "id": "TD-B02",
-      "src": "visuals/course/TD-B02.svg?v=5f996f7b4c88",
-      "width": 1600,
-      "height": 2744,
-      "alt": "四类数据各自回答一个问题的对照与责任边界图：真实分布、风险边界、历史退化和封存验收有不同纪律，分角色维护并审计访问。"
+      "id": "TD-A02",
+      "viewport": 224,
+      "content": 760,
+      "farRight": 536,
+      "overflow": "auto"
     },
     {
-      "id": "TD-AP07",
-      "src": "visuals/course/TD-AP07.svg?v=d3217afc4400",
-      "width": 1600,
-      "height": 3073,
-      "alt": "趋势与快照区分缓存和泄漏的证据关系图：固定版本与负载，资源斜率、尾延迟和 cleanup 联合判读；平台期仍需检查缓存上限。"
+      "id": "TD-AG-00",
+      "viewport": 224,
+      "content": 760,
+      "farRight": 536,
+      "overflow": "auto"
+    },
+    {
+      "id": "TD-AG-09",
+      "viewport": 224,
+      "content": 760,
+      "farRight": 536,
+      "overflow": "auto"
+    },
+    {
+      "id": "TD-AP01",
+      "viewport": 224,
+      "content": 760,
+      "farRight": 536,
+      "overflow": "auto"
+    },
+    {
+      "id": "TD-AP02",
+      "viewport": 224,
+      "content": 760,
+      "farRight": 536,
+      "overflow": "auto"
+    },
+    {
+      "id": "TD-AP03",
+      "viewport": 224,
+      "content": 760,
+      "farRight": 536,
+      "overflow": "auto"
+    },
+    {
+      "id": "TD-B04",
+      "viewport": 224,
+      "content": 760,
+      "farRight": 536,
+      "overflow": "auto"
+    },
+    {
+      "id": "TD-B05",
+      "viewport": 224,
+      "content": 760,
+      "farRight": 536,
+      "overflow": "auto"
+    },
+    {
+      "id": "TD-PS05",
+      "viewport": 224,
+      "content": 760,
+      "farRight": 536,
+      "overflow": "auto"
+    },
+    {
+      "id": "TD-PS06",
+      "viewport": 224,
+      "content": 760,
+      "farRight": 536,
+      "overflow": "auto"
+    },
+    {
+      "id": "TD-QP01",
+      "viewport": 224,
+      "content": 760,
+      "farRight": 536,
+      "overflow": "auto"
+    },
+    {
+      "id": "TD-T06",
+      "viewport": 224,
+      "content": 760,
+      "farRight": 536,
+      "overflow": "auto"
+    },
+    {
+      "id": "TD-T10",
+      "viewport": 224,
+      "content": 760,
+      "farRight": 536,
+      "overflow": "auto"
+    },
+    {
+      "id": "TD-T12",
+      "viewport": 224,
+      "content": 760,
+      "farRight": 536,
+      "overflow": "auto"
+    },
+    {
+      "id": "TD-T15",
+      "viewport": 224,
+      "content": 760,
+      "farRight": 536,
+      "overflow": "auto"
+    },
+    {
+      "id": "TD-W03",
+      "viewport": 224,
+      "content": 760,
+      "farRight": 536,
+      "overflow": "auto"
+    },
+    {
+      "id": "TD-C03",
+      "viewport": 224,
+      "content": 760,
+      "farRight": 536,
+      "overflow": "auto"
     }
   ],
   "pageErrors": [],

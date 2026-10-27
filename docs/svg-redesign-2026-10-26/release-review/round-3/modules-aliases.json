@@ -1,0 +1,788 @@
+{
+  "reviewer": "Feynman — 独立内容与视觉复审",
+  "scope": "modules-aliases",
+  "count": 16,
+  "review_round": 2,
+  "reviewed_at_utc": "2026-10-26T17:27:36.627891+00:00",
+  "method": "全部当前截图经view_image实际查看；逐项按fresh inputs/sourceRefs核对实际正文或正文快照，复核首轮缺陷。Chrome几何/路由闭包仅作辅助，未据其PASS替代目检。长图长度本身不作为阻断。只评审隔离candidate，未以public旧图作为待审版本。",
+  "style_reference": "已确认TD-M04：浅底、多色语义卡片、主副标题层级、底部交付/边界区。新rail的外轨、编号端口和跨线桥按实际可追踪性评判；更长不自动阻断，更多线不自动通过。",
+  "style_assessment": "14张模块全景保持清楚的学习路线、浅底多色语义卡片和一致标题层级，按已确认TD-M04参照评判；两张兼容图使用编号外轨和跨线桥后，核心控制、证据和反馈可独立追踪。AG00决策端口仍稍密，仅记P3，不构成阻断。",
+  "input_files": [
+    {
+      "path": "docs/svg-redesign-2026-10-26/release-review/modules-inputs.json",
+      "sha256": "d9425cb8659fa5d0b2026f7d755daa9e0df2754f79e06dc87f02e6deaedc553a"
+    },
+    {
+      "path": "docs/svg-redesign-2026-10-26/release-review/aliases-inputs.json",
+      "sha256": "86859497c78fd187c4ab8f1c9a3c955562f699716b327e80943e5ec1026013a1"
+    }
+  ],
+  "summary": {
+    "PASS": 16,
+    "REWORK": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 1,
+    "deployment_blockers": []
+  },
+  "results": [
+    {
+      "id": "TD-M00",
+      "path": "visuals/modules/TD-M00.svg",
+      "sha256": "69be178fd1b6442d8d8af1758809d394992a71568ed16ae1e21cc56c23298ad0",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M00.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M00.png",
+      "screenshot_sha256": "f5f219ade88d03aa0847f868248ada30eb52fff133cee6f0e71fbb1f6e552444",
+      "render_input_sha256": "ba2eff14e8692679b68c6f28f8ceb275873f9d1246386dc6d37d3d983402c5e5",
+      "dimensions": {
+        "width": 1600,
+        "height": 2114
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 2114
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M00 / stages + logic + boundary",
+          "quote": "需求到发布是一条链，每一站交出一个下游程序能直接消费的工件。",
+          "source_sha256": "c96113803e0ad57b5b8d87900af9a4baa7b005a6d1400d8d6f930f93178ec66a"
+        }
+      ],
+      "body_check_summary": "八阶段能力地图、先固定Oracle再构建可验收测试及课页路由一致；全景是学习承接，不是运行时因果。",
+      "visual_check_summary": "八个编号阶段的蛇形学习顺序连续，问题、产物与页码均可读。",
+      "prior_findings": []
+    },
+    {
+      "id": "TD-M08",
+      "path": "visuals/modules/TD-M08.svg",
+      "sha256": "9e3548edd8a4dfbefec0da91503a1e6abe2e0ea736cc10bf1a1d9e37ae9eaa9c",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M08.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M08.png",
+      "screenshot_sha256": "e605ce2bf1b403cf7c9ecfdea7c6b7a5864ce771edb9052d0e5bb8dbe3b38b9b",
+      "render_input_sha256": "510cc5170e671d1a055132c877e1c6f437fb4cb40806e642ef26d93c8a35dbee",
+      "dimensions": {
+        "width": 1600,
+        "height": 1903
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1903
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M08 / stages + logic + boundary",
+          "quote": "传统专项没有过时，过时的是它们原来的判据。",
+          "source_sha256": "c96113803e0ad57b5b8d87900af9a4baa7b005a6d1400d8d6f930f93178ec66a"
+        }
+      ],
+      "body_check_summary": "六阶段专项性能路线及TTFT/端到端/容量/韧性边界与正文一致；未把教学或synthetic结果写成生产效果。",
+      "visual_check_summary": "六阶段间距充足，少量页码在连字符处换行但可识别；控制问题无孤立标点。",
+      "prior_findings": []
+    },
+    {
+      "id": "TD-M01",
+      "path": "visuals/modules/TD-M01.svg",
+      "sha256": "b494ebdf821eb0203aaa055bd215148f70897e4d28f017a5fa93158caa4ba143",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M01.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M01.png",
+      "screenshot_sha256": "cfc3c7697b2799e9c943848466f8abb130c7068d3e1d25c8200d8577a44eb246",
+      "render_input_sha256": "3ca4ae658de8ecdaefe8b7838ba84630610fced75ae8e66fb1fae221d08ef20c",
+      "dimensions": {
+        "width": 1600,
+        "height": 1875
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1875
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M01 / stages + logic + boundary",
+          "quote": "先弄清模型在哪一层出错，再决定在哪一层测。",
+          "source_sha256": "c96113803e0ad57b5b8d87900af9a4baa7b005a6d1400d8d6f930f93178ec66a"
+        }
+      ],
+      "body_check_summary": "六阶段Prompt Package、失败样本、被测边界、Eval Contract、Oracle与分布承接一致，学习输入不冒充生产能力。",
+      "visual_check_summary": "六阶段学习箭头清楚，控制问题结尾连同前词显示，没有首轮的孤立问号行。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "中文禁则与尾行未处理，出现孤立问号、句号或逗号行首，影响精致度与连续阅读。",
+          "resolved": true,
+          "current_evidence": "当前六卡问句结尾均附着前词，首轮孤立问号问题未再出现。"
+        }
+      ]
+    },
+    {
+      "id": "TD-M02",
+      "path": "visuals/modules/TD-M02.svg",
+      "sha256": "f119df271a5c5941a681624639db1a0573447c309dcde95e8426d1cd2989c224",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M02.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M02.png",
+      "screenshot_sha256": "49039cf9839c59f4dcfef6e6daff2dfd979d4003bddb4d12fbbadfa43f52a1df",
+      "render_input_sha256": "fd478ffb5b86b36a148b11310b7ef1998563f48af1fccd9af5d94bf85a0af0b5",
+      "dimensions": {
+        "width": 1600,
+        "height": 1747
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1747
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M02 / stages + logic + boundary",
+          "quote": "AI 生成的测试要先证明它能发现缺陷，再谈提效。",
+          "source_sha256": "c96113803e0ad57b5b8d87900af9a4baa7b005a6d1400d8d6f930f93178ec66a"
+        }
+      ],
+      "body_check_summary": "风险、变异、方法选择与失败聚类四阶段，产物及页码均匹配实际stages；Fuzz不是替代Oracle。",
+      "visual_check_summary": "Fuzz与问号完整排在一行，B区正文无首轮行首逗号；四节点路径直接。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "中文禁则与尾行未处理，出现孤立问号、句号或逗号行首，影响精致度与连续阅读。",
+          "resolved": true,
+          "current_evidence": "Fuzz?完整排在同一行，B区句读附着前词，无行首逗号。"
+        }
+      ]
+    },
+    {
+      "id": "TD-M09",
+      "path": "visuals/modules/TD-M09.svg",
+      "sha256": "e6955254792d273d3bd2bb7fa0988913275638e519125ba77937611d1ed81642",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M09.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M09.png",
+      "screenshot_sha256": "75f42223e1d3b9a6a876e2c0d165ee1c265ab0d40c4ecd5480b7a60fed78d5e0",
+      "render_input_sha256": "5903bffa72af1ed32d721ff2495779d9765704dba5509e6e58bfd32126554c8b",
+      "dimensions": {
+        "width": 1600,
+        "height": 1747
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1747
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M09 / stages + logic + boundary",
+          "quote": "AI 接口的性能问题，一半出在协议状态机上，不在模型上。",
+          "source_sha256": "c96113803e0ad57b5b8d87900af9a4baa7b005a6d1400d8d6f930f93178ec66a"
+        }
+      ],
+      "body_check_summary": "六阶段识别任务、协议、指标、容量、瓶颈和韧性与正文一致；TTFT需先定义，容量是版本/负载条件下结论。",
+      "visual_check_summary": "六阶段蛇形线路可连续读，数字、问题、产物和边界层级明确。",
+      "prior_findings": []
+    },
+    {
+      "id": "TD-M03",
+      "path": "visuals/modules/TD-M03.svg",
+      "sha256": "7ed3ee9b28fd55c65af696a8d8bc153209dc71e19950adb351d7fa6186b9ca8b",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M03.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M03.png",
+      "screenshot_sha256": "35d2f6204a94db8b891a66bfc5a5bbe837699940fd7fcc575f531df0aa98606e",
+      "render_input_sha256": "493fa51e4eaa8fca8a28db7095f780d73923e336446154c97274d3468ba870c8",
+      "dimensions": {
+        "width": 1600,
+        "height": 2172
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 2172
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M03 / stages + logic + boundary",
+          "quote": "RAG 的答案对不对，要拆成检索到了没有和有没有照着说两件事。",
+          "source_sha256": "c96113803e0ad57b5b8d87900af9a4baa7b005a6d1400d8d6f930f93178ec66a"
+        }
+      ],
+      "body_check_summary": "语料、检索、忠实性、端到端、多模态/语言、A/B与Judge七阶段顺序及出口一致；检索和生成不能混成一个分数。",
+      "visual_check_summary": "七阶段顺序清楚，问号、逗号没有独立成行；页码及较长产物可读。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "中文禁则与尾行未处理，出现孤立问号、句号或逗号行首，影响精致度与连续阅读。",
+          "resolved": true,
+          "current_evidence": "当前七卡与B区问句/句读随正文排布，未见孤立标点行。"
+        }
+      ]
+    },
+    {
+      "id": "TD-M04",
+      "path": "visuals/modules/TD-M04.svg",
+      "sha256": "895b24a0d0d981610db25a2fa74698e5867207b8fca00cab97702c86fd6c152e",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M04.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M04.png",
+      "screenshot_sha256": "5558f51b8a378c99cc93d84ca28918cc1d2777541c5f6118ec34a1f1791edd6e",
+      "render_input_sha256": "72a02d1c9a5b3eecb9aca19798f9a968693a6963d0ee6fef98fac339bf60a169",
+      "dimensions": {
+        "width": 1600,
+        "height": 1700
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1700
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M04 / stages + logic + boundary",
+          "quote": "Agent 的正确不在最终答案里，在它走过的每一步里。",
+          "source_sha256": "c96113803e0ad57b5b8d87900af9a4baa7b005a6d1400d8d6f930f93178ec66a"
+        }
+      ],
+      "body_check_summary": "实际模块正文的Agent工作流、角色、Policy Gate、工具边界、七视角与Outcome/Step/Trajectory三层判据已核对；授权由确定性层执行。",
+      "visual_check_summary": "以已确认TD-M04自身作为风格参照：主流程、反馈、七视角和三层判定分区紧凑，蓝橙紫语义与正文层级清楚。",
+      "prior_findings": []
+    },
+    {
+      "id": "TD-M05",
+      "path": "visuals/modules/TD-M05.svg",
+      "sha256": "2a77789fec2010609caf1fb89ae2f7285802bb2ec9b2376e052f7601f875ff47",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M05.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M05.png",
+      "screenshot_sha256": "2858596f82d17c4d76a5098db6104d3f9cff4721d941ed9508283719b9e20a40",
+      "render_input_sha256": "df97ca8594525cdb9ccdd850f643640fdb59526a24379c14ff3d205a5ed3dd08",
+      "dimensions": {
+        "width": 1600,
+        "height": 2207
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 2207
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M05 / stages + logic + boundary",
+          "quote": "评测只有接进 CI 和生产回灌，才会持续有效。",
+          "source_sha256": "c96113803e0ad57b5b8d87900af9a4baa7b005a6d1400d8d6f930f93178ec66a"
+        }
+      ],
+      "body_check_summary": "模型更新、公平性、CI、lineage、Trace、Pareto与豁免/回滚七阶段产物和边界一致，变化需重新举证。",
+      "visual_check_summary": "生产回灌等控制问题结尾与前词同排，未见孤立问号；七阶段蛇形路线连续。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "中文禁则与尾行未处理，出现孤立问号、句号或逗号行首，影响精致度与连续阅读。",
+          "resolved": true,
+          "current_evidence": "生产回灌问句的“了吗？”完整尾行，未再孤立问号。"
+        }
+      ]
+    },
+    {
+      "id": "TD-M06",
+      "path": "visuals/modules/TD-M06.svg",
+      "sha256": "d6e7c48ee2c34c8abc5bcaf72e6d526b5fae8b15b00a424d7c3230fafc5d148a",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M06.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M06.png",
+      "screenshot_sha256": "5cd5b9b96e7a2fcbcf856fe2a6895d707e82e9d9a2366fc28e4d4f016afe6984",
+      "render_input_sha256": "e898d93922f97474b1c01a64bd4f9915887979c35e098a6c667e74ff123314ec",
+      "dimensions": {
+        "width": 1600,
+        "height": 1881
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1881
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M06 / stages + logic + boundary",
+          "quote": "榜单分数是七个可变组件共同产生的，换任何一个都会变。",
+          "source_sha256": "c96113803e0ad57b5b8d87900af9a4baa7b005a6d1400d8d6f930f93178ec66a"
+        }
+      ],
+      "body_check_summary": "六阶段七段流水线、四类数据/holdout、Metric Card、单变量Harness、污染版本与内部Benchmark均与stages一致；重叠度检查不冒充训练数据审计。",
+      "visual_check_summary": "控制问题标点与前词相连，未见孤立标点；四类数据虽然在本模块只作为产物引用，没有扩张本页证明范围。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "中文禁则与尾行未处理，出现孤立问号、句号或逗号行首，影响精致度与连续阅读。",
+          "resolved": true,
+          "current_evidence": "当前“决定？”“显著吗？”等问句均附着前词，B区无行首禁则标点。"
+        }
+      ]
+    },
+    {
+      "id": "TD-M07",
+      "path": "visuals/modules/TD-M07.svg",
+      "sha256": "530a95aa4a7f058c2dc0faf82b8875d435ed7f4ca2eded574d86c4ea3fa3f5e1",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M07.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M07.png",
+      "screenshot_sha256": "cc29d92da9b472392680db5dff81cda1e16db15f1aa6ee150521a879ed38f140",
+      "render_input_sha256": "deb7f18c61b8d7f0c2ff998cccfc4e616291e614ec081222f21793d663c3da27",
+      "dimensions": {
+        "width": 1600,
+        "height": 1881
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1881
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M07 / stages + logic + boundary",
+          "quote": "把前面所有模块的工件接进真实工程系统，交出一条能审计的完整链路。",
+          "source_sha256": "c96113803e0ad57b5b8d87900af9a4baa7b005a6d1400d8d6f930f93178ec66a"
+        }
+      ],
+      "body_check_summary": "五阶段需求接入、当前SHA门禁、临时环境、事件与RC一致；夹具/本地模拟未接入生产，RC不等于发布版本。",
+      "visual_check_summary": "需求侧问题以“验证？”完整尾行显示；五节点顺序、双系统术语及底部NOT_RUN边界可读。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "中文禁则与尾行未处理，出现孤立问号、句号或逗号行首，影响精致度与连续阅读。",
+          "resolved": true,
+          "current_evidence": "需求侧接入问句以“验证？”成词尾行显示；B区没有首轮行首标点。"
+        }
+      ]
+    },
+    {
+      "id": "TD-M10",
+      "path": "visuals/modules/TD-M10.svg",
+      "sha256": "8ecfec9fb44d9c4167bd95753e467805b81ef66c953c5d8ff7a966bfe0e129af",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M10.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M10.png",
+      "screenshot_sha256": "139e0e6deddf4c2c95d3ae5e0c21236cb2571b0542f7a7ed55cc585a89771997",
+      "render_input_sha256": "a2239ea95c62be194f8e1429319158ebb64166368cd6eda0c578cb6b3b60e36a",
+      "dimensions": {
+        "width": 1600,
+        "height": 2143
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 2143
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M10 / stages + logic + boundary",
+          "quote": "职业能力用交付过的工件和承担过的责任衡量，不用年限衡量。",
+          "source_sha256": "c96113803e0ad57b5b8d87900af9a4baa7b005a6d1400d8d6f930f93178ec66a"
+        }
+      ],
+      "body_check_summary": "岗位路径、责任阶梯、自评90天、职级映射、任务指标、提效与资源七阶段一致；组织阈值由owner确定，不承诺就业或薪资。",
+      "visual_check_summary": "七阶段文字分层清楚，问句标点没有独立成行，长JSON文件名仍可辨认。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "中文禁则与尾行未处理，出现孤立问号、句号或逗号行首，影响精致度与连续阅读。",
+          "resolved": true,
+          "current_evidence": "当前七卡问句的问号均附着词语，B区句号随前文显示。"
+        }
+      ]
+    },
+    {
+      "id": "TD-M11",
+      "path": "visuals/modules/TD-M11.svg",
+      "sha256": "3d944481eeecd51db586ef9048438c0329783c9cda94c7b76a1f54a855d8d77e",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M11.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M11.png",
+      "screenshot_sha256": "c8ff9b162f0ccaa6ca7ed3a75cd601d07241c3e04fb3ce2ada5ec152fe349cd0",
+      "render_input_sha256": "5c4e7e859e1d7f692db99788d46b178671554f5101d3e367ede7660d71e8df58",
+      "dimensions": {
+        "width": 1600,
+        "height": 2248
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 2248
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M11 / stages + logic + boundary",
+          "quote": "Agent 的性能问题是多步累积的，单步指标看不出来。",
+          "source_sha256": "c96113803e0ad57b5b8d87900af9a4baa7b005a6d1400d8d6f930f93178ec66a"
+        }
+      ],
+      "body_check_summary": "八阶段workload/Oracle、指标、Trace、开闭环、容量瓶颈、策略、长稳与SLO一致；synthetic容量未在生产验证。",
+      "visual_check_summary": "八阶段蛇形路线和学习编号连续；TTFT外的多步任务口径没有被画成时长简单相加，无孤立标点。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "中文禁则与尾行未处理，出现孤立问号、句号或逗号行首，影响精致度与连续阅读。",
+          "resolved": true,
+          "current_evidence": "当前八卡问句结尾均附着词语，无孤立问号行或B区行首标点。"
+        }
+      ]
+    },
+    {
+      "id": "TD-M12",
+      "path": "visuals/modules/TD-M12.svg",
+      "sha256": "94b0a97d9258b3d116f58c0f880f45693e804dfd781b598c785a4d25221ec167",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M12.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M12.png",
+      "screenshot_sha256": "b8eccdbab28e4567e299be3b9795b1a08e5087ad0285d396e640023bd5c0c902",
+      "render_input_sha256": "2b1571307503fbcc74ac138befc60877edce0ea857f6bc8165bfee50e031c616",
+      "dimensions": {
+        "width": 1600,
+        "height": 2247
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 2247
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M12 / stages + logic + boundary",
+          "quote": "Agent 的验证面有八个域，任何一个域缺证据都不构成可发布。",
+          "source_sha256": "c96113803e0ad57b5b8d87900af9a4baa7b005a6d1400d8d6f930f93178ec66a"
+        }
+      ],
+      "body_check_summary": "七阶段覆盖D0–D7与四环/三段门禁；D0先校准判据，夹具门禁不冒充交易集成，页面映射完整。",
+      "visual_check_summary": "七阶段按学习先后连接，D1–D2与D3–D4的分组标题可读，没有把学习箭头误标为运行因果。",
+      "prior_findings": []
+    },
+    {
+      "id": "TD-M13",
+      "path": "visuals/modules/TD-M13.svg",
+      "sha256": "f45b9a40e6f8469a57269340a856c47dfc9ac623b3ade6725b1b90273efe3a5b",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/modules/TD-M13.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M13.png",
+      "screenshot_sha256": "385004f3667ec5047653c29585e2b3ef622f4062e402667398df600477a9ad6f",
+      "render_input_sha256": "aab1262ecc736e38410af8d1489e7752fe9211e0d46121c7cafafd98df379e6a",
+      "dimensions": {
+        "width": 1600,
+        "height": 1840
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1840
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M13 / stages + logic + boundary",
+          "quote": "先能开测，再进架构专章：五页只交付立场、边界、分层判定、首错入口和可发分叉。",
+          "source_sha256": "c96113803e0ad57b5b8d87900af9a4baa7b005a6d1400d8d6f930f93178ec66a"
+        }
+      ],
+      "body_check_summary": "严格保留五页起步序列、默认L1+L5+L7、首错和最小门禁/下一分叉；不包含AI00/06/07，不替代M12或证明生产可发。",
+      "visual_check_summary": "五节点、产物和边界清晰，B区简短但未遗漏本页核心出口；没有孤立问号或行首禁则标点。",
+      "prior_findings": []
+    },
+    {
+      "id": "TD-AG-00-compat",
+      "path": "visuals/course/TD-AG-00.svg",
+      "sha256": "61bd5bb334736e2f8a365d126660942dd1cb2a7bd9317454074d09c56a0abfeb",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [
+        {
+          "severity": "P3",
+          "issue": "决策节点顶边八个入端口过密，编号识别较费力。",
+          "evidence": "第三裁块中决策与反馈顶边的19、17、20、07、15、16、18等编号集中，橙红紫竖线距离接近；仍能用编号及跨线桥辨认，19/20硬阻断没有再共线。",
+          "suggested_fix": "加宽决策卡或把硬阻断端口与统计/责任证据分放两侧，给编号增加水平间隔。"
+        }
+      ],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AG-00.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AG-00.png",
+      "screenshot_sha256": "32a417916e1100e6be28e94073b8caca7a819e4059c66d0a9ace13a7b28c779d",
+      "render_input_sha256": "6121a8aaa87b5335e4d86d3373c81632f277ce43302e53d1ee6d436244266702",
+      "dimensions": {
+        "width": 1600,
+        "height": 4230
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1550
+        },
+        {
+          "top": 2860,
+          "height": 1370
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-00 / workflow",
+          "quote": "列出节点、状态、信任边界、工具和副作用",
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-00 / expected",
+          "quote": "每条风险边都有证据、停止状态和责任人。",
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-00 / dimensions.caption",
+          "quote": "D0 校准所有分数",
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-00 / counter",
+          "quote": "四个环是横向驱动 D1/D4/D5/D6 的，不是串在末尾。",
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-09 / failureModes",
+          "quote": "发生一次即不可接受的事件不能做成区间判定",
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        }
+      ],
+      "body_check_summary": "实际正文workflow/expected、八域caption、四环counter及AG09硬红线已核对：D0覆盖所有评分；四环横向驱动D1/D4/D5/D6；D5/D7已证确定性红线不等Judge；owner/Oracle/停止状态与fixture边界齐全。",
+      "visual_check_summary": "全高4230px分三块重叠查看。02–07 D0轨、09–12四环执行、19/20独立红线和21/22反馈均可追踪，缺失的四环→D4已补为10。决策顶端端口较密但仍能识别，记P3。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "D7规则证据和硬阻断共线，D0控制和反馈集中交叉；四环未显式驱动D4执行。",
+          "resolved": true,
+          "current_evidence": "D7规则责任17与硬阻断20独立端口；D0 02–07和反馈21/22分轨；新增10各环重复与回放执行明确指向D4。"
+        }
+      ]
+    },
+    {
+      "id": "TD-T26-compat",
+      "path": "visuals/course/TD-T26.svg",
+      "sha256": "140da3fbb626f1f99f942065afee74e3bae26b2417eb56afbc079c6aadf51a75",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T26.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T26.png",
+      "screenshot_sha256": "0702fd8a7564f95d17ff21889849422c9e389a6242aec3ca8c9263c163c1c422",
+      "render_input_sha256": "94195a67e340c0e2ef19534b22a758767cf0ad830326fef1a4a54f8984ca2de1",
+      "dimensions": {
+        "width": 1600,
+        "height": 2776
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1346
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-T26 / counterexample",
+          "quote": "没有检测力和质量分母，结论无效。",
+          "source_sha256": "d3111d5d60cefba185247f1112f0d29f2ab00ceb72cab487889231d9cdf90084"
+        },
+        {
+          "path": "content/modules/career-evolution-deep.ts",
+          "locator": "TD-T26 / mechanism",
+          "quote": "复核、修改、丢弃的时间必须计入 AI 组。",
+          "source_sha256": "6b9a5bd3b8f8b34879f8c9401ed00eeacd13c282586b50b2c6d531be9cd5276f"
+        },
+        {
+          "path": "content/modules/career-evolution-deep.ts",
+          "locator": "TD-C03 / mechanism",
+          "quote": "每条能力主张必须指向一个具体工件",
+          "source_sha256": "6b9a5bd3b8f8b34879f8c9401ed00eeacd13c282586b50b2c6d531be9cd5276f"
+        }
+      ],
+      "body_check_summary": "实际TD-T26反例/机制与C03机制已核对：同任务同验收对照、accepted/mutation检测力、含复核返工的总工时、独立评审、证据到期和缺口路由齐全；不承诺个人能力或就业，组织映射INTERNAL-UNKNOWN。",
+      "visual_check_summary": "全高2776px分两块重叠查看。01–05主链、07/08/09三类UNKNOWN输入和06/10复评反馈各自可辨，没有把生成量当提效结论。",
+      "prior_findings": []
+    }
+  ]
+}

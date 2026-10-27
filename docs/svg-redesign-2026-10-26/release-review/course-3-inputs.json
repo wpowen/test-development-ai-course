@@ -185,7 +185,7 @@
       "TD-X601"
     ],
     "sha256": "7da4276901ff02ebc3a28abeb21af53262c1c2759c400451d6c98ff807f18bc2",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-X601.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-X601.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X601.png"
   },
   {
@@ -380,7 +380,7 @@
       "TD-T20"
     ],
     "sha256": "4a8553d5c1b8487c597688937f72ff76303f0ffd1283df41a24305339a389ed8",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T20.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T20.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T20.png"
   },
   {
@@ -562,7 +562,7 @@
       "TD-T21"
     ],
     "sha256": "eb40afad0f10cf9de1e79c428aadf5e160cc36e6c61248e21449c146c10b9fdf",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T21.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T21.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T21.png"
   },
   {
@@ -750,7 +750,7 @@
       "TD-T22"
     ],
     "sha256": "657198cd207199c43452ff4d2b404b679fac51f108f1dc87ec5a7ee4b2f87901",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T22.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T22.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T22.png"
   },
   {
@@ -939,7 +939,7 @@
       "TD-T23"
     ],
     "sha256": "26ab112e2d51a34e822c4cffd5139766cf8015df89ccbabb22a059934a6b6aa0",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T23.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T23.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T23.png"
   },
   {
@@ -1134,7 +1134,7 @@
       "TD-T24"
     ],
     "sha256": "90c70af0a1ee637c52492799f727c7e487d8a01843bf147df85b516406c421ea",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T24.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T24.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T24.png"
   },
   {
@@ -1328,7 +1328,7 @@
       "TD-X805"
     ],
     "sha256": "8b050e37aca7f7bb8dc59307b27c411d77120120fd839b5391439d4b26089378",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-X805.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-X805.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X805.png"
   },
   {
@@ -1517,7 +1517,7 @@
       "TD-B01"
     ],
     "sha256": "bdb2c27471bcb46a5c9f34eaf8deb986d05d1ed988b34282b63bd7dafdf63d44",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-B01.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-B01.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-B01.png"
   },
   {
@@ -1713,7 +1713,7 @@
       "TD-B02"
     ],
     "sha256": "5f996f7b4c88ddb383427f517b736d211c17a41e696f02368691748c47117ada",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-B02.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-B02.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-B02.png"
   },
   {
@@ -1901,7 +1901,7 @@
       "TD-B03"
     ],
     "sha256": "5c12ab006c9eea4d6f7f09be08fffef5dff39a6e0b98393c8b8a18341d7818c8",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-B03.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-B03.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-B03.png"
   },
   {
@@ -2036,15 +2036,17 @@
     "ranks": [
       [
         "data",
-        "model",
-        "a"
+        "model"
       ],
       [
-        "b",
-        "runner",
-        "raw"
+        "a",
+        "b"
       ],
       [
+        "runner"
+      ],
+      [
+        "raw",
         "paired",
         "attribution"
       ]
@@ -2098,8 +2100,8 @@
     "primaryPageIds": [
       "TD-B04"
     ],
-    "sha256": "87ffa786514166cd8537bc7ec53f4e310be0bc93ecec9a809d5c36796d90fcff",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-B04.svg",
+    "sha256": "da3c224195aabcb49540a2fbf687ab5114b4cdffc6060eeead1d1c8e17f6f72a",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-B04.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-B04.png"
   },
   {
@@ -2298,8 +2300,8 @@
     "primaryPageIds": [
       "TD-B05"
     ],
-    "sha256": "b9044db11c2b29a8fe581b8dbd7cf0559088d0de21a7920acfa9c4718611aa10",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-B05.svg",
+    "sha256": "d12cedd448cb27bc6e182b5e68c689e3b482ed4996b58a471fe56cf122a2f5a9",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-B05.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-B05.png"
   },
   {
@@ -2499,7 +2501,7 @@
       "TD-B06"
     ],
     "sha256": "6c46d7643e8d6d50f55d71713ef4b44c7af21a40180901b9acf7a00484cba814",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-B06.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-B06.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-B06.png"
   },
   {
@@ -2546,7 +2548,7 @@
         "title": "Basis Gate/Source Pack",
         "tone": "control",
         "body": [
-          "批准、冻结、无冲突、有权限",
+          "批准、冻结、无冲突、\n有权限",
           "形成带 revision 的冻结依据"
         ]
       },
@@ -2686,8 +2688,8 @@
     "primaryPageIds": [
       "TD-QP01"
     ],
-    "sha256": "fca008cd6734d98d92832b8cddcf823a4b38bb14b15dd8a284d27206bb9e6a29",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-QP01.svg",
+    "sha256": "b4bbf7463b86354da482d5c5c929886a0a54866a01bb67d30f7ea2eaf840ccc3",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-QP01.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-QP01.png"
   },
   {
@@ -2881,7 +2883,7 @@
       "TD-QP02"
     ],
     "sha256": "bdbb5751c6a54379a93908f6ac60493b2c495c5abae6049093adc618d2ad3e95",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-QP02.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-QP02.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-QP02.png"
   },
   {
@@ -3087,7 +3089,7 @@
       "TD-QP03"
     ],
     "sha256": "29ed23e4cedbffae656bf80f9803a3a40809a881af1cb1b9026985456e0eeb35",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-QP03.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-QP03.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-QP03.png"
   },
   {
@@ -3293,7 +3295,7 @@
       "TD-QP04"
     ],
     "sha256": "464ed176783465c179d7d6d1d38052cb8c69dce20dc4ad00e63eeebf9aec8599",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-QP04.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-QP04.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-QP04.png"
   },
   {
@@ -3487,7 +3489,7 @@
       "TD-T25"
     ],
     "sha256": "b15b6f9c7e17d246ef68bd8b0c7fff4c8d744ab9643a63f925dabc52bda0b1f8",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T25.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T25.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T25.png"
   },
   {
@@ -3681,7 +3683,7 @@
       "TD-C01"
     ],
     "sha256": "69b2305e12bc7939ac179fc0e359bc9d87f280ec3fde0c2aab35b24d188d4abf",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-C01.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-C01.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-C01.png"
   },
   {
@@ -3880,8 +3882,8 @@
     "primaryPageIds": [
       "TD-AP01"
     ],
-    "sha256": "8dddb7818b82db6044a9d7d3223382c6ec36c2f2456c400e9f0937b198e54c2e",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AP01.svg",
+    "sha256": "b36933affbb5f0aa9e9a61e5dc4c53fb48505c6146243bf09fc4f031b2c35b61",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-AP01.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AP01.png"
   },
   {
@@ -3956,7 +3958,7 @@
         "tone": "control",
         "body": [
           "达标完成任务 / 时间",
-          "同时检查质量、成本、副作用"
+          "同时检查质量、成本、\n副作用"
         ]
       }
     ],
@@ -4068,8 +4070,8 @@
     "primaryPageIds": [
       "TD-AP02"
     ],
-    "sha256": "9b6a2452616b59faad0a05e1c0f1d90d0c7e220ba9a782f421dd56f5a3e7b2c2",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AP02.svg",
+    "sha256": "295d8b6f151805d7e6c4c61acc293ba9a623bb3235c802986ba4c8ee9f39ac1e",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-AP02.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AP02.png"
   },
   {
@@ -4268,8 +4270,8 @@
     "primaryPageIds": [
       "TD-AP03"
     ],
-    "sha256": "24854bec89eb757e4067faa9cfed587ddcacc7ada6dc51ccfc32ff3321396f0d",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AP03.svg",
+    "sha256": "3812df21dcc9e8bc348b6b016cfff6c3b53171df0ab91c71c1a6fe7253139973",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-AP03.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AP03.png"
   },
   {
@@ -4469,7 +4471,7 @@
       "TD-AP04"
     ],
     "sha256": "4a5677f7066be916ae048a0fa0c52d65d2fdc522de9c9f043f8db51674aaa990",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AP04.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-AP04.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AP04.png"
   },
   {
@@ -4657,7 +4659,7 @@
       "TD-AP05"
     ],
     "sha256": "61f1a7511b7c4e8f847b0987b592268d8e02395e6b296e5447e1311480b41554",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AP05.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-AP05.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AP05.png"
   },
   {
@@ -4851,7 +4853,7 @@
       "TD-AP06"
     ],
     "sha256": "cc30125a6affa3d1a864eb820a3f59603d4035472e14bc3c6267faca94c5351d",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AP06.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-AP06.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AP06.png"
   },
   {
@@ -5052,7 +5054,7 @@
       "TD-AP07"
     ],
     "sha256": "d3217afc4400e11d3a0438d54c4935e29a3db91acbcbdf27af0e33230b4cd324",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AP07.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-AP07.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AP07.png"
   },
   {
@@ -5240,7 +5242,7 @@
       "TD-AP08"
     ],
     "sha256": "ca73b3e985676a162974402003211824518f1fd142434af0a0928e2d519b9f79",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AP08.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-AP08.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AP08.png"
   }
 ]

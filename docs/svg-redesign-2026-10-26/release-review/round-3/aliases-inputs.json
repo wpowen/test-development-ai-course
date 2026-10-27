@@ -1,0 +1,531 @@
+[
+  {
+    "id": "TD-AG-00-compat",
+    "path": "visuals/course/TD-AG-00.svg",
+    "pageIds": [
+      "TD-AG-00"
+    ],
+    "boundary": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+    "supplementalSources": [],
+    "layout": "layers",
+    "title": "从退款风险到具名停止动作",
+    "thesis": "总架构先显式画出状态、信任和副作用边界，再把 D0–D7、证据环、护栏和失败回灌连接起来。",
+    "focus": "退款工具权限越界：确定性策略 Oracle、受控执行边界与人工 owner 联合收口",
+    "nodes": [
+      {
+        "id": "input",
+        "title": "输入与风险",
+        "body": [
+          "退款需求 / 状态持有者",
+          "检索、队列与工具副作用"
+        ],
+        "tone": "input"
+      },
+      {
+        "id": "d0",
+        "title": "D0 评估可信",
+        "body": [
+          "校准所有域的评分使用",
+          "指标构念与评估集卫生"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "behavior",
+        "title": "D1–D3 行为边界",
+        "body": [
+          "D1 单体轨迹 / D2 交接",
+          "D3 中断、接管与授权"
+        ],
+        "tone": "process"
+      },
+      {
+        "id": "distribution",
+        "title": "D4 可靠性证据",
+        "body": [
+          "任务重复与 Horizon",
+          "按任务聚类估计区间"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "id": "security",
+        "title": "D5 安全信任边界",
+        "body": [
+          "不可信数据、身份与委托",
+          "工具层拒绝越权"
+        ],
+        "tone": "risk"
+      },
+      {
+        "id": "cost",
+        "title": "D6 效率资源边界",
+        "body": [
+          "延迟、成本、并发与隔离",
+          "预算截断与可重放 Trace"
+        ],
+        "tone": "process"
+      },
+      {
+        "id": "business",
+        "title": "D7 业务责任边界",
+        "body": [
+          "硬规则 / 四维版本 / 审计",
+          "具名 owner 风险接受"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "rings",
+        "title": "四证据环",
+        "body": [
+          "离线 CI / 沙箱回放",
+          "影子 / 在线持续"
+        ],
+        "tone": "data"
+      },
+      {
+        "id": "guard",
+        "title": "运行时护栏",
+        "body": [
+          "最小权限、确认、熔断",
+          "写前拦截与 Kill Switch"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "decision",
+        "title": "决策与反馈",
+        "body": [
+          "独立 blocker / 剩余风险",
+          "失败回灌与重校准"
+        ],
+        "tone": "evidence"
+      }
+    ],
+    "ranks": [
+      [
+        "input",
+        "d0"
+      ],
+      [
+        "behavior",
+        "distribution"
+      ],
+      [
+        "security",
+        "cost",
+        "business"
+      ],
+      [
+        "rings",
+        "guard"
+      ],
+      [
+        "decision"
+      ]
+    ],
+    "edges": [
+      {
+        "from": "input",
+        "to": "behavior",
+        "label": "任务与状态流",
+        "kind": "data"
+      },
+      {
+        "from": "d0",
+        "to": "distribution",
+        "label": "校准分数使用",
+        "kind": "control"
+      },
+      {
+        "from": "d0",
+        "to": "behavior",
+        "label": "校准行为各域评分",
+        "kind": "control"
+      },
+      {
+        "from": "d0",
+        "to": "security",
+        "label": "校准安全评分",
+        "kind": "control"
+      },
+      {
+        "from": "d0",
+        "to": "cost",
+        "label": "校准资源评分",
+        "kind": "control"
+      },
+      {
+        "from": "d0",
+        "to": "business",
+        "label": "校准治理评分",
+        "kind": "control"
+      },
+      {
+        "from": "d0",
+        "to": "decision",
+        "label": "失准则所有评分不可用",
+        "kind": "control"
+      },
+      {
+        "from": "behavior",
+        "to": "distribution",
+        "label": "完整轨迹",
+        "kind": "evidence"
+      },
+      {
+        "from": "rings",
+        "to": "behavior",
+        "label": "各环执行",
+        "kind": "data"
+      },
+      {
+        "from": "rings",
+        "to": "distribution",
+        "label": "各环重复与回放执行",
+        "kind": "data"
+      },
+      {
+        "from": "rings",
+        "to": "security",
+        "label": "各环对抗",
+        "kind": "data"
+      },
+      {
+        "from": "rings",
+        "to": "cost",
+        "label": "各环负载观测",
+        "kind": "data"
+      },
+      {
+        "from": "security",
+        "to": "guard",
+        "label": "风险映射强制控制",
+        "kind": "control"
+      },
+      {
+        "from": "business",
+        "to": "guard",
+        "label": "业务硬规则",
+        "kind": "control"
+      },
+      {
+        "from": "distribution",
+        "to": "decision",
+        "label": "区间与失败切片",
+        "kind": "evidence"
+      },
+      {
+        "from": "cost",
+        "to": "decision",
+        "label": "成本与暴露量",
+        "kind": "evidence"
+      },
+      {
+        "from": "business",
+        "to": "decision",
+        "label": "规则与责任",
+        "kind": "control"
+      },
+      {
+        "from": "guard",
+        "to": "decision",
+        "label": "拒绝与停止回执",
+        "kind": "evidence"
+      },
+      {
+        "from": "security",
+        "to": "decision",
+        "label": "已证越权直接 BLOCKED",
+        "kind": "risk"
+      },
+      {
+        "from": "business",
+        "to": "decision",
+        "label": "已证硬规则违规直接阻断",
+        "kind": "risk"
+      },
+      {
+        "from": "decision",
+        "to": "input",
+        "label": "失败回灌",
+        "kind": "feedback"
+      },
+      {
+        "from": "decision",
+        "to": "d0",
+        "label": "Judge 重校准",
+        "kind": "feedback"
+      }
+    ],
+    "sections": [
+      {
+        "title": "边界登记六要素",
+        "body": [
+          "风险 / Observable / 独立 Oracle",
+          "fault / evidence / owner 与 stop"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "title": "评分与硬阻断分开",
+        "body": [
+          "D0 校准覆盖所有域评分",
+          "已证确定性红线不等 Judge"
+        ],
+        "tone": "risk"
+      },
+      {
+        "title": "证据成熟度",
+        "body": [
+          "fixture 不升级为真实系统验证",
+          "跨环必须新增输入、owner 与回滚"
+        ],
+        "tone": "control"
+      }
+    ],
+    "failure": "D0 失效使所有评分不可用；已证确定性红线直接阻断，不等待 Judge。缺 Oracle、停止状态或 owner 仍未闭合。",
+    "outcome": "交付系统边界、风险到控制映射与决策反馈图。",
+    "sourceRefs": [
+      {
+        "path": "content/modules/agent-architecture-system.ts",
+        "locator": "TD-AG-00 / workflow",
+        "quote": "列出节点、状态、信任边界、工具和副作用"
+      },
+      {
+        "path": "content/modules/agent-architecture-system.ts",
+        "locator": "TD-AG-00 / expected",
+        "quote": "每条风险边都有证据、停止状态和责任人。"
+      },
+      {
+        "path": "content/modules/agent-architecture-deep.ts",
+        "locator": "TD-AG-00 / dimensions.caption",
+        "quote": "D0 校准所有分数"
+      },
+      {
+        "path": "content/modules/agent-architecture-deep.ts",
+        "locator": "TD-AG-00 / counter",
+        "quote": "四个环是横向驱动 D1/D4/D5/D6 的，不是串在末尾。"
+      },
+      {
+        "path": "content/modules/agent-architecture-deep.ts",
+        "locator": "TD-AG-09 / failureModes",
+        "quote": "发生一次即不可接受的事件不能做成区间判定"
+      }
+    ],
+    "aliasOf": "materials/agent-architecture-system/visuals/AG-DIM-ARCHITECTURE.svg",
+    "primaryPageIds": [],
+    "sha256": "61bd5bb334736e2f8a365d126660942dd1cb2a7bd9317454074d09c56a0abfeb",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AG-00.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AG-00.png"
+  },
+  {
+    "id": "TD-T26-compat",
+    "path": "visuals/course/TD-T26.svg",
+    "pageIds": [
+      "TD-C03",
+      "TD-T26"
+    ],
+    "boundary": "静态设计与 fixture 不证明个人能力、职级、晋升、就业或薪资；真实学习与组织效果 NOT_RUN，组织映射 INTERNAL-UNKNOWN。",
+    "supplementalSources": [],
+    "layout": "evidence",
+    "title": "能力主张必须经故障与复评",
+    "thesis": "证据生命周期从可检验主张开始，经原始工件、故障反证与独立评审回到下一轮；AI生成测试提效需同任务对照。",
+    "focus": "“AI生成得更快”只有在检测力、复核成本与返工均纳入后才可形成有限主张",
+    "nodes": [
+      {
+        "id": "claim",
+        "title": "能力主张",
+        "body": [
+          "写成可检验的具体任务",
+          "不写“掌握大模型”等形容词"
+        ],
+        "tone": "input"
+      },
+      {
+        "id": "refs",
+        "title": "证据引用",
+        "body": [
+          "Basis / Oracle / manifest",
+          "原始 receipt 与版本 hash"
+        ],
+        "tone": "data"
+      },
+      {
+        "id": "fault",
+        "title": "故障 / 变异",
+        "body": [
+          "baseline → fault → repair",
+          "同一缺陷必须先红再绿"
+        ],
+        "tone": "risk"
+      },
+      {
+        "id": "review",
+        "title": "独立评审",
+        "body": [
+          "Reviewer 复算与分歧记录",
+          "生成者不独自批准产出"
+        ],
+        "tone": "control"
+      },
+      {
+        "id": "apply",
+        "title": "限定范围工作应用",
+        "body": [
+          "同人、同任务、同验收对照",
+          "编译 / accepted / kill / 总工时"
+        ],
+        "tone": "process"
+      },
+      {
+        "id": "feedback",
+        "title": "反馈复评",
+        "body": [
+          "缺口路由 / 下一工件 / 日期",
+          "更新主张与适用边界"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "id": "unknown",
+        "title": "UNKNOWN / 回退",
+        "body": [
+          "引用打不开或变异未检出",
+          "修 Oracle 与数据后再复评"
+        ],
+        "tone": "risk"
+      }
+    ],
+    "ranks": [
+      [
+        "claim",
+        "refs"
+      ],
+      [
+        "fault",
+        "review"
+      ],
+      [
+        "apply",
+        "unknown"
+      ],
+      [
+        "feedback"
+      ]
+    ],
+    "edges": [
+      {
+        "from": "claim",
+        "to": "refs",
+        "label": "主张绑定工件",
+        "kind": "data"
+      },
+      {
+        "from": "refs",
+        "to": "fault",
+        "label": "检验检测力",
+        "kind": "data"
+      },
+      {
+        "from": "fault",
+        "to": "review",
+        "label": "失败与修复收据",
+        "kind": "evidence"
+      },
+      {
+        "from": "review",
+        "to": "apply",
+        "label": "接受范围",
+        "kind": "control"
+      },
+      {
+        "from": "apply",
+        "to": "feedback",
+        "label": "质量、成本与实际反馈",
+        "kind": "evidence"
+      },
+      {
+        "from": "feedback",
+        "to": "claim",
+        "label": "更新下一轮主张",
+        "kind": "feedback"
+      },
+      {
+        "from": "refs",
+        "to": "unknown",
+        "label": "引用缺失或不可打开",
+        "kind": "risk"
+      },
+      {
+        "from": "fault",
+        "to": "unknown",
+        "label": "变异未被检出",
+        "kind": "risk"
+      },
+      {
+        "from": "review",
+        "to": "unknown",
+        "label": "分歧未闭合",
+        "kind": "risk"
+      },
+      {
+        "from": "unknown",
+        "to": "feedback",
+        "label": "定位下一最小工件",
+        "kind": "feedback"
+      }
+    ],
+    "sections": [
+      {
+        "title": "提效不能只看生成",
+        "body": [
+          "accepted-test / mutation kill",
+          "总工时含生成、复核与返工"
+        ],
+        "tone": "evidence"
+      },
+      {
+        "title": "对照先固定",
+        "body": [
+          "同任务集、Oracle 与完成定义",
+          "一次只改生成策略"
+        ],
+        "tone": "control"
+      },
+      {
+        "title": "复评有保质期",
+        "body": [
+          "版本、切片、reviewer 变化再核对",
+          "不取自评和他评的平均分"
+        ],
+        "tone": "evidence"
+      }
+    ],
+    "failure": "无证据路径或 mutation 未打红时主张降级；不允许删缺陷或改 Oracle 迎合结果。",
+    "outcome": "交付 claim ledger、实验收据、reviewer 意见与下一轮复评计划。",
+    "sourceRefs": [
+      {
+        "path": "content/modules/career-evolution.ts",
+        "locator": "TD-T26 / counterexample",
+        "quote": "没有检测力和质量分母，结论无效。"
+      },
+      {
+        "path": "content/modules/career-evolution-deep.ts",
+        "locator": "TD-T26 / mechanism",
+        "quote": "复核、修改、丢弃的时间必须计入 AI 组。"
+      },
+      {
+        "path": "content/modules/career-evolution-deep.ts",
+        "locator": "TD-C03 / mechanism",
+        "quote": "每条能力主张必须指向一个具体工件"
+      }
+    ],
+    "aliasOf": "materials/career-evolution/visuals/career-evidence-lifecycle.svg",
+    "primaryPageIds": [],
+    "sha256": "140da3fbb626f1f99f942065afee74e3bae26b2417eb56afbc079c6aadf51a75",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T26.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T26.png"
+  }
+]

@@ -237,6 +237,7 @@ export default [
     sourceRefs: [R('TD-PS04', '语义定位器与自动等待凭什么把 UI 不稳定压下去', '它保证的是动作可以发生，不保证动作产生了正确的业务结果'), R('TD-PS04', '让退款 UI 等到业务终态而不是文案出现', 'UI 终态、订单 API 与审计记录一致')],
   }),
   page('TD-PS05', {
+    routing: 'outer-rails',
     layout: 'comparison', title: '语义、键盘与视觉分开验收',
     thesis: '自动规则、任务旅程和骨架快照发现不同问题；机器判不了的语义和基线差异交给具名人工。',
     focus: '客服退款在浏览器、视口、语言与输入方式矩阵中的三类验证',
@@ -250,11 +251,12 @@ export default [
     sourceRefs: [R('TD-PS05', '无障碍能自动化到哪一步，剩下的为什么必须人来', '机器判不了、需要人看'), R('TD-PS05', '分开验证语义、键盘与视觉基线', '视觉基线有 owner 审批')],
   }),
   page('TD-PS06', {
+    routing: 'outer-rails',
     layout: 'state', title: '生命周期被打断，库存仍只入账一次',
     thesis: '客户端恢复与服务端幂等共同保护扫描状态；界面恢复不能替代库存账本对账。',
     focus: 'Android 扫码收货从本地队列、进程中断到重放与库存确认',
     nodes: [N('permission', '相机权限检查', 'control', '首次拒绝、再次请求与撤销', '拒绝不创建库存记录'), N('scan', '扫描状态已保存', 'data', '条码与 receipt_id 可恢复', '同步绑定可观察 Idling 状态'), N('queue', '离线本地队列', 'data', '离线写入持久化并去重', '界面出现不代表同步结束'), N('interrupt', '旋转 / 后台 / 回收', 'risk', '中途切网或进程被杀', '保留恢复或安全终止语义'), N('restore', '恢复或安全终止', 'control', '状态可解释，不丢扫描结果', '权限降级不得转云端上传'), N('sync', '库存 API 同步', 'process', '重放使用同一 receipt_id', '等待上传后的业务状态'), N('ledger', '库存账本 Oracle', 'evidence', '同一 receipt_id 只入账一次', '联网恢复后库存守恒'), N('logs', '设备与服务证据', 'evidence', 'logcat、设备配置与服务 Trace', '按机型及推理后端分层')],
-    edges: [E('permission', 'scan', '获授权后扫描', 'control'), E('scan', 'queue', '持久化输入'), E('queue', 'sync', '网络恢复'), E('queue', 'interrupt', '注入生命周期故障', 'risk'), E('interrupt', 'restore', '恢复契约', 'control'), E('restore', 'queue', '恢复待同步项', 'feedback'), E('sync', 'ledger', '核对真实入账', 'evidence'), E('interrupt', 'logs', '客户端故障现场', 'evidence'), E('sync', 'logs', '服务端关联证据', 'evidence')],
+    edges: [E('permission', 'scan', '获授权后扫描', 'control'), E('scan', 'queue', '持久化输入'), E('queue', 'sync', '网络恢复'), E('queue', 'interrupt', '注入生命周期故障', 'risk'), E('interrupt', 'restore', '恢复契约', 'control'), {...E('restore', 'queue', '恢复待同步项', 'feedback'), routeSide:'left'}, E('sync', 'ledger', '核对真实入账', 'evidence'), E('interrupt', 'logs', '客户端故障现场', 'evidence'), E('sync', 'logs', '服务端关联证据', 'evidence')],
     ranks: [['permission', 'scan'], ['queue', 'interrupt'], ['sync', 'restore'], ['ledger', 'logs']],
     sections: [S('主动构造中断', 'risk', '扫描中旋转、切后台、杀进程与切网', '分别核对输入、队列与恢复终态'), S('同步条件要看状态', 'control', '组件测 ViewModel，UI 等 Idling', '业务未完成时不能凭控件出现断言'), S('设备差异留证据', 'evidence', 'APK、API level、权限、网络与机型', '推理后端、模型版本及未测组合明示')],
     failure: '重复入账、状态既不恢复也不安全终止，或权限缺失转云端时阻断。',

@@ -57,8 +57,8 @@
 <text x="829" y="527" font-size="15" fill="#945c0b" font-weight="750" class="mono">04</text>
 <text x="826" y="568" font-size="28" fill="#945c0b" font-weight="700" >Basis Gate/Source</text>
 <text x="826" y="607" font-size="28" fill="#945c0b" font-weight="700" >Pack</text>
-<text x="826" y="650" font-size="23" fill="#172b45" font-weight="450" >批准、冻结、无冲突、有</text>
-<text x="826" y="684" font-size="23" fill="#172b45" font-weight="450" >权限</text>
+<text x="826" y="650" font-size="23" fill="#172b45" font-weight="450" >批准、冻结、无冲突、</text>
+<text x="826" y="684" font-size="23" fill="#172b45" font-weight="450" >有权限</text>
 <text x="826" y="718" font-size="23" fill="#172b45" font-weight="450" >形成带 revision 的冻结依据</text>
 </g>
 <g id="node-candidate" class="node node-ai" data-region="537,928,354,197">

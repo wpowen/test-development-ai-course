@@ -7,6 +7,7 @@
     ],
     "boundary": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
     "supplementalSources": [],
+    "nativeLayout": "architecture-panels",
     "layout": "layers",
     "title": "从退款风险到具名停止动作",
     "thesis": "总架构先显式画出状态、信任和副作用边界，再把 D0–D7、证据环、护栏和失败回灌连接起来。",
@@ -316,8 +317,8 @@
     ],
     "aliasOf": "materials/agent-architecture-system/visuals/AG-DIM-ARCHITECTURE.svg",
     "primaryPageIds": [],
-    "sha256": "61bd5bb334736e2f8a365d126660942dd1cb2a7bd9317454074d09c56a0abfeb",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AG-00.svg",
+    "sha256": "b6ec2fc298064c728e13d619e7a1c12b76b0b5ece0d3c2bae1be4949003241da",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-AG-00.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AG-00.png"
   },
   {
@@ -525,7 +526,7 @@
     "aliasOf": "materials/career-evolution/visuals/career-evidence-lifecycle.svg",
     "primaryPageIds": [],
     "sha256": "140da3fbb626f1f99f942065afee74e3bae26b2417eb56afbc079c6aadf51a75",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T26.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T26.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T26.png"
   }
 ]

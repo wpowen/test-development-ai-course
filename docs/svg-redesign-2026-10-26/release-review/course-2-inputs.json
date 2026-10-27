@@ -197,7 +197,7 @@
       "TD-T05"
     ],
     "sha256": "561e199ffc7e1144025d7b6d773ae357822cfe9e1434582e61d34f52d459399e",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T05.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T05.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T05.png"
   },
   {
@@ -207,6 +207,7 @@
     ],
     "supplementalSources": [],
     "id": "TD-T06",
+    "nativeLayout": "course-2-panels",
     "layout": "comparison",
     "title": "同一候选在正常代码与变异代码上对照",
     "thesis": "先证明批准实现上通过，再证明已知守卫被破坏时，相关断言确实变红。",
@@ -393,8 +394,8 @@
     "primaryPageIds": [
       "TD-T06"
     ],
-    "sha256": "14edde3ac3150a0bb850e45b8f823cb3a02e59c3647e533df29fa6ad5d46c474",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T06.svg",
+    "sha256": "255affcf2432f34822436efd3667b13bd5605a23277a2562bfaee5bc769e209d",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T06.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T06.png"
   },
   {
@@ -593,7 +594,7 @@
       "TD-T07"
     ],
     "sha256": "857939ec942d745f81fea6c1e50d1220f356b51a9a77305e032f5d928ae61115",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T07.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T07.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T07.png"
   },
   {
@@ -794,7 +795,7 @@
       "TD-T08"
     ],
     "sha256": "a3b66f860b6169b593a6399da67627409ccd135edde89d85045b7569173f5670",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T08.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T08.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T08.png"
   },
   {
@@ -1013,7 +1014,7 @@
       "TD-A01"
     ],
     "sha256": "b1977fcd64cb992f0ee6e988ecb85526f5fd88d0e05be3f60ac4c29b5cac8b8c",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-A01.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-A01.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-A01.png"
   },
   {
@@ -1023,6 +1024,7 @@
     ],
     "supplementalSources": [],
     "id": "TD-A02",
+    "nativeLayout": "course-2-panels",
     "layout": "comparison",
     "title": "四种协议的过程判据分别核对",
     "thesis": "SSE、结构化、工具与异步各自验证过程；工具执行结果必须如实回填，账本另证真实副作用。",
@@ -1274,7 +1276,7 @@
         "title": "过程断言在哪里",
         "tone": "process",
         "body": [
-          "SSE 查顺序与结束，JSON 查字段不变量",
+          "SSE 查顺序与结束\nJSON 查字段不变量",
           "Tool 查执行、结果回填与失败回退"
         ]
       },
@@ -1323,8 +1325,8 @@
     "primaryPageIds": [
       "TD-A02"
     ],
-    "sha256": "b48bd21f9085f1b1799f6be70ef5978b8793d3ca3da22c10c18315e9dcb8cc8d",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-A02.svg",
+    "sha256": "8ae8786f2e742857d1bfef3e8cf30dde11460881650bb7aa2b2a40b0fd0e029b",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-A02.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-A02.png"
   },
   {
@@ -1532,7 +1534,7 @@
       "TD-A03"
     ],
     "sha256": "2f06920a533ff0b68dee643279c0a1e705852aeb39be82cc61a5619e68605d06",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-A03.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-A03.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-A03.png"
   },
   {
@@ -1741,7 +1743,7 @@
       "TD-A04"
     ],
     "sha256": "5a06a3d1a18352796d304b140a3cdfdbd8baad8bb458c08467fae71fe65246e3",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-A04.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-A04.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-A04.png"
   },
   {
@@ -1956,7 +1958,7 @@
       "TD-A05"
     ],
     "sha256": "645ccd88f528bb4e9d21e7fd5cad8a35fd36f621d37b36c0da092bc9fc8cc123",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-A05.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-A05.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-A05.png"
   },
   {
@@ -2165,7 +2167,7 @@
       "TD-A06"
     ],
     "sha256": "d472a78b358828f67c297a02841b624c7751232e080b60165d98e913259d9ce6",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-A06.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-A06.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-A06.png"
   },
   {
@@ -2356,7 +2358,7 @@
       "TD-T09"
     ],
     "sha256": "aef15259a958a8aa1115ff353469712abd97ee2b19a06e469d8d6f5850d0b61e",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T09.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T09.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T09.png"
   },
   {
@@ -2366,6 +2368,7 @@
     ],
     "supplementalSources": [],
     "id": "TD-T10",
+    "nativeLayout": "course-2-panels",
     "layout": "decision",
     "title": "Gold 在哪一层丢失，就修哪一层",
     "thesis": "检索和生成独立出分：先找必要证据是否存在、是否召回、如何排序及是否进入最终上下文。",
@@ -2560,8 +2563,8 @@
     "primaryPageIds": [
       "TD-T10"
     ],
-    "sha256": "3a3b7626c3504c9656de5cec88eedf1a12a0fc627f254cb357a5044294c11e81",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T10.svg",
+    "sha256": "6f92c26f9e69e5dab8b1055d8b30a20b2509585830416880e9256e71dce31b65",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T10.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T10.png"
   },
   {
@@ -2878,7 +2881,7 @@
       "TD-T11"
     ],
     "sha256": "f33a842f0541eeff79cc8b826c269de517ccb2d0a62e361eecebf52353457a83",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T11.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T11.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T11.png"
   },
   {
@@ -2888,6 +2891,7 @@
     ],
     "supplementalSources": [],
     "id": "TD-T12",
+    "nativeLayout": "course-2-panels",
     "layout": "decision",
     "title": "证据、权限与拒答共同约束 RAG 终态",
     "thesis": "没有可用依据时拒答或交接；正确答案不能抵消跨租户检索和未授权副作用。",
@@ -3098,8 +3102,8 @@
     "primaryPageIds": [
       "TD-T12"
     ],
-    "sha256": "a752b1fd1f30bde82a127087333b5a065952f7f50a0ac967d0180f56118e1f72",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T12.svg",
+    "sha256": "e2b687d04e6a1708c6ae1a19f2c9c35e0eab60a7516db5db0007886c16cf4bd3",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T12.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T12.png"
   },
   {
@@ -3306,7 +3310,7 @@
       "TD-X501"
     ],
     "sha256": "214347126a5d328adcc2ab8711f67b98899e6deba9ede8ef5d1b5efcb8c0b513",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-X501.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-X501.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X501.png"
   },
   {
@@ -3519,7 +3523,7 @@
       "TD-X502"
     ],
     "sha256": "db8a5afcc874136157e79ab4018cb3f8f84d709a40b25946c667b372412bc81a",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-X502.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-X502.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X502.png"
   },
   {
@@ -3738,7 +3742,7 @@
       "TD-T13"
     ],
     "sha256": "6408860ed2bedfe22f9dd23f5ca36279296836b5b989ed2efe5d7917aef9f6d8",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T13.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T13.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T13.png"
   },
   {
@@ -3935,7 +3939,7 @@
       "TD-T14"
     ],
     "sha256": "bf506e1f4023ea56ad134afd2421508d23d6bac30ff2e322b9e9294b8cc4d346",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T14.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T14.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T14.png"
   },
   {
@@ -3945,6 +3949,7 @@
     ],
     "supplementalSources": [],
     "id": "TD-T15",
+    "nativeLayout": "course-2-panels",
     "layout": "layers",
     "title": "Agent 的结果、单步与轨迹分别判定",
     "thesis": "最终转人工可以正确，途中调用禁止的退款工具仍须失败；合法替代路径应被允许。",
@@ -4129,8 +4134,8 @@
     "primaryPageIds": [
       "TD-T15"
     ],
-    "sha256": "552b3c6ada9517775eca39053e70094650aa6d5e30e11dacac2fa4734576fae5",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T15.svg",
+    "sha256": "513562b55ba2b70282b5c565eb8e8d6bfd0928409ff6e8a7f1a5fd63133574c9",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T15.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T15.png"
   },
   {
@@ -4423,7 +4428,7 @@
       "TD-T16"
     ],
     "sha256": "e33bac53d461f184574845b057c6488ef8d718e161f980eac860d5926f2ab5d2",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T16.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T16.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T16.png"
   },
   {
@@ -4638,7 +4643,7 @@
       "TD-T17"
     ],
     "sha256": "e1ff365c2e05a565e1b624dc0581dfb5b916be35afc3ac5c9b4f87cc77280a9a",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T17.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T17.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T17.png"
   },
   {
@@ -4851,7 +4856,7 @@
       "TD-T18"
     ],
     "sha256": "f55d7d5e9b3863304057999f2b97a53163ba2aea8d8d4428d156737f2777611b",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T18.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T18.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T18.png"
   },
   {
@@ -5060,7 +5065,7 @@
       "TD-T19"
     ],
     "sha256": "7ec37be89c85e4b098e002852096df2ad9b9b4e72bb89ef9c8fdd2fe4c88dbde",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T19.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-T19.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T19.png"
   },
   {
@@ -5269,7 +5274,7 @@
       "TD-W01"
     ],
     "sha256": "e176b7bfc0fdb4bb954145f8559e4749c522f02309480d5d964d1d35fd47f458",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-W01.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-W01.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-W01.png"
   },
   {
@@ -5562,7 +5567,7 @@
       "TD-W02"
     ],
     "sha256": "10c031eaa03a4cf39b59006014bd5a156657772b695a5d25451b50ef28b44eb6",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-W02.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-W02.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-W02.png"
   },
   {
@@ -5572,6 +5577,7 @@
     ],
     "supplementalSources": [],
     "id": "TD-W03",
+    "nativeLayout": "course-2-panels",
     "layout": "metric",
     "title": "单 Agent 与多 Agent 在同预算下比较",
     "thesis": "相同任务、权限与总预算下重复运行，才能把架构收益和资源投入区分开。",
@@ -5786,8 +5792,8 @@
     "primaryPageIds": [
       "TD-W03"
     ],
-    "sha256": "23efc8f1b2b882f32aafdb8dfbe8626c52673f2266f7b50784b8f52f3259b7b7",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-W03.svg",
+    "sha256": "23aadfda3d42f203de2a049ff4c9f3486f94c63eb365ad4af6e0d0c569f5f9e9",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-W03.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-W03.png"
   },
   {
@@ -6062,7 +6068,7 @@
       "TD-X603"
     ],
     "sha256": "80524533c927f7e665e697e227534d118e087438a7c93272f61a7099b32a377b",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-X603.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-X603.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X603.png"
   },
   {
@@ -6349,7 +6355,7 @@
       "TD-X604"
     ],
     "sha256": "331f1600b8ec2a9c21fd220bb84b51e98c2768da9ea8a1d1257d13e9f62b8961",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-X604.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-X604.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X604.png"
   },
   {
@@ -6564,7 +6570,7 @@
       "TD-X602"
     ],
     "sha256": "30c97a19ebe88bdaaa65b6205378f2a9486c4ace8c1221e7b515fc95128fbcf2",
-    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-X602.svg",
+    "candidate_svg": "output/svg-release-20261027-polish/candidate/public/visuals/course/TD-X602.svg",
     "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X602.png"
   }
 ]

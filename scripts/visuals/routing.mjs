@@ -210,7 +210,7 @@ export function planRailGraph(spec, dimensions, ranksInput, wrap, measure) {
   const edges = spec.edges.map((edge, index) => {
     const from = locations.get(edge.from), to = locations.get(edge.to);
     const direction = Math.sign(to.row - from.row);
-    const side = from.col === 0 ? 'left' : from.col === 1 ? 'right' : to.col < 0.5 ? 'left' : to.col > 0.5 ? 'right' : index % 2 ? 'left' : 'right';
+    const side = edge.routeSide ?? (from.col === 0 ? 'left' : from.col === 1 ? 'right' : to.col < 0.5 ? 'left' : to.col > 0.5 ? 'right' : index % 2 ? 'left' : 'right');
     const band = direction ? side : 'center';
     const lines = wrap(`${String(index + 1).padStart(2, '0')}  ${edge.label || ''}`, band === 'center' ? 152 : 184, 21);
     const label = {lines, w: Math.max(...lines.map(line => measure(line, 21))) + 16, h: lines.length * 32 + 12};

@@ -1,0 +1,1981 @@
+{
+  "reviewer": "independent-materials-content-and-visual-reviewer",
+  "scope": "R3仅对AG-DIM-FOUR-RINGS进行新截图、spec/renderer与正文针对性复审；其余24项确认SVG/截图/正文来源SHA与归档R2一致后继承实看证据。未修改图、代码或历史报告。",
+  "round": 3,
+  "count": 25,
+  "input_sha256": "ea24a0017e4e40582e9ec5eea5dd2dcf735b83903108b7c6de096f7b5fe85613",
+  "results": [
+    {
+      "id": "TD-AG-00",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-00.svg",
+      "sha256": "ee8eeabbad75a8400f46863a2acd70dd53cc12d67e27978dbf5cc27333f1deff",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/agent-architecture-system/visuals/TD-AG-00.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__agent-architecture-system__visuals__TD-AG-00.png",
+      "screenshot_sha256": "3ef0c2663c4c9cf29a682c7fee0fef947ea28b4236b219630aa0833aa58dd857",
+      "body_summary": "核对退款越权示例、D0全域校准、四环横向驱动D1/D4/D5/D6、红线独立阻断与NOT_RUN边界；25条显式关系与正文一致。",
+      "visual_summary": "逐块追踪01-25；20常规控制与23硬阻断已分线分端口，24/25反馈可回溯。右侧外轨仍密，但编号可辨，未因4938px高度判阻断。",
+      "checked_sources": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-00 / problem",
+          "quote_found": true,
+          "matched_line": 44,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-00 / counter",
+          "quote_found": true,
+          "matched_line": 129,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-00 / dimensions.caption",
+          "quote_found": true,
+          "matched_line": 90,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-09 / failureModes",
+          "quote_found": true,
+          "matched_line": 799,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 4938,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 1400
+          },
+          {
+            "top": 2640,
+            "height": 1400
+          },
+          {
+            "top": 3960,
+            "height": 978
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "D7常规规则/具名接受与硬规则直接阻断使用完全同一路径；中央D0扇出与反馈也过密。",
+          "resolved": true,
+          "verification": "逐块追踪01-25；20常规控制与23硬阻断已分线分端口，24/25反馈可回溯。右侧外轨仍密，但编号可辨，未因4938px高度判阻断。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "TD-AG-01",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-01.svg",
+      "sha256": "49e2392071403df6237be86a487a5d112534d3a3a909f3900328e02de8c70a83",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/agent-architecture-system/visuals/TD-AG-01.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__agent-architecture-system__visuals__TD-AG-01.png",
+      "screenshot_sha256": "3208d5c6e18bea07f734a4b212ba73260444ff943c66894c21d9e7b9a4c060a6",
+      "body_summary": "金标、人人/人机一致性、偏置探针、确定性事实blocker、换版重校准和人工回退完整，未引入通用数值门槛。",
+      "visual_summary": "逐样本判定贴Judge到分歧矩阵的短边；金标/probe输入和两条回退各自可追踪，字号与卡片层级清楚。",
+      "checked_sources": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-01 / repair",
+          "quote_found": true,
+          "matched_line": 65,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-01 / failureModes.caption",
+          "quote_found": true,
+          "matched_line": 177,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-01 / summary",
+          "quote_found": true,
+          "matched_line": 5471,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 2015,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 695
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "Judge到分歧矩阵的主证据标签离所属边过远，并与回退/校准标签混在中央。",
+          "resolved": true,
+          "verification": "逐样本判定贴Judge到分歧矩阵的短边；金标/probe输入和两条回退各自可追踪，字号与卡片层级清楚。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "TD-AG-02",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-02.svg",
+      "sha256": "d5094c1d9bd27b7f6f2804fa43567dac5ee9608ab4c614259c50cb2356030628",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/agent-architecture-system/visuals/TD-AG-02.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__agent-architecture-system__visuals__TD-AG-02.png",
+      "screenshot_sha256": "b4aca79e03b4dc77081e1c6b6b35f0818838b7082cc1c7340e401b4ba23193f4",
+      "body_summary": "查询/政策/转人工任务中的refund_order即Step失败；三层Oracle不抵消，首错回指span并保留安全替代路径，和正文一致。",
+      "visual_summary": "Step blocker标签紧贴首错到Trajectory的红边；终态、完整序列和安全不变量各入端口，外围反馈可读。",
+      "checked_sources": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-02 / scenario",
+          "quote_found": true,
+          "matched_line": 78,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-02 / terms",
+          "quote_found": true,
+          "matched_line": 271,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-02 / summary",
+          "quote_found": true,
+          "matched_line": 6181,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 2233,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 913
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "Step blocker标签与水平红线分离过远。",
+          "resolved": true,
+          "verification": "Step blocker标签紧贴首错到Trajectory的红边；终态、完整序列和安全不变量各入端口，外围反馈可读。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "TD-AG-03",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-03.svg",
+      "sha256": "7dfae662af28f141ba8c30d308fec56f3d8d45001b9e3395944b76bc8f199c9b",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/agent-architecture-system/visuals/TD-AG-03.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__agent-architecture-system__visuals__TD-AG-03.png",
+      "screenshot_sha256": "fae3aadb137126672692973abc7c6c3a6c3be37a46679c3d027ce06aeaafcde7",
+      "body_summary": "五事实三跳、handoff语义契约、上下文隔离、三类预算和Owner仲裁保留；未把客户声称已验证改成事实。",
+      "visual_summary": "源头事实08与终点09分别进入核对节点，注入04/05和修复11独立外绕，跨线桥不作为连接；旧中央交叉已消除。",
+      "checked_sources": [
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-03 / dimensions",
+          "quote_found": true,
+          "matched_line": 306,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-03 / workflow",
+          "quote_found": true,
+          "matched_line": 93,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-03 / summary",
+          "quote_found": true,
+          "matched_line": 6882,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 2766,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 1400
+          },
+          {
+            "top": 2640,
+            "height": 126
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "事实核对、故障注入与修复回路形成多重交叉，审计路径难以追踪。",
+          "resolved": true,
+          "verification": "源头事实08与终点09分别进入核对节点，注入04/05和修复11独立外绕，跨线桥不作为连接；旧中央交叉已消除。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "TD-AG-04",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-04.svg",
+      "sha256": "9b0677dd483e7caf70325f882ec1d7d8878b16ef9cc98a6c0a1e6eecd1695698",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/agent-architecture-system/visuals/TD-AG-04.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__agent-architecture-system__visuals__TD-AG-04.png",
+      "screenshot_sha256": "d8c60198230ac8bc0bb643d3c519ea07545f52382d00a0b4cd986638648cc63b",
+      "body_summary": "写前零副作用、写后补偿或人工、交回后读取新状态和重授权、确认信息四要素均与正文一致。",
+      "visual_summary": "写前/写后分支、补偿到接管、新状态到恢复均可追踪，字号/留白适中。恢复反馈弯线跨过其他线，但颜色与端点清楚。",
+      "checked_sources": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-04 / problem",
+          "quote_found": true,
+          "matched_line": 108,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-04 / failureModes",
+          "quote_found": true,
+          "matched_line": 394,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-04 / summary",
+          "quote_found": true,
+          "matched_line": 7583,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 1978,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 658
+          }
+        ]
+      },
+      "prior_findings": [],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "TD-AG-05",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-05.svg",
+      "sha256": "4229304fd195e8b743b76431b64ace893990dc61e19bc66bb50f0bac9eccfb21",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/agent-architecture-system/visuals/TD-AG-05.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__agent-architecture-system__visuals__TD-AG-05.png",
+      "screenshot_sha256": "43e3e0c877498a4780b1b1c439009a90646f0b5832b7972fdcae712d137d88b6",
+      "body_summary": "pass@k/pass^k按任务聚合，区间匹配任务聚类/配对，状态重置和时长桶未知边界完整；高危blocker不被重试掩盖。",
+      "visual_summary": "两种可靠性口径并列，聚类区间与Horizon分区清晰；原先中文末字孤行已修正，Metric Card短语完整换行。",
+      "checked_sources": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-05 / workflow",
+          "quote_found": true,
+          "matched_line": 125,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-05 / repair",
+          "quote_found": true,
+          "matched_line": 129,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-05 / summary",
+          "quote_found": true,
+          "matched_line": 8277,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 2286,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 966
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "卡片中文短语出现单字孤行，精致度弱于参考。",
+          "resolved": true,
+          "verification": "两种可靠性口径并列，聚类区间与Horizon分区清晰；原先中文末字孤行已修正，Metric Card短语完整换行。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "TD-AG-06",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-06.svg",
+      "sha256": "63b7a380bc28ebb3482b58550d4a47986a70e3f9f7a46d9561b13597447562cc",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/agent-architecture-system/visuals/TD-AG-06.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__agent-architecture-system__visuals__TD-AG-06.png",
+      "screenshot_sha256": "5cee471a84cb4988b8eeed9c17ea73dee2b8b5fc1950a1237e366951d5accc10",
+      "body_summary": "不可信数据、rug-pull、记忆污染与委托分开；工具写前强制授权、manifest hash、实际回执、阻断层及零攻击成功的限制正确。",
+      "visual_summary": "攻击入口、候选、策略、动作/停止和回执分区清楚；授权与模型文本拒绝未混同，标签就近可读。",
+      "checked_sources": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-06 / workflow",
+          "quote_found": true,
+          "matched_line": 141,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-06 / artifactNote",
+          "quote_found": true,
+          "matched_line": 574,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-06 / summary",
+          "quote_found": true,
+          "matched_line": 9009,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 1990,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 670
+          }
+        ]
+      },
+      "prior_findings": [],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "TD-AG-07",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-07.svg",
+      "sha256": "10f2bb32a320013ce000292acbc0c9f050b545493d6b58a65405b5a9a681bf29",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/agent-architecture-system/visuals/TD-AG-07.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__agent-architecture-system__visuals__TD-AG-07.png",
+      "screenshot_sha256": "6861cae0dbbe59ef604d814c41a14d79e8a682770bcc67724407071d212e1136",
+      "body_summary": "queue/LLM/tool attempt按任务归因，独立成功分母、P95/P99/goodput、复核成本与四类硬预算正确；超限截断而非仅告警。",
+      "visual_summary": "调用04与返回05分离，预算06/07和观测09-12独立端口且有桥接；字不缩小，成本关系可逐条追踪。",
+      "checked_sources": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-07 / workflow",
+          "quote_found": true,
+          "matched_line": 157,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-07 / artifactNote",
+          "quote_found": true,
+          "matched_line": 649,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-07 / summary",
+          "quote_found": true,
+          "matched_line": 9739,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 3219,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 1400
+          },
+          {
+            "top": 2640,
+            "height": 579
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "LLM与Tool请求/返回反向共线，下一层预算和观测线集中交叉。",
+          "resolved": true,
+          "verification": "调用04与返回05分离，预算06/07和观测09-12独立端口且有桥接；字不缩小，成本关系可逐条追踪。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "TD-AG-08",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-08.svg",
+      "sha256": "dbdf96d0fbabc5c96e55f734b76d6ec93807c2eed6d656192fdd92b889c397a3",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/agent-architecture-system/visuals/TD-AG-08.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__agent-architecture-system__visuals__TD-AG-08.png",
+      "screenshot_sha256": "28d4f2407953ba352fd751ec69e06cfe98306e8352785d4a2c23b0771aee2cf8",
+      "body_summary": "模型/Prompt/工具/Memory版本、规则/委托审计、具名接受及四维回滚齐全；审计缺失UNKNOWN，硬业务规则独立BLOCKED。",
+      "visual_summary": "版本改变07、审计04、恢复11分轨；硬规则09与不接受/到期10分别进入回滚，主要标签都在所属边上。",
+      "checked_sources": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-08 / expected",
+          "quote_found": true,
+          "matched_line": 175,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-08 / failureModes.caption",
+          "quote_found": true,
+          "matched_line": 704,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-08 / summary",
+          "quote_found": true,
+          "matched_line": 10451,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 3105,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 1400
+          },
+          {
+            "top": 2640,
+            "height": 465
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "回滚恢复反馈贯穿版本与审计线群，标签引线较长。",
+          "resolved": true,
+          "verification": "版本改变07、审计04、恢复11分轨；硬规则09与不接受/到期10分别进入回滚，主要标签都在所属边上。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "TD-AG-09",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-09.svg",
+      "sha256": "49415044ae6612298ef57cccc608e65f71a71cc0697fb6729e5d6d521824db98",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/agent-architecture-system/visuals/TD-AG-09.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__agent-architecture-system__visuals__TD-AG-09.png",
+      "screenshot_sha256": "800252f6a2eef28e0830e07f93c13c9dafd8b3749bf5f000e73dbd39f1564f23",
+      "body_summary": "四环成熟度与三段决策分开；统计FAIL阻断，不足可有限具名决定但仍非PASS，无护栏不得接受，真实环NOT_RUN正确。",
+      "visual_summary": "充分07和不足09分别进入风险节点，无护栏10与到期11分轨；FAIL08单独红线，首轮两组重合已修复。",
+      "checked_sources": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-09 / scenario",
+          "quote_found": true,
+          "matched_line": 190,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-09 / thesis",
+          "quote_found": true,
+          "matched_line": 759,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-08 / voice.takeNote",
+          "quote_found": true,
+          "matched_line": 718,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "public/materials/agent-architecture-system/docs/11-three-stage-gate.md",
+          "locator": "11.5 / 三段之间的关系",
+          "quote_found": true,
+          "matched_line": 96,
+          "source_sha256": "31365d02a274f719d66f94812ffa1438eb1f5573b090a7843e1783b374b324d7"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 3038,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 1400
+          },
+          {
+            "top": 2640,
+            "height": 398
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "不同门禁条件被同路径叠画，无法逐线区分。",
+          "resolved": true,
+          "verification": "充分07和不足09分别进入风险节点，无护栏10与到期11分轨；FAIL08单独红线，首轮两组重合已修复。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "TD-AG-10",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-10.svg",
+      "sha256": "453f64d8e7f996fdabb9b961d3d5332fb02e7c2bcfb8ec6ccf6b81693be7282a",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/agent-architecture-system/visuals/TD-AG-10.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__agent-architecture-system__visuals__TD-AG-10.png",
+      "screenshot_sha256": "adcd4d9fcd1b61fb9fd5f61a430742d01afb6109d37d898eeb3e39f26c174a64",
+      "body_summary": "建议/执行物理隔离，陈旧数据建议UNKNOWN而执行写前拒绝；硬额度、双人审批、补偿对账和分钟级演练目标待验证正确。",
+      "visual_summary": "工具额度04和有效签字06已就近标在短控制边；超时07/超额08/拒批09分别到停止端口。",
+      "checked_sources": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-10 / scenario",
+          "quote_found": true,
+          "matched_line": 206,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-10 / workflow",
+          "quote_found": true,
+          "matched_line": 205,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-10 / summary",
+          "quote_found": true,
+          "matched_line": 11895,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 3029,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 1400
+          },
+          {
+            "top": 2640,
+            "height": 389
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "主控制链的短标签被移到远处。",
+          "resolved": true,
+          "verification": "工具额度04和有效签字06已就近标在短控制边；超时07/超额08/拒批09分别到停止端口。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "AG-DIM-ARCHITECTURE",
+      "path": "materials/agent-architecture-system/visuals/AG-DIM-ARCHITECTURE.svg",
+      "sha256": "0c0379deba67d04701b1bcbcdc18d5ef409413e480bc29e7f1aecb5ae0aa30e5",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/agent-architecture-system/visuals/AG-DIM-ARCHITECTURE.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__agent-architecture-system__visuals__AG-DIM-ARCHITECTURE.png",
+      "screenshot_sha256": "84fac9dd67179e43d1549635411887c5e7898861e8f3cfb77d904e52db6bf5b6",
+      "body_summary": "核对D0、行为/可靠性/安全/成本/治理、护栏与反馈；新增四环到D4的重复/回放边已呈现，硬规则与具名责任分开。",
+      "visual_summary": "重复与回放10明确进入D4，17责任与20硬阻断独立；决策输入端口可编号查找，反馈21/22分轨，4230px高度不构成阻断。",
+      "checked_sources": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-00 / workflow",
+          "quote_found": true,
+          "matched_line": 45,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-00 / expected",
+          "quote_found": true,
+          "matched_line": 47,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-00 / dimensions.caption",
+          "quote_found": true,
+          "matched_line": 90,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-00 / counter",
+          "quote_found": true,
+          "matched_line": 129,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-09 / failureModes",
+          "quote_found": true,
+          "matched_line": 799,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-00 / summary",
+          "quote_found": true,
+          "matched_line": 4659,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 4230,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 1400
+          },
+          {
+            "top": 2640,
+            "height": 1400
+          },
+          {
+            "top": 3960,
+            "height": 270
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "D7责任证据与硬规则blocker叠画；决策输入箭头过密。",
+          "resolved": true,
+          "verification": "重复与回放10明确进入D4，17责任与20硬阻断独立；决策输入端口可编号查找，反馈21/22分轨，4230px高度不构成阻断。"
+        },
+        {
+          "severity": "P2",
+          "issue": "四证据环缺少明确驱动D4可靠性的执行关系。",
+          "resolved": true,
+          "verification": "重复与回放10明确进入D4，17责任与20硬阻断独立；决策输入端口可编号查找，反馈21/22分轨，4230px高度不构成阻断。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "AG-DIM-FOUR-RINGS",
+      "path": "materials/agent-architecture-system/visuals/AG-DIM-FOUR-RINGS.svg",
+      "sha256": "5ebf242846b8e5a8ca2fb5a70de62c379c2016061041ca88867ec9329374d9ef",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/agent-architecture-system/visuals/AG-DIM-FOUR-RINGS.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__agent-architecture-system__visuals__AG-DIM-FOUR-RINGS.png",
+      "screenshot_sha256": "2d74104870f35820af396deeb04b32387faa1b9d96300fd582ba035ec8d4a3b6",
+      "body_summary": "已对照fresh spec与实际renderer：r3.body和第三列均新增明确出口“分布对比Trace、评分与隔离证据”。私有完整原文要求影子记录Trace、打分并取得真实分布对比数据；隔离与不生效要求一致。四环owner、hard block、rollback及真实环NOT_RUN边界保留，未伪造实际运行。",
+      "visual_summary": "整图和第三列原尺寸裁块实际查看：新增出口分两行完整可读，责任/硬阻断/回滚仍分行，底部留白充分；四列等高卡随最大换行量增加高度，箭头、逐环门禁及失败回灌条未被挤压。原R2 P2已实质修复，未发现新的P1/P2/P3。",
+      "checked_sources": [
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-09 / artifactNote",
+          "quote_found": true,
+          "matched_line": 797,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/agent-architecture-original.txt",
+          "locator": "五 / 环3影子模式",
+          "quote_found": true,
+          "matched_line": 8,
+          "source_sha256": "ec4c69a74c4468a7ca08e62c076281d9351e5c70ab10598897d2fc263e87ac67"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-09 / summary",
+          "quote_found": true,
+          "matched_line": 11159,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image: current full screenshot + native-resolution third-column sharp crop",
+        "width": 1600,
+        "height": 1989,
+        "pixel_coverage": "whole screenshot viewed; changed third column additionally inspected at native resolution",
+        "views": [
+          {
+            "top": 0,
+            "height": 1989
+          }
+        ],
+        "detail_crops": [
+          {
+            "left": 800,
+            "top": 370,
+            "width": 370,
+            "height": 670
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "主图整体缩小造成细字，主体与B/C区字号明显失衡。",
+          "resolved": true,
+          "verification": "四列正文大而清楚，原先0.65倍缩图问题已解决；第三列实际没有出口行，属于内容遗漏，不是字体或几何问题。"
+        }
+      ],
+      "additional_body_context": [
+        {
+          "path": "output/svg-release-20261026/private-reference-originals/agent-architecture-original.txt",
+          "sha256": "b38274bcc1ba2d8c6e721157765f1b64ae70b0cbc9cc2cdd0a703140a69b2b54",
+          "summary": "本轮实际读取环3影子模式：保留Trace、评分与真实分布对比数据；隔离及不生效与新增出口一致，原文SHA与公开短引文记录匹配。"
+        }
+      ],
+      "review_round": 3,
+      "review_basis": "R3_TARGET_REVIEW",
+      "resolved_findings": [
+        {
+          "severity": "P2",
+          "issue": "影子／灰度列遗漏交给门禁的出口证据，四环独立出口未完整表达。",
+          "evidence": "已查看当前1600×1968截图全部像素。第三列x812-1150、y384-972依次只有输入、影子不生效、灰度另审范围、责任、硬阻断、回滚，没有“出口”或明确对比Trace/评分产物；其余三列都写了出口。fresh spec 的 r3→gate 边标为“真实分布证据”，私有完整原文“环3影子模式做法”要求落Trace、打分并形成真实分布对比数据。下方通用门禁条不能代替第三环自身的出口定义。",
+          "suggested_fix": "在第三列增加“出口：真实分布对比 Trace / 评分及隔离证据”或等价的明确产物，并保留影子不生效、灰度需批准与NOT_RUN边界；按当前字号重新排高后复审。",
+          "resolved": true,
+          "resolved_in_round": 3,
+          "verification": "实际查看最新1600×1989整图，再以原尺寸370×670裁块复核第三列。出口两行清楚显示分布对比Trace、评分与隔离证据；与owner/硬阻断/回滚分别成行，未裁切或重叠。已核对spec的r3.body、renderer新增出口及按wrap行数计算的动态cardH，并对照影子模式正文。",
+          "previous_svg_sha256": "01ef84e9d65aef077d0a4a51dc1f748b065a5ffa6994cfd2810eee4ec782d933",
+          "previous_screenshot_sha256": "200b65c3dd5ee7e4f7d3147a29af7a45e33f18f5672e7af1912f3a33b9a64ebd"
+        }
+      ],
+      "implementation_checked": [
+        {
+          "path": "scripts/visuals/specs/materials.mjs",
+          "sha256": "a358cb7c52e381e75dfd00049c692d2e417e541e972e3b3ca31b6899e89eb0d6",
+          "summary": "r3.body明确新增exit产物"
+        },
+        {
+          "path": "scripts/visuals/renderer.mjs",
+          "sha256": "062c5fda5e603d03cdbcc868e70b6db193cbd39d6d3449773601fffae6217940",
+          "summary": "第三列rows包含出口，cardH按wrap后的实际行数动态计算"
+        }
+      ]
+    },
+    {
+      "id": "AG-DIM-GATE",
+      "path": "materials/agent-architecture-system/visuals/AG-DIM-GATE.svg",
+      "sha256": "5e31beb0fa2d6d90d475ad784aecb0e08139e783cf5e28104c1c22fef7843577",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [
+        {
+          "severity": "P3",
+          "issue": "两条回灌反馈在上部贴近并多次穿越，仍有非阻断整理空间。",
+          "evidence": "当前统计FAIL标签已贴近红边，满足/未满足/不足主支路可读；但青色“补新证据后再审”与“修复并保留失败回灌”在候选证据包下方长段近乎平行，并绕过BLOCKED区域交叉。需要比主流程更仔细追踪，尚未造成关键决策条件不可辨。",
+          "suggested_fix": "两条反馈分别沿左右外围返回证据包，保持独立端口与就近标签。",
+          "resolved": false
+        }
+      ],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/agent-architecture-system/visuals/AG-DIM-GATE.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__agent-architecture-system__visuals__AG-DIM-GATE.png",
+      "screenshot_sha256": "600d8b18ba5e741db8dff59f1d349ccca2d3811d2bc929ff7ad12144f24d246c",
+      "body_summary": "三段独立、D0失效阻断、统计满足/未满足/不足三分支、护栏覆盖及有限决定仍非PASS均对照实际门禁正文。",
+      "visual_summary": "统计FAIL红标签紧贴实际边，三种统计结论主支路清楚；两条青色回灌上部较近且多次穿越，仍有P3整理空间。",
+      "checked_sources": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-09 / workflow",
+          "quote_found": true,
+          "matched_line": 189,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-05 / failure",
+          "quote_found": true,
+          "matched_line": 128,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-08 / voice.takeNote",
+          "quote_found": true,
+          "matched_line": 718,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "public/materials/agent-architecture-system/docs/11-three-stage-gate.md",
+          "locator": "11.5 / 三段之间的关系",
+          "quote_found": true,
+          "matched_line": 96,
+          "source_sha256": "31365d02a274f719d66f94812ffa1438eb1f5573b090a7843e1783b374b324d7"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 2812,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 1400
+          },
+          {
+            "top": 2640,
+            "height": 172
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "统计FAIL标签离所属边过远，补证回路穿越主门禁分支。",
+          "resolved": true,
+          "verification": "统计FAIL红标签紧贴实际边，三种统计结论主支路清楚；两条青色回灌上部较近且多次穿越，仍有P3整理空间。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "AG-DIM-36",
+      "path": "materials/agent-architecture-system/visuals/AG-DIM-36.svg",
+      "sha256": "6b76e5912d9af2abef90370bebbed59353d86b2ef5a5e64608b9b5c3f74898c1",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [
+        {
+          "severity": "P3",
+          "issue": "四环依赖带“分别驱动”措辞容易被理解为环与域一一配对。",
+          "evidence": "当前第一条依赖带写“离线、沙箱、影子、在线分别驱动D1/D4/D5/D6”。正文强调四环横向驱动这些域，且各环覆盖范围不同；总架构当前四条执行边已清楚，因此不构成遗漏，但这里的“分别”可产生不必要的一对一联想。",
+          "suggested_fix": "改为“四环按各自输入与覆盖范围横向驱动D1、D4、D5、D6”，避免把四环与四域逐一对应。",
+          "resolved": false
+        }
+      ],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/agent-architecture-system/visuals/AG-DIM-36.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__agent-architecture-system__visuals__AG-DIM-36.png",
+      "screenshot_sha256": "8887dc347749069ed45a17a58ac84a88dc5f845c54a1a8786e2cff128c6d2343",
+      "body_summary": "逐项对照私有完整原文36维名称与数量(4+5+4+4+5+6+4+4)，未把来源固定阈值变成门禁；新增D0/四环/护栏/具名决定/回灌可见。",
+      "visual_summary": "36项八域列表可读；下方独立依赖区含D0说明和四条可读关系带，首轮只列清单的缺陷已修复。",
+      "checked_sources": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/agent-architecture-original.txt",
+          "locator": "四 / 36维明细",
+          "quote_found": true,
+          "matched_line": 12,
+          "source_sha256": "ec4c69a74c4468a7ca08e62c076281d9351e5c70ab10598897d2fc263e87ac67"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/agent-visual-source.original.json",
+          "locator": "agent-36-dimensions / caption",
+          "quote_found": true,
+          "matched_line": 97,
+          "source_sha256": "cd2644bff20150ce08014b07318608b1150fbf526194c69b4b569f5600f75f32"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-00 / dimensions.caption",
+          "quote_found": true,
+          "matched_line": 90,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-00 / counter",
+          "quote_found": true,
+          "matched_line": 129,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-09 / failureModes",
+          "quote_found": true,
+          "matched_line": 799,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 3046,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 1400
+          },
+          {
+            "top": 2640,
+            "height": 406
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "36维列表完整，但spec要求的域间依赖、四环、护栏、具名决定和失败回灌未渲染。",
+          "resolved": true,
+          "verification": "36项八域列表可读；下方独立依赖区含D0说明和四条可读关系带，首轮只列清单的缺陷已修复。"
+        }
+      ],
+      "additional_body_context": [
+        {
+          "path": "output/svg-release-20261026/private-reference-originals/agent-architecture-original.txt",
+          "sha256": "b38274bcc1ba2d8c6e721157765f1b64ae70b0cbc9cc2cdd0a703140a69b2b54",
+          "summary": "实际读取四环模型、环3影子模式及36维完整名称；与公开短引文所记原文SHA一致。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "AG-DIM-RELIABILITY",
+      "path": "materials/agent-architecture-system/visuals/AG-DIM-RELIABILITY.svg",
+      "sha256": "a3dda4216b1fef770c5d7575987671e0d4d89099e129250fd1b25f209a92e3a1",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/agent-architecture-system/visuals/AG-DIM-RELIABILITY.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__agent-architecture-system__visuals__AG-DIM-RELIABILITY.png",
+      "screenshot_sha256": "520ddb2e20cf561258bec5201b0a2a7c0c5c5d21b3f414cad294c5aa23936e4c",
+      "body_summary": "经验pass@k与pass^k按N个任务计，iid幂假设与经验计算分开；聚类、可配置Wilson、时长桶、三种结论和未知边界正确。",
+      "visual_summary": "至少一次/全部成功并列，区间和时长桶各自入结论，未知承诺边界可见；未画虚构测量曲线。",
+      "checked_sources": [
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-05 / terms",
+          "quote_found": true,
+          "matched_line": 498,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-05 / terms",
+          "quote_found": true,
+          "matched_line": 499,
+          "source_sha256": "04fe2cc08302eb27e6cdaa4227b3b9a18ccf912eef66a1892e56e7757adbfeba"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-05 / expected",
+          "quote_found": true,
+          "matched_line": 127,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 2489,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 1169
+          }
+        ]
+      },
+      "prior_findings": [],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "career-role-comparison",
+      "path": "materials/career-evolution/visuals/career-role-comparison.svg",
+      "sha256": "7a2eeb0434dc43629d07c20ca84bac2ff9197e67dde80e47fa3dadbda351b69f",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/career-evolution/visuals/career-role-comparison.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__career-evolution__visuals__career-role-comparison.png",
+      "screenshot_sha256": "bdcb811babbd30c627e0f9d0f84a84f0f7b02407222404033b3185f3e82fcbb5",
+      "body_summary": "三类角色的对象和目标与原文一致；共同底座、独立Oracle及具名发布责任明确，未以岗位名称替代风险责任。",
+      "visual_summary": "共同底座01-03、被测版本04和质量证据05/06分轨，发布责任07可追踪；旧中央交叉已修复。",
+      "checked_sources": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/career-development-original.md",
+          "locator": "1.0 / 核心职责",
+          "quote_found": true,
+          "matched_line": 8,
+          "source_sha256": "a219ceb32fb324b8f4974b2edb5ae17e028d024c08f097e9104b04435686cb34"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-C02 / control",
+          "quote_found": true,
+          "matched_line": 79,
+          "source_sha256": "d3111d5d60cefba185247f1112f0d29f2ab00ceb72cab487889231d9cdf90084"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-F01 / summary",
+          "quote_found": true,
+          "matched_line": 10,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 2728,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 1400
+          },
+          {
+            "top": 2640,
+            "height": 88
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "共同底座和质量证据斜线中央交叉，可进一步精简。",
+          "resolved": true,
+          "verification": "共同底座01-03、被测版本04和质量证据05/06分轨，发布责任07可追踪；旧中央交叉已修复。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "career-capability-mindmap",
+      "path": "materials/career-evolution/visuals/career-capability-mindmap.svg",
+      "sha256": "71457d8dbfea0f5dfbc4746c06e6213f3a238ece32e9bca9c2ebfe848f82c4bf",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/career-evolution/visuals/career-capability-mindmap.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__career-evolution__visuals__career-capability-mindmap.png",
+      "screenshot_sha256": "4137b5116b8e86aeff2b20061d3b12a6a607321d6c61d22cf91421b14f10135d",
+      "body_summary": "五类知识到工件/故障/复评再到限定任务主张，缺证据UNKNOWN与下一工件路由完整；不把分类作为个人评分。",
+      "visual_summary": "五条输入01-05进入不同端口；主张06和补件反馈07分两侧，旧共线和中心线束已修复。",
+      "checked_sources": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/career-development-original.md",
+          "locator": "1.1 / 能力维度框架",
+          "quote_found": true,
+          "matched_line": 12,
+          "source_sha256": "a219ceb32fb324b8f4974b2edb5ae17e028d024c08f097e9104b04435686cb34"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-C03 / action",
+          "quote_found": true,
+          "matched_line": 108,
+          "source_sha256": "d3111d5d60cefba185247f1112f0d29f2ab00ceb72cab487889231d9cdf90084"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-F05 / summary",
+          "quote_found": true,
+          "matched_line": 2766,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 3056,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 1400
+          },
+          {
+            "top": 2640,
+            "height": 416
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "三条证据输入接近粘合，证据中心与项目决定的正反向边共线。",
+          "resolved": true,
+          "verification": "五条输入01-05进入不同端口；主张06和补件反馈07分两侧，旧共线和中心线束已修复。"
+        }
+      ],
+      "additional_body_context": [
+        {
+          "path": "output/svg-release-20261026/private-reference-originals/career-development-original.md",
+          "sha256": "d6df309516b91cb5c7e68ce2f69eb817c2bed7798f80ab9005627097dbc8416c",
+          "summary": "实际读取完整来源五维结构、五项权重或三背景先修路径；与公开短引文所记原文SHA一致。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "career-capability-allocation",
+      "path": "materials/career-evolution/visuals/career-capability-allocation.svg",
+      "sha256": "21a754095414ad73c33e2e0ec76051630ef3e48dca963c760f703fba58dc0e94",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/career-evolution/visuals/career-capability-allocation.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__career-evolution__visuals__career-capability-allocation.png",
+      "screenshot_sha256": "0f3ac0738ccc76b87bb5c164b39924898030e2386721a55abd405e41e534dbcb",
+      "body_summary": "完整原文核实30/25/25/15/5及五类名称，合计100%；SOURCE-EXAMPLE、内部policy/owner与INTERNAL-UNKNOWN边界正确。",
+      "visual_summary": "环图比例、颜色图例与百分比相符；标题、说明、B/C层级及留白良好，状态长词换行仍可读。",
+      "checked_sources": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/career-development-original.md",
+          "locator": "1.1 / 能力占比图",
+          "quote_found": true,
+          "matched_line": 16,
+          "source_sha256": "a219ceb32fb324b8f4974b2edb5ae17e028d024c08f097e9104b04435686cb34"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/career-development-original.md",
+          "locator": "1.1 / 能力占比图",
+          "quote_found": true,
+          "matched_line": 20,
+          "source_sha256": "a219ceb32fb324b8f4974b2edb5ae17e028d024c08f097e9104b04435686cb34"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-C04 / expected",
+          "quote_found": true,
+          "matched_line": 134,
+          "source_sha256": "d3111d5d60cefba185247f1112f0d29f2ab00ceb72cab487889231d9cdf90084"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-C04 / summary",
+          "quote_found": true,
+          "matched_line": 2158,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 1493,
+        "views": [
+          {
+            "top": 0,
+            "height": 1493
+          }
+        ]
+      },
+      "prior_findings": [],
+      "additional_body_context": [
+        {
+          "path": "output/svg-release-20261026/private-reference-originals/career-development-original.md",
+          "sha256": "d6df309516b91cb5c7e68ce2f69eb817c2bed7798f80ab9005627097dbc8416c",
+          "summary": "实际读取完整来源五维结构、五项权重或三背景先修路径；与公开短引文所记原文SHA一致。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "career-evidence-lifecycle",
+      "path": "materials/career-evolution/visuals/career-evidence-lifecycle.svg",
+      "sha256": "ef71f937946c6cc3a76d88d1305948beb1182f097329f9285c1f81e88eb698ce",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/career-evolution/visuals/career-evidence-lifecycle.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__career-evolution__visuals__career-evidence-lifecycle.png",
+      "screenshot_sha256": "e91759630a65c791a98908c2d4b11f62ae3c59bd2f2385f2a2ab22d543c49849",
+      "body_summary": "主张到原始工件、mutation、独立review、限定应用和反馈复评闭合；总工时含生成/复核/返工，未用候选数充当提效证据。",
+      "visual_summary": "收据03、接受04、未知07-09和反馈06/10均有独立编号边，旧标签长引线问题已修复。",
+      "checked_sources": [
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-T26 / counterexample",
+          "quote_found": true,
+          "matched_line": 182,
+          "source_sha256": "d3111d5d60cefba185247f1112f0d29f2ab00ceb72cab487889231d9cdf90084"
+        },
+        {
+          "path": "content/modules/career-evolution-deep.ts",
+          "locator": "TD-T26 / mechanism",
+          "quote_found": true,
+          "matched_line": 1894,
+          "source_sha256": "6b9a5bd3b8f8b34879f8c9401ed00eeacd13c282586b50b2c6d531be9cd5276f"
+        },
+        {
+          "path": "content/modules/career-evolution-deep.ts",
+          "locator": "TD-C03 / mechanism",
+          "quote_found": true,
+          "matched_line": 775,
+          "source_sha256": "6b9a5bd3b8f8b34879f8c9401ed00eeacd13c282586b50b2c6d531be9cd5276f"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-T26 / summary",
+          "quote_found": true,
+          "matched_line": 3376,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 2776,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 1400
+          },
+          {
+            "top": 2640,
+            "height": 136
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "失败收据和接受范围标签集中在中部，需长点引线辨认。",
+          "resolved": true,
+          "verification": "收据03、接受04、未知07-09和反馈06/10均有独立编号边，旧标签长引线问题已修复。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "career-responsibility-ladder",
+      "path": "materials/career-evolution/visuals/career-responsibility-ladder.svg",
+      "sha256": "ef4d80f81a1b9dd87b22c5dece0146e76d3b656cd0d5ffcb6c8c21ca6081caa6",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/career-evolution/visuals/career-responsibility-ladder.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__career-evolution__visuals__career-responsibility-ladder.png",
+      "screenshot_sha256": "18804820d2f7b90b171de6db9680259fd0e935ddc8f21a89b802e65dea23d228",
+      "body_summary": "四态采用当前canonical命名，按领域分别判断，决定权需授权；未按年限或P5-P9授级，组织映射保持INTERNAL-UNKNOWN。",
+      "visual_summary": "四状态递进缩进有层次，正文和授权边界清楚；列宽充足，无年限数值暗示。",
+      "checked_sources": [
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-C02 / workedExample",
+          "quote_found": true,
+          "matched_line": 81,
+          "source_sha256": "d3111d5d60cefba185247f1112f0d29f2ab00ceb72cab487889231d9cdf90084"
+        },
+        {
+          "path": "content/modules/career-evolution-deep.ts",
+          "locator": "TD-C02 / mechanism",
+          "quote_found": true,
+          "matched_line": 408,
+          "source_sha256": "6b9a5bd3b8f8b34879f8c9401ed00eeacd13c282586b50b2c6d531be9cd5276f"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-C02 / summary",
+          "quote_found": true,
+          "matched_line": 855,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 1723,
+        "views": [
+          {
+            "top": 0,
+            "height": 1723
+          }
+        ]
+      },
+      "prior_findings": [],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "career-evidence-radar",
+      "path": "materials/career-evolution/visuals/career-evidence-radar.svg",
+      "sha256": "22ac1043b8230268319d927a7ce851eefc2d6461fa56db427669bea6d9110a6e",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/career-evolution/visuals/career-evidence-radar.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__career-evolution__visuals__career-evidence-radar.png",
+      "screenshot_sha256": "983c214e7743dc7cd69bd9fd37bb969e93df0d7d691508e4a16f08ac30c4ca2b",
+      "body_summary": "五维当前状态均UNKNOWN；五项工件均待产出，路由对应TD-F05/TD-T01/TD-AG-01/TD-AG-02/TD-C02；reviewer/date和owner均待填，无虚构个人结果。",
+      "visual_summary": "三列证据矩阵下新增五行行动模板及复评出口；工件、课页、UNKNOWN与待填身份日期全可读，分区层次清楚。",
+      "checked_sources": [
+        {
+          "path": "content/modules/career-evolution-deep.ts",
+          "locator": "TD-C03 / counter",
+          "quote_found": true,
+          "matched_line": 892,
+          "source_sha256": "6b9a5bd3b8f8b34879f8c9401ed00eeacd13c282586b50b2c6d531be9cd5276f"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-C03 / expected",
+          "quote_found": true,
+          "matched_line": 109,
+          "source_sha256": "d3111d5d60cefba185247f1112f0d29f2ab00ceb72cab487889231d9cdf90084"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/career-development-original.md",
+          "locator": "3.1 / 职级能力雷达图对比",
+          "quote_found": true,
+          "matched_line": 24,
+          "source_sha256": "a219ceb32fb324b8f4974b2edb5ae17e028d024c08f097e9104b04435686cb34"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-C03 / action",
+          "quote_found": true,
+          "matched_line": 108,
+          "source_sha256": "d3111d5d60cefba185247f1112f0d29f2ab00ceb72cab487889231d9cdf90084"
+        },
+        {
+          "path": "content/modules/ai-quality-foundations.ts",
+          "locator": "TD-T01 / summary",
+          "quote_found": true,
+          "matched_line": 355,
+          "source_sha256": "8239c7a02ff308c488913344747b134d85daef3b7db45ab5dbb3d2f856e5e55d"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-F05 / artifact",
+          "quote_found": true,
+          "matched_line": 153,
+          "source_sha256": "d3111d5d60cefba185247f1112f0d29f2ab00ceb72cab487889231d9cdf90084"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-01 / artifact",
+          "quote_found": true,
+          "matched_line": 59,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-02 / artifact",
+          "quote_found": true,
+          "matched_line": 75,
+          "source_sha256": "8f29fa7b7de9d94004bbda2097d86ac1a60da549962c083ac2c42da558f7f422"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-C02 / artifact",
+          "quote_found": true,
+          "matched_line": 78,
+          "source_sha256": "d3111d5d60cefba185247f1112f0d29f2ab00ceb72cab487889231d9cdf90084"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-C03 / summary",
+          "quote_found": true,
+          "matched_line": 1494,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 2383,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 1063
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "矩阵缺少承诺的下一工件和复评出口。",
+          "resolved": true,
+          "verification": "三列证据矩阵下新增五行行动模板及复评出口；工件、课页、UNKNOWN与待填身份日期全可读，分区层次清楚。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "career-evidence-gantt",
+      "path": "materials/career-evolution/visuals/career-evidence-gantt.svg",
+      "sha256": "bb8abf02a1fe5ed39d8899226e3bf5b1b6886117575d3b70a57acb1299a57fd5",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [
+        {
+          "severity": "P3",
+          "issue": "下一轮计划仍缺明确的待填记录入口，首轮建议尚未实现。",
+          "evidence": "当前截图仍是A/B/C工件和通用进入下一窗判据；spec next节点要求更新路由与复评日期，但没有next_artifact/reviewer/next_review待填条目。入口/失败动作已清楚，非部署阻断。",
+          "suggested_fix": "在判据条或底部增加下一工件、复评人和复评日期待填入口，不编造日期或个人完成状态。",
+          "resolved": false
+        }
+      ],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/career-evolution/visuals/career-evidence-gantt.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__career-evolution__visuals__career-evidence-gantt.png",
+      "screenshot_sha256": "9452d9360e699ab4be38d8e3cd5f6ce11ca3329b967049eeaf6e1337e293f4e1",
+      "body_summary": "A/B/C依次交基线、故障和独立复评；30/60/90为规划示例，缺样本停补、mutation未打红回Oracle、分歧升级均与正文一致。",
+      "visual_summary": "三窗口等宽、入口/工件和失败分叉可读，无伪工期条；下一轮计划仍没有具体待填记录入口，保留P3。",
+      "checked_sources": [
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-C03 / workedExample",
+          "quote_found": true,
+          "matched_line": 106,
+          "source_sha256": "d3111d5d60cefba185247f1112f0d29f2ab00ceb72cab487889231d9cdf90084"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "careerWave6Expansion / TD-C03",
+          "quote_found": true,
+          "matched_line": 271,
+          "source_sha256": "d3111d5d60cefba185247f1112f0d29f2ab00ceb72cab487889231d9cdf90084"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 1528,
+        "views": [
+          {
+            "top": 0,
+            "height": 1528
+          }
+        ]
+      },
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "下一轮计划记录入口偏概括。",
+          "resolved": false,
+          "verification": "三窗口等宽、入口/工件和失败分叉可读，无伪工期条；下一轮计划仍没有具体待填记录入口，保留P3。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "career-background-paths",
+      "path": "materials/career-evolution/visuals/career-background-paths.svg",
+      "sha256": "e6569745976b8825ee20fb3ec1e8b5c6541f4dfba7683cc20e1f6554fc5bfbe7",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/career-evolution/visuals/career-background-paths.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__career-evolution__visuals__career-background-paths.png",
+      "screenshot_sha256": "ad46aae76f5e54c9157e6bcb5f69a039a2b178996e8ba63a0b58ca0aed9d9048",
+      "body_summary": "三种背景仅改先修，资源有版本/checked_at/limits/fallback，共用项目和复评出口；未以月份保证达标或就业。",
+      "visual_summary": "背景01-03汇入缺口、资源04、项目05、复评06及反馈07可分辨；跨线桥与端口清楚。",
+      "checked_sources": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/career-development-original.md",
+          "locator": "4 / 不同背景的学习路径图",
+          "quote_found": true,
+          "matched_line": 28,
+          "source_sha256": "a219ceb32fb324b8f4974b2edb5ae17e028d024c08f097e9104b04435686cb34"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-R01 / action",
+          "quote_found": true,
+          "matched_line": 208,
+          "source_sha256": "d3111d5d60cefba185247f1112f0d29f2ab00ceb72cab487889231d9cdf90084"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-R01 / summary",
+          "quote_found": true,
+          "matched_line": 4031,
+          "source_sha256": "485a90d8e46825d2eede075921e70c2b1a0e8636aaee3342ae968b94b1612ce4"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 2696,
+        "views": [
+          {
+            "top": 0,
+            "height": 1400
+          },
+          {
+            "top": 1320,
+            "height": 1376
+          }
+        ]
+      },
+      "prior_findings": [],
+      "additional_body_context": [
+        {
+          "path": "output/svg-release-20261026/private-reference-originals/career-development-original.md",
+          "sha256": "d6df309516b91cb5c7e68ce2f69eb817c2bed7798f80ab9005627097dbc8416c",
+          "summary": "实际读取完整来源五维结构、五项权重或三背景先修路径；与公开短引文所记原文SHA一致。"
+        }
+      ],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    },
+    {
+      "id": "career-priority-quadrant",
+      "path": "materials/career-evolution/visuals/career-priority-quadrant.svg",
+      "sha256": "a729f0dfe8d948520e897a0c98f55e337d82199eb736839cc0d4299c85af97a3",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/materials/career-evolution/visuals/career-priority-quadrant.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/materials__career-evolution__visuals__career-priority-quadrant.png",
+      "screenshot_sha256": "559279c00bf42f6ad6b4fd9c2b57ee727321c62204779b42b91a76fd278bbd04",
+      "body_summary": "重要性由owner、成熟度由可复核证据定义；四类行动、两轴高低方向、定性单位和未知待定位边界正确。",
+      "visual_summary": "低/高类别与行动卡位置一致，轴向明确，无个人测量点；字号和留白舒适。",
+      "checked_sources": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/career-development-original.md",
+          "locator": "5.1 / 能力发展四象限图",
+          "quote_found": true,
+          "matched_line": 32,
+          "source_sha256": "a219ceb32fb324b8f4974b2edb5ae17e028d024c08f097e9104b04435686cb34"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/career-visual-source.original.json",
+          "locator": "career-priority-quadrant / caption",
+          "quote_found": true,
+          "matched_line": 245,
+          "source_sha256": "4524a7960cbcf787432c4028730514340fc511ec7327fae99672ed3cef1562e7"
+        }
+      ],
+      "inspection": {
+        "method": "view_image",
+        "pixel_coverage": "full screenshot, 80px overlap between long-image crops",
+        "width": 1600,
+        "height": 1688,
+        "views": [
+          {
+            "top": 0,
+            "height": 1688
+          }
+        ]
+      },
+      "prior_findings": [],
+      "review_basis": "R2_INHERITED_UNCHANGED",
+      "review_round": 2,
+      "evidence_inheritance": {
+        "from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+        "from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272",
+        "svg_sha256_verified": true,
+        "screenshot_sha256_verified": true,
+        "body_sources_sha256_verified": true,
+        "note": "本轮只继承R2实际看图/正文证据；SVG、截图及正文来源hash均未变，未声称重复查看全图。"
+      }
+    }
+  ],
+  "summary": {
+    "pass_count": 25,
+    "rework_count": 0,
+    "active_findings": {
+      "P3": 3
+    },
+    "newly_reviewed_count": 1,
+    "inherited_unchanged_count": 24,
+    "new_view_image_views": 2,
+    "r2_p2_resolved_count": 1,
+    "release_blockers": [],
+    "inherited_from_report": "docs/svg-redesign-2026-10-26/release-review/round-2/materials.json",
+    "inherited_from_report_sha256": "ce1b60d0bf1cb9812acf0a67053e437e78a293d54e7fde21fc6734d27e141272"
+  },
+  "candidate_manifest_sha256": "d77cfc8d9843b5e4b4ecc4f7f556806f315af64413b47f5faec53110bdfffa67"
+}

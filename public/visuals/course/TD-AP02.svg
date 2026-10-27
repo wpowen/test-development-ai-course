@@ -73,8 +73,8 @@
 <text x="1308" y="673" font-size="15" fill="#945c0b" font-weight="750" class="mono">07</text>
 <text x="1305" y="714" font-size="28" fill="#945c0b" font-weight="700" >Task Goodput Gate</text>
 <text x="1305" y="757" font-size="23" fill="#172b45" font-weight="450" >达标完成任务 / 时间</text>
-<text x="1305" y="791" font-size="23" fill="#172b45" font-weight="450" >同时检查质量、成本、副</text>
-<text x="1305" y="825" font-size="23" fill="#172b45" font-weight="450" >作用</text>
+<text x="1305" y="791" font-size="23" fill="#172b45" font-weight="450" >同时检查质量、成本、</text>
+<text x="1305" y="825" font-size="23" fill="#172b45" font-weight="450" >副作用</text>
 </g>
 <rect x="374" y="19.789999999999964" width="112" height="42" rx="6" fill="#fff" stroke="none" />
 <text x="430" y="47.789999999999964" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">时间起点</text>
