@@ -1,90 +1,155 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 1000" width="1600" height="1000">
-  <title id="title">测试 LLM 和 RAG｜专业关系图</title>
-  <desc id="desc">Corpus、Retrieval、Context、Generation、Task 与 Safety 如何分层定位失败？ 图中区分数据流、控制流、证据流与反馈回路，并显示失败路径、系统边界和责任门禁。</desc>
-  <defs>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173f32" flood-opacity="0.12"/></filter>
-    <marker id="arrow-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7fb8"/></marker>
-<marker id="arrow-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c9852c"/></marker>
-<marker id="arrow-evidence" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#765ca6"/></marker>
-<marker id="arrow-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2c7b61"/></marker>
-  </defs>
-  <rect width="1600" height="1000" rx="32" fill="#f4f7f2"/>
-  <rect x="0" y="0" width="1600" height="146" rx="32" fill="#174f3f"/>
-  <text x="72" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" font-weight="800" fill="#b8dd78">TD-M03 · layered-architecture · module-rag-attribution</text>
-  <text x="72" y="92" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="30" font-weight="800" fill="#ffffff">测试LLM和RAG｜专业关系图</text>
-  <text x="72" y="132" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="600" fill="#d9e9df">Corpus、Retrieval、Context、Generation、Task与Safety如何分层定位失败？</text>
-  <rect x="54" y="172" width="1492" height="590" rx="26" fill="#fbfdfb" stroke="#c9d6cf" stroke-width="2"/>
-  <text x="82" y="204" font-size="17" font-weight="800" fill="#52665e">系统边界 · 不覆盖向量库的工程选型与运维；不覆盖 Agent 的多步检索编排，那在 TD-M04；忠实度判…</text>
-  <path d="M 280 270 C 355 270, 805 270, 880 270" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 1040 270 C 1115 270, 45 415, 120 415" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 280 415 C 355 415, 805 415, 880 415" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1040 415 C 1115 415, 45 560, 120 560" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 280 560 C 355 560, 805 560, 880 560" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 1040 560 C 1115 560, 45 705, 120 705" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 280 705 C 355 705, 805 705, 880 705" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 1040 705 C 1115 705, 805 270, 880 270" fill="none" stroke="#2c7b61" stroke-width="4" stroke-dasharray="14 6" marker-end="url(#arrow-feedback)" opacity="0.92"/>
-  <g filter="url(#shadow)">
-      <rect x="120" y="210" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="120" y="210" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="148" y="238" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">01</text>
-      <text x="148" y="272" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">治理语料→corpusmanifest与准入报告</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="880" y="210" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="880" y="210" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="908" y="238" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">02</text>
-      <text x="908" y="272" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">评检索→queryset与miss诊断</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="120" y="355" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="120" y="355" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="148" y="383" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">03</text>
-      <text x="148" y="417" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">评忠实度→声明—证据矩阵与反例集</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="880" y="355" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="880" y="355" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="908" y="383" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">04</text>
-      <text x="908" y="417" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">端到端门禁→端到端Gate与权限攻击集</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="120" y="500" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="120" y="500" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="148" y="528" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">05</text>
-      <text x="148" y="562" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">扩展模态与语言→配对集与语言任务矩阵</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="880" y="500" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="880" y="500" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="908" y="528" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">06</text>
-      <text x="908" y="562" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">版本对比→A/B对比报告</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="120" y="645" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="120" y="645" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="148" y="673" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">07</text>
-      <text x="148" y="707" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">校准Judge→Judge校准集与分歧矩阵</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="880" y="645" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="880" y="645" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="908" y="673" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">08</text>
-      <text x="908" y="707" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Basis/版本</text>
-    </g>
-  <g transform="translate(70 788)">
-    <rect width="710" height="112" rx="20" fill="#fff4ef" stroke="#e5aaa2" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#b84c42">失败路径</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">任一关键输入、权限、Oracle、版本或终态证据缺失时进入</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">FAIL/BLOCKED/UNKNOWN，不静默通过。</text>
-  </g>
-  <g transform="translate(820 788)">
-    <rect width="710" height="112" rx="20" fill="#eef8f2" stroke="#9bc6ac" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#2c7b61">反馈闭环 · Owner Gate</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">失败证据回到最早分叉点，修复后使用同一版本输入重跑并产生新receipt。业务/</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">质量Owner批准判据、风险接受与发布；AI只生成候选和整理证据。</text>
-  </g>
-  <g transform="translate(100 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#4f7fb8" stroke-width="5" stroke-dasharray=""/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">数据流</text></g>
-<g transform="translate(345 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#c9852c" stroke-width="5" stroke-dasharray="10 7"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">控制流</text></g>
-<g transform="translate(590 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#765ca6" stroke-width="5" stroke-dasharray="4 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">证据流</text></g>
-<g transform="translate(835 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#2c7b61" stroke-width="5" stroke-dasharray="14 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">反馈闭环</text></g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2172" viewBox="0 0 1600 2172" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">测试 LLM 和 RAG｜模块全景</title><desc id="desc">RAG 的答案对不对，要拆成检索到了没有和有没有照着说两件事。 本模块学习路径 · 箭头表示学习先后与交付承接 不覆盖向量库的工程选型与运维；不覆盖 Agent 的多步检索编排，那在 TD-M04；忠实度判据依赖标注质量，标注协议本身在 TD-T03。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。</desc><metadata data-source-ref="content/module-overviews.ts#TD-M03 / stages + logic + boundary">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-M03&quot;,&quot;pageIds&quot;:[&quot;TD-T09&quot;,&quot;TD-T10&quot;,&quot;TD-T11&quot;,&quot;TD-T12&quot;,&quot;TD-X501&quot;,&quot;TD-X502&quot;,&quot;TD-T13&quot;,&quot;TD-T14&quot;],&quot;primaryPageIds&quot;:[],&quot;layout&quot;:&quot;flow&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;content/module-overviews.ts&quot;,&quot;locator&quot;:&quot;TD-M03 / stages + logic + boundary&quot;,&quot;quote&quot;:&quot;RAG 的答案对不对，要拆成检索到了没有和有没有照着说两件事。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;s1&quot;,&quot;title&quot;:&quot;治理语料&quot;},{&quot;id&quot;:&quot;s2&quot;,&quot;title&quot;:&quot;评检索&quot;},{&quot;id&quot;:&quot;s3&quot;,&quot;title&quot;:&quot;评忠实度&quot;},{&quot;id&quot;:&quot;s4&quot;,&quot;title&quot;:&quot;端到端门禁&quot;},{&quot;id&quot;:&quot;s5&quot;,&quot;title&quot;:&quot;扩展模态与语言&quot;},{&quot;id&quot;:&quot;s6&quot;,&quot;title&quot;:&quot;版本对比&quot;},{&quot;id&quot;:&quot;s7&quot;,&quot;title&quot;:&quot;校准 Judge&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;s1&quot;,&quot;to&quot;:&quot;s2&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s2&quot;,&quot;to&quot;:&quot;s3&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s3&quot;,&quot;to&quot;:&quot;s4&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s4&quot;,&quot;to&quot;:&quot;s5&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s5&quot;,&quot;to&quot;:&quot;s6&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s6&quot;,&quot;to&quot;:&quot;s7&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2172" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-M03</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >测试 LLM 和 RAG｜模块全景</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >RAG 的答案对不对，要拆成检索到了没有和有没有照着说两件事。</text>
+<g id="system-graph" data-region="64,234,1472,1232.233375156838">
+<rect x="64" y="234" width="1472" height="1232.233375156838" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >本模块学习路径 · 箭头表示学习先后与交付承接</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >流程与交付</text>
+<g transform="translate(222.38393977415308 418.2559598494354) scale(0.8531994981179423)" data-graph-scale="0.8531994981179423">
+<path class="edge edge-data" d="M354.34 136.5 C397.74 136.5 444.33 136.5 488.25 136.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s1" data-to="s2"/>
+<path class="edge edge-data" d="M854.34 136.5 C897.74 136.5 944.33 136.5 988.25 136.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s2" data-to="s3"/>
+<path class="edge edge-data" d="M1177 256.29999999999995 C1177 310.01 1177 373.5 1177 428.46000000000004" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s3" data-to="s4"/>
+<path class="edge edge-data" d="M999.66 559.5 C956.27 559.5 909.67 559.5 865.76 559.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s4" data-to="s5"/>
+<path class="edge edge-data" d="M499.66 559.5 C456.27 559.5 409.67 559.5 365.76 559.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s5" data-to="s6"/>
+<path class="edge edge-data" d="M324.65 679.39 C386.41 729.54 458.23 787.86 520.86 838.72" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s6" data-to="s7"/>
+<g id="node-s1" class="node node-input" data-region="0,0,354,273">
+<rect x="0" y="0" width="354" height="273" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="18" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="35" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="22" y="76" font-size="28" fill="#215cbb" font-weight="700" >治理语料</text>
+<text x="22" y="119" font-size="23" fill="#172b45" font-weight="450" >入库的东西版本、权限</text>
+<text x="22" y="153" font-size="23" fill="#172b45" font-weight="450" >对吗？</text>
+<text x="22" y="187" font-size="23" fill="#172b45" font-weight="450" >产物：corpus manifest 与</text>
+<text x="22" y="221" font-size="23" fill="#172b45" font-weight="450" >准入报告</text>
+<text x="22" y="255" font-size="23" fill="#172b45" font-weight="450" >TD-T09</text>
+</g>
+<g id="node-s2" class="node node-control" data-region="500,17,354,239">
+<rect x="500" y="17" width="354" height="239" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="518" y="34" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="525" y="52" font-size="15" fill="#945c0b" font-weight="750" class="mono">02</text>
+<text x="522" y="93" font-size="28" fill="#945c0b" font-weight="700" >评检索</text>
+<text x="522" y="136" font-size="23" fill="#172b45" font-weight="450" >该召回的召回了吗？</text>
+<text x="522" y="170" font-size="23" fill="#172b45" font-weight="450" >产物：query set 与 miss</text>
+<text x="522" y="204" font-size="23" fill="#172b45" font-weight="450" >诊断</text>
+<text x="522" y="238" font-size="23" fill="#172b45" font-weight="450" >TD-T10</text>
+</g>
+<g id="node-s3" class="node node-ai" data-region="1000,17,354,239">
+<rect x="1000" y="17" width="354" height="239" rx="14" fill="#f4effb" stroke="none" />
+<rect x="1018" y="34" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1025" y="52" font-size="15" fill="#7045a4" font-weight="750" class="mono">03</text>
+<text x="1022" y="93" font-size="28" fill="#7045a4" font-weight="700" >评忠实度</text>
+<text x="1022" y="136" font-size="23" fill="#172b45" font-weight="450" >答案里每句话有出处吗？</text>
+<text x="1022" y="170" font-size="23" fill="#172b45" font-weight="450" >产物：声明—证据矩阵与反</text>
+<text x="1022" y="204" font-size="23" fill="#172b45" font-weight="450" >例集</text>
+<text x="1022" y="238" font-size="23" fill="#172b45" font-weight="450" >TD-T11</text>
+</g>
+<g id="node-s4" class="node node-data" data-region="1000,440,354,239">
+<rect x="1000" y="440" width="354" height="239" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="1018" y="457" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1025" y="475" font-size="15" fill="#087b76" font-weight="750" class="mono">04</text>
+<text x="1022" y="516" font-size="28" fill="#087b76" font-weight="700" >端到端门禁</text>
+<text x="1022" y="559" font-size="23" fill="#172b45" font-weight="450" >该拒答的拒答了吗？</text>
+<text x="1022" y="593" font-size="23" fill="#172b45" font-weight="450" >产物：端到端 Gate 与权限</text>
+<text x="1022" y="627" font-size="23" fill="#172b45" font-weight="450" >攻击集</text>
+<text x="1022" y="661" font-size="23" fill="#172b45" font-weight="450" >TD-T12</text>
+</g>
+<g id="node-s5" class="node node-evidence" data-region="500,423,354,273">
+<rect x="500" y="423" width="354" height="273" rx="14" fill="#f4effb" stroke="none" />
+<rect x="518" y="440" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="525" y="458" font-size="15" fill="#7045a4" font-weight="750" class="mono">05</text>
+<text x="522" y="499" font-size="28" fill="#7045a4" font-weight="700" >扩展模态与语言</text>
+<text x="522" y="542" font-size="23" fill="#172b45" font-weight="450" >非文本、非中文场景下还成</text>
+<text x="522" y="576" font-size="23" fill="#172b45" font-weight="450" >立吗？</text>
+<text x="522" y="610" font-size="23" fill="#172b45" font-weight="450" >产物：配对集与语言任务</text>
+<text x="522" y="644" font-size="23" fill="#172b45" font-weight="450" >矩阵</text>
+<text x="522" y="678" font-size="23" fill="#172b45" font-weight="450" >TD-X501 / TD-X502</text>
+</g>
+<g id="node-s6" class="node node-process" data-region="0,440,354,239">
+<rect x="0" y="440" width="354" height="239" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="18" y="457" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="475" font-size="15" fill="#344f70" font-weight="750" class="mono">06</text>
+<text x="22" y="516" font-size="28" fill="#344f70" font-weight="700" >版本对比</text>
+<text x="22" y="559" font-size="23" fill="#172b45" font-weight="450" >换提示词、模型还是知识库</text>
+<text x="22" y="593" font-size="23" fill="#172b45" font-weight="450" >导致的变化？</text>
+<text x="22" y="627" font-size="23" fill="#172b45" font-weight="450" >产物：A/B 对比报告</text>
+<text x="22" y="661" font-size="23" fill="#172b45" font-weight="450" >TD-T13</text>
+</g>
+<g id="node-s7" class="node node-risk" data-region="500,846,354,239">
+<rect x="500" y="846" width="354" height="239" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="518" y="863" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="525" y="881" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">07</text>
+<text x="522" y="922" font-size="28" fill="#ad3e4c" font-weight="700" >校准 Judge</text>
+<text x="522" y="965" font-size="23" fill="#172b45" font-weight="450" >这个 Judge 和人一致吗？</text>
+<text x="522" y="999" font-size="23" fill="#172b45" font-weight="450" >产物：Judge 校准集与分歧</text>
+<text x="522" y="1033" font-size="23" fill="#172b45" font-weight="450" >矩阵</text>
+<text x="522" y="1067" font-size="23" fill="#172b45" font-weight="450" >TD-T14</text>
+</g>
+<path d="M448.15932 136.5 L450.26 -35.5" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="394.58" y="-56.5" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="450.26" y="-28.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<path d="M948.15932 136.5 L950.26 -35.5" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="894.58" y="-56.5" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="950.26" y="-28.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<rect x="1104.62" y="315.13" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1160.3" y="343.13" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<path d="M946.4287999999998 559.5 L950.43 387.5" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="894.75" y="366.5" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="950.43" y="394.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<path d="M419.36560000000003 559.5 L420.43 387.5" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="364.75" y="366.5" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="420.43" y="394.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<rect x="337.07920000000007" y="723.33536" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="392.7592000000001" y="751.33536" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+</g>
+</g>
+<text x="64" y="1520.233375156838" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1520.233375156838" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1550.233375156838,470,209">
+<rect x="64" y="1550.233375156838" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1572.233375156838" width="7" height="30" rx="3" fill="#215cbb" stroke="none" />
+<text x="106" y="1597.233375156838" font-size="25" fill="#215cbb" font-weight="700" >为什么先学这一步</text>
+<text x="88" y="1652.233375156838" font-size="23" fill="#172b45" font-weight="450" >端到端看一个 RAG 回答，只能得到</text>
+<text x="88" y="1687.233375156838" font-size="23" fill="#172b45" font-weight="450" >「对」或「不对」，这个信号无法指</text>
+<text x="88" y="1722.233375156838" font-size="23" fill="#172b45" font-weight="450" >导修复。</text>
+</g>
+<g id="detail-1" data-region="565,1550.233375156838,470,209">
+<rect x="565" y="1550.233375156838" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1572.233375156838" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="607" y="1597.233375156838" font-size="25" fill="#7045a4" font-weight="700" >怎样承接下一步</text>
+<text x="589" y="1652.233375156838" font-size="23" fill="#172b45" font-weight="450" >语料治理放在最前面，因为它决定了</text>
+<text x="589" y="1687.233375156838" font-size="23" fill="#172b45" font-weight="450" >上限。</text>
+</g>
+<g id="detail-2" data-region="1066,1550.233375156838,470,209">
+<rect x="1066" y="1550.233375156838" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1572.233375156838" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="1108" y="1597.233375156838" font-size="25" fill="#945c0b" font-weight="700" >如何判断学会了</text>
+<text x="1090" y="1652.233375156838" font-size="23" fill="#172b45" font-weight="450" >Judge 校准是这个模块的最后一页，</text>
+<text x="1090" y="1687.233375156838" font-size="23" fill="#172b45" font-weight="450" >也是所有语义评测的前提。</text>
+</g>
+<g id="failure-and-output" data-region="64,1791.233375156838,1472,183">
+<rect x="64" y="1791.233375156838" width="1472" height="183" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="1830.233375156838" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="1875.233375156838" font-size="23" fill="#ffdce2" font-weight="450" >阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。</text>
+<text x="88" y="1918.233375156838" font-size="23" fill="#dce9fa" font-weight="450" >带走物：corpus manifest 与准入报告；query set 与 miss 诊断；声明—证据矩阵与反例集；端到端 Gate 与权限攻击集；配</text>
+<text x="88" y="1953.233375156838" font-size="23" fill="#dce9fa" font-weight="450" >对集与语言任务矩阵；A/B 对比报告；Judge 校准集与分歧矩阵。</text>
+</g>
+<text x="64" y="2022.233375156838" font-size="20" fill="#50647c" font-weight="450" >不覆盖向量库的工程选型与运维；不覆盖 Agent 的多步检索编排，那在 TD-M04；忠实度判据依赖标注质量，标注协议本身在 TD-T03。教学路线不</text>
+<text x="64" y="2053.233375156838" font-size="20" fill="#50647c" font-weight="450" >证明真实模型或生产效果，未执行环节保持 NOT_RUN。</text>
+<text x="64" y="2092.233375156838" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-T09 / TD-T10 / TD-T11 / TD-T12 / TD-X501 / TD-X502 / TD-T13 / TD-T14 · 测试 LLM 和 RAG｜模块全景</text>
+<path class="edge edge-data" d="M64 2132.233375156838 L101 2132.233375156838" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2138.233375156838" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2132.233375156838 L397 2132.233375156838" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2138.233375156838" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2132.233375156838 L693 2132.233375156838" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2138.233375156838" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2132.233375156838 L989 2132.233375156838" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2138.233375156838" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2132.233375156838 L1285 2132.233375156838" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2138.233375156838" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

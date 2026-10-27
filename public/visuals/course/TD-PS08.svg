@@ -1,130 +1,185 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1160 546" width="1160" height="546">
-  <title id="title">数据与迁移：Schema 演进、回填、CDC 与回滚对账：flow流程</title>
-  <desc id="desc">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-</style>
-  <rect class="ds-bg" width="1160" height="546" rx="22"/>
-  
-  <rect class="ds-header" x="0" y="0" width="1160" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1160" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">FLOW · 证据流</text>
-  <text class="ds-subtitle" x="1124" y="32" text-anchor="end">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</text>
-  <text class="ds-title" x="36" y="74">数据与迁移：Schema 演进、回填、CDC 与回滚对账</text>
-  <text class="ds-source" x="36" y="140">flow · 在线迁移证据链 · 来源 S44, S45, S61</text>
-  
-    <path d="M 264 220 L 286 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 466 220 L 488 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 668 220 L 690 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 870 220 L 892 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 984 268 V 305 H 176 V 338" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    <path d="M 264 390 L 286 390" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-  
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="172" width="176" height="96" rx="14" fill="#eaf1fa" stroke="#aec6e3"/>
-      
-      <circle cx="106" cy="190" r="11" fill="#ffffff" stroke="#aec6e3" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="193" text-anchor="middle" >01</text>
-      <text class="ds-node-title" x="103" y="220">旧/新消费者</text>
-      <text class="ds-node-detail" x="103" y="235">输入 / 依据</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="290" y="172" width="176" height="96" rx="14" fill="#f0ecfb" stroke="#c9b8ea"/>
-      
-      <circle cx="308" cy="190" r="11" fill="#ffffff" stroke="#c9b8ea" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="193" text-anchor="middle" >02</text>
-      <text class="ds-node-title" x="305" y="220">Expand Schema</text>
-      <text class="ds-node-detail" x="305" y="235">独立判断</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="492" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="510" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="510" y="193" text-anchor="middle" >03</text>
-      <text class="ds-node-title" x="507" y="220">双写/影子读</text>
-      <text class="ds-node-detail" x="507" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="694" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="712" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="712" y="193" text-anchor="middle" >04</text>
-      <text class="ds-node-title" x="709" y="220">分片回填</text>
-      <text class="ds-node-detail" x="709" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="896" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="914" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="914" y="193" text-anchor="middle" >05</text>
-      <text class="ds-node-title" x="911" y="220">CDC 高水位</text>
-      <text class="ds-node-detail" x="911" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="342" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="106" cy="360" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="363" text-anchor="middle" >06</text>
-      <text class="ds-node-title" x="103" y="390">守恒对账</text>
-      <text class="ds-node-detail" x="103" y="405">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-strong)">
-      <rect x="290" y="342" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a" stroke-width="2"/>
-      <rect x="290" y="342" width="6" height="96" rx="3" fill="#93bd2c"/>
-      <circle cx="308" cy="360" r="11" fill="#174a3a" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="363" text-anchor="middle" fill="#ffffff">07</text>
-      <text class="ds-node-title" x="305" y="390">切读与 Contract 门禁</text>
-      <text class="ds-node-detail" x="305" y="405">决定 / 输出</text>
-    </g>
-  <circle cx="108" cy="460" r="4" fill="#355f96"/><text class="ds-legend" x="118" y="464">输入 / 依据</text><circle cx="177.4" cy="460" r="4" fill="#c2d9cc"/><text class="ds-legend" x="187.4" y="464">处理 / 变换</text><circle cx="246.8" cy="460" r="4" fill="#6a49a8"/><text class="ds-legend" x="256.8" y="464">独立判断</text><circle cx="297.6" cy="460" r="4" fill="#a96a18"/><text class="ds-legend" x="307.6" y="464">门禁 / 裁决</text><circle cx="367" cy="460" r="4" fill="#b2402f"/><text class="ds-legend" x="377" y="464">安全终态</text>
-  
-  <rect x="28" y="472" width="1104" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="498">证据边界</text>
-  <text class="ds-foot" x="46" y="520">节点是页面语义关系；不代表真实模型、企业集成或生产效果已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2832" viewBox="0 0 1600 2832" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">对账与回滚就绪后，才允许切读</title><desc id="desc">回填与增量同步分别证明静态和变化数据完整；切读与删除旧结构之间必须保留兼容和回滚窗口。 status→status_code 迁移的分片进度、CDC 高水位与独立守恒 Oracle 离线数据库夹具不证明生产数据量、锁行为或真实回滚可用性；未实测保持未知。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-PS08 / 指标与门禁：守恒而不是 Job 成功;docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-PS08 / 数据测试与应用测试的根本差别：断言的是分布，不是单值">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-PS08&quot;,&quot;pageIds&quot;:[&quot;TD-PS08&quot;],&quot;primaryPageIds&quot;:[&quot;TD-PS08&quot;],&quot;layout&quot;:&quot;flow&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-PS08 / 指标与门禁：守恒而不是 Job 成功&quot;,&quot;quote&quot;:&quot;Job exit 0 只是执行证据&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-PS08 / 数据测试与应用测试的根本差别：断言的是分布，不是单值&quot;,&quot;quote&quot;:&quot;对账要走一条独立于迁移程序的查询路径&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;expand&quot;,&quot;title&quot;:&quot;Expand 兼容扩展&quot;},{&quot;id&quot;:&quot;dual&quot;,&quot;title&quot;:&quot;双写与影子读&quot;},{&quot;id&quot;:&quot;backfill&quot;,&quot;title&quot;:&quot;分片历史回填&quot;},{&quot;id&quot;:&quot;cdc&quot;,&quot;title&quot;:&quot;CDC 高水位&quot;},{&quot;id&quot;:&quot;reconcile&quot;,&quot;title&quot;:&quot;独立守恒对账&quot;},{&quot;id&quot;:&quot;cut&quot;,&quot;title&quot;:&quot;切读准入&quot;},{&quot;id&quot;:&quot;rollback&quot;,&quot;title&quot;:&quot;旧结构保留与回滚&quot;},{&quot;id&quot;:&quot;contract&quot;,&quot;title&quot;:&quot;Contract 收缩&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;expand&quot;,&quot;to&quot;:&quot;dual&quot;,&quot;label&quot;:&quot;兼容后启用&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;dual&quot;,&quot;to&quot;:&quot;backfill&quot;,&quot;label&quot;:&quot;补齐历史&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;dual&quot;,&quot;to&quot;:&quot;cdc&quot;,&quot;label&quot;:&quot;跟踪并发新写&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;backfill&quot;,&quot;to&quot;:&quot;reconcile&quot;,&quot;label&quot;:&quot;逐 shard 证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;cdc&quot;,&quot;to&quot;:&quot;reconcile&quot;,&quot;label&quot;:&quot;增量无丢失证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;dual&quot;,&quot;to&quot;:&quot;reconcile&quot;,&quot;label&quot;:&quot;影子读差异&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;reconcile&quot;,&quot;to&quot;:&quot;cut&quot;,&quot;label&quot;:&quot;守恒与兼容通过&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;rollback&quot;,&quot;to&quot;:&quot;cut&quot;,&quot;label&quot;:&quot;已演练且可回退&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;cut&quot;,&quot;to&quot;:&quot;rollback&quot;,&quot;label&quot;:&quot;切读后保留旧结构&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;rollback&quot;,&quot;to&quot;:&quot;dual&quot;,&quot;label&quot;:&quot;异常时切回旧路径&quot;,&quot;kind&quot;:&quot;feedback&quot;},{&quot;from&quot;:&quot;rollback&quot;,&quot;to&quot;:&quot;contract&quot;,&quot;label&quot;:&quot;回滚窗口结束再批准&quot;,&quot;kind&quot;:&quot;control&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2832" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-PS08</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >对账与回滚就绪后，才允许切读</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >回填与增量同步分别证明静态和变化数据完整；切读与删除旧结构之间必须保留兼容和回滚窗口。</text>
+<g id="system-graph" data-region="64,234,1472,1994">
+<rect x="64" y="234" width="1472" height="1994" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >status→status_code 迁移的分片进度、CDC 高水位与独立守恒 Oracle</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M451 273 L451 335 L879 335 L879 273" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M451 273 L451 335 L879 335 L879 273" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="expand" data-to="dual"/>
+<path d="M930 273 L930 335 L976 335 Q981 323 986 335 L1078 335 Q1083 323 1088 335 L1362 335 L1362 523 L451 523 L451 563" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M930 273 L930 335 L976 335 Q981 323 986 335 L1078 335 Q1083 323 1088 335 L1362 335 L1362 523 L451 523 L451 563" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="dual" data-to="backfill"/>
+<path d="M1083 273 L1083 399 L1368 399 L1368 537 L1361 537 Q1356 525 1351 537 L981 537 L981 563" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M1083 273 L1083 399 L1368 399 L1368 537 L1361 537 Q1356 525 1351 537 L981 537 L981 563" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e2" data-from="dual" data-to="cdc"/>
+<path d="M451 794 L451 842 L77 842 L77 934 L374.5 934 L374.5 988" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M451 794 L451 842 L77 842 L77 934 L374.5 934 L374.5 988" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e3" data-from="backfill" data-to="reconcile"/>
+<path d="M981 760 L981 858 L1351 858 Q1356 846 1361 858 L1374 858 L1374 948 L1361 948 Q1356 936 1351 948 L451 948 L451 988" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M981 760 L981 858 L1351 858 Q1356 846 1361 858 L1374 858 L1374 948 L1361 948 Q1356 936 1351 948 L451 948 L451 988" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e4" data-from="cdc" data-to="reconcile"/>
+<path d="M981 273 L981 463 L1356 463 L1356 962 L527.5 962 L527.5 988" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M981 273 L981 463 L1356 463 L1356 962 L527.5 962 L527.5 988" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e5" data-from="dual" data-to="reconcile"/>
+<path d="M451 1185 L451 1297 L904.5 1297 L904.5 1219" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M451 1185 L451 1297 L904.5 1297 L904.5 1219" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="reconcile" data-to="cut"/>
+<path d="M374.5 1495 L374.5 1297 L89 1297 Q84 1285 79 1297 L70 1297 L70 1233 L79 1233 Q84 1221 89 1233 L446 1233 Q451 1221 456 1233 L899.5 1233 Q904.5 1221 909.5 1233 L981 1233 L981 1219" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M374.5 1495 L374.5 1297 L89 1297 Q84 1285 79 1297 L70 1297 L70 1233 L79 1233 Q84 1221 89 1233 L446 1233 Q451 1221 456 1233 L899.5 1233 Q904.5 1221 909.5 1233 L981 1233 L981 1219" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e7" data-from="rollback" data-to="cut"/>
+<path d="M1057.5 1219 L1057.5 1297 L1362 1297 L1362 1469 L532.5 1469 Q527.5 1457 522.5 1469 L451 1469 L451 1495" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M1057.5 1219 L1057.5 1297 L1362 1297 L1362 1469 L532.5 1469 Q527.5 1457 522.5 1469 L451 1469 L451 1495" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e8" data-from="cut" data-to="rollback"/>
+<path d="M527.5 1495 L527.5 1393 L379.5 1393 Q374.5 1381 369.5 1393 L84 1393 L84 287 L446 287 Q451 275 456 287 L874 287 Q879 275 884 287 L925 287 Q930 275 935 287 L976 287 Q981 275 986 287 L1032 287 L1032 273" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M527.5 1495 L527.5 1393 L379.5 1393 Q374.5 1381 369.5 1393 L84 1393 L84 287 L446 287 Q451 275 456 287 L874 287 Q879 275 884 287 L925 287 Q930 275 935 287 L976 287 Q981 275 986 287 L1032 287 L1032 273" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e9" data-from="rollback" data-to="dual"/>
+<path d="M451 1692 L451 1756 L981 1756 L981 1692" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M451 1692 L451 1756 L981 1756 L981 1692" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e10" data-from="rollback" data-to="contract"/>
+<g id="node-expand" class="node node-input" data-region="274,76,354,197">
+<rect x="274" y="76" width="354" height="197" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#215cbb" font-weight="700" >Expand 兼容扩展</text>
+<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >新增 status_code 与映射表</text>
+<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >旧 / 新消费者都必须可用</text>
+</g>
+<g id="node-dual" class="node node-process" data-region="804,76,354,197">
+<rect x="804" y="76" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#344f70" font-weight="750" class="mono">02</text>
+<text x="826" y="152" font-size="28" fill="#344f70" font-weight="700" >双写与影子读</text>
+<text x="826" y="195" font-size="23" fill="#172b45" font-weight="450" >写入新旧路径，读两处比较</text>
+<text x="826" y="229" font-size="23" fill="#172b45" font-weight="450" >切换前仍向用户返回旧结果</text>
+</g>
+<g id="node-backfill" class="node node-process" data-region="274,563,354,231">
+<rect x="274" y="563" width="354" height="231" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="580" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="598" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="296" y="639" font-size="28" fill="#344f70" font-weight="700" >分片历史回填</text>
+<text x="296" y="682" font-size="23" fill="#172b45" font-weight="450" >范围、行数、checksum 与</text>
+<text x="296" y="716" font-size="23" fill="#172b45" font-weight="450" >金额</text>
+<text x="296" y="750" font-size="23" fill="#172b45" font-weight="450" >checkpoint 支持中断续跑</text>
+</g>
+<g id="node-cdc" class="node node-data" data-region="804,563,354,197">
+<rect x="804" y="563" width="354" height="197" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="822" y="580" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="598" font-size="15" fill="#087b76" font-weight="750" class="mono">04</text>
+<text x="826" y="639" font-size="28" fill="#087b76" font-weight="700" >CDC 高水位</text>
+<text x="826" y="682" font-size="23" fill="#172b45" font-weight="450" >记录 offset 与增量进度</text>
+<text x="826" y="716" font-size="23" fill="#172b45" font-weight="450" >回填期间新写入不能遗漏</text>
+</g>
+<g id="node-reconcile" class="node node-evidence" data-region="274,988,354,197">
+<rect x="274" y="988" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="292" y="1005" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1023" font-size="15" fill="#7045a4" font-weight="750" class="mono">05</text>
+<text x="296" y="1064" font-size="28" fill="#7045a4" font-weight="700" >独立守恒对账</text>
+<text x="296" y="1107" font-size="23" fill="#172b45" font-weight="450" >主键集合、金额与状态映射</text>
+<text x="296" y="1141" font-size="23" fill="#172b45" font-weight="450" >去重后核对增量与影子差异</text>
+</g>
+<g id="node-cut" class="node node-control" data-region="804,988,354,231">
+<rect x="804" y="988" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="1005" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1023" font-size="15" fill="#945c0b" font-weight="750" class="mono">06</text>
+<text x="826" y="1064" font-size="28" fill="#945c0b" font-weight="700" >切读准入</text>
+<text x="826" y="1107" font-size="23" fill="#172b45" font-weight="450" >消费者兼容、对账与高水位</text>
+<text x="826" y="1141" font-size="23" fill="#172b45" font-weight="450" >齐备</text>
+<text x="826" y="1175" font-size="23" fill="#172b45" font-weight="450" >差异未解释则不切主读</text>
+</g>
+<g id="node-rollback" class="node node-control" data-region="274,1495,354,197">
+<rect x="274" y="1495" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="292" y="1512" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1530" font-size="15" fill="#945c0b" font-weight="750" class="mono">07</text>
+<text x="296" y="1571" font-size="28" fill="#945c0b" font-weight="700" >旧结构保留与回滚</text>
+<text x="296" y="1614" font-size="23" fill="#172b45" font-weight="450" >切回旧读路径需演练</text>
+<text x="296" y="1648" font-size="23" fill="#172b45" font-weight="450" >保留期覆盖批准回滚窗口</text>
+</g>
+<g id="node-contract" class="node node-risk" data-region="804,1495,354,197">
+<rect x="804" y="1495" width="354" height="197" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="822" y="1512" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1530" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">08</text>
+<text x="826" y="1571" font-size="28" fill="#ad3e4c" font-weight="700" >Contract 收缩</text>
+<text x="826" y="1614" font-size="23" fill="#172b45" font-weight="450" >旧消费者迁移且观察期结束</text>
+<text x="826" y="1648" font-size="23" fill="#172b45" font-weight="450" >删除旧结构是不可逆分界</text>
+</g>
+<rect x="632.61" y="313" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="342" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  兼容后启用</text>
+<text x="883" y="295" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="1173.53" y="313" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="342" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  补齐历史</text>
+<text x="455" y="553" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="1151.69" y="377" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="406" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  跟踪并发新写</text>
+<text x="985" y="553" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="90.85999999999999" y="820" width="198.28000000000003" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="849" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  逐 shard 证据</text>
+<text x="378.5" y="978" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="1162.61" y="820" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="849" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  增量无丢失</text>
+<text x="1246" y="881" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">证据</text>
+<text x="455" y="978" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="1162.61" y="441" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="470" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  影子读差异</text>
+<text x="531.5" y="978" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="632.61" y="1259" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1288" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  守恒与兼容</text>
+<text x="716" y="1320" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">通过</text>
+<text x="908.5" y="1241" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="106.61" y="1259" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1288" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  已演练且可</text>
+<text x="190" y="1320" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">回退</text>
+<text x="985" y="1241" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+<rect x="1151.69" y="1259" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1288" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  切读后保留旧</text>
+<text x="1246" y="1320" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">结构</text>
+<text x="455" y="1485" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e8" stroke="#fff" stroke-width="4" paint-order="stroke">09</text>
+<rect x="95.69" y="1355" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1384" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">10  异常时切回旧</text>
+<text x="190" y="1416" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">路径</text>
+<text x="1036" y="295" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e9" stroke="#fff" stroke-width="4" paint-order="stroke">10</text>
+<rect x="632.61" y="1718" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1747" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">11  回滚窗口结</text>
+<text x="716" y="1779" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">束再批准</text>
+<text x="985" y="1714" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e10" stroke="#fff" stroke-width="4" paint-order="stroke">11</text>
+</g>
+</g>
+<text x="64" y="2282" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2282" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2312,470,174">
+<rect x="64" y="2312" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2334" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="106" y="2359" font-size="25" fill="#ad3e4c" font-weight="700" >故障怎样暴露</text>
+<text x="88" y="2414" font-size="23" fill="#172b45" font-weight="450" >跳过一个分片或回退 CDC offset</text>
+<text x="88" y="2449" font-size="23" fill="#172b45" font-weight="450" >冻结收缩，查 shard 与高水位台账</text>
+</g>
+<g id="detail-1" data-region="565,2312,470,174">
+<rect x="565" y="2312" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2334" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="607" y="2359" font-size="25" fill="#7045a4" font-weight="700" >Job 成功不能代替</text>
+<text x="589" y="2414" font-size="23" fill="#172b45" font-weight="450" >独立查询主键差集、行数与金额</text>
+<text x="589" y="2449" font-size="23" fill="#172b45" font-weight="450" >迁移日志自证不能证明守恒</text>
+</g>
+<g id="detail-2" data-region="1066,2312,470,174">
+<rect x="1066" y="2312" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2334" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="1108" y="2359" font-size="25" fill="#945c0b" font-weight="700" >换向量索引怎样迁移</text>
+<text x="1090" y="2414" font-size="23" fill="#172b45" font-weight="450" >固定 embedding、维度与索引版本</text>
+<text x="1090" y="2449" font-size="23" fill="#172b45" font-weight="450" >双索引影子查结果集，阈值预注册</text>
+</g>
+<g id="failure-and-output" data-region="64,2518,1472,148">
+<rect x="64" y="2518" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2557" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2602" font-size="23" fill="#ffdce2" font-weight="450" >未解释差额、锁超预算、兼容失败或回滚未经演练时停止切读与收缩。</text>
+<text x="88" y="2645" font-size="23" fill="#dce9fa" font-weight="450" >交付分片 manifest、高水位台账、影子读分类、对账与回滚演练记录。</text>
+</g>
+<text x="64" y="2714" font-size="20" fill="#50647c" font-weight="450" >离线数据库夹具不证明生产数据量、锁行为或真实回滚可用性；未实测保持未知。</text>
+<text x="64" y="2753" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-PS08 · 对账与回滚就绪后，才允许切读</text>
+<path class="edge edge-data" d="M64 2793 L101 2793" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2799" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2793 L397 2793" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2799" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2793 L693 2793" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2799" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2793 L989 2793" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2799" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2793 L1285 2793" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2799" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

@@ -1,130 +1,160 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1160 546" width="1160" height="546">
-  <title id="title">静态、架构、代码与依赖供应链门禁：flow流程</title>
-  <desc id="desc">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-</style>
-  <rect class="ds-bg" width="1160" height="546" rx="22"/>
-  
-  <rect class="ds-header" x="0" y="0" width="1160" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1160" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">FLOW · 证据流</text>
-  <text class="ds-subtitle" x="1124" y="32" text-anchor="end">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</text>
-  <text class="ds-title" x="36" y="74">静态、架构、代码与依赖供应链门禁</text>
-  <text class="ds-source" x="36" y="140">flow · 静态、架构、代码与依赖供应链门禁 的证据闭环 · 来源 S08, S41, S50, S64</text>
-  
-    <path d="M 264 220 L 286 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 466 220 L 488 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 668 220 L 690 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 870 220 L 892 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 984 268 V 305 H 176 V 338" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    <path d="M 264 390 L 286 390" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-  
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="172" width="176" height="96" rx="14" fill="#eaf1fa" stroke="#aec6e3"/>
-      
-      <circle cx="106" cy="190" r="11" fill="#ffffff" stroke="#aec6e3" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="193" text-anchor="middle" >01</text>
-      <text class="ds-node-title" x="103" y="220">Trust Boundary</text>
-      <text class="ds-node-detail" x="103" y="235">输入 / 依据</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="290" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="308" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="193" text-anchor="middle" >02</text>
-      <text class="ds-node-title" x="305" y="220">Commit/Diff</text>
-      <text class="ds-node-detail" x="305" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="492" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="510" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="510" y="193" text-anchor="middle" >03</text>
-      <text class="ds-node-title" x="507" y="220">SBOM</text>
-      <text class="ds-node-detail" x="507" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="694" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="712" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="712" y="193" text-anchor="middle" >04</text>
-      <text class="ds-node-title" x="709" y="220">Provenance/Signature</text>
-      <text class="ds-node-detail" x="709" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="896" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="914" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="914" y="193" text-anchor="middle" >05</text>
-      <text class="ds-node-title" x="911" y="220">静态发现</text>
-      <text class="ds-node-detail" x="911" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="342" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a"/>
-      
-      <circle cx="106" cy="360" r="11" fill="#ffffff" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="363" text-anchor="middle" >06</text>
-      <text class="ds-node-title" x="103" y="390">Owner/例外</text>
-      <text class="ds-node-detail" x="103" y="405">门禁 / 裁决</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-strong)">
-      <rect x="290" y="342" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a" stroke-width="2"/>
-      <rect x="290" y="342" width="6" height="96" rx="3" fill="#93bd2c"/>
-      <circle cx="308" cy="360" r="11" fill="#174a3a" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="363" text-anchor="middle" fill="#ffffff">07</text>
-      <text class="ds-node-title" x="305" y="390">合并门禁</text>
-      <text class="ds-node-detail" x="305" y="405">决定 / 输出</text>
-    </g>
-  <circle cx="108" cy="460" r="4" fill="#355f96"/><text class="ds-legend" x="118" y="464">输入 / 依据</text><circle cx="177.4" cy="460" r="4" fill="#c2d9cc"/><text class="ds-legend" x="187.4" y="464">处理 / 变换</text><circle cx="246.8" cy="460" r="4" fill="#6a49a8"/><text class="ds-legend" x="256.8" y="464">独立判断</text><circle cx="297.6" cy="460" r="4" fill="#a96a18"/><text class="ds-legend" x="307.6" y="464">门禁 / 裁决</text><circle cx="367" cy="460" r="4" fill="#b2402f"/><text class="ds-legend" x="377" y="464">安全终态</text>
-  
-  <rect x="28" y="472" width="1104" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="498">证据边界</text>
-  <text class="ds-foot" x="46" y="520">节点是页面语义关系；不代表真实模型、企业集成或生产效果已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2295" viewBox="0 0 1600 2295" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">架构约束与供应链证据共同守合并</title><desc id="desc">代码变更要守依赖方向，外部组件要有物料、来源与签名；扫描发现还必须有人处理且例外到期。 同一 Commit 同时进入架构检查和含工具描述 hash 的供应链检查 合成 0/1/0 不证明真实构建、漏洞利用或生产安全；扫描覆盖与私有依赖未知须明示。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-X101 / 五道静态门禁各自拦什么;docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-X101 / TD-X101 停止表：哪些证据不能被平均值抵消">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-X101&quot;,&quot;pageIds&quot;:[&quot;TD-X101&quot;],&quot;primaryPageIds&quot;:[&quot;TD-X101&quot;],&quot;layout&quot;:&quot;comparison&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-X101 / 五道静态门禁各自拦什么&quot;,&quot;quote&quot;:&quot;模块间产生循环或越层依赖&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-X101 / TD-X101 停止表：哪些证据不能被平均值抵消&quot;,&quot;quote&quot;:&quot;Fault 加入未签名依赖并删除 critical owner&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;trust&quot;,&quot;title&quot;:&quot;Trust Boundary&quot;},{&quot;id&quot;:&quot;diff&quot;,&quot;title&quot;:&quot;Commit / Diff&quot;},{&quot;id&quot;:&quot;architecture&quot;,&quot;title&quot;:&quot;架构与静态约束&quot;},{&quot;id&quot;:&quot;sbom&quot;,&quot;title&quot;:&quot;扩展 SBOM&quot;},{&quot;id&quot;:&quot;signature&quot;,&quot;title&quot;:&quot;Provenance / Signature&quot;},{&quot;id&quot;:&quot;findings&quot;,&quot;title&quot;:&quot;扫描发现与可达性&quot;},{&quot;id&quot;:&quot;owner&quot;,&quot;title&quot;:&quot;Owner / 有期限例外&quot;},{&quot;id&quot;:&quot;merge&quot;,&quot;title&quot;:&quot;合并门禁&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;trust&quot;,&quot;to&quot;:&quot;diff&quot;,&quot;label&quot;:&quot;确定检查边界&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;diff&quot;,&quot;to&quot;:&quot;architecture&quot;,&quot;label&quot;:&quot;代码/依赖方向检查&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;trust&quot;,&quot;to&quot;:&quot;sbom&quot;,&quot;label&quot;:&quot;外部成分范围&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;diff&quot;,&quot;to&quot;:&quot;sbom&quot;,&quot;label&quot;:&quot;本次制品版本&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;sbom&quot;,&quot;to&quot;:&quot;signature&quot;,&quot;label&quot;:&quot;来源与签名核验&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;sbom&quot;,&quot;to&quot;:&quot;findings&quot;,&quot;label&quot;:&quot;精确组件版本&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;findings&quot;,&quot;to&quot;:&quot;owner&quot;,&quot;label&quot;:&quot;逐条处置&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;architecture&quot;,&quot;to&quot;:&quot;merge&quot;,&quot;label&quot;:&quot;架构发现&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;signature&quot;,&quot;to&quot;:&quot;merge&quot;,&quot;label&quot;:&quot;可验证来源&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;owner&quot;,&quot;to&quot;:&quot;merge&quot;,&quot;label&quot;:&quot;接受/修复/到期&quot;,&quot;kind&quot;:&quot;control&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2295" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-X101</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >架构约束与供应链证据共同守合并</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >代码变更要守依赖方向，外部组件要有物料、来源与签名；扫描发现还必须有人处理且例外到期。</text>
+<g id="system-graph" data-region="64,234,1472,1456.7197495576424">
+<rect x="64" y="234" width="1472" height="1456.7197495576424" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >同一 Commit 同时进入架构检查和含工具描述 hash 的供应链检查</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >职责与对照</text>
+<g transform="translate(111.43323805634952 350) scale(0.9527698380291275)" data-graph-scale="0.9527698380291275" data-routing="dot">
+<path class="edge edge-control" d="M526 115.5 C539.21 115.5 533.92 98.84999999999991 546 93.5 C609.41 65.45000000000005 638.27 66.19000000000005 702 93.5 C709.96 96.91000000000008 710.43 105.22000000000003 713.8 110.29999999999995" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e0" data-from="trust" data-to="diff"/>
+<path class="edge edge-data" d="M854 213 C854 234.24 530.37 327.15 473.49 360.98" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="diff" data-to="architecture"/>
+<path class="edge edge-data" d="M349 231 C349 284.1300000000001 387.61 291.05999999999995 436 313 C475.17 330.76 797.36 310.12 847.46 343.34000000000003" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e2" data-from="trust" data-to="sbom"/>
+<path class="edge edge-data" d="M942 213 C942 271.0899999999999 942 288.51 942 341.19000000000005" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e3" data-from="diff" data-to="sbom"/>
+<path class="edge edge-evidence" d="M854 618 C854 674.29 801.92 679.14 794.8 728.4" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e4" data-from="sbom" data-to="signature"/>
+<path class="edge edge-data" d="M942 618 C942 625.69 1167.86 710.41 1218.16 735.25" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e5" data-from="sbom" data-to="findings"/>
+<path class="edge edge-control" d="M1228 974.5 C1228 1108.63 1070.27 1035.78 938 1058 C898.98 1064.55 268.22 1056.82 185.85 1090.33" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="findings" data-to="owner"/>
+<path class="edge edge-evidence" d="M465 602 C465 768.46 396.59 834.96 485 976 C542.38 1067.54 694.16 991.88 705.35 1086.31" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="architecture" data-to="merge"/>
+<path class="edge edge-evidence" d="M794 975 C794 1025.5 794 1041.01 794 1086.19" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e8" data-from="signature" data-to="merge"/>
+<path class="edge edge-control" d="M354 1213.5 C378.76 1213.5 353.59 1251.48 374 1265.5 C439.94 1310.79 488.06 1310.79 554 1265.5 C570.9 1253.89 556.54 1225.85 565.17 1216.55" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e9" data-from="owner" data-to="merge"/>
+<g id="node-trust" class="node node-input" data-region="172,0,354,231">
+<rect x="172" y="0" width="354" height="231" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="190" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="197" y="35" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="194" y="76" font-size="28" fill="#215cbb" font-weight="700" >Trust Boundary</text>
+<text x="194" y="119" font-size="23" fill="#172b45" font-weight="450" >代码依赖、MCP 工具与模</text>
+<text x="194" y="153" font-size="23" fill="#172b45" font-weight="450" >型端点</text>
+<text x="194" y="187" font-size="23" fill="#172b45" font-weight="450" >明确外部组件及具名责任</text>
+</g>
+<g id="node-diff" class="node node-data" data-region="722,17,354,197">
+<rect x="722" y="17" width="354" height="197" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="740" y="34" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="747" y="52" font-size="15" fill="#087b76" font-weight="750" class="mono">02</text>
+<text x="744" y="93" font-size="28" fill="#087b76" font-weight="700" >Commit / Diff</text>
+<text x="744" y="136" font-size="23" fill="#172b45" font-weight="450" >锁定改动和敏感访问路径</text>
+<text x="744" y="170" font-size="23" fill="#172b45" font-weight="450" >AI 生成代码遵守同一门禁</text>
+</g>
+<g id="node-architecture" class="node node-control" data-region="288,370,354,231">
+<rect x="288" y="370" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="306" y="387" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="313" y="405" font-size="15" fill="#945c0b" font-weight="750" class="mono">03</text>
+<text x="310" y="446" font-size="28" fill="#945c0b" font-weight="700" >架构与静态约束</text>
+<text x="310" y="489" font-size="23" fill="#172b45" font-weight="450" >检查依赖方向、越层与循环</text>
+<text x="310" y="523" font-size="23" fill="#172b45" font-weight="450" >按规则覆盖模式或数据流</text>
+<text x="310" y="557" font-size="23" fill="#172b45" font-weight="450" >缺陷</text>
+</g>
+<g id="node-sbom" class="node node-data" data-region="722,353,354,265">
+<rect x="722" y="353" width="354" height="265" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="740" y="370" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="747" y="388" font-size="15" fill="#087b76" font-weight="750" class="mono">04</text>
+<text x="744" y="429" font-size="28" fill="#087b76" font-weight="700" >扩展 SBOM</text>
+<text x="744" y="472" font-size="23" fill="#172b45" font-weight="450" >依赖、工具描述 hash 与端</text>
+<text x="744" y="506" font-size="23" fill="#172b45" font-weight="450" >点版本</text>
+<text x="744" y="540" font-size="23" fill="#172b45" font-weight="450" >工具连接持续比对未声明</text>
+<text x="744" y="574" font-size="23" fill="#172b45" font-weight="450" >变化</text>
+</g>
+<g id="node-signature" class="node node-evidence" data-region="617,740,354,236">
+<rect x="617" y="740" width="354" height="236" rx="14" fill="#f4effb" stroke="none" />
+<rect x="635" y="757" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="642" y="775" font-size="15" fill="#7045a4" font-weight="750" class="mono">05</text>
+<text x="639" y="816" font-size="28" fill="#7045a4" font-weight="700" >Provenance /</text>
+<text x="639" y="855" font-size="28" fill="#7045a4" font-weight="700" >Signature</text>
+<text x="639" y="898" font-size="23" fill="#172b45" font-weight="450" >构建来源与产物签名可验证</text>
+<text x="639" y="932" font-size="23" fill="#172b45" font-weight="450" >锁版本不能证明内容未替换</text>
+</g>
+<g id="node-findings" class="node node-process" data-region="1051,742.5,354,231">
+<rect x="1051" y="742.5" width="354" height="231" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="1069" y="759.5" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1076" y="777.5" font-size="15" fill="#344f70" font-weight="750" class="mono">06</text>
+<text x="1073" y="818.5" font-size="28" fill="#344f70" font-weight="700" >扫描发现与可达性</text>
+<text x="1073" y="861.5" font-size="23" fill="#172b45" font-weight="450" >漏洞版本匹配后核对可利</text>
+<text x="1073" y="895.5" font-size="23" fill="#172b45" font-weight="450" >用性</text>
+<text x="1073" y="929.5" font-size="23" fill="#172b45" font-weight="450" >零告警不能直接写安全</text>
+</g>
+<g id="node-owner" class="node node-control" data-region="0,1098,354,231">
+<rect x="0" y="1098" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="18" y="1115" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="1133" font-size="15" fill="#945c0b" font-weight="750" class="mono">07</text>
+<text x="22" y="1174" font-size="28" fill="#945c0b" font-weight="700" >Owner / 有期限例外</text>
+<text x="22" y="1217" font-size="23" fill="#172b45" font-weight="450" >理由、具名批准人与到期</text>
+<text x="22" y="1251" font-size="23" fill="#172b45" font-weight="450" >时间</text>
+<text x="22" y="1285" font-size="23" fill="#172b45" font-weight="450" >critical 无 owner 不得忽略</text>
+</g>
+<g id="node-merge" class="node node-control" data-region="574,1098,354,231">
+<rect x="574" y="1098" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="592" y="1115" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="599" y="1133" font-size="15" fill="#945c0b" font-weight="750" class="mono">08</text>
+<text x="596" y="1174" font-size="28" fill="#945c0b" font-weight="700" >合并门禁</text>
+<text x="596" y="1217" font-size="23" fill="#172b45" font-weight="450" >汇合架构、签名、发现与</text>
+<text x="596" y="1251" font-size="23" fill="#172b45" font-weight="450" >处置</text>
+<text x="596" y="1285" font-size="23" fill="#172b45" font-weight="450" >非零退出码真正阻断合并</text>
+</g>
+<rect x="546" y="30.700000000000045" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="624" y="58.700000000000045" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">确定检查边界</text>
+<rect x="717.07" y="271" width="211" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="822.57" y="299" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">代码/依赖方向检查</text>
+<rect x="436" y="271" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="514" y="299" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">外部成分范围</text>
+<rect x="942" y="271" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1020" y="299" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">本次制品版本</text>
+<rect x="841.04" y="658" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="929.54" y="686" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">来源与签名核验</text>
+<rect x="1127.3" y="658" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1205.3" y="686" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">精确组件版本</text>
+<rect x="1219.2" y="1016" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1275.2" y="1044" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">逐条处置</text>
+<rect x="485" y="837" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="541" y="865" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">架构发现</text>
+<rect x="794" y="1016" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="861" y="1044" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">可验证来源</text>
+<rect x="374" y="1223.5" width="180" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="464" y="1251.5" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">接受/修复/到期</text>
+</g>
+</g>
+<text x="64" y="1744.7197495576424" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1744.7197495576424" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1774.7197495576424,470,174">
+<rect x="64" y="1774.7197495576424" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1796.7197495576424" width="7" height="30" rx="3" fill="#344f70" stroke="none" />
+<text x="106" y="1821.7197495576424" font-size="25" fill="#344f70" font-weight="700" >两类检查分工</text>
+<text x="88" y="1876.7197495576424" font-size="23" fill="#172b45" font-weight="450" >架构检查守依赖边界与敏感路径</text>
+<text x="88" y="1911.7197495576424" font-size="23" fill="#172b45" font-weight="450" >供应链检查守成分、来源和漂移</text>
+</g>
+<g id="detail-1" data-region="565,1774.7197495576424,470,174">
+<rect x="565" y="1774.7197495576424" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1796.7197495576424" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="607" y="1821.7197495576424" font-size="25" fill="#ad3e4c" font-weight="700" >门禁怎样打红</text>
+<text x="589" y="1876.7197495576424" font-size="23" fill="#172b45" font-weight="450" >加入未签名依赖并删 critical owner</text>
+<text x="589" y="1911.7197495576424" font-size="23" fill="#172b45" font-weight="450" >应点名签名失败与无人负责发现</text>
+</g>
+<g id="detail-2" data-region="1066,1774.7197495576424,470,174">
+<rect x="1066" y="1774.7197495576424" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1796.7197495576424" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="1108" y="1821.7197495576424" font-size="25" fill="#945c0b" font-weight="700" >修复不等于静音</text>
+<text x="1090" y="1876.7197495576424" font-size="23" fill="#172b45" font-weight="450" >恢复可验证签名，补具名 owner</text>
+<text x="1090" y="1911.7197495576424" font-size="23" fill="#172b45" font-weight="450" >到期自动失效，不降严重度求绿</text>
+</g>
+<g id="failure-and-output" data-region="64,1980.7197495576424,1472,148">
+<rect x="64" y="1980.7197495576424" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2019.7197495576424" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2064.7197495576424" font-size="23" fill="#ffdce2" font-weight="450" >未签名、来源未知、critical 无 owner、工具 hash 未声明变化或无期限例外时阻断。</text>
+<text x="88" y="2107.7197495576424" font-size="23" fill="#dce9fa" font-weight="450" >交付 Commit/SBOM 关联、架构与扫描发现、签名证据和例外台账。</text>
+</g>
+<text x="64" y="2176.7197495576424" font-size="20" fill="#50647c" font-weight="450" >合成 0/1/0 不证明真实构建、漏洞利用或生产安全；扫描覆盖与私有依赖未知须明示。</text>
+<text x="64" y="2215.7197495576424" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-X101 · 架构约束与供应链证据共同守合并</text>
+<path class="edge edge-data" d="M64 2255.7197495576424 L101 2255.7197495576424" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2261.7197495576424" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2255.7197495576424 L397 2255.7197495576424" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2261.7197495576424" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2255.7197495576424 L693 2255.7197495576424" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2261.7197495576424" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2255.7197495576424 L989 2255.7197495576424" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2261.7197495576424" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2255.7197495576424 L1285 2255.7197495576424" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2261.7197495576424" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

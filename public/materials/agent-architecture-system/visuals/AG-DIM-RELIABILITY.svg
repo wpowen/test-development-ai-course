@@ -1,92 +1,152 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1240 880" width="1240" height="880">
-<title id="title">pass@k 与 pass^k 的差距及区间口径</title>
-<desc id="desc">同一份 15 任务 × 5 次重复的运行台账，按「至少一次成功」与「每次都成功」两种口径得到完全不同的结论；右侧展示按任务时长分桶的 horizon 衰减，底部展示聚类区间与逐 run 展开的差别。</desc>
-
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/></marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/></marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/></marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#85908a"/></marker>
-  </defs>
-<style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66}
-</style>
-<rect class="ds-bg" width="1240" height="880" rx="22"/>
-
-  <rect class="ds-header" x="0" y="0" width="1240" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1240" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">AGENT · 可靠性口径</text>
-  <text class="ds-subtitle" x="1204" y="32" text-anchor="end">同一份数据，两个口径可以差得极远；口径决定承诺。</text>
-  <text class="ds-title" x="36" y="74">pass@k 与 pass^k 的差距及区间口径</text>
-  <text class="ds-source" x="36" y="140">source · AI agent测试架构.txt:L438-L494</text>
-<g data-source-ref="AI agent测试架构.txt:L438-L494">
-<g filter="url(#ds-soft)"><rect x="40" y="150" width="300" height="155" rx="14" fill="#f7f4e9" stroke="#85908a" stroke-width="1.5"/></g><rect x="40" y="150" width="6" height="155" rx="3" fill="#85908a"/><text x="64" y="180" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="14" font-weight="800" fill="#1c2924">任务集与重复运行</text><text x="64" y="208" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" fill="#1c2924">15 个任务 × 每任务重复 5 次</text><text x="64" y="229" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66">固定 temperature 与版本并记录</text><text x="64" y="250" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66">保留全部 raw run（失败不得删除）</text><text x="64" y="271" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="10.5" font-weight="500" fill="#85908a">重置规则：每次 run 前回到同一快照</text>
-<g filter="url(#ds-soft)"><rect x="370" y="150" width="320" height="133" rx="14" fill="#edf5f0" stroke="#174a3a" stroke-width="1.5"/></g><rect x="370" y="150" width="6" height="133" rx="3" fill="#174a3a"/><text x="394" y="180" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="14" font-weight="800" fill="#1c2924">口径 A · pass@k（至少一次成功）</text><text x="394" y="208" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12.5" font-weight="700" fill="#1c2924">14 / 15 = 93.3%</text><text x="394" y="229" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66">回答：它「能不能」做对</text><text x="394" y="250" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10.5" font-weight="700" fill="#174a3a">用途：判断能力上限，不能作为承诺</text>
-<g filter="url(#ds-soft)"><rect x="370" y="300" width="320" height="153" rx="14" fill="#fbe9e5" stroke="#b2402f" stroke-width="1.5"/></g><rect x="370" y="300" width="6" height="153" rx="3" fill="#b2402f"/><text x="394" y="330" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="14" font-weight="800" fill="#1c2924">口径 B · pass^k（每次都成功）</text><text x="394" y="358" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12.5" font-weight="700" fill="#1c2924">7 / 15 = 46.7%</text><text x="394" y="379" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66">回答：它「能不能每次都」做对</text><text x="394" y="400" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10.5" font-weight="700" fill="#b2402f">这才是你对用户的承诺</text><text x="394" y="419" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="10.5" font-weight="500" fill="#85908a">同一份数据，两个口径差 46.6 个百分点</text>
-<g filter="url(#ds-soft)"><rect x="370" y="470" width="320" height="153" rx="14" fill="#eaf1fa" stroke="#355f96" stroke-width="1.5"/></g><rect x="370" y="470" width="6" height="153" rx="3" fill="#355f96"/><text x="394" y="500" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="14" font-weight="800" fill="#1c2924">区间：以任务为聚类单位</text><text x="394" y="528" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12" font-weight="600" fill="#1c2924">Wilson 95% CI = [0.246, 0.699]</text><text x="394" y="549" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66">n = 15（任务数），不是 75</text><text x="394" y="570" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10.5" font-weight="700" fill="#b2402f">把 n×k=75 当独立样本会严重低估不确定性</text><text x="394" y="589" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="10.5" font-weight="500" fill="#85908a">同一任务的 5 次运行高度相关</text>
-<g filter="url(#ds-soft)"><rect x="720" y="400" width="480" height="153" rx="14" fill="#fbe9e5" stroke="#b2402f" stroke-width="1.5"/></g><rect x="720" y="400" width="6" height="153" rx="3" fill="#b2402f"/><text x="744" y="430" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="14" font-weight="800" fill="#1c2924">三种统计结论，不是两种</text><text x="744" y="458" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66">PASS：CI 下界 ≥ 阈值</text><text x="744" y="479" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66">FAIL：CI 上界 &lt; 阈值，或与旧版 CI 不重叠且更差</text><text x="744" y="500" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10.5" font-weight="700" fill="#b2402f">EVIDENCE-INSUFFICIENT：样本不足 → 不是「通过」</text><text x="744" y="519" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="10.5" font-weight="500" fill="#85908a">非重叠 CI 才算真回归；点估计的涨跌大多是噪声</text>
-
-<g filter="url(#ds-soft)"><rect x="720" y="150" width="480" height="230" rx="14" fill="#fdf1d8" stroke="#e0b76a" stroke-width="1.5"/></g>
-<rect x="720" y="150" width="6" height="230" rx="3" fill="#a96a18"/>
-<text x="744" y="180" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="14" font-weight="800" fill="#1c2924">horizon 衰减：按任务时长分桶</text>
-<line x1="744" y1="330" x2="1170" y2="330" stroke="#85908a" stroke-width="1.2"/>
-<rect x="760" y="225" width="55" height="105" rx="6" fill="#174a3a"/>
-<rect x="850" y="225" width="55" height="105" rx="6" fill="#174a3a"/>
-<rect x="940" y="284" width="55" height="46" rx="6" fill="#a96a18"/>
-<rect x="1030" y="295" width="55" height="35" rx="6" fill="#b2402f"/>
-<text x="787" y="217" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12" font-weight="800" fill="#174a3a">75%</text>
-<text x="877" y="217" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12" font-weight="800" fill="#174a3a">75%</text>
-<text x="967" y="276" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12" font-weight="800" fill="#a96a18">33%</text>
-<text x="1057" y="287" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="12" font-weight="800" fill="#b2402f">25%</text>
-<text x="787" y="348" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">&lt;5min</text>
-<text x="877" y="348" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">5–30min</text>
-<text x="967" y="348" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">30min–2h</text>
-<text x="1057" y="348" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">&gt;2h</text>
-<text x="744" y="372" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11" font-weight="600" fill="#5f6c66">结论直接变成两条产品规则：自主时长上限 + 强制检查点间隔</text>
-
-<g filter="url(#ds-strong)"><rect x="40" y="660" width="1160" height="90" rx="16" fill="#fdf1d8" stroke="#e0b76a" stroke-width="1.5"/></g>
-<rect x="40" y="660" width="6" height="90" rx="3" fill="#a96a18"/>
-<text x="64" y="688" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="13" font-weight="800" fill="#1c2924">Metric Card 必填字段</text>
-<text x="64" y="712" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">口径（经验 / 解析）· 分子分母 · k · 状态重置规则 · 区间方法与聚类单位 · 样本量理由 · 时长桶 · 切片 · 四维版本 · owner · 失败动作</text>
-<text x="64" y="734" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10.5" font-weight="700" fill="#a96a18">缺任一项，这个 pass^k 数字不可复用，也不能进发布决定书</text>
-<path d="M 340 210 L 364 210" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-<path d="M340 280 L364 340" fill="none" stroke="#174a3a" stroke-width="1.8" marker-end="url(#ds-arw-forest)"/>
-<path d="M 530 283 L 530 294" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-<path d="M 530 453 L 530 464" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-<path d="M 690 360 L 714 360" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-<path d="M 960 380 L 960 394" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-<path d="M 690 520 L 714 520" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-<path d="M 960 553 L 960 654" fill="none" stroke="#b2402f" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ds-arw-red)"/>
-<text x="538" y="309" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="10.5" font-weight="700" fill="#174a3a">同一份数据</text>
-<text x="538" y="479" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="10.5" font-weight="700" fill="#174a3a">两个口径</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2489" viewBox="0 0 1600 2489" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">能力上限与重复一致性分报</title><desc id="desc">同一份台账同时计算“至少一次成功”和“全部成功”，再用任务聚类、时长桶和 Metric Card 限定结论。 公式对照，不绘制无实测依据的 Horizon 柱形或衰减曲线 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。</desc><metadata data-source-ref="content/modules/agent-architecture-deep.ts#TD-AG-05 / terms;content/modules/agent-architecture-deep.ts#TD-AG-05 / terms;content/modules/agent-architecture-system.ts#TD-AG-05 / expected">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;AG-DIM-RELIABILITY&quot;,&quot;pageIds&quot;:[&quot;TD-AG-05&quot;],&quot;primaryPageIds&quot;:[],&quot;layout&quot;:&quot;comparison&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;content/modules/agent-architecture-deep.ts&quot;,&quot;locator&quot;:&quot;TD-AG-05 / terms&quot;,&quot;quote&quot;:&quot;k 次采样中至少一次成功的比例&quot;},{&quot;path&quot;:&quot;content/modules/agent-architecture-deep.ts&quot;,&quot;locator&quot;:&quot;TD-AG-05 / terms&quot;,&quot;quote&quot;:&quot;k 次采样全部成功的比例&quot;},{&quot;path&quot;:&quot;content/modules/agent-architecture-system.ts&quot;,&quot;locator&quot;:&quot;TD-AG-05 / expected&quot;,&quot;quote&quot;:&quot;不会把点估计写成稳定性。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;ledger&quot;,&quot;title&quot;:&quot;任务集与重复台账&quot;},{&quot;id&quot;:&quot;any&quot;,&quot;title&quot;:&quot;pass@k 经验口径&quot;},{&quot;id&quot;:&quot;all&quot;,&quot;title&quot;:&quot;pass^k 经验口径&quot;},{&quot;id&quot;:&quot;cluster&quot;,&quot;title&quot;:&quot;聚类置信区间&quot;},{&quot;id&quot;:&quot;horizon&quot;,&quot;title&quot;:&quot;Horizon 分桶&quot;},{&quot;id&quot;:&quot;metric&quot;,&quot;title&quot;:&quot;Metric Card&quot;},{&quot;id&quot;:&quot;conclusion&quot;,&quot;title&quot;:&quot;三种统计结论&quot;},{&quot;id&quot;:&quot;product&quot;,&quot;title&quot;:&quot;产品承诺与限制&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;ledger&quot;,&quot;to&quot;:&quot;any&quot;,&quot;label&quot;:&quot;按任务求至少一次&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;ledger&quot;,&quot;to&quot;:&quot;all&quot;,&quot;label&quot;:&quot;按任务求全部&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;any&quot;,&quot;to&quot;:&quot;cluster&quot;,&quot;label&quot;:&quot;估计口径1&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;all&quot;,&quot;to&quot;:&quot;cluster&quot;,&quot;label&quot;:&quot;估计口径2&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;ledger&quot;,&quot;to&quot;:&quot;horizon&quot;,&quot;label&quot;:&quot;按时长拆总体&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;cluster&quot;,&quot;to&quot;:&quot;conclusion&quot;,&quot;label&quot;:&quot;匹配抽样结构的区间&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;horizon&quot;,&quot;to&quot;:&quot;conclusion&quot;,&quot;label&quot;:&quot;时长桶证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;metric&quot;,&quot;to&quot;:&quot;conclusion&quot;,&quot;label&quot;:&quot;预声明统计合同&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;conclusion&quot;,&quot;to&quot;:&quot;product&quot;,&quot;label&quot;:&quot;限定可支持的承诺&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;conclusion&quot;,&quot;to&quot;:&quot;ledger&quot;,&quot;label&quot;:&quot;不足则补新任务&quot;,&quot;kind&quot;:&quot;feedback&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2489" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  AG-DIM-RELIABILITY</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >能力上限与重复一致性分报</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >同一份台账同时计算“至少一次成功”和“全部成功”，再用任务聚类、时长桶和 Metric Card 限定结论。</text>
+<g id="system-graph" data-region="64,234,1472,1650.7315692656007">
+<rect x="64" y="234" width="1472" height="1650.7315692656007" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >公式对照，不绘制无实测依据的 Horizon 柱形或衰减曲线</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >职责与对照</text>
+<g transform="translate(111.88623178151977 350) scale(0.9905193151266449)" data-graph-scale="0.9905193151266449" data-routing="dot">
+<path class="edge edge-data" d="M685 196 C685 260.4100000000001 607.18 216.8499999999999 546 237 C448.86 268.99 330.65 216.94000000000005 321.56 307.26" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="ledger" data-to="any"/>
+<path class="edge edge-data" d="M755 196 C755 246.5 755 262.01 755 307.19000000000005" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="ledger" data-to="all"/>
+<path class="edge edge-data" d="M321 515 C321 565.53 503.47 581.29 529.84 626.79" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e2" data-from="any" data-to="cluster"/>
+<path class="edge edge-data" d="M755 515 C755 591.58 634.76 560.91 622.08 626.17" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e3" data-from="all" data-to="cluster"/>
+<path class="edge edge-data" d="M825 196 C825 242.3900000000001 888.89 203.51 921 237 C988.25 307.1500000000001 1010.98 455.98 1011.97 626.23" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e4" data-from="ledger" data-to="horizon"/>
+<path class="edge edge-evidence" d="M533 834 C533 892.45 587.01 883.64 635 917 C659.97 934.35 692.77 925.32 701.04 945.48" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e5" data-from="cluster" data-to="conclusion"/>
+<path class="edge edge-evidence" d="M1012 834 C1012 835.53 844.3 926.39 801.07 950.96" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e6" data-from="horizon" data-to="conclusion"/>
+<path class="edge edge-control" d="M354 1054.5 C366.89 1054.5 362.19 1038.67 374 1033.5 C451.4 999.63 481.32 1028.33 561.98 1030.3899999999999" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e7" data-from="metric" data-to="conclusion"/>
+<path class="edge edge-control" d="M703 1154 C703 1204.09 703 1219.48 703 1264.28" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e8" data-from="conclusion" data-to="product"/>
+<path class="edge edge-feedback" d="M570 1079.5 C515.55 1079.5 533.88 996.8299999999999 571 957 C648.05 874.32 970.69 952.44 1078 917 C1143.22 895.46 1175.72 895.09 1209 835 C1251.42 758.41 1216.57 725.23 1209 638 C1207.44 620.02 1204.46 615.88 1202 598 C1185.03 474.53999999999996 1249.19 418.3900000000001 1174 319 C1114.05 239.75 1062.54 260.55999999999995 966 237 C882.22 216.54999999999995 638.07 260.75 580 197 C553.24 167.6300000000001 538.06 110.72000000000003 567.32 99.46000000000004" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e9" data-from="conclusion" data-to="ledger"/>
+<g id="node-ledger" class="node node-input" data-region="580,0,354,197">
+<rect x="580" y="0" width="354" height="197" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="598" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="605" y="35" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="602" y="76" font-size="28" fill="#215cbb" font-weight="700" >任务集与重复台账</text>
+<text x="602" y="119" font-size="23" fill="#172b45" font-weight="450" >N 个任务，每任务 k 次</text>
+<text x="602" y="153" font-size="23" fill="#172b45" font-weight="450" >状态重置与全部 raw run</text>
 </g>
-
-  <rect x="28" y="806" width="1184" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="832">证据边界</text>
-  <text class="ds-foot" x="46" y="854">数值来自本仓库夹具 fixtures/run-ledger.json，用于演示口径差异；不是任何真实系统的性能指标。阈值均为结构占位，成熟度 fixture-tested，真实模型与生产效果 NOT_RUN。</text>
+<g id="node-any" class="node node-process" data-region="144,319,354,197">
+<rect x="144" y="319" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="162" y="336" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="169" y="354" font-size="15" fill="#344f70" font-weight="750" class="mono">02</text>
+<text x="166" y="395" font-size="28" fill="#344f70" font-weight="700" >pass@k 经验口径</text>
+<text x="166" y="438" font-size="23" fill="#172b45" font-weight="450" >至少一次成功的任务数 / N</text>
+<text x="166" y="472" font-size="23" fill="#172b45" font-weight="450" >回答能不能做到</text>
+</g>
+<g id="node-all" class="node node-process" data-region="578,319,354,197">
+<rect x="578" y="319" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="596" y="336" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="603" y="354" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="600" y="395" font-size="28" fill="#344f70" font-weight="700" >pass^k 经验口径</text>
+<text x="600" y="438" font-size="23" fill="#172b45" font-weight="450" >全部 k 次成功的任务数 / N</text>
+<text x="600" y="472" font-size="23" fill="#172b45" font-weight="450" >回答能否每次做到</text>
+</g>
+<g id="node-cluster" class="node node-evidence" data-region="401,638,354,197">
+<rect x="401" y="638" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="419" y="655" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="426" y="673" font-size="15" fill="#7045a4" font-weight="750" class="mono">04</text>
+<text x="423" y="714" font-size="28" fill="#7045a4" font-weight="700" >聚类置信区间</text>
+<text x="423" y="757" font-size="23" fill="#172b45" font-weight="450" >task 是聚类单位</text>
+<text x="423" y="791" font-size="23" fill="#172b45" font-weight="450" >任务内 run 不独立</text>
+</g>
+<g id="node-horizon" class="node node-data" data-region="835,638,354,197">
+<rect x="835" y="638" width="354" height="197" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="853" y="655" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="860" y="673" font-size="15" fill="#087b76" font-weight="750" class="mono">05</text>
+<text x="857" y="714" font-size="28" fill="#087b76" font-weight="700" >Horizon 分桶</text>
+<text x="857" y="757" font-size="23" fill="#172b45" font-weight="450" >按预期任务时长拆分</text>
+<text x="857" y="791" font-size="23" fill="#172b45" font-weight="450" >每桶独立披露样本与区间</text>
+</g>
+<g id="node-metric" class="node node-control" data-region="0,957,354,197">
+<rect x="0" y="957" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="18" y="974" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="992" font-size="15" fill="#945c0b" font-weight="750" class="mono">06</text>
+<text x="22" y="1033" font-size="28" fill="#945c0b" font-weight="700" >Metric Card</text>
+<text x="22" y="1076" font-size="23" fill="#172b45" font-weight="450" >总体 / 口径 / k / 状态重置</text>
+<text x="22" y="1110" font-size="23" fill="#172b45" font-weight="450" >版本 / 方法 / owner / 门槛</text>
+</g>
+<g id="node-conclusion" class="node node-evidence" data-region="571,957,354,197">
+<rect x="571" y="957" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="589" y="974" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="596" y="992" font-size="15" fill="#7045a4" font-weight="750" class="mono">07</text>
+<text x="593" y="1033" font-size="28" fill="#7045a4" font-weight="700" >三种统计结论</text>
+<text x="593" y="1076" font-size="23" fill="#172b45" font-weight="450" >满足 / 未满足 / 证据不足</text>
+<text x="593" y="1110" font-size="23" fill="#172b45" font-weight="450" >不能只凭点估计放行</text>
+</g>
+<g id="node-product" class="node node-control" data-region="526,1276,354,197">
+<rect x="526" y="1276" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="544" y="1293" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="551" y="1311" font-size="15" fill="#945c0b" font-weight="750" class="mono">08</text>
+<text x="548" y="1352" font-size="28" fill="#945c0b" font-weight="700" >产品承诺与限制</text>
+<text x="548" y="1395" font-size="23" fill="#172b45" font-weight="450" >自主时长上限 / 检查点</text>
+<text x="548" y="1429" font-size="23" fill="#172b45" font-weight="450" >没有桶数据则保留 Unknown</text>
+</g>
+<rect x="546" y="237" width="199" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="645.5" y="265" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">按任务求至少一次</text>
+<rect x="755" y="237" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="833" y="265" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">按任务求全部</text>
+<rect x="487.21000000000004" y="556" width="126" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="550.21" y="584" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">估计口径1</text>
+<rect x="732.54" y="556" width="126" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="795.54" y="584" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">估计口径2</text>
+<rect x="1007.7" y="396.5" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1085.7" y="424.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">按时长拆总体</text>
+<rect x="635" y="875" width="221" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="745.5" y="903" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">匹配抽样结构的区间</text>
+<rect x="934.2" y="875" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1001.2" y="903" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">时长桶证据</text>
+<rect x="374" y="975.0799999999999" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="462.5" y="1003.0799999999999" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">预声明统计合同</text>
+<rect x="703" y="1194" width="199" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="802.5" y="1222" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">限定可支持的承诺</text>
+<rect x="1202" y="556" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1290.5" y="584" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">不足则补新任务</text>
+</g>
+</g>
+<text x="64" y="1938.7315692656007" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1938.7315692656007" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1968.7315692656007,470,174">
+<rect x="64" y="1968.7315692656007" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1990.7315692656007" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="106" y="2015.7315692656007" font-size="25" fill="#7045a4" font-weight="700" >经验与解析不混算</text>
+<text x="88" y="2070.7315692656007" font-size="23" fill="#172b45" font-weight="450" >图中比例按任务直接聚合</text>
+<text x="88" y="2105.7315692656007" font-size="23" fill="#172b45" font-weight="450" >概率幂公式需独立同分布假设</text>
+</g>
+<g id="detail-1" data-region="565,1968.7315692656007,470,174">
+<rect x="565" y="1968.7315692656007" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1990.7315692656007" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="607" y="2015.7315692656007" font-size="25" fill="#7045a4" font-weight="700" >区间方法按估计对象选</text>
+<text x="589" y="2070.7315692656007" font-size="23" fill="#172b45" font-weight="450" >任务级二值可配置 Wilson</text>
+<text x="589" y="2105.7315692656007" font-size="23" fill="#172b45" font-weight="450" >新旧版本可用配对或聚类分析</text>
+</g>
+<g id="detail-2" data-region="1066,1968.7315692656007,470,174">
+<rect x="1066" y="1968.7315692656007" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1990.7315692656007" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="1108" y="2015.7315692656007" font-size="25" fill="#ad3e4c" font-weight="700" >禁止伪测量</text>
+<text x="1090" y="2070.7315692656007" font-size="23" fill="#172b45" font-weight="450" >无时长桶实测，不填曲线数值</text>
+<text x="1090" y="2105.7315692656007" font-size="23" fill="#172b45" font-weight="450" >示例不能证明真实模型性能</text>
+</g>
+<g id="failure-and-output" data-region="64,2174.7315692656007,1472,148">
+<rect x="64" y="2174.7315692656007" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2213.7315692656007" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2258.7315692656007" font-size="23" fill="#ffdce2" font-weight="450" >错把重复 run 当独立样本、删除失败或以点估计放行，均撤回结论并重算。</text>
+<text x="88" y="2301.7315692656007" font-size="23" fill="#dce9fa" font-weight="450" >交付可重算台账、两种口径、聚类区间与 Horizon 证据表。</text>
+</g>
+<text x="64" y="2370.7315692656007" font-size="20" fill="#50647c" font-weight="450" >静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。</text>
+<text x="64" y="2409.7315692656007" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-AG-05 · 能力上限与重复一致性分报</text>
+<path class="edge edge-data" d="M64 2449.7315692656007 L101 2449.7315692656007" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2455.7315692656007" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2449.7315692656007 L397 2449.7315692656007" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2455.7315692656007" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2449.7315692656007 L693 2449.7315692656007" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2455.7315692656007" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2449.7315692656007 L989 2449.7315692656007" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2455.7315692656007" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2449.7315692656007 L1285 2449.7315692656007" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2455.7315692656007" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

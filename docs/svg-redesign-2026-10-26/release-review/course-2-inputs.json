@@ -1,0 +1,6570 @@
+[
+  {
+    "path": "visuals/course/TD-T05.svg",
+    "pageIds": [
+      "TD-T05"
+    ],
+    "supplementalSources": [],
+    "id": "TD-T05",
+    "layout": "evidence",
+    "title": "风险候选的四类来源与引用门禁",
+    "thesis": "需求与代码变化汇入候选，独立 Oracle 校验引用；Owner 才能接受风险。",
+    "focus": "区分生成依据、独立判据与缺证据停止路径",
+    "nodes": [
+      {
+        "id": "basis",
+        "title": "冻结需求与设计",
+        "tone": "input",
+        "body": [
+          "需求与设计分别保留版本",
+          "Basis hash 锁定本轮依据"
+        ]
+      },
+      {
+        "id": "diff",
+        "title": "版本化代码 Diff",
+        "tone": "data",
+        "body": [
+          "commit / hunk / rename",
+          "改动范围不等于完整影响面"
+        ]
+      },
+      {
+        "id": "oracle",
+        "title": "独立 Oracle 注册表",
+        "tone": "control",
+        "body": [
+          "批准判据与 owner allowlist",
+          "不由候选生成器编造"
+        ]
+      },
+      {
+        "id": "candidate",
+        "title": "风险候选生成",
+        "tone": "ai",
+        "body": [
+          "requirement / diff 引用",
+          "保持 CANDIDATE 状态"
+        ]
+      },
+      {
+        "id": "gate",
+        "title": "引用与冲突门禁",
+        "tone": "control",
+        "body": [
+          "查引用存在性及版本一致",
+          "冲突保留双方，不自动调和"
+        ]
+      },
+      {
+        "id": "stop",
+        "title": "BLOCKED / UNKNOWN",
+        "tone": "risk",
+        "body": [
+          "缺引用或出现虚构 SLA",
+          "请求证据，停止进入下游"
+        ]
+      },
+      {
+        "id": "owner",
+        "title": "业务 Owner 复核",
+        "tone": "process",
+        "body": [
+          "逐条裁决候选是否成立",
+          "争议项保留署名记录"
+        ]
+      },
+      {
+        "id": "backlog",
+        "title": "测试设计 Backlog",
+        "tone": "evidence",
+        "body": [
+          "仅接收门禁与复核通过项",
+          "风险召回完整性仍未知"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "basis",
+        "to": "candidate",
+        "label": "需求依据",
+        "kind": "data"
+      },
+      {
+        "from": "diff",
+        "to": "candidate",
+        "label": "实际变更",
+        "kind": "data"
+      },
+      {
+        "from": "candidate",
+        "to": "gate",
+        "label": "带引用候选",
+        "kind": "data"
+      },
+      {
+        "from": "oracle",
+        "to": "gate",
+        "label": "独立校验",
+        "kind": "control"
+      },
+      {
+        "from": "basis",
+        "to": "gate",
+        "label": "核对原文",
+        "kind": "evidence"
+      },
+      {
+        "from": "gate",
+        "to": "stop",
+        "label": "缺失 / 冲突",
+        "kind": "risk"
+      },
+      {
+        "from": "gate",
+        "to": "owner",
+        "label": "引用闭合",
+        "kind": "control"
+      },
+      {
+        "from": "owner",
+        "to": "backlog",
+        "label": "接受并留痕",
+        "kind": "control"
+      }
+    ],
+    "ranks": [
+      [
+        "basis",
+        "diff",
+        "oracle"
+      ],
+      [
+        "candidate",
+        "gate"
+      ],
+      [
+        "stop",
+        "owner"
+      ],
+      [
+        "backlog"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "故障如何暴露",
+        "tone": "risk",
+        "body": [
+          "删除审计风险的 diff_ref",
+          "注入不存在的 SLA / Oracle"
+        ]
+      },
+      {
+        "title": "门禁消费哪些证据",
+        "tone": "evidence",
+        "body": [
+          "核对 requirement / diff / oracle",
+          "每条候选须绑定具名 owner"
+        ]
+      },
+      {
+        "title": "什么能进入设计",
+        "tone": "control",
+        "body": [
+          "missing_evidence 必须阻断",
+          "恢复原文引用后重放 0→2→0"
+        ]
+      }
+    ],
+    "failure": "引用缺失或虚构政策时 STOP_AND_REVIEW，不能用模型自检替代存在性校验。",
+    "outcome": "交付四类冻结输入、带引用候选包、门禁报告与 Owner 裁决。",
+    "boundary": "fixture 只证明合同与退出码传播；真实模型、企业影响召回及生产发布 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T05 / 架构节点与交付物",
+        "quote": "「独立 Oracle 注册表」与「风险候选生成」并列而不串联"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T05 / Fault 预期退出 2",
+        "quote": "故障删除审计风险的 diff_ref，并注入不存在的 SLA/Oracle。"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-T05"
+    ],
+    "sha256": "561e199ffc7e1144025d7b6d773ae357822cfe9e1434582e61d34f52d459399e",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T05.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T05.png"
+  },
+  {
+    "path": "visuals/course/TD-T06.svg",
+    "pageIds": [
+      "TD-T06"
+    ],
+    "supplementalSources": [],
+    "id": "TD-T06",
+    "layout": "comparison",
+    "title": "同一候选在正常代码与变异代码上对照",
+    "thesis": "先证明批准实现上通过，再证明已知守卫被破坏时，相关断言确实变红。",
+    "focus": "Baseline 与 Mutation 共用独立期望，分别回答能跑通和能杀错",
+    "nodes": [
+      {
+        "id": "oracle",
+        "title": "独立行为 Oracle",
+        "tone": "control",
+        "body": [
+          "已激活数字商品不得自动退款",
+          "期望来自批准规范"
+        ]
+      },
+      {
+        "id": "candidate",
+        "title": "AI 测试候选",
+        "tone": "ai",
+        "body": [
+          "静态门禁剔除恒真与空断言",
+          "候选不自动进入回归"
+        ]
+      },
+      {
+        "id": "base",
+        "title": "Baseline Runner",
+        "tone": "process",
+        "body": [
+          "批准实现 + 同一组用例",
+          "先确认 PASS，再启动变异"
+        ]
+      },
+      {
+        "id": "mutate",
+        "title": "Mutation Runner",
+        "tone": "risk",
+        "body": [
+          "只反转退款业务守卫",
+          "共用同一独立 expected"
+        ]
+      },
+      {
+        "id": "detect",
+        "title": "目标行为检测",
+        "tone": "evidence",
+        "body": [
+          "actual 与 expected 对照",
+          "无关超时不算 KILLED"
+        ]
+      },
+      {
+        "id": "classify",
+        "title": "未杀死项分类",
+        "tone": "process",
+        "body": [
+          "survived / no coverage",
+          "等价性与工具错误单独复核"
+        ]
+      },
+      {
+        "id": "review",
+        "title": "Reviewer 处置",
+        "tone": "control",
+        "body": [
+          "补断言或署名判定等价",
+          "处置完整才入回归套件"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "candidate",
+        "to": "base",
+        "label": "正常代码",
+        "kind": "data"
+      },
+      {
+        "from": "candidate",
+        "to": "mutate",
+        "label": "相同候选",
+        "kind": "data"
+      },
+      {
+        "from": "oracle",
+        "to": "base",
+        "label": "固定期望",
+        "kind": "control"
+      },
+      {
+        "from": "oracle",
+        "to": "detect",
+        "label": "独立判据",
+        "kind": "control"
+      },
+      {
+        "from": "base",
+        "to": "mutate",
+        "label": "仅 baseline 全绿后",
+        "kind": "control"
+      },
+      {
+        "from": "mutate",
+        "to": "detect",
+        "label": "变异运行证据",
+        "kind": "evidence"
+      },
+      {
+        "from": "detect",
+        "to": "review",
+        "label": "相关断言杀死",
+        "kind": "evidence"
+      },
+      {
+        "from": "detect",
+        "to": "classify",
+        "label": "未杀死 / 不确定",
+        "kind": "risk"
+      },
+      {
+        "from": "classify",
+        "to": "review",
+        "label": "逐项归因与处置",
+        "kind": "data"
+      }
+    ],
+    "ranks": [
+      [
+        "oracle",
+        "candidate"
+      ],
+      [
+        "base",
+        "mutate"
+      ],
+      [
+        "detect",
+        "classify"
+      ],
+      [
+        "review"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "固定什么再比较",
+        "tone": "control",
+        "body": [
+          "冻结 Basis、构建与独立 Oracle",
+          "只改变 activated refund 守卫"
+        ]
+      },
+      {
+        "title": "怎样认定杀死",
+        "tone": "evidence",
+        "body": [
+          "目标 actual 与 expected 不同",
+          "保留 case_id 与 mutation 收据"
+        ]
+      },
+      {
+        "title": "分开看检测盲区",
+        "tone": "risk",
+        "body": [
+          "no coverage 先补路径",
+          "等价变异需 Reviewer 署名"
+        ]
+      }
+    ],
+    "failure": "baseline 失败即停止；无关超时、改 expected 求绿均不能算检测力。",
+    "outcome": "交付 mutation matrix、KILLED 证据、survived 处置及新增回归用例。",
+    "boundary": "0→1→0 只覆盖合成守卫；真实模型生成、仓库变异成本与生产效果 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T06 / 架构节点与交付物",
+        "quote": "Baseline 证明测试在正常代码上是绿的，Mutation 证明它在被破坏的代码上会红。"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T06 / 工作示例",
+        "quote": "目标用例必须因为 actual 与 independent expected 不同而 KILLED，不能因为无关超时而变红。"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-T06"
+    ],
+    "sha256": "14edde3ac3150a0bb850e45b8f823cb3a02e59c3647e533df29fa6ad5d46c474",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T06.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T06.png"
+  },
+  {
+    "path": "visuals/course/TD-T07.svg",
+    "pageIds": [
+      "TD-T07"
+    ],
+    "supplementalSources": [],
+    "id": "TD-T07",
+    "layout": "decision",
+    "title": "按失败形态选数据方法",
+    "thesis": "阈值、离散交互、不变量与未知输入面需要不同方法，生成数量不能替代选择理由。",
+    "focus": "四条选择分支及随机方法的 seed—反例—回归闭环",
+    "nodes": [
+      {
+        "id": "model",
+        "title": "批准失败模型与合法域",
+        "tone": "input",
+        "body": [
+          "先说明什么条件下会错",
+          "约束与不变量来自批准依据"
+        ]
+      },
+      {
+        "id": "boundary",
+        "title": "边界值",
+        "tone": "process",
+        "body": [
+          "阈值 / off-by-one",
+          "显式构造上下界及邻域"
+        ]
+      },
+      {
+        "id": "combination",
+        "title": "受约束组合",
+        "tone": "process",
+        "body": [
+          "权限 × 状态 × 渠道",
+          "声明 pairwise 覆盖强度"
+        ]
+      },
+      {
+        "id": "property",
+        "title": "属性测试",
+        "tone": "control",
+        "body": [
+          "往返 / 守恒 / 幂等",
+          "独立 invariant 判定"
+        ]
+      },
+      {
+        "id": "fuzz",
+        "title": "授权沙箱 Fuzz",
+        "tone": "risk",
+        "body": [
+          "未知语法与畸形输入",
+          "权限、预算不齐则停"
+        ]
+      },
+      {
+        "id": "raw",
+        "title": "确定性输入与原始失败",
+        "tone": "data",
+        "body": [
+          "记录 seed、域与系统版本",
+          "原样保存失败输入"
+        ]
+      },
+      {
+        "id": "shrink",
+        "title": "Shrink 与 Replay",
+        "tone": "evidence",
+        "body": [
+          "最小反例复测同一不变量",
+          "可重放后固化固定回归"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "model",
+        "to": "boundary",
+        "label": "阈值错误",
+        "kind": "control"
+      },
+      {
+        "from": "model",
+        "to": "combination",
+        "label": "条件交互",
+        "kind": "control"
+      },
+      {
+        "from": "model",
+        "to": "property",
+        "label": "全称不变量",
+        "kind": "control"
+      },
+      {
+        "from": "model",
+        "to": "fuzz",
+        "label": "未知输入面",
+        "kind": "control"
+      },
+      {
+        "from": "boundary",
+        "to": "raw",
+        "label": "边界样本",
+        "kind": "data"
+      },
+      {
+        "from": "combination",
+        "to": "raw",
+        "label": "约束组合",
+        "kind": "data"
+      },
+      {
+        "from": "property",
+        "to": "raw",
+        "label": "合法域内生成",
+        "kind": "data"
+      },
+      {
+        "from": "fuzz",
+        "to": "raw",
+        "label": "保留崩溃现场",
+        "kind": "data"
+      },
+      {
+        "from": "raw",
+        "to": "shrink",
+        "label": "收缩后再验证",
+        "kind": "evidence"
+      }
+    ],
+    "ranks": [
+      [
+        "model"
+      ],
+      [
+        "boundary",
+        "combination"
+      ],
+      [
+        "property",
+        "fuzz"
+      ],
+      [
+        "raw"
+      ],
+      [
+        "shrink"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "方法不是互斥选项",
+        "tone": "process",
+        "body": [
+          "同一模块可有多种失败模型",
+          "先写选择理由，再扩充样本"
+        ]
+      },
+      {
+        "title": "本页故障怎样触发",
+        "tone": "risk",
+        "body": [
+          "移除退款幂等保护",
+          "重复请求使 refund_count>1"
+        ]
+      },
+      {
+        "title": "留下什么测试资产",
+        "tone": "evidence",
+        "body": [
+          "固定 seed 并保存最小反例",
+          "两两覆盖的高阶盲区需接受"
+        ]
+      }
+    ],
+    "failure": "合法域未知、Oracle 不独立或 Fuzz 无授权时停止；不可回放失败不能算闭环。",
+    "outcome": "交付带理由的方法选择记录、生成合同与可回放回归反例。",
+    "boundary": "固定 seed 的 fixture 不代表生产流量；真实数据发现率与生产覆盖仍未知。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T07 / 四种方法各自适用什么失败模型",
+        "quote": "四行不是互斥的。一个真实模块常常需要两到三种，按不同的失败模型分别应用。"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T07 / Fault 预期退出 1",
+        "quote": "属性 refund_count<=1 必须失败并收缩反例。"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-T07"
+    ],
+    "sha256": "857939ec942d745f81fea6c1e50d1220f356b51a9a77305e032f5d928ae61115",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T07.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T07.png"
+  },
+  {
+    "path": "visuals/course/TD-T08.svg",
+    "pageIds": [
+      "TD-T08"
+    ],
+    "supplementalSources": [],
+    "id": "TD-T08",
+    "layout": "layers",
+    "title": "失败证据、聚类假设与因果结论分层",
+    "thesis": "原始失败只追加；相似聚类先成为假设，控制实验与 Owner 复核后才能升级根因。",
+    "focus": "证据层不可被摘要覆盖，缺 Trace 或混合版本显式进入 UNKNOWN",
+    "nodes": [
+      {
+        "id": "raw",
+        "title": "只追加原始事件",
+        "tone": "data",
+        "body": [
+          "run / test / trace 与工件 hash",
+          "异常值也不删除"
+        ]
+      },
+      {
+        "id": "view",
+        "title": "Trace 与版本只读视图",
+        "tone": "data",
+        "body": [
+          "关联 commit 与 environment",
+          "标准化仍保留 raw refs"
+        ]
+      },
+      {
+        "id": "cluster",
+        "title": "候选 Failure Cluster",
+        "tone": "ai",
+        "body": [
+          "保留成员、算法与 Prompt 版本",
+          "相似症状不等于同因"
+        ]
+      },
+      {
+        "id": "hypothesis",
+        "title": "诊断 Hypothesis",
+        "tone": "process",
+        "body": [
+          "写明预期与反预期",
+          "保持可证伪的候选"
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": "控制变量实验",
+        "tone": "process",
+        "body": [
+          "人选择安全的单一变量",
+          "保存实验前后差异"
+        ]
+      },
+      {
+        "id": "gate",
+        "title": "Cause Gate",
+        "tone": "control",
+        "body": [
+          "核对证据闭合及实验结果",
+          "Owner 复核后升级"
+        ]
+      },
+      {
+        "id": "unknown",
+        "title": "UNKNOWN",
+        "tone": "risk",
+        "body": [
+          "Trace 缺失 / 版本混合",
+          "保留未归组与未证实失败"
+        ]
+      },
+      {
+        "id": "replay",
+        "title": "修复与原样回放",
+        "tone": "evidence",
+        "body": [
+          "重放原始失败样本",
+          "未回放不算修复闭环"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "raw",
+        "to": "view",
+        "label": "只读引用",
+        "kind": "evidence"
+      },
+      {
+        "from": "view",
+        "to": "cluster",
+        "label": "标准字段",
+        "kind": "data"
+      },
+      {
+        "from": "cluster",
+        "to": "hypothesis",
+        "label": "提出解释",
+        "kind": "data"
+      },
+      {
+        "from": "hypothesis",
+        "to": "experiment",
+        "label": "可证伪预测",
+        "kind": "data"
+      },
+      {
+        "from": "experiment",
+        "to": "gate",
+        "label": "干预与重放证据",
+        "kind": "evidence"
+      },
+      {
+        "from": "view",
+        "to": "gate",
+        "label": "版本与 trace 核验",
+        "kind": "evidence"
+      },
+      {
+        "from": "gate",
+        "to": "unknown",
+        "label": "缺口 / 未证实",
+        "kind": "risk"
+      },
+      {
+        "from": "gate",
+        "to": "replay",
+        "label": "独立确认后",
+        "kind": "control"
+      }
+    ],
+    "ranks": [
+      [
+        "raw",
+        "view"
+      ],
+      [
+        "cluster",
+        "hypothesis"
+      ],
+      [
+        "experiment",
+        "gate"
+      ],
+      [
+        "unknown",
+        "replay"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "证据层只增不改",
+        "tone": "data",
+        "body": [
+          "摘要不能覆盖原始日志",
+          "Trace 与工件可重新聚类"
+        ]
+      },
+      {
+        "title": "本页故障注入",
+        "tone": "risk",
+        "body": [
+          "清空 trace_id 并混合 commit",
+          "cause_status 必须 UNKNOWN/2"
+        ]
+      },
+      {
+        "title": "怎样升级根因",
+        "tone": "control",
+        "body": [
+          "改一个变量检验症状翻转",
+          "原始失败回放后由 Owner 确认"
+        ]
+      }
+    ],
+    "failure": "没有控制实验不得写根因；UNKNOWN 不应为报表好看而被强行清空。",
+    "outcome": "交付原始事件索引、候选簇、假设、控制实验与回放记录。",
+    "boundary": "合成 Trace 门禁不证明真实遥测、AI 聚类准确率或生产 RCA。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T08 / 架构节点与交付物",
+        "quote": "任何把结论写回证据层的动作都会破坏这个结构"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T08 / 证据如何流转与停止",
+        "quote": "trace 缺失、采样洞或版本混合时 cause gate 锁定 UNKNOWN。"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-T08"
+    ],
+    "sha256": "a3b66f860b6169b593a6399da67627409ccd135edde89d85045b7569173f5670",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T08.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T08.png"
+  },
+  {
+    "path": "visuals/course/TD-A01.svg",
+    "pageIds": [
+      "TD-A01"
+    ],
+    "supplementalSources": [],
+    "id": "TD-A01",
+    "layout": "layers",
+    "title": "一次生成请求需要五层独立判据",
+    "thesis": "HTTP 成功只覆盖入口；版本、行为、资源与可靠性需要各自可追溯的证据和负责人。",
+    "focus": "从共同协议契约扩展到生成服务的组合版本与不可见字段",
+    "nodes": [
+      {
+        "id": "request",
+        "title": "退款解释请求",
+        "tone": "input",
+        "body": [
+          "request_id 与脱敏输入",
+          "同请求关联全部证据"
+        ]
+      },
+      {
+        "id": "protocol",
+        "title": "协议与鉴权",
+        "tone": "process",
+        "body": [
+          "状态码 / 鉴权 / 幂等",
+          "保留普通接口共同契约"
+        ]
+      },
+      {
+        "id": "manifest",
+        "title": "生成 Manifest",
+        "tone": "data",
+        "body": [
+          "模型别名与 Prompt / Schema hash",
+          "Tool、采样、上下文与区域"
+        ]
+      },
+      {
+        "id": "behavior",
+        "title": "行为 Oracle",
+        "tone": "control",
+        "body": [
+          "结构、语义、拒答与截断",
+          "措辞变化不直接判为缺陷"
+        ]
+      },
+      {
+        "id": "resource",
+        "title": "Token 与资源成本",
+        "tone": "evidence",
+        "body": [
+          "调用级费用与重试归属",
+          "延迟和成本分别切片"
+        ]
+      },
+      {
+        "id": "reliability",
+        "title": "错误与可靠性",
+        "tone": "process",
+        "body": [
+          "错误类别 / retryable / owner",
+          "副作用核对业务事实"
+        ]
+      },
+      {
+        "id": "unknown",
+        "title": "不可见版本 UNKNOWN",
+        "tone": "risk",
+        "body": [
+          "供应商内部 revision 不可见",
+          "禁止猜造固定模型版本"
+        ]
+      },
+      {
+        "id": "gate",
+        "title": "五层证据复核",
+        "tone": "control",
+        "body": [
+          "逐层给结论与证据链接",
+          "没有证据不补默认值"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "request",
+        "to": "protocol",
+        "label": "协议输入",
+        "kind": "data"
+      },
+      {
+        "from": "request",
+        "to": "manifest",
+        "label": "组合指纹",
+        "kind": "data"
+      },
+      {
+        "from": "manifest",
+        "to": "behavior",
+        "label": "版本绑定",
+        "kind": "evidence"
+      },
+      {
+        "from": "request",
+        "to": "resource",
+        "label": "调用记账",
+        "kind": "evidence"
+      },
+      {
+        "from": "request",
+        "to": "reliability",
+        "label": "生命周期",
+        "kind": "evidence"
+      },
+      {
+        "from": "manifest",
+        "to": "unknown",
+        "label": "内部变量不可见",
+        "kind": "risk"
+      },
+      {
+        "from": "protocol",
+        "to": "gate",
+        "label": "协议证据",
+        "kind": "evidence"
+      },
+      {
+        "from": "behavior",
+        "to": "gate",
+        "label": "行为判据",
+        "kind": "evidence"
+      },
+      {
+        "from": "resource",
+        "to": "gate",
+        "label": "资源与经济性",
+        "kind": "evidence"
+      },
+      {
+        "from": "reliability",
+        "to": "gate",
+        "label": "可靠性证据",
+        "kind": "evidence"
+      },
+      {
+        "from": "unknown",
+        "to": "gate",
+        "label": "传播可复现性限制",
+        "kind": "risk"
+      }
+    ],
+    "ranks": [
+      [
+        "request"
+      ],
+      [
+        "protocol",
+        "manifest"
+      ],
+      [
+        "behavior",
+        "resource",
+        "reliability"
+      ],
+      [
+        "unknown",
+        "gate"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "比较前冻结什么",
+        "tone": "data",
+        "body": [
+          "固定 SDK、租户、采样与区域",
+          "记录模型别名解析时间"
+        ]
+      },
+      {
+        "title": "命名故障",
+        "tone": "risk",
+        "body": [
+          "删除 request_id",
+          "把内部版本伪造为固定值"
+        ]
+      },
+      {
+        "title": "恢复与可见性",
+        "tone": "control",
+        "body": [
+          "恢复追踪，内部版本写 UNKNOWN",
+          "协议、输入与行为复现分别报告"
+        ]
+      }
+    ],
+    "failure": "缺 request_id 或伪造内部版本时阻断；200 与非空不能证明生成质量。",
+    "outcome": "交付带 hash 的 Manifest、错误分类表与版本可见性矩阵。",
+    "boundary": "仅离线 Manifest fixture；供应商集成、真实模型行为及生产 SLA NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-A01 / 把协议和决策写成可检查模型",
+        "quote": "把输入划为 protocol、generation_manifest、behavior、serving_metrics、reliability 五层；每层有独立证据与 owner。"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-A01 / 重放 0 → 1 → 0",
+        "quote": "删除 request_id 并把内部模型版本写成伪造的固定值"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-A01"
+    ],
+    "sha256": "b1977fcd64cb992f0ee6e988ecb85526f5fd88d0e05be3f60ac4c29b5cac8b8c",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-A01.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-A01.png"
+  },
+  {
+    "path": "visuals/course/TD-A02.svg",
+    "pageIds": [
+      "TD-A02"
+    ],
+    "supplementalSources": [],
+    "id": "TD-A02",
+    "layout": "comparison",
+    "title": "四种协议的过程判据分别核对",
+    "thesis": "SSE、结构化、工具与异步各自验证过程；工具执行结果必须如实回填，账本另证真实副作用。",
+    "focus": "工具请求经授权执行后，成功、失败与未知状态怎样回填并进入协议门禁",
+    "nodes": [
+      {
+        "id": "request",
+        "title": "请求与事件序列",
+        "tone": "input",
+        "body": [
+          "request_id / event_id / sequence",
+          "按协议选择独立判据"
+        ]
+      },
+      {
+        "id": "sse",
+        "title": "SSE reducer",
+        "tone": "process",
+        "body": [
+          "created → delta* → completed/error",
+          "缺结束事件不等于完成"
+        ]
+      },
+      {
+        "id": "structured",
+        "title": "Schema + 语义",
+        "tone": "control",
+        "body": [
+          "解析通过后查字段不变量",
+          "半个 JSON 不当完整结果"
+        ]
+      },
+      {
+        "id": "tool",
+        "title": "Tool 写前权限与幂等",
+        "tone": "control",
+        "body": [
+          "先校验 allowlist、授权与幂等键",
+          "已提交请求先查已有状态"
+        ]
+      },
+      {
+        "id": "async",
+        "title": "Async 状态机",
+        "tone": "process",
+        "body": [
+          "task_id / 签名 / 唯一终态",
+          "部分失败不汇总 completed"
+        ]
+      },
+      {
+        "id": "execute",
+        "title": "Tool 执行",
+        "tone": "process",
+        "body": [
+          "仅执行获准且未提交的新动作",
+          "保存真实返回、超时与取消事件"
+        ]
+      },
+      {
+        "id": "fallback",
+        "title": "失败 / 未知与回退",
+        "tone": "risk",
+        "body": [
+          "执行失败不得继续按成功推理",
+          "超时先查幂等状态，不盲重执行"
+        ]
+      },
+      {
+        "id": "refill",
+        "title": "结果回填与后续内容",
+        "tone": "control",
+        "body": [
+          "请求、执行结果、回填顺序可核对",
+          "失败或未知必须如实回填"
+        ]
+      },
+      {
+        "id": "ledger",
+        "title": "独立副作用账本",
+        "tone": "evidence",
+        "body": [
+          "业务状态、幂等记录与真实写入次数",
+          "同请求查已有结果，不再次执行"
+        ]
+      },
+      {
+        "id": "gate",
+        "title": "协议门禁",
+        "tone": "control",
+        "body": [
+          "过程合法与业务终态分别判定",
+          "回填假成功或重复写入即阻断"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "request",
+        "to": "sse",
+        "label": "流式",
+        "kind": "data"
+      },
+      {
+        "from": "request",
+        "to": "structured",
+        "label": "结构化",
+        "kind": "data"
+      },
+      {
+        "from": "request",
+        "to": "tool",
+        "label": "工具请求",
+        "kind": "data"
+      },
+      {
+        "from": "request",
+        "to": "async",
+        "label": "异步",
+        "kind": "data"
+      },
+      {
+        "from": "tool",
+        "to": "execute",
+        "label": "获准且幂等未命中",
+        "kind": "control"
+      },
+      {
+        "from": "tool",
+        "to": "fallback",
+        "label": "授权拒绝或前置缺失",
+        "kind": "risk"
+      },
+      {
+        "from": "tool",
+        "to": "ledger",
+        "label": "重复请求：先查已有状态",
+        "kind": "evidence"
+      },
+      {
+        "from": "execute",
+        "to": "refill",
+        "label": "执行成功：先回填真实结果",
+        "kind": "control"
+      },
+      {
+        "from": "execute",
+        "to": "fallback",
+        "label": "失败、超时或取消",
+        "kind": "risk"
+      },
+      {
+        "from": "fallback",
+        "to": "ledger",
+        "label": "超时未知：查询幂等状态",
+        "kind": "evidence"
+      },
+      {
+        "from": "fallback",
+        "to": "refill",
+        "label": "回填失败/未知并安全回退",
+        "kind": "control"
+      },
+      {
+        "from": "ledger",
+        "to": "refill",
+        "label": "工具重复请求已有已确认结果",
+        "kind": "evidence"
+      },
+      {
+        "from": "execute",
+        "to": "ledger",
+        "label": "独立核对执行副作用",
+        "kind": "evidence"
+      },
+      {
+        "from": "sse",
+        "to": "ledger",
+        "label": "终态对应的业务状态",
+        "kind": "evidence"
+      },
+      {
+        "from": "structured",
+        "to": "ledger",
+        "label": "字段对应的业务状态",
+        "kind": "evidence"
+      },
+      {
+        "from": "async",
+        "to": "ledger",
+        "label": "任务与回调终态核对",
+        "kind": "evidence"
+      },
+      {
+        "from": "sse",
+        "to": "gate",
+        "label": "事件顺序与结束完整性",
+        "kind": "evidence"
+      },
+      {
+        "from": "structured",
+        "to": "gate",
+        "label": "结构与语义分别出分",
+        "kind": "evidence"
+      },
+      {
+        "from": "async",
+        "to": "gate",
+        "label": "状态集合与回调顺序",
+        "kind": "evidence"
+      },
+      {
+        "from": "refill",
+        "to": "gate",
+        "label": "执行→回填→后续内容的时序",
+        "kind": "evidence"
+      },
+      {
+        "from": "ledger",
+        "to": "gate",
+        "label": "业务终态与至多一次副作用",
+        "kind": "evidence"
+      }
+    ],
+    "ranks": [
+      [
+        "request"
+      ],
+      [
+        "sse",
+        "structured",
+        "async"
+      ],
+      [
+        "tool",
+        "execute",
+        "fallback"
+      ],
+      [
+        "refill",
+        "ledger"
+      ],
+      [
+        "gate"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "过程断言在哪里",
+        "tone": "process",
+        "body": [
+          "SSE 查顺序与结束，JSON 查字段不变量",
+          "Tool 查执行、结果回填与失败回退"
+        ]
+      },
+      {
+        "title": "不能把失败写成成功",
+        "tone": "risk",
+        "body": [
+          "工具获准但执行失败仍须回填失败",
+          "后续内容不能假定工具已经完成"
+        ]
+      },
+      {
+        "title": "怎样安全恢复",
+        "tone": "control",
+        "body": [
+          "断流重试先查幂等状态与真实账本",
+          "回调去重；副作用计数为二必须打红"
+        ]
+      }
+    ],
+    "failure": "取消、断流、工具失败或异步部分失败不能被最终文本掩盖；过程判据与副作用账本分别核对。",
+    "outcome": "交付四协议状态机、工具执行/回填时序、独立账本与故障重放报告。",
+    "boundary": "离线事件和账本 fixture 未运行真实 SSE、代理缓冲、工具或任务队列。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-A02 / 四种协议形态各自必须断言的状态转移",
+        "quote": "事件顺序与工具结果回填的时序"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-A02 / 四种形态各自必须断言的状态转移",
+        "quote": "授权通过但执行失败，模型继续按成功推理"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-A02 / 把流式、工具与异步过程建成状态机：用一个业务例子验证方法，并说明迁移条件",
+        "quote": "副作用账本必须独立于模型文本保存"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-A02 / 把流式、工具与异步过程建成状态机：重放 0 → 1 → 0",
+        "quote": "客户端断连后重试导致工具 side_effect_count=2"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-A02"
+    ],
+    "sha256": "b48bd21f9085f1b1799f6be70ef5978b8793d3ca3da22c10c18315e9dcb8cc8d",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-A02.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-A02.png"
+  },
+  {
+    "path": "visuals/course/TD-A03.svg",
+    "pageIds": [
+      "TD-A03"
+    ],
+    "supplementalSources": [],
+    "id": "TD-A03",
+    "layout": "metric",
+    "title": "从事件复算延迟、有效产出和成本",
+    "thesis": "时间戳、质量判定与所有尝试费用共同决定指标，先固定定义，再比较风险切片。",
+    "focus": "区分每请求延迟、Token 间隔、每时间有效产出和每成功任务成本",
+    "nodes": [
+      {
+        "id": "events",
+        "title": "原始 Token 事件",
+        "tone": "input",
+        "body": [
+          "arrival / first / last / token 数",
+          "验证单调时钟与事件完整"
+        ]
+      },
+      {
+        "id": "ttft",
+        "title": "TTFT",
+        "tone": "evidence",
+        "body": [
+          "首 Token 时刻 − 请求起点",
+          "包含该口径内的排队与 prefill"
+        ]
+      },
+      {
+        "id": "decode",
+        "title": "TPOT 与 ITL",
+        "tone": "evidence",
+        "body": [
+          "TPOT=(last-first)/(tokens-1)",
+          "ITL 保留相邻间隔分布"
+        ]
+      },
+      {
+        "id": "quality",
+        "title": "达标完成判定",
+        "tone": "control",
+        "body": [
+          "质量 / 安全 / 完整性 / SLO",
+          "失败、截断不能计为 good"
+        ]
+      },
+      {
+        "id": "goodput",
+        "title": "Goodput",
+        "tone": "evidence",
+        "body": [
+          "达标完成任务数 ÷ 时间窗",
+          "同时列所有到达及失败数量"
+        ]
+      },
+      {
+        "id": "cost",
+        "title": "单位成功成本",
+        "tone": "evidence",
+        "body": [
+          "全部尝试费用 ÷ 成功任务数",
+          "失败和重试费用保留在分子"
+        ]
+      },
+      {
+        "id": "audit",
+        "title": "切片指标卡",
+        "tone": "control",
+        "body": [
+          "短聊天 / 长报告 / 工具请求",
+          "列样本数、缺失、分位与限制"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "events",
+        "to": "ttft",
+        "label": "到达与首 Token",
+        "kind": "evidence"
+      },
+      {
+        "from": "events",
+        "to": "decode",
+        "label": "逐 Token 时间",
+        "kind": "evidence"
+      },
+      {
+        "from": "events",
+        "to": "quality",
+        "label": "终态与质量记录",
+        "kind": "data"
+      },
+      {
+        "from": "quality",
+        "to": "goodput",
+        "label": "只计同时达标",
+        "kind": "control"
+      },
+      {
+        "from": "quality",
+        "to": "cost",
+        "label": "成功任务计数",
+        "kind": "control"
+      },
+      {
+        "from": "events",
+        "to": "cost",
+        "label": "全尝试成本",
+        "kind": "evidence"
+      },
+      {
+        "from": "ttft",
+        "to": "audit",
+        "label": "体感延迟",
+        "kind": "data"
+      },
+      {
+        "from": "decode",
+        "to": "audit",
+        "label": "生成速度与抖动",
+        "kind": "data"
+      },
+      {
+        "from": "goodput",
+        "to": "audit",
+        "label": "有效容量",
+        "kind": "data"
+      },
+      {
+        "from": "cost",
+        "to": "audit",
+        "label": "经济性",
+        "kind": "data"
+      }
+    ],
+    "ranks": [
+      [
+        "events"
+      ],
+      [
+        "ttft",
+        "decode",
+        "quality"
+      ],
+      [
+        "goodput",
+        "cost"
+      ],
+      [
+        "audit"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "先校验事件",
+        "tone": "data",
+        "body": [
+          "缺 first_token 则对应指标未知",
+          "仅一个 Token 时不除以零"
+        ]
+      },
+      {
+        "title": "本页故障审计",
+        "tone": "risk",
+        "body": [
+          "把质量失败错误计入 Goodput",
+          "丢弃失败费用会低估成功成本"
+        ]
+      },
+      {
+        "title": "报告可复算",
+        "tone": "evidence",
+        "body": [
+          "保留原始事件与过滤条件",
+          "定义、阈值与切片分别声明"
+        ]
+      }
+    ],
+    "failure": "质量条件、时间点或费用缺失时保留 UNKNOWN，不能用总体平均值补齐。",
+    "outcome": "交付公式卡、原始事件、机器可读重算报告与分母审计表。",
+    "boundary": "确定性时间戳 fixture 不代表真实模型、GPU 性能或生产成本。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-A03 / 从时间戳事件算出四个指标",
+        "quote": "满足 SLO 的成功请求数 ÷ 时长"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-A03 / 指标算错分母，比不算更危险",
+        "quote": "它接了很多请求，但大部分慢到用户已经放弃。"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-A03 / 用一个业务例子验证方法，并说明迁移条件",
+        "quote": "原始失败尝试仍要进入成本，不能只保留最后一次。"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-A03"
+    ],
+    "sha256": "2f06920a533ff0b68dee643279c0a1e705852aeb39be82cc61a5619e68605d06",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-A03.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-A03.png"
+  },
+  {
+    "path": "visuals/course/TD-A04.svg",
+    "pageIds": [
+      "TD-A04"
+    ],
+    "supplementalSources": [],
+    "id": "TD-A04",
+    "layout": "metric",
+    "title": "同一负载双模式加压与到达守恒",
+    "thesis": "开环定位外部到达增加时的失守点，闭环诊断单用户上限；每一级先核账再看容量。",
+    "focus": "不画虚构容量数值，展示两种实验、四类结果和停止恢复条件",
+    "nodes": [
+      {
+        "id": "workload",
+        "title": "Workload 分布",
+        "tone": "input",
+        "body": [
+          "Token 长度、缓存与场景固定",
+          "workload hash 绑定本轮输入"
+        ]
+      },
+      {
+        "id": "open",
+        "title": "Open-loop 生成器",
+        "tone": "process",
+        "body": [
+          "固定计划到达率逐级增加",
+          "慢响应不能让发送器自行减压"
+        ]
+      },
+      {
+        "id": "closed",
+        "title": "Closed-loop 生成器",
+        "tone": "process",
+        "body": [
+          "固定并发循环请求",
+          "用于单用户与瓶颈诊断"
+        ]
+      },
+      {
+        "id": "system",
+        "title": "Serving Queue 与 Token 执行",
+        "tone": "process",
+        "body": [
+          "观测排队、执行与资源信号",
+          "核对发送器自身能力"
+        ]
+      },
+      {
+        "id": "ledger",
+        "title": "每级到达守恒",
+        "tone": "evidence",
+        "body": [
+          "计划=完成+失败+dropped+排队",
+          "排空前保留未完成项"
+        ]
+      },
+      {
+        "id": "slo",
+        "title": "SLO 与质量判定",
+        "tone": "control",
+        "body": [
+          "TTFT / TPOT / 成本与质量",
+          "每档分别看风险切片"
+        ]
+      },
+      {
+        "id": "knee",
+        "title": "Goodput 拐点",
+        "tone": "evidence",
+        "body": [
+          "相邻档比较有效产出与违约",
+          "最大吞吐不直接作容量"
+        ]
+      },
+      {
+        "id": "recovery",
+        "title": "停止与恢复验证",
+        "tone": "control",
+        "body": [
+          "首个 SLO 破坏时停止",
+          "保存排空、恢复和安全余量依据"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "workload",
+        "to": "open",
+        "label": "相同请求分布",
+        "kind": "data"
+      },
+      {
+        "from": "workload",
+        "to": "closed",
+        "label": "相同请求分布",
+        "kind": "data"
+      },
+      {
+        "from": "open",
+        "to": "system",
+        "label": "固定外部到达",
+        "kind": "data"
+      },
+      {
+        "from": "closed",
+        "to": "system",
+        "label": "固定并发",
+        "kind": "data"
+      },
+      {
+        "from": "system",
+        "to": "ledger",
+        "label": "所有请求结局",
+        "kind": "evidence"
+      },
+      {
+        "from": "system",
+        "to": "slo",
+        "label": "阶段与质量事件",
+        "kind": "evidence"
+      },
+      {
+        "from": "ledger",
+        "to": "knee",
+        "label": "守恒通过后",
+        "kind": "control"
+      },
+      {
+        "from": "slo",
+        "to": "knee",
+        "label": "有效产出判据",
+        "kind": "control"
+      },
+      {
+        "from": "knee",
+        "to": "recovery",
+        "label": "失守 / 恢复窗口",
+        "kind": "control"
+      }
+    ],
+    "ranks": [
+      [
+        "workload"
+      ],
+      [
+        "open",
+        "closed"
+      ],
+      [
+        "system"
+      ],
+      [
+        "ledger",
+        "slo"
+      ],
+      [
+        "knee",
+        "recovery"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "逐级只改什么",
+        "tone": "control",
+        "body": [
+          "每级只改到达率",
+          "Token、缓存与质量口径不变"
+        ]
+      },
+      {
+        "title": "本页命名故障",
+        "tone": "risk",
+        "body": [
+          "删除 dropped，只报完成数",
+          "守恒不成立即阻断拐点结论"
+        ]
+      },
+      {
+        "title": "余量如何有依据",
+        "tone": "evidence",
+        "body": [
+          "记录首个 SLO 失守与恢复窗口",
+          "安全余量只属于该版本与负载"
+        ]
+      }
+    ],
+    "failure": "守恒不闭合先修生成器或账本；队列无法排空须记录恢复失败。",
+    "outcome": "交付 workload Manifest、到达守恒表、阶梯实验与停止恢复记录。",
+    "boundary": "合成负载与虚拟时间只验证门禁；没有真实 GPU、缓存、容量或生产 SLA 数据。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-A04 / 用到达守恒寻找 fixture 容量拐点",
+        "quote": "计划到达数=完成+失败+dropped+仍排队"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-A04 / 重放 0 → 1 → 0",
+        "quote": "删除 dropped arrivals 并只报告已完成请求，使容量看似提高；守恒 Oracle 必须阻断。"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-A04"
+    ],
+    "sha256": "5a06a3d1a18352796d304b140a3cdfdbd8baad8bb458c08467fae71fe65246e3",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-A04.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-A04.png"
+  },
+  {
+    "path": "visuals/course/TD-A05.svg",
+    "pageIds": [
+      "TD-A05"
+    ],
+    "supplementalSources": [],
+    "id": "TD-A05",
+    "layout": "decision",
+    "title": "慢请求按阶段信号分流，再验证根因",
+    "thesis": "相同总延迟可能来自不同阶段；Trace 支撑候选，单变量干预确认或推翻解释。",
+    "focus": "TTFT、TPOT、KV 与工具信号是判别分支，不是互相依赖的执行步骤",
+    "nodes": [
+      {
+        "id": "trace",
+        "title": "症状与 Request Trace",
+        "tone": "input",
+        "body": [
+          "对齐 request_id、版本与 Token",
+          "阶段时间须能解释总时长"
+        ]
+      },
+      {
+        "id": "queue",
+        "title": "Queue / Prefill 候选",
+        "tone": "process",
+        "body": [
+          "TTFT 高而 TPOT 稳定",
+          "区分排队占比与输入长度"
+        ]
+      },
+      {
+        "id": "decode",
+        "title": "Decode / GPU 候选",
+        "tone": "process",
+        "body": [
+          "TPOT / ITL 与 decode 升高",
+          "GPU 高仅是支持信号"
+        ]
+      },
+      {
+        "id": "kv",
+        "title": "KV Cache 候选",
+        "tone": "process",
+        "body": [
+          "KV 压力伴随 eviction",
+          "核对 preemption 与上下文"
+        ]
+      },
+      {
+        "id": "tool",
+        "title": "下游依赖候选",
+        "tone": "process",
+        "body": [
+          "模型 span 正常、工具耗时高",
+          "核对超时与重试放大"
+        ]
+      },
+      {
+        "id": "experiment",
+        "title": "单变量实验",
+        "tone": "control",
+        "body": [
+          "到达率、长度或 batch 只改一项",
+          "保存支持证据与反证"
+        ]
+      },
+      {
+        "id": "unknown",
+        "title": "UNKNOWN / 补遥测",
+        "tone": "risk",
+        "body": [
+          "queue / profiler 不可见",
+          "缺字段不能当作零"
+        ]
+      },
+      {
+        "id": "verdict",
+        "title": "诊断结论与同负载复跑",
+        "tone": "evidence",
+        "body": [
+          "记录确认或被推翻的假设",
+          "核对质量、成本和回滚"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "trace",
+        "to": "queue",
+        "label": "首字等待异常",
+        "kind": "control"
+      },
+      {
+        "from": "trace",
+        "to": "decode",
+        "label": "生成速度异常",
+        "kind": "control"
+      },
+      {
+        "from": "trace",
+        "to": "kv",
+        "label": "逐出 / 抢占信号",
+        "kind": "control"
+      },
+      {
+        "from": "trace",
+        "to": "tool",
+        "label": "模型外等待",
+        "kind": "control"
+      },
+      {
+        "from": "trace",
+        "to": "unknown",
+        "label": "关键阶段证据缺失",
+        "kind": "risk"
+      },
+      {
+        "from": "queue",
+        "to": "experiment",
+        "label": "改变到达率或输入长度",
+        "kind": "data"
+      },
+      {
+        "from": "decode",
+        "to": "experiment",
+        "label": "改变单一生成变量",
+        "kind": "data"
+      },
+      {
+        "from": "kv",
+        "to": "experiment",
+        "label": "改变长上下文并发",
+        "kind": "data"
+      },
+      {
+        "from": "tool",
+        "to": "experiment",
+        "label": "隔离单一下游",
+        "kind": "data"
+      },
+      {
+        "from": "experiment",
+        "to": "verdict",
+        "label": "比较预期与实际",
+        "kind": "evidence"
+      }
+    ],
+    "ranks": [
+      [
+        "trace"
+      ],
+      [
+        "queue",
+        "decode"
+      ],
+      [
+        "kv",
+        "tool"
+      ],
+      [
+        "experiment",
+        "unknown"
+      ],
+      [
+        "verdict"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "本页错误归因",
+        "tone": "risk",
+        "body": [
+          "忽略 queue_time",
+          "因 GPU 同时升高就认定 GPU"
+        ]
+      },
+      {
+        "title": "反证如何产生",
+        "tone": "process",
+        "body": [
+          "只降低到达率，保持请求形状",
+          "看 queue 与 TTFT 是否一起回落"
+        ]
+      },
+      {
+        "title": "结论怎样交接",
+        "tone": "evidence",
+        "body": [
+          "保留 Trace、资源快照和反证",
+          "未定位项转 telemetry 补齐任务"
+        ]
+      }
+    ],
+    "failure": "多变量同时变化不可归因；缺阶段 Trace 或 profiler 时不得承诺扩容有效。",
+    "outcome": "交付症状分流表、候选根因账本、Trace 对照与单变量实验记录。",
+    "boundary": "离线 telemetry fixture 未运行托管 API、真实 GPU profiler 或 KV Cache。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-A05 / 把协议和决策写成可检查模型",
+        "quote": "保存假设、支持证据、反证、单变量变更和结论"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-A05 / 重放 0 → 1 → 0",
+        "quote": "忽略 queue_time，因 GPU 利用率同时升高便宣称 GPU 是根因"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-A05"
+    ],
+    "sha256": "645ccd88f528bb4e9d21e7fd5cad8a35fd36f621d37b36c0da092bc9fc8cc123",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-A05.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-A05.png"
+  },
+  {
+    "path": "visuals/course/TD-A06.svg",
+    "pageIds": [
+      "TD-A06"
+    ],
+    "supplementalSources": [],
+    "id": "TD-A06",
+    "layout": "state",
+    "title": "恢复动作受错误类别与共享预算约束",
+    "thesis": "可重试不等于应该重试；剩余时间、费用和副作用状态共同决定下一步。",
+    "focus": "429 等待、已提交工具查状态、降级失败转人工与恢复正常的分支",
+    "nodes": [
+      {
+        "id": "error",
+        "title": "错误分类",
+        "tone": "input",
+        "body": [
+          "400 / 401 / 拒绝不盲重试",
+          "429、5xx、超时分别处理"
+        ]
+      },
+      {
+        "id": "budget",
+        "title": "请求级共享预算",
+        "tone": "control",
+        "body": [
+          "attempt / deadline / Token / 费用",
+          "网关、SDK、工具与降级共享额度"
+        ]
+      },
+      {
+        "id": "retry",
+        "title": "有界等待与重试",
+        "tone": "process",
+        "body": [
+          "429 尊重 Retry-After",
+          "退避与 jitter，不同步冲击"
+        ]
+      },
+      {
+        "id": "lookup",
+        "title": "工具幂等状态查询",
+        "tone": "evidence",
+        "body": [
+          "已提交但客户端超时先查询",
+          "同一幂等键副作用至多一"
+        ]
+      },
+      {
+        "id": "fallback",
+        "title": "Fallback 质量门禁",
+        "tone": "control",
+        "body": [
+          "总预算尚足才验质量与安全",
+          "用户提示单独验，降级不等于成功"
+        ]
+      },
+      {
+        "id": "safe",
+        "title": "安全失败 / 转人工",
+        "tone": "risk",
+        "body": [
+          "共享预算硬耗尽或质量/安全失败",
+          "保留真实失败，交接不扩预算"
+        ]
+      },
+      {
+        "id": "recover",
+        "title": "恢复正常路径",
+        "tone": "evidence",
+        "body": [
+          "依赖恢复后小流量验证",
+          "清除残留降级，核对唯一终态"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "error",
+        "to": "budget",
+        "label": "可重试错误 / 主模型暂不可用",
+        "kind": "control"
+      },
+      {
+        "from": "error",
+        "to": "lookup",
+        "label": "工具已提交但结果未知",
+        "kind": "control"
+      },
+      {
+        "from": "error",
+        "to": "safe",
+        "label": "400 / 401 / 策略拒绝：不重试",
+        "kind": "risk"
+      },
+      {
+        "from": "budget",
+        "to": "retry",
+        "label": "可重试且剩余额度允许",
+        "kind": "control"
+      },
+      {
+        "from": "budget",
+        "to": "safe",
+        "label": "共享预算硬耗尽",
+        "kind": "risk"
+      },
+      {
+        "from": "budget",
+        "to": "fallback",
+        "label": "主模型不可用且总预算尚足",
+        "kind": "control"
+      },
+      {
+        "from": "retry",
+        "to": "error",
+        "label": "再次失败重新分类",
+        "kind": "feedback"
+      },
+      {
+        "from": "lookup",
+        "to": "recover",
+        "label": "已完成，返回已有终态",
+        "kind": "evidence"
+      },
+      {
+        "from": "fallback",
+        "to": "safe",
+        "label": "质量或安全门禁失败",
+        "kind": "risk"
+      },
+      {
+        "from": "fallback",
+        "to": "recover",
+        "label": "总预算未越界且复核达标后恢复验证",
+        "kind": "control"
+      },
+      {
+        "from": "retry",
+        "to": "recover",
+        "label": "成功后核对账本",
+        "kind": "evidence"
+      }
+    ],
+    "ranks": [
+      [
+        "error"
+      ],
+      [
+        "budget",
+        "lookup"
+      ],
+      [
+        "retry",
+        "fallback"
+      ],
+      [
+        "safe",
+        "recover"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "故障注入组合",
+        "tone": "risk",
+        "body": [
+          "attempts=8 且忽略 Retry-After",
+          "fallback_quality=false"
+        ]
+      },
+      {
+        "title": "不能重复的副作用",
+        "tone": "control",
+        "body": [
+          "工具超时先查幂等任务状态",
+          "未知结果不能再次提交"
+        ]
+      },
+      {
+        "title": "恢复也是独立测试",
+        "tone": "evidence",
+        "body": [
+          "记录每次退避、费用与实际模型",
+          "降级可见，依赖恢复后再验正常"
+        ]
+      }
+    ],
+    "failure": "任一共享预算硬耗尽或降级质量/安全不达标即安全停止；Fallback 不得绕过总预算或安全拒绝。",
+    "outcome": "交付错误矩阵、请求级预算表、幂等账本与降级恢复演练证据。",
+    "boundary": "离线错误与预算 fixture 未验证真实配额、fallback 模型或生产恢复。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-A06 / 用四类预算约束重试与降级",
+        "quote": "同一幂等键副作用至多一；fallback quality_gate=true 才可使用。"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-A06 / 重放 0 → 1 → 0",
+        "quote": "attempts=8、忽略 Retry-After、fallback_quality=false"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-A06"
+    ],
+    "sha256": "d472a78b358828f67c297a02841b624c7751232e080b60165d98e913259d9ce6",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-A06.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-A06.png"
+  },
+  {
+    "path": "visuals/course/TD-T09.svg",
+    "pageIds": [
+      "TD-T09"
+    ],
+    "supplementalSources": [],
+    "id": "TD-T09",
+    "layout": "flow",
+    "title": "语料准入在嵌入前，撤销传播覆盖副本",
+    "thesis": "先验证权威、版本、语义边界与 ACL，再建可追溯索引；权限撤销还要验证索引和缓存。",
+    "focus": "旧政策误入索引的准入故障，以及变更传播的独立检查",
+    "nodes": [
+      {
+        "id": "source",
+        "title": "权威文档源与 Owner",
+        "tone": "input",
+        "body": [
+          "明确来源、优先级与负责人",
+          "草稿和未知来源不直接准入"
+        ]
+      },
+      {
+        "id": "gate",
+        "title": "版本 / 冲突 Gate",
+        "tone": "control",
+        "body": [
+          "effective_from/to 与 supersedes",
+          "冲突不由模型自行裁决"
+        ]
+      },
+      {
+        "id": "chunk",
+        "title": "分块与 metadata",
+        "tone": "data",
+        "body": [
+          "按语义边界保留 section pointer",
+          "版本、hash 与 parent lineage"
+        ]
+      },
+      {
+        "id": "acl",
+        "title": "Chunk 级 ACL",
+        "tone": "control",
+        "body": [
+          "tenant / role 继承文档权限",
+          "检索使用可执行过滤规则"
+        ]
+      },
+      {
+        "id": "index",
+        "title": "版本化索引",
+        "tone": "process",
+        "body": [
+          "Manifest 锁分块、embedding",
+          "可重建对应文档集合"
+        ]
+      },
+      {
+        "id": "trace",
+        "title": "检索 Trace",
+        "tone": "evidence",
+        "body": [
+          "记录命中 chunk 与 lineage",
+          "无权限身份应无法命中"
+        ]
+      },
+      {
+        "id": "revoke",
+        "title": "删除与撤销传播",
+        "tone": "risk",
+        "body": [
+          "索引、缓存、派生内容均核验",
+          "tombstone / 重建留下收据"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "source",
+        "to": "gate",
+        "label": "批准来源",
+        "kind": "data"
+      },
+      {
+        "from": "gate",
+        "to": "chunk",
+        "label": "有效且冲突已裁决",
+        "kind": "control"
+      },
+      {
+        "from": "chunk",
+        "to": "acl",
+        "label": "权限随内容传播",
+        "kind": "data"
+      },
+      {
+        "from": "acl",
+        "to": "index",
+        "label": "准入后再构建",
+        "kind": "control"
+      },
+      {
+        "from": "index",
+        "to": "trace",
+        "label": "命中与来源",
+        "kind": "evidence"
+      },
+      {
+        "from": "source",
+        "to": "revoke",
+        "label": "下架 / 权限收回",
+        "kind": "control"
+      },
+      {
+        "from": "revoke",
+        "to": "index",
+        "label": "更新 current view",
+        "kind": "control"
+      },
+      {
+        "from": "revoke",
+        "to": "trace",
+        "label": "撤销身份负向验证",
+        "kind": "evidence"
+      }
+    ],
+    "ranks": [
+      [
+        "source",
+        "gate"
+      ],
+      [
+        "chunk",
+        "acl"
+      ],
+      [
+        "index",
+        "revoke"
+      ],
+      [
+        "trace"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "入库前检查",
+        "tone": "control",
+        "body": [
+          "权威、时效、去重与语义边界",
+          "lineage 与 ACL 不得缺失"
+        ]
+      },
+      {
+        "title": "本页故障",
+        "tone": "risk",
+        "body": [
+          "effective_date_checked=false",
+          "旧政策不能进入 current index"
+        ]
+      },
+      {
+        "title": "变更后再验证",
+        "tone": "evidence",
+        "body": [
+          "测权限及删除传播到全部副本",
+          "撤销窗口来自批准 SLO 与 Owner"
+        ]
+      }
+    ],
+    "failure": "缺 Owner、版本、权限或冲突未决则隔离；越权命中不能被平均质量掩盖。",
+    "outcome": "交付语料准入清单、chunk schema、索引版本与撤销传播收据。",
+    "boundary": "本地 0→1→0 仅验证声明字段的门禁；不估计生产语料质量或撤销时效。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T09 / 准入 Gate 发生在 embedding 之前",
+        "quote": "没有 owner、版本或权限的文档不进入当前索引"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T09 / 带走一份语料准入与变更检查清单",
+        "quote": "权限与删除变更必须传播到索引与缓存"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-T09"
+    ],
+    "sha256": "aef15259a958a8aa1115ff353469712abd97ee2b19a06e469d8d6f5850d0b61e",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T09.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T09.png"
+  },
+  {
+    "path": "visuals/course/TD-T10.svg",
+    "pageIds": [
+      "TD-T10"
+    ],
+    "supplementalSources": [],
+    "id": "TD-T10",
+    "layout": "decision",
+    "title": "Gold 在哪一层丢失，就修哪一层",
+    "thesis": "检索和生成独立出分：先找必要证据是否存在、是否召回、如何排序及是否进入最终上下文。",
+    "focus": "Gold/qrels 约束下的召回、排序、上下文与生成故障分流",
+    "nodes": [
+      {
+        "id": "gold",
+        "title": "查询切片与版本化 qrels",
+        "tone": "control",
+        "body": [
+          "绑定 corpus、k 与评测单元",
+          "保留争议及 unjudged 状态"
+        ]
+      },
+      {
+        "id": "corpus",
+        "title": "语料中有必要证据吗",
+        "tone": "data",
+        "body": [
+          "核对 source 与 chunk lineage",
+          "没有则补语料，不换模型"
+        ]
+      },
+      {
+        "id": "retrieval",
+        "title": "候选召回与过滤",
+        "tone": "process",
+        "body": [
+          "raw query / rewrite / filters",
+          "doc_id、score 与索引版本"
+        ]
+      },
+      {
+        "id": "ranking",
+        "title": "Top-k 排序",
+        "tone": "process",
+        "body": [
+          "已召回但被压到 k 之外？",
+          "Recall 与 MRR 不能互替"
+        ]
+      },
+      {
+        "id": "context",
+        "title": "最终 Context",
+        "tone": "data",
+        "body": [
+          "验证相关证据实际进入上下文",
+          "检索命中不等于模型已看到"
+        ]
+      },
+      {
+        "id": "generation",
+        "title": "生成与引用核查",
+        "tone": "ai",
+        "body": [
+          "Context 正确仍答错才到此层",
+          "检查利用、忠实度与引用"
+        ]
+      },
+      {
+        "id": "miss",
+        "title": "Miss reason 与 Owner",
+        "tone": "risk",
+        "body": [
+          "语料 / chunk / rewrite / ACL",
+          "召回、排序或显式 UNKNOWN"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "gold",
+        "to": "corpus",
+        "label": "查必要证据",
+        "kind": "control"
+      },
+      {
+        "from": "corpus",
+        "to": "retrieval",
+        "label": "存在于当前语料",
+        "kind": "data"
+      },
+      {
+        "from": "corpus",
+        "to": "miss",
+        "label": "不存在",
+        "kind": "risk"
+      },
+      {
+        "from": "gold",
+        "to": "retrieval",
+        "label": "独立 relevant 判断",
+        "kind": "control"
+      },
+      {
+        "from": "retrieval",
+        "to": "ranking",
+        "label": "候选已召回",
+        "kind": "data"
+      },
+      {
+        "from": "retrieval",
+        "to": "miss",
+        "label": "未召回 / 过滤误伤",
+        "kind": "risk"
+      },
+      {
+        "from": "ranking",
+        "to": "context",
+        "label": "最终 top-k",
+        "kind": "data"
+      },
+      {
+        "from": "ranking",
+        "to": "miss",
+        "label": "排序压出窗口",
+        "kind": "risk"
+      },
+      {
+        "from": "context",
+        "to": "generation",
+        "label": "上下文充分再测生成",
+        "kind": "control"
+      },
+      {
+        "from": "context",
+        "to": "miss",
+        "label": "组装丢失",
+        "kind": "risk"
+      }
+    ],
+    "ranks": [
+      [
+        "gold"
+      ],
+      [
+        "corpus"
+      ],
+      [
+        "retrieval",
+        "ranking"
+      ],
+      [
+        "context",
+        "miss"
+      ],
+      [
+        "generation"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "取样点逐段保留",
+        "tone": "evidence",
+        "body": [
+          "保存 query、rewrite 与 filters",
+          "候选、位次与最终 Context 分开"
+        ]
+      },
+      {
+        "title": "本页反证",
+        "tone": "risk",
+        "body": [
+          "relevant_doc_recalled=false",
+          "答案碰巧正确也必须检索 FAIL"
+        ]
+      },
+      {
+        "title": "指标转成工作项",
+        "tone": "control",
+        "body": [
+          "Recall 看覆盖，MRR 看首个相关",
+          "每条 miss 绑定修复层与 Owner"
+        ]
+      }
+    ],
+    "failure": "无独立 gold 或争议未裁决保持 UNKNOWN；不能用最终答案正确借分给检索。",
+    "outcome": "交付 per-query 检索报告、miss reason 分布与可定位的修复重跑。",
+    "boundary": "fixture mutation 不证明私有语料召回表现；公开基准阈值不可直接迁移。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T10 / Miss reason 决定修哪一层",
+        "quote": "相关文档已召回但位次低则检查 ranking；文档在 Context 中仍答错才进入生成层。"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T10 / Prompt 只生成候选，Oracle 独立判定",
+        "quote": "`relevant_doc_recalled=false` 触发 FAIL，即使最终答案可能看起来正确"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-T10"
+    ],
+    "sha256": "3a3b7626c3504c9656de5cec88eedf1a12a0fc627f254cb357a5044294c11e81",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T10.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T10.png"
+  },
+  {
+    "path": "visuals/course/TD-T11.svg",
+    "pageIds": [
+      "TD-T11"
+    ],
+    "supplementalSources": [],
+    "id": "TD-T11",
+    "layout": "evidence",
+    "title": "真实引用与上下文支撑分别判定",
+    "thesis": "先查引用存在，再核对实际引用片段与 claim；整份 Context 能支持声明也不能抵消引错文档。",
+    "focus": "保留 claim→citation→span 关联，引用对齐和上下文忠实度独立出分",
+    "nodes": [
+      {
+        "id": "context",
+        "title": "Retrieved Context",
+        "tone": "input",
+        "body": [
+          "冻结本次检索上下文",
+          "来源、版本与 span 可定位"
+        ]
+      },
+      {
+        "id": "answer",
+        "title": "Generated answer",
+        "tone": "ai",
+        "body": [
+          "原始全文和实际 citation_id",
+          "拆分时不丢失声明的引用关系"
+        ]
+      },
+      {
+        "id": "claims",
+        "title": "Atomic claims",
+        "tone": "process",
+        "body": [
+          "claim_id 绑定其实际 citation_id",
+          "可核查声明作为统计分母"
+        ]
+      },
+      {
+        "id": "resolve",
+        "title": "Citation 存在性",
+        "tone": "control",
+        "body": [
+          "引用 ID 属于本次 Context？",
+          "集合核对拦截编造引用"
+        ]
+      },
+      {
+        "id": "spans",
+        "title": "实际被引用片段",
+        "tone": "data",
+        "body": [
+          "claim → 实际 citation → span",
+          "不能用另一文档替换被引片段"
+        ]
+      },
+      {
+        "id": "alignment",
+        "title": "Citation 对齐判定",
+        "tone": "control",
+        "body": [
+          "指定片段是否支持对应 claim",
+          "别处有依据不能抵消错误引用"
+        ]
+      },
+      {
+        "id": "score",
+        "title": "Context Faithfulness",
+        "tone": "evidence",
+        "body": [
+          "独立判断整份上下文是否支持声明",
+          "支持、部分支持、无支撑、矛盾"
+        ]
+      },
+      {
+        "id": "conflict",
+        "title": "Conflict / blocker",
+        "tone": "risk",
+        "body": [
+          "来源冲突、关键无支撑或错误引用",
+          "按 owner 政策独立阻断"
+        ]
+      },
+      {
+        "id": "owner",
+        "title": "Human policy owner",
+        "tone": "control",
+        "body": [
+          "定义关键声明与错误引用政策",
+          "评分器校准，分歧与高风险人审"
+        ]
+      },
+      {
+        "id": "report",
+        "title": "三层分状态报告",
+        "tone": "evidence",
+        "body": [
+          "存在性、引用对齐、忠实度分开",
+          "blocker 不被其他层通过抵消"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "answer",
+        "to": "claims",
+        "label": "拆声明并保留原引用",
+        "kind": "data"
+      },
+      {
+        "from": "answer",
+        "to": "resolve",
+        "label": "原始引用 ID",
+        "kind": "data"
+      },
+      {
+        "from": "context",
+        "to": "resolve",
+        "label": "检索 ID 集合",
+        "kind": "control"
+      },
+      {
+        "from": "resolve",
+        "to": "spans",
+        "label": "存在且位置可解析再取片段",
+        "kind": "control"
+      },
+      {
+        "from": "claims",
+        "to": "spans",
+        "label": "按声明实际引用定位",
+        "kind": "data"
+      },
+      {
+        "from": "context",
+        "to": "spans",
+        "label": "指定文档与原文位置",
+        "kind": "evidence"
+      },
+      {
+        "from": "claims",
+        "to": "alignment",
+        "label": "声明内容",
+        "kind": "data"
+      },
+      {
+        "from": "spans",
+        "to": "alignment",
+        "label": "仅使用实际被引片段",
+        "kind": "evidence"
+      },
+      {
+        "from": "resolve",
+        "to": "score",
+        "label": "存在性通过后另测语义",
+        "kind": "control"
+      },
+      {
+        "from": "context",
+        "to": "score",
+        "label": "整份冻结上下文",
+        "kind": "evidence"
+      },
+      {
+        "from": "claims",
+        "to": "score",
+        "label": "同一原子声明",
+        "kind": "data"
+      },
+      {
+        "from": "context",
+        "to": "conflict",
+        "label": "证据间矛盾须单独检查",
+        "kind": "evidence"
+      },
+      {
+        "from": "resolve",
+        "to": "conflict",
+        "label": "引用不存在",
+        "kind": "risk"
+      },
+      {
+        "from": "alignment",
+        "to": "conflict",
+        "label": "高风险错误引用",
+        "kind": "risk"
+      },
+      {
+        "from": "score",
+        "to": "conflict",
+        "label": "关键无支撑或矛盾",
+        "kind": "risk"
+      },
+      {
+        "from": "owner",
+        "to": "conflict",
+        "label": "已批准 blocker 政策",
+        "kind": "control"
+      },
+      {
+        "from": "score",
+        "to": "owner",
+        "label": "分歧或评分器不可信",
+        "kind": "evidence"
+      },
+      {
+        "from": "resolve",
+        "to": "report",
+        "label": "存在性结果",
+        "kind": "evidence"
+      },
+      {
+        "from": "alignment",
+        "to": "report",
+        "label": "引用对齐结果",
+        "kind": "evidence"
+      },
+      {
+        "from": "score",
+        "to": "report",
+        "label": "忠实度结果",
+        "kind": "evidence"
+      },
+      {
+        "from": "conflict",
+        "to": "report",
+        "label": "独立阻断与来源冲突",
+        "kind": "control"
+      },
+      {
+        "from": "owner",
+        "to": "report",
+        "label": "校准与人工裁决",
+        "kind": "evidence"
+      }
+    ],
+    "ranks": [
+      [
+        "context",
+        "answer"
+      ],
+      [
+        "claims",
+        "resolve"
+      ],
+      [
+        "spans",
+        "score"
+      ],
+      [
+        "alignment",
+        "owner"
+      ],
+      [
+        "conflict",
+        "report"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "引错但仍忠实的反例",
+        "tone": "risk",
+        "body": [
+          "claim 引用 A，只有文档 B 能支持",
+          "忠实度可通过，引用对齐仍失败"
+        ]
+      },
+      {
+        "title": "三层不能互相借分",
+        "tone": "control",
+        "body": [
+          "ID 存在不证明指定片段支持声明",
+          "Context 支持不证明引用位置正确"
+        ]
+      },
+      {
+        "title": "关键错误独立处置",
+        "tone": "evidence",
+        "body": [
+          "人工复核关键无支撑与来源冲突",
+          "逐 claim 留证据与校准后的判定"
+        ]
+      }
+    ],
+    "failure": "编造引用、高风险错误引用、关键无支撑与证据冲突分别阻断；评分器失准回退人审。",
+    "outcome": "交付带实际 citation/span 的声明矩阵、三层报告、冲突与修复收据。",
+    "boundary": "本地字段 mutation 仅证明检测合同；真实 Judge 误差与生产忠实度未实测。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T11 / 给了引用不等于说了实话，这两件事的判据完全不同",
+        "quote": "第二层核查指定引用片段是否支持相邻 claim"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T11 / 给了引用不等于说了实话，这两件事的判据完全不同",
+        "quote": "不能证明上下文事实正确、答案完整或引用对齐"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T11 / 这一页的验收口径：逐条声明，不是整段打分",
+        "quote": "高风险错误引用单独阻断"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T11 / 三个容易混淆的质量问题",
+        "quote": "citation alignment：引用是否对应声明"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-T11"
+    ],
+    "sha256": "f33a842f0541eeff79cc8b826c269de517ccb2d0a62e361eecebf52353457a83",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T11.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T11.png"
+  },
+  {
+    "path": "visuals/course/TD-T12.svg",
+    "pageIds": [
+      "TD-T12"
+    ],
+    "supplementalSources": [],
+    "id": "TD-T12",
+    "layout": "decision",
+    "title": "证据、权限与拒答共同约束 RAG 终态",
+    "thesis": "没有可用依据时拒答或交接；正确答案不能抵消跨租户检索和未授权副作用。",
+    "focus": "已知、无答案、冲突和越权各有可验证终态，先关 blocker 再谈质量",
+    "nodes": [
+      {
+        "id": "corpus",
+        "title": "Versioned corpus",
+        "tone": "input",
+        "body": [
+          "当前权威语料与可引用 lineage",
+          "冻结本次评测集合"
+        ]
+      },
+      {
+        "id": "acl",
+        "title": "Tenant ACL",
+        "tone": "control",
+        "body": [
+          "真实身份执行 chunk 级隔离",
+          "空结果不能扩大权限重搜"
+        ]
+      },
+      {
+        "id": "retrieval",
+        "title": "Retriever / no-result",
+        "tone": "process",
+        "body": [
+          "独立 answerability gold",
+          "非空结果也可能证据不足"
+        ]
+      },
+      {
+        "id": "generate",
+        "title": "Generator",
+        "tone": "ai",
+        "body": [
+          "仅在政策允许的证据范围回答",
+          "不以通用知识静默补齐"
+        ]
+      },
+      {
+        "id": "faith",
+        "title": "Faithfulness · Citation",
+        "tone": "evidence",
+        "body": [
+          "逐 claim 核对支持与冲突",
+          "保留 doc IDs 与 policy reason"
+        ]
+      },
+      {
+        "id": "policy",
+        "title": "Side-effect policy",
+        "tone": "control",
+        "body": [
+          "模型之外执行工具授权",
+          "禁止生成层虚假承诺已执行"
+        ]
+      },
+      {
+        "id": "handoff",
+        "title": "拒答 / Handoff",
+        "tone": "process",
+        "body": [
+          "带查询、租户、检索和已有动作",
+          "交给具名 Owner"
+        ]
+      },
+      {
+        "id": "gate",
+        "title": "独立人工发布 Gate",
+        "tone": "control",
+        "body": [
+          "跨租户与未授权写入先阻断",
+          "质量、成本与延迟随后评估"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "corpus",
+        "to": "acl",
+        "label": "语料与身份",
+        "kind": "data"
+      },
+      {
+        "from": "acl",
+        "to": "retrieval",
+        "label": "授权可见集合",
+        "kind": "control"
+      },
+      {
+        "from": "retrieval",
+        "to": "generate",
+        "label": "有可用证据",
+        "kind": "control"
+      },
+      {
+        "from": "retrieval",
+        "to": "handoff",
+        "label": "不足 / 冲突 / no-answer",
+        "kind": "control"
+      },
+      {
+        "from": "generate",
+        "to": "faith",
+        "label": "回答与引用",
+        "kind": "data"
+      },
+      {
+        "from": "generate",
+        "to": "policy",
+        "label": "动作承诺与工具意图",
+        "kind": "data"
+      },
+      {
+        "from": "faith",
+        "to": "handoff",
+        "label": "无支撑或冲突",
+        "kind": "risk"
+      },
+      {
+        "from": "faith",
+        "to": "gate",
+        "label": "逐条证据",
+        "kind": "evidence"
+      },
+      {
+        "from": "policy",
+        "to": "gate",
+        "label": "独立副作用断言",
+        "kind": "control"
+      },
+      {
+        "from": "handoff",
+        "to": "gate",
+        "label": "交接完整性",
+        "kind": "evidence"
+      },
+      {
+        "from": "acl",
+        "to": "gate",
+        "label": "越权独立 blocker",
+        "kind": "risk"
+      }
+    ],
+    "ranks": [
+      [
+        "corpus",
+        "acl"
+      ],
+      [
+        "retrieval"
+      ],
+      [
+        "generate",
+        "handoff"
+      ],
+      [
+        "faith",
+        "policy"
+      ],
+      [
+        "gate"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "风险样本分开建",
+        "tone": "input",
+        "body": [
+          "known / no-answer / conflict",
+          "cross-tenant / injection"
+        ]
+      },
+      {
+        "title": "本页故障",
+        "tone": "risk",
+        "body": [
+          "acl_denied=false 必须 FAIL",
+          "无答案不能用扩大权限修复"
+        ]
+      },
+      {
+        "title": "交接也是产物",
+        "tone": "evidence",
+        "body": [
+          "保留原因、证据与已执行动作",
+          "真实身份、工具读回迁移时补证"
+        ]
+      }
+    ],
+    "failure": "跨租户、泄露和未授权副作用独立阻断；禁止以综合质量总分抵消。",
+    "outcome": "交付攻击 case matrix、ACL/拒答收据、Handoff 与发布 Gate Runbook。",
+    "boundary": "0→1→0 只证明门禁捕获指定故障，真实租户隔离和生产读回 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T12 / 上线前最后一道门，拦的不是答得好不好",
+        "quote": "检索为空可能是 retriever miss，检索非空也可能没有可用证据。"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T12 / Prompt 只生成候选，Oracle 独立判定",
+        "quote": "`acl_denied=false` 触发 FAIL，证明无答案不能通过扩大权限来“修复”"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-T12"
+    ],
+    "sha256": "a752b1fd1f30bde82a127087333b5a065952f7f50a0ac967d0180f56118e1f72",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T12.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T12.png"
+  },
+  {
+    "path": "visuals/course/TD-X501.svg",
+    "pageIds": [
+      "TD-X501"
+    ],
+    "supplementalSources": [],
+    "id": "TD-X501",
+    "layout": "comparison",
+    "title": "图文关系用配对对照，而非单模态加总",
+    "thesis": "保持模态各自自洽，只翻转一个跨模态关系，再用受保护 Oracle 判定冲突与处置。",
+    "focus": "完整输入、关系错配与缺模态三组对照，共享 pair/group 级判据",
+    "nodes": [
+      {
+        "id": "contract",
+        "title": "任务 / 模态合同",
+        "tone": "control",
+        "body": [
+          "required / optional / conditional",
+          "冻结 pair_id 与关系 gold"
+        ]
+      },
+      {
+        "id": "natural",
+        "title": "一致配对与自然样本",
+        "tone": "input",
+        "body": [
+          "同一事件的截图、语音与文字",
+          "保留原始工件与时间轴"
+        ]
+      },
+      {
+        "id": "flip",
+        "title": "关系错配变体",
+        "tone": "risk",
+        "body": [
+          "只翻转实体、属性或时序之一",
+          "各模态内部仍自洽"
+        ]
+      },
+      {
+        "id": "missing",
+        "title": "缺模态组合",
+        "tone": "risk",
+        "body": [
+          "图片失败 / 音频截断 / OCR 空",
+          "关键缺失无降级则阻断"
+        ]
+      },
+      {
+        "id": "relation",
+        "title": "跨模态关系被测项",
+        "tone": "process",
+        "body": [
+          "检测、定位与处置分别记录",
+          "单模态高分不能抵消"
+        ]
+      },
+      {
+        "id": "oracle",
+        "title": "独立关系 Oracle",
+        "tone": "control",
+        "body": [
+          "受保护 gold / 元数据 / 状态",
+          "grader 需 meta-eval 与盲化"
+        ]
+      },
+      {
+        "id": "slices",
+        "title": "Pair / group 切片结果",
+        "tone": "evidence",
+        "body": [
+          "按模态、设备、任务与清晰度",
+          "报告配对 flip 与拒答 / 误拒"
+        ]
+      },
+      {
+        "id": "human",
+        "title": "争议与高风险人工复核",
+        "tone": "process",
+        "body": [
+          "保留冲突样本和裁决理由",
+          "未解决冲突不生业务结论"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "contract",
+        "to": "natural",
+        "label": "原始对照",
+        "kind": "data"
+      },
+      {
+        "from": "contract",
+        "to": "flip",
+        "label": "批准关系变异",
+        "kind": "data"
+      },
+      {
+        "from": "contract",
+        "to": "missing",
+        "label": "声明缺失组合",
+        "kind": "data"
+      },
+      {
+        "from": "natural",
+        "to": "relation",
+        "label": "一致输入",
+        "kind": "data"
+      },
+      {
+        "from": "flip",
+        "to": "relation",
+        "label": "冲突输入",
+        "kind": "data"
+      },
+      {
+        "from": "missing",
+        "to": "relation",
+        "label": "不完整输入",
+        "kind": "data"
+      },
+      {
+        "from": "oracle",
+        "to": "relation",
+        "label": "独立判断关系",
+        "kind": "control"
+      },
+      {
+        "from": "relation",
+        "to": "slices",
+        "label": "关系与识别分别出分",
+        "kind": "evidence"
+      },
+      {
+        "from": "slices",
+        "to": "human",
+        "label": "争议 / 高风险",
+        "kind": "control"
+      }
+    ],
+    "ranks": [
+      [
+        "contract"
+      ],
+      [
+        "natural",
+        "flip",
+        "missing"
+      ],
+      [
+        "relation",
+        "oracle"
+      ],
+      [
+        "slices",
+        "human"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "为什么需要配对",
+        "tone": "process",
+        "body": [
+          "单次只翻转一个关系",
+          "自然样本与受控反例共同覆盖"
+        ]
+      },
+      {
+        "title": "本页故障收据",
+        "tone": "risk",
+        "body": [
+          "图文矛盾并移除独立 Oracle",
+          "alignment 与 independent 同红"
+        ]
+      },
+      {
+        "title": "缺失不是脑补许可",
+        "tone": "control",
+        "body": [
+          "关键模态缺失要拒答或交接",
+          "grader 无权改 gold 或自批"
+        ]
+      }
+    ],
+    "failure": "高风险冲突未解决、关键模态缺失或受保护 Oracle 缺失时阻断自动晋级。",
+    "outcome": "交付 pair manifest、关系矩阵、冲突与缺失反例及独立复核记录。",
+    "boundary": "合成配对 fault 不证明真实设备、音画同步、标注者或生产分布。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-X501 / 多模态的失败不在单个模态里，在模态之间的关系里",
+        "quote": "只翻转一个实体、属性、时序或语义关系"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-X501 / TD-X501 Fault（退出 1）：让目标故障被点名",
+        "quote": "cross_modal_alignment 与 oracle_independent 必须变红。"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-X501"
+    ],
+    "sha256": "214347126a5d328adcc2ab8711f67b98899e6deba9ede8ef5d1b5efcb8c0b513",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-X501.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X501.png"
+  },
+  {
+    "path": "visuals/course/TD-X502.svg",
+    "pageIds": [
+      "TD-X502"
+    ],
+    "supplementalSources": [],
+    "id": "TD-X502",
+    "layout": "comparison",
+    "title": "支持范围必须闭合到逐切片任务证据",
+    "thesis": "locale、书写系统、翻译语义与可访问性分别验证，支持声明只能覆盖已验证的任务切片。",
+    "focus": "同一用户任务在不同 locale/script/辅助技术下的独立证据面",
+    "nodes": [
+      {
+        "id": "task",
+        "title": "真实用户任务",
+        "tone": "input",
+        "body": [
+          "中英阿拉伯语 AI 表单",
+          "原生任务为主，翻译只作对照"
+        ]
+      },
+      {
+        "id": "matrix",
+        "title": "Locale / Script 矩阵",
+        "tone": "data",
+        "body": [
+          "locale × script × task",
+          "已测、部分与未验证明确标记"
+        ]
+      },
+      {
+        "id": "locale",
+        "title": "地区与书写系统",
+        "tone": "process",
+        "body": [
+          "日期、金额、RTL 与组合字符",
+          "查截断、光标、拼接与输入顺序"
+        ]
+      },
+      {
+        "id": "semantic",
+        "title": "语义等价",
+        "tone": "control",
+        "body": [
+          "必须不能被翻译成建议",
+          "独立标签与本地领域裁决"
+        ]
+      },
+      {
+        "id": "access",
+        "title": "键盘与名称 Oracle",
+        "tone": "control",
+        "body": [
+          "Label in Name / Name Role Value",
+          "焦点、状态与辅助技术任务"
+        ]
+      },
+      {
+        "id": "slice",
+        "title": "逐 Slice 运行证据",
+        "tone": "evidence",
+        "body": [
+          "successes/n 与失败类型",
+          "关键 blocker 不被平均值抵消"
+        ]
+      },
+      {
+        "id": "owner",
+        "title": "本地化 Owner",
+        "tone": "process",
+        "body": [
+          "按语言、地区与领域裁决",
+          "文化语义未审查保持 UNKNOWN"
+        ]
+      },
+      {
+        "id": "claim",
+        "title": "支持声明闭包",
+        "tone": "control",
+        "body": [
+          "claimed − verified = 空集",
+          "缺证据写 PARTIAL / UNVERIFIED"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "task",
+        "to": "matrix",
+        "label": "定义目标覆盖",
+        "kind": "data"
+      },
+      {
+        "from": "matrix",
+        "to": "locale",
+        "label": "格式与方向分支",
+        "kind": "data"
+      },
+      {
+        "from": "matrix",
+        "to": "semantic",
+        "label": "语言约束分支",
+        "kind": "data"
+      },
+      {
+        "from": "matrix",
+        "to": "access",
+        "label": "交互证据分支",
+        "kind": "data"
+      },
+      {
+        "from": "locale",
+        "to": "slice",
+        "label": "完整任务结果",
+        "kind": "evidence"
+      },
+      {
+        "from": "semantic",
+        "to": "slice",
+        "label": "独立语义标签",
+        "kind": "evidence"
+      },
+      {
+        "from": "access",
+        "to": "slice",
+        "label": "规范与任务分别留证",
+        "kind": "evidence"
+      },
+      {
+        "from": "slice",
+        "to": "owner",
+        "label": "关键分歧与未验证项",
+        "kind": "data"
+      },
+      {
+        "from": "owner",
+        "to": "claim",
+        "label": "署名批准范围",
+        "kind": "control"
+      },
+      {
+        "from": "slice",
+        "to": "claim",
+        "label": "支持集合核对",
+        "kind": "evidence"
+      }
+    ],
+    "ranks": [
+      [
+        "task",
+        "matrix"
+      ],
+      [
+        "locale",
+        "semantic",
+        "access"
+      ],
+      [
+        "slice",
+        "owner"
+      ],
+      [
+        "claim"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "不外推英文结果",
+        "tone": "control",
+        "body": [
+          "每个声明支持的 slice 单独验",
+          "二级汇总不能覆盖关键失败"
+        ]
+      },
+      {
+        "title": "本页故障",
+        "tone": "risk",
+        "body": [
+          "删除必需 locale",
+          "破坏键盘与可访问名称"
+        ]
+      },
+      {
+        "title": "可访问性证据边界",
+        "tone": "evidence",
+        "body": [
+          "声明 WCAG 版本、级别与范围",
+          "语义树、AT 与用户任务分层留证"
+        ]
+      }
+    ],
+    "failure": "缺必要 locale、键盘或名称 blocker 时阻断相应支持声明，不能删除用户任务求绿。",
+    "outcome": "交付语言与可访问任务矩阵、阻断切片、本地化裁决和支持范围清单。",
+    "boundary": "离线合同不证明真实用户、辅助技术设备、文化伤害、法律或整体包容性。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-X502 / 这一页的验收口径：先守切片门禁，再做透明汇总",
+        "quote": "对外声明的支持集合必须是已验证集合的子集。"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-X502 / TD-X502 Fault（退出 1）：让目标故障被点名",
+        "quote": "required_locales_covered 和 keyboard_and_name_gate 必须变红。"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-X502"
+    ],
+    "sha256": "db8a5afcc874136157e79ab4018cb3f8f84d709a40b25946c667b372412bc81a",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-X502.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X502.png"
+  },
+  {
+    "path": "visuals/course/TD-T13.svg",
+    "pageIds": [
+      "TD-T13"
+    ],
+    "supplementalSources": [],
+    "id": "TD-T13",
+    "layout": "metric",
+    "title": "冻结同一任务，比较唯一变更的配对差值",
+    "thesis": "A/B Manifest 先证明可比，再看逐题重复结果、风险 blocker 与成本，最后决定是否换版。",
+    "focus": "并列 A/B 实验共享冻结评测协议，混杂和高风险回归各有独立否决路径",
+    "nodes": [
+      {
+        "id": "frozen",
+        "title": "冻结评测协议",
+        "tone": "control",
+        "body": [
+          "eval、Judge、预算与缓存固定",
+          "预注册效应量或非劣界"
+        ]
+      },
+      {
+        "id": "manifest",
+        "title": "Versioned A/B manifests",
+        "tone": "data",
+        "body": [
+          "模型 / Prompt / 索引逐字段 diff",
+          "组件归因只允许一个变量"
+        ]
+      },
+      {
+        "id": "a",
+        "title": "A 重复运行",
+        "tone": "process",
+        "body": [
+          "按 case_id 保存原始输出",
+          "引用、延迟与全部费用"
+        ]
+      },
+      {
+        "id": "b",
+        "title": "B 重复运行",
+        "tone": "process",
+        "body": [
+          "相同任务、重复次数与预算",
+          "不挑最好的一次当 winner"
+        ]
+      },
+      {
+        "id": "invalid",
+        "title": "INVALID_COMPARISON",
+        "tone": "risk",
+        "body": [
+          "多锁定字段变化 / 评分器漂移",
+          "停止组件因果归因"
+        ]
+      },
+      {
+        "id": "delta",
+        "title": "配对差值与切片 Oracle",
+        "tone": "evidence",
+        "body": [
+          "按任务或会话簇分析差值区间",
+          "退款 blocker 独立判定"
+        ]
+      },
+      {
+        "id": "ledger",
+        "title": "Cost / Latency ledger",
+        "tone": "evidence",
+        "body": [
+          "风险切片分母不漂移",
+          "成本上升与质量收益一起报"
+        ]
+      },
+      {
+        "id": "owner",
+        "title": "Human release / rollback",
+        "tone": "control",
+        "body": [
+          "决定范围与业务收益是否值得",
+          "回退 A 的完整组合 Manifest"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "frozen",
+        "to": "a",
+        "label": "同一合同",
+        "kind": "control"
+      },
+      {
+        "from": "frozen",
+        "to": "b",
+        "label": "同一合同",
+        "kind": "control"
+      },
+      {
+        "from": "manifest",
+        "to": "a",
+        "label": "A 固定组合",
+        "kind": "data"
+      },
+      {
+        "from": "manifest",
+        "to": "b",
+        "label": "B 唯一变更",
+        "kind": "data"
+      },
+      {
+        "from": "manifest",
+        "to": "invalid",
+        "label": "锁定字段不一致",
+        "kind": "risk"
+      },
+      {
+        "from": "a",
+        "to": "delta",
+        "label": "逐题结果",
+        "kind": "evidence"
+      },
+      {
+        "from": "b",
+        "to": "delta",
+        "label": "配对结果",
+        "kind": "evidence"
+      },
+      {
+        "from": "a",
+        "to": "ledger",
+        "label": "成本延迟",
+        "kind": "data"
+      },
+      {
+        "from": "b",
+        "to": "ledger",
+        "label": "同预算台账",
+        "kind": "data"
+      },
+      {
+        "from": "delta",
+        "to": "owner",
+        "label": "差值与 blocker",
+        "kind": "control"
+      },
+      {
+        "from": "ledger",
+        "to": "owner",
+        "label": "经济性与残余风险",
+        "kind": "evidence"
+      }
+    ],
+    "ranks": [
+      [
+        "frozen",
+        "manifest"
+      ],
+      [
+        "a",
+        "b"
+      ],
+      [
+        "invalid",
+        "delta",
+        "ledger"
+      ],
+      [
+        "owner"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "可比性先否决",
+        "tone": "control",
+        "body": [
+          "eval、Judge 与缓存不可偷换",
+          "完整包变更不自动证明组件因果"
+        ]
+      },
+      {
+        "title": "高风险不能平均",
+        "tone": "risk",
+        "body": [
+          "FAQ 提升不能掩盖退款错误承诺",
+          "切片分母漂移需恢复后重跑"
+        ]
+      },
+      {
+        "title": "决策必须可撤销",
+        "tone": "evidence",
+        "body": [
+          "保留逐题 flip 与原始失败",
+          "交付 A hash、restore log 与 Owner"
+        ]
+      }
+    ],
+    "failure": "混杂、多评分协议或高风险 blocker 时不允许宣称候选获胜；证据不足保持 UNKNOWN。",
+    "outcome": "交付 A/B manifest diff、配对表、切片成本台账、回退与 Owner 决策卡。",
+    "boundary": "fixture 比较不代表真实用户或在线检索；Provider、实践者与生产门禁另行取证。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T13 / 这一页的验收口径：分析差值，而不是比较两个边际区间",
+        "quote": "两个版本各自的置信区间是否重叠不能替代差值分析。"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T13 / 架构、输入契约与可观察证据",
+        "quote": "高风险退款样例出现 blocker 时，即使总分更高也不能获胜。"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-T13"
+    ],
+    "sha256": "6408860ed2bedfe22f9dd23f5ca36279296836b5b989ed2efe5d7917aef9f6d8",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T13.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T13.png"
+  },
+  {
+    "path": "visuals/course/TD-T14.svg",
+    "pageIds": [
+      "TD-T14"
+    ],
+    "supplementalSources": [],
+    "id": "TD-T14",
+    "layout": "evidence",
+    "title": "Judge 的自动评分权限来自校准证据",
+    "thesis": "先处理人工标注分歧，再用盲评、顺序与长度探针量出 Judge 的适用范围。",
+    "focus": "受保护金标与版本化 Judge 对照，失败切片回退人审而非继续自动放行",
+    "nodes": [
+      {
+        "id": "humans",
+        "title": "Double human labels",
+        "tone": "input",
+        "body": [
+          "两名领域人员独立标注",
+          "先看人人分歧与 rubric 歧义"
+        ]
+      },
+      {
+        "id": "gold",
+        "title": "裁决 Gold 与 rubric",
+        "tone": "control",
+        "body": [
+          "保存理由、政策版本和风险标签",
+          "人工未共识则 UNKNOWN"
+        ]
+      },
+      {
+        "id": "shuffle",
+        "title": "Blind pair shuffle",
+        "tone": "process",
+        "body": [
+          "隐藏候选身份并双向 A/B、B/A",
+          "顺序交换观测翻转"
+        ]
+      },
+      {
+        "id": "probes",
+        "title": "Bias probes",
+        "tone": "risk",
+        "body": [
+          "同事实不同长度 / 风格",
+          "事实近邻反例与外部 reference"
+        ]
+      },
+      {
+        "id": "judge",
+        "title": "Versioned Judge",
+        "tone": "ai",
+        "body": [
+          "固定模型、温度与完整 rubric",
+          "新版本须重做目标域校准"
+        ]
+      },
+      {
+        "id": "matrix",
+        "title": "Disagreement matrix",
+        "tone": "evidence",
+        "body": [
+          "关键错误、位置翻转与切片误差",
+          "总 agreement 不能替代分类"
+        ]
+      },
+      {
+        "id": "escalate",
+        "title": "Human escalation",
+        "tone": "control",
+        "body": [
+          "自动 / 抽检 / 人工权限分档",
+          "违反门槛停用并回退人审"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "humans",
+        "to": "gold",
+        "label": "先裁决分歧",
+        "kind": "control"
+      },
+      {
+        "from": "gold",
+        "to": "shuffle",
+        "label": "受保护样本",
+        "kind": "data"
+      },
+      {
+        "from": "gold",
+        "to": "probes",
+        "label": "构造近邻与偏差对照",
+        "kind": "data"
+      },
+      {
+        "from": "shuffle",
+        "to": "judge",
+        "label": "盲化双向输入",
+        "kind": "data"
+      },
+      {
+        "from": "probes",
+        "to": "judge",
+        "label": "同事实扰动",
+        "kind": "data"
+      },
+      {
+        "from": "judge",
+        "to": "matrix",
+        "label": "原始判定",
+        "kind": "evidence"
+      },
+      {
+        "from": "gold",
+        "to": "matrix",
+        "label": "人工共识参考",
+        "kind": "control"
+      },
+      {
+        "from": "matrix",
+        "to": "escalate",
+        "label": "已知误差与失败切片",
+        "kind": "control"
+      },
+      {
+        "from": "matrix",
+        "to": "gold",
+        "label": "复审 rubric 与争议 gold",
+        "kind": "feedback"
+      }
+    ],
+    "ranks": [
+      [
+        "humans",
+        "gold"
+      ],
+      [
+        "shuffle",
+        "probes"
+      ],
+      [
+        "judge"
+      ],
+      [
+        "matrix",
+        "escalate"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "三个偏差切片",
+        "tone": "risk",
+        "body": [
+          "顺序翻转、冗长扰动分别测",
+          "过期政策事实错误单独拦"
+        ]
+      },
+      {
+        "title": "仪器也需回归",
+        "tone": "evidence",
+        "body": [
+          "Judge Card 保存版本与样本量",
+          "换模型或 rubric 旧收据失效"
+        ]
+      },
+      {
+        "title": "独立性怎样证明",
+        "tone": "control",
+        "body": [
+          "外部 reference、盲化与第二判据",
+          "换模型名称本身不能证明独立"
+        ]
+      }
+    ],
+    "failure": "人人标准未稳定先修 rubric；关键错误或重复稳定性失败须停自动评分。",
+    "outcome": "交付 Judge Card、逐类分歧、偏差探针结果与人工升级范围。",
+    "boundary": "教学种子与离线门禁不证明生产 Judge 可用；阈值必须绑定目标风险与正式校准。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T14 / 校准的五个步骤与各自的判据",
+        "quote": "人人一致性低时，问题在评分标准而不在 Judge，先改 rubric。"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T14 / 架构节点与交付物",
+        "quote": "Judge 违反预注册的关键错误、切片或稳定性门槛时必须停用并回退人审"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-T14"
+    ],
+    "sha256": "bf506e1f4023ea56ad134afd2421508d23d6bac30ff2e322b9e9294b8cc4d346",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T14.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T14.png"
+  },
+  {
+    "path": "visuals/course/TD-T15.svg",
+    "pageIds": [
+      "TD-T15"
+    ],
+    "supplementalSources": [],
+    "id": "TD-T15",
+    "layout": "layers",
+    "title": "Agent 的结果、单步与轨迹分别判定",
+    "thesis": "最终转人工可以正确，途中调用禁止的退款工具仍须失败；合法替代路径应被允许。",
+    "focus": "三层并列证据与横切策略 blocker，不用一条黄金路径或一个总分替代",
+    "nodes": [
+      {
+        "id": "state",
+        "title": "State snapshots",
+        "tone": "data",
+        "body": [
+          "关键步骤前后业务状态",
+          "副作用不靠模型自述"
+        ]
+      },
+      {
+        "id": "ledger",
+        "title": "Tool step ledger",
+        "tone": "data",
+        "body": [
+          "逐次工具、参数、返回与耗时",
+          "记录被后端拒绝的尝试"
+        ]
+      },
+      {
+        "id": "outcome",
+        "title": "Business outcome",
+        "tone": "evidence",
+        "body": [
+          "数据库终态是否满足业务条件",
+          "最终回复只作辅助证据"
+        ]
+      },
+      {
+        "id": "step",
+        "title": "Step 判定",
+        "tone": "control",
+        "body": [
+          "工具、参数、权限与前置条件",
+          "refund_order 被禁止即失败"
+        ]
+      },
+      {
+        "id": "trajectory",
+        "title": "Trajectory graph",
+        "tone": "process",
+        "body": [
+          "观察利用、重试、Handoff 与停止",
+          "定位首错 span 与无效循环"
+        ]
+      },
+      {
+        "id": "policy",
+        "title": "Policy blockers",
+        "tone": "risk",
+        "body": [
+          "禁止动作横切三层",
+          "结果正确也不能抵消越权"
+        ]
+      },
+      {
+        "id": "human",
+        "title": "Human decision",
+        "tone": "control",
+        "body": [
+          "三层分别出结论",
+          "检查必要不变量与安全替代路径"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "state",
+        "to": "outcome",
+        "label": "独立终态读回",
+        "kind": "evidence"
+      },
+      {
+        "from": "ledger",
+        "to": "step",
+        "label": "逐调用核验",
+        "kind": "evidence"
+      },
+      {
+        "from": "state",
+        "to": "trajectory",
+        "label": "状态迁移",
+        "kind": "evidence"
+      },
+      {
+        "from": "ledger",
+        "to": "trajectory",
+        "label": "动作与观察序列",
+        "kind": "evidence"
+      },
+      {
+        "from": "policy",
+        "to": "step",
+        "label": "写前禁止约束",
+        "kind": "control"
+      },
+      {
+        "from": "step",
+        "to": "human",
+        "label": "单步合法性",
+        "kind": "data"
+      },
+      {
+        "from": "outcome",
+        "to": "human",
+        "label": "业务完成性",
+        "kind": "data"
+      },
+      {
+        "from": "trajectory",
+        "to": "human",
+        "label": "整条路径可接受性",
+        "kind": "data"
+      },
+      {
+        "from": "policy",
+        "to": "human",
+        "label": "任一禁止动作独立否决",
+        "kind": "risk"
+      }
+    ],
+    "ranks": [
+      [
+        "state",
+        "ledger"
+      ],
+      [
+        "outcome",
+        "step",
+        "trajectory"
+      ],
+      [
+        "policy",
+        "human"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "本页反例",
+        "tone": "risk",
+        "body": [
+          "最终回复正确：转人工",
+          "途中 refund_order 调用仍违规"
+        ]
+      },
+      {
+        "title": "逐 Span 查什么",
+        "tone": "process",
+        "body": [
+          "工具选择、参数、观测利用",
+          "步骤必要性与首错位置"
+        ]
+      },
+      {
+        "title": "别错杀安全路径",
+        "tone": "control",
+        "body": [
+          "写必须检查与禁止动作",
+          "不要求所有任务复刻唯一顺序"
+        ]
+      }
+    ],
+    "failure": "缺完整轨迹或业务终态证据保持 UNKNOWN；不能将越权平均为小额扣分。",
+    "outcome": "交付三层判据表、工具台账、状态快照、轨迹标注与人工评审。",
+    "boundary": "离线轨迹门禁不证明真实 Agent 安全；未执行模型、业务工具和生产验证。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T15 / 三层判定各自靠什么观测",
+        "quote": "四行是并列不是递进"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T15 / 架构、输入契约与可观察证据",
+        "quote": "只要轨迹出现 refund_order 调用，step 层就必须失败。"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-T15"
+    ],
+    "sha256": "552b3c6ada9517775eca39053e70094650aa6d5e30e11dacac2fa4734576fae5",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T15.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T15.png"
+  },
+  {
+    "path": "visuals/course/TD-T16.svg",
+    "pageIds": [
+      "TD-T16"
+    ],
+    "supplementalSources": [],
+    "id": "TD-T16",
+    "layout": "sequence",
+    "title": "动作先对照任务，再过写前授权",
+    "thesis": "动作正确性与执行权限分别验证：工具和参数符合批准任务，仍须通过模型之外的身份、边界、幂等与审批。",
+    "focus": "独立 expected tool/args、模型候选、策略决定和后端副作用分别保存",
+    "nodes": [
+      {
+        "id": "candidate",
+        "title": "批准任务与候选调用",
+        "tone": "input",
+        "body": [
+          "批准任务与模型候选分别留存",
+          "tool_name / args / caller / tenant"
+        ]
+      },
+      {
+        "id": "action",
+        "title": "动作正确性独立评测",
+        "tone": "control",
+        "body": [
+          "按批准 action contract 核对工具和参数",
+          "工具选择与参数匹配分别出分"
+        ]
+      },
+      {
+        "id": "identity",
+        "title": "Identity verifier",
+        "tone": "control",
+        "body": [
+          "候选调用绑定 caller 与 tenant",
+          "伪造身份或跨租户即拒绝"
+        ]
+      },
+      {
+        "id": "registry",
+        "title": "Tool registry",
+        "tone": "control",
+        "body": [
+          "工具描述 hash、Schema 与最小 scope",
+          "不存在或未获授权工具不执行"
+        ]
+      },
+      {
+        "id": "policy",
+        "title": "Policy engine",
+        "tone": "control",
+        "body": [
+          "金额单位、上下界与查询范围",
+          "合法范围不能代替任务参数匹配"
+        ]
+      },
+      {
+        "id": "idempotency",
+        "title": "Idempotency store",
+        "tone": "data",
+        "body": [
+          "持久化 request_id 与幂等 receipt",
+          "重复投递返回已有状态"
+        ]
+      },
+      {
+        "id": "approval",
+        "title": "Human approval",
+        "tone": "control",
+        "body": [
+          "按 action contract 判断审批条件",
+          "高危动作必须在写前获批准"
+        ]
+      },
+      {
+        "id": "adapter",
+        "title": "Sandbox adapter",
+        "tone": "process",
+        "body": [
+          "动作、权限、审批均满足才执行",
+          "真实写端点另行集成取证"
+        ]
+      },
+      {
+        "id": "receipt",
+        "title": "分栏评测与审计收据",
+        "tone": "evidence",
+        "body": [
+          "动作匹配、策略、执行与审计分栏",
+          "write_count 与幂等结果可查询"
+        ]
+      },
+      {
+        "id": "deny",
+        "title": "测试失败 / 写前拒绝",
+        "tone": "risk",
+        "body": [
+          "动作不匹配与 policy 拒绝分开",
+          "记录原因、Trace 与 zero-write"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "candidate",
+        "to": "action",
+        "label": "期望与候选独立对照",
+        "kind": "data"
+      },
+      {
+        "from": "candidate",
+        "to": "identity",
+        "label": "绕过模型回放负控，不预筛坏参数",
+        "kind": "control"
+      },
+      {
+        "from": "action",
+        "to": "identity",
+        "label": "正向基线匹配后仍走写前链",
+        "kind": "control"
+      },
+      {
+        "from": "action",
+        "to": "deny",
+        "label": "工具错误或参数不符任务",
+        "kind": "risk"
+      },
+      {
+        "from": "identity",
+        "to": "registry",
+        "label": "身份与租户通过",
+        "kind": "control"
+      },
+      {
+        "from": "registry",
+        "to": "policy",
+        "label": "scope 与 Schema 通过",
+        "kind": "control"
+      },
+      {
+        "from": "registry",
+        "to": "deny",
+        "label": "未知工具、scope 或结构拒绝",
+        "kind": "risk"
+      },
+      {
+        "from": "policy",
+        "to": "idempotency",
+        "label": "参数在批准边界内",
+        "kind": "control"
+      },
+      {
+        "from": "idempotency",
+        "to": "approval",
+        "label": "新请求：判断审批条件",
+        "kind": "control"
+      },
+      {
+        "from": "approval",
+        "to": "adapter",
+        "label": "需要审批且批准已核验",
+        "kind": "control"
+      },
+      {
+        "from": "approval",
+        "to": "adapter",
+        "label": "契约明确无需人工审批",
+        "kind": "control"
+      },
+      {
+        "from": "approval",
+        "to": "deny",
+        "label": "需要审批但未获批准",
+        "kind": "risk"
+      },
+      {
+        "from": "adapter",
+        "to": "receipt",
+        "label": "独立核对实际结果与写入",
+        "kind": "evidence"
+      },
+      {
+        "from": "identity",
+        "to": "deny",
+        "label": "身份 / 租户不符",
+        "kind": "risk"
+      },
+      {
+        "from": "policy",
+        "to": "deny",
+        "label": "金额 / 范围越界",
+        "kind": "risk"
+      },
+      {
+        "from": "idempotency",
+        "to": "receipt",
+        "label": "重复键查询已有收据",
+        "kind": "evidence"
+      },
+      {
+        "from": "action",
+        "to": "receipt",
+        "label": "工具选择和参数匹配两项结果",
+        "kind": "evidence"
+      },
+      {
+        "from": "deny",
+        "to": "receipt",
+        "label": "失败/拒绝与 zero-write 对账",
+        "kind": "evidence"
+      }
+    ],
+    "ranks": [
+      [
+        "candidate",
+        "action"
+      ],
+      [
+        "identity",
+        "registry"
+      ],
+      [
+        "policy",
+        "idempotency"
+      ],
+      [
+        "approval",
+        "adapter"
+      ],
+      [
+        "deny",
+        "receipt"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "合法不等于做对",
+        "tone": "risk",
+        "body": [
+          "工具可调用、参数未越界也可能选错",
+          "同租户错订单仍应动作评测失败"
+        ]
+      },
+      {
+        "title": "绕过模型测控制",
+        "tone": "process",
+        "body": [
+          "负控直接进入授权链，不先筛掉坏参数",
+          "分别验证动作判定与控制能否拒绝"
+        ]
+      },
+      {
+        "title": "不能只看 denied",
+        "tone": "evidence",
+        "body": [
+          "工具选择、参数匹配与拒绝各自报告",
+          "核对真实 write_count 和审计收据"
+        ]
+      }
+    ],
+    "failure": "动作不符任务、写前控制缺失或非法副作用均失败；不得以授权通过代替动作正确。",
+    "outcome": "交付 action contract、工具/参数分项评测、七环位置表与 zero-write 证据。",
+    "boundary": "固定任务夹具与录制沙箱不证明真实意图理解、凭据、写端点、补偿或组织批准有效。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T16 / 这一页的验收口径：测控制，不测服从性",
+        "quote": "工具选择与参数匹配分开报告"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T16 / 架构、输入契约与可观察证据",
+        "quote": "为每个工具声明 Schema、最小权限、副作用、幂等键与审批条件"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T16 / 专业问题、失败成本与决策权",
+        "quote": "用户身份、tenant、最小 scope、参数界限、幂等键与人类批准全部在 refund 写入之前执行"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T16 / T16 交付演练：拒绝不是安全证明",
+        "quote": "服务端 write_count=0 与审计 receipt 才能成为副作用证据"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-T16"
+    ],
+    "sha256": "e33bac53d461f184574845b057c6488ef8d718e161f980eac860d5926f2ab5d2",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T16.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T16.png"
+  },
+  {
+    "path": "visuals/course/TD-T17.svg",
+    "pageIds": [
+      "TD-T17"
+    ],
+    "supplementalSources": [],
+    "id": "TD-T17",
+    "layout": "layers",
+    "title": "不可信数据经过多道独立防线",
+    "thesis": "网页、邮件和工具返回都是数据；即使模型被说服，授权与输出检查仍需独立拦截。",
+    "focus": "按攻击到达通道、拦截层及真实后果记录，而非仅统计模型是否说不",
+    "nodes": [
+      {
+        "id": "untrusted",
+        "title": "Untrusted content",
+        "tone": "risk",
+        "body": [
+          "网页 / 邮件 / 知识文档",
+          "工具描述与返回值保留原文"
+        ]
+      },
+      {
+        "id": "isolate",
+        "title": "Retrieval isolation",
+        "tone": "control",
+        "body": [
+          "来源标记、信任分区与租户隔离",
+          "租户内文档仍可能被污染"
+        ]
+      },
+      {
+        "id": "model",
+        "title": "Model boundary",
+        "tone": "ai",
+        "body": [
+          "外部内容不能获得系统权限",
+          "模型拒绝只是其中一层信号"
+        ]
+      },
+      {
+        "id": "authorize",
+        "title": "Tool authorization",
+        "tone": "control",
+        "body": [
+          "服务端 tenant、scope 与参数裁决",
+          "即使模型服从也阻断越权"
+        ]
+      },
+      {
+        "id": "dlp",
+        "title": "Output / log DLP",
+        "tone": "control",
+        "body": [
+          "检查输出、错误、Trace 与遥测",
+          "不能替代工具授权"
+        ]
+      },
+      {
+        "id": "effects",
+        "title": "副作用与暴露证据",
+        "tone": "evidence",
+        "body": [
+          "cross-tenant / secret / write",
+          "逐轨迹记录到达层与后果"
+        ]
+      },
+      {
+        "id": "blocked",
+        "title": "明确阻断记录",
+        "tone": "evidence",
+        "body": [
+          "保存拒绝层、policy reason 与原文",
+          "高危动作和泄露独立 blocker"
+        ]
+      },
+      {
+        "id": "review",
+        "title": "Security review",
+        "tone": "process",
+        "body": [
+          "复核未知载荷和新增工具",
+          "跨轮延迟与跨会话另建套件"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "untrusted",
+        "to": "isolate",
+        "label": "运行时读入数据",
+        "kind": "data"
+      },
+      {
+        "from": "isolate",
+        "to": "model",
+        "label": "带来源的上下文",
+        "kind": "data"
+      },
+      {
+        "from": "model",
+        "to": "authorize",
+        "label": "候选工具调用",
+        "kind": "data"
+      },
+      {
+        "from": "model",
+        "to": "dlp",
+        "label": "回答与日志输出",
+        "kind": "data"
+      },
+      {
+        "from": "authorize",
+        "to": "blocked",
+        "label": "越权调用拒绝",
+        "kind": "control"
+      },
+      {
+        "from": "dlp",
+        "to": "blocked",
+        "label": "敏感外带拦截",
+        "kind": "control"
+      },
+      {
+        "from": "authorize",
+        "to": "effects",
+        "label": "执行与拒绝事实",
+        "kind": "evidence"
+      },
+      {
+        "from": "dlp",
+        "to": "effects",
+        "label": "输出与日志扫描",
+        "kind": "evidence"
+      },
+      {
+        "from": "effects",
+        "to": "review",
+        "label": "轨迹级后果",
+        "kind": "evidence"
+      },
+      {
+        "from": "blocked",
+        "to": "review",
+        "label": "拦截层与覆盖范围",
+        "kind": "evidence"
+      }
+    ],
+    "ranks": [
+      [
+        "untrusted"
+      ],
+      [
+        "isolate",
+        "model"
+      ],
+      [
+        "authorize",
+        "dlp"
+      ],
+      [
+        "effects",
+        "blocked"
+      ],
+      [
+        "review"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "攻击集按通道建",
+        "tone": "input",
+        "body": [
+          "正常提问触发污染文档检索",
+          "再将同类载荷放入工具返回值"
+        ]
+      },
+      {
+        "title": "故障看真实后果",
+        "tone": "risk",
+        "body": [
+          "单订单身份被诱导 export_orders",
+          "核对秘密、跨租户和写入尝试"
+        ]
+      },
+      {
+        "title": "怎样证明纵深",
+        "tone": "control",
+        "body": [
+          "在隔离夹具中逐一禁用单层",
+          "其余控制仍须记录阻断层"
+        ]
+      }
+    ],
+    "failure": "模型口头拒绝但日志泄密仍失败；实际越权、泄露和写入必须阻断并安全复核。",
+    "outcome": "交付按通道攻击集、逐层到达与拦截报告、原始轨迹及暴露范围。",
+    "boundary": "fixture 拦截不证明未知编码、供应链、真实密钥或生产攻击面已覆盖。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T17 / 专业问题、失败成本与决策权",
+        "quote": "不可信网页/邮件/知识内容只作为数据"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T17 / 架构、输入契约与可观察证据",
+        "quote": "测试身份只能读取单一订单；即使模型服从文档，工具授权也应拒绝"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-T17"
+    ],
+    "sha256": "e1ff365c2e05a565e1b624dc0581dfb5b916be35afc3ac5c9b4f87cc77280a9a",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T17.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T17.png"
+  },
+  {
+    "path": "visuals/course/TD-T18.svg",
+    "pageIds": [
+      "TD-T18"
+    ],
+    "supplementalSources": [],
+    "id": "TD-T18",
+    "layout": "comparison",
+    "title": "生成的 Web 测试要在业务变异下变红",
+    "thesis": "风险来源、脚本和业务状态必须闭合；截图成功或无关超时不能证明测试检测力。",
+    "focus": "同一候选分别运行正常状态与 auto_refunded 变异，共用独立业务 Oracle",
+    "nodes": [
+      {
+        "id": "risk",
+        "title": "Risk / PRD",
+        "tone": "input",
+        "body": [
+          "已激活商品必须进入人工复核",
+          "risk_id 与原文来源固定"
+        ]
+      },
+      {
+        "id": "planner",
+        "title": "Planner",
+        "tone": "ai",
+        "body": [
+          "将风险变成场景和异常分支",
+          "不按页面元素凑覆盖"
+        ]
+      },
+      {
+        "id": "generator",
+        "title": "Generator",
+        "tone": "ai",
+        "body": [
+          "隔离账户与固定 seed 生成候选",
+          "语义定位与状态等待"
+        ]
+      },
+      {
+        "id": "base",
+        "title": "Sandbox browser 基线",
+        "tone": "process",
+        "body": [
+          "正常后端应 manual_review_required",
+          "保留界面、网络与后端关联"
+        ]
+      },
+      {
+        "id": "mutation",
+        "title": "Business mutation",
+        "tone": "risk",
+        "body": [
+          "同账户后端改成 auto_refunded",
+          "先核对故障确实生效"
+        ]
+      },
+      {
+        "id": "oracle",
+        "title": "独立业务状态 Oracle",
+        "tone": "control",
+        "body": [
+          "读取 state、audit 与副作用计数",
+          "期望不由生成器顺手批准"
+        ]
+      },
+      {
+        "id": "detect",
+        "title": "业务检测力证据",
+        "tone": "evidence",
+        "body": [
+          "正常版本通过，业务变异失败",
+          "超时 / locator 错不计杀死"
+        ]
+      },
+      {
+        "id": "human",
+        "title": "Human test review",
+        "tone": "control",
+        "body": [
+          "review risk-to-test、断言与反模式",
+          "healer diff 不得削弱期望"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "risk",
+        "to": "planner",
+        "label": "风险驱动计划",
+        "kind": "data"
+      },
+      {
+        "from": "planner",
+        "to": "generator",
+        "label": "用例意图",
+        "kind": "data"
+      },
+      {
+        "from": "generator",
+        "to": "base",
+        "label": "同一候选",
+        "kind": "data"
+      },
+      {
+        "from": "generator",
+        "to": "mutation",
+        "label": "同一候选",
+        "kind": "data"
+      },
+      {
+        "from": "base",
+        "to": "mutation",
+        "label": "批准基线通过后",
+        "kind": "control"
+      },
+      {
+        "from": "base",
+        "to": "detect",
+        "label": "正常运行证据",
+        "kind": "evidence"
+      },
+      {
+        "from": "mutation",
+        "to": "detect",
+        "label": "故障运行证据",
+        "kind": "evidence"
+      },
+      {
+        "from": "oracle",
+        "to": "detect",
+        "label": "独立 expected",
+        "kind": "control"
+      },
+      {
+        "from": "detect",
+        "to": "human",
+        "label": "KILLED 与原始 Trace",
+        "kind": "evidence"
+      },
+      {
+        "from": "generator",
+        "to": "human",
+        "label": "代码、定位器和等待审查",
+        "kind": "data"
+      }
+    ],
+    "ranks": [
+      [
+        "risk",
+        "planner"
+      ],
+      [
+        "generator",
+        "oracle"
+      ],
+      [
+        "base",
+        "mutation"
+      ],
+      [
+        "detect",
+        "human"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "三层证据关联",
+        "tone": "evidence",
+        "body": [
+          "界面、网络、后端同 seed/risk_id",
+          "状态版本与 mutation_run_id 闭合"
+        ]
+      },
+      {
+        "title": "误报不算杀错",
+        "tone": "risk",
+        "body": [
+          "auto_refunded 后因 timeout 失败",
+          "先修同步，再验证状态断言变红"
+        ]
+      },
+      {
+        "title": "合并前留住检测力",
+        "tone": "control",
+        "body": [
+          "拒绝删断言或修改 expected",
+          "修复后仍须杀死原业务变异"
+        ]
+      }
+    ],
+    "failure": "只有截图、DOM 或代码时保持候选；坏业务状态仍绿须修 Oracle 与断言。",
+    "outcome": "交付 risk-to-test map、候选脚本、Trace、业务变异报告与人工准入记录。",
+    "boundary": "fixture 不证明跨浏览器、认证刷新、真实外部系统或生产用户任务。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T18 / 架构、输入契约与可观察证据",
+        "quote": "测试必须因业务状态而失败，不能只验证页面提示。"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T18 / 运行 baseline、故障与修复",
+        "quote": "后端 auto_refunded 变异必须令 manual_review Oracle 变红"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-T18"
+    ],
+    "sha256": "f55d7d5e9b3863304057999f2b97a53163ba2aea8d8d4428d156737f2777611b",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T18.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T18.png"
+  },
+  {
+    "path": "visuals/course/TD-T19.svg",
+    "pageIds": [
+      "TD-T19"
+    ],
+    "supplementalSources": [],
+    "id": "TD-T19",
+    "layout": "decision",
+    "title": "自愈补丁先分类，再证明业务检测力保留",
+    "thesis": "纯定位器变化可成为候选；业务 Oracle 失败、改期望和跳步骤不能由 healer 修绿。",
+    "focus": "产品故障直接交人工，候选补丁通过 anti-cheat 与原变异重跑双重门禁",
+    "nodes": [
+      {
+        "id": "fail",
+        "title": "失败与 Evidence capture",
+        "tone": "input",
+        "body": [
+          "原 Trace、DOM、截图与网络",
+          "保留原测试和业务失败"
+        ]
+      },
+      {
+        "id": "classify",
+        "title": "失败与补丁分类",
+        "tone": "control",
+        "body": [
+          "纯 DOM 改名 / 按钮业务交换",
+          "先查业务动作与独立 Oracle"
+        ]
+      },
+      {
+        "id": "candidate",
+        "title": "Healer candidate",
+        "tone": "ai",
+        "body": [
+          "只提出可审查的定位器补丁",
+          "无合并或改业务期望权限"
+        ]
+      },
+      {
+        "id": "diff",
+        "title": "Anti-cheat diff",
+        "tone": "control",
+        "body": [
+          "检查删断言、改期望与跳步",
+          "等待与重试增加须审批"
+        ]
+      },
+      {
+        "id": "mutation",
+        "title": "Mutation rerun",
+        "tone": "evidence",
+        "body": [
+          "重跑同一 auto_refunded 变异",
+          "定位器修复后仍必须失败"
+        ]
+      },
+      {
+        "id": "human",
+        "title": "Human merge gate",
+        "tone": "control",
+        "body": [
+          "核对同一业务动作和证据",
+          "仅显式白名单微调可例外"
+        ]
+      },
+      {
+        "id": "product",
+        "title": "产品缺陷 / 语义不明",
+        "tone": "risk",
+        "body": [
+          "按钮交换或 Oracle 失败",
+          "拒绝自动修复并人工诊断"
+        ]
+      },
+      {
+        "id": "rollback",
+        "title": "拒绝并回退补丁",
+        "tone": "risk",
+        "body": [
+          "检测力丢失或变异存活",
+          "恢复原测试与已知失败"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "fail",
+        "to": "classify",
+        "label": "证据先于修复",
+        "kind": "data"
+      },
+      {
+        "from": "classify",
+        "to": "candidate",
+        "label": "纯非语义表面",
+        "kind": "control"
+      },
+      {
+        "from": "classify",
+        "to": "product",
+        "label": "业务改变 / 不确定",
+        "kind": "risk"
+      },
+      {
+        "from": "candidate",
+        "to": "diff",
+        "label": "补丁与理由",
+        "kind": "data"
+      },
+      {
+        "from": "diff",
+        "to": "rollback",
+        "label": "削弱 Oracle / 跳步",
+        "kind": "risk"
+      },
+      {
+        "from": "diff",
+        "to": "mutation",
+        "label": "范围检查通过",
+        "kind": "control"
+      },
+      {
+        "from": "mutation",
+        "to": "rollback",
+        "label": "已知变异不再被杀死",
+        "kind": "risk"
+      },
+      {
+        "from": "mutation",
+        "to": "human",
+        "label": "检测力保持",
+        "kind": "evidence"
+      },
+      {
+        "from": "product",
+        "to": "human",
+        "label": "人工处理产品回归",
+        "kind": "control"
+      }
+    ],
+    "ranks": [
+      [
+        "fail",
+        "classify"
+      ],
+      [
+        "candidate",
+        "product"
+      ],
+      [
+        "diff"
+      ],
+      [
+        "mutation",
+        "rollback"
+      ],
+      [
+        "human"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "用两类失败辨别",
+        "tone": "process",
+        "body": [
+          "纯 DOM 改名可提候选定位器",
+          "业务按钮交换必须拒绝自愈"
+        ]
+      },
+      {
+        "title": "三档权限边界",
+        "tone": "control",
+        "body": [
+          "定位器微调按白名单留证",
+          "等待需审批，业务期望禁止自动改"
+        ]
+      },
+      {
+        "title": "修绿的反证",
+        "tone": "risk",
+        "body": [
+          "通过率升而 mutation kill 降",
+          "回退 patch 并保留原始失败"
+        ]
+      }
+    ],
+    "failure": "删除断言、改 expected、跳步或无限等待立即拒绝；无法证明语义等价交人工。",
+    "outcome": "交付 healer 权限清单、补丁 diff、反作弊结果、变异重跑与合并裁决。",
+    "boundary": "离线补丁门禁不证明真实 healer 误修率；检测力比较按配对变异和批准门槛。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T19 / 架构、输入契约与可观察证据",
+        "quote": "制造纯 DOM 改名和业务按钮交换两类失败。"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-T19 / 运行 baseline、故障与修复",
+        "quote": "locator-only 候选仍须杀死原业务变异"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-T19"
+    ],
+    "sha256": "7ec37be89c85e4b098e002852096df2ad9b9b4e72bb89ef9c8fdd2fe4c88dbde",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T19.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T19.png"
+  },
+  {
+    "path": "visuals/course/TD-W01.svg",
+    "pageIds": [
+      "TD-W01"
+    ],
+    "supplementalSources": [],
+    "id": "TD-W01",
+    "layout": "comparison",
+    "title": "按控制权给 Workflow、Agent、Worker 分型",
+    "thesis": "同一产品可混合三种结构；下一步谁决定、状态在哪和副作用在哪提交决定测法。",
+    "focus": "组件责任并列比较，只有异步队列到 Worker 是执行依赖",
+    "nodes": [
+      {
+        "id": "trace",
+        "title": "真实 Trace 与代码边界",
+        "tone": "input",
+        "body": [
+          "逐步标路径决定权与终止条件",
+          "不按产品名或是否调模型分类"
+        ]
+      },
+      {
+        "id": "router",
+        "title": "Deterministic router",
+        "tone": "process",
+        "body": [
+          "代码固定下一分支",
+          "分支覆盖、状态机与非法转移"
+        ]
+      },
+      {
+        "id": "agent",
+        "title": "Autonomous agent loop",
+        "tone": "ai",
+        "body": [
+          "模型在运行时决定下一步",
+          "不变量、攻击集与重复运行"
+        ]
+      },
+      {
+        "id": "queue",
+        "title": "Async queue",
+        "tone": "data",
+        "body": [
+          "入口接收不等于任务完成",
+          "重复投递、超时与死信"
+        ]
+      },
+      {
+        "id": "worker",
+        "title": "Worker",
+        "tone": "process",
+        "body": [
+          "按消息执行后台任务",
+          "提交点、重试与幂等明确"
+        ]
+      },
+      {
+        "id": "state",
+        "title": "State stores",
+        "tone": "data",
+        "body": [
+          "共享状态是跨结构故障通道",
+          "标明读写 owner 与隔离清理"
+        ]
+      },
+      {
+        "id": "owner",
+        "title": "Human owner",
+        "tone": "control",
+        "body": [
+          "按组件拆身份与最小权限",
+          "三类分别报告，不合并总分"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "trace",
+        "to": "router",
+        "label": "代码决定",
+        "kind": "control"
+      },
+      {
+        "from": "trace",
+        "to": "agent",
+        "label": "模型决定",
+        "kind": "control"
+      },
+      {
+        "from": "trace",
+        "to": "queue",
+        "label": "异步投递边界",
+        "kind": "control"
+      },
+      {
+        "from": "queue",
+        "to": "worker",
+        "label": "消息投递",
+        "kind": "data"
+      },
+      {
+        "from": "router",
+        "to": "state",
+        "label": "流程状态读写",
+        "kind": "data"
+      },
+      {
+        "from": "agent",
+        "to": "state",
+        "label": "会话与决策状态",
+        "kind": "data"
+      },
+      {
+        "from": "worker",
+        "to": "state",
+        "label": "幂等与业务状态",
+        "kind": "data"
+      },
+      {
+        "from": "router",
+        "to": "owner",
+        "label": "确定性覆盖证据",
+        "kind": "evidence"
+      },
+      {
+        "from": "agent",
+        "to": "owner",
+        "label": "自主路径与策略证据",
+        "kind": "evidence"
+      },
+      {
+        "from": "worker",
+        "to": "owner",
+        "label": "终态与幂等证据",
+        "kind": "evidence"
+      },
+      {
+        "from": "state",
+        "to": "owner",
+        "label": "共享状态风险",
+        "kind": "evidence"
+      }
+    ],
+    "ranks": [
+      [
+        "trace"
+      ],
+      [
+        "router",
+        "agent",
+        "queue"
+      ],
+      [
+        "worker",
+        "state"
+      ],
+      [
+        "owner"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "问四个具体问题",
+        "tone": "control",
+        "body": [
+          "路径谁定、状态谁存",
+          "副作用何时提交、怎样终止"
+        ]
+      },
+      {
+        "title": "退款产品拆开看",
+        "tone": "process",
+        "body": [
+          "固定入口与自主查政策分开测",
+          "审批 Worker 另测重复投递"
+        ]
+      },
+      {
+        "title": "边界不清先取证",
+        "tone": "risk",
+        "body": [
+          "Agent 不继承 Worker 写权限",
+          "Trace 不明则先停止跨组件扩权"
+        ]
+      }
+    ],
+    "failure": "未分类单元或跨结构合并总分时退回；边界模糊按更严格方案并记录 Owner。",
+    "outcome": "交付带控制权、状态与副作用标记的组件图，以及分类测法和责任清单。",
+    "boundary": "组件合同 fixture 不证明真实运行边界；需用实际 Trace 与代码核对分类。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-W01 / 三类组件的判别与对应测法",
+        "quote": "三类的共同要求只有一条：副作用提交点必须明确，且有幂等保护。"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-W01 / 专业问题、失败成本与决策权",
+        "quote": "Agent 不继承 Worker 或 Workflow 的写权限。"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-W01"
+    ],
+    "sha256": "e176b7bfc0fdb4bb954145f8559e4749c522f02309480d5d964d1d35fd47f458",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-W01.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-W01.png"
+  },
+  {
+    "path": "visuals/course/TD-W02.svg",
+    "pageIds": [
+      "TD-W02"
+    ],
+    "supplementalSources": [],
+    "id": "TD-W02",
+    "layout": "state",
+    "title": "动作已提交，长流程仍可能需要恢复",
+    "thesis": "幂等收据证明某次动作已提交；任务是否结束另看当前状态，未结束则核对 checkpoint、当前权限与剩余预算再继续。",
+    "focus": "重复 msg-42 跳过已提交写入，恢复后续步骤；任务终态、预算停止与交接分开",
+    "nodes": [
+      {
+        "id": "state",
+        "title": "当前 Workflow state",
+        "tone": "input",
+        "body": [
+          "task_id / state_version / owner",
+          "合法任务状态与当前 scope 可读回"
+        ]
+      },
+      {
+        "id": "checkpoint",
+        "title": "Checkpoint",
+        "tone": "data",
+        "body": [
+          "最后安全位置、版本与 hash",
+          "损坏则停止并请求人工重建"
+        ]
+      },
+      {
+        "id": "delivery",
+        "title": "Queue delivery",
+        "tone": "process",
+        "body": [
+          "同一 msg-42 可重复投递",
+          "写后确认前崩溃会触发重投"
+        ]
+      },
+      {
+        "id": "ledger",
+        "title": "动作幂等账本",
+        "tone": "evidence",
+        "body": [
+          "动作提交结果与唯一 receipt",
+          "动作已提交不等于整个任务完成"
+        ]
+      },
+      {
+        "id": "resume",
+        "title": "恢复与任务状态判定",
+        "tone": "control",
+        "body": [
+          "先读检查点、收据与当前 scope",
+          "区分任务已终结与仅动作已提交"
+        ]
+      },
+      {
+        "id": "budget",
+        "title": "剩余预算守卫",
+        "tone": "control",
+        "body": [
+          "继续或交接前核对步数、时间、成本",
+          "Token 与剩余额度逐次留痕"
+        ]
+      },
+      {
+        "id": "worker",
+        "title": "幂等 Worker 执行",
+        "tone": "process",
+        "body": [
+          "只执行获准、预算内的未提交动作",
+          "已提交动作跳过，不再次写审计"
+        ]
+      },
+      {
+        "id": "completed",
+        "title": "已核实任务终态",
+        "tone": "evidence",
+        "body": [
+          "当前任务状态确已 completed",
+          "不能仅凭一个动作 receipt 返回"
+        ]
+      },
+      {
+        "id": "stopped",
+        "title": "stopped / 暂停",
+        "tone": "risk",
+        "body": [
+          "stop_reason、预算类型与 owner",
+          "检查点损坏或控制缺失安全停止"
+        ]
+      },
+      {
+        "id": "handoff",
+        "title": "有预算的人工交接",
+        "tone": "control",
+        "body": [
+          "task_id / state_version / scope",
+          "remaining_budget / stop_reason"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "state",
+        "to": "checkpoint",
+        "label": "持久化最后安全状态",
+        "kind": "data"
+      },
+      {
+        "from": "state",
+        "to": "delivery",
+        "label": "未终结：投递下一合法步骤",
+        "kind": "data"
+      },
+      {
+        "from": "delivery",
+        "to": "resume",
+        "label": "新投递与重投均先判定恢复",
+        "kind": "control"
+      },
+      {
+        "from": "checkpoint",
+        "to": "resume",
+        "label": "安全位置及完整性证据",
+        "kind": "evidence"
+      },
+      {
+        "from": "ledger",
+        "to": "resume",
+        "label": "当前动作已提交与否",
+        "kind": "evidence"
+      },
+      {
+        "from": "state",
+        "to": "resume",
+        "label": "当前任务状态、owner 与权限",
+        "kind": "evidence"
+      },
+      {
+        "from": "resume",
+        "to": "completed",
+        "label": "任务级 completed 已核实",
+        "kind": "control"
+      },
+      {
+        "from": "resume",
+        "to": "stopped",
+        "label": "检查点损坏、权限失效或已停止",
+        "kind": "risk"
+      },
+      {
+        "from": "resume",
+        "to": "budget",
+        "label": "任务未结束：继续或待人工交接",
+        "kind": "control"
+      },
+      {
+        "from": "budget",
+        "to": "worker",
+        "label": "新动作且权限、幂等和预算通过",
+        "kind": "control"
+      },
+      {
+        "from": "budget",
+        "to": "state",
+        "label": "动作已提交：跳过写并恢复后续状态",
+        "kind": "feedback"
+      },
+      {
+        "from": "budget",
+        "to": "stopped",
+        "label": "任一步数/时间/成本上限触发",
+        "kind": "control"
+      },
+      {
+        "from": "budget",
+        "to": "handoff",
+        "label": "余量允许且审批超时等需交接",
+        "kind": "control"
+      },
+      {
+        "from": "worker",
+        "to": "ledger",
+        "label": "新动作提交及唯一收据",
+        "kind": "evidence"
+      },
+      {
+        "from": "worker",
+        "to": "delivery",
+        "label": "写后确认前崩溃：等待重投",
+        "kind": "risk"
+      },
+      {
+        "from": "worker",
+        "to": "state",
+        "label": "正常确认后推进合法状态",
+        "kind": "feedback"
+      },
+      {
+        "from": "handoff",
+        "to": "state",
+        "label": "有效交接：持久化 owner/scope",
+        "kind": "feedback"
+      },
+      {
+        "from": "handoff",
+        "to": "stopped",
+        "label": "目标错误、不可用或意图扩权",
+        "kind": "risk"
+      }
+    ],
+    "ranks": [
+      [
+        "state",
+        "checkpoint"
+      ],
+      [
+        "delivery",
+        "ledger"
+      ],
+      [
+        "resume",
+        "budget"
+      ],
+      [
+        "worker",
+        "handoff"
+      ],
+      [
+        "completed",
+        "stopped"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "故障选准窗口",
+        "tone": "risk",
+        "body": [
+          "写审计后、确认消息前崩溃再重投",
+          "查已提交收据，跳过写并恢复后续"
+        ]
+      },
+      {
+        "title": "任务终结不能借证据",
+        "tone": "control",
+        "body": [
+          "单步写入收据不证明流程 completed",
+          "未结束恢复与交接都先过当前预算"
+        ]
+      },
+      {
+        "title": "三类出口分开交接",
+        "tone": "evidence",
+        "body": [
+          "completed、stopped、handoff 分栏",
+          "每个出口保留权限、原因和责任人"
+        ]
+      }
+    ],
+    "failure": "重复写、无法定位 checkpoint、预算失守或交接扩权即阻断；动作已提交不得误报整个任务完成。",
+    "outcome": "交付动作与任务两层收据、恢复时间线、预算停止及可接手的 Handoff 证据。",
+    "boundary": "离线重放不证明真实队列事务、跨服务一致性、人工 SLA 或生产恢复。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-W02 / W02 完整跟做：可恢复状态机的故障回放",
+        "quote": "正确结果是第二次只读幂等账本并恢复 checkpoint，业务写入总数仍为 1"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-W02 / W02 交付演练：故障恢复要有人能接手",
+        "quote": "先读取最后 checkpoint，再核对 idempotency receipt 和当前 scope"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-W02 / W02 交付演练：故障恢复要有人能接手",
+        "quote": "第三种应触发有预算的 handoff，不得绕过审批自动完成"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-W02 / W02 最终检查：恢复结论必须可交接",
+        "quote": "避免把 stopped、failed 和 completed 混成一个成功字段"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-W02"
+    ],
+    "sha256": "10c031eaa03a4cf39b59006014bd5a156657772b695a5d25451b50ef28b44eb6",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-W02.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-W02.png"
+  },
+  {
+    "path": "visuals/course/TD-W03.svg",
+    "pageIds": [
+      "TD-W03"
+    ],
+    "supplementalSources": [],
+    "id": "TD-W03",
+    "layout": "metric",
+    "title": "单 Agent 与多 Agent 在同预算下比较",
+    "thesis": "相同任务、权限与总预算下重复运行，才能把架构收益和资源投入区分开。",
+    "focus": "两条实验臂并列，共享预算控制，配对差值与协作代价一起支撑架构选择",
+    "nodes": [
+      {
+        "id": "tasks",
+        "title": "Frozen task set",
+        "tone": "input",
+        "body": [
+          "任务、模型、工具和成功 Oracle 固定",
+          "按复杂度与风险划分切片"
+        ]
+      },
+      {
+        "id": "budget",
+        "title": "Shared budget",
+        "tone": "control",
+        "body": [
+          "总 Token、时间、调用与重试",
+          "人工干预与调优投入可比"
+        ]
+      },
+      {
+        "id": "single",
+        "title": "Single-agent arm",
+        "tone": "process",
+        "body": [
+          "单 Agent 获得相同总资源",
+          "保存轨迹与全部消耗"
+        ]
+      },
+      {
+        "id": "multi",
+        "title": "Multi-agent arm",
+        "tone": "ai",
+        "body": [
+          "planner / generator / reviewer",
+          "角色增加不隐式增加权限"
+        ]
+      },
+      {
+        "id": "trials",
+        "title": "Repeated trials",
+        "tone": "evidence",
+        "body": [
+          "相同 case_id 与重复次数",
+          "逐任务配对差值与不确定性"
+        ]
+      },
+      {
+        "id": "cost",
+        "title": "协作与单位成功成本",
+        "tone": "evidence",
+        "body": [
+          "重复工作、信息丢失、互相等待",
+          "并列 blocker、p95 与总费用"
+        ]
+      },
+      {
+        "id": "invalid",
+        "title": "Confounded / UNKNOWN",
+        "tone": "risk",
+        "body": [
+          "预算、工具或人工干预不一致",
+          "差异不可判定时不宣布优胜"
+        ]
+      },
+      {
+        "id": "decision",
+        "title": "Architecture decision",
+        "tone": "control",
+        "body": [
+          "收益仅在哪些切片值得复杂化",
+          "无收益任务可退回单 Agent"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "tasks",
+        "to": "single",
+        "label": "相同任务与工具",
+        "kind": "data"
+      },
+      {
+        "from": "tasks",
+        "to": "multi",
+        "label": "相同任务与工具",
+        "kind": "data"
+      },
+      {
+        "from": "budget",
+        "to": "single",
+        "label": "相同资源上限",
+        "kind": "control"
+      },
+      {
+        "from": "budget",
+        "to": "multi",
+        "label": "相同资源上限",
+        "kind": "control"
+      },
+      {
+        "from": "single",
+        "to": "trials",
+        "label": "原始重复结果",
+        "kind": "evidence"
+      },
+      {
+        "from": "multi",
+        "to": "trials",
+        "label": "同任务配对结果",
+        "kind": "evidence"
+      },
+      {
+        "from": "single",
+        "to": "cost",
+        "label": "消耗与耗时",
+        "kind": "data"
+      },
+      {
+        "from": "multi",
+        "to": "cost",
+        "label": "消耗与协作故障",
+        "kind": "data"
+      },
+      {
+        "from": "budget",
+        "to": "invalid",
+        "label": "实际预算不对齐",
+        "kind": "risk"
+      },
+      {
+        "from": "trials",
+        "to": "invalid",
+        "label": "证据不足",
+        "kind": "risk"
+      },
+      {
+        "from": "trials",
+        "to": "decision",
+        "label": "配对差值区间",
+        "kind": "evidence"
+      },
+      {
+        "from": "cost",
+        "to": "decision",
+        "label": "代价与可维护性",
+        "kind": "evidence"
+      }
+    ],
+    "ranks": [
+      [
+        "tasks",
+        "budget"
+      ],
+      [
+        "single",
+        "multi"
+      ],
+      [
+        "trials",
+        "cost"
+      ],
+      [
+        "invalid",
+        "decision"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "公平性先于结果",
+        "tone": "control",
+        "body": [
+          "工具、重试与人工救场同额度",
+          "多角色不自动获得额外 scope"
+        ]
+      },
+      {
+        "title": "故障怎样点名",
+        "tone": "risk",
+        "body": [
+          "任一预算或工具差异即混杂",
+          "reviewer 重复输出列协作失败"
+        ]
+      },
+      {
+        "title": "架构结论有范围",
+        "tone": "evidence",
+        "body": [
+          "看配对差值，不比边际 CI 重叠",
+          "仅证据支持的复杂切片启用编排"
+        ]
+      }
+    ],
+    "failure": "预算、工具或干预不一致时实验不可用于架构归因；噪声内差异保持 UNKNOWN。",
+    "outcome": "交付锁定项 Manifest、重复运行记录、协作代价台账与按切片架构决定。",
+    "boundary": "离线合同不证明真实多 Agent 收益；教学任务量不是正式统计样本量依据。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-W03 / 架构节点与交付物",
+        "quote": "两条实验臂共享冻结任务集与预算，各自重复运行，最后由人做架构决策。"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-W03 / 运行 baseline、故障与修复",
+        "quote": "任一预算、工具或干预不一致即 confounded"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-W03"
+    ],
+    "sha256": "23efc8f1b2b882f32aafdb8dfbe8626c52673f2266f7b50784b8f52f3259b7b7",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-W03.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-W03.png"
+  },
+  {
+    "path": "visuals/course/TD-X603.svg",
+    "pageIds": [
+      "TD-X603"
+    ],
+    "supplementalSources": [],
+    "id": "TD-X603",
+    "layout": "state",
+    "title": "隔离拒绝、纠错与授权删除分三路",
+    "thesis": "跨用户命中触发拒绝与隔离修复，陈旧内容触发失效与纠错；只有经核验的遗忘请求才授权删除目标副本。",
+    "focus": "访问故障不授予删除权；获准删除才传播到主存、索引、缓存并独立读回",
+    "nodes": [
+      {
+        "id": "consent",
+        "title": "同意 / 目的准入",
+        "tone": "control",
+        "body": [
+          "来源、用途与最小化范围明确",
+          "模型候选不能自授长期保存权"
+        ]
+      },
+      {
+        "id": "write",
+        "title": "用户 / 租户隔离写入",
+        "tone": "process",
+        "body": [
+          "tenant/user key 与内容校验",
+          "记录来源、置信度、版本与 TTL"
+        ]
+      },
+      {
+        "id": "store",
+        "title": "主存与派生副本",
+        "tone": "data",
+        "body": [
+          "主库 / 向量索引 / 语义缓存",
+          "会话上下文和日志范围登记"
+        ]
+      },
+      {
+        "id": "read",
+        "title": "每次读取重新核验",
+        "tone": "control",
+        "body": [
+          "当前身份、ACL、TTL 与版本",
+          "缓存命中不可跳过授权"
+        ]
+      },
+      {
+        "id": "use",
+        "title": "允许使用当前记忆",
+        "tone": "process",
+        "body": [
+          "当前用户有权且版本、TTL 有效",
+          "只向获准用户上下文提供内容"
+        ]
+      },
+      {
+        "id": "deny",
+        "title": "拒绝与隔离修复",
+        "tone": "risk",
+        "body": [
+          "跨用户或无权请求不返回记忆",
+          "修隔离，不授权删除他人有效内容"
+        ]
+      },
+      {
+        "id": "stale",
+        "title": "陈旧 / 污染内容纠错",
+        "tone": "control",
+        "body": [
+          "过期、旧版本或误判先隔离失效",
+          "按来源纠错并检查历史结论影响"
+        ]
+      },
+      {
+        "id": "delete",
+        "title": "遗忘请求单独核权",
+        "tone": "control",
+        "body": [
+          "核对请求者、目标记忆与删除范围",
+          "只处理其有权删除的目标副本"
+        ]
+      },
+      {
+        "id": "receipt",
+        "title": "删除传播与回执",
+        "tone": "evidence",
+        "body": [
+          "目标主存、索引、缓存逐项清除",
+          "tombstone 与逐副本无残留核验"
+        ]
+      },
+      {
+        "id": "regression",
+        "title": "隐私与污染回归",
+        "tone": "evidence",
+        "body": [
+          "换用户重放、推进时间、相似查询",
+          "分别报告隔离、时效与删除残留"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "consent",
+        "to": "write",
+        "label": "同意与目的获准才写入",
+        "kind": "control"
+      },
+      {
+        "from": "consent",
+        "to": "deny",
+        "label": "无保存权或目的不符",
+        "kind": "risk"
+      },
+      {
+        "from": "write",
+        "to": "store",
+        "label": "隔离且有版本/有效期",
+        "kind": "data"
+      },
+      {
+        "from": "store",
+        "to": "read",
+        "label": "命中内容仍须重新核验",
+        "kind": "control"
+      },
+      {
+        "from": "read",
+        "to": "use",
+        "label": "当前授权、TTL 与版本均有效",
+        "kind": "control"
+      },
+      {
+        "from": "read",
+        "to": "deny",
+        "label": "跨用户或当前 ACL 拒绝",
+        "kind": "risk"
+      },
+      {
+        "from": "read",
+        "to": "stale",
+        "label": "过期、旧版本或已确认污染",
+        "kind": "risk"
+      },
+      {
+        "from": "stale",
+        "to": "store",
+        "label": "按纠错结果更新并失效旧缓存",
+        "kind": "feedback"
+      },
+      {
+        "from": "consent",
+        "to": "delete",
+        "label": "撤回/遗忘请求：另验删除权限",
+        "kind": "control"
+      },
+      {
+        "from": "delete",
+        "to": "deny",
+        "label": "请求者无权删除目标",
+        "kind": "risk"
+      },
+      {
+        "from": "delete",
+        "to": "receipt",
+        "label": "目标归属与删除范围获准",
+        "kind": "control"
+      },
+      {
+        "from": "deny",
+        "to": "regression",
+        "label": "修复隔离后换身份重放",
+        "kind": "evidence"
+      },
+      {
+        "from": "stale",
+        "to": "regression",
+        "label": "时效、污染与影响回溯验证",
+        "kind": "evidence"
+      },
+      {
+        "from": "use",
+        "to": "regression",
+        "label": "获准使用的当前版本证据",
+        "kind": "evidence"
+      },
+      {
+        "from": "receipt",
+        "to": "regression",
+        "label": "独立存储读回与相似查询",
+        "kind": "evidence"
+      }
+    ],
+    "ranks": [
+      [
+        "consent",
+        "write"
+      ],
+      [
+        "store",
+        "read"
+      ],
+      [
+        "use",
+        "deny",
+        "stale"
+      ],
+      [
+        "delete",
+        "receipt"
+      ],
+      [
+        "regression"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "隔离故障怎样修",
+        "tone": "risk",
+        "body": [
+          "跨用户命中先拒绝、修隔离 key",
+          "不得把访问故障当删除他人记忆授权"
+        ]
+      },
+      {
+        "title": "陈旧内容怎样纠错",
+        "tone": "control",
+        "body": [
+          "TTL/版本失效，隔离错误来源",
+          "核对缓存及受旧记忆影响的历史结论"
+        ]
+      },
+      {
+        "title": "遗忘怎样证明完成",
+        "tone": "evidence",
+        "body": [
+          "先核请求者与目标，再清获准副本",
+          "逐存储读回并做相近语义负向检索"
+        ]
+      }
+    ],
+    "failure": "跨用户、过期或旧版本命中停止使用；删除无授权或无可核对回执时不得声称已删除。",
+    "outcome": "交付隔离拒绝、陈旧纠错、授权删除三路证据与副本位置清单。",
+    "boundary": "离线隔离 fixture 未证明真实同意、存储删除传播、隐私法律或长期漂移。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-X603 / 工具与证据：记忆生命周期的五个环节与各自的检查",
+        "quote": "错误记忆被发现后如何清除、历史结论是否回溯"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-X603 / 两种看起来在做记忆治理、实际留有通道的做法",
+        "quote": "隔离必须在授权层强制，而不是依赖查询条件"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-X603 / AI 长期记忆的三类风险：记错、串号和删不干净：错误决定会造成什么",
+        "quote": "删除请求必须跨主存、索引和缓存传播"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-X603 / 做一次删除完整性验证：约 45 分钟",
+        "quote": "调用删除接口，然后逐个位置检查是否真的消失"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-X603"
+    ],
+    "sha256": "80524533c927f7e665e697e227534d118e087438a7c93272f61a7099b32a377b",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-X603.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X603.png"
+  },
+  {
+    "path": "visuals/course/TD-X604.svg",
+    "pageIds": [
+      "TD-X604"
+    ],
+    "supplementalSources": [],
+    "id": "TD-X604",
+    "layout": "decision",
+    "title": "Fallback 重走授权与完整安全链",
+    "thesis": "换 Provider 后重查能力、区域、协议与权限，并完整执行输入安全、输出过滤和工具副作用控制。",
+    "focus": "强制备用路径时，主路径已有的输入/输出安全控制不得消失",
+    "nodes": [
+      {
+        "id": "contract",
+        "title": "请求合同",
+        "tone": "input",
+        "body": [
+          "能力、区域、数据政策与权限",
+          "明确结构、工具与质量下限"
+        ]
+      },
+      {
+        "id": "matrix",
+        "title": "能力 / 区域 / 权限矩阵",
+        "tone": "control",
+        "body": [
+          "逐 Provider 实测与合同核对",
+          "不满足不能作为备用"
+        ]
+      },
+      {
+        "id": "route",
+        "title": "Provider 路由",
+        "tone": "process",
+        "body": [
+          "记录实际去向与候选版本",
+          "主路径失败必须重新选候选"
+        ]
+      },
+      {
+        "id": "schema",
+        "title": "协议 / Schema",
+        "tone": "control",
+        "body": [
+          "接口、工具描述 hash 固定",
+          "兼容签名不保证语义兼容"
+        ]
+      },
+      {
+        "id": "reauth",
+        "title": "当前调用重新授权",
+        "tone": "control",
+        "body": [
+          "主 / 备用均查身份、区域与 scope",
+          "Fallback 不继承主路径批准"
+        ]
+      },
+      {
+        "id": "inputcheck",
+        "title": "共同输入安全检查",
+        "tone": "control",
+        "body": [
+          "主 / 备用执行相同输入与数据策略",
+          "不能为尽快返回绕过既有护栏"
+        ]
+      },
+      {
+        "id": "outputcheck",
+        "title": "共同输出安全过滤",
+        "tone": "control",
+        "body": [
+          "Provider 返回后查敏感与不安全内容",
+          "候选工具动作不能绕过策略"
+        ]
+      },
+      {
+        "id": "effects",
+        "title": "工具副作用门禁",
+        "tone": "control",
+        "body": [
+          "授权、幂等窗口与作用域明确才执行",
+          "结果另查 Oracle 与真实账本"
+        ]
+      },
+      {
+        "id": "stop",
+        "title": "拒绝 / 可见功能降级",
+        "tone": "risk",
+        "body": [
+          "安全拒绝、能力不足或协议漂移",
+          "状态未知或质量不足不静默继续"
+        ]
+      },
+      {
+        "id": "trace",
+        "title": "Trace / 账本 / 回滚",
+        "tone": "evidence",
+        "body": [
+          "实际路由、过滤、policy 与执行分栏",
+          "完整组合具备回退证据"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "contract",
+        "to": "matrix",
+        "label": "请求要求",
+        "kind": "control"
+      },
+      {
+        "from": "matrix",
+        "to": "route",
+        "label": "能力与区域满足合同",
+        "kind": "control"
+      },
+      {
+        "from": "route",
+        "to": "schema",
+        "label": "主 / 备用都重查协议",
+        "kind": "control"
+      },
+      {
+        "from": "route",
+        "to": "matrix",
+        "label": "主路径失效：重新选候选",
+        "kind": "feedback"
+      },
+      {
+        "from": "schema",
+        "to": "reauth",
+        "label": "协议固定且兼容后",
+        "kind": "control"
+      },
+      {
+        "from": "reauth",
+        "to": "inputcheck",
+        "label": "当前身份、区域与 scope 通过",
+        "kind": "control"
+      },
+      {
+        "from": "inputcheck",
+        "to": "outputcheck",
+        "label": "输入通过后调用 Provider，检查返回",
+        "kind": "control"
+      },
+      {
+        "from": "outputcheck",
+        "to": "effects",
+        "label": "工具候选过滤通过后仍须写前控制",
+        "kind": "control"
+      },
+      {
+        "from": "outputcheck",
+        "to": "trace",
+        "label": "无工具动作且输出过滤/质量通过",
+        "kind": "evidence"
+      },
+      {
+        "from": "effects",
+        "to": "trace",
+        "label": "工具结果 Oracle 与幂等账本",
+        "kind": "evidence"
+      },
+      {
+        "from": "matrix",
+        "to": "stop",
+        "label": "能力或区域不满足",
+        "kind": "risk"
+      },
+      {
+        "from": "schema",
+        "to": "stop",
+        "label": "未声明协议漂移",
+        "kind": "risk"
+      },
+      {
+        "from": "reauth",
+        "to": "stop",
+        "label": "身份 / 区域 / scope 拒绝",
+        "kind": "risk"
+      },
+      {
+        "from": "inputcheck",
+        "to": "stop",
+        "label": "输入或数据安全策略拒绝",
+        "kind": "risk"
+      },
+      {
+        "from": "outputcheck",
+        "to": "stop",
+        "label": "敏感泄漏、不安全内容或质量不足",
+        "kind": "risk"
+      },
+      {
+        "from": "effects",
+        "to": "stop",
+        "label": "授权、幂等或副作用状态未知",
+        "kind": "risk"
+      },
+      {
+        "from": "stop",
+        "to": "trace",
+        "label": "拒绝与降级可追溯",
+        "kind": "evidence"
+      }
+    ],
+    "ranks": [
+      [
+        "contract",
+        "matrix"
+      ],
+      [
+        "route",
+        "schema"
+      ],
+      [
+        "reauth",
+        "inputcheck"
+      ],
+      [
+        "outputcheck",
+        "effects"
+      ],
+      [
+        "stop",
+        "trace"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "切换后保留整条安全链",
+        "tone": "control",
+        "body": [
+          "强制 fallback，重跑主路径安全集",
+          "输入、输出过滤与工具授权分别断言"
+        ]
+      },
+      {
+        "title": "制造绕过反例",
+        "tone": "risk",
+        "body": [
+          "主路径拒绝的同一载荷强制走备用",
+          "备用也须拒绝，不能仅恢复 JSON 合法"
+        ]
+      },
+      {
+        "title": "六项回归不只比签名",
+        "tone": "evidence",
+        "body": [
+          "能力、区域、权限、Schema 重测",
+          "幂等与副作用实查，按 Provider 出分"
+        ]
+      }
+    ],
+    "failure": "输入/输出安全链缺失、授权拒绝、协议漂移或幂等未知时阻断；不得吞错误继续调用。",
+    "outcome": "交付路由能力矩阵、共同安全链回归、Fallback 负控制和工具结果/回滚证据。",
+    "boundary": "合成协议故障不证明真实 Provider 能力、价格、区域合规或 MCP 生产副作用。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-X604 / Fallback 是为可用性设计的，也是权限检查最容易被绕过的地方",
+        "quote": "主路径有输出过滤、有工具授权检查、有敏感词拦截"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-X604 / 每次切换必须重新检查的四项",
+        "quote": "强制触发 fallback，重跑全套安全用例"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-X604 / 切换模型或工具后，哪些功能和安全行为必须重新测试：错误决定会造成什么",
+        "quote": "每次 fallback 都是新决策，不继承原批准"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-X604 / TD-X604 停止表：哪些证据不能被平均值抵消",
+        "quote": "仍需工具结果 Oracle"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-X604"
+    ],
+    "sha256": "331f1600b8ec2a9c21fd220bb84b51e98c2768da9ea8a1d1257d13e9f62b8961",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-X604.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X604.png"
+  },
+  {
+    "path": "visuals/course/TD-X602.svg",
+    "pageIds": [
+      "TD-X602"
+    ],
+    "supplementalSources": [],
+    "id": "TD-X602",
+    "layout": "evidence",
+    "title": "候选注册绑定 Lineage、封存集与回滚目标",
+    "thesis": "新模型必须有完整版本链和独立验收；Holdout 污染或关键切片失败不能被均分提升抵消。",
+    "focus": "训练快照与封存评测两条证据支流，在独立 Owner 决策前闭合",
+    "nodes": [
+      {
+        "id": "purpose",
+        "title": "批准目的",
+        "tone": "input",
+        "body": [
+          "业务问题、成功标准与停止条件",
+          "候选默认未被接受"
+        ]
+      },
+      {
+        "id": "lineage",
+        "title": "数据 lineage",
+        "tone": "data",
+        "body": [
+          "来源、许可、清洗与快照版本",
+          "采样规则不能事后猜补"
+        ]
+      },
+      {
+        "id": "snapshot",
+        "title": "基座 / 代码 / 超参快照",
+        "tone": "data",
+        "body": [
+          "基座 hash、Git SHA、环境与种子",
+          "训练和推理版本都可定位"
+        ]
+      },
+      {
+        "id": "holdout",
+        "title": "封存 Holdout",
+        "tone": "control",
+        "body": [
+          "未参与训练和调参",
+          "固定版本、协议与开封记录"
+        ]
+      },
+      {
+        "id": "comparison",
+        "title": "候选与现网切片比较",
+        "tone": "evidence",
+        "body": [
+          "同任务配对 delta 与差值区间",
+          "拒答、安全 blocker 单独报告"
+        ]
+      },
+      {
+        "id": "rollback",
+        "title": "具体回滚版本组合",
+        "tone": "control",
+        "body": [
+          "模型、Prompt、索引同时保留",
+          "注册前验证 rollback readiness"
+        ]
+      },
+      {
+        "id": "owner",
+        "title": "独立 Owner",
+        "tone": "process",
+        "body": [
+          "独立于训练方执行验收",
+          "逐项接受允许的业务取舍"
+        ]
+      },
+      {
+        "id": "decision",
+        "title": "注册 / BLOCKED / 回滚",
+        "tone": "control",
+        "body": [
+          "lineage 缺失或污染先阻断",
+          "切片失败不以总分或成本折抵"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "purpose",
+        "to": "lineage",
+        "label": "批准数据用途",
+        "kind": "data"
+      },
+      {
+        "from": "purpose",
+        "to": "snapshot",
+        "label": "固定训练配置",
+        "kind": "data"
+      },
+      {
+        "from": "lineage",
+        "to": "comparison",
+        "label": "候选来源证据",
+        "kind": "evidence"
+      },
+      {
+        "from": "snapshot",
+        "to": "comparison",
+        "label": "版本与可复现性",
+        "kind": "evidence"
+      },
+      {
+        "from": "holdout",
+        "to": "comparison",
+        "label": "独立封存评测",
+        "kind": "control"
+      },
+      {
+        "from": "comparison",
+        "to": "owner",
+        "label": "逐切片证据与 blocker",
+        "kind": "evidence"
+      },
+      {
+        "from": "rollback",
+        "to": "owner",
+        "label": "可执行恢复收据",
+        "kind": "evidence"
+      },
+      {
+        "from": "owner",
+        "to": "decision",
+        "label": "独立具名决策",
+        "kind": "control"
+      },
+      {
+        "from": "holdout",
+        "to": "decision",
+        "label": "污染则旧结论作废",
+        "kind": "risk"
+      },
+      {
+        "from": "lineage",
+        "to": "decision",
+        "label": "版本 / 许可缺失",
+        "kind": "risk"
+      }
+    ],
+    "ranks": [
+      [
+        "purpose"
+      ],
+      [
+        "lineage",
+        "snapshot",
+        "holdout"
+      ],
+      [
+        "comparison",
+        "rollback"
+      ],
+      [
+        "owner"
+      ],
+      [
+        "decision"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "本页故障怎样注入",
+        "tone": "risk",
+        "body": [
+          "取消版本固定并混入训练样本",
+          "lineage 与 holdout 门禁同时红"
+        ]
+      },
+      {
+        "title": "修复不是抹去污染",
+        "tone": "control",
+        "body": [
+          "恢复版本并重建封存评测",
+          "不能删污染样本后沿用旧结论"
+        ]
+      },
+      {
+        "title": "回滚必须是组合",
+        "tone": "evidence",
+        "body": [
+          "模型、Prompt 与索引成组恢复",
+          "保留旧版本和演练读回收据"
+        ]
+      }
+    ],
+    "failure": "数据许可或版本断链、Holdout 污染、关键 blocker 或回滚不可执行时不注册。",
+    "outcome": "交付模型更新 Manifest、候选比较、污染门禁与具体回滚验收记录。",
+    "boundary": "0→1→0 只验证合成工程合同；真实训练、许可审查、模型收益与生产读回 NOT_RUN。",
+    "sourceRefs": [
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-X602 / TD-X602 Fault（退出 1）：让目标故障被点名",
+        "quote": "Fault 取消版本固定并把训练样本混入 holdout"
+      },
+      {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+        "locator": "TD-X602 / 新模型上线后不如预期时按什么顺序查",
+        "quote": "模型文件、Prompt、检索索引必须成组回滚"
+      }
+    ],
+    "primaryPageIds": [
+      "TD-X602"
+    ],
+    "sha256": "30c97a19ebe88bdaaa65b6205378f2a9486c4ace8c1221e7b515fc95128fbcf2",
+    "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-X602.svg",
+    "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X602.png"
+  }
+]

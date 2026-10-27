@@ -1,0 +1,415 @@
+# Course-1 独立内容与视觉审阅
+
+完成29/29张实际截图查看、逐条正文sourceRefs核对及实际candidate SVG SHA-256记录。结果：14 PASS，15 REWORK。P1=0；存在P2的图为部署阻断。PASS可以含P3润色项。
+
+## 审查对象和证据
+
+- 审查对象是隔离candidate中的新图，未把public正式旧图当作待审版本。
+- 29条screenshot均分别通过view_image实际查看；不是用缩略接触表或batch PASS替代。
+- 逐条读取spec.sourceRefs对应的正文blocks；另补查P01具体来源坐标、P02无来源24小时时限、P05的409/202教学故障例、T03校准及PS12秘密/身份边界。
+- 全部29个实际SVG文件hash与candidate/batch-verification.json的sha256一致；去除metadata后的渲染输入hash也逐一一致。render_sha256是SVG渲染输入hash，不能误当PNG文件hash。batch PASS仅用于绑定核对，未用于内容/视觉放行。
+- 风格参考实际查看了output/playwright/svg-redesign-2026-10-26/TD-M04.review.png。候选总体延续冷灰底、深蓝标题、语义分色和A/B/C层次；复杂图的路由与标签精致程度弱于参考。
+- 补查29张的实际文字行，未发现孤立问号、行首逗号或其他孤立标点；已观察到多图单字尾行，逐图记录为P3。没有将主审在其他scope观察到的问题移植到本scope。
+- 只写本course-1.json和course-1.md；未修改SVG、源码、正式资源或他人报告。
+
+## 发布结论
+
+以下图存在P2，修复且按新hash重新送审前不得作为已通过资源替换或部署：
+
+TD-P01, TD-P02, TD-P03, TD-P07, TD-P08, TD-PS01, TD-PS02, TD-PS03, TD-PS06, TD-PS07, TD-PS08, TD-PS10, TD-X101, TD-F04, TD-T03
+
+以下图本轮未发现P1/P2：
+
+TD-P04, TD-P05, TD-P06, TD-PS04, TD-PS05, TD-PS09, TD-PS11, TD-PS12, TD-FP01, TD-F02, TD-F03, TD-T01, TD-T02, TD-T04
+
+本报告不代表真实模型/企业集成/生产结果或学习者验收。主代理负责修复、重送审和发布。
+
+## 逐图结果
+
+### TD-P01 — REWORK
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-P01.svg`
+- SHA-256：`9a6c4e8a5670cfe3b9712570bc765179ffd039b38164518342f4626b8738d9ec`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P01.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对冲突/缺失分别保持 BLOCKED/UNKNOWN、有权 owner 写回裁决、新 basis hash 与旧收据失效；PRD-v3#R17、TECH-a13f#S04 的具体例子也在正文找到。
+- 视觉：标题和蓝/橙/红/紫色层次延续 TD-M04；风险条件的排放破坏了主要分支的顺读。
+- **P2** 冲突条件标签脱离对应风险箭头，和两条裁决支路挤在一起。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P01.png；A 区 Basis Gate→SOURCE_CONFLICT 是水平红线；“存在未决冲突”却位于该线下方、blocked→owner 与 gate→basis 两条交叉虚线附近。读者必须回找细引导线才能确认哪个条件属于哪条分支。正文要求未决冲突先 BLOCKED，再由 owner 裁决。
+  修复：将“存在未决冲突”贴近水平红线；把无冲突直通新依据包、冲突升级 owner 分成两条不交叉的通道，条件紧邻各自箭头。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P01.png；实际SVG文本行及截图中可定位的单字行：“用”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-P02 — REWORK
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-P02.svg`
+- SHA-256：`6301124f84488b2469936116f2c5d8cf2a9ef7ba4f2ec5ad5eef774068d70da5`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P02.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对结构与语义两份门禁分别留痕、关键规则由领域 owner 确认、unsupported refund_timeout_hours=24 的坏契约示例；下游字段映射与停止边界符合正文。
+- 视觉：两门禁分列、坏契约用红色强调是有效设计；窄卡片导致核心术语反复被拆成单字尾行。
+- **P2** 关键语义节点连续出现单字尾行，卡片宽度没有利用主图区的空白。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P02.png；A 区“候选需求契约”的“副作用”断成“副作 / 用”；“独立语义审查”的“权限”“确认”分别留下“限”“认”单字行；“获准字段交给下游”的“观察点”留下“点”。这些是本页用于解释语义门禁的核心字段，而两侧仍有大块空白。
+  修复：扩大这些节点的文本宽度或重新组织两门禁布局，按字段/短语换行，消除核心节点中连续的单字尾行后重送原尺寸截图。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P02.png；实际SVG文本行及截图中可定位的单字行：“用”、“限”、“认”、“点”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-P03 — REWORK
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-P03.svg`
+- SHA-256：`3cfeecd0855c7ac3b996ecfd4ecb3a104178752992a55e55c337e314e0a46630`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P03.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对首次成功后 ACK 丢失、同身份重投不得二次退款、耗尽后 safe terminal/恢复 owner，以及不能只看 HTTP 200。无真实支付执行的声明保留。
+- 视觉：服务节点有色层次清楚，但双向边与底部证据线构成主要阅读障碍。
+- **P2** 调用/回执和 ACK 丢失/重投两组反向边共用同一条几何路径，关键故障链难以追踪。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P03.png；A 区 Worker↔支付网关的蓝色与绿色箭头叠在同一水平线上；Worker↔ACK 丢失与重投的红色和绿色边叠在同一竖线上。底部三条紫色证据线又挤到“跨服务观察点”上方同一小范围。SVG 复核也显示两组反向边分别共用 y=406.5、x=177 的路径。
+  修复：调用/回执、故障/重投各自使用分离的平行或外侧回路；证据采集单独成带或分配不同入口，保留首次成功→ACK 丢失→同身份重投→去重的可读顺序。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P03.png；实际SVG文本行及截图中可定位的单字行：“复”、“款”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-P04 — PASS
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-P04.svg`
+- SHA-256：`af67866447bdaf3501703a2f833f72394860f17b162c0d070939a57fb45fcbf5`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P04.png`
+- 实际查看：是；正文核对：是。
+- 内容：三类风险→状态/集成、属性/重放、契约的方法选择，与正文逐项对应；独立 Oracle、残余风险 owner、无通用阈值边界均保留。
+- 视觉：三列对照与底部决策汇聚清楚，边短且标签归属明确；本组中接近参考的清楚层次，无需阻断。
+- 未发现明确缺陷。
+
+### TD-P05 — PASS
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-P05.svg`
+- SHA-256：`0160afc5cf88662ab73c4612dae85b400dae47215b2efc2f99322e0105702712`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P05.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对独立规则/计算先固定 expected、实现只产 actual、反转 SHIPPED 守卫应变红；另在“先植入缺陷”及工作示例找到预期409/实际202，确为教学例。
+- 视觉：两条 Oracle 来源与被测实现没有混淆，红色故障注入和检测力收据易读；存在少量单字尾行，列为润色。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P05.png；实际SVG文本行及截图中可定位的单字行：“入”、“例”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-P06 — PASS
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-P06.svg`
+- SHA-256：`17bb739f56dc04d2bed3f0d6098d75f3ccd1bb6795220e68fb0ee9778e63c1d4`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P06.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对 adapter 只映射动作/采证、不改 expected；Runner 有界重试且保留每次结果；selected/skipped、首败、退出码及假绿故障方向正确。
+- 视觉：从测试包到 adapter 再到 Runner 的层级清楚，probe 和故障注入入口可追踪；Runner 标题尾字换行需润色。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P06.png；实际SVG文本行及截图中可定位的单字行：“败”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-P07 — REWORK
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-P07.svg`
+- SHA-256：`18b07c4436af006d29125c641d062e5314aaf156af0bbc020b0421c409d2f779`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P07.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对版本/选择→Oracle/actual→环境/依赖→产品的归因顺序，PRODUCT_FAIL、TEST_FAIL、环境/依赖与 UNKNOWN 各有动作；离线三相不冒充生产根因。
+- 视觉：主要分流成立；UNKNOWN 及补证回路在下部贴合，影响故障动作辨认。
+- **P2** UNKNOWN 去程与补证回程在下段贴合，分流与反馈方向缺少清楚的分隔。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P07.png；A 区“按证据分流”到“UNKNOWN 与补证清单”的红线，与 UNKNOWN 返回“原始比较证据”的绿色长回路，在 TEST_FAIL 右下至 UNKNOWN 上方逐渐靠拢并贴合；“关键证据不足”“环境或依赖证据”“补证后重新分类”也集中在分流右侧。正文把证据不足分流与补证后再分类区分为两个动作。
+  修复：将 UNKNOWN 作为独立失败出口；补证回路放到图区外缘，避免和红色去程共用下段通道，并把四个分支条件分别贴近对应边。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P07.png；实际SVG文本行及截图中可定位的单字行：“本”、“试”、“为”、“用”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-P08 — REWORK
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-P08.svg`
+- SHA-256：`316247d2367925d480e735e0ba8765a1ae3806e4bf71ed869e8569d8989b05d9`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P08.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对409→422/Prompt hash变化沿业务依赖失效旧证据、相关回归补新收据、Evidence Pack只到候选、具名风险接受与回滚责任。
+- 视觉：STALE 和新收据的颜色区分有效；发布候选的限制标签脱离交接边，长反馈线穿过主图区。
+- **P2** 发布候选的限制标签远离交接箭头，反馈长线又穿过证据到发布的通道。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P08.png；A 区 Evidence Pack→具名发布决定为水平紫线，但“仅 RELEASE_CANDIDATE”被拆成“仅”与下一行英文，放在该线下方、接近“发布后事件处置”的位置；事故回灌的绿色长线穿过这条交接区域。正文强调候选证据不等于批准，限制必须在交接处直接可见。
+  修复：把完整的“仅 RELEASE_CANDIDATE”标签放回 Evidence Pack→具名发布决定的边上；事故反馈沿外缘返回 Impact Set，并缩短/移除长距离标签引导线。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-P08.png；实际SVG文本行及截图中可定位的单字行：“件”、“仅”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-PS01 — REWORK
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-PS01.svg`
+- SHA-256：`f32e7df1932e05ee53c82f5de53ee8255abb17ba60084ca29f1da96201463a9f`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS01.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对202不等于退款完成、同幂等键至多一次副作用、拒绝零副作用、request/event/ledger关联与独立查询路径；真实API/数据库未运行边界明确。
+- 视觉：四类观察对象齐全，但中央同色证据交叉使分别核对的主旨难以直接阅读。
+- **P2** 四层证据汇聚区的多条同色边交叉，证据来源与判据难以一眼对应。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS01.png；A 区第三排到第四排之间，“协议/结构”“消费轨迹”“同次调用关联”“独立账本 Oracle”四个紫色标签集中在窄区；response→gate、events→trace 与 ledger→gate 等边在这里交叉，且 Trace→gate 的标签需要额外引导线。正文要求四层分别提供同次调用证据。
+  修复：将 Trace 关联做成独立证据带，协议、账本、副作用各自垂直进入门禁；给三类证据不同入口，避免同色交叉线集中在标签区。
+
+### TD-PS02 — REWORK
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-PS02.svg`
+- SHA-256：`4d9d31687ab80090f2545520df4269368b84e71f151e463b8c3a8b9859fae6ba`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS02.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对Schema与业务属性两条判据链分别出分、变异验证检测力、最小反例和seed重放；未声称穷尽输入空间。
+- 视觉：结构与语义分列完整，标签实际安放使结构依据与输入边容易错认。
+- **P2** 结构依据和正反例输入的标签错开到其他边旁，削弱两条独立判据链的辨认。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS02.png；A 区 generator→API 的水平蓝线旁先看到紫色“结构依据”；它实际属于 OpenAPI→结构校验器的长曲线。蓝色“正反例输入”则被移到该水平线下方，靠近 API→结构校验器的斜线；“请求/响应结构”也在同一片区域。
+  修复：把正反例输入标签放回 generator→API 水平边；OpenAPI 到结构校验器使用左侧独立通道并就近标“结构依据”，将 API 的结构结果与业务结果分成清楚的左右支路。
+
+### TD-PS03 — REWORK
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-PS03.svg`
+- SHA-256：`068e3ffd783110506b392ec0d748a9917d4566a7acba4bdae2b76ad3c3f71c6f`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS03.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对消费者声明实际依赖、提供者回放契约、兼容不等于业务正确；租户、event_id去重、乱序、补偿和终态都有体现，未宣称真实投递已验证。
+- 视觉：契约和运行时两条链的节点明确；库存失败与补偿返回重叠，故障链未达到参考的可追踪程度。
+- **P2** 失败出口与库存补偿回路共线，无法清楚区分失败下行和补偿返回。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS03.png；A 区“库存消费者”到“死信/补偿与 Trace”的红色失败线，与该证据节点返回库存的绿色虚线叠在同一斜线上；“失败、终态与补偿”和“按定义补偿”沿同一路径上下堆放。该区恰是正文要求补画的失败恢复部分。
+  修复：把库存失败出口和补偿回路分离，回路沿左侧返回；支付失败保持独立入口；每条边只承载一个方向和一个条件。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS03.png；实际SVG文本行及截图中可定位的单字行：“图”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-PS04 — PASS
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-PS04.svg`
+- SHA-256：`e798a80540ee04ba4dc0d99be163d4175be26038fc979922ba6c2fb9d5c1d472`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS04.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对独立数据/上下文、role/testid、条件等待与actionability边界；API/账本/审计决定退款终态，Trace保留现场；Stub不等于第三方或生产通过。
+- 视觉：单向分层结构清楚，终态与现场两路证据分开进入门禁，留白尚可且无箭头拥塞。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS04.png；实际SVG文本行及截图中可定位的单字行：“告”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-PS05 — PASS
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-PS05.svg`
+- SHA-256：`74c4f57e2c5930aa05850b8d4fd2ed037fada86cb5040fd8170f17f7ccf3112d`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS05.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对DOM规则、键盘/读屏旅程与视觉差异三类职责；incomplete不忽略、基线具名批准、环境矩阵裁剪和未测组合边界均保留。
+- 视觉：顶部三支检查易读；中部人工复核与证据双汇聚稍密，但起终点仍可辨认，不列部署阻断。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS05.png；实际SVG文本行及截图中可定位的单字行：“据”、“异”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-PS06 — REWORK
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-PS06.svg`
+- SHA-256：`5c6d820ced91ee84119970472d31e39d6889f5fd4fde1511dee9fc6325875a8c`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS06.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对相机权限拒绝不建记录、旋转/后台/进程回收后恢复或安全终止、同receipt_id只入账一次与logcat/服务Trace关联；模拟器不外推真机。
+- 视觉：左右恢复与账本结构可读；生命周期故障标签落到恢复返回线附近，需修正归属。
+- **P2** 生命周期故障标签远离红色注入箭头，并与恢复反馈标签混在一起。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS06.png；A 区“离线本地队列”→“旋转/后台/回收”为水平红线；“注入生命周期故障”却放到下方“恢复待同步项”绿色返回线附近。图区上面的故障触发线因此看似无标签，下方返回动作又紧邻故障文字。
+  修复：将故障标签放到 queue→interrupt 红线旁；恢复待同步项保留在独立返回通道，避免两种相反动作共享标签区域。
+
+### TD-PS07 — REWORK
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-PS07.svg`
+- SHA-256：`31afc7ddfbcca6a3c70fe1ec715603a625dd3f5ba7c8c93c6a7d4c6833715b89`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS07.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对真机签名前置、每例Keychain等状态重置、权限四态、显式identifier、预约API幂等冲突、Slot释放/占用、隐私降级及分环境证据。
+- 视觉：节点与失败出口齐全；跨层安放的前置/权限标签和单字尾行影响层次。
+- **P2** 真机前置失败与系统权限两条条件标签远离各自边，门禁层次读起来断裂。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS07.png；A 区“前置失败”在 preflight→环境阻断水平红线下方一整段空白处；“系统权限与恢复”在 XCUITest→权限与生命周期水平虚线上方，靠近上一层标签。二者靠长细引导线回指箭头，关键前置条件无法沿主路径顺读。
+  修复：把前置失败/通过紧贴 preflight 的两条出口；系统权限与恢复放回 UI→权限节点的边旁。重排上下行间距，避免用跨层引导线安置条件。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS07.png；实际SVG文本行及截图中可定位的单字行：“据”、“足”、“功”、“证”、“传”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-PS08 — REWORK
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-PS08.svg`
+- SHA-256：`bb27a28f8a6a93d9b2d9b63e051bbc7edc56b6e6c0cc55cc231516ed1fcc19c9`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS08.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对Expand→双写影子读→历史回填/CDC→独立守恒对账、回滚演练在切读前、保留旧结构直到窗口结束再收缩；Job成功不替代业务Oracle。
+- 视觉：回填/CDC两支证据清楚；切读与回滚的双向条件重叠，恰好遮蔽标题强调的先后条件。
+- **P2** 切读准入与旧结构保留之间的双向条件边共线，回退准入和切读后动作混在一起。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS08.png；A 区“旧结构保留与回滚”→“切读准入”的“已演练且可回退”，与反向的“切读后保留旧结构”使用同一斜线；两条条件文字集中在斜线旁，且绿色异常回退长线从附近穿过。SVG 两条反向 control 边位于同一直线。
+  修复：将回滚就绪作为切读前独立输入，切读后保留旧结构作为另一路后续动作；双向边分别路由，异常切回放在外圈，收缩批准紧贴旧结构→Contract 的边。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS08.png；实际SVG文本行及截图中可定位的单字行：“额”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-PS09 — PASS
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-PS09.svg`
+- SHA-256：`2c08cf536863745fb05f02ef42926d5ce11e5d2bbceac2f409ed2b6a37c00d84`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS09.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对open-loop保持外部到达、dropped iterations、阶段计时、同次压测联合质量/安全/延迟计Goodput、成本含失败重试工具；无虚构容量曲线或数值。
+- 视觉：时间/质量/成本三支并行证据清楚，合格任务联合计数已在节点明示；长标签和少量单字尾行可润色。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS09.png；实际SVG文本行及截图中可定位的单字行：“降”、“告”、“阶”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-PS10 — REWORK
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-PS10.svg`
+- SHA-256：`6f5e89962f888cc4dbe143e21200711504bcaaff89cbbb7fd69ab5a034c84c0a`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS10.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对请求级deadline/retry budget、OPEN/HALF_OPEN恢复、抖动/退避、只读降级零写副作用、停止回滚后同切片复验；无生产故障注入声明。
+- 视觉：状态节点颜色合适，但双向共线使最关键的触发/返回条件混杂。
+- **P2** 熔断探测/失败返回及停止/复验两组双向边重合，状态转换不清晰。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS10.png；A 区 OPEN↔HALF_OPEN 两条边共用一条水平线，红色探测失败覆盖橙色退避后探测；底部 SLI/Trace/副作用↔实验停止与回滚的橙色/绿色边也叠在同一斜线上。SVG 复核 OPEN/HALF_OPEN 两边同为 y=457.5。
+  修复：按状态机分离 OPEN→HALF_OPEN 和 HALF_OPEN→OPEN 路径；停止实验与恢复后复验分配两条回路。每条状态边的触发条件放在本边附近。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS10.png；实际SVG文本行及截图中可定位的单字行：“应”、“染”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-PS11 — PASS
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-PS11.svg`
+- SHA-256：`926287dbc384cdca432a43acfe6888fe9bb8f2dd34620c038a536f0183969d06`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS11.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对同trace context贯穿gateway/retrieval/model/tool/terminal、敏感内容落盘前脱敏、fault window关联、完整性先于归因、恢复后同切片复验及托管内部UNKNOWN。
+- 视觉：节点、故障窗口与持续评测回流可辨；1600×2901的长画布配窄列导致阅读距离较长，属可优化项。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS11.png；实际SVG文本行及截图中可定位的单字行：“务”、“因”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+- **P3** 长画布配窄节点，正文被拉成长列，信息密度与TD-M04参考不够协调。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS11.png；实际尺寸1600×2901，A区大量纵向间隔配窄列卡片；已查看的TD-M04.review参考为1600×1700，横向分区和分层更紧凑。该差异未破坏本图的主要箭头归属。
+  修复：利用横向空间加宽节点、压缩过大的纵向空白；按语义分区组织证据，不机械统一卡片宽度或单纯缩小字号。
+
+### TD-PS12 — PASS
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-PS12.svg`
+- SHA-256：`8ad82b1d3abaee85c39cc720b49dc0025d087c79ff807e251080d3f2e28e9d39`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS12.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对原始身份/委托下传、对象功能授权在每次调用边界重新校验、allowlist/参数先于写入、拒绝零副作用和跨租户零读写；日志秘密边界与攻击授权范围明确。
+- 视觉：授权链与拒绝链分开且方向清楚；subject-tenant-object-action被拆在词内部，中文也多处单字尾行，需润色。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-PS12.png；实际SVG文本行及截图中可定位的单字行：“证”、“验”、“限”、“写”、“下”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-X101 — REWORK
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-X101.svg`
+- SHA-256：`de98e4d7ba33666021e685305536fb2dc207fc067be35b43572c21752dd664ca`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X101.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对diff/架构依赖、SBOM精确版本与工具hash、provenance/签名、扫描可达性、具名有期限例外共同守合并；零告警与合成0/1/0不被写成生产安全。
+- 视觉：双证据主题清楚，中央架构发现和签名核验同色交叉需分开路由。
+- **P2** 架构发现与供应链来源核验在中央交叉区混用同色标签，路径归属不清。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X101.png；A 区“架构与静态约束”→合并门禁的长紫线，与“扩展 SBOM”→“Provenance/Signature”的紫线在中央交叉；“来源与签名核验”恰在交叉附近，“架构发现”则更靠下，读者需反向追线才能区分两种检查。正文要求两类证据各有职责。
+  修复：将架构检查直达合并门禁放在独立列/外侧；SBOM→签名和扫描分成短支路，标签就近安放，汇聚时保留明确入口。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X101.png；实际SVG文本行及截图中可定位的单字行：“陷”、“化”、“性”、“间”、“置”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-FP01 — PASS
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-FP01.svg`
+- SHA-256：`58dd10a732b4049c626087c10afea604bac31493f424ebf45dad8618710df403`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-FP01.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对System权限/Task目标/Input事实分区、Schema形状与Eval语义分工、Mutation只改observed不改expected、真实provider/model/raw output收据及迁移重审。
+- 视觉：组成面有层次、独立Owner回供Oracle方向正确；图高2575且节点偏窄，存在可改善的文字断行。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-FP01.png；实际SVG文本行及截图中可定位的单字行：“布”、“策”、“口”、“表”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-F02 — PASS
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-F02.svg`
+- SHA-256：`6015affa37f39665336eac93ca8312e4c0b5bf8bc0c842e078bf4e77739d8e3b`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-F02.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对训练未知保持UNKNOWN、模型snapshot和参数、完整上下文、编排/工具检索版本汇入Manifest/Trace，再做单变量归因；动态别名限制明确。
+- 视觉：责任层分布清楚，四路证据汇入Trace稍密但仍能追踪；文字换行可润色。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-F02.png；实际SVG文本行及截图中可定位的单字行：“果”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-F03 — PASS
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-F03.svg`
+- SHA-256：`be82403d7be1d1eb4d93874c7de7c7750705fc8cffa0c64269719c28a908a092`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-F03.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对首/中/尾只改位置、锁定其他配置、全部重复输出留存、pass^k全成功与pass@k至少一次的区别；不把temperature=0或单次PASS升级为稳定。
+- 视觉：三组位置实验与Raw outputs汇聚明确；顶部六条线重复相同标签略显机械，但尚可辨识。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-F03.png；实际SVG文本行及截图中可定位的单字行：“界”、“致”、“出”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-F04 — REWORK
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-F04.svg`
+- SHA-256：`8cead065bbd4bb7ccb6fcc5f5c966cae0763da6053a41a14a5034e233961bb12`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-F04.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对按谁决定路径区分LLM/RAG/Workflow/Agent/Worker、各自取证、独立业务终态、写前授权与人工升级；输出正确不抵消危险步骤。
+- 视觉：五类责任与所需证据齐全，但五路分类的干线与证据汇聚拥塞，降低比较的教学效果。
+- **P2** 控制权分类的五条出口没有清楚分道，证据汇聚又出现近乎重合的同色箭头。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-F04.png；A 区“沿真实 Trace 分类”下方，固定流程、动态控制、异步执行三条橙色边挤在同一竖向干线附近再分叉，标签穿插其间；LLM 与 RAG 到“分层证据核对”的两条紫线在下方贴合，箭头挤在同一位置。正文用控制权区分五种失败面，图上却需要逐线回溯。
+  修复：按五类责任做横向卡列或分层矩阵，分类出口与证据出口分别成带；至少将五个入口条件和 LLM/RAG 的证据路径分离，不共用箭头落点。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-F04.png；实际SVG文本行及截图中可定位的单字行：“文”、“偿”、“止”、“态”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-T01 — PASS
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-T01.svg`
+- SHA-256：`8265e3b8a95713e87317b96dbf64777048f39a5d44afb8531671ee4fae6dd5ae`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T01.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对先发布问题/风险owner后数据Oracle指标、三类具名责任、指标来源与stop state；合同完整率不替代模型质量/代表性。
+- 视觉：决策链和外侧风险接受权长弧可追踪，标题层级与颜色稳定；水平边标签引导线略长，未造成明确歧义。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T01.png；实际SVG文本行及截图中可定位的单字行：“绿”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-T02 — PASS
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-T02.svg`
+- SHA-256：`c948d1df5ecae0f3a50f6447645bd83a2118432caa428ac0819fd7854cb11e24`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T02.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对先用户/文档/时间分组去重再拆三集合、Holdout调优前封存且候选冻结后开封、访问留痕、新失败进下一版本、风险切片不平均。
+- 视觉：三集合分列清楚，候选到Holdout的控制边和外圈下一版反馈能分辨；少量孤字尾行可润色。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T02.png；实际SVG文本行及截图中可定位的单字行：“染”、“本”、“理”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-T03 — REWORK
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-T03.svg`
+- SHA-256：`c5883a5ba07aabe088841638f848588346458bc763885e2ffa9ff61a5de53179`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T03.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对Schema/业务/权限硬失败优先、blocker不可抵消、金标先测人人再测人机、Judge/Rubric换版重新校准及无校准回退人审；未套通用κ阈值。
+- 视觉：门禁和人工节点齐全，但多条红/绿/紫跨层长线挤在权限与Judge周围，需重新排布。
+- **P2** 硬门禁失败、人工校准和升级回流在同一区域交错，条件通道过于拥挤。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T03.png；A 区 Schema Gate、业务规则 Gate→阻断的两条红线跨过权限 Gate 旁的主流程，并与 Judge→人工的绿色回路交叉；“结构失败”被放在接近底部而非 Schema 出口。人工→Judge 与人工→报告的两条紫线还从同一出口重叠后才分离。
+  修复：将 Schema→业务→权限的通过链排成直线，硬失败出口汇入单独侧轨；人工校准/分歧回路放在 Judge 一侧，人工报告线使用另一个端口，条件紧贴触发门禁。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T03.png；实际SVG文本行及截图中可定位的单字行：“为”、“性”、“对”、“达”、“歧”、“工”、“分”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+
+### TD-T04 — PASS
+
+- Candidate：`output/svg-release-20261026/candidate/public/visuals/course/TD-T04.svg`
+- SHA-256：`a22c6c68ccb3161038d493674d5f6eac326b011efcdb6b31916fc95ef72a0bf5`
+- 截图：`output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T04.png`
+- 实际查看：是；正文核对：是。
+- 内容：核对同题A/B单变量重复、全量Raw ledger先于Scorer、打分器换版可重算、任务级聚类配对差值、最差切片/blocker/首错单列、证据不足不写无差异。
+- 视觉：顺序与分流清楚，未见关键箭头拥塞；1600×2901画布偏长，标题“实验合同”被拆出“同”单字行，需润色。
+- **P3** 出现孤立单字尾行，中文短语/术语没有得到完整的换行保护。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T04.png；实际SVG文本行及截图中可定位的单字行：“同”、“法”、“跑”。本图未发现孤立问号或行首逗号。
+  修复：按中文禁则与短语边界重新分行，优先调卡片文本宽度；保留英文标识符完整性，避免用缩小全图字体来消除尾行。修复后按实际受影响hash重新截图复审。
+- **P3** 长画布配窄节点，正文被拉成长列，信息密度与TD-M04参考不够协调。
+  证据：output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T04.png；实际尺寸1600×2901，A区大量纵向间隔配窄列卡片；已查看的TD-M04.review参考为1600×1700，横向分区和分层更紧凑。该差异未破坏本图的主要箭头归属。
+  修复：利用横向空间加宽节点、压缩过大的纵向空白；按语义分区组织证据，不机械统一卡片宽度或单纯缩小字号。

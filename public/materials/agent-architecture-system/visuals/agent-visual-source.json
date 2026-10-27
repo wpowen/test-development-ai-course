@@ -9,141 +9,1059 @@
   },
   "visuals": [
     {
+      "visual_id": "agent-architecture-system-td-ag-00",
+      "kind": "layers",
+      "file": "TD-AG-00.svg",
+      "title": "八域共同围住工具副作用",
+      "purpose": "客服退款：终局答复正确，仍须追查未经授权的工具写入",
+      "nodes": [
+        "输入与风险",
+        "D0 评估可信",
+        "D1 单体能力",
+        "D2 编排协作",
+        "D3 人机协同",
+        "D4 鲁棒可靠",
+        "D5 安全对抗",
+        "D6 效率经济",
+        "D7 业务治理",
+        "四证据环",
+        "运行时护栏",
+        "决策与反馈"
+      ],
+      "relationships": [
+        "输入与风险→D1 单体能力：任务与信任边界",
+        "D1 单体能力→D2 编排协作：轨迹归因",
+        "D2 编排协作→D3 人机协同：交接与接管点",
+        "D0 评估可信→D1 单体能力：校准评分",
+        "D0 评估可信→D4 鲁棒可靠：校准可靠性判据",
+        "D0 评估可信→D7 业务治理：约束治理评分",
+        "D0 评估可信→D2 编排协作：校准协作评分",
+        "D0 评估可信→D3 人机协同：校准交互评分",
+        "D0 评估可信→D5 安全对抗：校准安全评分",
+        "D0 评估可信→D6 效率经济：校准资源评分",
+        "D0 评估可信→决策与反馈：失准则所有评分不可用",
+        "四证据环→D1 单体能力：按环执行",
+        "四证据环→D4 鲁棒可靠：重复与回放",
+        "四证据环→D5 安全对抗：持续对抗",
+        "四证据环→D6 效率经济：按环观测",
+        "D5 安全对抗→运行时护栏：输出强制控制",
+        "D3 人机协同→运行时护栏：授权检查点",
+        "D4 鲁棒可靠→决策与反馈：分布证据",
+        "D6 效率经济→决策与反馈：成本与暴露量",
+        "D7 业务治理→决策与反馈：规则与具名接受",
+        "运行时护栏→决策与反馈：阻断或停止",
+        "D5 安全对抗→决策与反馈：已证越权直接 BLOCKED",
+        "D7 业务治理→决策与反馈：已证硬规则违规直接阻断",
+        "决策与反馈→输入与风险：失败回灌",
+        "决策与反馈→D0 评估可信：Judge 重校准"
+      ],
+      "source_refs": [
+        "content/modules/agent-architecture-system.ts#TD-AG-00 / problem",
+        "content/modules/agent-architecture-deep.ts#TD-AG-00 / counter"
+      ],
+      "alt_text": "八域共同围住工具副作用。先校准测量，再把轨迹、状态、权限、成本和业务规则接到独立证据；高危 blocker 不得用总分抵消。 客服退款：终局答复正确，仍须追查未经授权的工具写入",
+      "alt": "八域共同围住工具副作用。先校准测量，再把轨迹、状态、权限、成本和业务规则接到独立证据；高危 blocker 不得用总分抵消。 客服退款：终局答复正确，仍须追查未经授权的工具写入",
+      "caption": "先校准测量，再把轨迹、状态、权限、成本和业务规则接到独立证据；高危 blocker 不得用总分抵消。 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "not_proof": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "rendering": {
+        "layout": "layers",
+        "generator": "scripts/visuals/build.mjs",
+        "spec": "scripts/visuals/specs/materials.mjs",
+        "body_refs": [
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-00 / problem",
+            "quote": "最终答复看起来正确，但一次未经授权的写操作可能已经发生。"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-00 / counter",
+            "quote": "四个环是横向驱动 D1/D4/D5/D6 的，不是串在末尾。"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-00 / dimensions.caption",
+            "quote": "D0 校准所有分数"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-09 / failureModes",
+            "quote": "发生一次即不可接受的事件不能做成区间判定"
+          }
+        ]
+      }
+    },
+    {
+      "visual_id": "agent-architecture-system-td-ag-01",
+      "kind": "decision",
+      "file": "TD-AG-01.svg",
+      "title": "Judge 上岗前先过校准",
+      "purpose": "同一事实交换顺序、增加冗余和加入过期政策，分别观察偏置与 blocker",
+      "nodes": [
+        "冻结评分依据",
+        "人工标注",
+        "金标样本",
+        "偏差探针",
+        "Judge 评分",
+        "分歧矩阵",
+        "停用与人工回退",
+        "Judge Card"
+      ],
+      "relationships": [
+        "冻结评分依据→人工标注：统一标注准则",
+        "人工标注→金标样本：仲裁金标",
+        "金标样本→Judge 评分：固定样本",
+        "偏差探针→Judge 评分：扰动候选",
+        "冻结评分依据→Judge 评分：锁定评审配置",
+        "Judge 评分→分歧矩阵：逐样本判定",
+        "金标样本→分歧矩阵：独立人类标签",
+        "分歧矩阵→停用与人工回退：偏置或漂移失败",
+        "分歧矩阵→Judge Card：校准通过且披露限制",
+        "分歧矩阵→冻结评分依据：人人分歧先修标准",
+        "停用与人工回退→人工标注：回退人审"
+      ],
+      "source_refs": [
+        "content/modules/agent-architecture-system.ts#TD-AG-01 / repair",
+        "content/modules/agent-architecture-deep.ts#TD-AG-01 / failureModes.caption"
+      ],
+      "alt_text": "Judge 上岗前先过校准。先分清 rubric 歧义和 Judge 偏差，再决定自动评分权限；确定性事实不能交给语言评分放行。 同一事实交换顺序、增加冗余和加入过期政策，分别观察偏置与 blocker",
+      "alt": "Judge 上岗前先过校准。先分清 rubric 歧义和 Judge 偏差，再决定自动评分权限；确定性事实不能交给语言评分放行。 同一事实交换顺序、增加冗余和加入过期政策，分别观察偏置与 blocker",
+      "caption": "先分清 rubric 歧义和 Judge 偏差，再决定自动评分权限；确定性事实不能交给语言评分放行。 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "not_proof": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "rendering": {
+        "layout": "decision",
+        "generator": "scripts/visuals/build.mjs",
+        "spec": "scripts/visuals/specs/materials.mjs",
+        "body_refs": [
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-01 / repair",
+            "quote": "先修订 rubric 和标注争议，再重跑校准；"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-01 / failureModes.caption",
+            "quote": "金额、状态、权限、引用存在性都能用断言测"
+          },
+          {
+            "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+            "locator": "TD-AG-01 / summary",
+            "quote": "建立人工金标、Judge Card、偏差探针和停用回退链，理解评估器本身也是被测系统。"
+          }
+        ]
+      }
+    },
+    {
+      "visual_id": "agent-architecture-system-td-ag-02",
+      "kind": "evidence",
+      "file": "TD-AG-02.svg",
+      "title": "从禁止调用定位首错",
+      "purpose": "允许查询、读政策、转人工的任务中，refund_order 调用是 Step 层失败",
+      "nodes": [
+        "Task 与不变量",
+        "Step / Span 台账",
+        "Tool / Parameter",
+        "Observation 利用",
+        "首错位置",
+        "Outcome Oracle",
+        "Trajectory Decision",
+        "归因与重放"
+      ],
+      "relationships": [
+        "Task 与不变量→Step / Span 台账：执行并逐步记录",
+        "Step / Span 台账→Tool / Parameter：逐调用检查",
+        "Step / Span 台账→Observation 利用：逐观测检查",
+        "Tool / Parameter→首错位置：首次错误或未授权",
+        "Observation 利用→首错位置：首次误用或循环",
+        "Task 与不变量→Outcome Oracle：业务终态依据",
+        "Step / Span 台账→Trajectory Decision：完整序列证据",
+        "Task 与不变量→Trajectory Decision：安全不变量",
+        "首错位置→Trajectory Decision：Step blocker 不可抵消",
+        "Outcome Oracle→Trajectory Decision：独立终态判定",
+        "Trajectory Decision→归因与重放：失败归因",
+        "归因与重放→Task 与不变量：新增安全路径与重放"
+      ],
+      "source_refs": [
+        "content/modules/agent-architecture-system.ts#TD-AG-02 / scenario",
+        "content/modules/agent-architecture-deep.ts#TD-AG-02 / terms"
+      ],
+      "alt_text": "从禁止调用定位首错。Outcome、Step 与 Trajectory 各自判定；后端拒绝了一次越权退款，也不能把调用本身记成通过。 允许查询、读政策、转人工的任务中，refund_order 调用是 Step 层失败",
+      "alt": "从禁止调用定位首错。Outcome、Step 与 Trajectory 各自判定；后端拒绝了一次越权退款，也不能把调用本身记成通过。 允许查询、读政策、转人工的任务中，refund_order 调用是 Step 层失败",
+      "caption": "Outcome、Step 与 Trajectory 各自判定；后端拒绝了一次越权退款，也不能把调用本身记成通过。 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "not_proof": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "rendering": {
+        "layout": "evidence",
+        "generator": "scripts/visuals/build.mjs",
+        "spec": "scripts/visuals/specs/materials.mjs",
+        "body_refs": [
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-02 / scenario",
+            "quote": "任何 refund_order 调用都必须在 step 层失败"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-02 / terms",
+            "quote": "任一层的失败不得被另一层抵消"
+          },
+          {
+            "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+            "locator": "TD-AG-02 / summary",
+            "quote": "同时评估 outcome、step 和 trajectory，并用 span 标签、首错位置和无效循环率定位 Agent 失败。"
+          }
+        ]
+      }
+    },
+    {
+      "visual_id": "agent-architecture-system-td-ag-03",
+      "kind": "sequence",
+      "file": "TD-AG-03.svg",
+      "title": "把交接语义变成契约",
+      "purpose": "三跳链路埋入五个事实，注入空结果与超时，检查停止原因和重复副作用",
+      "nodes": [
+        "Agent A",
+        "Handoff 契约",
+        "上下文隔离",
+        "Agent B",
+        "故障注入",
+        "三重熔断",
+        "事实与副作用核对",
+        "Owner 仲裁"
+      ],
+      "relationships": [
+        "Agent A→Handoff 契约：结构化交接",
+        "Handoff 契约→上下文隔离：按字段与权限过滤",
+        "上下文隔离→Agent B：最小上下文",
+        "故障注入→Handoff 契约：语义失真注入",
+        "故障注入→Agent B：空结果或超时",
+        "Agent B→三重熔断：重试消耗预算",
+        "三重熔断→Owner 仲裁：超限停止与升级",
+        "Agent A→事实与副作用核对：源头事实锚点",
+        "Agent B→事实与副作用核对：终点与逐跳观测",
+        "事实与副作用核对→Owner 仲裁：丢失或重复副作用",
+        "Owner 仲裁→Handoff 契约：修复语义及职责"
+      ],
+      "source_refs": [
+        "content/modules/agent-architecture-deep.ts#TD-AG-03 / dimensions",
+        "content/modules/agent-architecture-system.ts#TD-AG-03 / workflow"
+      ],
+      "alt_text": "把交接语义变成契约。“客户声称已验证”不等于“身份已验证”；逐边验证字段、事实和权限，失败交由预算熔断收口。 三跳链路埋入五个事实，注入空结果与超时，检查停止原因和重复副作用",
+      "alt": "把交接语义变成契约。“客户声称已验证”不等于“身份已验证”；逐边验证字段、事实和权限，失败交由预算熔断收口。 三跳链路埋入五个事实，注入空结果与超时，检查停止原因和重复副作用",
+      "caption": "“客户声称已验证”不等于“身份已验证”；逐边验证字段、事实和权限，失败交由预算熔断收口。 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "not_proof": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "rendering": {
+        "layout": "sequence",
+        "generator": "scripts/visuals/build.mjs",
+        "spec": "scripts/visuals/specs/materials.mjs",
+        "body_refs": [
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-03 / dimensions",
+            "quote": "权限不随委托扩大"
+          },
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-03 / workflow",
+            "quote": "埋入 5 个事实并做多跳信息衰减检查"
+          },
+          {
+            "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+            "locator": "TD-AG-03 / summary",
+            "quote": "为多 Agent handoff 建立 schema、上下文隔离和三重熔断，防止信息衰减和下游失败拖垮全局。"
+          }
+        ]
+      }
+    },
+    {
+      "visual_id": "agent-architecture-system-td-ag-04",
+      "kind": "state",
+      "file": "TD-AG-04.svg",
+      "title": "中断后从什么状态恢复",
+      "purpose": "写前中断验证零副作用，写后中断验证补偿、接管与状态同步",
+      "nodes": [
+        "Agent 运行",
+        "人工中断",
+        "写前停止",
+        "写后脏状态",
+        "回滚或补偿",
+        "人工接管",
+        "恢复前同步",
+        "审计 Owner"
+      ],
+      "relationships": [
+        "Agent 运行→人工中断：第 N 步停止",
+        "人工中断→写前停止：写入之前",
+        "人工中断→写后脏状态：写入之后",
+        "写后脏状态→回滚或补偿：可撤销或补偿",
+        "写后脏状态→人工接管：不可撤销需人工",
+        "回滚或补偿→人工接管：交付处理后状态",
+        "人工接管→恢复前同步：明确交回与新状态",
+        "恢复前同步→Agent 运行：重新授权后继续",
+        "写前停止→审计 Owner：零副作用回执",
+        "人工接管→审计 Owner：人工决定",
+        "恢复前同步→审计 Owner：新旧状态差异"
+      ],
+      "source_refs": [
+        "content/modules/agent-architecture-system.ts#TD-AG-04 / problem",
+        "content/modules/agent-architecture-deep.ts#TD-AG-04 / failureModes"
+      ],
+      "alt_text": "中断后从什么状态恢复。有效接管必须停止旧计划、处理脏状态，并在交回后读取人工修改；确认按钮数量不是控制证据。 写前中断验证零副作用，写后中断验证补偿、接管与状态同步",
+      "alt": "中断后从什么状态恢复。有效接管必须停止旧计划、处理脏状态，并在交回后读取人工修改；确认按钮数量不是控制证据。 写前中断验证零副作用，写后中断验证补偿、接管与状态同步",
+      "caption": "有效接管必须停止旧计划、处理脏状态，并在交回后读取人工修改；确认按钮数量不是控制证据。 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "not_proof": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "rendering": {
+        "layout": "state",
+        "generator": "scripts/visuals/build.mjs",
+        "spec": "scripts/visuals/specs/materials.mjs",
+        "body_refs": [
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-04 / problem",
+            "quote": "恢复时 Agent 看不到人工修改，继续执行旧计划。"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-04 / failureModes",
+            "quote": "必须无任何副作用"
+          },
+          {
+            "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+            "locator": "TD-AG-04 / summary",
+            "quote": "测试用户在关键步骤中断、接管和交回 Agent 的能力，区分可解释与真正可控。"
+          }
+        ]
+      }
+    },
+    {
+      "visual_id": "agent-architecture-system-td-ag-05",
+      "kind": "metric",
+      "file": "TD-AG-05.svg",
+      "title": "同一台账回答两种可靠性",
+      "purpose": "固定版本、温度、状态重置和重试政策，再按任务时长观察 Horizon",
+      "nodes": [
+        "任务集",
+        "重复运行",
+        "pass@k",
+        "pass^k",
+        "置信区间",
+        "Horizon 时长桶",
+        "Metric Card",
+        "统计结论"
+      ],
+      "relationships": [
+        "任务集→重复运行：相同任务重复 k 次",
+        "重复运行→pass@k：逐任务聚合",
+        "重复运行→pass^k：逐任务聚合",
+        "pass@k→置信区间：报告估计对象",
+        "pass^k→置信区间：报告一致性",
+        "重复运行→Horizon 时长桶：按预期时长分桶",
+        "置信区间→统计结论：区间与样本充分性",
+        "Horizon 时长桶→统计结论：逐桶证据",
+        "Metric Card→统计结论：预声明统计规则",
+        "统计结论→任务集：证据不足则补任务"
+      ],
+      "source_refs": [
+        "content/modules/agent-architecture-system.ts#TD-AG-05 / workflow",
+        "content/modules/agent-architecture-system.ts#TD-AG-05 / repair"
+      ],
+      "alt_text": "同一台账回答两种可靠性。pass@k 是至少一次成功，pass^k 是全部成功；按任务聚类估计不确定性，样本不足不能放行。 固定版本、温度、状态重置和重试政策，再按任务时长观察 Horizon",
+      "alt": "同一台账回答两种可靠性。pass@k 是至少一次成功，pass^k 是全部成功；按任务聚类估计不确定性，样本不足不能放行。 固定版本、温度、状态重置和重试政策，再按任务时长观察 Horizon",
+      "caption": "pass@k 是至少一次成功，pass^k 是全部成功；按任务聚类估计不确定性，样本不足不能放行。 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "not_proof": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "rendering": {
+        "layout": "metric",
+        "generator": "scripts/visuals/build.mjs",
+        "spec": "scripts/visuals/specs/materials.mjs",
+        "body_refs": [
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-05 / workflow",
+            "quote": "按 task 聚合 pass@k/pass^k 并计算预声明区间"
+          },
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-05 / repair",
+            "quote": "改用 task-clustered/paired 不确定性"
+          },
+          {
+            "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+            "locator": "TD-AG-05 / summary",
+            "quote": "把一次 PASS 改成重复运行分布，区分至少一次成功和每次都成功，并按任务时长观察 horizon 衰减。"
+          }
+        ]
+      }
+    },
+    {
+      "visual_id": "agent-architecture-system-td-ag-06",
+      "kind": "layers",
+      "file": "TD-AG-06.svg",
+      "title": "恶意数据不能跨过执行权限",
+      "purpose": "工具描述 rug-pull、延迟触发、跨会话污染与委托累积越权",
+      "nodes": [
+        "不可信输入",
+        "MCP 描述与清单",
+        "长期记忆",
+        "身份与委托",
+        "模型候选动作",
+        "策略沙箱",
+        "不可逆动作",
+        "Kill Switch",
+        "分层拦截证据"
+      ],
+      "relationships": [
+        "不可信输入→模型候选动作：间接注入通道",
+        "MCP 描述与清单→模型候选动作：描述或结果投毒",
+        "长期记忆→模型候选动作：延迟与持久化载荷",
+        "模型候选动作→策略沙箱：请求执行",
+        "身份与委托→策略沙箱：独立身份与最小权限",
+        "MCP 描述与清单→策略沙箱：清单 hash 核对",
+        "策略沙箱→不可逆动作：写前授权与额度",
+        "策略沙箱→Kill Switch：越界即拒绝",
+        "不可逆动作→分层拦截证据：实际副作用回执",
+        "Kill Switch→分层拦截证据：阻断原因与层级",
+        "分层拦截证据→长期记忆：发现污染则隔离复测"
+      ],
+      "source_refs": [
+        "content/modules/agent-architecture-system.ts#TD-AG-06 / workflow",
+        "content/modules/agent-architecture-deep.ts#TD-AG-06 / artifactNote"
+      ],
+      "alt_text": "恶意数据不能跨过执行权限。把不可信数据当作攻击入口，在模型之外约束 tenant、scope、额度和审批；模型说“不”不足以证明安全。 工具描述 rug-pull、延迟触发、跨会话污染与委托累积越权",
+      "alt": "恶意数据不能跨过执行权限。把不可信数据当作攻击入口，在模型之外约束 tenant、scope、额度和审批；模型说“不”不足以证明安全。 工具描述 rug-pull、延迟触发、跨会话污染与委托累积越权",
+      "caption": "把不可信数据当作攻击入口，在模型之外约束 tenant、scope、额度和审批；模型说“不”不足以证明安全。 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "not_proof": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "rendering": {
+        "layout": "layers",
+        "generator": "scripts/visuals/build.mjs",
+        "spec": "scripts/visuals/specs/materials.mjs",
+        "body_refs": [
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-06 / workflow",
+            "quote": "在模型外验证 tenant、scope、schema、审批、额度和沙箱"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-06 / artifactNote",
+            "quote": "必须写「被哪一层拒绝」"
+          },
+          {
+            "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+            "locator": "TD-AG-06 / summary",
+            "quote": "把不可信输入、工具描述、记忆、委托链和不可逆副作用放进持续对抗套件，并按轨迹审计护栏。"
+          }
+        ]
+      }
+    },
+    {
+      "visual_id": "agent-architecture-system-td-ag-07",
+      "kind": "flow",
+      "file": "TD-AG-07.svg",
+      "title": "沿任务树计算延迟与成本",
+      "purpose": "只读查询与高风险写任务分 workload，注入超预算循环验证截断",
+      "nodes": [
+        "Workload 切片",
+        "Task Root",
+        "Queue 等待",
+        "LLM Step",
+        "Tool Attempt",
+        "预算门禁",
+        "延迟与成本尾部",
+        "截断与人工升级"
+      ],
+      "relationships": [
+        "Workload 切片→Task Root：按任务类型发起",
+        "Task Root→Queue 等待：到达与等待",
+        "Queue 等待→LLM Step：出队执行",
+        "LLM Step→Tool Attempt：调用与参数",
+        "Tool Attempt→LLM Step：返回或受限重试",
+        "LLM Step→预算门禁：累计模型消耗",
+        "Tool Attempt→预算门禁：累计工具与重试成本",
+        "预算门禁→截断与人工升级：任一硬预算超限",
+        "Task Root→延迟与成本尾部：任务成功分母",
+        "Queue 等待→延迟与成本尾部：等待延迟",
+        "LLM Step→延迟与成本尾部：生成消耗",
+        "Tool Attempt→延迟与成本尾部：调用与重试账本"
+      ],
+      "source_refs": [
+        "content/modules/agent-architecture-system.ts#TD-AG-07 / workflow",
+        "content/modules/agent-architecture-deep.ts#TD-AG-07 / artifactNote"
+      ],
+      "alt_text": "沿任务树计算延迟与成本。将 Queue、LLM 和每次 Tool 尝试还原到任务；成功率、长尾成本和预算截断共同决定是否值得运行。 只读查询与高风险写任务分 workload，注入超预算循环验证截断",
+      "alt": "沿任务树计算延迟与成本。将 Queue、LLM 和每次 Tool 尝试还原到任务；成功率、长尾成本和预算截断共同决定是否值得运行。 只读查询与高风险写任务分 workload，注入超预算循环验证截断",
+      "caption": "将 Queue、LLM 和每次 Tool 尝试还原到任务；成功率、长尾成本和预算截断共同决定是否值得运行。 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "not_proof": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "rendering": {
+        "layout": "flow",
+        "generator": "scripts/visuals/build.mjs",
+        "spec": "scripts/visuals/specs/materials.mjs",
+        "body_refs": [
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-07 / workflow",
+            "quote": "注入超预算循环，验证安全截断和人工升级"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-07 / artifactNote",
+            "quote": "单位成功成本 =（模型费 + 工具费 + 人工复核费）/ 成功完成的任务数。"
+          },
+          {
+            "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+            "locator": "TD-AG-07 / summary",
+            "quote": "把 Agent task 拆成 step/tool trace，联合观察延迟、吞吐、Token、Judge 和人工成本，并验证预算会真正截断。"
+          }
+        ]
+      }
+    },
+    {
+      "visual_id": "agent-architecture-system-td-ag-08",
+      "kind": "evidence",
+      "file": "TD-AG-08.svg",
+      "title": "每次动作追到版本与责任",
+      "purpose": "过期退款政策导致错误承诺时，追溯哪个版本、谁委托、执行了什么",
+      "nodes": [
+        "业务规则",
+        "四维版本",
+        "用户委托",
+        "工具动作",
+        "审计证据",
+        "风险接受",
+        "四维成组回滚",
+        "变更回归"
+      ],
+      "relationships": [
+        "业务规则→工具动作：动作受业务规则约束",
+        "用户委托→工具动作：委托范围约束",
+        "工具动作→审计证据：调用与状态回执",
+        "四维版本→审计证据：运行 lineage",
+        "业务规则→审计证据：依据与版本",
+        "审计证据→风险接受：失败模式与护栏覆盖",
+        "四维版本→变更回归：任一维改变",
+        "变更回归→风险接受：锁 Judge 的可比证据",
+        "审计证据→四维成组回滚：硬规则 blocker",
+        "风险接受→四维成组回滚：不接受或到期",
+        "四维成组回滚→四维版本：恢复已测四维组合"
+      ],
+      "source_refs": [
+        "content/modules/agent-architecture-system.ts#TD-AG-08 / expected",
+        "content/modules/agent-architecture-deep.ts#TD-AG-08 / failureModes.caption"
+      ],
+      "alt_text": "每次动作追到版本与责任。四维版本任一变化都可能改变行为；硬规则、审计完整性和风险接受分别判断，不能被平均分抵消。 过期退款政策导致错误承诺时，追溯哪个版本、谁委托、执行了什么",
+      "alt": "每次动作追到版本与责任。四维版本任一变化都可能改变行为；硬规则、审计完整性和风险接受分别判断，不能被平均分抵消。 过期退款政策导致错误承诺时，追溯哪个版本、谁委托、执行了什么",
+      "caption": "四维版本任一变化都可能改变行为；硬规则、审计完整性和风险接受分别判断，不能被平均分抵消。 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "not_proof": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "rendering": {
+        "layout": "evidence",
+        "generator": "scripts/visuals/build.mjs",
+        "spec": "scripts/visuals/specs/materials.mjs",
+        "body_refs": [
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-08 / expected",
+            "quote": "四维版本任一变化触发回归"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-08 / failureModes.caption",
+            "quote": "回滚也必须四维成组"
+          },
+          {
+            "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+            "locator": "TD-AG-08 / summary",
+            "quote": "把业务规则、Agent 委托、审计证据、模型/Prompt/工具/Memory 四维版本和风险接受连接起来。"
+          }
+        ]
+      }
+    },
+    {
+      "visual_id": "agent-architecture-system-td-ag-09",
+      "kind": "decision",
+      "file": "TD-AG-09.svg",
+      "title": "四环证据进入三段决策",
+      "purpose": "本地模拟的环1/2收据不能升级为真实环2、影子或在线运行证据",
+      "nodes": [
+        "离线 CI",
+        "沙箱回放",
+        "影子 / 灰度",
+        "在线持续",
+        "硬红线",
+        "统计门禁",
+        "风险接受前核护栏",
+        "阻断与失败回灌"
+      ],
+      "relationships": [
+        "离线 CI→硬红线：离线证据",
+        "沙箱回放→硬红线：受控回放证据",
+        "影子 / 灰度→硬红线：隔离与业务证据",
+        "在线持续→硬红线：漂移与事故证据",
+        "硬红线→统计门禁：红线通过后",
+        "硬红线→阻断与失败回灌：任一 blocker 或 D0 失效",
+        "统计门禁→风险接受前核护栏：证据充分且满足合同",
+        "统计门禁→阻断与失败回灌：统计 FAIL，阻断修复",
+        "统计门禁→风险接受前核护栏：证据不足，仅作有限具名决定",
+        "风险接受前核护栏→阻断与失败回灌：无护栏覆盖，强制拒绝接受",
+        "风险接受前核护栏→阻断与失败回灌：不接受或到期回滚",
+        "阻断与失败回灌→离线 CI：失败生成回归案例"
+      ],
+      "source_refs": [
+        "content/modules/agent-architecture-system.ts#TD-AG-09 / scenario",
+        "content/modules/agent-architecture-deep.ts#TD-AG-09 / thesis"
+      ],
+      "alt_text": "四环证据进入三段决策。证据环说明结论来自何种输入；硬红线、统计门禁和具名风险接受说明如何决定下一步。 本地模拟的环1/2收据不能升级为真实环2、影子或在线运行证据",
+      "alt": "四环证据进入三段决策。证据环说明结论来自何种输入；硬红线、统计门禁和具名风险接受说明如何决定下一步。 本地模拟的环1/2收据不能升级为真实环2、影子或在线运行证据",
+      "caption": "证据环说明结论来自何种输入；硬红线、统计门禁和具名风险接受说明如何决定下一步。 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "not_proof": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "rendering": {
+        "layout": "decision",
+        "generator": "scripts/visuals/build.mjs",
+        "spec": "scripts/visuals/specs/materials.mjs",
+        "body_refs": [
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-09 / scenario",
+            "quote": "环 1 与环 2 可生成 receipt；环 3/4 明确 provider/integration NOT_RUN"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-09 / thesis",
+            "quote": "流水线永远不输出「可以发布」，它输出「证据齐了，请决定」。"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-08 / voice.takeNote",
+            "quote": "没有护栏覆盖的失败模式不能被「接受」"
+          },
+          {
+            "path": "public/materials/agent-architecture-system/docs/11-three-stage-gate.md",
+            "locator": "11.5 / 三段之间的关系",
+            "quote": "第二段 EVIDENCE-INSUFFICIENT → 可以进入第三段，但必须作为已知失败模式列出"
+          }
+        ]
+      }
+    },
+    {
+      "visual_id": "agent-architecture-system-td-ag-10",
+      "kind": "decision",
+      "file": "TD-AG-10.svg",
+      "title": "新鲜数据与受限执行分开验",
+      "purpose": "合成行情时间戳超窗口：建议任务可 UNKNOWN，执行任务必须写前拒绝",
+      "nodes": [
+        "数据时效断言",
+        "建议任务",
+        "执行任务",
+        "能力沙箱",
+        "硬额度",
+        "人工审批",
+        "受限工具执行",
+        "Kill Switch / 回滚"
+      ],
+      "relationships": [
+        "数据时效断言→建议任务：建议路径",
+        "数据时效断言→执行任务：执行路径",
+        "执行任务→能力沙箱：独立执行权限",
+        "能力沙箱→硬额度：工具强制额度",
+        "硬额度→人工审批：额度与影响面合格",
+        "人工审批→受限工具执行：有效签字后",
+        "数据时效断言→Kill Switch / 回滚：超时窗口拒绝执行",
+        "硬额度→Kill Switch / 回滚：超额拒绝",
+        "人工审批→Kill Switch / 回滚：缺失或拒绝审批",
+        "受限工具执行→Kill Switch / 回滚：异常停止与对账"
+      ],
+      "source_refs": [
+        "content/modules/agent-architecture-system.ts#TD-AG-10 / scenario",
+        "content/modules/agent-architecture-system.ts#TD-AG-10 / workflow"
+      ],
+      "alt_text": "新鲜数据与受限执行分开验。数据新鲜度独立于语义判分；建议与执行物理隔离，执行任务只在工具层授权、硬额度和人工审批满足后继续。 合成行情时间戳超窗口：建议任务可 UNKNOWN，执行任务必须写前拒绝",
+      "alt": "新鲜数据与受限执行分开验。数据新鲜度独立于语义判分；建议与执行物理隔离，执行任务只在工具层授权、硬额度和人工审批满足后继续。 合成行情时间戳超窗口：建议任务可 UNKNOWN，执行任务必须写前拒绝",
+      "caption": "数据新鲜度独立于语义判分；建议与执行物理隔离，执行任务只在工具层授权、硬额度和人工审批满足后继续。 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "not_proof": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "rendering": {
+        "layout": "decision",
+        "generator": "scripts/visuals/build.mjs",
+        "spec": "scripts/visuals/specs/materials.mjs",
+        "body_refs": [
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-10 / scenario",
+            "quote": "执行任务必须在工具层拒绝"
+          },
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-10 / workflow",
+            "quote": "将建议与执行数据集和 owner 物理分开"
+          },
+          {
+            "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+            "locator": "TD-AG-10 / summary",
+            "quote": "把交易场景作为高风险适配器学习：数据新鲜度、建议与执行分离、能力沙箱和分钟级回滚。"
+          }
+        ]
+      }
+    },
+    {
       "visual_id": "agent-test-architecture",
       "kind": "architecture",
       "file": "AG-DIM-ARCHITECTURE.svg",
-      "purpose": "在选择测试方法前画出 Agent 系统、信任与副作用边界，并连接 D0-D7、护栏、决定和失败反馈。",
-      "alt_text": "AI Agent 测试总架构图，从输入与风险进入 D0 评估可信，再到 D1-D7 行为、协作、可靠性、安全、效率与治理，最后连接四证据环、运行时护栏和决定反馈。",
-      "caption": "测试架构不是维度清单；它把边界、风险、Observable、独立 Oracle、故障、证据、停止动作和 owner 连成系统。",
-      "not_proof": "本图不证明真实 Agent、企业集成、从业者有效性或生产安全，以上保持 NOT_RUN。",
+      "purpose": "退款工具权限越界：确定性策略 Oracle、受控执行边界与人工 owner 联合收口",
+      "alt_text": "从退款风险到具名停止动作。总架构先显式画出状态、信任和副作用边界，再把 D0–D7、证据环、护栏和失败回灌连接起来。 退款工具权限越界：确定性策略 Oracle、受控执行边界与人工 owner 联合收口",
+      "caption": "总架构先显式画出状态、信任和副作用边界，再把 D0–D7、证据环、护栏和失败回灌连接起来。 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "not_proof": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
       "source_refs": [
         "AI agent测试架构.txt:L73-L238"
       ],
       "nodes": [
         "输入与风险",
         "D0 评估可信",
-        "D1-D3",
-        "D4-D7",
+        "D1–D3 行为边界",
+        "D4 可靠性证据",
+        "D5 安全信任边界",
+        "D6 效率资源边界",
+        "D7 业务责任边界",
         "四证据环",
         "运行时护栏",
-        "决定与反馈"
+        "决策与反馈"
       ],
       "relationships": [
-        "输入→D0",
-        "D0→D1-D7",
-        "域→证据环",
-        "护栏→停止",
-        "决定→失败回灌"
-      ]
+        "输入与风险→D1–D3 行为边界：任务与状态流",
+        "D0 评估可信→D4 可靠性证据：校准分数使用",
+        "D0 评估可信→D1–D3 行为边界：校准行为各域评分",
+        "D0 评估可信→D5 安全信任边界：校准安全评分",
+        "D0 评估可信→D6 效率资源边界：校准资源评分",
+        "D0 评估可信→D7 业务责任边界：校准治理评分",
+        "D0 评估可信→决策与反馈：失准则所有评分不可用",
+        "D1–D3 行为边界→D4 可靠性证据：完整轨迹",
+        "四证据环→D1–D3 行为边界：各环执行",
+        "四证据环→D4 可靠性证据：各环重复与回放执行",
+        "四证据环→D5 安全信任边界：各环对抗",
+        "四证据环→D6 效率资源边界：各环负载观测",
+        "D5 安全信任边界→运行时护栏：风险映射强制控制",
+        "D7 业务责任边界→运行时护栏：业务硬规则",
+        "D4 可靠性证据→决策与反馈：区间与失败切片",
+        "D6 效率资源边界→决策与反馈：成本与暴露量",
+        "D7 业务责任边界→决策与反馈：规则与责任",
+        "运行时护栏→决策与反馈：拒绝与停止回执",
+        "D5 安全信任边界→决策与反馈：已证越权直接 BLOCKED",
+        "D7 业务责任边界→决策与反馈：已证硬规则违规直接阻断",
+        "决策与反馈→输入与风险：失败回灌",
+        "决策与反馈→D0 评估可信：Judge 重校准"
+      ],
+      "title": "从退款风险到具名停止动作",
+      "alt": "从退款风险到具名停止动作。总架构先显式画出状态、信任和副作用边界，再把 D0–D7、证据环、护栏和失败回灌连接起来。 退款工具权限越界：确定性策略 Oracle、受控执行边界与人工 owner 联合收口",
+      "rendering": {
+        "layout": "layers",
+        "generator": "scripts/visuals/build.mjs",
+        "spec": "scripts/visuals/specs/materials.mjs",
+        "body_refs": [
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-00 / workflow",
+            "quote": "列出节点、状态、信任边界、工具和副作用"
+          },
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-00 / expected",
+            "quote": "每条风险边都有证据、停止状态和责任人。"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-00 / dimensions.caption",
+            "quote": "D0 校准所有分数"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-00 / counter",
+            "quote": "四个环是横向驱动 D1/D4/D5/D6 的，不是串在末尾。"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-09 / failureModes",
+            "quote": "发生一次即不可接受的事件不能做成区间判定"
+          },
+          {
+            "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+            "locator": "TD-AG-00 / summary",
+            "quote": "用 D0–D7、四证据环和运行时护栏画出 Agent 被测边界，知道一条结论从哪里来、由谁负责。"
+          }
+        ]
+      }
     },
     {
       "visual_id": "agent-four-evidence-rings",
       "kind": "four_ring",
       "file": "AG-DIM-FOUR-RINGS.svg",
-      "purpose": "区分离线 fixture、受控沙箱、影子灰度和在线持续评估能证明什么，并为每环声明 entry、exit 与 rollback。",
-      "alt_text": "四列证据环图分别展示离线 fixture、受控沙箱、影子或灰度、在线持续评估的输入、进入条件、退出条件、硬阻断、owner 和回滚。",
-      "caption": "每次成熟度升级都需要新的真实输入和 owner；当前课程只运行环一，环二至环四保持 NOT_RUN。",
-      "not_proof": "本图不证明沙箱、影子、灰度或在线评估已经执行，它们均为 NOT_RUN。",
+      "purpose": "四列比较 entry、exit、owner、hard block 与 rollback，不预设时长和流量比例",
+      "alt_text": "四环各有独立的证据出口。四环按输入与副作用边界区分证据强度；exit 合格只允许申请下一个环，不能替代该环真实运行。 四列比较 entry、exit、owner、hard block 与 rollback，不预设时长和流量比例",
+      "caption": "四环按输入与副作用边界区分证据强度；exit 合格只允许申请下一个环，不能替代该环真实运行。 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "not_proof": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
       "source_refs": [
         "AI agent测试架构.txt:L496-L524"
       ],
       "nodes": [
-        "离线 fixture",
-        "受控沙箱",
-        "影子 / 灰度",
-        "在线持续",
-        "参数化门禁"
+        "每环输入合同",
+        "环1 离线 fixture",
+        "环2 受控沙箱",
+        "环3 影子 / 灰度",
+        "环4 在线持续",
+        "参数化门禁",
+        "rollback 与隔离",
+        "失败回灌 fixture"
       ],
       "relationships": [
-        "fixture→sandbox",
-        "sandbox→shadow",
-        "shadow→online",
-        "exit failure→rollback",
-        "failure→fixture feedback"
-      ]
+        "每环输入合同→环1 离线 fixture：环1 entry",
+        "每环输入合同→环2 受控沙箱：环2 entry",
+        "每环输入合同→环3 影子 / 灰度：环3 entry",
+        "每环输入合同→环4 在线持续：环4 entry",
+        "环1 离线 fixture→参数化门禁：离线 exit 证据",
+        "环2 受控沙箱→参数化门禁：沙箱 exit 证据",
+        "环3 影子 / 灰度→参数化门禁：真实分布证据",
+        "环4 在线持续→参数化门禁：在线持续证据",
+        "参数化门禁→rollback 与隔离：exit 不满足或 blocker",
+        "rollback 与隔离→失败回灌 fixture：归因与保留失败",
+        "失败回灌 fixture→环1 离线 fixture：生成回归 fixture"
+      ],
+      "title": "四环各有独立的证据出口",
+      "alt": "四环各有独立的证据出口。四环按输入与副作用边界区分证据强度；exit 合格只允许申请下一个环，不能替代该环真实运行。 四列比较 entry、exit、owner、hard block 与 rollback，不预设时长和流量比例",
+      "rendering": {
+        "layout": "comparison",
+        "generator": "scripts/visuals/build.mjs",
+        "spec": "scripts/visuals/specs/materials.mjs",
+        "body_refs": [
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-09 / artifactNote",
+            "quote": "每个环必须声明五件事：population、统计方法、owner、hard block、rollback。"
+          },
+          {
+            "path": "docs/svg-redesign-2026-10-26/body-sources/agent-architecture-original.txt",
+            "locator": "五 / 环3影子模式",
+            "quote": "不返回给用户、不执行任何动作"
+          },
+          {
+            "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+            "locator": "TD-AG-09 / summary",
+            "quote": "将离线 CI、沙箱回放、影子灰度和在线持续评估串成证据成熟度链，再执行硬红线、统计门禁和风险接受。"
+          }
+        ]
+      }
     },
     {
       "visual_id": "agent-three-stage-gate",
       "kind": "gate",
       "file": "AG-DIM-GATE.svg",
-      "purpose": "把硬政策、统计证据和具名风险接受分成三个不能互相抵消的决策阶段。",
-      "alt_text": "三段式门禁图先检查由 Metric Card 与 policy 配置的硬红线，再检查区间与样本充分性，最后由具名 owner 决定风险接受、发布或回滚。",
-      "caption": "流水线提供证据和阻断，不自动签署发布决定；固定阈值必须由场景 Metric Card 参数化。",
-      "not_proof": "本图不证明任何真实系统已达到门禁，真实 policy、阈值和 owner 保持 Unknown / NOT_RUN。",
+      "purpose": "D0 失效使本轮评分不可用；样本不足是 EVIDENCE-INSUFFICIENT，不是通过",
+      "alt_text": "三段判断不能互相抵消。硬政策回答有没有不可接受事件，统计回答证据支持什么，具名风险接受才决定剩余风险由谁承担。 D0 失效使本轮评分不可用；样本不足是 EVIDENCE-INSUFFICIENT，不是通过",
+      "caption": "硬政策回答有没有不可接受事件，统计回答证据支持什么，具名风险接受才决定剩余风险由谁承担。 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "not_proof": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
       "source_refs": [
         "AI agent测试架构.txt:L525-L574"
       ],
       "nodes": [
         "候选证据包",
-        "硬政策门禁",
-        "统计门禁",
-        "风险接受",
-        "阻断与回滚"
+        "Metric Card / policy",
+        "第一段：硬政策",
+        "第二段：统计证据",
+        "证据不足",
+        "风险接受前核护栏",
+        "第三段：风险接受",
+        "BLOCKED / 回滚",
+        "具名决定与反馈"
       ],
       "relationships": [
-        "证据→硬门禁",
-        "硬门禁→统计门禁",
-        "统计门禁→风险接受",
-        "任一失败→阻断",
-        "决定→回灌"
-      ]
+        "候选证据包→第一段：硬政策：先核红线",
+        "Metric Card / policy→第一段：硬政策：政策配置",
+        "第一段：硬政策→BLOCKED / 回滚：任一红线或 D0 失效",
+        "第一段：硬政策→第二段：统计证据：红线通过",
+        "Metric Card / policy→第二段：统计证据：预声明统计合同",
+        "第二段：统计证据→证据不足：样本或区间不足",
+        "第二段：统计证据→BLOCKED / 回滚：证据充分但未满足",
+        "第二段：统计证据→风险接受前核护栏：统计满足，检查剩余风险",
+        "证据不足→风险接受前核护栏：不足列为风险，可限范围决定",
+        "风险接受前核护栏→BLOCKED / 回滚：任一接受项无护栏覆盖",
+        "风险接受前核护栏→第三段：风险接受：覆盖有效且无硬阻断",
+        "第三段：风险接受→具名决定与反馈：具名限范围，不改写统计状态",
+        "第三段：风险接受→BLOCKED / 回滚：不接受剩余风险",
+        "证据不足→候选证据包：补新证据后再审",
+        "BLOCKED / 回滚→候选证据包：修复并保留失败回灌"
+      ],
+      "title": "三段判断不能互相抵消",
+      "alt": "三段判断不能互相抵消。硬政策回答有没有不可接受事件，统计回答证据支持什么，具名风险接受才决定剩余风险由谁承担。 D0 失效使本轮评分不可用；样本不足是 EVIDENCE-INSUFFICIENT，不是通过",
+      "rendering": {
+        "layout": "decision",
+        "generator": "scripts/visuals/build.mjs",
+        "spec": "scripts/visuals/specs/materials.mjs",
+        "body_refs": [
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-09 / workflow",
+            "quote": "将硬红线、统计证据不足和风险接受分别输出"
+          },
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-05 / failure",
+            "quote": "以 CI 不重叠作为唯一统计原则，都会造成过度结论。"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-08 / voice.takeNote",
+            "quote": "没有护栏覆盖的失败模式不能被「接受」"
+          },
+          {
+            "path": "public/materials/agent-architecture-system/docs/11-three-stage-gate.md",
+            "locator": "11.5 / 三段之间的关系",
+            "quote": "第二段 EVIDENCE-INSUFFICIENT → 可以进入第三段，但必须作为已知失败模式列出"
+          }
+        ]
+      }
     },
     {
       "visual_id": "agent-36-dimensions",
       "kind": "dimensions",
       "file": "AG-DIM-36.svg",
-      "purpose": "逐项保留 D0-D7 共 36 个维度并展示 D0 校准、域间依赖、四环、护栏和决策输出。",
-      "alt_text": "D0-D7 的 36 维全景图，D0 评估可信校准其他域，D1-D7 展示能力、协作、可靠性、安全、效率和治理维度，并连接证据环和护栏。",
-      "caption": "36 维是覆盖清单，不替代场景风险分析；每一维仍须映射到独立 Oracle、case、fault、evidence 与 owner。",
-      "not_proof": "本图不证明 36 维均已在真实项目运行；课程仅提供 fixture 与静态设计证据，live 保持 NOT_RUN。",
+      "purpose": "先用 D0 校准评分，按域登记风险，再由四环执行、护栏阻断和具名决定闭合",
+      "alt_text": "八域三十六维覆盖全景。36维是风险覆盖索引，每一维仍要绑定独立 Oracle、case、fault、evidence 与 owner；不是36项通过证明。 先用 D0 校准评分，按域登记风险，再由四环执行、护栏阻断和具名决定闭合",
+      "caption": "36维是风险覆盖索引，每一维仍要绑定独立 Oracle、case、fault、evidence 与 owner；不是36项通过证明。 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "not_proof": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
       "source_refs": [
         "AI agent测试架构.txt:L238-L494"
       ],
       "nodes": [
-        "D0",
-        "D1",
-        "D2",
-        "D3",
-        "D4",
-        "D5",
-        "D6",
-        "D7",
-        "四证据环"
+        "D0 校准",
+        "D1 单体",
+        "D2 编排",
+        "D3 人机",
+        "D4 可靠",
+        "D5 安全",
+        "D6 经济",
+        "D7 治理",
+        "四证据环",
+        "运行时护栏",
+        "具名决定"
       ],
       "relationships": [
-        "D0→D1-D7",
-        "D1→D2",
-        "D4→D7",
-        "D5→护栏",
-        "四环→域执行"
-      ]
+        "D0 校准→D1 单体：校准评分",
+        "D0 校准→D4 可靠：校准分布判据",
+        "D0 校准→D7 治理：校准治理评分",
+        "D0 校准→D2 编排：校准协作评分",
+        "D0 校准→D3 人机：校准交互评分",
+        "D0 校准→D5 安全：校准安全评分",
+        "D0 校准→D6 经济：校准资源评分",
+        "D0 校准→具名决定：失准则所有评分不可用",
+        "D1 单体→D2 编排：轨迹支撑交接归因",
+        "D2 编排→D3 人机：交接决定接管点",
+        "四证据环→D1 单体：按环记录轨迹",
+        "四证据环→D4 可靠：按环重复执行",
+        "四证据环→D5 安全：持续对抗",
+        "四证据环→D6 经济：按环测资源",
+        "D5 安全→运行时护栏：输出强制控制",
+        "D3 人机→运行时护栏：有效人工确认",
+        "D7 治理→运行时护栏：业务硬规则强制控制",
+        "D4 可靠→具名决定：可靠性证据",
+        "D6 经济→具名决定：经济性证据",
+        "D7 治理→具名决定：规则与责任",
+        "运行时护栏→具名决定：停止回执",
+        "D5 安全→具名决定：已证越权直接 BLOCKED",
+        "D7 治理→具名决定：已证硬规则违规直接阻断",
+        "具名决定→四证据环：失败回灌与复测",
+        "具名决定→D0 校准：Judge 重校准"
+      ],
+      "title": "八域三十六维覆盖全景",
+      "alt": "八域三十六维覆盖全景。36维是风险覆盖索引，每一维仍要绑定独立 Oracle、case、fault、evidence 与 owner；不是36项通过证明。 先用 D0 校准评分，按域登记风险，再由四环执行、护栏阻断和具名决定闭合",
+      "rendering": {
+        "layout": "dimensions",
+        "generator": "scripts/visuals/build.mjs",
+        "spec": "scripts/visuals/specs/materials.mjs",
+        "body_refs": [
+          {
+            "path": "docs/svg-redesign-2026-10-26/body-sources/agent-architecture-original.txt",
+            "locator": "四 / 36维明细",
+            "quote": "这一层不测 Agent,测**你的测量系统**。"
+          },
+          {
+            "path": "docs/svg-redesign-2026-10-26/body-sources/agent-visual-source.original.json",
+            "locator": "agent-36-dimensions / caption",
+            "quote": "36 维是覆盖清单，不替代场景风险分析；"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-00 / dimensions.caption",
+            "quote": "D0 校准所有分数"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-00 / counter",
+            "quote": "四个环是横向驱动 D1/D4/D5/D6 的，不是串在末尾。"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-09 / failureModes",
+            "quote": "发生一次即不可接受的事件不能做成区间判定"
+          }
+        ]
+      }
     },
     {
       "visual_id": "agent-reliability",
       "kind": "reliability",
       "file": "AG-DIM-RELIABILITY.svg",
-      "purpose": "用同一份运行台账对比 pass@k 与 pass^k 两种口径，说明聚类区间与 horizon 衰减如何改变发布承诺。",
-      "alt_text": "可靠性口径对比图，左侧任务集与重复运行，中间 pass@k 与 pass^k 两个口径及 Wilson 聚类区间，右侧 horizon 时长桶衰减柱状图与三种统计结论，底部是 Metric Card 必填字段。",
-      "caption": "同一份数据可以同时回答「能不能做对」和「能不能每次都做对」；口径、聚类单位与时长桶决定数字能否进发布决定书。",
-      "not_proof": "本图数值来自仓库夹具，只演示口径差异，不代表任何真实系统性能；真实模型与生产效果 NOT_RUN。",
+      "purpose": "公式对照，不绘制无实测依据的 Horizon 柱形或衰减曲线",
+      "alt_text": "能力上限与重复一致性分报。同一份台账同时计算“至少一次成功”和“全部成功”，再用任务聚类、时长桶和 Metric Card 限定结论。 公式对照，不绘制无实测依据的 Horizon 柱形或衰减曲线",
+      "caption": "同一份台账同时计算“至少一次成功”和“全部成功”，再用任务聚类、时长桶和 Metric Card 限定结论。 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
+      "not_proof": "静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。",
       "source_refs": [
         "AI agent测试架构.txt:L438-L494"
       ],
       "nodes": [
-        "任务集",
-        "pass@k",
-        "pass^k",
-        "聚类区间",
-        "horizon 衰减",
-        "三种统计结论"
+        "任务集与重复台账",
+        "pass@k 经验口径",
+        "pass^k 经验口径",
+        "聚类置信区间",
+        "Horizon 分桶",
+        "Metric Card",
+        "三种统计结论",
+        "产品承诺与限制"
       ],
       "relationships": [
-        "任务集→pass@k",
-        "任务集→pass^k",
-        "pass^k→聚类区间",
-        "口径→horizon",
-        "结论→Metric Card"
-      ]
+        "任务集与重复台账→pass@k 经验口径：按任务求至少一次",
+        "任务集与重复台账→pass^k 经验口径：按任务求全部",
+        "pass@k 经验口径→聚类置信区间：估计口径1",
+        "pass^k 经验口径→聚类置信区间：估计口径2",
+        "任务集与重复台账→Horizon 分桶：按时长拆总体",
+        "聚类置信区间→三种统计结论：匹配抽样结构的区间",
+        "Horizon 分桶→三种统计结论：时长桶证据",
+        "Metric Card→三种统计结论：预声明统计合同",
+        "三种统计结论→产品承诺与限制：限定可支持的承诺",
+        "三种统计结论→任务集与重复台账：不足则补新任务"
+      ],
+      "title": "能力上限与重复一致性分报",
+      "alt": "能力上限与重复一致性分报。同一份台账同时计算“至少一次成功”和“全部成功”，再用任务聚类、时长桶和 Metric Card 限定结论。 公式对照，不绘制无实测依据的 Horizon 柱形或衰减曲线",
+      "rendering": {
+        "layout": "comparison",
+        "generator": "scripts/visuals/build.mjs",
+        "spec": "scripts/visuals/specs/materials.mjs",
+        "body_refs": [
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-05 / terms",
+            "quote": "k 次采样中至少一次成功的比例"
+          },
+          {
+            "path": "content/modules/agent-architecture-deep.ts",
+            "locator": "TD-AG-05 / terms",
+            "quote": "k 次采样全部成功的比例"
+          },
+          {
+            "path": "content/modules/agent-architecture-system.ts",
+            "locator": "TD-AG-05 / expected",
+            "quote": "不会把点估计写成稳定性。"
+          }
+        ]
+      }
     }
-  ]
+  ],
+  "renderer": {
+    "version": "2.0.0",
+    "entrypoint": "scripts/visuals/build.mjs",
+    "design_specs": "scripts/visuals/specs/materials.mjs",
+    "source_bound": true
+  }
 }

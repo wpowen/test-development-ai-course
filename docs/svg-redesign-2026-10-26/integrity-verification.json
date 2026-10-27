@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "unique_resource_paths": 126,
+  "changed_svg_files": 126,
+  "page_bindings": 103,
+  "source_quotes_verified": 316,
+  "rendered_qc_passes": 126,
+  "material_manifest_coverage": "25/25",
+  "evidence_scope": "Body binding, file integrity, rendered geometry, material registries; does not claim human acceptance or production efficacy."
+}

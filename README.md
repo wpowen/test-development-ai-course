@@ -83,6 +83,7 @@ python3 -m http.server 8080 --directory dist-github-pages
 
 ## 开发与内容维护
 
+- [SVG 图片维护](scripts/visuals/README.md)：126 个正式图形资源的正文绑定、生成与渲染检查；[全图重绘交付记录](docs/svg-redesign-2026-10-26/DELIVERY.md)。
 - [维护说明](docs/MAINTAINING.md)：目录结构、公开仓库检查、完整工程验证与发布方式。
 - [报告问题或提出改进](https://github.com/wpowen/test-development-ai-course/issues)：请附课页编号、问题描述，以及涉及实验时的复现步骤。
 

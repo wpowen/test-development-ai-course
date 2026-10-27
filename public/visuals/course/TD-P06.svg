@@ -1,130 +1,142 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1160 546" width="1160" height="546">
-  <title id="title">把测试包接到自动化：接口、契约、集成和 UI 各自负责什么：flow流程</title>
-  <desc id="desc">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-</style>
-  <rect class="ds-bg" width="1160" height="546" rx="22"/>
-  
-  <rect class="ds-header" x="0" y="0" width="1160" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1160" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">FLOW · 证据流</text>
-  <text class="ds-subtitle" x="1124" y="32" text-anchor="end">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</text>
-  <text class="ds-title" x="36" y="74">把测试包接到自动化：接口、契约、集成和 UI 各自负责什么</text>
-  <text class="ds-source" x="36" y="140">flow · 需求到发布证据的可执行链 · 来源 S01, S44, S45, S85</text>
-  
-    <path d="M 264 220 L 286 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 466 220 L 488 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 668 220 L 690 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 870 220 L 892 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 984 268 V 305 H 176 V 338" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    <path d="M 264 390 L 286 390" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-  
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="172" width="176" height="96" rx="14" fill="#eaf1fa" stroke="#aec6e3"/>
-      
-      <circle cx="106" cy="190" r="11" fill="#ffffff" stroke="#aec6e3" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="193" text-anchor="middle" >01</text>
-      <text class="ds-node-title" x="103" y="220">PRD/技术方案</text>
-      <text class="ds-node-detail" x="103" y="235">输入 / 依据</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="290" y="172" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a"/>
-      
-      <circle cx="308" cy="190" r="11" fill="#ffffff" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="193" text-anchor="middle" >02</text>
-      <text class="ds-node-title" x="305" y="220">Basis Gate</text>
-      <text class="ds-node-detail" x="305" y="235">门禁 / 裁决</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="492" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="510" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="510" y="193" text-anchor="middle" >03</text>
-      <text class="ds-node-title" x="507" y="220">需求契约</text>
-      <text class="ds-node-detail" x="507" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="694" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="712" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="712" y="193" text-anchor="middle" >04</text>
-      <text class="ds-node-title" x="709" y="220">风险与 TestPackage</text>
-      <text class="ds-node-detail" x="709" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="896" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="914" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="914" y="193" text-anchor="middle" >05</text>
-      <text class="ds-node-title" x="911" y="220">自动化执行</text>
-      <text class="ds-node-detail" x="911" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="342" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="106" cy="360" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="363" text-anchor="middle" >06</text>
-      <text class="ds-node-title" x="103" y="390">Run Manifest</text>
-      <text class="ds-node-detail" x="103" y="405">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-strong)">
-      <rect x="290" y="342" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a" stroke-width="2"/>
-      <rect x="290" y="342" width="6" height="96" rx="3" fill="#93bd2c"/>
-      <circle cx="308" cy="360" r="11" fill="#174a3a" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="363" text-anchor="middle" fill="#ffffff">07</text>
-      <text class="ds-node-title" x="305" y="390">发布证据</text>
-      <text class="ds-node-detail" x="305" y="405">决定 / 输出</text>
-    </g>
-  <circle cx="108" cy="460" r="4" fill="#355f96"/><text class="ds-legend" x="118" y="464">输入 / 依据</text><circle cx="177.4" cy="460" r="4" fill="#c2d9cc"/><text class="ds-legend" x="187.4" y="464">处理 / 变换</text><circle cx="246.8" cy="460" r="4" fill="#6a49a8"/><text class="ds-legend" x="256.8" y="464">独立判断</text><circle cx="297.6" cy="460" r="4" fill="#a96a18"/><text class="ds-legend" x="307.6" y="464">门禁 / 裁决</text><circle cx="367" cy="460" r="4" fill="#b2402f"/><text class="ds-legend" x="377" y="464">安全终态</text>
-  
-  <rect x="28" y="472" width="1104" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="498">证据边界</text>
-  <text class="ds-foot" x="46" y="520">节点是页面语义关系；不代表真实模型、企业集成或生产效果已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2190" viewBox="0 0 1600 2190" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">执行器翻译动作，Oracle 约束断言</title><desc id="desc">TestPackage 保持业务语义，适配器映射请求与控件；执行报告必须原样交回首败、重试和跳过。 从已批准测试包到多个 adapter，再到不可吞错的证据收集 教学 adapter 不执行生产退款或扣款；真实生成和企业集成仍需另行验证。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-P06 / P06 工作示例：把 Test Package 安全接入自动化;docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-P06 / 追溯索引让变更可以选择回归集">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-P06&quot;,&quot;pageIds&quot;:[&quot;TD-P06&quot;],&quot;primaryPageIds&quot;:[&quot;TD-P06&quot;],&quot;layout&quot;:&quot;layers&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-P06 / P06 工作示例：把 Test Package 安全接入自动化&quot;,&quot;quote&quot;:&quot;它不能改变 expected、吞断言异常或无限重试&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-P06 / 追溯索引让变更可以选择回归集&quot;,&quot;quote&quot;:&quot;test_id -&gt; file/function -&gt; requirement_ids -&gt; risk_ids -&gt; oracle_ids&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;package&quot;,&quot;title&quot;:&quot;已批准 TestPackage&quot;},{&quot;id&quot;:&quot;api&quot;,&quot;title&quot;:&quot;API sandbox adapter&quot;},{&quot;id&quot;:&quot;browser&quot;,&quot;title&quot;:&quot;Browser adapter&quot;},{&quot;id&quot;:&quot;probe&quot;,&quot;title&quot;:&quot;DB / Event 证据探针&quot;},{&quot;id&quot;:&quot;runner&quot;,&quot;title&quot;:&quot;Runner 比较并传播失败&quot;},{&quot;id&quot;:&quot;fake&quot;,&quot;title&quot;:&quot;假绿故障注入&quot;},{&quot;id&quot;:&quot;report&quot;,&quot;title&quot;:&quot;可归因运行报告&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;package&quot;,&quot;to&quot;:&quot;api&quot;,&quot;label&quot;:&quot;映射动作&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;package&quot;,&quot;to&quot;:&quot;browser&quot;,&quot;label&quot;:&quot;映射旅程&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;package&quot;,&quot;to&quot;:&quot;runner&quot;,&quot;label&quot;:&quot;批准 Oracle&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;api&quot;,&quot;to&quot;:&quot;runner&quot;,&quot;label&quot;:&quot;response/actual&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;browser&quot;,&quot;to&quot;:&quot;runner&quot;,&quot;label&quot;:&quot;UI 与请求证据&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;probe&quot;,&quot;to&quot;:&quot;runner&quot;,&quot;label&quot;:&quot;副作用证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;fake&quot;,&quot;to&quot;:&quot;runner&quot;,&quot;label&quot;:&quot;负控制应被拦截&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;runner&quot;,&quot;to&quot;:&quot;report&quot;,&quot;label&quot;:&quot;原始失败向上传播&quot;,&quot;kind&quot;:&quot;evidence&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2190" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-P06</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >执行器翻译动作，Oracle 约束断言</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >TestPackage 保持业务语义，适配器映射请求与控件；执行报告必须原样交回首败、重试和跳过。</text>
+<g id="system-graph" data-region="64,234,1472,1351.3556496088238">
+<rect x="64" y="234" width="1472" height="1351.3556496088238" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >从已批准测试包到多个 adapter，再到不可吞错的证据收集</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >分层系统</text>
+<g transform="translate(110.77337437475956 350) scale(0.8977811978966268)" data-graph-scale="0.8977811978966268" data-routing="dot">
+<path class="edge edge-data" d="M226 231 C226 275.59000000000003 158.45 233.71000000000004 134 271 C123.76 286.61 128 295.32000000000005 134 313 C142.63 338.41999999999996 167.96 338.37 175.11 357.46000000000004" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="package" data-to="api"/>
+<path class="edge edge-data" d="M296 231 C296 457.48 778.58 149.66000000000008 795.54 357.35" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="package" data-to="browser"/>
+<path class="edge edge-control" d="M366 231 C366 257.0999999999999 396.9 247.8699999999999 409 271 C474.17 395.52 387.6 460.14 454 584 C490.49 652.07 580.69 627.52 589.76 694.45" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e2" data-from="package" data-to="runner"/>
+<path class="edge edge-data" d="M177 566 C177 611.71 166.4 636.13 201 666 C236.06 696.27 590.6 661.9 643.03 696.32" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e3" data-from="api" data-to="runner"/>
+<path class="edge edge-data" d="M796 566 C796 635.22 718.13 633.13 709.31 694.27" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e4" data-from="browser" data-to="runner"/>
+<path class="edge edge-evidence" d="M1230 584 C1230 719.23 1067.94 632.24 937 666 C903.48 674.64 794.3 668.86 771.64 695.25" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e5" data-from="probe" data-to="runner"/>
+<path class="edge edge-risk" d="M1250 921.5 C1250 991.8 643.49 1012.62 593.74 949.55" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e6" data-from="fake" data-to="runner"/>
+<path class="edge edge-evidence" d="M649.5 941 C649.5 991.5 649.93 1007.01 649.99 1052.19" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="runner" data-to="report"/>
+<g id="node-package" class="node node-input" data-region="121,0,354,231">
+<rect x="121" y="0" width="354" height="231" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="139" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="146" y="35" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="143" y="76" font-size="28" fill="#215cbb" font-weight="700" >已批准 TestPackage</text>
+<text x="143" y="119" font-size="23" fill="#172b45" font-weight="450" >test_id / risk_id /</text>
+<text x="143" y="153" font-size="23" fill="#172b45" font-weight="450" >oracle_id</text>
+<text x="143" y="187" font-size="23" fill="#172b45" font-weight="450" >固定 expected、数据与清理</text>
+</g>
+<g id="node-api" class="node node-process" data-region="0,370,354,197">
+<rect x="0" y="370" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="18" y="387" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="405" font-size="15" fill="#344f70" font-weight="750" class="mono">02</text>
+<text x="22" y="446" font-size="28" fill="#344f70" font-weight="700" >API sandbox adapter</text>
+<text x="22" y="489" font-size="23" fill="#172b45" font-weight="450" >映射请求，录制 response</text>
+<text x="22" y="523" font-size="23" fill="#172b45" font-weight="450" >使用测试账号与幂等键</text>
+</g>
+<g id="node-browser" class="node node-process" data-region="619,370,354,197">
+<rect x="619" y="370" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="637" y="387" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="644" y="405" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="641" y="446" font-size="28" fill="#344f70" font-weight="700" >Browser adapter</text>
+<text x="641" y="489" font-size="23" fill="#172b45" font-weight="450" >映射 locator 与关键旅程</text>
+<text x="641" y="523" font-size="23" fill="#172b45" font-weight="450" >请求 Trace 关联业务测试</text>
+</g>
+<g id="node-probe" class="node node-data" data-region="1053,353,354,231">
+<rect x="1053" y="353" width="354" height="231" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="1071" y="370" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1078" y="388" font-size="15" fill="#087b76" font-weight="750" class="mono">04</text>
+<text x="1075" y="429" font-size="28" fill="#087b76" font-weight="700" >DB / Event 证据探针</text>
+<text x="1075" y="472" font-size="23" fill="#172b45" font-weight="450" >只读测试 schema 与测试</text>
+<text x="1075" y="506" font-size="23" fill="#172b45" font-weight="450" >topic</text>
+<text x="1075" y="540" font-size="23" fill="#172b45" font-weight="450" >检查账本、状态和事件</text>
+</g>
+<g id="node-runner" class="node node-control" data-region="502,706,354,236">
+<rect x="502" y="706" width="354" height="236" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="520" y="723" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="527" y="741" font-size="15" fill="#945c0b" font-weight="750" class="mono">05</text>
+<text x="524" y="782" font-size="28" fill="#945c0b" font-weight="700" >Runner 比较并传播</text>
+<text x="524" y="821" font-size="28" fill="#945c0b" font-weight="700" >失败</text>
+<text x="524" y="864" font-size="23" fill="#172b45" font-weight="450" >断言只引用批准 Oracle</text>
+<text x="524" y="898" font-size="23" fill="#172b45" font-weight="450" >有界重试，每次结果保留</text>
+</g>
+<g id="node-fake" class="node node-risk" data-region="1073,725.5,354,197">
+<rect x="1073" y="725.5" width="354" height="197" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="1091" y="742.5" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1098" y="760.5" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">06</text>
+<text x="1095" y="801.5" font-size="28" fill="#ad3e4c" font-weight="700" >假绿故障注入</text>
+<text x="1095" y="844.5" font-size="23" fill="#172b45" font-weight="450" >吞断言异常或改 expected</text>
+<text x="1095" y="878.5" font-size="23" fill="#172b45" font-weight="450" >不得只保留最后一次 PASS</text>
+</g>
+<g id="node-report" class="node node-evidence" data-region="473,1064,354,231">
+<rect x="473" y="1064" width="354" height="231" rx="14" fill="#f4effb" stroke="none" />
+<rect x="491" y="1081" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="498" y="1099" font-size="15" fill="#7045a4" font-weight="750" class="mono">07</text>
+<text x="495" y="1140" font-size="28" fill="#7045a4" font-weight="700" >可归因运行报告</text>
+<text x="495" y="1183" font-size="23" fill="#172b45" font-weight="450" >selected / skipped /</text>
+<text x="495" y="1217" font-size="23" fill="#172b45" font-weight="450" >retries</text>
+<text x="495" y="1251" font-size="23" fill="#172b45" font-weight="450" >首败、Trace、退出码与清理</text>
+</g>
+<rect x="134" y="271" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="299" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">映射动作</text>
+<rect x="776.13" y="271" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="832.13" y="299" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">映射旅程</text>
+<rect x="454" y="447.5" width="145" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="526.5" y="475.5" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">批准 Oracle</text>
+<rect x="201" y="624" width="202" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="302" y="652" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">response/actual</text>
+<rect x="765.2" y="624" width="162" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="846.2" y="652" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">UI 与请求证据</text>
+<rect x="1221" y="624" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1288" y="652" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">副作用证据</text>
+<rect x="876" y="937.62" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="964.5" y="965.62" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">负控制应被拦截</text>
+<rect x="649.89" y="982" width="199" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="749.39" y="1010" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">原始失败向上传播</text>
+</g>
+</g>
+<text x="64" y="1639.3556496088238" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1639.3556496088238" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1669.3556496088238,470,174">
+<rect x="64" y="1669.3556496088238" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1691.3556496088238" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="106" y="1716.3556496088238" font-size="25" fill="#945c0b" font-weight="700" >代码不能重写语义</text>
+<text x="88" y="1771.3556496088238" font-size="23" fill="#172b45" font-weight="450" >adapter 可准备、执行、采证、清理</text>
+<text x="88" y="1806.3556496088238" font-size="23" fill="#172b45" font-weight="450" >locator 改动不能据此修改 Oracle</text>
+</g>
+<g id="detail-1" data-region="565,1669.3556496088238,470,174">
+<rect x="565" y="1669.3556496088238" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1691.3556496088238" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="607" y="1716.3556496088238" font-size="25" fill="#ad3e4c" font-weight="700" >怎样发现假绿</text>
+<text x="589" y="1771.3556496088238" font-size="23" fill="#172b45" font-weight="450" >注入吞错、错误重试、未复位</text>
+<text x="589" y="1806.3556496088238" font-size="23" fill="#172b45" font-weight="450" >核对首败、退出码和变异检测结果</text>
+</g>
+<g id="detail-2" data-region="1066,1669.3556496088238,470,174">
+<rect x="1066" y="1669.3556496088238" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1691.3556496088238" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="1716.3556496088238" font-size="25" fill="#7045a4" font-weight="700" >交接另一执行器</text>
+<text x="1090" y="1771.3556496088238" font-size="23" fill="#172b45" font-weight="450" >同一测试包绑定相同 oracle_id</text>
+<text x="1090" y="1806.3556496088238" font-size="23" fill="#172b45" font-weight="450" >固定 cwd、依赖、版本与报告路径</text>
+</g>
+<g id="failure-and-output" data-region="64,1875.3556496088238,1472,148">
+<rect x="64" y="1875.3556496088238" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="1914.3556496088238" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="1959.3556496088238" font-size="23" fill="#ffdce2" font-weight="450" >吞异常、未经批准 skip 或按实际响应改预期时，FAKE_GREEN_AUTOMATION 阻断。</text>
+<text x="88" y="2002.3556496088238" font-size="23" fill="#dce9fa" font-weight="450" >交付 adapter contract、追踪索引和 baseline/fault/repair 原始报告。</text>
+</g>
+<text x="64" y="2071.355649608824" font-size="20" fill="#50647c" font-weight="450" >教学 adapter 不执行生产退款或扣款；真实生成和企业集成仍需另行验证。</text>
+<text x="64" y="2110.355649608824" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-P06 · 执行器翻译动作，Oracle 约束断言</text>
+<path class="edge edge-data" d="M64 2150.355649608824 L101 2150.355649608824" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2156.355649608824" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2150.355649608824 L397 2150.355649608824" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2156.355649608824" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2150.355649608824 L693 2150.355649608824" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2156.355649608824" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2150.355649608824 L989 2150.355649608824" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2156.355649608824" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2150.355649608824 L1285 2150.355649608824" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2156.355649608824" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

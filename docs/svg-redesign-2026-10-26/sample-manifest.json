@@ -1,0 +1,108 @@
+{
+  "status": "APPROVED",
+  "target": "public/visuals/modules/TD-M04.svg",
+  "production_replaced": true,
+  "source_refs": [
+    "content/module-overviews.ts#TD-M04",
+    "content/modules/llm-agent.ts#controls",
+    "content/modules/advanced-quality-gaps.ts#TD-X603-TD-X604"
+  ],
+  "source_sha256": "c96113803e0ad57b5b8d87900af9a4baa7b005a6d1400d8d6f930f93178ec66a",
+  "original_sha256": "7cb8a5776258a15795aa0099e5a64e2a245f6402564d729dd4b209bd50bafb68",
+  "sample_sha256": "7e02ea0b05d70835d9b2fd951873fa1a511e7c67e3a6bd9b5703cd635ab05e4e",
+  "stages": [
+    {
+      "name": "三层评测模型",
+      "pages": [
+        "TD-T15"
+      ],
+      "output": "三层评测模型与证据映射",
+      "question": "结果对了，路径也对吗？"
+    },
+    {
+      "name": "工具与权限",
+      "pages": [
+        "TD-T16"
+      ],
+      "output": "工具策略与故障注入集",
+      "question": "选错工具、传错参数会怎样？"
+    },
+    {
+      "name": "安全边界",
+      "pages": [
+        "TD-T17"
+      ],
+      "output": "攻击集与红队报告",
+      "question": "被注入指令后它会做什么？"
+    },
+    {
+      "name": "浏览器 Agent",
+      "pages": [
+        "TD-T18"
+      ],
+      "output": "生成测试包与审查记录",
+      "question": "它生成的测试能被审查吗？"
+    },
+    {
+      "name": "自愈风险",
+      "pages": [
+        "TD-T19"
+      ],
+      "output": "反作弊检查与审计报告",
+      "question": "这次变绿是修好了还是改掉了？"
+    },
+    {
+      "name": "控制权划分",
+      "pages": [
+        "TD-W01",
+        "TD-W02"
+      ],
+      "output": "控制权对照图与状态模型",
+      "question": "谁决定下一步：代码还是模型？"
+    },
+    {
+      "name": "编排与记忆",
+      "pages": [
+        "TD-W03",
+        "TD-X603",
+        "TD-X604"
+      ],
+      "output": "同预算实验、记忆门禁与路由矩阵",
+      "question": "多 Agent 真的比单 Agent 好吗？"
+    }
+  ],
+  "runtime_edges": [
+    [
+      "task",
+      "workflow",
+      "data"
+    ],
+    [
+      "workflow",
+      "agent",
+      "control"
+    ],
+    [
+      "agent",
+      "policy",
+      "control"
+    ],
+    [
+      "policy",
+      "worker",
+      "control"
+    ],
+    [
+      "worker",
+      "agent",
+      "observation"
+    ],
+    [
+      "memory-route",
+      "agent",
+      "controlled-context"
+    ]
+  ],
+  "design_note": "Runtime is one illustrative composition, not a universal required chain. Seven curriculum stages retain learning order, not execution dependency.",
+  "approval": "用户已确认样图并授权整个项目按同策略重绘"
+}

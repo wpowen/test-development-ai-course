@@ -1,90 +1,167 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 1000" width="1600" height="1000">
-  <title id="title">用另一个模型给答案打分靠谱吗，什么时候必须人工复核｜专业关系图</title>
-  <desc id="desc">双人标签先建立人工基准，盲化候选再做顺序与事实反例；分歧矩阵只辅助定位，事实和安全 blocker 最终交独立人工裁决。 图中区分数据流、控制流、证据流与反馈回路，并显示失败路径、系统边界和责任门禁。</desc>
-  <defs>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173f32" flood-opacity="0.12"/></filter>
-    <marker id="arrow-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7fb8"/></marker>
-<marker id="arrow-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c9852c"/></marker>
-<marker id="arrow-evidence" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#765ca6"/></marker>
-<marker id="arrow-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2c7b61"/></marker>
-  </defs>
-  <rect width="1600" height="1000" rx="32" fill="#f4f7f2"/>
-  <rect x="0" y="0" width="1600" height="146" rx="32" fill="#174f3f"/>
-  <text x="72" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" font-weight="800" fill="#b8dd78">TD-T14 · decision-tree · decision-branch-b</text>
-  <text x="72" y="92" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="30" font-weight="800" fill="#ffffff">用另一个模型给答案打分靠谱吗，什么时候必须人工复核｜专业关系图</text>
-  <text x="72" y="132" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="600" fill="#d9e9df">双人标签先建立人工基准，盲化候选再做顺序与事实反例；分歧矩阵只辅助定位，事实和安全blocker最终交独立人工裁决。</text>
-  <rect x="54" y="172" width="1492" height="590" rx="26" fill="#fbfdfb" stroke="#c9d6cf" stroke-width="2"/>
-  <text x="82" y="204" font-size="17" font-weight="800" fill="#52665e">系统边界 · 课程方法与可复核工件在边界内；真实企业系统、模型和生产状态在边界外。</text>
-  <path d="M 810 280 C 885 280, 50 490, 125 490" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 285 490 C 360 490, 505 490, 580 490" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 740 490 C 815 490, 960 490, 1035 490" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1195 490 C 1270 490, 50 680, 125 680" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 285 680 C 360 680, 505 680, 580 680" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 740 680 C 815 680, 960 680, 1035 680" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1195 680 C 1270 680, 50 870, 125 870" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 285 870 C 360 870, 50 490, 125 490" fill="none" stroke="#2c7b61" stroke-width="4" stroke-dasharray="14 6" marker-end="url(#arrow-feedback)" opacity="0.92"/>
-  <g filter="url(#shadow)">
-      <rect x="650" y="220" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="650" y="220" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="678" y="248" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">01</text>
-      <text x="678" y="282" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Doublehumanlabels</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="125" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="125" y="430" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="153" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">02</text>
-      <text x="153" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Blindpairshuffle</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="580" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="580" y="430" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="608" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">03</text>
-      <text x="608" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">VersionedJudge</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1035" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1035" y="430" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1063" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">04</text>
-      <text x="1063" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Biasprobes</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="125" y="620" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="125" y="620" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="153" y="648" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">05</text>
-      <text x="153" y="682" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Disagreementmatrix</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="580" y="620" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="580" y="620" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="608" y="648" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">06</text>
-      <text x="608" y="682" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Humanescalation</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1035" y="620" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="1035" y="620" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="1063" y="648" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">07</text>
-      <text x="1063" y="682" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">版本化输入</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="125" y="810" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="125" y="810" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="153" y="838" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">08</text>
-      <text x="153" y="872" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">风险/失败</text>
-    </g>
-  <g transform="translate(70 788)">
-    <rect width="710" height="112" rx="20" fill="#fff4ef" stroke="#e5aaa2" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#b84c42">失败路径</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">任一关键输入、权限、Oracle、版本或终态证据缺失时进入</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">FAIL/BLOCKED/UNKNOWN，不静默通过。</text>
-  </g>
-  <g transform="translate(820 788)">
-    <rect width="710" height="112" rx="20" fill="#eef8f2" stroke="#9bc6ac" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#2c7b61">反馈闭环 · Owner Gate</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">失败证据回到最早分叉点，修复后使用同一版本输入重跑并产生新receipt。业务/</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">质量Owner批准判据、风险接受与发布；AI只生成候选和整理证据。</text>
-  </g>
-  <g transform="translate(100 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#4f7fb8" stroke-width="5" stroke-dasharray=""/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">数据流</text></g>
-<g transform="translate(345 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#c9852c" stroke-width="5" stroke-dasharray="10 7"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">控制流</text></g>
-<g transform="translate(590 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#765ca6" stroke-width="5" stroke-dasharray="4 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">证据流</text></g>
-<g transform="translate(835 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#2c7b61" stroke-width="5" stroke-dasharray="14 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">反馈闭环</text></g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2854" viewBox="0 0 1600 2854" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">Judge 的自动评分权限来自校准证据</title><desc id="desc">先处理人工标注分歧，再用盲评、顺序与长度探针量出 Judge 的适用范围。 受保护金标与版本化 Judge 对照，失败切片回退人审而非继续自动放行 教学种子与离线门禁不证明生产 Judge 可用；阈值必须绑定目标风险与正式校准。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-T14 / 校准的五个步骤与各自的判据;docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-T14 / 架构节点与交付物">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-T14&quot;,&quot;pageIds&quot;:[&quot;TD-T14&quot;],&quot;primaryPageIds&quot;:[&quot;TD-T14&quot;],&quot;layout&quot;:&quot;evidence&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-T14 / 校准的五个步骤与各自的判据&quot;,&quot;quote&quot;:&quot;人人一致性低时，问题在评分标准而不在 Judge，先改 rubric。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-T14 / 架构节点与交付物&quot;,&quot;quote&quot;:&quot;Judge 违反预注册的关键错误、切片或稳定性门槛时必须停用并回退人审&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;humans&quot;,&quot;title&quot;:&quot;Double human labels&quot;},{&quot;id&quot;:&quot;gold&quot;,&quot;title&quot;:&quot;裁决 Gold 与 rubric&quot;},{&quot;id&quot;:&quot;shuffle&quot;,&quot;title&quot;:&quot;Blind pair shuffle&quot;},{&quot;id&quot;:&quot;probes&quot;,&quot;title&quot;:&quot;Bias probes&quot;},{&quot;id&quot;:&quot;judge&quot;,&quot;title&quot;:&quot;Versioned Judge&quot;},{&quot;id&quot;:&quot;matrix&quot;,&quot;title&quot;:&quot;Disagreement matrix&quot;},{&quot;id&quot;:&quot;escalate&quot;,&quot;title&quot;:&quot;Human escalation&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;humans&quot;,&quot;to&quot;:&quot;gold&quot;,&quot;label&quot;:&quot;先裁决分歧&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;gold&quot;,&quot;to&quot;:&quot;shuffle&quot;,&quot;label&quot;:&quot;受保护样本&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;gold&quot;,&quot;to&quot;:&quot;probes&quot;,&quot;label&quot;:&quot;构造近邻与偏差对照&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;shuffle&quot;,&quot;to&quot;:&quot;judge&quot;,&quot;label&quot;:&quot;盲化双向输入&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;probes&quot;,&quot;to&quot;:&quot;judge&quot;,&quot;label&quot;:&quot;同事实扰动&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;judge&quot;,&quot;to&quot;:&quot;matrix&quot;,&quot;label&quot;:&quot;原始判定&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;gold&quot;,&quot;to&quot;:&quot;matrix&quot;,&quot;label&quot;:&quot;人工共识参考&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;matrix&quot;,&quot;to&quot;:&quot;escalate&quot;,&quot;label&quot;:&quot;已知误差与失败切片&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;matrix&quot;,&quot;to&quot;:&quot;gold&quot;,&quot;label&quot;:&quot;复审 rubric 与争议 gold&quot;,&quot;kind&quot;:&quot;feedback&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2854" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-T14</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >Judge 的自动评分权限来自校准证据</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >先处理人工标注分歧，再用盲评、顺序与长度探针量出 Judge 的适用范围。</text>
+<g id="system-graph" data-region="64,234,1472,2016">
+<rect x="64" y="234" width="1472" height="2016" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >受保护金标与版本化 Judge 对照，失败切片回退人审而非继续自动放行</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M451 273 L451 369 L879 369 L879 307" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M451 273 L451 369 L879 369 L879 307" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e0" data-from="humans" data-to="gold"/>
+<path d="M930 307 L930 369 L976 369 Q981 357 986 369 L1078 369 Q1083 357 1088 369 L1362 369 L1362 589 L451 589 L451 629" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M930 307 L930 369 L976 369 Q981 357 986 369 L1078 369 Q1083 357 1088 369 L1362 369 L1362 589 L451 589 L451 629" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="gold" data-to="shuffle"/>
+<path d="M1083 307 L1083 449 L1368 449 L1368 603 L1361 603 Q1356 591 1351 603 L981 603 L981 629" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M1083 307 L1083 449 L1368 449 L1368 603 L1361 603 Q1356 591 1351 603 L981 603 L981 629" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e2" data-from="gold" data-to="probes"/>
+<path d="M451 860 L451 908 L77 908 L77 968 L663 968 L663 1008" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M451 860 L451 908 L77 908 L77 968 L663 968 L663 1008" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e3" data-from="shuffle" data-to="judge"/>
+<path d="M981 860 L981 908 L1351 908 Q1356 896 1361 908 L1374 908 L1374 982 L1361 982 Q1356 970 1351 982 L765 982 L765 1008" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M981 860 L981 908 L1351 908 Q1356 896 1361 908 L1374 908 L1374 982 L1361 982 Q1356 970 1351 982 L765 982 L765 1008" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e4" data-from="probes" data-to="judge"/>
+<path d="M714 1239 L714 1287 L89 1287 Q84 1275 79 1287 L70 1287 L70 1443 L374.5 1443 L374.5 1483" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M714 1239 L714 1287 L89 1287 Q84 1275 79 1287 L70 1287 L70 1443 L374.5 1443 L374.5 1483" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e5" data-from="judge" data-to="matrix"/>
+<path d="M981 307 L981 529 L1356 529 L1356 1457 L532.5 1457 Q527.5 1445 522.5 1457 L451 1457 L451 1483" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M981 307 L981 529 L1356 529 L1356 1457 L532.5 1457 Q527.5 1445 522.5 1457 L451 1457 L451 1483" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="gold" data-to="matrix"/>
+<path d="M451 1714 L451 1778 L981 1778 L981 1680" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M451 1714 L451 1778 L981 1778 L981 1680" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e7" data-from="matrix" data-to="escalate"/>
+<path d="M527.5 1483 L527.5 1367 L84 1367 L84 321 L446 321 Q451 309 456 321 L874 321 Q879 309 884 321 L925 321 Q930 309 935 321 L976 321 Q981 309 986 321 L1032 321 L1032 307" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M527.5 1483 L527.5 1367 L84 1367 L84 321 L446 321 Q451 309 456 321 L874 321 Q879 309 884 321 L925 321 Q930 309 935 321 L976 321 Q981 309 986 321 L1032 321 L1032 307" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e8" data-from="matrix" data-to="gold"/>
+<g id="node-humans" class="node node-input" data-region="274,76,354,197">
+<rect x="274" y="76" width="354" height="197" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#215cbb" font-weight="700" >Double human labels</text>
+<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >两名领域人员独立标注</text>
+<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >先看人人分歧与 rubric 歧义</text>
+</g>
+<g id="node-gold" class="node node-control" data-region="804,76,354,231">
+<rect x="804" y="76" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#945c0b" font-weight="750" class="mono">02</text>
+<text x="826" y="152" font-size="28" fill="#945c0b" font-weight="700" >裁决 Gold 与 rubric</text>
+<text x="826" y="195" font-size="23" fill="#172b45" font-weight="450" >保存理由、政策版本和风险</text>
+<text x="826" y="229" font-size="23" fill="#172b45" font-weight="450" >标签</text>
+<text x="826" y="263" font-size="23" fill="#172b45" font-weight="450" >人工未共识则 UNKNOWN</text>
+</g>
+<g id="node-shuffle" class="node node-process" data-region="274,629,354,231">
+<rect x="274" y="629" width="354" height="231" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="646" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="664" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="296" y="705" font-size="28" fill="#344f70" font-weight="700" >Blind pair shuffle</text>
+<text x="296" y="748" font-size="23" fill="#172b45" font-weight="450" >隐藏候选身份并双向 A/B、</text>
+<text x="296" y="782" font-size="23" fill="#172b45" font-weight="450" >B/A</text>
+<text x="296" y="816" font-size="23" fill="#172b45" font-weight="450" >顺序交换观测翻转</text>
+</g>
+<g id="node-probes" class="node node-risk" data-region="804,629,354,231">
+<rect x="804" y="629" width="354" height="231" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="822" y="646" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="664" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">04</text>
+<text x="826" y="705" font-size="28" fill="#ad3e4c" font-weight="700" >Bias probes</text>
+<text x="826" y="748" font-size="23" fill="#172b45" font-weight="450" >同事实不同长度 / 风格</text>
+<text x="826" y="782" font-size="23" fill="#172b45" font-weight="450" >事实近邻反例与外部</text>
+<text x="826" y="816" font-size="23" fill="#172b45" font-weight="450" >reference</text>
+</g>
+<g id="node-judge" class="node node-ai" data-region="537,1008,354,231">
+<rect x="537" y="1008" width="354" height="231" rx="14" fill="#f4effb" stroke="none" />
+<rect x="555" y="1025" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="1043" font-size="15" fill="#7045a4" font-weight="750" class="mono">05</text>
+<text x="559" y="1084" font-size="28" fill="#7045a4" font-weight="700" >Versioned Judge</text>
+<text x="559" y="1127" font-size="23" fill="#172b45" font-weight="450" >固定模型、温度与完整</text>
+<text x="559" y="1161" font-size="23" fill="#172b45" font-weight="450" >rubric</text>
+<text x="559" y="1195" font-size="23" fill="#172b45" font-weight="450" >新版本须重做目标域校准</text>
+</g>
+<g id="node-matrix" class="node node-evidence" data-region="274,1483,354,231">
+<rect x="274" y="1483" width="354" height="231" rx="14" fill="#f4effb" stroke="none" />
+<rect x="292" y="1500" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1518" font-size="15" fill="#7045a4" font-weight="750" class="mono">06</text>
+<text x="296" y="1559" font-size="28" fill="#7045a4" font-weight="700" >Disagreement matrix</text>
+<text x="296" y="1602" font-size="23" fill="#172b45" font-weight="450" >关键错误、位置翻转与切片</text>
+<text x="296" y="1636" font-size="23" fill="#172b45" font-weight="450" >误差</text>
+<text x="296" y="1670" font-size="23" fill="#172b45" font-weight="450" >总 agreement 不能替代分类</text>
+</g>
+<g id="node-escalate" class="node node-control" data-region="804,1483,354,197">
+<rect x="804" y="1483" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="1500" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1518" font-size="15" fill="#945c0b" font-weight="750" class="mono">07</text>
+<text x="826" y="1559" font-size="28" fill="#945c0b" font-weight="700" >Human escalation</text>
+<text x="826" y="1602" font-size="23" fill="#172b45" font-weight="450" >自动 / 抽检 / 人工权限分档</text>
+<text x="826" y="1636" font-size="23" fill="#172b45" font-weight="450" >违反门槛停用并回退人审</text>
+</g>
+<rect x="632.61" y="347" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="376" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  先裁决分歧</text>
+<text x="883" y="329" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="1162.61" y="347" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="376" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  受保护样本</text>
+<text x="455" y="619" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="1151.69" y="411" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="440" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  构造近邻与偏</text>
+<text x="1246" y="472" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">差对照</text>
+<text x="985" y="619" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="95.69" y="886" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="915" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  盲化双向输入</text>
+<text x="667" y="998" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="1162.61" y="886" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="915" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  同事实扰动</text>
+<text x="769" y="998" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="117.53" y="1265" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1294" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  原始判定</text>
+<text x="378.5" y="1473" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="1151.69" y="507" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="536" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  人工共识参考</text>
+<text x="455" y="1473" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="632.61" y="1740" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1769" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  已知误差与</text>
+<text x="716" y="1801" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">失败切片</text>
+<text x="985" y="1702" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+<rect x="101.77999999999997" y="1329" width="176.44000000000005" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1358" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  复审 rubric</text>
+<text x="190" y="1390" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">与争议 gold</text>
+<text x="1036" y="329" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e8" stroke="#fff" stroke-width="4" paint-order="stroke">09</text>
+</g>
+</g>
+<text x="64" y="2304" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2304" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2334,470,174">
+<rect x="64" y="2334" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2356" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="106" y="2381" font-size="25" fill="#ad3e4c" font-weight="700" >三个偏差切片</text>
+<text x="88" y="2436" font-size="23" fill="#172b45" font-weight="450" >顺序翻转、冗长扰动分别测</text>
+<text x="88" y="2471" font-size="23" fill="#172b45" font-weight="450" >过期政策事实错误单独拦</text>
+</g>
+<g id="detail-1" data-region="565,2334,470,174">
+<rect x="565" y="2334" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2356" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="607" y="2381" font-size="25" fill="#7045a4" font-weight="700" >仪器也需回归</text>
+<text x="589" y="2436" font-size="23" fill="#172b45" font-weight="450" >Judge Card 保存版本与样本量</text>
+<text x="589" y="2471" font-size="23" fill="#172b45" font-weight="450" >换模型或 rubric 旧收据失效</text>
+</g>
+<g id="detail-2" data-region="1066,2334,470,174">
+<rect x="1066" y="2334" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2356" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="1108" y="2381" font-size="25" fill="#945c0b" font-weight="700" >独立性怎样证明</text>
+<text x="1090" y="2436" font-size="23" fill="#172b45" font-weight="450" >外部 reference、盲化与第二判据</text>
+<text x="1090" y="2471" font-size="23" fill="#172b45" font-weight="450" >换模型名称本身不能证明独立</text>
+</g>
+<g id="failure-and-output" data-region="64,2540,1472,148">
+<rect x="64" y="2540" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2579" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2624" font-size="23" fill="#ffdce2" font-weight="450" >人人标准未稳定先修 rubric；关键错误或重复稳定性失败须停自动评分。</text>
+<text x="88" y="2667" font-size="23" fill="#dce9fa" font-weight="450" >交付 Judge Card、逐类分歧、偏差探针结果与人工升级范围。</text>
+</g>
+<text x="64" y="2736" font-size="20" fill="#50647c" font-weight="450" >教学种子与离线门禁不证明生产 Judge 可用；阈值必须绑定目标风险与正式校准。</text>
+<text x="64" y="2775" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-T14 · Judge 的自动评分权限来自校准证据</text>
+<path class="edge edge-data" d="M64 2815 L101 2815" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2821" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2815 L397 2815" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2821" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2815 L693 2815" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2821" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2815 L989 2815" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2821" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2815 L1285 2815" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2821" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

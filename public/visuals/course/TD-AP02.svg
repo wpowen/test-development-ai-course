@@ -1,90 +1,136 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 1000" width="1600" height="1000">
-  <title id="title">用户等 Agent 太久：把排队、模型、工具和重试耗时拆开｜专业关系图</title>
-  <desc id="desc">每个节点都有版本、输入与可检查输出；Prompt 只解释证据，不能改门禁。 图中区分数据流、控制流、证据流与反馈回路，并显示失败路径、系统边界和责任门禁。</desc>
-  <defs>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173f32" flood-opacity="0.12"/></filter>
-    <marker id="arrow-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7fb8"/></marker>
-<marker id="arrow-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c9852c"/></marker>
-<marker id="arrow-evidence" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#765ca6"/></marker>
-<marker id="arrow-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2c7b61"/></marker>
-  </defs>
-  <rect width="1600" height="1000" rx="32" fill="#f4f7f2"/>
-  <rect x="0" y="0" width="1600" height="146" rx="32" fill="#174f3f"/>
-  <text x="72" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" font-weight="800" fill="#b8dd78">TD-AP02 · metric-experiment · metric-paired-b</text>
-  <text x="72" y="92" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="30" font-weight="800" fill="#ffffff">用户等Agent太久：把排队、模型、工具和重试耗时拆开｜专业关系图</text>
-  <text x="72" y="132" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="600" fill="#d9e9df">每个节点都有版本、输入与可检查输出；Prompt只解释证据，不能改门禁。</text>
-  <rect x="54" y="172" width="1492" height="590" rx="26" fill="#fbfdfb" stroke="#c9d6cf" stroke-width="2"/>
-  <text x="82" y="204" font-size="17" font-weight="800" fill="#52665e">系统边界 · 课程方法与可复核工件在边界内；真实企业系统、模型和生产状态在边界外。</text>
-  <path d="M 810 285 C 885 285, 70 490, 145 490" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 305 490 C 380 490, 500 490, 575 490" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 735 490 C 810 490, 930 490, 1005 490" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1165 490 C 1240 490, 70 685, 145 685" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 305 685 C 380 685, 500 685, 575 685" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 735 685 C 810 685, 930 685, 1005 685" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1165 685 C 1240 685, 1360 685, 1435 685" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 1595 685 C 1670 685, 70 490, 145 490" fill="none" stroke="#2c7b61" stroke-width="4" stroke-dasharray="14 6" marker-end="url(#arrow-feedback)" opacity="0.92"/>
-  <g filter="url(#shadow)">
-      <rect x="650" y="225" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="650" y="225" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="678" y="253" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">01</text>
-      <text x="678" y="287" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">计划到达时间</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="145" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="145" y="430" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="173" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">02</text>
-      <text x="173" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Queuewait</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="575" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="575" y="430" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="603" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">03</text>
-      <text x="603" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Prefill/TTFT</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1005" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1005" y="430" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1033" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">04</text>
-      <text x="1033" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Decode/TPOT</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="145" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="145" y="625" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="173" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">05</text>
-      <text x="173" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Tool/Retry/Step</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="575" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="575" y="625" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="603" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">06</text>
-      <text x="603" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">TaskGoodputGate</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1005" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="1005" y="625" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="1033" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">07</text>
-      <text x="1033" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">版本化输入</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1435" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1435" y="625" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1463" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">08</text>
-      <text x="1463" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">风险/失败</text>
-    </g>
-  <g transform="translate(70 788)">
-    <rect width="710" height="112" rx="20" fill="#fff4ef" stroke="#e5aaa2" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#b84c42">失败路径</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">任一关键输入、权限、Oracle、版本或终态证据缺失时进入</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">FAIL/BLOCKED/UNKNOWN，不静默通过。</text>
-  </g>
-  <g transform="translate(820 788)">
-    <rect width="710" height="112" rx="20" fill="#eef8f2" stroke="#9bc6ac" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#2c7b61">反馈闭环 · Owner Gate</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">失败证据回到最早分叉点，修复后使用同一版本输入重跑并产生新receipt。业务/</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">质量Owner批准判据、风险接受与发布；AI只生成候选和整理证据。</text>
-  </g>
-  <g transform="translate(100 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#4f7fb8" stroke-width="5" stroke-dasharray=""/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">数据流</text></g>
-<g transform="translate(345 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#c9852c" stroke-width="5" stroke-dasharray="10 7"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">控制流</text></g>
-<g transform="translate(590 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#765ca6" stroke-width="5" stroke-dasharray="4 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">证据流</text></g>
-<g transform="translate(835 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#2c7b61" stroke-width="5" stroke-dasharray="14 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">反馈闭环</text></g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1740" viewBox="0 0 1600 1740" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">从关键路径找到真正的慢点</title><desc id="desc">queue、model、tool 和 retry 分列观测；并行段按关键路径归因，不能算术相加。 同一任务的时间证据与业务终态共同约束优化决定 迁移指标定义，不迁移示例阈值；托管模型内部不可见信号保持 UNKNOWN，真实运行 NOT_RUN。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-AP02 / 一个端到端时长说明不了任何事，因为它不是各 span 的算术和;docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-AP02 / AP02 Project lab：阶段预算驱动的优化决策;docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-AP02 / AP02 最终练习：从指标卡做一次决策">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-AP02&quot;,&quot;pageIds&quot;:[&quot;TD-AP02&quot;],&quot;primaryPageIds&quot;:[&quot;TD-AP02&quot;],&quot;layout&quot;:&quot;evidence&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-AP02 / 一个端到端时长说明不了任何事，因为它不是各 span 的算术和&quot;,&quot;quote&quot;:&quot;把并行段相加会重复计数&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-AP02 / AP02 Project lab：阶段预算驱动的优化决策&quot;,&quot;quote&quot;:&quot;用 baseline、工具延迟 fault、空 queue span fault 和重试放大 fault 做单变量对照。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-AP02 / AP02 最终练习：从指标卡做一次决策&quot;,&quot;quote&quot;:&quot;一次裸 QPS 上升但 good-task 下降&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;arrival&quot;,&quot;title&quot;:&quot;计划到达时间&quot;},{&quot;id&quot;:&quot;queue&quot;,&quot;title&quot;:&quot;Queue wait&quot;},{&quot;id&quot;:&quot;model&quot;,&quot;title&quot;:&quot;模型阶段&quot;},{&quot;id&quot;:&quot;tool&quot;,&quot;title&quot;:&quot;工具阶段&quot;},{&quot;id&quot;:&quot;retry&quot;,&quot;title&quot;:&quot;Retry 与编排空隙&quot;},{&quot;id&quot;:&quot;critical&quot;,&quot;title&quot;:&quot;用户可见关键路径&quot;},{&quot;id&quot;:&quot;goodput&quot;,&quot;title&quot;:&quot;Task Goodput Gate&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;arrival&quot;,&quot;to&quot;:&quot;queue&quot;,&quot;label&quot;:&quot;时间起点&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;queue&quot;,&quot;to&quot;:&quot;model&quot;,&quot;label&quot;:&quot;出队后观测&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;queue&quot;,&quot;to&quot;:&quot;tool&quot;,&quot;label&quot;:&quot;工具阶段观测&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;model&quot;,&quot;to&quot;:&quot;critical&quot;,&quot;label&quot;:&quot;模型时间线&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;tool&quot;,&quot;to&quot;:&quot;critical&quot;,&quot;label&quot;:&quot;工具时间线&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;retry&quot;,&quot;to&quot;:&quot;critical&quot;,&quot;label&quot;:&quot;补齐尝试与空隙&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;critical&quot;,&quot;to&quot;:&quot;goodput&quot;,&quot;label&quot;:&quot;端到端预算&quot;,&quot;kind&quot;:&quot;control&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="1740" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-AP02</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >从关键路径找到真正的慢点</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >queue、model、tool 和 retry 分列观测；并行段按关键路径归因，不能算术相加。</text>
+<g id="system-graph" data-region="64,234,1472,901.3894439873045">
+<rect x="64" y="234" width="1472" height="901.3894439873045" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >同一任务的时间证据与业务终态共同约束优化决定</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >证据谱系</text>
+<g transform="translate(109.87422122957571 350) scale(0.8228517691313035)" data-graph-scale="0.8228517691313035" data-routing="dot">
+<path class="edge edge-evidence" d="M354 97.5 C366.89 97.5 362.15 81.58000000000004 374 76.5 C419.75 56.889999999999986 440.25 56.889999999999986 486 76.5 C493.96 79.90999999999997 494.43 88.22000000000003 497.8 93.29999999999995" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e0" data-from="arrival" data-to="queue"/>
+<path class="edge edge-evidence" d="M638 196 C638 275.26 510.06 239.64 497.06 307.23" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e1" data-from="queue" data-to="model"/>
+<path class="edge edge-evidence" d="M726 196 C726 245.01 900.84 263.32000000000005 926.8 307.78" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e2" data-from="queue" data-to="tool"/>
+<path class="edge edge-evidence" d="M496 515 C496 597.53 826.67 570.35 857.68 642.59" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e3" data-from="model" data-to="critical"/>
+<path class="edge edge-evidence" d="M930 515 C930 572.6800000000001 930 589.97 930 642.28" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e4" data-from="tool" data-to="critical"/>
+<path class="edge edge-evidence" d="M1364 515 C1364 597.53 1033.33 570.35 1002.32 642.59" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e5" data-from="retry" data-to="critical"/>
+<path class="edge edge-control" d="M1106 752.5 C1119.84 752.5 1116.09 736.51 1129 731.5 C1184.53 709.96 1208.54 707.41 1263 731.5 C1271.12 735.09 1271.39 743.79 1274.7 749.11" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="critical" data-to="goodput"/>
+<g id="node-arrival" class="node node-input" data-region="0,0,354,197">
+<rect x="0" y="0" width="354" height="197" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="18" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="35" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="22" y="76" font-size="28" fill="#215cbb" font-weight="700" >计划到达时间</text>
+<text x="22" y="119" font-size="23" fill="#172b45" font-weight="450" >从用户等待开始计时</text>
+<text x="22" y="153" font-size="23" fill="#172b45" font-weight="450" >保留 task 与 token 分桶</text>
+</g>
+<g id="node-queue" class="node node-process" data-region="506,0,354,197">
+<rect x="506" y="0" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="524" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="531" y="35" font-size="15" fill="#344f70" font-weight="750" class="mono">02</text>
+<text x="528" y="76" font-size="28" fill="#344f70" font-weight="700" >Queue wait</text>
+<text x="528" y="119" font-size="23" fill="#172b45" font-weight="450" >到达与开始处理时间差</text>
+<text x="528" y="153" font-size="23" fill="#172b45" font-weight="450" >查准入、调度与容量</text>
+</g>
+<g id="node-model" class="node node-ai" data-region="319,319,354,197">
+<rect x="319" y="319" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="337" y="336" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="344" y="354" font-size="15" fill="#7045a4" font-weight="750" class="mono">03</text>
+<text x="341" y="395" font-size="28" fill="#7045a4" font-weight="700" >模型阶段</text>
+<text x="341" y="438" font-size="23" fill="#172b45" font-weight="450" >分别记录 TTFT 与 TPOT</text>
+<text x="341" y="472" font-size="23" fill="#172b45" font-weight="450" >固定或分桶输入输出长度</text>
+</g>
+<g id="node-tool" class="node node-process" data-region="753,319,354,197">
+<rect x="753" y="319" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="771" y="336" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="778" y="354" font-size="15" fill="#344f70" font-weight="750" class="mono">04</text>
+<text x="775" y="395" font-size="28" fill="#344f70" font-weight="700" >工具阶段</text>
+<text x="775" y="438" font-size="23" fill="#172b45" font-weight="450" >每次 tool attempt 独立计时</text>
+<text x="775" y="472" font-size="23" fill="#172b45" font-weight="450" >长等待先隔离依赖</text>
+</g>
+<g id="node-retry" class="node node-risk" data-region="1187,319,354,197">
+<rect x="1187" y="319" width="354" height="197" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="1205" y="336" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1212" y="354" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">05</text>
+<text x="1209" y="395" font-size="28" fill="#ad3e4c" font-weight="700" >Retry 与编排空隙</text>
+<text x="1209" y="438" font-size="23" fill="#172b45" font-weight="450" >尝试、backoff 与空隙单列</text>
+<text x="1209" y="472" font-size="23" fill="#172b45" font-weight="450" >核对调用放大与预算</text>
+</g>
+<g id="node-critical" class="node node-evidence" data-region="755,655,354,197">
+<rect x="755" y="655" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="773" y="672" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="780" y="690" font-size="15" fill="#7045a4" font-weight="750" class="mono">06</text>
+<text x="777" y="731" font-size="28" fill="#7045a4" font-weight="700" >用户可见关键路径</text>
+<text x="777" y="774" font-size="23" fill="#172b45" font-weight="450" >重叠阶段不重复计时</text>
+<text x="777" y="808" font-size="23" fill="#172b45" font-weight="450" >缺失等待保持 UNKNOWN</text>
+</g>
+<g id="node-goodput" class="node node-control" data-region="1283,638,354,231">
+<rect x="1283" y="638" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="1301" y="655" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1308" y="673" font-size="15" fill="#945c0b" font-weight="750" class="mono">07</text>
+<text x="1305" y="714" font-size="28" fill="#945c0b" font-weight="700" >Task Goodput Gate</text>
+<text x="1305" y="757" font-size="23" fill="#172b45" font-weight="450" >达标完成任务 / 时间</text>
+<text x="1305" y="791" font-size="23" fill="#172b45" font-weight="450" >同时检查质量、成本、副</text>
+<text x="1305" y="825" font-size="23" fill="#172b45" font-weight="450" >作用</text>
+</g>
+<rect x="374" y="19.789999999999964" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="430" y="47.789999999999964" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">时间起点</text>
+<rect x="617.39" y="237" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="684.39" y="265" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">出队后观测</text>
+<rect x="880.7" y="237" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="958.7" y="265" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">工具阶段观测</text>
+<rect x="752.44" y="556" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="819.44" y="584" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">模型时间线</text>
+<rect x="930" y="556" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="997" y="584" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">工具时间线</text>
+<rect x="1318.9" y="556" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1407.4" y="584" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">补齐尝试与空隙</text>
+<rect x="1129" y="672.38" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1196" y="700.38" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">端到端预算</text>
+</g>
+</g>
+<text x="64" y="1189.3894439873045" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1189.3894439873045" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1219.3894439873045,470,174">
+<rect x="64" y="1219.3894439873045" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1241.3894439873045" width="7" height="30" rx="3" fill="#087b76" stroke="none" />
+<text x="106" y="1266.3894439873045" font-size="25" fill="#087b76" font-weight="700" >控制什么变量</text>
+<text x="88" y="1321.3894439873045" font-size="23" fill="#172b45" font-weight="450" >固定 workload 与 token 分桶</text>
+<text x="88" y="1356.3894439873045" font-size="23" fill="#172b45" font-weight="450" >同任务配对比较，保留分位窗口</text>
+</g>
+<g id="detail-1" data-region="565,1219.3894439873045,470,174">
+<rect x="565" y="1219.3894439873045" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1241.3894439873045" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="607" y="1266.3894439873045" font-size="25" fill="#ad3e4c" font-weight="700" >分别注入什么故障</text>
+<text x="589" y="1321.3894439873045" font-size="23" fill="#172b45" font-weight="450" >工具延迟、空 queue span</text>
+<text x="589" y="1356.3894439873045" font-size="23" fill="#172b45" font-weight="450" >重试放大，不一次混改全部阶段</text>
+</g>
+<g id="detail-2" data-region="1066,1219.3894439873045,470,174">
+<rect x="1066" y="1219.3894439873045" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1241.3894439873045" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="1108" y="1266.3894439873045" font-size="25" fill="#945c0b" font-weight="700" >按什么顺序做决定</text>
+<text x="1090" y="1321.3894439873045" font-size="23" fill="#172b45" font-weight="450" >先查副作用、重试预算和等待</text>
+<text x="1090" y="1356.3894439873045" font-size="23" fill="#172b45" font-weight="450" >裸 QPS 涨而 good-task 降则阻断</text>
+</g>
+<g id="failure-and-output" data-region="64,1425.3894439873045,1472,148">
+<rect x="64" y="1425.3894439873045" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="1464.3894439873045" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="1509.3894439873045" font-size="23" fill="#ffdce2" font-weight="450" >缺少阶段字段或把并行 span 相加时停止性能归因；先补观测，再决定优化对象。</text>
+<text x="88" y="1552.3894439873045" font-size="23" fill="#dce9fa" font-weight="450" >交付指标卡、分列时间线、分桶结果与复验证据。</text>
+</g>
+<text x="64" y="1621.3894439873045" font-size="20" fill="#50647c" font-weight="450" >迁移指标定义，不迁移示例阈值；托管模型内部不可见信号保持 UNKNOWN，真实运行 NOT_RUN。</text>
+<text x="64" y="1660.3894439873045" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-AP02 · 从关键路径找到真正的慢点</text>
+<path class="edge edge-data" d="M64 1700.3894439873045 L101 1700.3894439873045" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="1706.3894439873045" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 1700.3894439873045 L397 1700.3894439873045" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="1706.3894439873045" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 1700.3894439873045 L693 1700.3894439873045" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="1706.3894439873045" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 1700.3894439873045 L989 1700.3894439873045" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="1706.3894439873045" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 1700.3894439873045 L1285 1700.3894439873045" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="1706.3894439873045" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

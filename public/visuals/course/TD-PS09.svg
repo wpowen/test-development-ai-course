@@ -1,130 +1,160 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1160 546" width="1160" height="546">
-  <title id="title">性能与容量：到达率、尾延迟、Goodput 与单位成功成本：flow流程</title>
-  <desc id="desc">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-</style>
-  <rect class="ds-bg" width="1160" height="546" rx="22"/>
-  
-  <rect class="ds-header" x="0" y="0" width="1160" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1160" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">FLOW · 证据流</text>
-  <text class="ds-subtitle" x="1124" y="32" text-anchor="end">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</text>
-  <text class="ds-title" x="36" y="74">性能与容量：到达率、尾延迟、Goodput 与单位成功成本</text>
-  <text class="ds-source" x="36" y="140">flow · AI 请求阶段指标链 · 来源 S51, S52, S54</text>
-  
-    <path d="M 264 220 L 286 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 466 220 L 488 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 668 220 L 690 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 870 220 L 892 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 984 268 V 305 H 176 V 338" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    <path d="M 264 390 L 286 390" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-  
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="172" width="176" height="96" rx="14" fill="#eaf1fa" stroke="#aec6e3"/>
-      
-      <circle cx="106" cy="190" r="11" fill="#ffffff" stroke="#aec6e3" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="193" text-anchor="middle" >01</text>
-      <text class="ds-node-title" x="103" y="220">Workload/到达率</text>
-      <text class="ds-node-detail" x="103" y="235">输入 / 依据</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="290" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="308" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="193" text-anchor="middle" >02</text>
-      <text class="ds-node-title" x="305" y="220">队列与调度</text>
-      <text class="ds-node-detail" x="305" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="492" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="510" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="510" y="193" text-anchor="middle" >03</text>
-      <text class="ds-node-title" x="507" y="220">Prefill/TTFT</text>
-      <text class="ds-node-detail" x="507" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="694" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="712" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="712" y="193" text-anchor="middle" >04</text>
-      <text class="ds-node-title" x="709" y="220">Decode/TPOT</text>
-      <text class="ds-node-detail" x="709" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="896" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="914" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="914" y="193" text-anchor="middle" >05</text>
-      <text class="ds-node-title" x="911" y="220">工具与检索</text>
-      <text class="ds-node-detail" x="911" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="342" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="106" cy="360" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="363" text-anchor="middle" >06</text>
-      <text class="ds-node-title" x="103" y="390">质量/Goodput</text>
-      <text class="ds-node-detail" x="103" y="405">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-strong)">
-      <rect x="290" y="342" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a" stroke-width="2"/>
-      <rect x="290" y="342" width="6" height="96" rx="3" fill="#93bd2c"/>
-      <circle cx="308" cy="360" r="11" fill="#174a3a" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="363" text-anchor="middle" fill="#ffffff">07</text>
-      <text class="ds-node-title" x="305" y="390">成本与容量门禁</text>
-      <text class="ds-node-detail" x="305" y="405">决定 / 输出</text>
-    </g>
-  <circle cx="108" cy="460" r="4" fill="#355f96"/><text class="ds-legend" x="118" y="464">输入 / 依据</text><circle cx="177.4" cy="460" r="4" fill="#c2d9cc"/><text class="ds-legend" x="187.4" y="464">处理 / 变换</text><circle cx="246.8" cy="460" r="4" fill="#6a49a8"/><text class="ds-legend" x="256.8" y="464">独立判断</text><circle cx="297.6" cy="460" r="4" fill="#a96a18"/><text class="ds-legend" x="307.6" y="464">门禁 / 裁决</text><circle cx="367" cy="460" r="4" fill="#b2402f"/><text class="ds-legend" x="377" y="464">安全终态</text>
-  
-  <rect x="28" y="472" width="1104" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="498">证据边界</text>
-  <text class="ds-foot" x="46" y="520">节点是页面语义关系；不代表真实模型、企业集成或生产效果已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2352" viewBox="0 0 1600 2352" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">同一次压测，联合判定 Goodput</title><desc id="desc">固定外部到达率和任务分布，同时观察分段延迟、风险质量与全成本，只把合格任务计入有效产出。 客服 FAQ 与长退款对话切片的容量实验及成功任务分母 这是实验设计，不含实测曲线或容量数值；托管服务不可见 GPU/KV 指标标 UNKNOWN。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-PS09 / 用开放负载与 Goodput 找容量拐点;docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-PS09 / 用开放负载与 Goodput 找容量拐点">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-PS09&quot;,&quot;pageIds&quot;:[&quot;TD-PS09&quot;],&quot;primaryPageIds&quot;:[&quot;TD-PS09&quot;],&quot;layout&quot;:&quot;metric&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-PS09 / 用开放负载与 Goodput 找容量拐点&quot;,&quot;quote&quot;:&quot;仅质量/安全/延迟同时合格计 Goodput&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-PS09 / 用开放负载与 Goodput 找容量拐点&quot;,&quot;quote&quot;:&quot;重试与工具成本计入 cost_per_success&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;workload&quot;,&quot;title&quot;:&quot;版本化 Workload&quot;},{&quot;id&quot;:&quot;arrival&quot;,&quot;title&quot;:&quot;开放负载逐级加压&quot;},{&quot;id&quot;:&quot;run&quot;,&quot;title&quot;:&quot;客服任务执行&quot;},{&quot;id&quot;:&quot;latency&quot;,&quot;title&quot;:&quot;分阶段时间&quot;},{&quot;id&quot;:&quot;quality&quot;,&quot;title&quot;:&quot;质量与安全判定&quot;},{&quot;id&quot;:&quot;cost&quot;,&quot;title&quot;:&quot;所有任务成本&quot;},{&quot;id&quot;:&quot;goodput&quot;,&quot;title&quot;:&quot;合格任务吞吐&quot;},{&quot;id&quot;:&quot;capacity&quot;,&quot;title&quot;:&quot;容量与成本决定&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;workload&quot;,&quot;to&quot;:&quot;arrival&quot;,&quot;label&quot;:&quot;固定流量画像&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;arrival&quot;,&quot;to&quot;:&quot;run&quot;,&quot;label&quot;:&quot;保持外部到达&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;run&quot;,&quot;to&quot;:&quot;latency&quot;,&quot;label&quot;:&quot;原始阶段计时&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;run&quot;,&quot;to&quot;:&quot;quality&quot;,&quot;label&quot;:&quot;任务结果&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;run&quot;,&quot;to&quot;:&quot;cost&quot;,&quot;label&quot;:&quot;完整成本账&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;latency&quot;,&quot;to&quot;:&quot;goodput&quot;,&quot;label&quot;:&quot;满足延迟 SLO&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;quality&quot;,&quot;to&quot;:&quot;goodput&quot;,&quot;label&quot;:&quot;质量安全合格&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;goodput&quot;,&quot;to&quot;:&quot;capacity&quot;,&quot;label&quot;:&quot;有效产出分母&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;cost&quot;,&quot;to&quot;:&quot;capacity&quot;,&quot;label&quot;:&quot;总成本与分位&quot;,&quot;kind&quot;:&quot;evidence&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2352" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-PS09</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >同一次压测，联合判定 Goodput</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >固定外部到达率和任务分布，同时观察分段延迟、风险质量与全成本，只把合格任务计入有效产出。</text>
+<g id="system-graph" data-region="64,234,1472,1513.9798967671827">
+<rect x="64" y="234" width="1472" height="1513.9798967671827" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >客服 FAQ 与长退款对话切片的容量实验及成功任务分母</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >实验与指标</text>
+<g transform="translate(111.40994295028531 350) scale(0.9508285791904373)" data-graph-scale="0.9508285791904373" data-routing="dot">
+<path class="edge edge-data" d="M354 132 C367.05 132 362.03 115.71000000000004 374 110.5 C437.57 82.80999999999995 466.43 82.80999999999995 530 110.5 C538.04 114 538.41 122.5 541.75 127.71000000000004" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="workload" data-to="arrival"/>
+<path class="edge edge-data" d="M727 265 C727 315.0899999999999 727 330.48 727 375.28" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="arrival" data-to="run"/>
+<path class="edge edge-evidence" d="M727 618 C727 637.33 428.05 704.31 372 732.57" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e2" data-from="run" data-to="latency"/>
+<path class="edge edge-evidence" d="M797 618 C797 682.85 797 701.92 797 761.4" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e3" data-from="run" data-to="quality"/>
+<path class="edge edge-evidence" d="M867 618 C867 658.7 1178.97 719.21 1225.28 762.85" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e4" data-from="run" data-to="cost"/>
+<path class="edge edge-control" d="M363 1005 C363 1035.17 588.18 1083.76 629.52 1117.32" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e5" data-from="latency" data-to="goodput"/>
+<path class="edge edge-control" d="M797 970 C797 1042.8899999999999 731.5 1049.52 724.59 1115.42" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="quality" data-to="goodput"/>
+<path class="edge edge-evidence" d="M857 1259 C870.36 1259 865.69 1242.68 878 1237.5 C941.9 1210.59 970.43 1209.81 1034 1237.5 C1042.04 1241 1042.41 1249.5 1045.75 1254.71" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="goodput" data-to="capacity"/>
+<path class="edge edge-evidence" d="M1231 970 C1231 1035.69 1231 1055 1231 1115.25" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e8" data-from="cost" data-to="capacity"/>
+<g id="node-workload" class="node node-input" data-region="0,0,354,265">
+<rect x="0" y="0" width="354" height="265" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="18" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="35" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="22" y="76" font-size="28" fill="#215cbb" font-weight="700" >版本化 Workload</text>
+<text x="22" y="119" font-size="23" fill="#172b45" font-weight="450" >任务类型、token 长度、工</text>
+<text x="22" y="153" font-size="23" fill="#172b45" font-weight="450" >具比例</text>
+<text x="22" y="187" font-size="23" fill="#172b45" font-weight="450" >固定模型、Prompt、知识库</text>
+<text x="22" y="221" font-size="23" fill="#172b45" font-weight="450" >与 hash</text>
+</g>
+<g id="node-arrival" class="node node-control" data-region="550,0,354,265">
+<rect x="550" y="0" width="354" height="265" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="568" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="575" y="35" font-size="15" fill="#945c0b" font-weight="750" class="mono">02</text>
+<text x="572" y="76" font-size="28" fill="#945c0b" font-weight="700" >开放负载逐级加压</text>
+<text x="572" y="119" font-size="23" fill="#172b45" font-weight="450" >到达率不随响应变慢自动</text>
+<text x="572" y="153" font-size="23" fill="#172b45" font-weight="450" >下降</text>
+<text x="572" y="187" font-size="23" fill="#172b45" font-weight="450" >核对实际到达与 dropped</text>
+<text x="572" y="221" font-size="23" fill="#172b45" font-weight="450" >iterations</text>
+</g>
+<g id="node-run" class="node node-process" data-region="622,387,354,231">
+<rect x="622" y="387" width="354" height="231" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="640" y="404" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="647" y="422" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="644" y="463" font-size="28" fill="#344f70" font-weight="700" >客服任务执行</text>
+<text x="644" y="506" font-size="23" fill="#172b45" font-weight="450" >保留 FAQ / 长退款风险切片</text>
+<text x="644" y="540" font-size="23" fill="#172b45" font-weight="450" >记录全部尝试、重试与工具</text>
+<text x="644" y="574" font-size="23" fill="#172b45" font-weight="450" >路径</text>
+</g>
+<g id="node-latency" class="node node-data" data-region="186,740,354,265">
+<rect x="186" y="740" width="354" height="265" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="204" y="757" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="211" y="775" font-size="15" fill="#087b76" font-weight="750" class="mono">04</text>
+<text x="208" y="816" font-size="28" fill="#087b76" font-weight="700" >分阶段时间</text>
+<text x="208" y="859" font-size="23" fill="#172b45" font-weight="450" >queue / prefill / decode</text>
+<text x="208" y="893" font-size="23" fill="#172b45" font-weight="450" >/ tool</text>
+<text x="208" y="927" font-size="23" fill="#172b45" font-weight="450" >TTFT、TPOT 与 E2E 分开</text>
+<text x="208" y="961" font-size="23" fill="#172b45" font-weight="450" >报告</text>
+</g>
+<g id="node-quality" class="node node-control" data-region="620,774,354,197">
+<rect x="620" y="774" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="638" y="791" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="645" y="809" font-size="15" fill="#945c0b" font-weight="750" class="mono">05</text>
+<text x="642" y="850" font-size="28" fill="#945c0b" font-weight="700" >质量与安全判定</text>
+<text x="642" y="893" font-size="23" fill="#172b45" font-weight="450" >同负载下按风险切片评分</text>
+<text x="642" y="927" font-size="23" fill="#172b45" font-weight="450" >预注册质量标准与延迟 SLO</text>
+</g>
+<g id="node-cost" class="node node-data" data-region="1054,774,354,197">
+<rect x="1054" y="774" width="354" height="197" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="1072" y="791" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1079" y="809" font-size="15" fill="#087b76" font-weight="750" class="mono">06</text>
+<text x="1076" y="850" font-size="28" fill="#087b76" font-weight="700" >所有任务成本</text>
+<text x="1076" y="893" font-size="23" fill="#172b45" font-weight="450" >失败、重试、工具均计费</text>
+<text x="1076" y="927" font-size="23" fill="#172b45" font-weight="450" >不能只统计成功请求开销</text>
+</g>
+<g id="node-goodput" class="node node-evidence" data-region="504,1127,354,265">
+<rect x="504" y="1127" width="354" height="265" rx="14" fill="#f4effb" stroke="none" />
+<rect x="522" y="1144" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="529" y="1162" font-size="15" fill="#7045a4" font-weight="750" class="mono">07</text>
+<text x="526" y="1203" font-size="28" fill="#7045a4" font-weight="700" >合格任务吞吐</text>
+<text x="526" y="1246" font-size="23" fill="#172b45" font-weight="450" >质量、安全、延迟同时达标</text>
+<text x="526" y="1280" font-size="23" fill="#172b45" font-weight="450" >才计数</text>
+<text x="526" y="1314" font-size="23" fill="#172b45" font-weight="450" >Goodput = 合格完成任务 /</text>
+<text x="526" y="1348" font-size="23" fill="#172b45" font-weight="450" >时间</text>
+</g>
+<g id="node-capacity" class="node node-control" data-region="1054,1127,354,265">
+<rect x="1054" y="1127" width="354" height="265" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="1072" y="1144" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1079" y="1162" font-size="15" fill="#945c0b" font-weight="750" class="mono">08</text>
+<text x="1076" y="1203" font-size="28" fill="#945c0b" font-weight="700" >容量与成本决定</text>
+<text x="1076" y="1246" font-size="23" fill="#172b45" font-weight="450" >对比质量与延迟最早失效</text>
+<text x="1076" y="1280" font-size="23" fill="#172b45" font-weight="450" >台阶</text>
+<text x="1076" y="1314" font-size="23" fill="#172b45" font-weight="450" >cost_per_success 使用合</text>
+<text x="1076" y="1348" font-size="23" fill="#172b45" font-weight="450" >格分母</text>
+</g>
+<rect x="374" y="47.700000000000045" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="452" y="75.70000000000005" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">固定流量画像</text>
+<rect x="727" y="305" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="805" y="333" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">保持外部到达</text>
+<rect x="619.44" y="658" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="697.44" y="686" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">原始阶段计时</text>
+<rect x="797" y="658" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="853" y="686" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">任务结果</text>
+<rect x="1059.9" y="658" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1126.9" y="686" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">完整成本账</text>
+<rect x="555.33" y="1045" width="160" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="635.33" y="1073" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">满足延迟 SLO</text>
+<rect x="762.69" y="1045" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="840.69" y="1073" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">质量安全合格</text>
+<rect x="878" y="1175.03" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="956" y="1203.03" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">有效产出分母</text>
+<rect x="1231" y="1045" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1309" y="1073" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">总成本与分位</text>
+</g>
+</g>
+<text x="64" y="1801.9798967671827" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1801.9798967671827" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1831.9798967671827,470,174">
+<rect x="64" y="1831.9798967671827" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1853.9798967671827" width="7" height="30" rx="3" fill="#344f70" stroke="none" />
+<text x="106" y="1878.9798967671827" font-size="25" fill="#344f70" font-weight="700" >控制变量先写下</text>
+<text x="88" y="1933.9798967671827" font-size="23" fill="#172b45" font-weight="450" >长度、缓存、到达率与版本均固定</text>
+<text x="88" y="1968.9798967671827" font-size="23" fill="#172b45" font-weight="450" >候选与基线变化逐项进入 manifest</text>
+</g>
+<g id="detail-1" data-region="565,1831.9798967671827,470,174">
+<rect x="565" y="1831.9798967671827" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1853.9798967671827" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="607" y="1878.9798967671827" font-size="25" fill="#7045a4" font-weight="700" >分位如何聚合</text>
+<text x="589" y="1933.9798967671827" font-size="23" fill="#172b45" font-weight="450" >从原始直方图聚合延迟分位</text>
+<text x="589" y="1968.9798967671827" font-size="23" fill="#172b45" font-weight="450" >不能把多个实例的 p95 再平均</text>
+</g>
+<g id="detail-2" data-region="1066,1831.9798967671827,470,174">
+<rect x="1066" y="1831.9798967671827" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1853.9798967671827" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="1108" y="1878.9798967671827" font-size="25" fill="#ad3e4c" font-weight="700" >瓶颈怎样定位</text>
+<text x="1090" y="1933.9798967671827" font-size="23" fill="#172b45" font-weight="450" >TTFT 差查队列 / Prefill</text>
+<text x="1090" y="1968.9798967671827" font-size="23" fill="#172b45" font-weight="450" >TPOT 差查 Decode；成本查调用放大</text>
+</g>
+<g id="failure-and-output" data-region="64,2037.9798967671827,1472,148">
+<rect x="64" y="2037.9798967671827" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2076.9798967671827" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2121.9798967671827" font-size="23" fill="#ffdce2" font-weight="450" >workload 无 hash、突破质量安全或 SLO 底线的候选淘汰；证据不足不报容量通过。</text>
+<text x="88" y="2164.9798967671827" font-size="23" fill="#dce9fa" font-weight="450" >交付按 slice 的 Goodput、TTFT/TPOT、全成本与容量拐点判定。</text>
+</g>
+<text x="64" y="2233.9798967671827" font-size="20" fill="#50647c" font-weight="450" >这是实验设计，不含实测曲线或容量数值；托管服务不可见 GPU/KV 指标标 UNKNOWN。</text>
+<text x="64" y="2272.9798967671827" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-PS09 · 同一次压测，联合判定 Goodput</text>
+<path class="edge edge-data" d="M64 2312.9798967671827 L101 2312.9798967671827" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2318.9798967671827" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2312.9798967671827 L397 2312.9798967671827" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2318.9798967671827" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2312.9798967671827 L693 2312.9798967671827" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2318.9798967671827" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2312.9798967671827 L989 2312.9798967671827" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2318.9798967671827" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2312.9798967671827 L1285 2312.9798967671827" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2318.9798967671827" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

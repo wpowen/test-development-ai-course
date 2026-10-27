@@ -1,0 +1,4293 @@
+{
+  "schema_version": "2.0.0",
+  "status": "COMPLETE_LOCAL_VERIFIED",
+  "strategy": "body-bound SVG typography + explicit semantic edges + browser inspection",
+  "visuals": [
+    {
+      "id": "TD-AG-00-compat",
+      "path": "visuals/course/TD-AG-00.svg",
+      "pageIds": [
+        "TD-AG-00"
+      ],
+      "primaryPageIds": [],
+      "layout": "layers",
+      "title": "从退款风险到具名停止动作",
+      "sourceRefs": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-00 / workflow",
+          "quote": "列出节点、状态、信任边界、工具和副作用"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-00 / expected",
+          "quote": "每条风险边都有证据、停止状态和责任人。"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-00 / dimensions.caption",
+          "quote": "D0 校准所有分数"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-00 / counter",
+          "quote": "四个环是横向驱动 D1/D4/D5/D6 的，不是串在末尾。"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-09 / failureModes",
+          "quote": "发生一次即不可接受的事件不能做成区间判定"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 10,
+      "edgeCount": 22,
+      "sha256": "61bd5bb334736e2f8a365d126660942dd1cb2a7bd9317454074d09c56a0abfeb",
+      "spec_sha256": "74fb0f7765dc8d5872c0f86121dcd34d4e16390f934dec4c27a87bceda7caf38",
+      "before_sha256": "7884f80db18e04827306c5817a5ea356587e5b60b1987fa87a8e9d033b2ae2cb",
+      "bytes": 44713
+    },
+    {
+      "id": "TD-T26-compat",
+      "path": "visuals/course/TD-T26.svg",
+      "pageIds": [
+        "TD-C03",
+        "TD-T26"
+      ],
+      "primaryPageIds": [],
+      "layout": "evidence",
+      "title": "能力主张必须经故障与复评",
+      "sourceRefs": [
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-T26 / counterexample",
+          "quote": "没有检测力和质量分母，结论无效。"
+        },
+        {
+          "path": "content/modules/career-evolution-deep.ts",
+          "locator": "TD-T26 / mechanism",
+          "quote": "复核、修改、丢弃的时间必须计入 AI 组。"
+        },
+        {
+          "path": "content/modules/career-evolution-deep.ts",
+          "locator": "TD-C03 / mechanism",
+          "quote": "每条能力主张必须指向一个具体工件"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 10,
+      "sha256": "140da3fbb626f1f99f942065afee74e3bae26b2417eb56afbc079c6aadf51a75",
+      "spec_sha256": "0182df8f8efff671c04108f1c5ad36a1564620f2293e8ab08ce80410f9a1bba5",
+      "before_sha256": "2fcb3165537bf90151dfd44c96a5b748b0eb32485ced3f783817b739de17b832",
+      "bytes": 24936
+    },
+    {
+      "id": "TD-P01",
+      "path": "visuals/course/TD-P01.svg",
+      "pageIds": [
+        "TD-P01"
+      ],
+      "primaryPageIds": [
+        "TD-P01"
+      ],
+      "layout": "decision",
+      "title": "冻结依据前，先让冲突可见",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-P01 / 把模型权限写进任务，不要靠一句‘请勿幻觉’",
+          "quote": "缺失信息输出 UNKNOWN；多源冲突输出 BLOCKED"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-P01 / 依据没冻结时，模型会自行调和矛盾并给出自洽答案",
+          "quote": "裁决结果必须写回依据本身"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 7,
+      "sha256": "87de43a546964ce05cade0aacece0e003f695f8a8d8a45a4c44cc81f972c86a3",
+      "spec_sha256": "f3ad74cd9cc85e03a1174cc628a51a137ed269237f44e0072bd5e494bb1417a6",
+      "before_sha256": "5f4c3ce4afe053fdbdfb0e756da6de1b5e197151f1b18441c96c28daac2240bf",
+      "bytes": 18894
+    },
+    {
+      "id": "TD-P02",
+      "path": "visuals/course/TD-P02.svg",
+      "pageIds": [
+        "TD-P02"
+      ],
+      "primaryPageIds": [
+        "TD-P02"
+      ],
+      "layout": "evidence",
+      "title": "合法 JSON 还要过语义门禁",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-P02 / 结构化输出只解决格式，不保证业务语义",
+          "quote": "结构化输出只解决格式，不保证业务语义"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-P02 / 阶段契约：S2 的字段不是为了好看，是为了支撑下游能力",
+          "quote": "结构门禁 PASS_SCHEMA 与语义门禁 PASS_SEMANTIC 分别执行并分别留痕"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 8,
+      "sha256": "4ff1b236aa4dd283497088011d166097d6cf188a7c502256232d6da9468a8e0d",
+      "spec_sha256": "0a853164dc2eafac097f766789dc0470315f6531d59272dccc5dc0db11cab856",
+      "before_sha256": "a3ac7c1075edaaef8876acaecc9645a941ad1e5cad29a8ba5004d59c13f87e57",
+      "bytes": 19538
+    },
+    {
+      "id": "TD-P03",
+      "path": "visuals/course/TD-P03.svg",
+      "pageIds": [
+        "TD-P03"
+      ],
+      "primaryPageIds": [
+        "TD-P03"
+      ],
+      "layout": "sequence",
+      "title": "ACK 丢失后，退款只能发生一次",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-P03 / P03 工作示例：技术文档要把失败恢复画出来",
+          "quote": "worker 第一次处理成功但 ACK 丢失，第二次投递必须不再产生第二次退款"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-P03 / 阶段契约：S3 回答「结果如何发生、在哪里观察」",
+          "quote": "有异步、无 safe terminal"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 10,
+      "sha256": "504d851f609214f0133d331a3c08662f42361c16da2f65f11e75a9c90e6a8bfe",
+      "spec_sha256": "6d0e12bf3441988bb5a256450968bf3f77de3b2e28088ebee66ea83d4e6430a4",
+      "before_sha256": "1664e250a55ce82119186ca8b6938a7eea34f4c0773efb4e4923ee6c853c6683",
+      "bytes": 25687
+    },
+    {
+      "id": "TD-P04",
+      "path": "visuals/course/TD-P04.svg",
+      "pageIds": [
+        "TD-P04"
+      ],
+      "primaryPageIds": [
+        "TD-P04"
+      ],
+      "layout": "comparison",
+      "title": "按失败机制选择最小充分证据",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-P04 / P04 工作示例：从损失倒推测试层级",
+          "quote": "重复点击造成两次退款是幂等错误"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-P04 / 策略门禁看覆盖关系，不看用例数量",
+          "quote": "用例数量本身不是质量信号"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 6,
+      "sha256": "296e553fdcbd4f061384ec4c1d5eb443342743e41422b1700ca72ed66ea303e6",
+      "spec_sha256": "cf66d021310301ca430783f3f73f1bd0592240e9b4604a01b4a448c5c72147d8",
+      "before_sha256": "b77fd8f4f8bb72b2360b71c20e8f92d05e8ff82fc088228776268ea7e37b6d19",
+      "bytes": 17226
+    },
+    {
+      "id": "TD-P05",
+      "path": "visuals/course/TD-P05.svg",
+      "pageIds": [
+        "TD-P05"
+      ],
+      "primaryPageIds": [
+        "TD-P05"
+      ],
+      "layout": "evidence",
+      "title": "Oracle 先固定，输出再受检",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-P05 / 阶段契约：六层 Oracle 与两条不可越过的红线",
+          "quote": "语义层不得单独放行任何 blocker；被测者不得出现在自己的 Oracle 里"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-P05 / P05 深度准出：独立 Oracle 要能抵抗实现变化",
+          "quote": "Oracle Registry 不应随之变化"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 6,
+      "sha256": "b8c28ab600262b0fa54e9bcb0e91fc7b97020323b749cbe927a3b774553ce5dc",
+      "spec_sha256": "836f14d2ee23c91addb677e9a30d26fe9763ab7b6d7c9d485ef55f7fbc9e66e1",
+      "before_sha256": "5c1705bf560d2304ae5c3fb836d6ef76822408fbfa0e17c50470765adfcc37ff",
+      "bytes": 17992
+    },
+    {
+      "id": "TD-P06",
+      "path": "visuals/course/TD-P06.svg",
+      "pageIds": [
+        "TD-P06"
+      ],
+      "primaryPageIds": [
+        "TD-P06"
+      ],
+      "layout": "layers",
+      "title": "执行器翻译动作，Oracle 约束断言",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-P06 / P06 工作示例：把 Test Package 安全接入自动化",
+          "quote": "它不能改变 expected、吞断言异常或无限重试"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-P06 / 追溯索引让变更可以选择回归集",
+          "quote": "test_id -> file/function -> requirement_ids -> risk_ids -> oracle_ids"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 8,
+      "sha256": "a475fa1b3ae11ea3f060bf24c451da3412f0142b7cd1a00d81c900b28084a618",
+      "spec_sha256": "916c091a00793c98e52fde668149643dabaed2d7d0c3d090015598c02b7e5d0d",
+      "before_sha256": "b29c9f7d94279a56fffa0881c3f3f3c4850b6ca935c847790a96212648d5874c",
+      "bytes": 19961
+    },
+    {
+      "id": "TD-P07",
+      "path": "visuals/course/TD-P07.svg",
+      "pageIds": [
+        "TD-P07"
+      ],
+      "primaryPageIds": [
+        "TD-P07"
+      ],
+      "layout": "decision",
+      "title": "先冻结运行事实，再给失败归因",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-P07 / 失败先分类，修复 Agent 才能被约束",
+          "quote": "没有足够证据时保持 UNKNOWN"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-P07 / TD-P07 反例与诊断：归因前先冻结运行事实",
+          "quote": "归因顺序是版本与选择、Oracle 与 actual、环境/依赖、产品行为"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 7,
+      "sha256": "e588ed0bb7a496adf8ec6af951ef5a8e36c0cf273123b29b7497f90a18d173c4",
+      "spec_sha256": "5422b7ef9f6052c3dfbf9b85d944827c3ec915e80f1b972df9fb98450f381192",
+      "before_sha256": "2323047d4cb90ed636d5f5b11267c89aefd11220ebb85e6bfee018de0e6419d0",
+      "bytes": 19892
+    },
+    {
+      "id": "TD-P08",
+      "path": "visuals/course/TD-P08.svg",
+      "pageIds": [
+        "TD-P08"
+      ],
+      "primaryPageIds": [
+        "TD-P08"
+      ],
+      "layout": "evidence",
+      "title": "变更让旧证据失效，责任人决定发布",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-P08 / TD-P08 反例与诊断：旧 PASS 不是永久资产",
+          "quote": "使受影响证据变 stale"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-P08 / 修复后生成发布证据，而不是自动批准",
+          "quote": "离线课程只输出 RELEASE_CANDIDATE"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 8,
+      "sha256": "c6782300bf5d534095dd55712cfa1cd4d3f36dd40779c16e26ae0ed12d0ecd8a",
+      "spec_sha256": "0038903f867e13e6eab439d0464ec78f03e5dbafa24fd4ebb9d9571fbc4e9103",
+      "before_sha256": "ab97afcd1e25bd52adf95c9263336d81493e7c497865fc19e925ddcb61756a16",
+      "bytes": 22712
+    },
+    {
+      "id": "TD-PS01",
+      "path": "visuals/course/TD-PS01.svg",
+      "pageIds": [
+        "TD-PS01"
+      ],
+      "primaryPageIds": [
+        "TD-PS01"
+      ],
+      "layout": "evidence",
+      "title": "202 受理之后，还要核对账本与事件",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS01 / 把 202、状态与退款账本接成一次取消证据",
+          "quote": "拒绝请求零副作用"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS01 / 给一个接口补齐四层断言",
+          "quote": "断言副作用时要用独立的查询路径"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 11,
+      "sha256": "e62da51f7379278d56c5fa1c4f467101ff4bf058b894d29e15258ac848845d49",
+      "spec_sha256": "2f2b97e04d2bf9aa49008a4b783f6c694445160ddda4ef7b1327533987b7803c",
+      "before_sha256": "4f11398a6ffac028e76a6b675da92276fb18c35098b4b79b63378ceb1083454d",
+      "bytes": 22629
+    },
+    {
+      "id": "TD-PS02",
+      "path": "visuals/course/TD-PS02.svg",
+      "pageIds": [
+        "TD-PS02"
+      ],
+      "primaryPageIds": [
+        "TD-PS02"
+      ],
+      "layout": "comparison",
+      "title": "结构与业务属性各有一条判据链",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS02 / 架构节点与交付物",
+          "quote": "Schema 校验器负责结构，业务属性 Oracle 负责语义"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS02 / 带走四类变异与一组业务属性",
+          "quote": "属性测试保存最小反例与 seed"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 10,
+      "sha256": "9857d8fa8d351d50bb56297b3e2214d3f65a1d0812afd82bc7cd96dd1e1b173e",
+      "spec_sha256": "a55ace1cb07d49ddefd36e48551a5aa97455743b1c2676c6142b7230671dca99",
+      "before_sha256": "aa1340e896cfc8290b566ece1ee3e0bac3559b573a747ef38d083203d1453fa6",
+      "bytes": 25034
+    },
+    {
+      "id": "TD-PS03",
+      "path": "visuals/course/TD-PS03.svg",
+      "pageIds": [
+        "TD-PS03"
+      ],
+      "primaryPageIds": [
+        "TD-PS03"
+      ],
+      "layout": "sequence",
+      "title": "契约守边界，事件回放查副作用",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS03 / 消费者驱动契约凭什么比集成环境更早、更便宜",
+          "quote": "契约测试证明的是兼容性，不是正确性"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS03 / 实现：契约与兼容性",
+          "quote": "重复 event_id 不产生第二个支付意图"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 9,
+      "sha256": "b88a7fb209b79c70c57bcea62441999cba71c1fae163886414c2d82b55a2ace8",
+      "spec_sha256": "1547fac76684b122f3b147d2a2aa2c4b40ab56bd7b2569d2be75a5f0bc6dad46",
+      "before_sha256": "74fdbd206ff881f62d8e352084d45effff2be9a9d458427b5db82dd4f6aa0ae2",
+      "bytes": 23526
+    },
+    {
+      "id": "TD-PS04",
+      "path": "visuals/course/TD-PS04.svg",
+      "pageIds": [
+        "TD-PS04"
+      ],
+      "primaryPageIds": [
+        "TD-PS04"
+      ],
+      "layout": "layers",
+      "title": "UI 可交互之后，还要等业务终态",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS04 / 语义定位器与自动等待凭什么把 UI 不稳定压下去",
+          "quote": "它保证的是动作可以发生，不保证动作产生了正确的业务结果"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS04 / 让退款 UI 等到业务终态而不是文案出现",
+          "quote": "UI 终态、订单 API 与审计记录一致"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 7,
+      "sha256": "cdbdde297e5e34c3a09db35bf2676daf7589dc3b77bcea1bf7197237f7a1a064",
+      "spec_sha256": "3564e59136f0309c35b133e35884976cf6fa35da030f6b5beb7169a15530fa71",
+      "before_sha256": "fae9be41627f610850efe0b2087e19daa55d939f5892a14294713da2e754aa66",
+      "bytes": 19135
+    },
+    {
+      "id": "TD-PS05",
+      "path": "visuals/course/TD-PS05.svg",
+      "pageIds": [
+        "TD-PS05"
+      ],
+      "primaryPageIds": [
+        "TD-PS05"
+      ],
+      "layout": "comparison",
+      "title": "语义、键盘与视觉分开验收",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS05 / 无障碍能自动化到哪一步，剩下的为什么必须人来",
+          "quote": "机器判不了、需要人看"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS05 / 分开验证语义、键盘与视觉基线",
+          "quote": "视觉基线有 owner 审批"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 11,
+      "sha256": "0dec420d6f69d868bd2ca5f2c72b457b5b504fa6424ea6552a854f98eb39b5e3",
+      "spec_sha256": "704e0cff047dd1f2a51f1533af8dd586ba49d03a4ea39906c81232bbca7a497c",
+      "before_sha256": "3f3f15086e952d2f3c8c281ad38d3ebfad73b714b0c54e892b73c8e26d34ec53",
+      "bytes": 21673
+    },
+    {
+      "id": "TD-PS06",
+      "path": "visuals/course/TD-PS06.svg",
+      "pageIds": [
+        "TD-PS06"
+      ],
+      "primaryPageIds": [
+        "TD-PS06"
+      ],
+      "layout": "state",
+      "title": "生命周期被打断，库存仍只入账一次",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS06 / 场景：仓库收货不能丢扫描状态",
+          "quote": "服务端以幂等 receipt_id 作为独立 Oracle"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS06 / 重放 Android 生命周期且不重复入账",
+          "quote": "权限拒绝不创建记录"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 9,
+      "sha256": "f915f4d864a40dae4c5b74a4a7b36858bffc27c0398c8a7f5e9152d365cd068c",
+      "spec_sha256": "0933b0492462cb596ed0ba363402397431fe7f436056e98d925b2b49b1d17020",
+      "before_sha256": "251bba9b7f0c01db0f1538af4a04efc34a72bbfc8ed9abdff65cf4b9f6900922",
+      "bytes": 21447
+    },
+    {
+      "id": "TD-PS07",
+      "path": "visuals/course/TD-PS07.svg",
+      "pageIds": [
+        "TD-PS07"
+      ],
+      "primaryPageIds": [
+        "TD-PS07"
+      ],
+      "layout": "decision",
+      "title": "先过真机前置，再核对预约账本",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS07 / 这些地基不变",
+          "quote": "状态清理是前置条件"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS07 / 架构节点与交付物",
+          "quote": "账本上原时段释放、新时段占用才算"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 9,
+      "sha256": "0a57f5a9e001233d55520470ec1d25cc3a0a180820e715bf5c7d00bc36a22562",
+      "spec_sha256": "7255d6cc8591d50e994f084482ff660578ef2ace4f515bac12257960a5734b26",
+      "before_sha256": "646043fd317ec41f3a7bd82e6bc5edf631cb407f4a3ac24e55ce8d8202b6f6c7",
+      "bytes": 21378
+    },
+    {
+      "id": "TD-PS08",
+      "path": "visuals/course/TD-PS08.svg",
+      "pageIds": [
+        "TD-PS08"
+      ],
+      "primaryPageIds": [
+        "TD-PS08"
+      ],
+      "layout": "flow",
+      "title": "对账与回滚就绪后，才允许切读",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS08 / 指标与门禁：守恒而不是 Job 成功",
+          "quote": "Job exit 0 只是执行证据"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS08 / 数据测试与应用测试的根本差别：断言的是分布，不是单值",
+          "quote": "对账要走一条独立于迁移程序的查询路径"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 11,
+      "sha256": "2c8eb5acac1c3523fe64c8963b56f2e2280200a41f7cba86867b25f318c45558",
+      "spec_sha256": "0bc3476ba540389419ffb257de0d6784623706b07138a1c295d6b8be3c81eac5",
+      "before_sha256": "01f1e942f1c3c6281a4fac998a346a277451f2d5d8f44ec627ec29498f317285",
+      "bytes": 27100
+    },
+    {
+      "id": "TD-PS09",
+      "path": "visuals/course/TD-PS09.svg",
+      "pageIds": [
+        "TD-PS09"
+      ],
+      "primaryPageIds": [
+        "TD-PS09"
+      ],
+      "layout": "metric",
+      "title": "同一次压测，联合判定 Goodput",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS09 / 用开放负载与 Goodput 找容量拐点",
+          "quote": "仅质量/安全/延迟同时合格计 Goodput"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS09 / 用开放负载与 Goodput 找容量拐点",
+          "quote": "重试与工具成本计入 cost_per_success"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 9,
+      "sha256": "9b050baf07ea7c69d36459aa373043a535541f69ffdb2a7b83cce7c7153ca8f0",
+      "spec_sha256": "d0488b83d970742919fcea7bf5013cd80590abdcb1bfc84f670381a529fb903f",
+      "before_sha256": "571eeea373cb6a619ade5a1ff1072fedda2182ae6ebe8a5e197efef8c85f383d",
+      "bytes": 21952
+    },
+    {
+      "id": "TD-PS10",
+      "path": "visuals/course/TD-PS10.svg",
+      "pageIds": [
+        "TD-PS10"
+      ],
+      "primaryPageIds": [
+        "TD-PS10"
+      ],
+      "layout": "state",
+      "title": "熔断打开后，还要证明降级与恢复",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS10 / 这些地基不变",
+          "quote": "上游的截止时间必须一路传到最底层"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS10 / 限制重试放大并验证只读降级",
+          "quote": "过载拒绝零写副作用"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 11,
+      "sha256": "6329cef3696256665bc38e65acb752e1aa64f4fd508691b18b71bfc980209eb2",
+      "spec_sha256": "9c7e987c6f9794c5095233849fd980948b61dfa7f3ef3d4edca6c0661df80ad3",
+      "before_sha256": "6e85fa41b49f9e5a94e06fdddf342dceeef24d2ddee41405c1948ac5d1e4b1d9",
+      "bytes": 26812
+    },
+    {
+      "id": "TD-PS11",
+      "path": "visuals/course/TD-PS11.svg",
+      "pageIds": [
+        "TD-PS11"
+      ],
+      "primaryPageIds": [
+        "TD-PS11"
+      ],
+      "layout": "evidence",
+      "title": "Trace 完整后，质量退化才可归因",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS11 / 模型调用为什么不该另建一套观测体系",
+          "quote": "可观测性的价值来自关联，不来自记录量"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS11 / 先证明 Trace 完整，再做混沌归因",
+          "quote": "敏感输入不进入默认 telemetry"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 9,
+      "sha256": "f47f5c6be2d84f88341f9f4c69d041f08c080f36ffc3094cb06082df2413d95f",
+      "spec_sha256": "55161e6f7b62ffed02a1f39eda4f35a19af93ad0466695e6930470758b420543",
+      "before_sha256": "c794e8e1d46a76239cf2fe5399b60394952dcb76ea12238aba1ea629f159594d",
+      "bytes": 22354
+    },
+    {
+      "id": "TD-PS12",
+      "path": "visuals/course/TD-PS12.svg",
+      "pageIds": [
+        "TD-PS12"
+      ],
+      "primaryPageIds": [
+        "TD-PS12"
+      ],
+      "layout": "decision",
+      "title": "模型提出动作，工具边界实施授权",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS12 / 安全测试的每一条老规矩都还在，只是多了一个会被说服的执行者",
+          "quote": "把模型当成不可信输入源，把工具层当成授权的实施点"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-PS12 / 在 API 与工具边界证明跨租户零副作用",
+          "quote": "Prompt 不能扩大工具 allowlist"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 10,
+      "sha256": "963d1c6998a78d9995266814f95f60c22d5d66fa4f3142d403231d8a9013cef6",
+      "spec_sha256": "45f649ad1f6121f76e751e6421e338b3e79e1fb32ca8bf96656800f6b85245a3",
+      "before_sha256": "ee1cbe5daac1ecdd76901fa6f8c2b91247baa90e8e04be5d74e3ead1529fb118",
+      "bytes": 22507
+    },
+    {
+      "id": "TD-X101",
+      "path": "visuals/course/TD-X101.svg",
+      "pageIds": [
+        "TD-X101"
+      ],
+      "primaryPageIds": [
+        "TD-X101"
+      ],
+      "layout": "comparison",
+      "title": "架构约束与供应链证据共同守合并",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-X101 / 五道静态门禁各自拦什么",
+          "quote": "模块间产生循环或越层依赖"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-X101 / TD-X101 停止表：哪些证据不能被平均值抵消",
+          "quote": "Fault 加入未签名依赖并删除 critical owner"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 10,
+      "sha256": "b7c0e5195917f539bf604917a742ba2cde65214c8a6170012c8120de77b986aa",
+      "spec_sha256": "0b5023eb32e0280e99aec472ad0945c8f02d2431414913fe2605bd2131bd9c46",
+      "before_sha256": "fd24e7add1d69be75b7805ef1b1d54f92bda4a72bf6d6e26cb2c90f61f4b0ba6",
+      "bytes": 22642
+    },
+    {
+      "id": "TD-FP01",
+      "path": "visuals/course/TD-FP01.svg",
+      "pageIds": [
+        "TD-FP01"
+      ],
+      "primaryPageIds": [
+        "TD-FP01"
+      ],
+      "layout": "evidence",
+      "title": "Prompt 包可验收，才谈得上复用",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-FP01 / 先看完整包：七个组成面怎样共同阻止幻觉进入下游",
+          "quote": "一个包可复制，不等于业务结论可复制"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-FP01 / 完整 worked walkthrough：从空白材料组装一个可验证 Prompt Package",
+          "quote": "每次只改一个字段，不能在 fault 阶段同步改变 expected"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 10,
+      "sha256": "0156bac39197e82be7b9ca41d1614522766506bc5dd247fa4cfff91e95e81d31",
+      "spec_sha256": "434de9b0d13b50473b0fc56cded2b036c4b2b193a7b64ec7d79c70f672345d93",
+      "before_sha256": "99df9b17969503481e97b9119090ef4d392dbc5915e06753d0c28890d79a137d",
+      "bytes": 26419
+    },
+    {
+      "id": "TD-F02",
+      "path": "visuals/course/TD-F02.svg",
+      "pageIds": [
+        "TD-F02"
+      ],
+      "primaryPageIds": [
+        "TD-F02"
+      ],
+      "layout": "layers",
+      "title": "答案出错，先定位可回放的责任层",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-F02 / Manifest 是回归的共同分母",
+          "quote": "版本变化先做 manifest diff"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-F02 / 同一个退款问题昨天对、今天错，先别怪模型",
+          "quote": "冻结可见依赖并承认不可见依赖"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 9,
+      "sha256": "f144c79d1112d4245146f767e1ff817ad8c94d5d8a510078cb05ae7509f8d34b",
+      "spec_sha256": "9b4aefd19a186fa716307e4b1862a323576cbb7482de826ff5731e6b0d433fe6",
+      "before_sha256": "4657b8ab0d7017a91a5f15c09d36a565e1e7dac7a0d49c92c18c762c5f015948",
+      "bytes": 24833
+    },
+    {
+      "id": "TD-F03",
+      "path": "visuals/course/TD-F03.svg",
+      "pageIds": [
+        "TD-F03"
+      ],
+      "primaryPageIds": [
+        "TD-F03"
+      ],
+      "layout": "metric",
+      "title": "同义输入重复运行，观察结论分布",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-F03 / 非确定性从哪来，为什么单次 PASS 不构成证据",
+          "quote": "pass^k（连续 k 次全对）衡量稳定性"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-F03 / 做一次位置敏感性与重复运行实验：约 45 分钟",
+          "quote": "比较时要区分措辞差异与结论差异"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 11,
+      "sha256": "eff0c6343767e5ca72db58b69bf92e79f55b08d9b049fe934048b8982a16dddf",
+      "spec_sha256": "f5cd2cde8c9a3212600871d9f6d809b385a89cda8d3753082850020874e6b66e",
+      "before_sha256": "3921bfd05c7cf326f2068477bd159ecb43d85b0b8f0e6567eed115f10c3bb922",
+      "bytes": 22626
+    },
+    {
+      "id": "TD-F04",
+      "path": "visuals/course/TD-F04.svg",
+      "pageIds": [
+        "TD-F04"
+      ],
+      "primaryPageIds": [
+        "TD-F04"
+      ],
+      "layout": "comparison",
+      "title": "谁决定下一步，就按谁的失败面测试",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-F04 / 把 Agent 当 LLM 测，会漏掉发生在中途和终态的失败",
+          "quote": "判据是「路径由谁决定」，不是产品叫什么名字"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-F04 / 用独立 Verifier 检查业务终态",
+          "quote": "输出正确不抵消危险步骤"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 11,
+      "sha256": "6fda135c0d4070ed3df04fcf42e667fb1e868c3f636370e648b1e480813af4b8",
+      "spec_sha256": "b22110d82a75060c07b505eace02a45a5348532bfb157e33e818490a6aa29272",
+      "before_sha256": "408ca5803e2e4d2a248f5dc427e604221b0d4d4f0a9996e4bdc59024aee7d171",
+      "bytes": 26768
+    },
+    {
+      "id": "TD-T01",
+      "path": "visuals/course/TD-T01.svg",
+      "pageIds": [
+        "TD-T01"
+      ],
+      "primaryPageIds": [
+        "TD-T01"
+      ],
+      "layout": "flow",
+      "title": "从发布问题倒推评测合同",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-T01 / 先选指标再想问题，是评测体系最常见的起点，也是最贵的",
+          "quote": "先写清楚这次发布要回答什么问题"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-T01 / 合同完整率不能替代质量结论",
+          "quote": "合同完整率不能替代质量结论"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 8,
+      "sha256": "feb5a78e3396199ed1db5a11867f77d6e25a40c92df4c80d781619cf02b6c2dd",
+      "spec_sha256": "c4ec4a615b8c020ca2b582442d669d6098a6d8b66e6d3e6295ca37835facf009",
+      "before_sha256": "78e69fb59e4d7cce9ef6e31d1c886ca0ec8473eb07d83360c66c686e49ba2518",
+      "bytes": 20579
+    },
+    {
+      "id": "TD-T02",
+      "path": "visuals/course/TD-T02.svg",
+      "pageIds": [
+        "TD-T02"
+      ],
+      "primaryPageIds": [
+        "TD-T02"
+      ],
+      "layout": "comparison",
+      "title": "三个集合隔离，Holdout 在冻结后开封",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-T02 / 开发集可见，Holdout 受控",
+          "quote": "先按用户/文档/时间分组再拆分"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-T02 / 按失败成本重构评测集：约 60 分钟",
+          "quote": "holdout 必须在任何调优之前抽取"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 9,
+      "sha256": "6325a3c306ee20c4fbe86316b7170dc536d649aef732498c1a0473d4d94ac52d",
+      "spec_sha256": "16c1ed42d01a5fc6cd377d8885c94ea90f9d199e62d05ac90327ad4e9eae5aeb",
+      "before_sha256": "674fd47424e25254b6aae1bed1813ecf9a63e6e78c7084a34231b321b1c6d27a",
+      "bytes": 22459
+    },
+    {
+      "id": "TD-T03",
+      "path": "visuals/course/TD-T03.svg",
+      "pageIds": [
+        "TD-T03"
+      ],
+      "primaryPageIds": [
+        "TD-T03"
+      ],
+      "layout": "decision",
+      "title": "先挡硬失败，再让校准 Judge 评分",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-T03 / 先写失败动作，再写阈值",
+          "quote": "blocker 不参与平均抵消"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-T03 / 分歧是证据，不是噪声",
+          "quote": "没有人人基线时，不能把所有人机分歧都算 Judge 错误"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 12,
+      "sha256": "de4a8abe359375b376350c06b87f0f9c2fee6fe6d6e15f4e1f6d622181bfe3e7",
+      "spec_sha256": "7bca860a518493e649a2018b5de845cc5d4071d09a3569002a1de2d2ebb75266",
+      "before_sha256": "d48f8589532a055b60e431f7334f294d9850d1ad41698029ee65abef7353090f",
+      "bytes": 28509
+    },
+    {
+      "id": "TD-T04",
+      "path": "visuals/course/TD-T04.svg",
+      "pageIds": [
+        "TD-T04"
+      ],
+      "primaryPageIds": [
+        "TD-T04"
+      ],
+      "layout": "metric",
+      "title": "同题配对，先存原始结果再下结论",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-T04 / 架构节点与交付物",
+          "quote": "先把原始输出全部落盘，再打分"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-1.json",
+          "locator": "TD-T04 / 把点估计当结论，是统计上最省事也最容易被推翻的做法",
+          "quote": "同一任务的多次重复不是独立样本"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 9,
+      "sha256": "75ef2da69e3ad3fa25c888a54529193e5d0ecd9ccb650b7746ee236126cdb11f",
+      "spec_sha256": "b844016cda502e6eab9bad66142806f6249ac81cc3f8c5b3ddcf8f0785a26503",
+      "before_sha256": "6e3b9be310b3c6eec8d055e6e20f7bf966ae3debc8b82c98871c428c6244abde",
+      "bytes": 22094
+    },
+    {
+      "id": "TD-T05",
+      "path": "visuals/course/TD-T05.svg",
+      "pageIds": [
+        "TD-T05"
+      ],
+      "primaryPageIds": [
+        "TD-T05"
+      ],
+      "layout": "evidence",
+      "title": "风险候选的四类来源与引用门禁",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T05 / 架构节点与交付物",
+          "quote": "「独立 Oracle 注册表」与「风险候选生成」并列而不串联"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T05 / Fault 预期退出 2",
+          "quote": "故障删除审计风险的 diff_ref，并注入不存在的 SLA/Oracle。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 8,
+      "sha256": "561e199ffc7e1144025d7b6d773ae357822cfe9e1434582e61d34f52d459399e",
+      "spec_sha256": "032a825e13477d3add5887b9d4e025a7101d112a607748138b7e9f11213cd87a",
+      "before_sha256": "30dc40122368fdd9d69af0633ec3e9a22b0339ea0b434db6e5596b637d454d2c",
+      "bytes": 19462
+    },
+    {
+      "id": "TD-T06",
+      "path": "visuals/course/TD-T06.svg",
+      "pageIds": [
+        "TD-T06"
+      ],
+      "primaryPageIds": [
+        "TD-T06"
+      ],
+      "layout": "comparison",
+      "title": "同一候选在正常代码与变异代码上对照",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T06 / 架构节点与交付物",
+          "quote": "Baseline 证明测试在正常代码上是绿的，Mutation 证明它在被破坏的代码上会红。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T06 / 工作示例",
+          "quote": "目标用例必须因为 actual 与 independent expected 不同而 KILLED，不能因为无关超时而变红。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 9,
+      "sha256": "14edde3ac3150a0bb850e45b8f823cb3a02e59c3647e533df29fa6ad5d46c474",
+      "spec_sha256": "beb458d287d4ee1f2256b7af46efe5772a7a3e0ae95a00c24cea19b9fd4895c8",
+      "before_sha256": "6a62a9c4170f7b8377442409130d78605156493a050df98c1d508435eaa8c466",
+      "bytes": 20367
+    },
+    {
+      "id": "TD-T07",
+      "path": "visuals/course/TD-T07.svg",
+      "pageIds": [
+        "TD-T07"
+      ],
+      "primaryPageIds": [
+        "TD-T07"
+      ],
+      "layout": "decision",
+      "title": "按失败形态选数据方法",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T07 / 四种方法各自适用什么失败模型",
+          "quote": "四行不是互斥的。一个真实模块常常需要两到三种，按不同的失败模型分别应用。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T07 / Fault 预期退出 1",
+          "quote": "属性 refund_count<=1 必须失败并收缩反例。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 9,
+      "sha256": "857939ec942d745f81fea6c1e50d1220f356b51a9a77305e032f5d928ae61115",
+      "spec_sha256": "9ef2c28493b63ec805fa26eed67c41fce9f1d0f10a528ee4e40e63f1ef2137f7",
+      "before_sha256": "7b72a8a1aad7ea28203fc853da0e69a3c772f1e62c1139d1ee4db4afb6e79ea7",
+      "bytes": 20171
+    },
+    {
+      "id": "TD-T08",
+      "path": "visuals/course/TD-T08.svg",
+      "pageIds": [
+        "TD-T08"
+      ],
+      "primaryPageIds": [
+        "TD-T08"
+      ],
+      "layout": "layers",
+      "title": "失败证据、聚类假设与因果结论分层",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T08 / 架构节点与交付物",
+          "quote": "任何把结论写回证据层的动作都会破坏这个结构"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T08 / 证据如何流转与停止",
+          "quote": "trace 缺失、采样洞或版本混合时 cause gate 锁定 UNKNOWN。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 8,
+      "sha256": "a3b66f860b6169b593a6399da67627409ccd135edde89d85045b7569173f5670",
+      "spec_sha256": "59cf7ca792b62ae4e7eba1d3db8dba6dc1943fd5063b32811835074a31fdc320",
+      "before_sha256": "ea7930774e96fa4efce317fecb77f31f16da3a2e7910f48f4fbe043cf7ef429c",
+      "bytes": 20450
+    },
+    {
+      "id": "TD-A01",
+      "path": "visuals/course/TD-A01.svg",
+      "pageIds": [
+        "TD-A01"
+      ],
+      "primaryPageIds": [
+        "TD-A01"
+      ],
+      "layout": "layers",
+      "title": "一次生成请求需要五层独立判据",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-A01 / 把协议和决策写成可检查模型",
+          "quote": "把输入划为 protocol、generation_manifest、behavior、serving_metrics、reliability 五层；每层有独立证据与 owner。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-A01 / 重放 0 → 1 → 0",
+          "quote": "删除 request_id 并把内部模型版本写成伪造的固定值"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 11,
+      "sha256": "b1977fcd64cb992f0ee6e988ecb85526f5fd88d0e05be3f60ac4c29b5cac8b8c",
+      "spec_sha256": "9e3baf49a2e388294d04bfe64adf681549f9408fb9f4eef734fc5b4330b557dc",
+      "before_sha256": "537d3cece904fd33170dbb9b24c95743ed1e04accdea411c4d94c470cdf47423",
+      "bytes": 26103
+    },
+    {
+      "id": "TD-A02",
+      "path": "visuals/course/TD-A02.svg",
+      "pageIds": [
+        "TD-A02"
+      ],
+      "primaryPageIds": [
+        "TD-A02"
+      ],
+      "layout": "comparison",
+      "title": "四种协议的过程判据分别核对",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-A02 / 四种协议形态各自必须断言的状态转移",
+          "quote": "事件顺序与工具结果回填的时序"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-A02 / 四种形态各自必须断言的状态转移",
+          "quote": "授权通过但执行失败，模型继续按成功推理"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-A02 / 把流式、工具与异步过程建成状态机：用一个业务例子验证方法，并说明迁移条件",
+          "quote": "副作用账本必须独立于模型文本保存"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-A02 / 把流式、工具与异步过程建成状态机：重放 0 → 1 → 0",
+          "quote": "客户端断连后重试导致工具 side_effect_count=2"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 10,
+      "edgeCount": 21,
+      "sha256": "b48bd21f9085f1b1799f6be70ef5978b8793d3ca3da22c10c18315e9dcb8cc8d",
+      "spec_sha256": "72a1ef7937df294deb9fed54fcfe79c454671423e88a632b44c7fbfb9228caaa",
+      "before_sha256": "d95e2390cdba0cd684f2edcde7177e7786e493138f6d5fc455be8d93d8c5887b",
+      "bytes": 44565
+    },
+    {
+      "id": "TD-A03",
+      "path": "visuals/course/TD-A03.svg",
+      "pageIds": [
+        "TD-A03"
+      ],
+      "primaryPageIds": [
+        "TD-A03"
+      ],
+      "layout": "metric",
+      "title": "从事件复算延迟、有效产出和成本",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-A03 / 从时间戳事件算出四个指标",
+          "quote": "满足 SLO 的成功请求数 ÷ 时长"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-A03 / 指标算错分母，比不算更危险",
+          "quote": "它接了很多请求，但大部分慢到用户已经放弃。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-A03 / 用一个业务例子验证方法，并说明迁移条件",
+          "quote": "原始失败尝试仍要进入成本，不能只保留最后一次。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 10,
+      "sha256": "2f06920a533ff0b68dee643279c0a1e705852aeb39be82cc61a5619e68605d06",
+      "spec_sha256": "503c923749640266cdcf23eb9bc3bf7a1898e0a47ae3339358b4881bae9e66a0",
+      "before_sha256": "bf61d0a96d365c97af82201ec30b76e6fabb15396294c2300047de4be093d295",
+      "bytes": 21717
+    },
+    {
+      "id": "TD-A04",
+      "path": "visuals/course/TD-A04.svg",
+      "pageIds": [
+        "TD-A04"
+      ],
+      "primaryPageIds": [
+        "TD-A04"
+      ],
+      "layout": "metric",
+      "title": "同一负载双模式加压与到达守恒",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-A04 / 用到达守恒寻找 fixture 容量拐点",
+          "quote": "计划到达数=完成+失败+dropped+仍排队"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-A04 / 重放 0 → 1 → 0",
+          "quote": "删除 dropped arrivals 并只报告已完成请求，使容量看似提高；守恒 Oracle 必须阻断。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 9,
+      "sha256": "5a06a3d1a18352796d304b140a3cdfdbd8baad8bb458c08467fae71fe65246e3",
+      "spec_sha256": "061943a346e5efb044f78a17cf268b7f2f772112f65dcc88e3b83935bc4926bc",
+      "before_sha256": "9922a005efeadc45e65e6a9b450a3c82efc88210b4dec983f7e8adaa7046cc79",
+      "bytes": 20781
+    },
+    {
+      "id": "TD-A05",
+      "path": "visuals/course/TD-A05.svg",
+      "pageIds": [
+        "TD-A05"
+      ],
+      "primaryPageIds": [
+        "TD-A05"
+      ],
+      "layout": "decision",
+      "title": "慢请求按阶段信号分流，再验证根因",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-A05 / 把协议和决策写成可检查模型",
+          "quote": "保存假设、支持证据、反证、单变量变更和结论"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-A05 / 重放 0 → 1 → 0",
+          "quote": "忽略 queue_time，因 GPU 利用率同时升高便宣称 GPU 是根因"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 10,
+      "sha256": "645ccd88f528bb4e9d21e7fd5cad8a35fd36f621d37b36c0da092bc9fc8cc123",
+      "spec_sha256": "562b43104377c4d3e5af4cfd9c9c51430611e9e1fc40903b1f6e2c5300f5a15d",
+      "before_sha256": "3587a88ab44cb55a92239ca6c4ffc9d40f68be53190a374476e86166aae863f2",
+      "bytes": 25624
+    },
+    {
+      "id": "TD-A06",
+      "path": "visuals/course/TD-A06.svg",
+      "pageIds": [
+        "TD-A06"
+      ],
+      "primaryPageIds": [
+        "TD-A06"
+      ],
+      "layout": "state",
+      "title": "恢复动作受错误类别与共享预算约束",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-A06 / 用四类预算约束重试与降级",
+          "quote": "同一幂等键副作用至多一；fallback quality_gate=true 才可使用。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-A06 / 重放 0 → 1 → 0",
+          "quote": "attempts=8、忽略 Retry-After、fallback_quality=false"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 11,
+      "sha256": "d472a78b358828f67c297a02841b624c7751232e080b60165d98e913259d9ce6",
+      "spec_sha256": "e4561d395171ea7180e52626a2848925e6dd448a685f6493d5b323255daccda6",
+      "before_sha256": "36e49d3d62213740f753ce78ff4ae54c9624a2e8ac3d6dbfd84e072387c67ee0",
+      "bytes": 23884
+    },
+    {
+      "id": "TD-T09",
+      "path": "visuals/course/TD-T09.svg",
+      "pageIds": [
+        "TD-T09"
+      ],
+      "primaryPageIds": [
+        "TD-T09"
+      ],
+      "layout": "flow",
+      "title": "语料准入在嵌入前，撤销传播覆盖副本",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T09 / 准入 Gate 发生在 embedding 之前",
+          "quote": "没有 owner、版本或权限的文档不进入当前索引"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T09 / 带走一份语料准入与变更检查清单",
+          "quote": "权限与删除变更必须传播到索引与缓存"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 8,
+      "sha256": "aef15259a958a8aa1115ff353469712abd97ee2b19a06e469d8d6f5850d0b61e",
+      "spec_sha256": "3d1b4df198107d9baaf1d24b6fd165b6a501dcc3516b6c74235092d9696f786b",
+      "before_sha256": "8131b1c48db1be887ea78a39b37e598c7010a282ab989e1b5d709a9ac7dcbd53",
+      "bytes": 22362
+    },
+    {
+      "id": "TD-T10",
+      "path": "visuals/course/TD-T10.svg",
+      "pageIds": [
+        "TD-T10"
+      ],
+      "primaryPageIds": [
+        "TD-T10"
+      ],
+      "layout": "decision",
+      "title": "Gold 在哪一层丢失，就修哪一层",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T10 / Miss reason 决定修哪一层",
+          "quote": "相关文档已召回但位次低则检查 ranking；文档在 Context 中仍答错才进入生成层。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T10 / Prompt 只生成候选，Oracle 独立判定",
+          "quote": "`relevant_doc_recalled=false` 触发 FAIL，即使最终答案可能看起来正确"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 10,
+      "sha256": "3a3b7626c3504c9656de5cec88eedf1a12a0fc627f254cb357a5044294c11e81",
+      "spec_sha256": "4b2a1d3ba436f0564a66c43864f87a49e554f4e2e29c268951633e0f8ed22440",
+      "before_sha256": "4885fa0438d18edde20ff6900092151443dbdc7048fac5b90ad5461e136168d3",
+      "bytes": 21066
+    },
+    {
+      "id": "TD-T11",
+      "path": "visuals/course/TD-T11.svg",
+      "pageIds": [
+        "TD-T11"
+      ],
+      "primaryPageIds": [
+        "TD-T11"
+      ],
+      "layout": "evidence",
+      "title": "真实引用与上下文支撑分别判定",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T11 / 给了引用不等于说了实话，这两件事的判据完全不同",
+          "quote": "第二层核查指定引用片段是否支持相邻 claim"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T11 / 给了引用不等于说了实话，这两件事的判据完全不同",
+          "quote": "不能证明上下文事实正确、答案完整或引用对齐"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T11 / 这一页的验收口径：逐条声明，不是整段打分",
+          "quote": "高风险错误引用单独阻断"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T11 / 三个容易混淆的质量问题",
+          "quote": "citation alignment：引用是否对应声明"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 10,
+      "edgeCount": 22,
+      "sha256": "f33a842f0541eeff79cc8b826c269de517ccb2d0a62e361eecebf52353457a83",
+      "spec_sha256": "f1ffc40ebc30fe746a593f2f56a1b27066b10f5febb8ca22139afff77adf183e",
+      "before_sha256": "e06f1fe6d7cfed2e62d8015e53736b2e8d52ba4ce8e1c39abd3a688682da84b7",
+      "bytes": 45205
+    },
+    {
+      "id": "TD-T12",
+      "path": "visuals/course/TD-T12.svg",
+      "pageIds": [
+        "TD-T12"
+      ],
+      "primaryPageIds": [
+        "TD-T12"
+      ],
+      "layout": "decision",
+      "title": "证据、权限与拒答共同约束 RAG 终态",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T12 / 上线前最后一道门，拦的不是答得好不好",
+          "quote": "检索为空可能是 retriever miss，检索非空也可能没有可用证据。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T12 / Prompt 只生成候选，Oracle 独立判定",
+          "quote": "`acl_denied=false` 触发 FAIL，证明无答案不能通过扩大权限来“修复”"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 11,
+      "sha256": "a752b1fd1f30bde82a127087333b5a065952f7f50a0ac967d0180f56118e1f72",
+      "spec_sha256": "9c2226c55089ba6e960415e9e1bab614a97904f9837fb398d362b13190c6aec6",
+      "before_sha256": "5f6ece12190e95fbfa9b1cb7e5151c64c10766a43ef34d4185f0f85c5c4fa49d",
+      "bytes": 23317
+    },
+    {
+      "id": "TD-X501",
+      "path": "visuals/course/TD-X501.svg",
+      "pageIds": [
+        "TD-X501"
+      ],
+      "primaryPageIds": [
+        "TD-X501"
+      ],
+      "layout": "comparison",
+      "title": "图文关系用配对对照，而非单模态加总",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-X501 / 多模态的失败不在单个模态里，在模态之间的关系里",
+          "quote": "只翻转一个实体、属性、时序或语义关系"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-X501 / TD-X501 Fault（退出 1）：让目标故障被点名",
+          "quote": "cross_modal_alignment 与 oracle_independent 必须变红。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 9,
+      "sha256": "214347126a5d328adcc2ab8711f67b98899e6deba9ede8ef5d1b5efcb8c0b513",
+      "spec_sha256": "2b1b010e06cd978672f16cdb37a48aa3aeb4e7d77a009b96febd435fd5037395",
+      "before_sha256": "79150a3d22894b15ab5e15ef4b5f45795f055ee0107a69b536f9174104d9260e",
+      "bytes": 21493
+    },
+    {
+      "id": "TD-X502",
+      "path": "visuals/course/TD-X502.svg",
+      "pageIds": [
+        "TD-X502"
+      ],
+      "primaryPageIds": [
+        "TD-X502"
+      ],
+      "layout": "comparison",
+      "title": "支持范围必须闭合到逐切片任务证据",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-X502 / 这一页的验收口径：先守切片门禁，再做透明汇总",
+          "quote": "对外声明的支持集合必须是已验证集合的子集。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-X502 / TD-X502 Fault（退出 1）：让目标故障被点名",
+          "quote": "required_locales_covered 和 keyboard_and_name_gate 必须变红。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 10,
+      "sha256": "db8a5afcc874136157e79ab4018cb3f8f84d709a40b25946c667b372412bc81a",
+      "spec_sha256": "d1c886002e50f993d77e9c7a2196c5c5bf5227840a38c462590575bfc2a57696",
+      "before_sha256": "862b96c7ec15f4e87c36ee6fac992ab456c8d2f86c1da79ee1d012d30e0908d2",
+      "bytes": 22473
+    },
+    {
+      "id": "TD-T13",
+      "path": "visuals/course/TD-T13.svg",
+      "pageIds": [
+        "TD-T13"
+      ],
+      "primaryPageIds": [
+        "TD-T13"
+      ],
+      "layout": "metric",
+      "title": "冻结同一任务，比较唯一变更的配对差值",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T13 / 这一页的验收口径：分析差值，而不是比较两个边际区间",
+          "quote": "两个版本各自的置信区间是否重叠不能替代差值分析。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T13 / 架构、输入契约与可观察证据",
+          "quote": "高风险退款样例出现 blocker 时，即使总分更高也不能获胜。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 11,
+      "sha256": "6408860ed2bedfe22f9dd23f5ca36279296836b5b989ed2efe5d7917aef9f6d8",
+      "spec_sha256": "3e1d0cd371323c43e35f415667e6452cb9f87e10f8e53af10e0b9cc5740981a3",
+      "before_sha256": "de1c50d78838111b0be12b2fd4cf1cb6a78818384009df1b7108502e2eba1bb3",
+      "bytes": 23319
+    },
+    {
+      "id": "TD-T14",
+      "path": "visuals/course/TD-T14.svg",
+      "pageIds": [
+        "TD-T14"
+      ],
+      "primaryPageIds": [
+        "TD-T14"
+      ],
+      "layout": "evidence",
+      "title": "Judge 的自动评分权限来自校准证据",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T14 / 校准的五个步骤与各自的判据",
+          "quote": "人人一致性低时，问题在评分标准而不在 Judge，先改 rubric。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T14 / 架构节点与交付物",
+          "quote": "Judge 违反预注册的关键错误、切片或稳定性门槛时必须停用并回退人审"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 9,
+      "sha256": "bf506e1f4023ea56ad134afd2421508d23d6bac30ff2e322b9e9294b8cc4d346",
+      "spec_sha256": "aa5209195edefaaa296021b8b025e89e69d54d78b7aec10c774dfb23052219b7",
+      "before_sha256": "dc7ceb2d8778862c0bc21f80158a5c45b5a55dacaa6ffeb1da6f629adc7f8a30",
+      "bytes": 23747
+    },
+    {
+      "id": "TD-T15",
+      "path": "visuals/course/TD-T15.svg",
+      "pageIds": [
+        "TD-T15"
+      ],
+      "primaryPageIds": [
+        "TD-T15"
+      ],
+      "layout": "layers",
+      "title": "Agent 的结果、单步与轨迹分别判定",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T15 / 三层判定各自靠什么观测",
+          "quote": "四行是并列不是递进"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T15 / 架构、输入契约与可观察证据",
+          "quote": "只要轨迹出现 refund_order 调用，step 层就必须失败。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 9,
+      "sha256": "552b3c6ada9517775eca39053e70094650aa6d5e30e11dacac2fa4734576fae5",
+      "spec_sha256": "a3a739f7dc82f96b4b4ad9937923a070b30c71c01a4e18ca2cc4f92a8f25ba0d",
+      "before_sha256": "3178a01e7bbb58b96d76c214534de04b2ba93dae15ab74564fe7ba51132acb2c",
+      "bytes": 21277
+    },
+    {
+      "id": "TD-T16",
+      "path": "visuals/course/TD-T16.svg",
+      "pageIds": [
+        "TD-T16"
+      ],
+      "primaryPageIds": [
+        "TD-T16"
+      ],
+      "layout": "sequence",
+      "title": "动作先对照任务，再过写前授权",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T16 / 这一页的验收口径：测控制，不测服从性",
+          "quote": "工具选择与参数匹配分开报告"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T16 / 架构、输入契约与可观察证据",
+          "quote": "为每个工具声明 Schema、最小权限、副作用、幂等键与审批条件"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T16 / 专业问题、失败成本与决策权",
+          "quote": "用户身份、tenant、最小 scope、参数界限、幂等键与人类批准全部在 refund 写入之前执行"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T16 / T16 交付演练：拒绝不是安全证明",
+          "quote": "服务端 write_count=0 与审计 receipt 才能成为副作用证据"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 10,
+      "edgeCount": 18,
+      "sha256": "e33bac53d461f184574845b057c6488ef8d718e161f980eac860d5926f2ab5d2",
+      "spec_sha256": "1c08eafcbdef72ea94f15bd0524d4e26166dbde63b9fbaca1349c75ec16886a3",
+      "before_sha256": "099fea653240fecf82b259d8fcd76d2af905aebde5f97dd4f9f5faaaddc42dba",
+      "bytes": 40657
+    },
+    {
+      "id": "TD-T17",
+      "path": "visuals/course/TD-T17.svg",
+      "pageIds": [
+        "TD-T17"
+      ],
+      "primaryPageIds": [
+        "TD-T17"
+      ],
+      "layout": "layers",
+      "title": "不可信数据经过多道独立防线",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T17 / 专业问题、失败成本与决策权",
+          "quote": "不可信网页/邮件/知识内容只作为数据"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T17 / 架构、输入契约与可观察证据",
+          "quote": "测试身份只能读取单一订单；即使模型服从文档，工具授权也应拒绝"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 10,
+      "sha256": "e1ff365c2e05a565e1b624dc0581dfb5b916be35afc3ac5c9b4f87cc77280a9a",
+      "spec_sha256": "32ec79d7086c4f72d8051358c91a9073d69b3967fa19a801c93a8198f670620e",
+      "before_sha256": "e426213778d8aab1d8ebd648ce6e16046ae1391af2c696963f0abadc2eb7b8f0",
+      "bytes": 21723
+    },
+    {
+      "id": "TD-T18",
+      "path": "visuals/course/TD-T18.svg",
+      "pageIds": [
+        "TD-T18"
+      ],
+      "primaryPageIds": [
+        "TD-T18"
+      ],
+      "layout": "comparison",
+      "title": "生成的 Web 测试要在业务变异下变红",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T18 / 架构、输入契约与可观察证据",
+          "quote": "测试必须因业务状态而失败，不能只验证页面提示。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T18 / 运行 baseline、故障与修复",
+          "quote": "后端 auto_refunded 变异必须令 manual_review Oracle 变红"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 10,
+      "sha256": "f55d7d5e9b3863304057999f2b97a53163ba2aea8d8d4428d156737f2777611b",
+      "spec_sha256": "f320c1349420de1cc0d289ba5593c6d47c2e9cc3be013530249558e62ce736a1",
+      "before_sha256": "b0a28d3ee5bc651cc7ae917fcafacb7acc75dfe9f7d11910d15f751bce59c8fc",
+      "bytes": 22644
+    },
+    {
+      "id": "TD-T19",
+      "path": "visuals/course/TD-T19.svg",
+      "pageIds": [
+        "TD-T19"
+      ],
+      "primaryPageIds": [
+        "TD-T19"
+      ],
+      "layout": "decision",
+      "title": "自愈补丁先分类，再证明业务检测力保留",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T19 / 架构、输入契约与可观察证据",
+          "quote": "制造纯 DOM 改名和业务按钮交换两类失败。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-T19 / 运行 baseline、故障与修复",
+          "quote": "locator-only 候选仍须杀死原业务变异"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 9,
+      "sha256": "7ec37be89c85e4b098e002852096df2ad9b9b4e72bb89ef9c8fdd2fe4c88dbde",
+      "spec_sha256": "e4b71f0a00863cc0526eb9c63b11699e3aaf5b01d2302a89e50de398b2949438",
+      "before_sha256": "ec2e53710dcfde4bdbc0cf277972b2559f813d23ae8e68c550301bfb38d2a3a3",
+      "bytes": 20972
+    },
+    {
+      "id": "TD-W01",
+      "path": "visuals/course/TD-W01.svg",
+      "pageIds": [
+        "TD-W01"
+      ],
+      "primaryPageIds": [
+        "TD-W01"
+      ],
+      "layout": "comparison",
+      "title": "按控制权给 Workflow、Agent、Worker 分型",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-W01 / 三类组件的判别与对应测法",
+          "quote": "三类的共同要求只有一条：副作用提交点必须明确，且有幂等保护。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-W01 / 专业问题、失败成本与决策权",
+          "quote": "Agent 不继承 Worker 或 Workflow 的写权限。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 11,
+      "sha256": "e176b7bfc0fdb4bb954145f8559e4749c522f02309480d5d964d1d35fd47f458",
+      "spec_sha256": "c4e1007bf968eb1a128b13ec11567b35ccb7e47da11e672c791819a043feedaa",
+      "before_sha256": "0edaffbd092a46c755908f9ef07c681e64b1381155e8dd26c636478ba31b47b6",
+      "bytes": 25752
+    },
+    {
+      "id": "TD-W02",
+      "path": "visuals/course/TD-W02.svg",
+      "pageIds": [
+        "TD-W02"
+      ],
+      "primaryPageIds": [
+        "TD-W02"
+      ],
+      "layout": "state",
+      "title": "动作已提交，长流程仍可能需要恢复",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-W02 / W02 完整跟做：可恢复状态机的故障回放",
+          "quote": "正确结果是第二次只读幂等账本并恢复 checkpoint，业务写入总数仍为 1"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-W02 / W02 交付演练：故障恢复要有人能接手",
+          "quote": "先读取最后 checkpoint，再核对 idempotency receipt 和当前 scope"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-W02 / W02 交付演练：故障恢复要有人能接手",
+          "quote": "第三种应触发有预算的 handoff，不得绕过审批自动完成"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-W02 / W02 最终检查：恢复结论必须可交接",
+          "quote": "避免把 stopped、failed 和 completed 混成一个成功字段"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 10,
+      "edgeCount": 18,
+      "sha256": "10c031eaa03a4cf39b59006014bd5a156657772b695a5d25451b50ef28b44eb6",
+      "spec_sha256": "f85db79d38cf2fa632d2319f6128733c062643c00b3cec6949421842a863cb03",
+      "before_sha256": "5292405abe91f6f7f9ad370c09f94dc1f28732d676d44c649f6b8fef4898245e",
+      "bytes": 43166
+    },
+    {
+      "id": "TD-W03",
+      "path": "visuals/course/TD-W03.svg",
+      "pageIds": [
+        "TD-W03"
+      ],
+      "primaryPageIds": [
+        "TD-W03"
+      ],
+      "layout": "metric",
+      "title": "单 Agent 与多 Agent 在同预算下比较",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-W03 / 架构节点与交付物",
+          "quote": "两条实验臂共享冻结任务集与预算，各自重复运行，最后由人做架构决策。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-W03 / 运行 baseline、故障与修复",
+          "quote": "任一预算、工具或干预不一致即 confounded"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 12,
+      "sha256": "23efc8f1b2b882f32aafdb8dfbe8626c52673f2266f7b50784b8f52f3259b7b7",
+      "spec_sha256": "923b6a0569767f00c15a33019dfd4e9de954d6766cda1e29f0516792f70ec213",
+      "before_sha256": "cf186999edaf83e209c7435920e29b3520cb4c782cfe5d9828d1e195ad580709",
+      "bytes": 23703
+    },
+    {
+      "id": "TD-X603",
+      "path": "visuals/course/TD-X603.svg",
+      "pageIds": [
+        "TD-X603"
+      ],
+      "primaryPageIds": [
+        "TD-X603"
+      ],
+      "layout": "state",
+      "title": "隔离拒绝、纠错与授权删除分三路",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-X603 / 工具与证据：记忆生命周期的五个环节与各自的检查",
+          "quote": "错误记忆被发现后如何清除、历史结论是否回溯"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-X603 / 两种看起来在做记忆治理、实际留有通道的做法",
+          "quote": "隔离必须在授权层强制，而不是依赖查询条件"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-X603 / AI 长期记忆的三类风险：记错、串号和删不干净：错误决定会造成什么",
+          "quote": "删除请求必须跨主存、索引和缓存传播"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-X603 / 做一次删除完整性验证：约 45 分钟",
+          "quote": "调用删除接口，然后逐个位置检查是否真的消失"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 10,
+      "edgeCount": 15,
+      "sha256": "80524533c927f7e665e697e227534d118e087438a7c93272f61a7099b32a377b",
+      "spec_sha256": "2c17ffda98970761b1143cf2efae76680fa6104c6b8de6cff7ccad84efe118bf",
+      "before_sha256": "5838d8c24bdf86350feb682048dce0a0b901601daca59352c5cb6062098bbce9",
+      "bytes": 36677
+    },
+    {
+      "id": "TD-X604",
+      "path": "visuals/course/TD-X604.svg",
+      "pageIds": [
+        "TD-X604"
+      ],
+      "primaryPageIds": [
+        "TD-X604"
+      ],
+      "layout": "decision",
+      "title": "Fallback 重走授权与完整安全链",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-X604 / Fallback 是为可用性设计的，也是权限检查最容易被绕过的地方",
+          "quote": "主路径有输出过滤、有工具授权检查、有敏感词拦截"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-X604 / 每次切换必须重新检查的四项",
+          "quote": "强制触发 fallback，重跑全套安全用例"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-X604 / 切换模型或工具后，哪些功能和安全行为必须重新测试：错误决定会造成什么",
+          "quote": "每次 fallback 都是新决策，不继承原批准"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-X604 / TD-X604 停止表：哪些证据不能被平均值抵消",
+          "quote": "仍需工具结果 Oracle"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 10,
+      "edgeCount": 17,
+      "sha256": "331f1600b8ec2a9c21fd220bb84b51e98c2768da9ea8a1d1257d13e9f62b8961",
+      "spec_sha256": "47c8aca76716a2c21a44d01abe1af9d1c7795316b54e653f0ea9365d6180648a",
+      "before_sha256": "37180ff6dfa4c99a1555f82cbb1635bd0620c30c1d8bc8fc89839fb6d627d3bf",
+      "bytes": 40423
+    },
+    {
+      "id": "TD-X602",
+      "path": "visuals/course/TD-X602.svg",
+      "pageIds": [
+        "TD-X602"
+      ],
+      "primaryPageIds": [
+        "TD-X602"
+      ],
+      "layout": "evidence",
+      "title": "候选注册绑定 Lineage、封存集与回滚目标",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-X602 / TD-X602 Fault（退出 1）：让目标故障被点名",
+          "quote": "Fault 取消版本固定并把训练样本混入 holdout"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-2.json",
+          "locator": "TD-X602 / 新模型上线后不如预期时按什么顺序查",
+          "quote": "模型文件、Prompt、检索索引必须成组回滚"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 10,
+      "sha256": "30c97a19ebe88bdaaa65b6205378f2a9486c4ace8c1221e7b515fc95128fbcf2",
+      "spec_sha256": "263c618eb85d76ddb4982e3b2121050d2f3cc0739dd31c0499f08e5b049313ae",
+      "before_sha256": "aaa2d3403bc238e017f89057dd727ce24f70fbfa1b90600aa66ba858df9caf6b",
+      "bytes": 22179
+    },
+    {
+      "id": "TD-X601",
+      "path": "visuals/course/TD-X601.svg",
+      "pageIds": [
+        "TD-X601"
+      ],
+      "primaryPageIds": [
+        "TD-X601"
+      ],
+      "layout": "decision",
+      "title": "最坏切片与人工纠错共同裁决",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-X601 / 架构节点与交付物",
+          "quote": "独立随机抽样供人工复核，不由系统置信度筛选"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-X601 / 完成标准与停止条件",
+          "quote": "最差切片超过预注册 blocker 界时阻断发布；总体平均分折抵次数 = 0"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 8,
+      "sha256": "7da4276901ff02ebc3a28abeb21af53262c1c2759c400451d6c98ff807f18bc2",
+      "spec_sha256": "4880ed608953c0ecdac546e0260aac6e8aa4d17783d26b33c6e27560eaf32042",
+      "before_sha256": "42a67105ac98050d35add72be014056ec6e979e7790fb32394b1aabb2f73999b",
+      "bytes": 20014
+    },
+    {
+      "id": "TD-T20",
+      "path": "visuals/course/TD-T20.svg",
+      "pageIds": [
+        "TD-T20"
+      ],
+      "primaryPageIds": [
+        "TD-T20"
+      ],
+      "layout": "layers",
+      "title": "四层检查用退出码真正拦截",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T20 / CI 里有评测但从不阻断，等于把评测做成了一份日报",
+          "quote": "检查本身出错（评测服务不可用、超时、配置缺失）时必须判为失败，不能判为通过。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T20 / 架构节点与交付物",
+          "quote": "最终由人基于四层结果做发布判断"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 9,
+      "sha256": "4a8553d5c1b8487c597688937f72ff76303f0ffd1283df41a24305339a389ed8",
+      "spec_sha256": "96840e49a5d0a03f0275e833897131d26f5b53abbfcc3d8da7b4f9fcefa0a1cd",
+      "before_sha256": "ccaa2d44a73888bb120ccddbcf610f93266cdfe8faabcf158940fbe92435e652",
+      "bytes": 22939
+    },
+    {
+      "id": "TD-T21",
+      "path": "visuals/course/TD-T21.svg",
+      "pageIds": [
+        "TD-T21"
+      ],
+      "primaryPageIds": [
+        "TD-T21"
+      ],
+      "layout": "evidence",
+      "title": "版本全集汇入一次运行账本",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T21 / 架构节点与交付物",
+          "quote": "记录应用代码与评测代码的提交号"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T21 / 七要素各自记录什么、记在哪",
+          "quote": "权重版本或别名的实际解析结果"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T21 / 架构节点与交付物",
+          "quote": "记录判分器版本与聚合方式，这是最容易被漏记的一项"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 6,
+      "sha256": "eb40afad0f10cf9de1e79c428aadf5e160cc36e6c61248e21449c146c10b9fdf",
+      "spec_sha256": "5d91edd68a6edcc018cb2d3103361f9014a52c1ef6bbc47ea7551973128460eb",
+      "before_sha256": "27fbf3035a9f96ba82e42556767623893d4ca53feb7dffb6df483f14dd2043a2",
+      "bytes": 21209
+    },
+    {
+      "id": "TD-T22",
+      "path": "visuals/course/TD-T22.svg",
+      "pageIds": [
+        "TD-T22"
+      ],
+      "primaryPageIds": [
+        "TD-T22"
+      ],
+      "layout": "flow",
+      "title": "事故先隔离再变成有检测力的回归",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T22 / Trace-to-Regression 实操：从一条事故到稳定回归",
+          "quote": "故意让检索返回过期文档，确认工具授权 blocker 变红"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T22 / 回灌六步与各自的产出",
+          "quote": "在缺陷版本上跑，确认这条用例会红"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T22 / 架构节点与交付物",
+          "quote": "只有回归用例入库并通过后，事件才允许关闭"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 7,
+      "sha256": "657198cd207199c43452ff4d2b404b679fac51f108f1dc87ec5a7ee4b2f87901",
+      "spec_sha256": "9228276b490eaea7090d38ca9694f38288117b334eaa72eb08c3d30dd62f350c",
+      "before_sha256": "45b1dc1da6ad196e34d8ad6ce773085d7455f3c1f303677fdc219ac791488dac",
+      "bytes": 21356
+    },
+    {
+      "id": "TD-T23",
+      "path": "visuals/course/TD-T23.svg",
+      "pageIds": [
+        "TD-T23"
+      ],
+      "primaryPageIds": [
+        "TD-T23"
+      ],
+      "layout": "metric",
+      "title": "同负载三维硬门禁后再选 Pareto",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T23 / 架构节点与交付物",
+          "quote": "三维各设独立硬阈值，通过后再看 Pareto 前沿"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T23 / 三个维度各自的判据与它们的冲突点",
+          "quote": "三个维度必须在同一份负载上测量，否则数字之间不可比较。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 8,
+      "sha256": "26ab112e2d51a34e822c4cffd5139766cf8015df89ccbabb22a059934a6b6aa0",
+      "spec_sha256": "1df39b7792fcf00e423226223f13e856e6b3dbf4b155c4da660ae56bb4624948",
+      "before_sha256": "1729c3a5a12271d537164c33abfea99b8785c9b1790318db9750c028d604ba2b",
+      "bytes": 19563
+    },
+    {
+      "id": "TD-T24",
+      "path": "visuals/course/TD-T24.svg",
+      "pageIds": [
+        "TD-T24"
+      ],
+      "primaryPageIds": [
+        "TD-T24"
+      ],
+      "layout": "state",
+      "title": "漂移冻结后做有到期的风险接受",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T24 / 漂移诊断复盘：Waiver 必须可到期、可回滚",
+          "quote": "到期未续签自动阻断。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T24 / 漂移诊断复盘：Waiver 必须可到期、可回滚",
+          "quote": "回滚需恢复完整 manifest 与索引/Prompt/模型快照，并重跑事故 regression。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 9,
+      "sha256": "90c70af0a1ee637c52492799f727c7e487d8a01843bf147df85b516406c421ea",
+      "spec_sha256": "d80c4f145d517a0d6db37406d865895620f10131f42798d1f1a05952f8843879",
+      "before_sha256": "234534ede571138b8c26d1d8e0dd515727ddcc7b51f4aaf476d0cbf2f17e8b0b",
+      "bytes": 23652
+    },
+    {
+      "id": "TD-X805",
+      "path": "visuals/course/TD-X805.svg",
+      "pageIds": [
+        "TD-X805"
+      ],
+      "primaryPageIds": [
+        "TD-X805"
+      ],
+      "layout": "decision",
+      "title": "稳定分流下用护栏裁决扩量",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-X805 / 灰度如果没有预设的回滚触发条件，它只是把事故推迟了几小时",
+          "quote": "同一个用户必须稳定落在同一侧"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-X805 / 架构节点与交付物",
+          "quote": "同时监测总体 guardrail 与最坏切片，任一越界即触发"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-X805 / 架构节点与交付物",
+          "quote": "先说清楚要验证什么、能分辨多小的差异，再决定放多少流量、跑多久。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 8,
+      "sha256": "8b050e37aca7f7bb8dc59307b27c411d77120120fd839b5391439d4b26089378",
+      "spec_sha256": "f0dfb78204925aef4ea54a2b66ac5ec3fef98e38865636c045b4bba3c1e89b73",
+      "before_sha256": "ddc41b21adec6bc33be346f2e8301986fa84628173361114e5f70fae09add0db",
+      "bytes": 22348
+    },
+    {
+      "id": "TD-B01",
+      "path": "visuals/course/TD-B01.svg",
+      "pageIds": [
+        "TD-B01"
+      ],
+      "primaryPageIds": [
+        "TD-B01"
+      ],
+      "layout": "flow",
+      "title": "榜单分数由完整实验链解释",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B01 / 一个分数是七个组件的函数，报告里通常只写了一个",
+          "quote": "把七个组件全部固定并记录，需要变更时逐个变更并重测。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B01 / 一个分数是七个组件的函数，报告里通常只写了一个",
+          "quote": "模型版本 + harness 版本 + 配置文件哈希 + n + 与抽样结构匹配的区间"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 8,
+      "sha256": "bdb2c27471bcb46a5c9f34eaf8deb986d05d1ed988b34282b63bd7dafdf63d44",
+      "spec_sha256": "239c68ea31836774cd0710f6d679b963e75f36700ac4521a6e0d427eefdf8225",
+      "before_sha256": "94473e07a673730144c1a896ed089ef4b1db2e4a94f97cfdf453668424e91690",
+      "bytes": 21988
+    },
+    {
+      "id": "TD-B02",
+      "path": "visuals/course/TD-B02.svg",
+      "pageIds": [
+        "TD-B02"
+      ],
+      "primaryPageIds": [
+        "TD-B02"
+      ],
+      "layout": "comparison",
+      "title": "四类数据各自回答一个问题",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B02 / 一份数据集回答不了两个方向相反的问题",
+          "quote": "representative 贴流量、回答够不够好；challenge 贴风险、回答最坏情况能不能接受；regression 贴历史事故、回答有没有退化；sealed holdout 从不用于调优"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B02 / 四种角色的更新纪律与失效方式",
+          "quote": "四行的纪律互相冲突，因此它们必须是四份数据而不是一份数据的四个标签。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 9,
+      "sha256": "5f996f7b4c88ddb383427f517b736d211c17a41e696f02368691748c47117ada",
+      "spec_sha256": "8bb791ed41c3568d0882e140504e1da13c031f348133afb2dcc88f672c1c418b",
+      "before_sha256": "7c5c5bb21b90969e7c2c80e1838fbd4f1b372d564070b37e7f17b3120a0b9e03",
+      "bytes": 23478
+    },
+    {
+      "id": "TD-B03",
+      "path": "visuals/course/TD-B03.svg",
+      "pageIds": [
+        "TD-B03"
+      ],
+      "primaryPageIds": [
+        "TD-B03"
+      ],
+      "layout": "metric",
+      "title": "原始逐题账本分流判分再聚合",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B03 / 架构节点与交付物",
+          "quote": "先落原始记录，再分流到确定性 Oracle 与 Judge 两条判分路径，最后才聚合。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B03 / 指标的分母决定了它在回答什么",
+          "quote": "pass@k 的分母是任务数、分子是「k 次尝试中至少成功一次」；pass^k 的分子是「k 次全部成功」。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B03 / 完成标准与停止条件",
+          "quote": "同任务多次重复须做聚类修正，不得把采样次数当成独立 n"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 7,
+      "sha256": "5c12ab006c9eea4d6f7f09be08fffef5dff39a6e0b98393c8b8a18341d7818c8",
+      "spec_sha256": "36579e41878f7b69b04892f7ce05d1d0175976f5f88ceefe845a4a22a5c28ca8",
+      "before_sha256": "e8d47315d7ef05a5268139c33c11bed4fb86c995f6271f1e65398e21e55531d5",
+      "bytes": 21445
+    },
+    {
+      "id": "TD-B04",
+      "path": "visuals/course/TD-B04.svg",
+      "pageIds": [
+        "TD-B04"
+      ],
+      "primaryPageIds": [
+        "TD-B04"
+      ],
+      "layout": "metric",
+      "title": "锁定模型数据测协议敏感度",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B04 / 五个扰动变量怎么测、往哪个方向偏",
+          "quote": "每一行都是一次「固定模型、只改这一项」的实验。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B04 / 架构节点与交付物",
+          "quote": "单变量实验能告诉你哪个变量有影响，不能告诉你为什么"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B04 / 先量出协议敏感度，再谈模型差异",
+          "quote": "harness 升级后必须重建基线，不能与旧分数直接连成曲线。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 7,
+      "sha256": "87ffa786514166cd8537bc7ec53f4e310be0bc93ecec9a809d5c36796d90fcff",
+      "spec_sha256": "4d889c98092420d5db0f82ef9f1e01f47880b4842814c453373ecde6c8d48330",
+      "before_sha256": "9c0e0db5b38486f5511a7a190c83855c1a41cf3e0514dc1c311ab2261d3b5089",
+      "bytes": 21711
+    },
+    {
+      "id": "TD-B05",
+      "path": "visuals/course/TD-B05.svg",
+      "pageIds": [
+        "TD-B05"
+      ],
+      "primaryPageIds": [
+        "TD-B05"
+      ],
+      "layout": "evidence",
+      "title": "污染与版本审计限制榜单结论",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B05 / 三种污染形态的可检出程度差了两个量级",
+          "quote": "四行里没有一行能给出「已排除污染」的结论。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B05 / 架构节点与交付物",
+          "quote": "把每个分数标注为可比 / 有限可比 / 不可比"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B05 / 隐藏测试集挡得住过拟合，挡不住训练污染",
+          "quote": "如果这些题目本来就在模型的预训练语料里出现过，隐藏与否都不影响模型已经见过它们这个事实。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 9,
+      "sha256": "b9044db11c2b29a8fe581b8dbd7cf0559088d0de21a7920acfa9c4718611aa10",
+      "spec_sha256": "f010425ba4a1216e7ddb82845d32e6f39944f912386fd1a10635109cce3fb260",
+      "before_sha256": "b50d5b566689919a6fd2ffaeda08160fea354bc3d8b6239234d8886fe760cf6f",
+      "bytes": 21191
+    },
+    {
+      "id": "TD-B06",
+      "path": "visuals/course/TD-B06.svg",
+      "pageIds": [
+        "TD-B06"
+      ],
+      "primaryPageIds": [
+        "TD-B06"
+      ],
+      "layout": "comparison",
+      "title": "公共方法和业务事实汇成内部基准",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B06 / 六项里哪些能从公共基准搬过来，哪些必须自建",
+          "quote": "同一批任务由熟练员工做一遍"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B06 / 公共 Benchmark 迁移复盘：结构可借鉴，结论不能照搬",
+          "quote": "没有真实数据、标注团队或发布连接时，只能交付设计与 fixture，不得写成生产基准。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B06 / 架构节点与交付物",
+          "quote": "指定基准维护与发布判断的具名负责人"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 9,
+      "sha256": "6c46d7643e8d6d50f55d71713ef4b44c7af21a40180901b9acf7a00484cba814",
+      "spec_sha256": "3520dc92c9254b1308a48232d5d99e3d2967008b8d7c26fd84f8ec0c4bbd39c4",
+      "before_sha256": "10984a0d435a01e244a0b752b0ab4d1b7c304be600ab09425d52308a0eb8ff89",
+      "bytes": 24580
+    },
+    {
+      "id": "TD-QP01",
+      "path": "visuals/course/TD-QP01.svg",
+      "pageIds": [
+        "TD-QP01"
+      ],
+      "primaryPageIds": [
+        "TD-QP01"
+      ],
+      "layout": "sequence",
+      "title": "事件只触发回读，依据批准后执行",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP01 / 架构节点与交付物",
+          "quote": "webhook 只用来触发，事实一律以回读为准。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP01 / 从需求事件到可执行方案的四道关卡",
+          "quote": "BLOCKED，附两处精确 locator"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP01 / 架构节点与交付物",
+          "quote": "由具权限的人在明确范围内批准，批准范围随决定一起留痕"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 7,
+      "sha256": "fca008cd6734d98d92832b8cddcf823a4b38bb14b15dd8a284d27206bb9e6a29",
+      "spec_sha256": "110d31da849056ad381e23a67af3811e0537b1faf4aadddce35b0bb69fa244aa",
+      "before_sha256": "db85dc791afe8576304a439f14de53c7f8d22a98dd287513c6be2592398b3cc4",
+      "bytes": 21480
+    },
+    {
+      "id": "TD-QP02",
+      "path": "visuals/course/TD-QP02.svg",
+      "pageIds": [
+        "TD-QP02"
+      ],
+      "primaryPageIds": [
+        "TD-QP02"
+      ],
+      "layout": "evidence",
+      "title": "当前 HEAD 与产物证据严格绑定",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP02 / 旧 SHA 的绿色 Pipeline 不能放行当前 MR",
+          "quote": "证据的 SHA 必须等于当前待发布的 SHA。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP02 / 架构节点与交付物",
+          "quote": "报告缺失、格式异常、suite 数量对不上，一律判失败而不是跳过。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP02 / 证据聚合必须回答的四个问题",
+          "quote": "状态带时间戳与目标 SHA，超期即失效"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 8,
+      "sha256": "bdbb5751c6a54379a93908f6ac60493b2c495c5abae6049093adc618d2ad3e95",
+      "spec_sha256": "6d3fb3f3f7131e14e6062e109ac832ccc4a5b79262f3626c2f40abebd4a173e5",
+      "before_sha256": "4a25862b4442fae0257ef3dd715bca638b621c981d9ee22eff9735b62a047edd",
+      "bytes": 22902
+    },
+    {
+      "id": "TD-QP03",
+      "path": "visuals/course/TD-QP03.svg",
+      "pageIds": [
+        "TD-QP03"
+      ],
+      "primaryPageIds": [
+        "TD-QP03"
+      ],
+      "layout": "state",
+      "title": "临时环境从申请到回收都要有证据",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP03 / 临时环境必须配齐的五项",
+          "quote": "超时自动销毁，回收失败要告警"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP03 / 架构节点与交付物",
+          "quote": "按最小权限授予，验证越权读取失败"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP03 / 临时环境必须配齐的五项",
+          "quote": "数据库、队列随环境创建与销毁"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 10,
+      "sha256": "29ed23e4cedbffae656bf80f9803a3a40809a881af1cb1b9026985456e0eeb35",
+      "spec_sha256": "9c1450cddc5c39ef2f7aefe15dc04f5e6c433243c51d818e4ec373bf9a06447b",
+      "before_sha256": "95a7505dc81b93d71cc0de4c24beaed056693af6c95068e589b05ac0bcc9aed4",
+      "bytes": 25345
+    },
+    {
+      "id": "TD-QP04",
+      "path": "visuals/course/TD-QP04.svg",
+      "pageIds": [
+        "TD-QP04"
+      ],
+      "primaryPageIds": [
+        "TD-QP04"
+      ],
+      "layout": "sequence",
+      "title": "事件账与动作账支撑局部重放",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP04 / 重复事件与部分成功需要两本账",
+          "quote": "记录每个动作的独立状态，重放时只补未完成的。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP04 / 重复事件与部分成功需要两本账",
+          "quote": "「记录」与「处理」必须在同一个事务里"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP04 / 架构节点与交付物",
+          "quote": "回写各系统状态，超时后以回读核对"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 10,
+      "sha256": "464ed176783465c179d7d6d1d38052cb8c69dce20dc4ad00e63eeebf9aec8599",
+      "spec_sha256": "a65eb15211b41a430c8c7c75b3ca4cad7f11b37f803ff1a6d22ff416d10a6375",
+      "before_sha256": "c849290aa321bb4b6db33f73582379bd32221e68094bfc5eb7deeb581ee00815",
+      "bytes": 25950
+    },
+    {
+      "id": "TD-T25",
+      "path": "visuals/course/TD-T25.svg",
+      "pageIds": [
+        "TD-T25"
+      ],
+      "primaryPageIds": [
+        "TD-T25"
+      ],
+      "layout": "evidence",
+      "title": "发布候选用闭包与红绿证据交接",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T25 / 一个可复核的 RC 必须包含的六类工件",
+          "quote": "引用的每个文件都在包内且哈希一致"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T25 / Capstone 复盘：用一条追踪链证明交付边界",
+          "quote": "最后在不改 expected 的情况下 repair 回 0。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T25 / Capstone 复盘：用一条追踪链证明交付边界",
+          "quote": "当前最多是 PASS-FIXTURE release candidate"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 8,
+      "sha256": "b15b6f9c7e17d246ef68bd8b0c7fff4c8d744ab9643a63f925dabc52bda0b1f8",
+      "spec_sha256": "2f7656a3e5c8a670e315da5b6a4c65297b57a8045039385669aed767f0f639ec",
+      "before_sha256": "e1a2cea284ded3544fa80eb7810b749386352dc3cd066f5f887f6758215d1418",
+      "bytes": 23089
+    },
+    {
+      "id": "TD-C01",
+      "path": "visuals/course/TD-C01.svg",
+      "pageIds": [
+        "TD-C01"
+      ],
+      "primaryPageIds": [
+        "TD-C01"
+      ],
+      "layout": "comparison",
+      "title": "岗位责任与现有工件对照出差距",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-C01 / 架构节点与交付物",
+          "quote": "在 AI 理解、测试方法、AI 特有能力、工程能力、协作五维上定位差距"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-C01 / 能力迁移最常见的失败，是把「学过」当成「能证明」",
+          "quote": "同样的方法、同样的证据结构，用公开数据或自造场景重做一遍。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-C01 / 架构节点与交付物",
+          "quote": "由他人复评而非自评，复评意见留痕"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 8,
+      "sha256": "69b2305e12bc7939ac179fc0e359bc9d87f280ec3fde0c2aab35b24d188d4abf",
+      "spec_sha256": "63eb95b5c26844cb6b2e93a7cd0b6545f0fb4b6d899cde9c0bde5b5c6d1f98fa",
+      "before_sha256": "51cc258d3ec5ae3ab836f17b112423d4e9bdcd09a7becb7a5f1feb2a10c08489",
+      "bytes": 22255
+    },
+    {
+      "id": "TD-AP01",
+      "path": "visuals/course/TD-AP01.svg",
+      "pageIds": [
+        "TD-AP01"
+      ],
+      "primaryPageIds": [
+        "TD-AP01"
+      ],
+      "layout": "evidence",
+      "title": "任务分布与终态共同定义负载",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP01 / AP01 Project lab：从业务样本生成负载契约",
+          "quote": "故障注入缺 Oracle、错误终态和缺 slice 三种 mutation"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP01 / AP01 验收标准",
+          "quote": "缺 Oracle 的样本不能被写入成功率。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP01 / 建 workload 时必须分开建模的六个变量",
+          "quote": "六个变量都要写进版本化 workload 文件并打 hash"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 9,
+      "sha256": "8dddb7818b82db6044a9d7d3223382c6ec36c2f2456c400e9f0937b198e54c2e",
+      "spec_sha256": "4b1c620d86613c19c3e8bf5e053d5142d9aec8843235763aaa54acae5b219452",
+      "before_sha256": "c0120bf7565f0bd25e60a94119b29beae170897591f52b199c5527aa484bd749",
+      "bytes": 20879
+    },
+    {
+      "id": "TD-AP02",
+      "path": "visuals/course/TD-AP02.svg",
+      "pageIds": [
+        "TD-AP02"
+      ],
+      "primaryPageIds": [
+        "TD-AP02"
+      ],
+      "layout": "evidence",
+      "title": "从关键路径找到真正的慢点",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP02 / 一个端到端时长说明不了任何事，因为它不是各 span 的算术和",
+          "quote": "把并行段相加会重复计数"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP02 / AP02 Project lab：阶段预算驱动的优化决策",
+          "quote": "用 baseline、工具延迟 fault、空 queue span fault 和重试放大 fault 做单变量对照。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP02 / AP02 最终练习：从指标卡做一次决策",
+          "quote": "一次裸 QPS 上升但 good-task 下降"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 7,
+      "sha256": "9b6a2452616b59faad0a05e1c0f1d90d0c7e220ba9a782f421dd56f5a3e7b2c2",
+      "spec_sha256": "3c78f4949d5893cd8c9d1411af96fcdebba1dc23ff393470a6e7ef45f3485972",
+      "before_sha256": "ca6a6b1c2da032e3871432cde14bdef248a78beccd198d35c4f3707401c1ead9",
+      "bytes": 19363
+    },
+    {
+      "id": "TD-AP03",
+      "path": "visuals/course/TD-AP03.svg",
+      "pageIds": [
+        "TD-AP03"
+      ],
+      "primaryPageIds": [
+        "TD-AP03"
+      ],
+      "layout": "layers",
+      "title": "父子闭包与账本共同校验 Trace",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP03 / 架构节点与交付物",
+          "quote": "一个任务一个根，排队、生成、工具尝试各自成子 span，终态作为事件落在根上。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP03 / AP03 Project lab：Trace 闭包与重放审计",
+          "quote": "tool attempt 必须与 ledger 调用数相等"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP03 / AP03 最终练习：修复一条断链 Trace",
+          "quote": "不能通过删除失败 span 让图看起来完整。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 9,
+      "sha256": "24854bec89eb757e4067faa9cfed587ddcacc7ada6dc51ccfc32ff3321396f0d",
+      "spec_sha256": "fdbd45fd982e3d2a60320b915f357762fa7320c6efe6729b0cd71f548de5f60f",
+      "before_sha256": "c98dd876a93c89c73f06919e43ee6d07576a56de6ed020b66dde49fb8f8683ec",
+      "bytes": 20997
+    },
+    {
+      "id": "TD-AP04",
+      "path": "visuals/course/TD-AP04.svg",
+      "pageIds": [
+        "TD-AP04"
+      ],
+      "primaryPageIds": [
+        "TD-AP04"
+      ],
+      "layout": "comparison",
+      "title": "同一负载对照两种到达模型",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP04 / 架构节点与交付物",
+          "quote": "开环按固定到达率发，闭环等前一个返回再发下一个。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP04 / AP04 验收标准",
+          "quote": "计划样本不能因发压端循环停止而消失。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP04 / AP04 Project lab：open/closed 到达时钟对账",
+          "quote": "先排除压测端 CPU、连接和出口带宽"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 9,
+      "sha256": "4a5677f7066be916ae048a0fa0c52d65d2fdc522de9c9f043f8db51674aaa990",
+      "spec_sha256": "be1eb3eb9d206f9a8ce2640fab1175c7c9eabb46b01ecb650d0a819cebe6cf14",
+      "before_sha256": "e7e95b2d3167ec526dc97ddcc7608b377e81fd3e92e31d0dc24c0c631cf9e584",
+      "bytes": 23671
+    },
+    {
+      "id": "TD-AP05",
+      "path": "visuals/course/TD-AP05.svg",
+      "pageIds": [
+        "TD-AP05"
+      ],
+      "primaryPageIds": [
+        "TD-AP05"
+      ],
+      "layout": "metric",
+      "title": "容量取首个失败前的稳定台阶",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP05 / 先理解系统边界与假绿",
+          "quote": "前一稳定阶梯才是当前夹具的可持续点。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP05 / AP05 验收标准",
+          "quote": "最大吞吐不能替代容量。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP05 / AP05 Project lab：SLO 阶梯容量卡",
+          "quote": "随后只改变 queue、batch、缓存或工具中的一个变量"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 7,
+      "sha256": "61f1a7511b7c4e8f847b0987b592268d8e02395e6b296e5447e1311480b41554",
+      "spec_sha256": "d2e001cf280ce56588a5780f71b0a6a5d473cb05b5f9e54ee61fa65cc7471a67",
+      "before_sha256": "f13eee3f4d469ef46cefb038c532a0db1f2f978ada7c3b34978fa4eee35b925f",
+      "bytes": 21311
+    },
+    {
+      "id": "TD-AP06",
+      "path": "visuals/course/TD-AP06.svg",
+      "pageIds": [
+        "TD-AP06"
+      ],
+      "primaryPageIds": [
+        "TD-AP06"
+      ],
+      "layout": "decision",
+      "title": "重试前先判预算与写入语义",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP06 / 跨层重试会把一次抖动放大成事故",
+          "quote": "只有幂等且属于可恢复错误类、并遵守 Retry-After 的调用才允许扣预算重试。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP06 / AP06 Project lab：重试预算与副作用账本",
+          "quote": "未知写结果必须先用业务 key 对账"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP06 / AP06 最终练习：拒绝危险重试",
+          "quote": "任何重复写账本、无幂等键、无 receipt 的路径都必须硬阻断。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 8,
+      "sha256": "cc30125a6affa3d1a864eb820a3f59603d4035472e14bc3c6267faca94c5351d",
+      "spec_sha256": "ebccdf950f08350ae89c36fdea7466291f08cb418c64890a015c89f5fbc8e9cb",
+      "before_sha256": "52f63622c23969c728df300ee7473a5101691728b7fc4eea4b24dfff00277748",
+      "bytes": 23419
+    },
+    {
+      "id": "TD-AP07",
+      "path": "visuals/course/TD-AP07.svg",
+      "pageIds": [
+        "TD-AP07"
+      ],
+      "primaryPageIds": [
+        "TD-AP07"
+      ],
+      "layout": "evidence",
+      "title": "趋势与快照区分缓存和泄漏",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP07 / AP07 Project lab：八小时 soak 的慢变量证据",
+          "quote": "上升后平台要结合缓存上限和对象类型判断。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP07 / AP07 验收标准",
+          "quote": "中途变更会使本轮结论失效。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP07 / 完成标准与停止条件",
+          "quote": "区间跨 0 只说明未测出增长，不得单独写成「无泄漏」。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 9,
+      "sha256": "d3217afc4400e11d3a0438d54c4935e29a3db91acbcbdf27af0e33230b4cd324",
+      "spec_sha256": "f22f372e1bc3e341412f723926f2242c4a7e4c15110a4981d5a7db033e907fd1",
+      "before_sha256": "e34f5bc0192cf6092ebbf05f28dccdb8e36d24efe2842cceb45506bad8a26d66",
+      "bytes": 23976
+    },
+    {
+      "id": "TD-AP08",
+      "path": "visuals/course/TD-AP08.svg",
+      "pageIds": [
+        "TD-AP08"
+      ],
+      "primaryPageIds": [
+        "TD-AP08"
+      ],
+      "layout": "state",
+      "title": "任务 SLO 驱动止血与事故回归",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP08 / AP08 Project lab：good-task SLO 到告警动作",
+          "quote": "HTTP 200 但终态错误必须计入失败分母。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP08 / 给一次真实事故补完告警链：约 40 分钟",
+          "quote": "计算三个差值：受影响到告警、告警到响应、响应到止血。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP08 / 这一页的验收口径：SLI 定义与闭环率",
+          "quote": "未回流即事故不得关闭"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 7,
+      "sha256": "ca73b3e985676a162974402003211824518f1fd142434af0a0928e2d519b9f79",
+      "spec_sha256": "ef688b2c3e784b5ab13e3934b1c1fb1ee9e2e700ca7b2f6ed5ec44e8ce6c8d72",
+      "before_sha256": "925052d3aa2864f52fbdff4f322a576d153d692075b7476fee58f921da142621",
+      "bytes": 21885
+    },
+    {
+      "id": "TD-AG-00",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-00.svg",
+      "pageIds": [
+        "TD-AG-00"
+      ],
+      "primaryPageIds": [],
+      "layout": "layers",
+      "title": "八域共同围住工具副作用",
+      "sourceRefs": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-00 / problem",
+          "quote": "最终答复看起来正确，但一次未经授权的写操作可能已经发生。"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-00 / counter",
+          "quote": "四个环是横向驱动 D1/D4/D5/D6 的，不是串在末尾。"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-00 / dimensions.caption",
+          "quote": "D0 校准所有分数"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-09 / failureModes",
+          "quote": "发生一次即不可接受的事件不能做成区间判定"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 12,
+      "edgeCount": 25,
+      "sha256": "ee8eeabbad75a8400f46863a2acd70dd53cc12d67e27978dbf5cc27333f1deff",
+      "spec_sha256": "58d2385a40fb1adf37090498e21a954c17905174c909b48450b781b0e72822da",
+      "before_sha256": "b142af5bc510376aab60f8c27d91457ea102572d4c1417b36cf9b6825672136a",
+      "bytes": 48176
+    },
+    {
+      "id": "TD-AG-01",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-01.svg",
+      "pageIds": [
+        "TD-AG-01"
+      ],
+      "primaryPageIds": [
+        "TD-AG-01"
+      ],
+      "layout": "decision",
+      "title": "Judge 上岗前先过校准",
+      "sourceRefs": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-01 / repair",
+          "quote": "先修订 rubric 和标注争议，再重跑校准；"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-01 / failureModes.caption",
+          "quote": "金额、状态、权限、引用存在性都能用断言测"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-01 / summary",
+          "quote": "建立人工金标、Judge Card、偏差探针和停用回退链，理解评估器本身也是被测系统。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 11,
+      "sha256": "49e2392071403df6237be86a487a5d112534d3a3a909f3900328e02de8c70a83",
+      "spec_sha256": "9fa0c0e37d9dc3a57efaeaf69151fe26b9eadff2061ac3a2e76bb6c174956ce7",
+      "before_sha256": "4a559ad9f1bfa69faff9080b1f1590dca1f409898d10f3b403d962b660596c76",
+      "bytes": 23089
+    },
+    {
+      "id": "TD-AG-02",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-02.svg",
+      "pageIds": [
+        "TD-AG-02"
+      ],
+      "primaryPageIds": [
+        "TD-AG-02"
+      ],
+      "layout": "evidence",
+      "title": "从禁止调用定位首错",
+      "sourceRefs": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-02 / scenario",
+          "quote": "任何 refund_order 调用都必须在 step 层失败"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-02 / terms",
+          "quote": "任一层的失败不得被另一层抵消"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-02 / summary",
+          "quote": "同时评估 outcome、step 和 trajectory，并用 span 标签、首错位置和无效循环率定位 Agent 失败。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 12,
+      "sha256": "d5094c1d9bd27b7f6f2804fa43567dac5ee9608ab4c614259c50cb2356030628",
+      "spec_sha256": "c8037d9045a20b98164266d9b6ba429e6d7c6f92ff49f1fa5ffa6364f39b1bd5",
+      "before_sha256": "ac9c37b1d0623b3583a51a2f9bdd06d6e3b2d46bfe4d02a545109fdfed13968e",
+      "bytes": 23452
+    },
+    {
+      "id": "TD-AG-03",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-03.svg",
+      "pageIds": [
+        "TD-AG-03"
+      ],
+      "primaryPageIds": [
+        "TD-AG-03"
+      ],
+      "layout": "sequence",
+      "title": "把交接语义变成契约",
+      "sourceRefs": [
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-03 / dimensions",
+          "quote": "权限不随委托扩大"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-03 / workflow",
+          "quote": "埋入 5 个事实并做多跳信息衰减检查"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-03 / summary",
+          "quote": "为多 Agent handoff 建立 schema、上下文隔离和三重熔断，防止信息衰减和下游失败拖垮全局。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 11,
+      "sha256": "7dfae662af28f141ba8c30d308fec56f3d8d45001b9e3395944b76bc8f199c9b",
+      "spec_sha256": "45af264c4f2f8d84e6b8bb5b6119ac4449754055d6a12518766e485ed3ab7d4d",
+      "before_sha256": "64683001d001a14d4aeff96b7724e5bd46ef61bd2552275cfb436977e20ae96b",
+      "bytes": 26767
+    },
+    {
+      "id": "TD-AG-04",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-04.svg",
+      "pageIds": [
+        "TD-AG-04"
+      ],
+      "primaryPageIds": [
+        "TD-AG-04"
+      ],
+      "layout": "state",
+      "title": "中断后从什么状态恢复",
+      "sourceRefs": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-04 / problem",
+          "quote": "恢复时 Agent 看不到人工修改，继续执行旧计划。"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-04 / failureModes",
+          "quote": "必须无任何副作用"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-04 / summary",
+          "quote": "测试用户在关键步骤中断、接管和交回 Agent 的能力，区分可解释与真正可控。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 11,
+      "sha256": "9b0677dd483e7caf70325f882ec1d7d8878b16ef9cc98a6c0a1e6eecd1695698",
+      "spec_sha256": "52d2b3db4ec788da871a77b8c64ba861494bc4cc5f6846282bf843f8c617d2e4",
+      "before_sha256": "663c999e50498518097ba18dc9598c83e9a0c117a197e5b3559d9f940dde237c",
+      "bytes": 23268
+    },
+    {
+      "id": "TD-AG-05",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-05.svg",
+      "pageIds": [
+        "TD-AG-05"
+      ],
+      "primaryPageIds": [
+        "TD-AG-05"
+      ],
+      "layout": "metric",
+      "title": "同一台账回答两种可靠性",
+      "sourceRefs": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-05 / workflow",
+          "quote": "按 task 聚合 pass@k/pass^k 并计算预声明区间"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-05 / repair",
+          "quote": "改用 task-clustered/paired 不确定性"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-05 / summary",
+          "quote": "把一次 PASS 改成重复运行分布，区分至少一次成功和每次都成功，并按任务时长观察 horizon 衰减。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 10,
+      "sha256": "4229304fd195e8b743b76431b64ace893990dc61e19bc66bb50f0bac9eccfb21",
+      "spec_sha256": "d5d34556dcbcd94f08878c44b6aa3e04ae82a3b5fafc500210730eb29a9c835f",
+      "before_sha256": "bf79c9de81a36aaabf240e37679f0c3d4112c57a4bc007d3535a4ac578ee4430",
+      "bytes": 21775
+    },
+    {
+      "id": "TD-AG-06",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-06.svg",
+      "pageIds": [
+        "TD-AG-06"
+      ],
+      "primaryPageIds": [
+        "TD-AG-06"
+      ],
+      "layout": "layers",
+      "title": "恶意数据不能跨过执行权限",
+      "sourceRefs": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-06 / workflow",
+          "quote": "在模型外验证 tenant、scope、schema、审批、额度和沙箱"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-06 / artifactNote",
+          "quote": "必须写「被哪一层拒绝」"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-06 / summary",
+          "quote": "把不可信输入、工具描述、记忆、委托链和不可逆副作用放进持续对抗套件，并按轨迹审计护栏。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 9,
+      "edgeCount": 11,
+      "sha256": "63b7a380bc28ebb3482b58550d4a47986a70e3f9f7a46d9561b13597447562cc",
+      "spec_sha256": "6b7f77074b2de78bca21766d201ca6bceea60feee577af353ea4af609e7281b7",
+      "before_sha256": "1ce378a5c15e24a1b3ab1fe20d006a94fb6bc28cd7ab3c90c8ac955a58e5b890",
+      "bytes": 23852
+    },
+    {
+      "id": "TD-AG-07",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-07.svg",
+      "pageIds": [
+        "TD-AG-07"
+      ],
+      "primaryPageIds": [
+        "TD-AG-07"
+      ],
+      "layout": "flow",
+      "title": "沿任务树计算延迟与成本",
+      "sourceRefs": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-07 / workflow",
+          "quote": "注入超预算循环，验证安全截断和人工升级"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-07 / artifactNote",
+          "quote": "单位成功成本 =（模型费 + 工具费 + 人工复核费）/ 成功完成的任务数。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-07 / summary",
+          "quote": "把 Agent task 拆成 step/tool trace，联合观察延迟、吞吐、Token、Judge 和人工成本，并验证预算会真正截断。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 12,
+      "sha256": "10f2bb32a320013ce000292acbc0c9f050b545493d6b58a65405b5a9a681bf29",
+      "spec_sha256": "49cfc1f52c2fc93a1490eb1bfd2bdea2c2e12dde93fb46da6f6f31fbd414aec1",
+      "before_sha256": "3f84077d26bd324d96fa6be3c95ca85ef6647e473e2ec5e57516e52b07e85d2f",
+      "bytes": 28001
+    },
+    {
+      "id": "TD-AG-08",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-08.svg",
+      "pageIds": [
+        "TD-AG-08"
+      ],
+      "primaryPageIds": [
+        "TD-AG-08"
+      ],
+      "layout": "evidence",
+      "title": "每次动作追到版本与责任",
+      "sourceRefs": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-08 / expected",
+          "quote": "四维版本任一变化触发回归"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-08 / failureModes.caption",
+          "quote": "回滚也必须四维成组"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-08 / summary",
+          "quote": "把业务规则、Agent 委托、审计证据、模型/Prompt/工具/Memory 四维版本和风险接受连接起来。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 11,
+      "sha256": "dbdf96d0fbabc5c96e55f734b76d6ec93807c2eed6d656192fdd92b889c397a3",
+      "spec_sha256": "707a729e2c7d8c0010245a5c12139a844b4a994c934583da7c14cfd524766ed9",
+      "before_sha256": "94b6bd60d13b90705e2d0772fd2c1017c9711b8ec47c981fc27216553110573c",
+      "bytes": 26950
+    },
+    {
+      "id": "TD-AG-09",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-09.svg",
+      "pageIds": [
+        "TD-AG-09"
+      ],
+      "primaryPageIds": [],
+      "layout": "decision",
+      "title": "四环证据进入三段决策",
+      "sourceRefs": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-09 / scenario",
+          "quote": "环 1 与环 2 可生成 receipt；环 3/4 明确 provider/integration NOT_RUN"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-09 / thesis",
+          "quote": "流水线永远不输出「可以发布」，它输出「证据齐了，请决定」。"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-08 / voice.takeNote",
+          "quote": "没有护栏覆盖的失败模式不能被「接受」"
+        },
+        {
+          "path": "public/materials/agent-architecture-system/docs/11-three-stage-gate.md",
+          "locator": "11.5 / 三段之间的关系",
+          "quote": "第二段 EVIDENCE-INSUFFICIENT → 可以进入第三段，但必须作为已知失败模式列出"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 12,
+      "sha256": "49415044ae6612298ef57cccc608e65f71a71cc0697fb6729e5d6d521824db98",
+      "spec_sha256": "076b36b2bafef3c2120531ca43c107b0a269aef7978c08cb161f2a3c3779078d",
+      "before_sha256": "ba5ca8fb2b15b5141ad04f49323ed57491d66bd5aff78a598179501cebe95046",
+      "bytes": 29357
+    },
+    {
+      "id": "TD-AG-10",
+      "path": "materials/agent-architecture-system/visuals/TD-AG-10.svg",
+      "pageIds": [
+        "TD-AG-10"
+      ],
+      "primaryPageIds": [
+        "TD-AG-10"
+      ],
+      "layout": "decision",
+      "title": "新鲜数据与受限执行分开验",
+      "sourceRefs": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-10 / scenario",
+          "quote": "执行任务必须在工具层拒绝"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-10 / workflow",
+          "quote": "将建议与执行数据集和 owner 物理分开"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-10 / summary",
+          "quote": "把交易场景作为高风险适配器学习：数据新鲜度、建议与执行分离、能力沙箱和分钟级回滚。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 10,
+      "sha256": "453f64d8e7f996fdabb9b961d3d5332fb02e7c2bcfb8ec6ccf6b81693be7282a",
+      "spec_sha256": "bd091660b42574f28f2c51a24116bb8b0fdc2c537864c7f81634ab9145108f71",
+      "before_sha256": "2f6b3c9fa82054b8dc655227d4ad0034d7e62f847f31bd6983a86b42be6e0bf4",
+      "bytes": 25533
+    },
+    {
+      "id": "AG-DIM-ARCHITECTURE",
+      "path": "materials/agent-architecture-system/visuals/AG-DIM-ARCHITECTURE.svg",
+      "pageIds": [
+        "TD-AG-00"
+      ],
+      "primaryPageIds": [
+        "TD-AG-00"
+      ],
+      "layout": "layers",
+      "title": "从退款风险到具名停止动作",
+      "sourceRefs": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-00 / workflow",
+          "quote": "列出节点、状态、信任边界、工具和副作用"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-00 / expected",
+          "quote": "每条风险边都有证据、停止状态和责任人。"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-00 / dimensions.caption",
+          "quote": "D0 校准所有分数"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-00 / counter",
+          "quote": "四个环是横向驱动 D1/D4/D5/D6 的，不是串在末尾。"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-09 / failureModes",
+          "quote": "发生一次即不可接受的事件不能做成区间判定"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-00 / summary",
+          "quote": "用 D0–D7、四证据环和运行时护栏画出 Agent 被测边界，知道一条结论从哪里来、由谁负责。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 10,
+      "edgeCount": 22,
+      "sha256": "0c0379deba67d04701b1bcbcdc18d5ef409413e480bc29e7f1aecb5ae0aa30e5",
+      "spec_sha256": "ac119f12c536c9cc66dd1ef0a758e0ae0b75755e513205c57217c691182d3c33",
+      "before_sha256": "b7a45aaeab07e1d5142fe9ea60806c095f3249af7818539ed4554a08590a0c7b",
+      "bytes": 45117
+    },
+    {
+      "id": "AG-DIM-FOUR-RINGS",
+      "path": "materials/agent-architecture-system/visuals/AG-DIM-FOUR-RINGS.svg",
+      "pageIds": [
+        "TD-AG-09"
+      ],
+      "primaryPageIds": [
+        "TD-AG-09"
+      ],
+      "layout": "comparison",
+      "title": "四环各有独立的证据出口",
+      "sourceRefs": [
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-09 / artifactNote",
+          "quote": "每个环必须声明五件事：population、统计方法、owner、hard block、rollback。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/agent-architecture-original.txt",
+          "locator": "五 / 环3影子模式",
+          "quote": "不返回给用户、不执行任何动作"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-AG-09 / summary",
+          "quote": "将离线 CI、沙箱回放、影子灰度和在线持续评估串成证据成熟度链，再执行硬红线、统计门禁和风险接受。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 11,
+      "sha256": "5ebf242846b8e5a8ca2fb5a70de62c379c2016061041ca88867ec9329374d9ef",
+      "spec_sha256": "5b1a514eb201c2efecbc85798ff733d0e51d1d44c0618ef3104a1fceca3e6668",
+      "before_sha256": "35014e6add4e5ede43f7c195579c926c11c150f497e019fe3d955895087ab90b",
+      "bytes": 17102
+    },
+    {
+      "id": "AG-DIM-GATE",
+      "path": "materials/agent-architecture-system/visuals/AG-DIM-GATE.svg",
+      "pageIds": [
+        "TD-AG-09"
+      ],
+      "primaryPageIds": [],
+      "layout": "decision",
+      "title": "三段判断不能互相抵消",
+      "sourceRefs": [
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-09 / workflow",
+          "quote": "将硬红线、统计证据不足和风险接受分别输出"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-05 / failure",
+          "quote": "以 CI 不重叠作为唯一统计原则，都会造成过度结论。"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-08 / voice.takeNote",
+          "quote": "没有护栏覆盖的失败模式不能被「接受」"
+        },
+        {
+          "path": "public/materials/agent-architecture-system/docs/11-three-stage-gate.md",
+          "locator": "11.5 / 三段之间的关系",
+          "quote": "第二段 EVIDENCE-INSUFFICIENT → 可以进入第三段，但必须作为已知失败模式列出"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 9,
+      "edgeCount": 15,
+      "sha256": "5e31beb0fa2d6d90d475ad784aecb0e08139e783cf5e28104c1c22fef7843577",
+      "spec_sha256": "1f1dfbd0a3437cde9e4d9d0fb62db803088a5729028fb6a3ccb17ab4da7c96da",
+      "before_sha256": "70c76b6a88857e1d125f01e28b5df5acce630a5101d0d7516f4c41af6cca6a76",
+      "bytes": 29999
+    },
+    {
+      "id": "AG-DIM-36",
+      "path": "materials/agent-architecture-system/visuals/AG-DIM-36.svg",
+      "pageIds": [
+        "TD-AG-00"
+      ],
+      "primaryPageIds": [],
+      "layout": "dimensions",
+      "title": "八域三十六维覆盖全景",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/agent-architecture-original.txt",
+          "locator": "四 / 36维明细",
+          "quote": "这一层不测 Agent,测**你的测量系统**。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/agent-visual-source.original.json",
+          "locator": "agent-36-dimensions / caption",
+          "quote": "36 维是覆盖清单，不替代场景风险分析；"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-00 / dimensions.caption",
+          "quote": "D0 校准所有分数"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-00 / counter",
+          "quote": "四个环是横向驱动 D1/D4/D5/D6 的，不是串在末尾。"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-09 / failureModes",
+          "quote": "发生一次即不可接受的事件不能做成区间判定"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 11,
+      "edgeCount": 25,
+      "sha256": "6b76e5912d9af2abef90370bebbed59353d86b2ef5a5e64608b9b5c3f74898c1",
+      "spec_sha256": "590d1923ae309b85c4e8ef37735db824d7fdc3283a9069850498f93e7768f7a3",
+      "before_sha256": "e3e6fd2413b050d09ce0cad09a05d9097c68da6bbda79645dd3bee4b7c427dbe",
+      "bytes": 22627
+    },
+    {
+      "id": "AG-DIM-RELIABILITY",
+      "path": "materials/agent-architecture-system/visuals/AG-DIM-RELIABILITY.svg",
+      "pageIds": [
+        "TD-AG-05"
+      ],
+      "primaryPageIds": [],
+      "layout": "comparison",
+      "title": "能力上限与重复一致性分报",
+      "sourceRefs": [
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-05 / terms",
+          "quote": "k 次采样中至少一次成功的比例"
+        },
+        {
+          "path": "content/modules/agent-architecture-deep.ts",
+          "locator": "TD-AG-05 / terms",
+          "quote": "k 次采样全部成功的比例"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-05 / expected",
+          "quote": "不会把点估计写成稳定性。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 10,
+      "sha256": "a3dda4216b1fef770c5d7575987671e0d4d89099e129250fd1b25f209a92e3a1",
+      "spec_sha256": "1bce04a52fdceaab50ecac87a51c63685d7dd7cd892eaa6e29df37479ff20174",
+      "before_sha256": "d1140cd2eb83b11b9b11c3b143b72fb0689d9c5a7c560a81892f8da16944d0d9",
+      "bytes": 22188
+    },
+    {
+      "id": "career-role-comparison",
+      "path": "materials/career-evolution/visuals/career-role-comparison.svg",
+      "pageIds": [
+        "TD-F01",
+        "TD-C02",
+        "TD-F05"
+      ],
+      "primaryPageIds": [
+        "TD-F01"
+      ],
+      "layout": "comparison",
+      "title": "三类角色怎样分担质量责任",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/career-development-original.md",
+          "locator": "1.0 / 核心职责",
+          "quote": "保障AI系统的质量，而非开发AI系统"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-C02 / control",
+          "quote": "哪些决定可以做，哪些决定必须升级给具名 owner？"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-F01 / summary",
+          "quote": "从真实研发流程出发，先说清测试开发负责什么，再练习阅读需求和技术文档、选择测试方法、建立独立判断依据、整理发布证据，并完成一次可运行的入场自测。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 6,
+      "edgeCount": 7,
+      "sha256": "7a2eeb0434dc43629d07c20ca84bac2ff9197e67dde80e47fa3dadbda351b69f",
+      "spec_sha256": "d4e9b713e1eb4029f3101eb4c81dba6857304f93e83cd91c093fd032faca6e58",
+      "before_sha256": "8461e5bb31b6fa658cfd8518020b0f66d27ac926f476323e5fa7e2f015041c4a",
+      "bytes": 21085
+    },
+    {
+      "id": "career-capability-mindmap",
+      "path": "materials/career-evolution/visuals/career-capability-mindmap.svg",
+      "pageIds": [
+        "TD-F05",
+        "TD-C03"
+      ],
+      "primaryPageIds": [
+        "TD-F05"
+      ],
+      "layout": "layers",
+      "title": "五维能力汇入同一证据中心",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/career-development-original.md",
+          "locator": "1.1 / 能力维度框架",
+          "quote": "5大维度"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-C03 / action",
+          "quote": "evidence_refs、gap_route、next_artifact、reviewer 和 maturity"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-F05 / summary",
+          "quote": "用任务、人口、失败成本和 Oracle 选择指标；避免把 F1、Recall@k、ROUGE、延迟或 QPS 当成万能答案。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 7,
+      "sha256": "71457d8dbfea0f5dfbc4746c06e6213f3a238ece32e9bca9c2ebfe848f82c4bf",
+      "spec_sha256": "07f65487a8954c52d4068dd3af7f819369064b2b6f848a44bcf166784522d852",
+      "before_sha256": "04ab3c0fd50c4dd6b3163d21acff9477527a694ce6c8b734ebd0fda2f5d5f817",
+      "bytes": 22473
+    },
+    {
+      "id": "career-capability-allocation",
+      "path": "materials/career-evolution/visuals/career-capability-allocation.svg",
+      "pageIds": [
+        "TD-C04"
+      ],
+      "primaryPageIds": [
+        "TD-C04"
+      ],
+      "layout": "donut",
+      "title": "五维权重只保留来源示例",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/career-development-original.md",
+          "locator": "1.1 / 能力占比图",
+          "quote": "\"AI/ML测试知识\" : 30"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/career-development-original.md",
+          "locator": "1.1 / 能力占比图",
+          "quote": "\"软技能与综合素质\" : 5"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-C04 / expected",
+          "quote": "未配置 source_ref/owner/version 时，输出保持 INTERNAL-UNKNOWN"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-C04 / summary",
+          "quote": "学习如何把公共责任状态映射到具体组织的 band、岗位名称和阈值；没有组织来源时保持 INTERNAL-UNKNOWN。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 6,
+      "edgeCount": 6,
+      "sha256": "21a754095414ad73c33e2e0ec76051630ef3e48dca963c760f703fba58dc0e94",
+      "spec_sha256": "14bcf6e9b2fc8528cb9b69fdd75bc5d23695339a26da6eb39ddd4f5efb348f58",
+      "before_sha256": "5c2b77ef6c67b102f6528fcdaa310104b735f0de05f77a1b635e74fd40aa9401",
+      "bytes": 12906
+    },
+    {
+      "id": "career-evidence-lifecycle",
+      "path": "materials/career-evolution/visuals/career-evidence-lifecycle.svg",
+      "pageIds": [
+        "TD-T26",
+        "TD-C03"
+      ],
+      "primaryPageIds": [
+        "TD-T26"
+      ],
+      "layout": "evidence",
+      "title": "能力主张必须经故障与复评",
+      "sourceRefs": [
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-T26 / counterexample",
+          "quote": "没有检测力和质量分母，结论无效。"
+        },
+        {
+          "path": "content/modules/career-evolution-deep.ts",
+          "locator": "TD-T26 / mechanism",
+          "quote": "复核、修改、丢弃的时间必须计入 AI 组。"
+        },
+        {
+          "path": "content/modules/career-evolution-deep.ts",
+          "locator": "TD-C03 / mechanism",
+          "quote": "每条能力主张必须指向一个具体工件"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-T26 / summary",
+          "quote": "建立 baseline/control 与 AI candidate 对照，用编译、运行、Mutation、人工接受率、时间、成本和缺陷产出来验证真正提效。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 10,
+      "sha256": "ef71f937946c6cc3a76d88d1305948beb1182f097329f9285c1f81e88eb698ce",
+      "spec_sha256": "064658cf5af0b4962ff63ac131d4e1140465d5ecf1c69c97b0648522c4c56ffb",
+      "before_sha256": "79698a6622d55fa79de0bd343fb0ae76d0036c2a0b1206eaf5c8c1db2963cc85",
+      "bytes": 25375
+    },
+    {
+      "id": "career-responsibility-ladder",
+      "path": "materials/career-evolution/visuals/career-responsibility-ladder.svg",
+      "pageIds": [
+        "TD-C02",
+        "TD-C04"
+      ],
+      "primaryPageIds": [
+        "TD-C02"
+      ],
+      "layout": "layers",
+      "title": "责任范围用工件与决定权证明",
+      "sourceRefs": [
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-C02 / workedExample",
+          "quote": "自己补一条权限切片、写 Oracle、注入坏版本并让它变红"
+        },
+        {
+          "path": "content/modules/career-evolution-deep.ts",
+          "locator": "TD-C02 / mechanism",
+          "quote": "同一个人可以在接口测试上处于裁决状态，在 Agent 质量上处于跟做状态。"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-C02 / summary",
+          "quote": "把职业成长从年限和头衔改写为四种可观察的责任状态，并为每个状态绑定决策权、工件、故障和复评者。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 9,
+      "sha256": "ef4d80f81a1b9dd87b22c5dece0146e76d3b656cd0d5ffcb6c8c21ca6081caa6",
+      "spec_sha256": "9e5bb201345f18879db1a8b4dd011028abd8f5b0695ecdf2790e0d552a2202de",
+      "before_sha256": "25dc2a6e44055b8cdcab1c5724ba330ffb5c6a06b2a85ea9ebcb9515d3099888",
+      "bytes": 12504
+    },
+    {
+      "id": "career-evidence-radar",
+      "path": "materials/career-evolution/visuals/career-evidence-radar.svg",
+      "pageIds": [
+        "TD-C03"
+      ],
+      "primaryPageIds": [
+        "TD-C03"
+      ],
+      "layout": "comparison",
+      "title": "五维证据与目标逐项对照",
+      "sourceRefs": [
+        {
+          "path": "content/modules/career-evolution-deep.ts",
+          "locator": "TD-C03 / counter",
+          "quote": "分数不携带证据。"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-C03 / expected",
+          "quote": "没有 evidence_ref 的项自动成为 UNKNOWN"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/career-development-original.md",
+          "locator": "3.1 / 职级能力雷达图对比",
+          "quote": "AI/ML知识: L2"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-C03 / action",
+          "quote": "gap_route、next_artifact、reviewer 和 maturity"
+        },
+        {
+          "path": "content/modules/ai-quality-foundations.ts",
+          "locator": "TD-T01 / summary",
+          "quote": "把被测对象、业务风险、数据分布、Oracle、阈值、版本、owner 和 stop state 写成可审计的评测合同。"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-F05 / artifact",
+          "quote": "task-metric-card.yaml"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-01 / artifact",
+          "quote": "Judge Card、金标集和分歧矩阵"
+        },
+        {
+          "path": "content/modules/agent-architecture-system.ts",
+          "locator": "TD-AG-02 / artifact",
+          "quote": "trajectory-ledger.jsonl 与首错归因报告"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-C02 / artifact",
+          "quote": "responsibility-map.json、四状态证据梯和责任边界图"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-C03 / summary",
+          "quote": "把自评表变成可复验的 JSON：每个能力主张都绑定证据、缺口路由、下一件工件和复评日期。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 6,
+      "sha256": "22ac1043b8230268319d927a7ce851eefc2d6461fa56db427669bea6d9110a6e",
+      "spec_sha256": "ddf1480d95b48058c345ff16e3a1b39bcecc2ba6a7a003e50343b9ffe85fc9b9",
+      "before_sha256": "421d73338f405f99e3f98c4c8234ae56199765fda80da8c97517c480a6952d01",
+      "bytes": 17565
+    },
+    {
+      "id": "career-evidence-gantt",
+      "path": "materials/career-evolution/visuals/career-evidence-gantt.svg",
+      "pageIds": [
+        "TD-C03"
+      ],
+      "primaryPageIds": [],
+      "layout": "comparison",
+      "title": "三个证据窗口各有退出条件",
+      "sourceRefs": [
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-C03 / workedExample",
+          "quote": "60 天完成 RAG retrieval fault，90 天完成独立 Oracle 和复评"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "careerWave6Expansion / TD-C03",
+          "quote": "60 天若 mutation 未打红，选择“回退到 Oracle 设计”"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 10,
+      "sha256": "bb8abf02a1fe5ed39d8899226e3bf5b1b6886117575d3b70a57acb1299a57fd5",
+      "spec_sha256": "a68e441b9144f5b74f0bd77e5f5c4453af3d6130cc6790cb3820ff153c0a3c5b",
+      "before_sha256": "8444ca5ac47f8f5397598d2ef9275146a3004c4a5741a1d2d226463c27e282a4",
+      "bytes": 12654
+    },
+    {
+      "id": "career-background-paths",
+      "path": "materials/career-evolution/visuals/career-background-paths.svg",
+      "pageIds": [
+        "TD-R01",
+        "TD-C03"
+      ],
+      "primaryPageIds": [
+        "TD-R01"
+      ],
+      "layout": "flow",
+      "title": "不同起点汇入同一完成条件",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/career-development-original.md",
+          "locator": "4 / 不同背景的学习路径图",
+          "quote": "学习: 测试理论"
+        },
+        {
+          "path": "content/modules/career-evolution.ts",
+          "locator": "TD-R01 / action",
+          "quote": "purpose、limits、fallback、exit_artifact"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/material-pages.json",
+          "locator": "TD-R01 / summary",
+          "quote": "把书籍、课程、平台、框架和论文整理成带版本、检查日期、用途、限制与替代路径的资源索引。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 7,
+      "sha256": "e6569745976b8825ee20fb3ec1e8b5c6541f4dfba7683cc20e1f6554fc5bfbe7",
+      "spec_sha256": "25290712103618a73a06c556f439f9d528609d381f4be73f1f9e1eaf0c71a8b8",
+      "before_sha256": "c6ce91b06ef62ccb9facae3499e32b348b10fd0dbded7d5d853eb49e96ba408f",
+      "bytes": 21881
+    },
+    {
+      "id": "career-priority-quadrant",
+      "path": "materials/career-evolution/visuals/career-priority-quadrant.svg",
+      "pageIds": [
+        "TD-C03"
+      ],
+      "primaryPageIds": [],
+      "layout": "quadrant",
+      "title": "重要性与证据决定下一步",
+      "sourceRefs": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/career-development-original.md",
+          "locator": "5.1 / 能力发展四象限图",
+          "quote": "高重要 + 低掌握"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/career-visual-source.original.json",
+          "locator": "career-priority-quadrant / caption",
+          "quote": "重要性由当前任务 owner 定义，成熟度由证据而非自信定义"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 6,
+      "edgeCount": 8,
+      "sha256": "a729f0dfe8d948520e897a0c98f55e337d82199eb736839cc0d4299c85af97a3",
+      "spec_sha256": "70bbe049c17866737441c2cab6cd2988495847c5e237f9357ba16fe4438ab302",
+      "before_sha256": "7b7ceec17a503c2b6a0f34601dbf7717ec954f047437f25f6a47497b990f2c0a",
+      "bytes": 12119
+    },
+    {
+      "id": "TD-M00",
+      "path": "visuals/modules/TD-M00.svg",
+      "pageIds": [
+        "TD-F01",
+        "TD-P01",
+        "TD-P02",
+        "TD-P03",
+        "TD-P04",
+        "TD-P05",
+        "TD-P06",
+        "TD-P07",
+        "TD-P08"
+      ],
+      "primaryPageIds": [],
+      "layout": "flow",
+      "title": "完整测试生命周期｜模块全景",
+      "sourceRefs": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M00 / stages + logic + boundary",
+          "quote": "需求到发布是一条链，每一站交出一个下游程序能直接消费的工件。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 7,
+      "sha256": "69be178fd1b6442d8d8af1758809d394992a71568ed16ae1e21cc56c23298ad0",
+      "spec_sha256": "01fac1e3d2362219b42142705fd77692f93617248612b0153a7fa2e7421bc75d",
+      "before_sha256": "645579aeb8a7b30d77e767386b1d636afb36adfd0a58f7a35a7441ae8ed77042",
+      "bytes": 21094
+    },
+    {
+      "id": "TD-M08",
+      "path": "visuals/modules/TD-M08.svg",
+      "pageIds": [
+        "TD-PS01",
+        "TD-PS02",
+        "TD-PS03",
+        "TD-PS04",
+        "TD-PS05",
+        "TD-PS06",
+        "TD-PS07",
+        "TD-PS08",
+        "TD-PS09",
+        "TD-PS10",
+        "TD-PS11",
+        "TD-PS12",
+        "TD-X101"
+      ],
+      "primaryPageIds": [],
+      "layout": "flow",
+      "title": "传统测试专项｜模块全景",
+      "sourceRefs": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M08 / stages + logic + boundary",
+          "quote": "传统专项没有过时，过时的是它们原来的判据。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 6,
+      "edgeCount": 5,
+      "sha256": "9e3548edd8a4dfbefec0da91503a1e6abe2e0ea736cc10bf1a1d9e37ae9eaa9c",
+      "spec_sha256": "5cc229aebd90b3dcaf18bbdc6f74c36067b86f4624dcbf993ddd0edeed8c9fe5",
+      "before_sha256": "fc95f8070758e29d16799d92339115eceac0c8af825d724e33ab898cde3df9da",
+      "bytes": 19052
+    },
+    {
+      "id": "TD-M01",
+      "path": "visuals/modules/TD-M01.svg",
+      "pageIds": [
+        "TD-FP01",
+        "TD-F02",
+        "TD-F03",
+        "TD-F04",
+        "TD-T01",
+        "TD-T02",
+        "TD-T03",
+        "TD-T04"
+      ],
+      "primaryPageIds": [],
+      "layout": "flow",
+      "title": "大模型与 AI 系统基础｜模块全景",
+      "sourceRefs": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M01 / stages + logic + boundary",
+          "quote": "先弄清模型在哪一层出错，再决定在哪一层测。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 6,
+      "edgeCount": 5,
+      "sha256": "b494ebdf821eb0203aaa055bd215148f70897e4d28f017a5fa93158caa4ba143",
+      "spec_sha256": "f87a2765983252b020ef63b91970eb30d2410930f7193375b2ccb9654262ecdd",
+      "before_sha256": "c4eb9d4fb9c6731b5e5965439d99389fe008dd8c0596955529a1c9b35689d2f4",
+      "bytes": 18530
+    },
+    {
+      "id": "TD-M02",
+      "path": "visuals/modules/TD-M02.svg",
+      "pageIds": [
+        "TD-T05",
+        "TD-T06",
+        "TD-T07",
+        "TD-T08"
+      ],
+      "primaryPageIds": [],
+      "layout": "flow",
+      "title": "AI 帮你做传统测试｜模块全景",
+      "sourceRefs": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M02 / stages + logic + boundary",
+          "quote": "AI 生成的测试要先证明它能发现缺陷，再谈提效。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 4,
+      "edgeCount": 3,
+      "sha256": "f119df271a5c5941a681624639db1a0573447c309dcde95e8426d1cd2989c224",
+      "spec_sha256": "31443236a1b5c6de5978376cd83f159248895070b8d2bc0b488d113de476a490",
+      "before_sha256": "c3fdba27d4da7f488b4477113dfe00d127961ca4e4610bf6fb20a1eb7f43f335",
+      "bytes": 14990
+    },
+    {
+      "id": "TD-M09",
+      "path": "visuals/modules/TD-M09.svg",
+      "pageIds": [
+        "TD-A01",
+        "TD-A02",
+        "TD-A03",
+        "TD-A04",
+        "TD-A05",
+        "TD-A06"
+      ],
+      "primaryPageIds": [],
+      "layout": "flow",
+      "title": "AI 接口、性能与可靠性｜模块全景",
+      "sourceRefs": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M09 / stages + logic + boundary",
+          "quote": "AI 接口的性能问题，一半出在协议状态机上，不在模型上。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 6,
+      "edgeCount": 5,
+      "sha256": "e6955254792d273d3bd2bb7fa0988913275638e519125ba77937611d1ed81642",
+      "spec_sha256": "0a9397094337ebc19383012c96eddb518781a023b94703bb6c50320c93c09350",
+      "before_sha256": "1e878a355072855f185327f6416f145e520ff23022c0555c7ec0b5eb7cccee59",
+      "bytes": 17731
+    },
+    {
+      "id": "TD-M03",
+      "path": "visuals/modules/TD-M03.svg",
+      "pageIds": [
+        "TD-T09",
+        "TD-T10",
+        "TD-T11",
+        "TD-T12",
+        "TD-X501",
+        "TD-X502",
+        "TD-T13",
+        "TD-T14"
+      ],
+      "primaryPageIds": [],
+      "layout": "flow",
+      "title": "测试 LLM 和 RAG｜模块全景",
+      "sourceRefs": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M03 / stages + logic + boundary",
+          "quote": "RAG 的答案对不对，要拆成检索到了没有和有没有照着说两件事。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 6,
+      "sha256": "7ed3ee9b28fd55c65af696a8d8bc153209dc71e19950adb351d7fa6186b9ca8b",
+      "spec_sha256": "4a3c29765699e33f92a2a4da506b481dcf5d0f230ccd36ecde9f092b1389ce75",
+      "before_sha256": "f241b97c72f08568b3a700376551944ec2062522d5e9cc4c785854334a188b72",
+      "bytes": 19748
+    },
+    {
+      "id": "TD-M04",
+      "path": "visuals/modules/TD-M04.svg",
+      "pageIds": [
+        "TD-T15",
+        "TD-T16",
+        "TD-T17",
+        "TD-T18",
+        "TD-T19",
+        "TD-W01",
+        "TD-W02",
+        "TD-W03",
+        "TD-X603",
+        "TD-X604"
+      ],
+      "primaryPageIds": [],
+      "layout": "flow",
+      "title": "测试 Agent、Worker 与 Workflow｜模块全景",
+      "sourceRefs": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M04 / stages + logic + boundary",
+          "quote": "Agent 的正确不在最终答案里，在它走过的每一步里。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 6,
+      "sha256": "895b24a0d0d981610db25a2fa74698e5867207b8fca00cab97702c86fd6c152e",
+      "spec_sha256": "4dda54f1684a52ff4a94b49e4984ed0154e2d66980c9959cc276926d4b3f95f3",
+      "before_sha256": "7cb8a5776258a15795aa0099e5a64e2a245f6402564d729dd4b209bd50bafb68",
+      "bytes": 23119
+    },
+    {
+      "id": "TD-M05",
+      "path": "visuals/modules/TD-M05.svg",
+      "pageIds": [
+        "TD-X602",
+        "TD-X601",
+        "TD-T20",
+        "TD-T21",
+        "TD-T22",
+        "TD-T23",
+        "TD-T24",
+        "TD-X805"
+      ],
+      "primaryPageIds": [],
+      "layout": "flow",
+      "title": "建设 AI 质量系统｜模块全景",
+      "sourceRefs": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M05 / stages + logic + boundary",
+          "quote": "评测只有接进 CI 和生产回灌，才会持续有效。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 6,
+      "sha256": "2a77789fec2010609caf1fb89ae2f7285802bb2ec9b2376e052f7601f875ff47",
+      "spec_sha256": "1d45c914c2d644e3d364c428c8a41bf6d3cadf8fc8cf3577e205dfb17eaaace0",
+      "before_sha256": "e612d47764029a700d48ad28675485f030bb0ee395d598c6a8be93418808bfb7",
+      "bytes": 19681
+    },
+    {
+      "id": "TD-M06",
+      "path": "visuals/modules/TD-M06.svg",
+      "pageIds": [
+        "TD-B01",
+        "TD-B02",
+        "TD-B03",
+        "TD-B04",
+        "TD-B05",
+        "TD-B06"
+      ],
+      "primaryPageIds": [],
+      "layout": "flow",
+      "title": "Benchmark 与分数工程｜模块全景",
+      "sourceRefs": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M06 / stages + logic + boundary",
+          "quote": "榜单分数是七个可变组件共同产生的，换任何一个都会变。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 6,
+      "edgeCount": 5,
+      "sha256": "d6e7c48ee2c34c8abc5bcaf72e6d526b5fae8b15b00a424d7c3230fafc5d148a",
+      "spec_sha256": "d20664fb04cc69dbe7fefe19b344f5dcfcc0f535484ee033d4369fc19d844ec5",
+      "before_sha256": "45e7cd3f671db54708caef5b27d1969585be60c055f15a2ebb8e2dfd4a37ba23",
+      "bytes": 18259
+    },
+    {
+      "id": "TD-M07",
+      "path": "visuals/modules/TD-M07.svg",
+      "pageIds": [
+        "TD-QP01",
+        "TD-QP02",
+        "TD-QP03",
+        "TD-QP04",
+        "TD-T25"
+      ],
+      "primaryPageIds": [],
+      "layout": "flow",
+      "title": "专业专题与 Capstone｜模块全景",
+      "sourceRefs": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M07 / stages + logic + boundary",
+          "quote": "把前面所有模块的工件接进真实工程系统，交出一条能审计的完整链路。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 5,
+      "edgeCount": 4,
+      "sha256": "530a95aa4a7f058c2dc0faf82b8875d435ed7f4ca2eded574d86c4ea3fa3f5e1",
+      "spec_sha256": "27c0f886b83690cec7f2f83243e23cefa3bea2668246e6867ddde0e062efa990",
+      "before_sha256": "c42150eba5cb4d5d8802a709b8276f07f82005d6795eb28a7b118ce542f69fd6",
+      "bytes": 17503
+    },
+    {
+      "id": "TD-M10",
+      "path": "visuals/modules/TD-M10.svg",
+      "pageIds": [
+        "TD-C01",
+        "TD-C02",
+        "TD-C03",
+        "TD-C04",
+        "TD-F05",
+        "TD-T26",
+        "TD-R01"
+      ],
+      "primaryPageIds": [],
+      "layout": "flow",
+      "title": "职业演进｜模块全景",
+      "sourceRefs": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M10 / stages + logic + boundary",
+          "quote": "职业能力用交付过的工件和承担过的责任衡量，不用年限衡量。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 6,
+      "sha256": "8ecfec9fb44d9c4167bd95753e467805b81ef66c953c5d8ff7a966bfe0e129af",
+      "spec_sha256": "7da1c118b3900b70d54a17d102529a675040a0f9418e2a89af6e644b07ba8c9c",
+      "before_sha256": "87cbafcd130562b7441a6e0b1747c2d7d0427ac56442659f8c48d40aebb46f6c",
+      "bytes": 19557
+    },
+    {
+      "id": "TD-M11",
+      "path": "visuals/modules/TD-M11.svg",
+      "pageIds": [
+        "TD-AP01",
+        "TD-AP02",
+        "TD-AP03",
+        "TD-AP04",
+        "TD-AP05",
+        "TD-AP06",
+        "TD-AP07",
+        "TD-AP08"
+      ],
+      "primaryPageIds": [],
+      "layout": "flow",
+      "title": "Agent 性能与稳定性工程｜模块全景",
+      "sourceRefs": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M11 / stages + logic + boundary",
+          "quote": "Agent 的性能问题是多步累积的，单步指标看不出来。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 8,
+      "edgeCount": 7,
+      "sha256": "3d944481eeecd51db586ef9048438c0329783c9cda94c7b76a1f54a855d8d77e",
+      "spec_sha256": "90de76691e2f43945046c99ed2b7db21acc2a5cd5343b1ff20cd17f7a66a44f1",
+      "before_sha256": "a311e16babc9ecae6eb076439855b526bb9cbf38111004e2d73bdd0e1f95cab5",
+      "bytes": 21569
+    },
+    {
+      "id": "TD-M12",
+      "path": "visuals/modules/TD-M12.svg",
+      "pageIds": [
+        "TD-AG-00",
+        "TD-AG-01",
+        "TD-AG-02",
+        "TD-AG-03",
+        "TD-AG-04",
+        "TD-AG-05",
+        "TD-AG-06",
+        "TD-AG-07",
+        "TD-AG-08",
+        "TD-AG-09",
+        "TD-AG-10"
+      ],
+      "primaryPageIds": [],
+      "layout": "flow",
+      "title": "Agent 测试架构｜模块全景",
+      "sourceRefs": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M12 / stages + logic + boundary",
+          "quote": "Agent 的验证面有八个域，任何一个域缺证据都不构成可发布。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 7,
+      "edgeCount": 6,
+      "sha256": "94b0a97d9258b3d116f58c0f880f45693e804dfd781b598c785a4d25221ec167",
+      "spec_sha256": "d141610255489f38470f00bdb7a542731fc5445b2041704465c856f1368915f1",
+      "before_sha256": "3bdd84184abf219fe7239fc07b589708637533ecac68b36090cec46a30de4774",
+      "bytes": 20619
+    },
+    {
+      "id": "TD-M13",
+      "path": "visuals/modules/TD-M13.svg",
+      "pageIds": [
+        "TD-AI-01",
+        "TD-AI-02",
+        "TD-AI-03",
+        "TD-AI-04",
+        "TD-AI-05"
+      ],
+      "primaryPageIds": [],
+      "layout": "flow",
+      "title": "补充研究与待验证主题｜模块全景",
+      "sourceRefs": [
+        {
+          "path": "content/module-overviews.ts",
+          "locator": "TD-M13 / stages + logic + boundary",
+          "quote": "先能开测，再进架构专章：五页只交付立场、边界、分层判定、首错入口和可发分叉。"
+        }
+      ],
+      "supplementalSources": [],
+      "nodeCount": 5,
+      "edgeCount": 4,
+      "sha256": "f45b9a40e6f8469a57269340a856c47dfc9ac623b3ade6725b1b90273efe3a5b",
+      "spec_sha256": "b0e578b3d62d5107ec0e320743c1522b4d8819795b62a385a1cf4eb8e389a138",
+      "before_sha256": "0c11766fbf804146f8276fafa4e07cf910a591f59ec1d1588e8a72de40266d0b",
+      "bytes": 16997
+    }
+  ],
+  "validation": {
+    "rendered": "batch-verification.json",
+    "integrity": "integrity-verification.json",
+    "review": "docs/svg-redesign-2026-10-26/release-review/"
+  }
+}

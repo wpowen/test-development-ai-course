@@ -1,93 +1,153 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 1000" width="1600" height="1000">
-  <title id="title">职业演进｜专业关系图</title>
-  <desc id="desc">责任等级如何由真实证据工件支撑，并转成可执行的能力缺口动作？ 图中区分数据流、控制流、证据流与反馈回路，并显示失败路径、系统边界和责任门禁。</desc>
-  <defs>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173f32" flood-opacity="0.12"/></filter>
-    <marker id="arrow-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7fb8"/></marker>
-<marker id="arrow-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c9852c"/></marker>
-<marker id="arrow-evidence" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#765ca6"/></marker>
-<marker id="arrow-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2c7b61"/></marker>
-  </defs>
-  <rect width="1600" height="1000" rx="32" fill="#f4f7f2"/>
-  <rect x="0" y="0" width="1600" height="146" rx="32" fill="#174f3f"/>
-  <text x="72" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" font-weight="800" fill="#b8dd78">TD-M10 · evidence-ladder · module-career-evidence</text>
-  <text x="72" y="92" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="30" font-weight="800" fill="#ffffff">职业演进｜专业关系图</text>
-  <text x="72" y="132" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="600" fill="#d9e9df">责任等级如何由真实证据工件支撑，并转成可执行的能力缺口动作？</text>
-  <rect x="54" y="172" width="1492" height="590" rx="26" fill="#fbfdfb" stroke="#c9d6cf" stroke-width="2"/>
-  <text x="82" y="204" font-size="17" font-weight="800" fill="#52665e">系统边界 · 不提供薪资数据与具体公司的职级标准；职级映射是方法，具体阈值必须由本组织的 owner 确定；…</text>
-  <path d="M 810 280 C 885 280, 50 490, 125 490" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 285 490 C 360 490, 505 490, 580 490" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 740 490 C 815 490, 960 490, 1035 490" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1195 490 C 1270 490, 50 680, 125 680" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 285 680 C 360 680, 505 680, 580 680" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 740 680 C 815 680, 960 680, 1035 680" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1195 680 C 1270 680, 50 870, 125 870" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 285 870 C 360 870, 50 490, 125 490" fill="none" stroke="#2c7b61" stroke-width="4" stroke-dasharray="14 6" marker-end="url(#arrow-feedback)" opacity="0.92"/>
-  <g filter="url(#shadow)">
-      <rect x="650" y="220" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="650" y="220" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="678" y="248" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">01</text>
-      <text x="678" y="282" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">岗位路径→路径图与作品集证据表</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="125" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="125" y="430" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="153" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">02</text>
-      <text x="153" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">责任阶梯→responsibility-map.json</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="580" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="580" y="430" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="608" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">03</text>
-      <text x="608" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">自评与计划→自评JSON与90天证据计划</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1035" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1035" y="430" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1063" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">04</text>
-      <text x="1063" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">职级映射→P5–P9映射与threshold</text>
-<text x="1063" y="522" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">owner</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="125" y="620" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="125" y="620" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="153" y="648" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">05</text>
-      <text x="153" y="682" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">任务族与指标→task-metric-card与决</text>
-<text x="153" y="712" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">策树</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="580" y="620" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="580" y="620" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="608" y="648" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">06</text>
-      <text x="608" y="682" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">提效举证→baseline-vs-AI对照报告</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1035" y="620" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="1035" y="620" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="1063" y="648" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">07</text>
-      <text x="1063" y="682" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">资源索引→resource-index.json与分</text>
-<text x="1063" y="712" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">路图</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="125" y="810" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="125" y="810" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="153" y="838" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">08</text>
-      <text x="153" y="872" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Basis/版本</text>
-    </g>
-  <g transform="translate(70 788)">
-    <rect width="710" height="112" rx="20" fill="#fff4ef" stroke="#e5aaa2" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#b84c42">失败路径</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">任一关键输入、权限、Oracle、版本或终态证据缺失时进入</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">FAIL/BLOCKED/UNKNOWN，不静默通过。</text>
-  </g>
-  <g transform="translate(820 788)">
-    <rect width="710" height="112" rx="20" fill="#eef8f2" stroke="#9bc6ac" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#2c7b61">反馈闭环 · Owner Gate</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">失败证据回到最早分叉点，修复后使用同一版本输入重跑并产生新receipt。业务/</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">质量Owner批准判据、风险接受与发布；AI只生成候选和整理证据。</text>
-  </g>
-  <g transform="translate(100 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#4f7fb8" stroke-width="5" stroke-dasharray=""/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">数据流</text></g>
-<g transform="translate(345 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#c9852c" stroke-width="5" stroke-dasharray="10 7"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">控制流</text></g>
-<g transform="translate(590 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#765ca6" stroke-width="5" stroke-dasharray="4 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">证据流</text></g>
-<g transform="translate(835 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#2c7b61" stroke-width="5" stroke-dasharray="14 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">反馈闭环</text></g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2143" viewBox="0 0 1600 2143" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">职业演进｜模块全景</title><desc id="desc">职业能力用交付过的工件和承担过的责任衡量，不用年限衡量。 本模块学习路径 · 箭头表示学习先后与交付承接 不提供薪资数据与具体公司的职级标准；职级映射是方法，具体阈值必须由本组织的 owner 确定；不做职业建议，只提供举证结构。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。</desc><metadata data-source-ref="content/module-overviews.ts#TD-M10 / stages + logic + boundary">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-M10&quot;,&quot;pageIds&quot;:[&quot;TD-C01&quot;,&quot;TD-C02&quot;,&quot;TD-C03&quot;,&quot;TD-C04&quot;,&quot;TD-F05&quot;,&quot;TD-T26&quot;,&quot;TD-R01&quot;],&quot;primaryPageIds&quot;:[],&quot;layout&quot;:&quot;flow&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;content/module-overviews.ts&quot;,&quot;locator&quot;:&quot;TD-M10 / stages + logic + boundary&quot;,&quot;quote&quot;:&quot;职业能力用交付过的工件和承担过的责任衡量，不用年限衡量。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;s1&quot;,&quot;title&quot;:&quot;岗位路径&quot;},{&quot;id&quot;:&quot;s2&quot;,&quot;title&quot;:&quot;责任阶梯&quot;},{&quot;id&quot;:&quot;s3&quot;,&quot;title&quot;:&quot;自评与计划&quot;},{&quot;id&quot;:&quot;s4&quot;,&quot;title&quot;:&quot;职级映射&quot;},{&quot;id&quot;:&quot;s5&quot;,&quot;title&quot;:&quot;任务族与指标&quot;},{&quot;id&quot;:&quot;s6&quot;,&quot;title&quot;:&quot;提效举证&quot;},{&quot;id&quot;:&quot;s7&quot;,&quot;title&quot;:&quot;资源索引&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;s1&quot;,&quot;to&quot;:&quot;s2&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s2&quot;,&quot;to&quot;:&quot;s3&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s3&quot;,&quot;to&quot;:&quot;s4&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s4&quot;,&quot;to&quot;:&quot;s5&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s5&quot;,&quot;to&quot;:&quot;s6&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s6&quot;,&quot;to&quot;:&quot;s7&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2143" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-M10</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >职业演进｜模块全景</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >职业能力用交付过的工件和承担过的责任衡量，不用年限衡量。</text>
+<g id="system-graph" data-region="64,234,1472,1203.224592220828">
+<rect x="64" y="234" width="1472" height="1203.224592220828" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >本模块学习路径 · 箭头表示学习先后与交付承接</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >流程与交付</text>
+<g transform="translate(222.38393977415308 418.2559598494354) scale(0.8531994981179423)" data-graph-scale="0.8531994981179423">
+<path class="edge edge-data" d="M354.34 136.5 C397.74 136.5 444.33 136.5 488.25 136.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s1" data-to="s2"/>
+<path class="edge edge-data" d="M854.34 136.5 C897.74 136.5 944.33 136.5 988.25 136.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s2" data-to="s3"/>
+<path class="edge edge-data" d="M1177 273.39 C1177 317.86 1177 367.09000000000003 1177 411.14" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s3" data-to="s4"/>
+<path class="edge edge-data" d="M999.66 542.5 C956.27 542.5 909.67 542.5 865.76 542.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s4" data-to="s5"/>
+<path class="edge edge-data" d="M499.66 542.5 C456.27 542.5 409.67 542.5 365.76 542.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s5" data-to="s6"/>
+<path class="edge edge-data" d="M331.1 662.39 C389.09 707.51 455.21 758.95 513.99 804.6800000000001" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s6" data-to="s7"/>
+<g id="node-s1" class="node node-input" data-region="0,17,354,239">
+<rect x="0" y="17" width="354" height="239" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="18" y="34" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="52" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="22" y="93" font-size="28" fill="#215cbb" font-weight="700" >岗位路径</text>
+<text x="22" y="136" font-size="23" fill="#172b45" font-weight="450" >从这里能走到哪几个岗位？</text>
+<text x="22" y="170" font-size="23" fill="#172b45" font-weight="450" >产物：路径图与作品集证</text>
+<text x="22" y="204" font-size="23" fill="#172b45" font-weight="450" >据表</text>
+<text x="22" y="238" font-size="23" fill="#172b45" font-weight="450" >TD-C01</text>
+</g>
+<g id="node-s2" class="node node-control" data-region="500,17,354,239">
+<rect x="500" y="17" width="354" height="239" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="518" y="34" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="525" y="52" font-size="15" fill="#945c0b" font-weight="750" class="mono">02</text>
+<text x="522" y="93" font-size="28" fill="#945c0b" font-weight="700" >责任阶梯</text>
+<text x="522" y="136" font-size="23" fill="#172b45" font-weight="450" >我现在在第几级？</text>
+<text x="522" y="170" font-size="23" fill="#172b45" font-weight="450" >产物：responsibility-</text>
+<text x="522" y="204" font-size="23" fill="#172b45" font-weight="450" >map.json</text>
+<text x="522" y="238" font-size="23" fill="#172b45" font-weight="450" >TD-C02</text>
+</g>
+<g id="node-s3" class="node node-ai" data-region="1000,0,354,273">
+<rect x="1000" y="0" width="354" height="273" rx="14" fill="#f4effb" stroke="none" />
+<rect x="1018" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1025" y="35" font-size="15" fill="#7045a4" font-weight="750" class="mono">03</text>
+<text x="1022" y="76" font-size="28" fill="#7045a4" font-weight="700" >自评与计划</text>
+<text x="1022" y="119" font-size="23" fill="#172b45" font-weight="450" >差距怎么变成可验收的</text>
+<text x="1022" y="153" font-size="23" fill="#172b45" font-weight="450" >产出？</text>
+<text x="1022" y="187" font-size="23" fill="#172b45" font-weight="450" >产物：自评 JSON 与 90 天</text>
+<text x="1022" y="221" font-size="23" fill="#172b45" font-weight="450" >证据计划</text>
+<text x="1022" y="255" font-size="23" fill="#172b45" font-weight="450" >TD-C03</text>
+</g>
+<g id="node-s4" class="node node-data" data-region="1000,423,354,239">
+<rect x="1000" y="423" width="354" height="239" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="1018" y="440" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1025" y="458" font-size="15" fill="#087b76" font-weight="750" class="mono">04</text>
+<text x="1022" y="499" font-size="28" fill="#087b76" font-weight="700" >职级映射</text>
+<text x="1022" y="542" font-size="23" fill="#172b45" font-weight="450" >这套能力对应公司哪一级？</text>
+<text x="1022" y="576" font-size="23" fill="#172b45" font-weight="450" >产物：P5–P9 映射与</text>
+<text x="1022" y="610" font-size="23" fill="#172b45" font-weight="450" >threshold owner</text>
+<text x="1022" y="644" font-size="23" fill="#172b45" font-weight="450" >TD-C04</text>
+</g>
+<g id="node-s5" class="node node-evidence" data-region="500,423,354,239">
+<rect x="500" y="423" width="354" height="239" rx="14" fill="#f4effb" stroke="none" />
+<rect x="518" y="440" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="525" y="458" font-size="15" fill="#7045a4" font-weight="750" class="mono">05</text>
+<text x="522" y="499" font-size="28" fill="#7045a4" font-weight="700" >任务族与指标</text>
+<text x="522" y="542" font-size="23" fill="#172b45" font-weight="450" >这类任务该用什么指标？</text>
+<text x="522" y="576" font-size="23" fill="#172b45" font-weight="450" >产物：task-metric-card</text>
+<text x="522" y="610" font-size="23" fill="#172b45" font-weight="450" >与决策树</text>
+<text x="522" y="644" font-size="23" fill="#172b45" font-weight="450" >TD-F05</text>
+</g>
+<g id="node-s6" class="node node-process" data-region="0,423,354,239">
+<rect x="0" y="423" width="354" height="239" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="18" y="440" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="458" font-size="15" fill="#344f70" font-weight="750" class="mono">06</text>
+<text x="22" y="499" font-size="28" fill="#344f70" font-weight="700" >提效举证</text>
+<text x="22" y="542" font-size="23" fill="#172b45" font-weight="450" >AI 到底提效了多少？</text>
+<text x="22" y="576" font-size="23" fill="#172b45" font-weight="450" >产物：baseline-vs-AI 对</text>
+<text x="22" y="610" font-size="23" fill="#172b45" font-weight="450" >照报告</text>
+<text x="22" y="644" font-size="23" fill="#172b45" font-weight="450" >TD-T26</text>
+</g>
+<g id="node-s7" class="node node-risk" data-region="500,812,354,239">
+<rect x="500" y="812" width="354" height="239" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="518" y="829" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="525" y="847" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">07</text>
+<text x="522" y="888" font-size="28" fill="#ad3e4c" font-weight="700" >资源索引</text>
+<text x="522" y="931" font-size="23" fill="#172b45" font-weight="450" >下一步该读什么？</text>
+<text x="522" y="965" font-size="23" fill="#172b45" font-weight="450" >产物：resource-</text>
+<text x="522" y="999" font-size="23" fill="#172b45" font-weight="450" >index.json 与分路图</text>
+<text x="522" y="1033" font-size="23" fill="#172b45" font-weight="450" >TD-R01</text>
+</g>
+<path d="M448.15932 136.5 L450.26 -35.5" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="394.58" y="-56.5" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="450.26" y="-28.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<path d="M921.1000000000001 136.5 L920.26 -35.5" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="864.58" y="-56.5" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="920.26" y="-28.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<rect x="1104.62" y="314.9" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1160.3" y="342.9" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<path d="M946.4287999999998 542.5 L950.43 370.5" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="894.75" y="349.5" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="950.43" y="377.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<path d="M446.42879999999997 542.5 L450.43 370.5" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="394.75" y="349.5" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="450.43" y="377.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<rect x="329.3884099999999" y="683.3795899999999" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="385.0684099999999" y="711.3795899999999" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+</g>
+</g>
+<text x="64" y="1491.224592220828" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1491.224592220828" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1521.224592220828,470,209">
+<rect x="64" y="1521.224592220828" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1543.224592220828" width="7" height="30" rx="3" fill="#215cbb" stroke="none" />
+<text x="106" y="1568.224592220828" font-size="25" fill="#215cbb" font-weight="700" >为什么先学这一步</text>
+<text x="88" y="1623.224592220828" font-size="23" fill="#172b45" font-weight="450" >「三年测试经验」这句话不携带信息，</text>
+<text x="88" y="1658.224592220828" font-size="23" fill="#172b45" font-weight="450" >因为它没说这三年里独立负责过什么、</text>
+<text x="88" y="1693.224592220828" font-size="23" fill="#172b45" font-weight="450" >留下了哪些别人能检查的东西。</text>
+</g>
+<g id="detail-1" data-region="565,1521.224592220828,470,209">
+<rect x="565" y="1521.224592220828" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1543.224592220828" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="607" y="1568.224592220828" font-size="25" fill="#7045a4" font-weight="700" >怎样承接下一步</text>
+<text x="589" y="1623.224592220828" font-size="23" fill="#172b45" font-weight="450" >责任阶梯是这里的核心结构。</text>
+</g>
+<g id="detail-2" data-region="1066,1521.224592220828,470,209">
+<rect x="1066" y="1521.224592220828" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1543.224592220828" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="1108" y="1568.224592220828" font-size="25" fill="#945c0b" font-weight="700" >如何判断学会了</text>
+<text x="1090" y="1623.224592220828" font-size="23" fill="#172b45" font-weight="450" >自评和计划部分要求把差距变成有期限</text>
+<text x="1090" y="1658.224592220828" font-size="23" fill="#172b45" font-weight="450" >的证据产出，而不是学习清单。</text>
+</g>
+<g id="failure-and-output" data-region="64,1762.224592220828,1472,183">
+<rect x="64" y="1762.224592220828" width="1472" height="183" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="1801.224592220828" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="1846.224592220828" font-size="23" fill="#ffdce2" font-weight="450" >阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。</text>
+<text x="88" y="1889.224592220828" font-size="23" fill="#dce9fa" font-weight="450" >带走物：路径图与作品集证据表；responsibility-map.json；自评 JSON 与 90 天证据计划；P5–P9 映射与 threshold owner；</text>
+<text x="88" y="1924.224592220828" font-size="23" fill="#dce9fa" font-weight="450" >task-metric-card 与决策树；baseline-vs-AI 对照报告；resource-index.json 与分路图。</text>
+</g>
+<text x="64" y="1993.224592220828" font-size="20" fill="#50647c" font-weight="450" >不提供薪资数据与具体公司的职级标准；职级映射是方法，具体阈值必须由本组织的 owner 确定；不做职业建议，只提供举证结构。教学路线不证明</text>
+<text x="64" y="2024.224592220828" font-size="20" fill="#50647c" font-weight="450" >真实模型或生产效果，未执行环节保持 NOT_RUN。</text>
+<text x="64" y="2063.224592220828" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-C01 / TD-C02 / TD-C03 / TD-C04 / TD-F05 / TD-T26 / TD-R01 · 职业演进｜模块全景</text>
+<path class="edge edge-data" d="M64 2103.224592220828 L101 2103.224592220828" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2109.224592220828" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2103.224592220828 L397 2103.224592220828" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2109.224592220828" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2103.224592220828 L693 2103.224592220828" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2109.224592220828" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2103.224592220828 L989 2103.224592220828" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2109.224592220828" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2103.224592220828 L1285 2103.224592220828" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2109.224592220828" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

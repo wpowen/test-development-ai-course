@@ -1,90 +1,148 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 1000" width="1600" height="1000">
-  <title id="title">AI 服务快不快、能处理多少请求、花多少钱，应该看哪些指标｜专业关系图</title>
-  <desc id="desc">怎样让 TTFT、TPOT、ITL、Goodput 和 cost_per_success 的时间点、分母、切片与质量条件都可重算？ 任一关键证据缺失时保持 UNKNOWN/BLOCKED。 图中区分数据流、控制流、证据流与反馈回路，并显示失败路径、系统边界和责任门禁。</desc>
-  <defs>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173f32" flood-opacity="0.12"/></filter>
-    <marker id="arrow-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7fb8"/></marker>
-<marker id="arrow-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c9852c"/></marker>
-<marker id="arrow-evidence" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#765ca6"/></marker>
-<marker id="arrow-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2c7b61"/></marker>
-  </defs>
-  <rect width="1600" height="1000" rx="32" fill="#f4f7f2"/>
-  <rect x="0" y="0" width="1600" height="146" rx="32" fill="#174f3f"/>
-  <text x="72" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" font-weight="800" fill="#b8dd78">TD-A03 · metric-experiment · metric-paired-b</text>
-  <text x="72" y="92" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="30" font-weight="800" fill="#ffffff">AI服务快不快、能处理多少请求、花多少钱，应该看哪些指标｜专业关系图</text>
-  <text x="72" y="132" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="600" fill="#d9e9df">怎样让TTFT、TPOT、ITL、Goodput和cost_per_success的时间点、分母、切片与质量条件都可重算？任一关键证据缺失时保持</text>
-  <rect x="54" y="172" width="1492" height="590" rx="26" fill="#fbfdfb" stroke="#c9d6cf" stroke-width="2"/>
-  <text x="82" y="204" font-size="17" font-weight="800" fill="#52665e">系统边界 · 课程方法与可复核工件在边界内；真实企业系统、模型和生产状态在边界外。</text>
-  <path d="M 810 285 C 885 285, 70 490, 145 490" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 305 490 C 380 490, 500 490, 575 490" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 735 490 C 810 490, 930 490, 1005 490" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1165 490 C 1240 490, 70 685, 145 685" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 305 685 C 380 685, 500 685, 575 685" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 735 685 C 810 685, 930 685, 1005 685" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1165 685 C 1240 685, 1360 685, 1435 685" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 1595 685 C 1670 685, 70 490, 145 490" fill="none" stroke="#2c7b61" stroke-width="4" stroke-dasharray="14 6" marker-end="url(#arrow-feedback)" opacity="0.92"/>
-  <g filter="url(#shadow)">
-      <rect x="650" y="225" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="650" y="225" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="678" y="253" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">01</text>
-      <text x="678" y="287" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">到达</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="145" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="145" y="430" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="173" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">02</text>
-      <text x="173" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Queue</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="575" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="575" y="430" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="603" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">03</text>
-      <text x="603" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Prefill/首Token</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1005" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1005" y="430" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1033" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">04</text>
-      <text x="1033" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Decode/ITL</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="145" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="145" y="625" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="173" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">05</text>
-      <text x="173" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">终态/质量</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="575" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="575" y="625" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="603" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">06</text>
-      <text x="603" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Goodput</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1005" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="1005" y="625" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="1033" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">07</text>
-      <text x="1033" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">成本门禁</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1435" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1435" y="625" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1463" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">08</text>
-      <text x="1463" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">版本化输入</text>
-    </g>
-  <g transform="translate(70 788)">
-    <rect width="710" height="112" rx="20" fill="#fff4ef" stroke="#e5aaa2" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#b84c42">失败路径</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">任一关键输入、权限、Oracle、版本或终态证据缺失时进入</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">FAIL/BLOCKED/UNKNOWN，不静默通过。</text>
-  </g>
-  <g transform="translate(820 788)">
-    <rect width="710" height="112" rx="20" fill="#eef8f2" stroke="#9bc6ac" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#2c7b61">反馈闭环 · Owner Gate</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">失败证据回到最早分叉点，修复后使用同一版本输入重跑并产生新receipt。业务/</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">质量Owner批准判据、风险接受与发布；AI只生成候选和整理证据。</text>
-  </g>
-  <g transform="translate(100 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#4f7fb8" stroke-width="5" stroke-dasharray=""/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">数据流</text></g>
-<g transform="translate(345 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#c9852c" stroke-width="5" stroke-dasharray="10 7"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">控制流</text></g>
-<g transform="translate(590 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#765ca6" stroke-width="5" stroke-dasharray="4 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">证据流</text></g>
-<g transform="translate(835 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#2c7b61" stroke-width="5" stroke-dasharray="14 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">反馈闭环</text></g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2200" viewBox="0 0 1600 2200" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">从事件复算延迟、有效产出和成本</title><desc id="desc">时间戳、质量判定与所有尝试费用共同决定指标，先固定定义，再比较风险切片。 区分每请求延迟、Token 间隔、每时间有效产出和每成功任务成本 确定性时间戳 fixture 不代表真实模型、GPU 性能或生产成本。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-A03 / 从时间戳事件算出四个指标;docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-A03 / 指标算错分母，比不算更危险;docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-A03 / 用一个业务例子验证方法，并说明迁移条件">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-A03&quot;,&quot;pageIds&quot;:[&quot;TD-A03&quot;],&quot;primaryPageIds&quot;:[&quot;TD-A03&quot;],&quot;layout&quot;:&quot;metric&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-A03 / 从时间戳事件算出四个指标&quot;,&quot;quote&quot;:&quot;满足 SLO 的成功请求数 ÷ 时长&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-A03 / 指标算错分母，比不算更危险&quot;,&quot;quote&quot;:&quot;它接了很多请求，但大部分慢到用户已经放弃。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-A03 / 用一个业务例子验证方法，并说明迁移条件&quot;,&quot;quote&quot;:&quot;原始失败尝试仍要进入成本，不能只保留最后一次。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;events&quot;,&quot;title&quot;:&quot;原始 Token 事件&quot;},{&quot;id&quot;:&quot;ttft&quot;,&quot;title&quot;:&quot;TTFT&quot;},{&quot;id&quot;:&quot;decode&quot;,&quot;title&quot;:&quot;TPOT 与 ITL&quot;},{&quot;id&quot;:&quot;quality&quot;,&quot;title&quot;:&quot;达标完成判定&quot;},{&quot;id&quot;:&quot;goodput&quot;,&quot;title&quot;:&quot;Goodput&quot;},{&quot;id&quot;:&quot;cost&quot;,&quot;title&quot;:&quot;单位成功成本&quot;},{&quot;id&quot;:&quot;audit&quot;,&quot;title&quot;:&quot;切片指标卡&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;events&quot;,&quot;to&quot;:&quot;ttft&quot;,&quot;label&quot;:&quot;到达与首 Token&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;events&quot;,&quot;to&quot;:&quot;decode&quot;,&quot;label&quot;:&quot;逐 Token 时间&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;events&quot;,&quot;to&quot;:&quot;quality&quot;,&quot;label&quot;:&quot;终态与质量记录&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;quality&quot;,&quot;to&quot;:&quot;goodput&quot;,&quot;label&quot;:&quot;只计同时达标&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;quality&quot;,&quot;to&quot;:&quot;cost&quot;,&quot;label&quot;:&quot;成功任务计数&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;events&quot;,&quot;to&quot;:&quot;cost&quot;,&quot;label&quot;:&quot;全尝试成本&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;ttft&quot;,&quot;to&quot;:&quot;audit&quot;,&quot;label&quot;:&quot;体感延迟&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;decode&quot;,&quot;to&quot;:&quot;audit&quot;,&quot;label&quot;:&quot;生成速度与抖动&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;goodput&quot;,&quot;to&quot;:&quot;audit&quot;,&quot;label&quot;:&quot;有效容量&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;cost&quot;,&quot;to&quot;:&quot;audit&quot;,&quot;label&quot;:&quot;经济性&quot;,&quot;kind&quot;:&quot;data&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2200" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-A03</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >从事件复算延迟、有效产出和成本</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >时间戳、质量判定与所有尝试费用共同决定指标，先固定定义，再比较风险切片。</text>
+<g id="system-graph" data-region="64,234,1472,1361.8128499066916">
+<rect x="64" y="234" width="1472" height="1361.8128499066916" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >区分每请求延迟、Token 间隔、每时间有效产出和每成功任务成本</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >实验与指标</text>
+<g transform="translate(111.19701412956545 350) scale(0.9330845107971207)" data-graph-scale="0.9330845107971207" data-routing="dot">
+<path class="edge edge-evidence" d="M716.5 231 C716.5 293.96000000000004 497.39 257.01 436 271 C322.3 296.91999999999996 186.63 236.63 177.49 341.26" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e0" data-from="events" data-to="ttft"/>
+<path class="edge edge-evidence" d="M775.5 231 C775.5 270.95000000000005 727.58 247.88 695 271 C655.94 298.72 617.81 300.67999999999995 611.81 341.17999999999995" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e1" data-from="events" data-to="decode"/>
+<path class="edge edge-data" d="M834.5 231 C834.5 252.32000000000005 965.78 326.14 994.49 358.94000000000005" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e2" data-from="events" data-to="quality"/>
+<path class="edge edge-control" d="M1000 566 C1000 608.14 957.96 597.75 925 624 C883.38 657.15 833.11 649.94 825.88 694.29" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e3" data-from="quality" data-to="goodput"/>
+<path class="edge edge-control" d="M1088 566 C1088 612.04 1084.46 631.55 1115 666 C1143.4 698.04 1201.16 666.19 1212.16 694.53" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e4" data-from="quality" data-to="cost"/>
+<path class="edge edge-evidence" d="M893.5 231 C893.5 281.89 1071.77 252.03999999999996 1119 271 C1179.97 295.48 1206.24 297.88 1242 353 C1326.42 483.11 1303.28 543.75 1302.05 694.07" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e5" data-from="events" data-to="cost"/>
+<path class="edge edge-data" d="M177 584 C177 736.93 214.85 780.2 306 903 C355.01 969.03 447.85 941.61 456.8 1013.17" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e6" data-from="ttft" data-to="audit"/>
+<path class="edge edge-data" d="M611 584 C611 673.43 490.67 625.86 451 706 C412.16 784.47 429.65 818.0899999999999 451 903 C464.98 958.6 509.76 963.0799999999999 515.82 1013.19" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e7" data-from="decode" data-to="audit"/>
+<path class="edge edge-data" d="M825 902 C825 1021.41 592.26 909.5699999999999 576.35 1013.17" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e8" data-from="goodput" data-to="audit"/>
+<path class="edge edge-data" d="M1214 902 C1214 1033.5 1058.63 957.6600000000001 930 985 C869.36 997.89 663.55 963.6700000000001 637.27 1013.47" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e9" data-from="cost" data-to="audit"/>
+<g id="node-events" class="node node-input" data-region="628,0,354,231">
+<rect x="628" y="0" width="354" height="231" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="646" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="653" y="35" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="650" y="76" font-size="28" fill="#215cbb" font-weight="700" >原始 Token 事件</text>
+<text x="650" y="119" font-size="23" fill="#172b45" font-weight="450" >arrival / first / last /</text>
+<text x="650" y="153" font-size="23" fill="#172b45" font-weight="450" >token 数</text>
+<text x="650" y="187" font-size="23" fill="#172b45" font-weight="450" >验证单调时钟与事件完整</text>
+</g>
+<g id="node-ttft" class="node node-evidence" data-region="0,353,354,231">
+<rect x="0" y="353" width="354" height="231" rx="14" fill="#f4effb" stroke="none" />
+<rect x="18" y="370" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="388" font-size="15" fill="#7045a4" font-weight="750" class="mono">02</text>
+<text x="22" y="429" font-size="28" fill="#7045a4" font-weight="700" >TTFT</text>
+<text x="22" y="472" font-size="23" fill="#172b45" font-weight="450" >首 Token 时刻 − 请求起点</text>
+<text x="22" y="506" font-size="23" fill="#172b45" font-weight="450" >包含该口径内的排队与</text>
+<text x="22" y="540" font-size="23" fill="#172b45" font-weight="450" >prefill</text>
+</g>
+<g id="node-decode" class="node node-evidence" data-region="434,353,354,231">
+<rect x="434" y="353" width="354" height="231" rx="14" fill="#f4effb" stroke="none" />
+<rect x="452" y="370" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="459" y="388" font-size="15" fill="#7045a4" font-weight="750" class="mono">03</text>
+<text x="456" y="429" font-size="28" fill="#7045a4" font-weight="700" >TPOT 与 ITL</text>
+<text x="456" y="472" font-size="23" fill="#172b45" font-weight="450" >TPOT=(last-first)/</text>
+<text x="456" y="506" font-size="23" fill="#172b45" font-weight="450" >(tokens-1)</text>
+<text x="456" y="540" font-size="23" fill="#172b45" font-weight="450" >ITL 保留相邻间隔分布</text>
+</g>
+<g id="node-quality" class="node node-control" data-region="868,370,354,197">
+<rect x="868" y="370" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="886" y="387" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="893" y="405" font-size="15" fill="#945c0b" font-weight="750" class="mono">04</text>
+<text x="890" y="446" font-size="28" fill="#945c0b" font-weight="700" >达标完成判定</text>
+<text x="890" y="489" font-size="23" fill="#172b45" font-weight="450" >质量 / 安全 / 完整性 / SLO</text>
+<text x="890" y="523" font-size="23" fill="#172b45" font-weight="450" >失败、截断不能计为 good</text>
+</g>
+<g id="node-goodput" class="node node-evidence" data-region="648,706,354,197">
+<rect x="648" y="706" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="666" y="723" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="673" y="741" font-size="15" fill="#7045a4" font-weight="750" class="mono">05</text>
+<text x="670" y="782" font-size="28" fill="#7045a4" font-weight="700" >Goodput</text>
+<text x="670" y="825" font-size="23" fill="#172b45" font-weight="450" >达标完成任务数 ÷ 时间窗</text>
+<text x="670" y="859" font-size="23" fill="#172b45" font-weight="450" >同时列所有到达及失败数量</text>
+</g>
+<g id="node-cost" class="node node-evidence" data-region="1082,706,354,197">
+<rect x="1082" y="706" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="1100" y="723" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1107" y="741" font-size="15" fill="#7045a4" font-weight="750" class="mono">06</text>
+<text x="1104" y="782" font-size="28" fill="#7045a4" font-weight="700" >单位成功成本</text>
+<text x="1104" y="825" font-size="23" fill="#172b45" font-weight="450" >全部尝试费用 ÷ 成功任务数</text>
+<text x="1104" y="859" font-size="23" fill="#172b45" font-weight="450" >失败和重试费用保留在分子</text>
+</g>
+<g id="node-audit" class="node node-control" data-region="369,1025,354,231">
+<rect x="369" y="1025" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="387" y="1042" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="394" y="1060" font-size="15" fill="#945c0b" font-weight="750" class="mono">07</text>
+<text x="391" y="1101" font-size="28" fill="#945c0b" font-weight="700" >切片指标卡</text>
+<text x="391" y="1144" font-size="23" fill="#172b45" font-weight="450" >短聊天 / 长报告 / 工具请求</text>
+<text x="391" y="1178" font-size="23" fill="#172b45" font-weight="450" >列样本数、缺失、分位与</text>
+<text x="391" y="1212" font-size="23" fill="#172b45" font-weight="450" >限制</text>
+</g>
+<rect x="436" y="271" width="181" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="526.5" y="299" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">到达与首 Token</text>
+<rect x="695" y="271" width="167" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="778.5" y="299" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">逐 Token 时间</text>
+<rect x="932.1" y="271" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1020.6" y="299" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">终态与质量记录</text>
+<rect x="925" y="624" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1003" y="652" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">只计同时达标</text>
+<rect x="1115" y="624" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1193" y="652" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">成功任务计数</text>
+<rect x="1305.9" y="447.5" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1372.9" y="475.5" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">全尝试成本</text>
+<rect x="306" y="783.5" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="362" y="811.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">体感延迟</text>
+<rect x="451" y="783.5" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="539.5" y="811.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">生成速度与抖动</text>
+<rect x="807.88" y="943" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="863.88" y="971" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">有效容量</text>
+<rect x="1205.4" y="943" width="90" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1250.4" y="971" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">经济性</text>
+</g>
+</g>
+<text x="64" y="1649.8128499066916" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1649.8128499066916" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1679.8128499066916,470,174">
+<rect x="64" y="1679.8128499066916" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1701.8128499066916" width="7" height="30" rx="3" fill="#087b76" stroke="none" />
+<text x="106" y="1726.8128499066916" font-size="25" fill="#087b76" font-weight="700" >先校验事件</text>
+<text x="88" y="1781.8128499066916" font-size="23" fill="#172b45" font-weight="450" >缺 first_token 则对应指标未知</text>
+<text x="88" y="1816.8128499066916" font-size="23" fill="#172b45" font-weight="450" >仅一个 Token 时不除以零</text>
+</g>
+<g id="detail-1" data-region="565,1679.8128499066916,470,174">
+<rect x="565" y="1679.8128499066916" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1701.8128499066916" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="607" y="1726.8128499066916" font-size="25" fill="#ad3e4c" font-weight="700" >本页故障审计</text>
+<text x="589" y="1781.8128499066916" font-size="23" fill="#172b45" font-weight="450" >把质量失败错误计入 Goodput</text>
+<text x="589" y="1816.8128499066916" font-size="23" fill="#172b45" font-weight="450" >丢弃失败费用会低估成功成本</text>
+</g>
+<g id="detail-2" data-region="1066,1679.8128499066916,470,174">
+<rect x="1066" y="1679.8128499066916" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1701.8128499066916" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="1726.8128499066916" font-size="25" fill="#7045a4" font-weight="700" >报告可复算</text>
+<text x="1090" y="1781.8128499066916" font-size="23" fill="#172b45" font-weight="450" >保留原始事件与过滤条件</text>
+<text x="1090" y="1816.8128499066916" font-size="23" fill="#172b45" font-weight="450" >定义、阈值与切片分别声明</text>
+</g>
+<g id="failure-and-output" data-region="64,1885.8128499066916,1472,148">
+<rect x="64" y="1885.8128499066916" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="1924.8128499066916" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="1969.8128499066916" font-size="23" fill="#ffdce2" font-weight="450" >质量条件、时间点或费用缺失时保留 UNKNOWN，不能用总体平均值补齐。</text>
+<text x="88" y="2012.8128499066916" font-size="23" fill="#dce9fa" font-weight="450" >交付公式卡、原始事件、机器可读重算报告与分母审计表。</text>
+</g>
+<text x="64" y="2081.8128499066916" font-size="20" fill="#50647c" font-weight="450" >确定性时间戳 fixture 不代表真实模型、GPU 性能或生产成本。</text>
+<text x="64" y="2120.8128499066916" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-A03 · 从事件复算延迟、有效产出和成本</text>
+<path class="edge edge-data" d="M64 2160.8128499066916 L101 2160.8128499066916" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2166.8128499066916" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2160.8128499066916 L397 2160.8128499066916" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2166.8128499066916" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2160.8128499066916 L693 2160.8128499066916" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2166.8128499066916" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2160.8128499066916 L989 2160.8128499066916" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2166.8128499066916" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2160.8128499066916 L1285 2160.8128499066916" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2166.8128499066916" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

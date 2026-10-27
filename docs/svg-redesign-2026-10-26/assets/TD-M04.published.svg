@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1700" viewBox="0 0 1600 1700" data-redraw-version="2" role="img" aria-labelledby="title desc">
+<title id="title">测试 Agent、Worker 与 Workflow：运行链路、七个测试关注面与证据门禁</title><desc id="desc">以 TD-M04 七个教学阶段为依据重构。上方为一种受控系统的参考组合，不表示所有任务都需要 Agent；中部按原课程顺序覆盖三层评测、工具权限、安全边界、浏览器 Agent、自愈风险、控制权划分、编排记忆；下方区分 FAIL、BLOCKED、UNKNOWN 与人工发布判断。箭头只用于实际信息或控制关系，不把教学条目连接成虚假的执行顺序。此图是教学设计，不证明真实模型效果或生产验证。</desc><metadata>{&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;content/module-overviews.ts&quot;,&quot;locator&quot;:&quot;TD-M04 / stages + logic + boundary&quot;,&quot;quote&quot;:&quot;Agent 的正确不在最终答案里，在它走过的每一步里。&quot;}],&quot;pageIds&quot;:[&quot;TD-T15&quot;,&quot;TD-T16&quot;,&quot;TD-T17&quot;,&quot;TD-T18&quot;,&quot;TD-T19&quot;,&quot;TD-W01&quot;,&quot;TD-W02&quot;,&quot;TD-W03&quot;,&quot;TD-X603&quot;,&quot;TD-X604&quot;],&quot;approvedReference&quot;:&quot;docs/svg-redesign-2026-10-26/assets/TD-M04.review.svg&quot;}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif} .mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.5px}</style><defs>
+<marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker>
+<marker id="arrow-teal" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker>
+<marker id="arrow-amber" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker>
+<marker id="arrow-purple" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker>
+<marker id="arrow-red" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker>
+</defs>
+<rect x="0" y="0" width="1600" height="1700" rx="0" fill="#f4f7fb" stroke="none" />
+<rect x="0" y="0" width="12" height="174" rx="0" fill="#215cbb" stroke="none" />
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING   /   TD-M04</text>
+<text x="64" y="111" font-size="43" fill="#172b45" font-weight="750" >测试 Agent、Worker 与 Workflow</text>
+<text x="64" y="153" font-size="25" fill="#50647c" font-weight="450" >Agent 的正确不在最终答案里，在它走过的每一步里。</text>
+<rect x="1284" y="38" width="252" height="30" rx="8" fill="#e7edf8" stroke="none" />
+<text x="1296" y="59" font-size="18" fill="#215cbb" font-weight="650" >TD-M04 · 模块全景</text>
+<text x="1297" y="118" font-size="20" fill="#172b45" font-weight="650" >7 个测试关注面</text>
+<text x="1297" y="151" font-size="18" fill="#50647c" font-weight="400" >10 页课程 · 1 条证据链</text>
+<g id="runtime" data-box="64,194,1472,444">
+<rect x="64" y="194" width="1472" height="444" rx="16" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="237" font-size="22" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="237" font-size="25" fill="#172b45" font-weight="700" >先看运行链路：谁决定下一步，谁有权真正执行</text>
+<text x="88" y="271" font-size="20" fill="#50647c" font-weight="400" >一种受控组合示意；固定流程可直接调用 Worker，是否引入 Agent 由任务需要决定。</text>
+<path d="M351 363 L360 363" fill="none" stroke="#215cbb" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<path d="M637 363 L646 363" fill="none" stroke="#945c0b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 5" marker-end="url(#arrow-amber)"/>
+<path d="M923 363 L932 363" fill="none" stroke="#945c0b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 5" marker-end="url(#arrow-amber)"/>
+<path d="M1209 363 L1218 363" fill="none" stroke="#945c0b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 5" marker-end="url(#arrow-amber)"/>
+<g id="runtime-task" data-box="88,306,258,116">
+<rect x="88" y="306" width="258" height="116" rx="16" fill="#edf3ff" stroke="none" />
+<path d="M5 2H19V23H5Z M9 8H15 M9 13H15 M9 18H13" transform="translate(306 324)" fill="none" stroke="#215cbb" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="106" y="341" font-size="25" fill="#215cbb" font-weight="750" >任务与依据</text>
+<text x="106" y="374" font-size="19" fill="#172b45" font-weight="500" >目标 · 业务判据 · 风险</text>
+<text x="106" y="401" font-size="18" fill="#50647c" font-weight="400" >固定输入与版本</text>
+</g>
+<g id="runtime-workflow" data-box="374,306,258,116">
+<rect x="374" y="306" width="258" height="116" rx="16" fill="#fff5e5" stroke="none" />
+<path d="M3 3H10V10H3Z M17 17H24V24H17Z M6 10V20H17 M10 6H20V17" transform="translate(592 324)" fill="none" stroke="#945c0b" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="392" y="341" font-size="25" fill="#945c0b" font-weight="750" >Workflow</text>
+<text x="392" y="374" font-size="19" fill="#172b45" font-weight="500" >代码控制状态与分支</text>
+<text x="392" y="401" font-size="18" fill="#50647c" font-weight="400" >恢复点 · 预算 · Handoff</text>
+</g>
+<g id="runtime-agent" data-box="660,306,258,116">
+<rect x="660" y="306" width="258" height="116" rx="16" fill="#f4effb" stroke="none" />
+<path d="M6 7H22V22H6Z M14 3V7 M10 13H10.1 M18 13H18.1 M10 18H18" transform="translate(878 324)" fill="none" stroke="#7045a4" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="678" y="341" font-size="25" fill="#7045a4" font-weight="750" >Agent</text>
+<text x="678" y="374" font-size="19" fill="#172b45" font-weight="500" >模型提出下一步动作</text>
+<text x="678" y="401" font-size="18" fill="#50647c" font-weight="400" >选择工具与参数</text>
+</g>
+<g id="runtime-shield" data-box="946,306,258,116">
+<rect x="946" y="306" width="258" height="116" rx="16" fill="#fff5e5" stroke="none" />
+<path d="M14 2L24 6V13C24 19 19 23 14 26C9 23 4 19 4 13V6Z M9 13L13 17L20 10" transform="translate(1164 324)" fill="none" stroke="#945c0b" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="964" y="341" font-size="25" fill="#945c0b" font-weight="750" >Policy Gate</text>
+<text x="964" y="374" font-size="19" fill="#172b45" font-weight="500" >独立校验身份与权限</text>
+<text x="964" y="401" font-size="18" fill="#50647c" font-weight="400" >参数 · 租户 · 必要审批</text>
+</g>
+<g id="runtime-worker" data-box="1232,306,258,116">
+<rect x="1232" y="306" width="258" height="116" rx="16" fill="#e9f7f4" stroke="none" />
+<path d="M3 8L14 2L25 8V22L14 28L3 22Z M3 8L14 14L25 8 M14 14V28" transform="translate(1450 324)" fill="none" stroke="#087b76" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1250" y="341" font-size="25" fill="#087b76" font-weight="750" >Worker / Tool</text>
+<text x="1250" y="374" font-size="19" fill="#172b45" font-weight="500" >执行获准的具体动作</text>
+<text x="1250" y="401" font-size="18" fill="#50647c" font-weight="400" >幂等写入 · 执行回执</text>
+</g>
+<path d="M1361 427 C1361 441 1361 447 1345 447 L868 447 C850 447 850 442 850 436" fill="none" stroke="#215cbb" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<text x="1001" y="473" font-size="18" fill="#215cbb" font-weight="600" >工具观察结果返回 Agent，继续或终止</text>
+<path d="M720 473 L720 436" fill="none" stroke="#945c0b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 5" marker-end="url(#arrow-amber)"/>
+<g id="recovery" data-box="88,489,532,73">
+<rect x="88" y="489" width="532" height="73" rx="16" fill="#f8fafc" stroke="none" />
+<text x="106" y="516" font-size="19" fill="#172b45" font-weight="700" >恢复与人工接管</text>
+<text x="106" y="545" font-size="18" fill="#50647c" font-weight="400" >超时 / 重试 / Handoff 必须留下状态与终止原因</text>
+</g>
+<g id="memory" data-box="660,489,258,73">
+<rect x="660" y="489" width="258" height="73" rx="16" fill="#f4effb" stroke="none" />
+<text x="678" y="516" font-size="19" fill="#7045a4" font-weight="700" >Memory / Route</text>
+<text x="678" y="545" font-size="18" fill="#50647c" font-weight="400" >读写隔离 · 降级再授权</text>
+</g>
+<path d="M720 484 L720 473" fill="none" stroke="#945c0b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 5"/>
+<g id="gate-reject" data-box="946,489,544,73">
+<rect x="946" y="489" width="544" height="73" rx="16" fill="#fff0f0" stroke="none" />
+<text x="964" y="516" font-size="19" fill="#ad3e4c" font-weight="700" >拒绝与审批</text>
+<text x="964" y="545" font-size="18" fill="#50647c" font-weight="400" >未授权：阻断执行；需审批：等待 Owner 决定</text>
+</g>
+<rect x="88" y="586" width="1424" height="32" rx="8" fill="#f2eef9" stroke="none" />
+<text x="106" y="609" font-size="19" fill="#7045a4" font-weight="550" >证据随每步同步记录：run_id  →  输入版本 / 状态快照 / 工具账本 / 授权回执 / 最终业务状态</text>
+</g>
+<text x="64" y="694" font-size="22" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="694" font-size="27" fill="#172b45" font-weight="700" >按七个关注面建立测试，而不是只看最终回答</text>
+<text x="64" y="726" font-size="20" fill="#50647c" font-weight="400" >01 → 07 为课程学习顺序；各关注面共同覆盖上方系统，并非一次运行的七个执行步骤。</text>
+<g id="stage-01" data-box="64,754,344,536">
+<rect x="64" y="754" width="344" height="536" rx="16" fill="#172e4c" stroke="none" />
+<rect x="88" y="776" width="54" height="30" rx="8" fill="#2e496a" stroke="none" />
+<text x="100" y="797" font-size="18" fill="#fff" font-weight="650" >01</text>
+<text x="88" y="851" font-size="30" fill="#fff" font-weight="700" >三层评测模型</text>
+<text x="88" y="887" font-size="21" fill="#cad8ea" font-weight="400" >结果对了，路径也对吗？</text>
+<rect x="88" y="916" width="296" height="84" rx="10" fill="#233e5e" stroke="none" />
+<text x="102" y="941" font-size="20" fill="#dce9fa" font-weight="700" >结果 Outcome</text>
+<text x="102" y="970" font-size="18" fill="#fff" font-weight="400" >业务状态是否满足判据？</text>
+<text x="102" y="994" font-size="15" fill="#d0dced" font-weight="400" >答案正确也要核对真实状态</text>
+<rect x="88" y="1008" width="296" height="84" rx="10" fill="#233e5e" stroke="none" />
+<text x="102" y="1033" font-size="20" fill="#dce9fa" font-weight="700" >步骤 Step</text>
+<text x="102" y="1062" font-size="18" fill="#fff" font-weight="400" >每次调用是否获得授权？</text>
+<text x="102" y="1086" font-size="15" fill="#d0dced" font-weight="400" >工具、参数、租户与副作用</text>
+<rect x="88" y="1100" width="296" height="84" rx="10" fill="#233e5e" stroke="none" />
+<text x="102" y="1125" font-size="20" fill="#dce9fa" font-weight="700" >轨迹 Trajectory</text>
+<text x="102" y="1154" font-size="18" fill="#fff" font-weight="400" >整条路径能否安全结束？</text>
+<text x="102" y="1178" font-size="15" fill="#d0dced" font-weight="400" >顺序、重试、预算与状态</text>
+<text x="88" y="1233" font-size="18" fill="#dce9fa" font-weight="650" >产物：三层评测模型与证据映射</text>
+<text x="88" y="1267" font-size="17" fill="#b5c8e0" font-weight="500" class="mono">TD-T15</text>
+</g>
+<g id="stage-02" data-box="440,754,344,244">
+<rect x="440" y="754" width="344" height="244" rx="16" fill="#fff" stroke="#d9e2ed" />
+<rect x="460" y="772" width="48" height="30" rx="8" fill="#edf3ff" stroke="none" />
+<text x="472" y="793" font-size="17" fill="#215cbb" font-weight="650" >02</text>
+<path d="M14 2L24 6V13C24 19 19 23 14 26C9 23 4 19 4 13V6Z M9 13L13 17L20 10" transform="translate(732 772)" fill="none" stroke="#215cbb" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="460" y="838" font-size="27" fill="#172b45" font-weight="700" >工具与权限</text>
+<text x="460" y="875" font-size="18" fill="#50647c" font-weight="400" >错误工具 / 参数边界 / 越权调用</text>
+<text x="460" y="903" font-size="18" fill="#50647c" font-weight="400" >动作前授权；重复调用只生效一次</text>
+<rect x="460" y="924" width="304" height="1" rx="0" fill="#d9e2ed" stroke="none" />
+<text x="460" y="949" font-size="18" fill="#215cbb" font-weight="600" >产物：工具策略与故障注入集</text>
+<text x="460" y="986" font-size="15" fill="#50647c" font-weight="500" class="mono">TD-T16</text>
+</g>
+<g id="stage-03" data-box="816,754,344,244">
+<rect x="816" y="754" width="344" height="244" rx="16" fill="#fff" stroke="#d9e2ed" />
+<rect x="836" y="772" width="48" height="30" rx="8" fill="#fff0f0" stroke="none" />
+<text x="848" y="793" font-size="17" fill="#ad3e4c" font-weight="650" >03</text>
+<path d="M14 2L24 6V13C24 19 19 23 14 26C9 23 4 19 4 13V6Z M9 13L13 17L20 10" transform="translate(1108 772)" fill="none" stroke="#ad3e4c" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="836" y="838" font-size="27" fill="#172b45" font-weight="700" >安全边界</text>
+<text x="836" y="875" font-size="18" fill="#50647c" font-weight="400" >网页、邮件与工具返回均可能被注入</text>
+<text x="836" y="903" font-size="18" fill="#50647c" font-weight="400" >隔离数据与指令；策略在模型外执行</text>
+<rect x="836" y="924" width="304" height="1" rx="0" fill="#d9e2ed" stroke="none" />
+<text x="836" y="949" font-size="18" fill="#ad3e4c" font-weight="600" >产物：攻击集与红队报告</text>
+<text x="836" y="986" font-size="15" fill="#50647c" font-weight="500" class="mono">TD-T17</text>
+</g>
+<g id="stage-04" data-box="1192,754,344,244">
+<rect x="1192" y="754" width="344" height="244" rx="16" fill="#fff" stroke="#d9e2ed" />
+<rect x="1212" y="772" width="48" height="30" rx="8" fill="#e9f7f4" stroke="none" />
+<text x="1224" y="793" font-size="17" fill="#087b76" font-weight="650" >04</text>
+<path d="M2 4H26V24H2Z M2 10H26 M6 7H6.1 M10 7H10.1 M8 15L5 18L8 21 M20 15L23 18L20 21" transform="translate(1484 772)" fill="none" stroke="#087b76" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1212" y="838" font-size="27" fill="#172b45" font-weight="700" >浏览器 Agent</text>
+<text x="1212" y="875" font-size="18" fill="#50647c" font-weight="400" >固定业务判据，审查生成的测试</text>
+<text x="1212" y="903" font-size="18" fill="#50647c" font-weight="400" >注入已知缺陷，确认测试真的变红</text>
+<rect x="1212" y="924" width="304" height="1" rx="0" fill="#d9e2ed" stroke="none" />
+<text x="1212" y="949" font-size="18" fill="#087b76" font-weight="600" >产物：生成测试包与审查记录</text>
+<text x="1212" y="986" font-size="15" fill="#50647c" font-weight="500" class="mono">TD-T18</text>
+</g>
+<g id="stage-05" data-box="440,1030,344,260">
+<rect x="440" y="1030" width="344" height="260" rx="16" fill="#fff" stroke="#d9e2ed" />
+<rect x="460" y="1048" width="48" height="30" rx="8" fill="#fff0f0" stroke="none" />
+<text x="472" y="1069" font-size="17" fill="#ad3e4c" font-weight="650" >05</text>
+<path d="M10 2V9H3V18H10V25H19V18H26V9H19V2Z M10 14L13 17L20 10" transform="translate(732 1048)" fill="none" stroke="#ad3e4c" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="460" y="1114" font-size="27" fill="#172b45" font-weight="700" >自愈风险</text>
+<text x="460" y="1151" font-size="18" fill="#50647c" font-weight="400" >保存原失败、截图、Trace 与补丁</text>
+<text x="460" y="1179" font-size="18" fill="#50647c" font-weight="400" >禁止删断言、改期望；重跑缺陷变异</text>
+<rect x="460" y="1200" width="304" height="1" rx="0" fill="#d9e2ed" stroke="none" />
+<text x="460" y="1225" font-size="18" fill="#ad3e4c" font-weight="600" >产物：反作弊检查与审计报告</text>
+<text x="460" y="1281" font-size="15" fill="#50647c" font-weight="500" class="mono">TD-T19</text>
+</g>
+<g id="stage-06" data-box="816,1030,344,260">
+<rect x="816" y="1030" width="344" height="260" rx="16" fill="#fff" stroke="#d9e2ed" />
+<rect x="836" y="1048" width="48" height="30" rx="8" fill="#fff5e5" stroke="none" />
+<text x="848" y="1069" font-size="17" fill="#945c0b" font-weight="650" >06</text>
+<path d="M4 4H11V11H4Z M19 18H26V25H19Z M3 20H10V27H3Z M11 8L22 18 M7 11V20" transform="translate(1108 1048)" fill="none" stroke="#945c0b" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="836" y="1114" font-size="27" fill="#172b45" font-weight="700" >控制权划分</text>
+<text x="836" y="1151" font-size="18" fill="#50647c" font-weight="400" >区分代码分支、模型决策、队列执行</text>
+<text x="836" y="1179" font-size="18" fill="#50647c" font-weight="400" >验证恢复 / 重试 / 接管 / 停止不变量</text>
+<rect x="836" y="1200" width="304" height="1" rx="0" fill="#d9e2ed" stroke="none" />
+<text x="836" y="1225" font-size="18" fill="#945c0b" font-weight="600" >产物：控制权对照图与状态模型</text>
+<text x="836" y="1281" font-size="15" fill="#50647c" font-weight="500" class="mono">TD-W01 / TD-W02</text>
+</g>
+<g id="stage-07" data-box="1192,1030,344,260">
+<rect x="1192" y="1030" width="344" height="260" rx="16" fill="#fff" stroke="#d9e2ed" />
+<rect x="1212" y="1048" width="48" height="30" rx="8" fill="#f4effb" stroke="none" />
+<text x="1224" y="1069" font-size="17" fill="#7045a4" font-weight="650" >07</text>
+<path d="M5 3H23V25H5Z M9 8H19 M9 13H19 M9 18H15" transform="translate(1484 1048)" fill="none" stroke="#7045a4" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1212" y="1114" font-size="27" fill="#172b45" font-weight="700" >编排与记忆</text>
+<text x="1212" y="1151" font-size="18" fill="#50647c" font-weight="400" >同预算比较单 Agent 与多 Agent</text>
+<text x="1212" y="1179" font-size="18" fill="#50647c" font-weight="400" >检查记忆隔离、删除与路由降级授权</text>
+<rect x="1212" y="1200" width="304" height="1" rx="0" fill="#d9e2ed" stroke="none" />
+<text x="1212" y="1225" font-size="18" fill="#7045a4" font-weight="600" >产物：同预算实验、记忆门禁</text>
+<text x="1266" y="1253" font-size="18" fill="#7045a4" font-weight="600" >与路由矩阵</text>
+<text x="1212" y="1281" font-size="15" fill="#50647c" font-weight="500" class="mono">TD-W03 / TD-X603 / TD-X604</text>
+</g>
+<g transform="translate(0 30)">
+<text x="64" y="1330" font-size="22" fill="#215cbb" font-weight="800" class="mono">C</text>
+<text x="98" y="1330" font-size="27" fill="#172b45" font-weight="700" >把证据变成判断；修复后回到最早失败点重跑</text>
+<g id="decisions" data-box="64,1358,1472,166">
+<rect x="64" y="1358" width="1472" height="166" rx="16" fill="#fff" stroke="#d9e2ed" />
+<rect x="88" y="1380" width="332" height="120" rx="12" fill="#f4effb" stroke="none" />
+<text x="104" y="1418" font-size="25" fill="#7045a4" font-weight="700" >汇总证据</text>
+<text x="104" y="1451" font-size="17" fill="#172b45" font-weight="400" >版本一致 · 判据固定</text>
+<text x="104" y="1478" font-size="18" fill="#50647c" font-weight="400" >输入与执行可追溯</text>
+<path d="M425 1440 L438 1440" fill="none" stroke="#7045a4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-purple)"/>
+<rect x="452" y="1380" width="332" height="120" rx="12" fill="#fff0f0" stroke="none" />
+<text x="468" y="1418" font-size="25" fill="#ad3e4c" font-weight="700" >异常先分类</text>
+<text x="468" y="1451" font-size="17" fill="#172b45" font-weight="400" >断言不符 FAIL · 前置受阻 BLOCKED</text>
+<text x="468" y="1478" font-size="18" fill="#50647c" font-weight="400" >证据不足 UNKNOWN</text>
+<path d="M789 1440 L802 1440" fill="none" stroke="#7045a4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-purple)"/>
+<rect x="816" y="1380" width="332" height="120" rx="12" fill="#fff5e5" stroke="none" />
+<text x="832" y="1418" font-size="25" fill="#945c0b" font-weight="700" >Owner Gate</text>
+<text x="832" y="1451" font-size="17" fill="#172b45" font-weight="400" >质量 / 业务 Owner 审阅</text>
+<text x="832" y="1478" font-size="18" fill="#50647c" font-weight="400" >决定修复、接受风险或发布</text>
+<path d="M1153 1440 L1166 1440" fill="none" stroke="#7045a4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-purple)"/>
+<rect x="1180" y="1380" width="332" height="120" rx="12" fill="#e9f7f4" stroke="none" />
+<text x="1196" y="1418" font-size="25" fill="#087b76" font-weight="700" >形成新回执</text>
+<text x="1196" y="1451" font-size="17" fill="#172b45" font-weight="400" >修复后重跑关联用例</text>
+<text x="1196" y="1478" font-size="18" fill="#50647c" font-weight="400" >保留旧证据与新结果</text>
+</g>
+<text x="64" y="1564" font-size="19" fill="#50647c" font-weight="400" >范围：性能与容量见 TD-M11；完整架构分域见 TD-M12。安全部分仅覆盖测试视角的攻击集。</text>
+<text x="64" y="1599" font-size="19" fill="#50647c" font-weight="400" >证据边界：教学结构与离线夹具，不证明真实模型效果、企业集成或生产收益；未运行项保持 NOT_RUN。</text>
+<path d="M64 1634 L106 1634" fill="none" stroke="#215cbb" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="120" y="1640" font-size="17" fill="#50647c" font-weight="400" >数据 / 观察结果</text>
+<path d="M410 1634 L452 1634" fill="none" stroke="#945c0b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 5"/>
+<text x="466" y="1640" font-size="17" fill="#50647c" font-weight="400" >控制 / 授权</text>
+<path d="M730 1634 L772 1634" fill="none" stroke="#7045a4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="786" y="1640" font-size="17" fill="#50647c" font-weight="400" >证据 / 判断</text>
+<path d="M1040 1634 L1082 1634" fill="none" stroke="#ad3e4c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1096" y="1640" font-size="17" fill="#50647c" font-weight="400" >红色区域：风险与阻断</text>
+</g>
+</svg>

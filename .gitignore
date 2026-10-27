@@ -43,3 +43,8 @@ yarn-error.log*
 
 # 本地浏览器会话截图与页面快照，属临时产物
 /.playwright-cli/
+
+# SVG候选、浏览器渲染证据及本地对照资源
+/output/
+/docs/svg-redesign-2026-10-26/gallery-assets/
+/docs/svg-redesign-2026-10-26/gallery.html

@@ -50,3 +50,9 @@ GitHub Pages 使用 GitHub Actions 发布。`main` 分支推送或手动运行 P
 保存到 `docs/images/course-overview.png`、`course-reader.png`、`course-glossary.png`。README 使用仓库内相对图片路径与在线绝对页面链接：GitHub 可直接显示图片，点击图片会进入对应课程视图。
 
 当前证据边界仍为离线夹具验证。页面完整、截图正常或构建成功，都不等于真实模型、企业集成、人工评审或生产效果已经通过验证。
+
+## SVG 图片维护
+
+图片生成和发布分为候选、审查、替换三个阶段，命令与正文绑定契约见[SVG维护入口](../scripts/visuals/README.md)。`visuals:build`不会直接覆盖正式资源；所有126路径必须实际看图并核对正文后，才可通过`visuals:approve`与`visuals:promote`。构建、几何检查或数量齐全不能替代逐图质量审查。
+
+发布工作流还核验已审图的正式哈希。修改图、规格或对应正文后需重新生成、复审并更新发布记录，不能沿用旧审查记录部署。

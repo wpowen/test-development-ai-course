@@ -1,125 +1,245 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1160 826" width="1160" height="826">
-  <title id="title">长期 Memory、个性化与语义缓存治理：architecture架构</title>
-  <desc id="desc">Agent 的输入、模型、工具、状态、权限与观测面共同构成被测系统</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-</style>
-  <rect class="ds-bg" width="1160" height="826" rx="22"/>
-  
-  <rect class="ds-header" x="0" y="0" width="1160" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1160" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">ARCHITECTURE · 控制流</text>
-  <text class="ds-subtitle" x="1124" y="32" text-anchor="end">Agent 的输入、模型、工具、状态、权限与观测面共同构成被测系统</text>
-  <text class="ds-title" x="36" y="74">长期 Memory、个性化与语义缓存治理</text>
-  <text class="ds-source" x="36" y="140">architecture · 长期 Memory、个性化与语义缓存治理 的证据闭环 · 来源 S35, S49, S65, S66</text>
-  <text x="150" y="160" class="ds-section">系统控制链 · 输入 → 处理 → 判断 → 决定</text>
-  
-    <circle cx="108" cy="199" r="12" fill="#ffffff" stroke="#aec6e3" stroke-width="1.5"/>
-    <text x="108" y="203" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">01</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="170" width="850" height="58" rx="13" fill="#eaf1fa" stroke="#aec6e3" stroke-width="1.4"/>
-      <rect x="150" y="170" width="5" height="58" rx="2.5" fill="#aec6e3"/>
-    </g>
-    <text x="174" y="194" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">同意/目的</text>
-    <text x="174" y="215" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">输入 / 依据</text>
-    <path d="M 108 228 V 248" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="281" r="12" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.5"/>
-    <text x="108" y="285" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">02</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="252" width="850" height="58" rx="13" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4"/>
-      <rect x="150" y="252" width="5" height="58" rx="2.5" fill="#c2d9cc"/>
-    </g>
-    <text x="174" y="276" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">用户/租户隔离</text>
-    <text x="174" y="297" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">处理 / 变换</text>
-    <path d="M 108 310 V 330" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="363" r="12" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.5"/>
-    <text x="108" y="367" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">03</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="334" width="850" height="58" rx="13" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4"/>
-      <rect x="150" y="334" width="5" height="58" rx="2.5" fill="#c2d9cc"/>
-    </g>
-    <text x="174" y="358" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">写入/TTL</text>
-    <text x="174" y="379" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">处理 / 变换</text>
-    <path d="M 108 392 V 412" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="445" r="12" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.5"/>
-    <text x="108" y="449" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">04</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="416" width="850" height="58" rx="13" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4"/>
-      <rect x="150" y="416" width="5" height="58" rx="2.5" fill="#c2d9cc"/>
-    </g>
-    <text x="174" y="440" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">检索/缓存版本</text>
-    <text x="174" y="461" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">处理 / 变换</text>
-    <path d="M 108 474 V 494" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="527" r="12" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.5"/>
-    <text x="108" y="531" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">05</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="498" width="850" height="58" rx="13" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4"/>
-      <rect x="150" y="498" width="5" height="58" rx="2.5" fill="#c2d9cc"/>
-    </g>
-    <text x="174" y="522" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">冲突/删除</text>
-    <text x="174" y="543" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">处理 / 变换</text>
-    <path d="M 108 556 V 576" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="609" r="12" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.5"/>
-    <text x="108" y="613" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">06</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="580" width="850" height="58" rx="13" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4"/>
-      <rect x="150" y="580" width="5" height="58" rx="2.5" fill="#c2d9cc"/>
-    </g>
-    <text x="174" y="604" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">回执</text>
-    <text x="174" y="625" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">处理 / 变换</text>
-    <path d="M 108 638 V 658" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="691" r="12" fill="#174a3a" stroke="#e0b76a" stroke-width="1.5"/>
-    <text x="108" y="695" text-anchor="middle" fill="#ffffff" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">07</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="662" width="850" height="58" rx="13" fill="#fdf1d8" stroke="#e0b76a" stroke-width="1.4"/>
-      <rect x="150" y="662" width="5" height="58" rx="2.5" fill="#e0b76a"/>
-    </g>
-    <text x="174" y="686" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">回归</text>
-    <text x="174" y="707" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">决定 / 输出</text>
-    
-  
-  <rect x="28" y="752" width="1104" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="778">证据边界</text>
-  <text class="ds-foot" x="46" y="800">节点是页面语义关系；不代表真实模型、企业集成或生产效果已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="4062" viewBox="0 0 1600 4062" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">隔离拒绝、纠错与授权删除分三路</title><desc id="desc">跨用户命中触发拒绝与隔离修复，陈旧内容触发失效与纠错；只有经核验的遗忘请求才授权删除目标副本。 访问故障不授予删除权；获准删除才传播到主存、索引、缓存并独立读回 离线隔离 fixture 未证明真实同意、存储删除传播、隐私法律或长期漂移。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-X603 / 工具与证据：记忆生命周期的五个环节与各自的检查;docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-X603 / 两种看起来在做记忆治理、实际留有通道的做法;docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-X603 / AI 长期记忆的三类风险：记错、串号和删不干净：错误决定会造成什么;docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-X603 / 做一次删除完整性验证：约 45 分钟">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-X603&quot;,&quot;pageIds&quot;:[&quot;TD-X603&quot;],&quot;primaryPageIds&quot;:[&quot;TD-X603&quot;],&quot;layout&quot;:&quot;state&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-X603 / 工具与证据：记忆生命周期的五个环节与各自的检查&quot;,&quot;quote&quot;:&quot;错误记忆被发现后如何清除、历史结论是否回溯&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-X603 / 两种看起来在做记忆治理、实际留有通道的做法&quot;,&quot;quote&quot;:&quot;隔离必须在授权层强制，而不是依赖查询条件&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-X603 / AI 长期记忆的三类风险：记错、串号和删不干净：错误决定会造成什么&quot;,&quot;quote&quot;:&quot;删除请求必须跨主存、索引和缓存传播&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-X603 / 做一次删除完整性验证：约 45 分钟&quot;,&quot;quote&quot;:&quot;调用删除接口，然后逐个位置检查是否真的消失&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;consent&quot;,&quot;title&quot;:&quot;同意 / 目的准入&quot;},{&quot;id&quot;:&quot;write&quot;,&quot;title&quot;:&quot;用户 / 租户隔离写入&quot;},{&quot;id&quot;:&quot;store&quot;,&quot;title&quot;:&quot;主存与派生副本&quot;},{&quot;id&quot;:&quot;read&quot;,&quot;title&quot;:&quot;每次读取重新核验&quot;},{&quot;id&quot;:&quot;use&quot;,&quot;title&quot;:&quot;允许使用当前记忆&quot;},{&quot;id&quot;:&quot;deny&quot;,&quot;title&quot;:&quot;拒绝与隔离修复&quot;},{&quot;id&quot;:&quot;stale&quot;,&quot;title&quot;:&quot;陈旧 / 污染内容纠错&quot;},{&quot;id&quot;:&quot;delete&quot;,&quot;title&quot;:&quot;遗忘请求单独核权&quot;},{&quot;id&quot;:&quot;receipt&quot;,&quot;title&quot;:&quot;删除传播与回执&quot;},{&quot;id&quot;:&quot;regression&quot;,&quot;title&quot;:&quot;隐私与污染回归&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;consent&quot;,&quot;to&quot;:&quot;write&quot;,&quot;label&quot;:&quot;同意与目的获准才写入&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;consent&quot;,&quot;to&quot;:&quot;deny&quot;,&quot;label&quot;:&quot;无保存权或目的不符&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;write&quot;,&quot;to&quot;:&quot;store&quot;,&quot;label&quot;:&quot;隔离且有版本/有效期&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;store&quot;,&quot;to&quot;:&quot;read&quot;,&quot;label&quot;:&quot;命中内容仍须重新核验&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;read&quot;,&quot;to&quot;:&quot;use&quot;,&quot;label&quot;:&quot;当前授权、TTL 与版本均有效&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;read&quot;,&quot;to&quot;:&quot;deny&quot;,&quot;label&quot;:&quot;跨用户或当前 ACL 拒绝&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;read&quot;,&quot;to&quot;:&quot;stale&quot;,&quot;label&quot;:&quot;过期、旧版本或已确认污染&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;stale&quot;,&quot;to&quot;:&quot;store&quot;,&quot;label&quot;:&quot;按纠错结果更新并失效旧缓存&quot;,&quot;kind&quot;:&quot;feedback&quot;},{&quot;from&quot;:&quot;consent&quot;,&quot;to&quot;:&quot;delete&quot;,&quot;label&quot;:&quot;撤回/遗忘请求：另验删除权限&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;delete&quot;,&quot;to&quot;:&quot;deny&quot;,&quot;label&quot;:&quot;请求者无权删除目标&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;delete&quot;,&quot;to&quot;:&quot;receipt&quot;,&quot;label&quot;:&quot;目标归属与删除范围获准&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;deny&quot;,&quot;to&quot;:&quot;regression&quot;,&quot;label&quot;:&quot;修复隔离后换身份重放&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;stale&quot;,&quot;to&quot;:&quot;regression&quot;,&quot;label&quot;:&quot;时效、污染与影响回溯验证&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;use&quot;,&quot;to&quot;:&quot;regression&quot;,&quot;label&quot;:&quot;获准使用的当前版本证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;receipt&quot;,&quot;to&quot;:&quot;regression&quot;,&quot;label&quot;:&quot;独立存储读回与相似查询&quot;,&quot;kind&quot;:&quot;evidence&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="4062" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-X603</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >隔离拒绝、纠错与授权删除分三路</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >跨用户命中触发拒绝与隔离修复，陈旧内容触发失效与纠错；只有经核验的遗忘请求才授权删除目标副本。</text>
+<g id="system-graph" data-region="64,234,1472,3224">
+<rect x="64" y="234" width="1472" height="3224" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >访问故障不授予删除权；获准删除才传播到主存、索引、缓存并独立读回</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M451 341 L451 405 L930 405 L930 341" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M451 341 L451 405 L930 405 L930 341" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e0" data-from="consent" data-to="write"/>
+<path d="M527.5 341 L527.5 405 L379.5 405 Q374.5 393 369.5 405 L70 405 L70 1180 L79 1180 Q84 1168 89 1180 L930 1180 L930 1234" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M527.5 341 L527.5 405 L379.5 405 Q374.5 393 369.5 405 L70 405 L70 1180 L79 1180 Q84 1168 89 1180 L930 1180 L930 1234" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e1" data-from="consent" data-to="deny"/>
+<path d="M1032 341 L1032 405 L1356 405 L1356 577 L451 577 L451 603" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M1032 341 L1032 405 L1356 405 L1356 577 L451 577 L451 603" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e2" data-from="write" data-to="store"/>
+<path d="M502 800 L502 912 L889.2 912 L889.2 834" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M502 800 L502 912 L889.2 912 L889.2 834" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e3" data-from="store" data-to="read"/>
+<path d="M950.4 834 L950.4 912 L1006.6 912 Q1011.6 900 1016.6 912 L1067.8 912 Q1072.8 900 1077.8 912 L1368 912 L1368 1194 L935 1194 Q930 1182 925 1194 L451 1194 L451 1234" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M950.4 834 L950.4 912 L1006.6 912 Q1011.6 900 1016.6 912 L1067.8 912 Q1072.8 900 1077.8 912 L1368 912 L1368 1194 L935 1194 Q930 1182 925 1194 L451 1194 L451 1234" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e4" data-from="read" data-to="use"/>
+<path d="M1072.8 834 L1072.8 1008 L1374 1008 L1374 1208 L1367 1208 Q1362 1196 1357 1208 L1032 1208 L1032 1234" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M1072.8 834 L1072.8 1008 L1374 1008 L1374 1208 L1367 1208 Q1362 1196 1357 1208 L1032 1208 L1032 1234" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e5" data-from="read" data-to="deny"/>
+<path d="M1011.6 834 L1011.6 1104 L1362 1104 L1362 1749 L765 1749 L765 1775" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M1011.6 834 L1011.6 1104 L1362 1104 L1362 1749 L765 1749 L765 1775" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e6" data-from="read" data-to="stale"/>
+<path d="M663 1775 L663 1577 L456 1577 Q451 1565 446 1577 L89 1577 Q84 1565 79 1577 L63 1577 L63 848 L79 848 Q84 836 89 848 L400 848 L400 800" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M663 1775 L663 1577 L456 1577 Q451 1565 446 1577 L89 1577 Q84 1565 79 1577 L63 1577 L63 848 L79 848 Q84 836 89 848 L400 848 L400 800" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e7" data-from="stale" data-to="store"/>
+<path d="M374.5 341 L374.5 501 L84 501 L84 2180 L400 2180 L400 2206" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M374.5 341 L374.5 501 L84 501 L84 2180 L400 2180 L400 2206" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e8" data-from="consent" data-to="delete"/>
+<path d="M502 2206 L502 2104 L89 2104 Q80.5 2092 72 2104 L56 2104 L56 1513 L79 1513 Q84 1501 89 1513 L446 1513 Q451 1501 456 1513 L930 1513 L930 1499" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M502 2206 L502 2104 L89 2104 Q80.5 2092 72 2104 L56 2104 L56 1513 L79 1513 Q84 1501 89 1513 L446 1513 Q451 1501 456 1513 L930 1513 L930 1499" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e9" data-from="delete" data-to="deny"/>
+<path d="M451 2471 L451 2535 L930 2535 L930 2471" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M451 2471 L451 2535 L930 2535 L930 2471" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e10" data-from="delete" data-to="receipt"/>
+<path d="M1032 1499 L1032 1577 L1356 1577 L1356 2611 L744.6 2611 L744.6 2679" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M1032 1499 L1032 1577 L1356 1577 L1356 2611 L744.6 2611 L744.6 2679" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e11" data-from="deny" data-to="regression"/>
+<path d="M714 2040 L714 2104 L1351 2104 Q1356 2092 1361 2104 L1368 2104 L1368 2625 L749.6 2625 Q744.6 2613 739.6 2625 L683.4 2625 L683.4 2679" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M714 2040 L714 2104 L1351 2104 Q1356 2092 1361 2104 L1368 2104 L1368 2625 L749.6 2625 Q744.6 2613 739.6 2625 L683.4 2625 L683.4 2679" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e12" data-from="stale" data-to="regression"/>
+<path d="M451 1499 L451 1673 L77 1673 L77 2639 L622.2 2639 L622.2 2679" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M451 1499 L451 1673 L77 1673 L77 2639 L622.2 2639 L622.2 2679" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e13" data-from="use" data-to="regression"/>
+<path d="M1032 2471 L1032 2535 L1362 2535 L1362 2653 L805.8 2653 L805.8 2679" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M1032 2471 L1032 2535 L1362 2535 L1362 2653 L805.8 2653 L805.8 2679" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e14" data-from="receipt" data-to="regression"/>
+<g id="node-consent" class="node node-control" data-region="274,76,354,265">
+<rect x="274" y="76" width="354" height="265" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#945c0b" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#945c0b" font-weight="700" >同意 / 目的准入</text>
+<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >来源、用途与最小化范围</text>
+<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >明确</text>
+<text x="296" y="263" font-size="23" fill="#172b45" font-weight="450" >模型候选不能自授长期保</text>
+<text x="296" y="297" font-size="23" fill="#172b45" font-weight="450" >存权</text>
+</g>
+<g id="node-write" class="node node-process" data-region="804,76,354,265">
+<rect x="804" y="76" width="354" height="265" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#344f70" font-weight="750" class="mono">02</text>
+<text x="826" y="152" font-size="28" fill="#344f70" font-weight="700" >用户 / 租户隔离写入</text>
+<text x="826" y="195" font-size="23" fill="#172b45" font-weight="450" >tenant/user key 与内容</text>
+<text x="826" y="229" font-size="23" fill="#172b45" font-weight="450" >校验</text>
+<text x="826" y="263" font-size="23" fill="#172b45" font-weight="450" >记录来源、置信度、版本与</text>
+<text x="826" y="297" font-size="23" fill="#172b45" font-weight="450" >TTL</text>
+</g>
+<g id="node-store" class="node node-data" data-region="274,603,354,197">
+<rect x="274" y="603" width="354" height="197" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="292" y="620" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="638" font-size="15" fill="#087b76" font-weight="750" class="mono">03</text>
+<text x="296" y="679" font-size="28" fill="#087b76" font-weight="700" >主存与派生副本</text>
+<text x="296" y="722" font-size="23" fill="#172b45" font-weight="450" >主库 / 向量索引 / 语义缓存</text>
+<text x="296" y="756" font-size="23" fill="#172b45" font-weight="450" >会话上下文和日志范围登记</text>
+</g>
+<g id="node-read" class="node node-control" data-region="804,603,354,231">
+<rect x="804" y="603" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="620" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="638" font-size="15" fill="#945c0b" font-weight="750" class="mono">04</text>
+<text x="826" y="679" font-size="28" fill="#945c0b" font-weight="700" >每次读取重新核验</text>
+<text x="826" y="722" font-size="23" fill="#172b45" font-weight="450" >当前身份、ACL、TTL 与</text>
+<text x="826" y="756" font-size="23" fill="#172b45" font-weight="450" >版本</text>
+<text x="826" y="790" font-size="23" fill="#172b45" font-weight="450" >缓存命中不可跳过授权</text>
+</g>
+<g id="node-use" class="node node-process" data-region="274,1234,354,265">
+<rect x="274" y="1234" width="354" height="265" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="1251" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1269" font-size="15" fill="#344f70" font-weight="750" class="mono">05</text>
+<text x="296" y="1310" font-size="28" fill="#344f70" font-weight="700" >允许使用当前记忆</text>
+<text x="296" y="1353" font-size="23" fill="#172b45" font-weight="450" >当前用户有权且版本、TTL</text>
+<text x="296" y="1387" font-size="23" fill="#172b45" font-weight="450" >有效</text>
+<text x="296" y="1421" font-size="23" fill="#172b45" font-weight="450" >只向获准用户上下文提供</text>
+<text x="296" y="1455" font-size="23" fill="#172b45" font-weight="450" >内容</text>
+</g>
+<g id="node-deny" class="node node-risk" data-region="804,1234,354,265">
+<rect x="804" y="1234" width="354" height="265" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="822" y="1251" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1269" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">06</text>
+<text x="826" y="1310" font-size="28" fill="#ad3e4c" font-weight="700" >拒绝与隔离修复</text>
+<text x="826" y="1353" font-size="23" fill="#172b45" font-weight="450" >跨用户或无权请求不返回</text>
+<text x="826" y="1387" font-size="23" fill="#172b45" font-weight="450" >记忆</text>
+<text x="826" y="1421" font-size="23" fill="#172b45" font-weight="450" >修隔离，不授权删除他人有</text>
+<text x="826" y="1455" font-size="23" fill="#172b45" font-weight="450" >效内容</text>
+</g>
+<g id="node-stale" class="node node-control" data-region="537,1775,354,265">
+<rect x="537" y="1775" width="354" height="265" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="555" y="1792" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="1810" font-size="15" fill="#945c0b" font-weight="750" class="mono">07</text>
+<text x="559" y="1851" font-size="28" fill="#945c0b" font-weight="700" >陈旧 / 污染内容纠错</text>
+<text x="559" y="1894" font-size="23" fill="#172b45" font-weight="450" >过期、旧版本或误判先隔离</text>
+<text x="559" y="1928" font-size="23" fill="#172b45" font-weight="450" >失效</text>
+<text x="559" y="1962" font-size="23" fill="#172b45" font-weight="450" >按来源纠错并检查历史结论</text>
+<text x="559" y="1996" font-size="23" fill="#172b45" font-weight="450" >影响</text>
+</g>
+<g id="node-delete" class="node node-control" data-region="274,2206,354,265">
+<rect x="274" y="2206" width="354" height="265" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="292" y="2223" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="2241" font-size="15" fill="#945c0b" font-weight="750" class="mono">08</text>
+<text x="296" y="2282" font-size="28" fill="#945c0b" font-weight="700" >遗忘请求单独核权</text>
+<text x="296" y="2325" font-size="23" fill="#172b45" font-weight="450" >核对请求者、目标记忆与删</text>
+<text x="296" y="2359" font-size="23" fill="#172b45" font-weight="450" >除范围</text>
+<text x="296" y="2393" font-size="23" fill="#172b45" font-weight="450" >只处理其有权删除的目标</text>
+<text x="296" y="2427" font-size="23" fill="#172b45" font-weight="450" >副本</text>
+</g>
+<g id="node-receipt" class="node node-evidence" data-region="804,2206,354,265">
+<rect x="804" y="2206" width="354" height="265" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="2223" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="2241" font-size="15" fill="#7045a4" font-weight="750" class="mono">09</text>
+<text x="826" y="2282" font-size="28" fill="#7045a4" font-weight="700" >删除传播与回执</text>
+<text x="826" y="2325" font-size="23" fill="#172b45" font-weight="450" >目标主存、索引、缓存逐项</text>
+<text x="826" y="2359" font-size="23" fill="#172b45" font-weight="450" >清除</text>
+<text x="826" y="2393" font-size="23" fill="#172b45" font-weight="450" >tombstone 与逐副本无残留</text>
+<text x="826" y="2427" font-size="23" fill="#172b45" font-weight="450" >核验</text>
+</g>
+<g id="node-regression" class="node node-evidence" data-region="537,2679,354,265">
+<rect x="537" y="2679" width="354" height="265" rx="14" fill="#f4effb" stroke="none" />
+<rect x="555" y="2696" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="2714" font-size="15" fill="#7045a4" font-weight="750" class="mono">10</text>
+<text x="559" y="2755" font-size="28" fill="#7045a4" font-weight="700" >隐私与污染回归</text>
+<text x="559" y="2798" font-size="23" fill="#172b45" font-weight="450" >换用户重放、推进时间、相</text>
+<text x="559" y="2832" font-size="23" fill="#172b45" font-weight="450" >似查询</text>
+<text x="559" y="2866" font-size="23" fill="#172b45" font-weight="450" >分别报告隔离、时效与删除</text>
+<text x="559" y="2900" font-size="23" fill="#172b45" font-weight="450" >残留</text>
+</g>
+<rect x="632.61" y="367" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="396" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  同意与目的</text>
+<text x="716" y="428" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">获准才写入</text>
+<text x="934" y="363" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="95.69" y="367" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="396" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  无保存权或目</text>
+<text x="190" y="428" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">的不符</text>
+<text x="934" y="1224" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="1151.69" y="367" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="396" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  隔离且有版本</text>
+<text x="1246" y="428" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">/有效期</text>
+<text x="455" y="593" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="632.61" y="874" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="903" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  命中内容仍</text>
+<text x="716" y="935" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">须重新核验</text>
+<text x="893.2" y="856" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="1148.435" y="874" width="195.13000000000002" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="903" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  当前授权、</text>
+<text x="1246" y="935" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">TTL 与版本均有效</text>
+<text x="455" y="1224" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="1151.69" y="970" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="999" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  跨用户或当前</text>
+<text x="1246" y="1031" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">ACL 拒绝</text>
+<text x="1036" y="1224" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="1151.69" y="1066" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1095" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  过期、旧版本</text>
+<text x="1246" y="1127" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">或已确认污染</text>
+<text x="769" y="1765" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="95.69" y="1539" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1568" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  按纠错结果更</text>
+<text x="190" y="1600" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">新并失效旧缓存</text>
+<text x="404" y="822" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+<rect x="94.64" y="463" width="190.72" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="492" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  撤回/遗忘请</text>
+<text x="190" y="524" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">求：另验删除权限</text>
+<text x="404" y="2196" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e8" stroke="#fff" stroke-width="4" paint-order="stroke">09</text>
+<rect x="95.69" y="2066" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="2095" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">10  请求者无权删</text>
+<text x="190" y="2127" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">除目标</text>
+<text x="934" y="1521" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e9" stroke="#fff" stroke-width="4" paint-order="stroke">10</text>
+<rect x="632.61" y="2497" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="2526" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">11  目标归属与</text>
+<text x="716" y="2558" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">删除范围获准</text>
+<text x="934" y="2493" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e10" stroke="#fff" stroke-width="4" paint-order="stroke">11</text>
+<rect x="1151.69" y="1539" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1568" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e11">12  修复隔离后换</text>
+<text x="1246" y="1600" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e11">身份重放</text>
+<text x="748.6" y="2669" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e11" stroke="#fff" stroke-width="4" paint-order="stroke">12</text>
+<rect x="1151.69" y="2066" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="2095" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e12">13  时效、污染与</text>
+<text x="1246" y="2127" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e12">影响回溯验证</text>
+<text x="687.4" y="2669" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e12" stroke="#fff" stroke-width="4" paint-order="stroke">13</text>
+<rect x="95.69" y="1635" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1664" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e13">14  获准使用的当</text>
+<text x="190" y="1696" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e13">前版本证据</text>
+<text x="626.2" y="2669" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e13" stroke="#fff" stroke-width="4" paint-order="stroke">14</text>
+<rect x="1151.69" y="2497" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="2526" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e14">15  独立存储读回</text>
+<text x="1246" y="2558" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e14">与相似查询</text>
+<text x="809.8" y="2669" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e14" stroke="#fff" stroke-width="4" paint-order="stroke">15</text>
+</g>
+</g>
+<text x="64" y="3512" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="3512" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,3542,470,174">
+<rect x="64" y="3542" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="3564" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="106" y="3589" font-size="25" fill="#ad3e4c" font-weight="700" >隔离故障怎样修</text>
+<text x="88" y="3644" font-size="23" fill="#172b45" font-weight="450" >跨用户命中先拒绝、修隔离 key</text>
+<text x="88" y="3679" font-size="23" fill="#172b45" font-weight="450" >不得把访问故障当删除他人记忆授权</text>
+</g>
+<g id="detail-1" data-region="565,3542,470,174">
+<rect x="565" y="3542" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="3564" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="607" y="3589" font-size="25" fill="#945c0b" font-weight="700" >陈旧内容怎样纠错</text>
+<text x="589" y="3644" font-size="23" fill="#172b45" font-weight="450" >TTL/版本失效，隔离错误来源</text>
+<text x="589" y="3679" font-size="23" fill="#172b45" font-weight="450" >核对缓存及受旧记忆影响的历史结论</text>
+</g>
+<g id="detail-2" data-region="1066,3542,470,174">
+<rect x="1066" y="3542" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="3564" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="3589" font-size="25" fill="#7045a4" font-weight="700" >遗忘怎样证明完成</text>
+<text x="1090" y="3644" font-size="23" fill="#172b45" font-weight="450" >先核请求者与目标，再清获准副本</text>
+<text x="1090" y="3679" font-size="23" fill="#172b45" font-weight="450" >逐存储读回并做相近语义负向检索</text>
+</g>
+<g id="failure-and-output" data-region="64,3748,1472,148">
+<rect x="64" y="3748" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="3787" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="3832" font-size="23" fill="#ffdce2" font-weight="450" >跨用户、过期或旧版本命中停止使用；删除无授权或无可核对回执时不得声称已删除。</text>
+<text x="88" y="3875" font-size="23" fill="#dce9fa" font-weight="450" >交付隔离拒绝、陈旧纠错、授权删除三路证据与副本位置清单。</text>
+</g>
+<text x="64" y="3944" font-size="20" fill="#50647c" font-weight="450" >离线隔离 fixture 未证明真实同意、存储删除传播、隐私法律或长期漂移。</text>
+<text x="64" y="3983" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-X603 · 隔离拒绝、纠错与授权删除分三路</text>
+<path class="edge edge-data" d="M64 4023 L101 4023" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="4029" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 4023 L397 4023" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="4029" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 4023 L693 4023" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="4029" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 4023 L989 4023" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="4029" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 4023 L1285 4023" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="4029" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

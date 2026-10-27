@@ -1,92 +1,163 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 1000" width="1600" height="1000">
-  <title id="title">完整测试生命周期｜专业关系图</title>
-  <desc id="desc">需求如何经过版本化工件、独立判据与人工发布门禁形成可追溯证据链？ 图中区分数据流、控制流、证据流与反馈回路，并显示失败路径、系统边界和责任门禁。</desc>
-  <defs>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173f32" flood-opacity="0.12"/></filter>
-    <marker id="arrow-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7fb8"/></marker>
-<marker id="arrow-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c9852c"/></marker>
-<marker id="arrow-evidence" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#765ca6"/></marker>
-<marker id="arrow-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2c7b61"/></marker>
-  </defs>
-  <rect width="1600" height="1000" rx="32" fill="#f4f7f2"/>
-  <rect x="0" y="0" width="1600" height="146" rx="32" fill="#174f3f"/>
-  <text x="72" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" font-weight="800" fill="#b8dd78">TD-M00 · lifecycle · module-lifecycle</text>
-  <text x="72" y="92" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="30" font-weight="800" fill="#ffffff">完整测试生命周期｜专业关系图</text>
-  <text x="72" y="132" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="600" fill="#d9e9df">需求如何经过版本化工件、独立判据与人工发布门禁形成可追溯证据链？</text>
-  <rect x="54" y="172" width="1492" height="590" rx="26" fill="#fbfdfb" stroke="#c9d6cf" stroke-width="2"/>
-  <text x="82" y="204" font-size="17" font-weight="800" fill="#52665e">系统边界 · 不覆盖 AI 系统特有的失败形态，那从 TD-M01 开始；不覆盖具体专项的测试手法（接口、U…</text>
-  <path d="M 250 305 C 325 305, 390 305, 465 305" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 625 305 C 700 305, 765 305, 840 305" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 1000 305 C 1075 305, 1140 305, 1215 305" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1375 305 C 1450 305, 15 575, 90 575" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 250 575 C 325 575, 390 575, 465 575" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 625 575 C 700 575, 765 575, 840 575" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1000 575 C 1075 575, 1140 575, 1215 575" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 1375 575 C 1450 575, 390 305, 465 305" fill="none" stroke="#2c7b61" stroke-width="4" stroke-dasharray="14 6" marker-end="url(#arrow-feedback)" opacity="0.92"/>
-  <g filter="url(#shadow)">
-      <rect x="90" y="245" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="90" y="245" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="118" y="273" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">01</text>
-      <text x="118" y="307" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">定位职责→职业责任地图</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="465" y="245" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="465" y="245" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="493" y="273" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">02</text>
-      <text x="493" y="307" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">冻结依据→TestBasisPack（带hash）</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="840" y="245" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="840" y="245" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="868" y="273" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">03</text>
-      <text x="868" y="307" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">建立契约→requirement/</text>
-<text x="868" y="337" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">technical-co…</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1215" y="245" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1215" y="245" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1243" y="273" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">04</text>
-      <text x="1243" y="307" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">定测试策略→risk-test-plan.json</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="90" y="515" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="90" y="515" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="118" y="543" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">05</text>
-      <text x="118" y="577" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">固定判据→test-package.json与</text>
-<text x="118" y="607" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Oracle…</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="465" y="515" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="465" y="515" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="493" y="543" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">06</text>
-      <text x="493" y="577" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">接入自动化→自动化骨架与追溯索引</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="840" y="515" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="840" y="515" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="868" y="543" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">07</text>
-      <text x="868" y="577" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">执行与归因→run-manifest.json</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1215" y="515" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1215" y="515" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1243" y="543" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">08</text>
-      <text x="1243" y="577" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">发布判断→端到端证据链</text>
-    </g>
-  <g transform="translate(70 788)">
-    <rect width="710" height="112" rx="20" fill="#fff4ef" stroke="#e5aaa2" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#b84c42">失败路径</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">任一关键输入、权限、Oracle、版本或终态证据缺失时进入</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">FAIL/BLOCKED/UNKNOWN，不静默通过。</text>
-  </g>
-  <g transform="translate(820 788)">
-    <rect width="710" height="112" rx="20" fill="#eef8f2" stroke="#9bc6ac" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#2c7b61">反馈闭环 · Owner Gate</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">失败证据回到最早分叉点，修复后使用同一版本输入重跑并产生新receipt。业务/</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">质量Owner批准判据、风险接受与发布；AI只生成候选和整理证据。</text>
-  </g>
-  <g transform="translate(100 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#4f7fb8" stroke-width="5" stroke-dasharray=""/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">数据流</text></g>
-<g transform="translate(345 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#c9852c" stroke-width="5" stroke-dasharray="10 7"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">控制流</text></g>
-<g transform="translate(590 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#765ca6" stroke-width="5" stroke-dasharray="4 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">证据流</text></g>
-<g transform="translate(835 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#2c7b61" stroke-width="5" stroke-dasharray="14 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">反馈闭环</text></g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2114" viewBox="0 0 1600 2114" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">完整测试生命周期｜模块全景</title><desc id="desc">需求到发布是一条链，每一站交出一个下游程序能直接消费的工件。 本模块学习路径 · 箭头表示学习先后与交付承接 不覆盖 AI 系统特有的失败形态，那从 TD-M01 开始；不覆盖具体专项的测试手法（接口、UI、性能），那在 TD-M08；工件格式给的是最小必要字段，不是某一家工具链的规范。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。</desc><metadata data-source-ref="content/module-overviews.ts#TD-M00 / stages + logic + boundary">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-M00&quot;,&quot;pageIds&quot;:[&quot;TD-F01&quot;,&quot;TD-P01&quot;,&quot;TD-P02&quot;,&quot;TD-P03&quot;,&quot;TD-P04&quot;,&quot;TD-P05&quot;,&quot;TD-P06&quot;,&quot;TD-P07&quot;,&quot;TD-P08&quot;],&quot;primaryPageIds&quot;:[],&quot;layout&quot;:&quot;flow&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;content/module-overviews.ts&quot;,&quot;locator&quot;:&quot;TD-M00 / stages + logic + boundary&quot;,&quot;quote&quot;:&quot;需求到发布是一条链，每一站交出一个下游程序能直接消费的工件。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;s1&quot;,&quot;title&quot;:&quot;定位职责&quot;},{&quot;id&quot;:&quot;s2&quot;,&quot;title&quot;:&quot;冻结依据&quot;},{&quot;id&quot;:&quot;s3&quot;,&quot;title&quot;:&quot;建立契约&quot;},{&quot;id&quot;:&quot;s4&quot;,&quot;title&quot;:&quot;定测试策略&quot;},{&quot;id&quot;:&quot;s5&quot;,&quot;title&quot;:&quot;固定判据&quot;},{&quot;id&quot;:&quot;s6&quot;,&quot;title&quot;:&quot;接入自动化&quot;},{&quot;id&quot;:&quot;s7&quot;,&quot;title&quot;:&quot;执行与归因&quot;},{&quot;id&quot;:&quot;s8&quot;,&quot;title&quot;:&quot;发布判断&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;s1&quot;,&quot;to&quot;:&quot;s2&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s2&quot;,&quot;to&quot;:&quot;s3&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s3&quot;,&quot;to&quot;:&quot;s4&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s4&quot;,&quot;to&quot;:&quot;s5&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s5&quot;,&quot;to&quot;:&quot;s6&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s6&quot;,&quot;to&quot;:&quot;s7&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s7&quot;,&quot;to&quot;:&quot;s8&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2114" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-M00</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >完整测试生命周期｜模块全景</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >需求到发布是一条链，每一站交出一个下游程序能直接消费的工件。</text>
+<g id="system-graph" data-region="64,234,1472,1174.215809284818">
+<rect x="64" y="234" width="1472" height="1174.215809284818" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >本模块学习路径 · 箭头表示学习先后与交付承接</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >流程与交付</text>
+<g transform="translate(222.38393977415308 418.2559598494354) scale(0.8531994981179423)" data-graph-scale="0.8531994981179423">
+<path class="edge edge-data" d="M354.34 119.5 C397.74 119.5 444.33 119.5 488.25 119.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s1" data-to="s2"/>
+<path class="edge edge-data" d="M854.34 119.5 C897.74 119.5 944.33 119.5 988.25 119.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s2" data-to="s3"/>
+<path class="edge edge-data" d="M1177 239.39 C1177 293.76 1177 357.74 1177 411.39" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s3" data-to="s4"/>
+<path class="edge edge-data" d="M999.66 525.5 C956.27 525.5 909.67 525.5 865.76 525.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s4" data-to="s5"/>
+<path class="edge edge-data" d="M499.66 525.5 C456.27 525.5 409.67 525.5 365.76 525.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s5" data-to="s6"/>
+<path class="edge edge-data" d="M264.97 662.37 C294.38 708.14 326.8 758.5899999999999 354.87 802.26" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s6" data-to="s7"/>
+<path class="edge edge-data" d="M604.34 914.5 C647.74 914.5 694.33 914.5 738.25 914.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s7" data-to="s8"/>
+<g id="node-s1" class="node node-input" data-region="0,17,354,205">
+<rect x="0" y="17" width="354" height="205" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="18" y="34" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="52" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="22" y="93" font-size="28" fill="#215cbb" font-weight="700" >定位职责</text>
+<text x="22" y="136" font-size="23" fill="#172b45" font-weight="450" >这条链上我负责哪几站？</text>
+<text x="22" y="170" font-size="23" fill="#172b45" font-weight="450" >产物：职业责任地图</text>
+<text x="22" y="204" font-size="23" fill="#172b45" font-weight="450" >TD-F01</text>
+</g>
+<g id="node-s2" class="node node-control" data-region="500,0,354,239">
+<rect x="500" y="0" width="354" height="239" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="518" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="525" y="35" font-size="15" fill="#945c0b" font-weight="750" class="mono">02</text>
+<text x="522" y="76" font-size="28" fill="#945c0b" font-weight="700" >冻结依据</text>
+<text x="522" y="119" font-size="23" fill="#172b45" font-weight="450" >规则冲突时以哪一份为准？</text>
+<text x="522" y="153" font-size="23" fill="#172b45" font-weight="450" >产物：Test Basis Pack（带</text>
+<text x="522" y="187" font-size="23" fill="#172b45" font-weight="450" >hash）</text>
+<text x="522" y="221" font-size="23" fill="#172b45" font-weight="450" >TD-P01</text>
+</g>
+<g id="node-s3" class="node node-ai" data-region="1000,0,354,239">
+<rect x="1000" y="0" width="354" height="239" rx="14" fill="#f4effb" stroke="none" />
+<rect x="1018" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1025" y="35" font-size="15" fill="#7045a4" font-weight="750" class="mono">03</text>
+<text x="1022" y="76" font-size="28" fill="#7045a4" font-weight="700" >建立契约</text>
+<text x="1022" y="119" font-size="23" fill="#172b45" font-weight="450" >需求能不能被程序消费？</text>
+<text x="1022" y="153" font-size="23" fill="#172b45" font-weight="450" >产物：requirement /</text>
+<text x="1022" y="187" font-size="23" fill="#172b45" font-weight="450" >technical-contract.json</text>
+<text x="1022" y="221" font-size="23" fill="#172b45" font-weight="450" >TD-P02 / TD-P03</text>
+</g>
+<g id="node-s4" class="node node-data" data-region="1000,423,354,205">
+<rect x="1000" y="423" width="354" height="205" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="1018" y="440" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1025" y="458" font-size="15" fill="#087b76" font-weight="750" class="mono">04</text>
+<text x="1022" y="499" font-size="28" fill="#087b76" font-weight="700" >定测试策略</text>
+<text x="1022" y="542" font-size="23" fill="#172b45" font-weight="450" >测什么、在哪一层测？</text>
+<text x="1022" y="576" font-size="23" fill="#172b45" font-weight="450" >产物：risk-test-plan.json</text>
+<text x="1022" y="610" font-size="23" fill="#172b45" font-weight="450" >TD-P04</text>
+</g>
+<g id="node-s5" class="node node-evidence" data-region="500,406,354,239">
+<rect x="500" y="406" width="354" height="239" rx="14" fill="#f4effb" stroke="none" />
+<rect x="518" y="423" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="525" y="441" font-size="15" fill="#7045a4" font-weight="750" class="mono">05</text>
+<text x="522" y="482" font-size="28" fill="#7045a4" font-weight="700" >固定判据</text>
+<text x="522" y="525" font-size="23" fill="#172b45" font-weight="450" >判据独立于被测实现吗？</text>
+<text x="522" y="559" font-size="23" fill="#172b45" font-weight="450" >产物：test-package.json</text>
+<text x="522" y="593" font-size="23" fill="#172b45" font-weight="450" >与 Oracle 清单</text>
+<text x="522" y="627" font-size="23" fill="#172b45" font-weight="450" >TD-P05</text>
+</g>
+<g id="node-s6" class="node node-process" data-region="0,389,354,273">
+<rect x="0" y="389" width="354" height="273" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="18" y="406" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="424" font-size="15" fill="#344f70" font-weight="750" class="mono">06</text>
+<text x="22" y="465" font-size="28" fill="#344f70" font-weight="700" >接入自动化</text>
+<text x="22" y="508" font-size="23" fill="#172b45" font-weight="450" >规则落在能验证它的最低层</text>
+<text x="22" y="542" font-size="23" fill="#172b45" font-weight="450" >了吗？</text>
+<text x="22" y="576" font-size="23" fill="#172b45" font-weight="450" >产物：自动化骨架与追溯</text>
+<text x="22" y="610" font-size="23" fill="#172b45" font-weight="450" >索引</text>
+<text x="22" y="644" font-size="23" fill="#172b45" font-weight="450" >TD-P06</text>
+</g>
+<g id="node-s7" class="node node-risk" data-region="250,812,354,205">
+<rect x="250" y="812" width="354" height="205" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="268" y="829" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="275" y="847" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">07</text>
+<text x="272" y="888" font-size="28" fill="#ad3e4c" font-weight="700" >执行与归因</text>
+<text x="272" y="931" font-size="23" fill="#172b45" font-weight="450" >这次运行能被别人重放吗？</text>
+<text x="272" y="965" font-size="23" fill="#172b45" font-weight="450" >产物：run-manifest.json</text>
+<text x="272" y="999" font-size="23" fill="#172b45" font-weight="450" >TD-P07</text>
+</g>
+<g id="node-s8" class="node node-input" data-region="750,812,354,205">
+<rect x="750" y="812" width="354" height="205" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="768" y="829" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="775" y="847" font-size="15" fill="#215cbb" font-weight="750" class="mono">08</text>
+<text x="772" y="888" font-size="28" fill="#215cbb" font-weight="700" >发布判断</text>
+<text x="772" y="931" font-size="23" fill="#172b45" font-weight="450" >谁基于什么证据签字？</text>
+<text x="772" y="965" font-size="23" fill="#172b45" font-weight="450" >产物：端到端证据链</text>
+<text x="772" y="999" font-size="23" fill="#172b45" font-weight="450" >TD-P08</text>
+</g>
+<path d="M421.1 119.5 L420.26 267.5" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="364.58" y="246.5" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="420.26" y="274.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<path d="M948.15932 119.49999999999999 L948.15932 303.5" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="892.47932" y="282.5" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="948.15932" y="310.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<rect x="1104.62" y="297.84000000000003" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1160.3" y="325.84000000000003" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<path d="M946.4287999999998 525.5 L950.43 673.5" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="894.75" y="652.5" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="950.43" y="680.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<path d="M446.42879999999997 525.5 L450.43 353.5" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="394.75" y="332.5" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="450.43" y="360.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<rect x="233.88904000000002" y="692.3350399999999" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="289.56904000000003" y="720.3350399999999" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<path d="M698.15932 914.5 L700.26 1062.501" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="644.58" y="1041.501" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="700.26" y="1069.501" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+</g>
+</g>
+<text x="64" y="1462.215809284818" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1462.215809284818" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1492.215809284818,470,209">
+<rect x="64" y="1492.215809284818" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1514.215809284818" width="7" height="30" rx="3" fill="#215cbb" stroke="none" />
+<text x="106" y="1539.215809284818" font-size="25" fill="#215cbb" font-weight="700" >为什么先学这一步</text>
+<text x="88" y="1594.215809284818" font-size="23" fill="#172b45" font-weight="450" >测试工作被拆成八个动作时，最容易</text>
+<text x="88" y="1629.215809284818" font-size="23" fill="#172b45" font-weight="450" >出问题的不是某一个动作本身，而是</text>
+<text x="88" y="1664.215809284818" font-size="23" fill="#172b45" font-weight="450" >两个动作之间的交接。</text>
+</g>
+<g id="detail-1" data-region="565,1492.215809284818,470,209">
+<rect x="565" y="1492.215809284818" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1514.215809284818" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="607" y="1539.215809284818" font-size="25" fill="#7045a4" font-weight="700" >怎样承接下一步</text>
+<text x="589" y="1594.215809284818" font-size="23" fill="#172b45" font-weight="450" >顺序在这里是硬约束，不是建议。</text>
+</g>
+<g id="detail-2" data-region="1066,1492.215809284818,470,209">
+<rect x="1066" y="1492.215809284818" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1514.215809284818" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="1108" y="1539.215809284818" font-size="25" fill="#945c0b" font-weight="700" >如何判断学会了</text>
+<text x="1090" y="1594.215809284818" font-size="23" fill="#172b45" font-weight="450" >AI 在这条链上承担的是生成候选和整</text>
+<text x="1090" y="1629.215809284818" font-size="23" fill="#172b45" font-weight="450" >理证据，不承担判据判定和发布决定。</text>
+</g>
+<g id="failure-and-output" data-region="64,1733.215809284818,1472,183">
+<rect x="64" y="1733.215809284818" width="1472" height="183" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="1772.215809284818" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="1817.215809284818" font-size="23" fill="#ffdce2" font-weight="450" >阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。</text>
+<text x="88" y="1860.215809284818" font-size="23" fill="#dce9fa" font-weight="450" >带走物：职业责任地图；Test Basis Pack（带 hash）；requirement / technical-contract.json；risk-test-plan.json；</text>
+<text x="88" y="1895.215809284818" font-size="23" fill="#dce9fa" font-weight="450" >test-package.json 与 Oracle 清单；自动化骨架与追溯索引；run-manifest.json；端到端证据链。</text>
+</g>
+<text x="64" y="1964.215809284818" font-size="20" fill="#50647c" font-weight="450" >不覆盖 AI 系统特有的失败形态，那从 TD-M01 开始；不覆盖具体专项的测试手法（接口、UI、性能），那在 TD-M08；工件格式给的是最小必要字段，</text>
+<text x="64" y="1995.215809284818" font-size="20" fill="#50647c" font-weight="450" >不是某一家工具链的规范。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。</text>
+<text x="64" y="2034.215809284818" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-F01 / TD-P01 / TD-P02 / TD-P03 / TD-P04 / TD-P05 / TD-P06 / TD-P07 / TD-P08 · 完整测试生命周期｜模块全景</text>
+<path class="edge edge-data" d="M64 2074.215809284818 L101 2074.215809284818" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2080.215809284818" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2074.215809284818 L397 2074.215809284818" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2080.215809284818" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2074.215809284818 L693 2074.215809284818" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2080.215809284818" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2074.215809284818 L989 2074.215809284818" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2080.215809284818" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2074.215809284818 L1285 2074.215809284818" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2080.215809284818" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

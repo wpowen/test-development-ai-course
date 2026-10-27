@@ -1,130 +1,160 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1160 546" width="1160" height="546">
-  <title id="title">Token、Context 与非确定性：为什么一次 PASS 不够：flow流程</title>
-  <desc id="desc">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-</style>
-  <rect class="ds-bg" width="1160" height="546" rx="22"/>
-  
-  <rect class="ds-header" x="0" y="0" width="1160" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1160" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">FLOW · 证据流</text>
-  <text class="ds-subtitle" x="1124" y="32" text-anchor="end">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</text>
-  <text class="ds-title" x="36" y="74">Token、Context 与非确定性：为什么一次 PASS 不够</text>
-  <text class="ds-source" x="36" y="140">flow · Token、Context 与非确定性：为什么一次 PASS 不够 的证据与决策边界 · 来源 S33, S40, S65, S66</text>
-  
-    <path d="M 264 220 L 286 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 466 220 L 488 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 668 220 L 690 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 870 220 L 892 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 984 268 V 305 H 176 V 338" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    <path d="M 264 390 L 286 390" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-  
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="172" width="176" height="96" rx="14" fill="#eaf1fa" stroke="#aec6e3"/>
-      
-      <circle cx="106" cy="190" r="11" fill="#ffffff" stroke="#aec6e3" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="193" text-anchor="middle" >01</text>
-      <text class="ds-node-title" x="103" y="220">原始输入</text>
-      <text class="ds-node-detail" x="103" y="235">输入 / 依据</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="290" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="308" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="193" text-anchor="middle" >02</text>
-      <text class="ds-node-title" x="305" y="220">Tokenizer</text>
-      <text class="ds-node-detail" x="305" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="492" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="510" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="510" y="193" text-anchor="middle" >03</text>
-      <text class="ds-node-title" x="507" y="220">有限 Context</text>
-      <text class="ds-node-detail" x="507" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="694" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="712" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="712" y="193" text-anchor="middle" >04</text>
-      <text class="ds-node-title" x="709" y="220">模型 Logits</text>
-      <text class="ds-node-detail" x="709" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="896" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="914" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="914" y="193" text-anchor="middle" >05</text>
-      <text class="ds-node-title" x="911" y="220">解码策略</text>
-      <text class="ds-node-detail" x="911" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="342" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="106" cy="360" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="363" text-anchor="middle" >06</text>
-      <text class="ds-node-title" x="103" y="390">多次 Raw outputs</text>
-      <text class="ds-node-detail" x="103" y="405">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-strong)">
-      <rect x="290" y="342" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a" stroke-width="2"/>
-      <rect x="290" y="342" width="6" height="96" rx="3" fill="#93bd2c"/>
-      <circle cx="308" cy="360" r="11" fill="#174a3a" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="363" text-anchor="middle" fill="#ffffff">07</text>
-      <text class="ds-node-title" x="305" y="390">分布与人工 Gate</text>
-      <text class="ds-node-detail" x="305" y="405">决定 / 输出</text>
-    </g>
-  <circle cx="108" cy="460" r="4" fill="#355f96"/><text class="ds-legend" x="118" y="464">输入 / 依据</text><circle cx="177.4" cy="460" r="4" fill="#c2d9cc"/><text class="ds-legend" x="187.4" y="464">处理 / 变换</text><circle cx="246.8" cy="460" r="4" fill="#6a49a8"/><text class="ds-legend" x="256.8" y="464">独立判断</text><circle cx="297.6" cy="460" r="4" fill="#a96a18"/><text class="ds-legend" x="307.6" y="464">门禁 / 裁决</text><circle cx="367" cy="460" r="4" fill="#b2402f"/><text class="ds-legend" x="377" y="464">安全终态</text>
-  
-  <rect x="28" y="472" width="1104" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="498">证据边界</text>
-  <text class="ds-foot" x="46" y="520">节点是页面语义关系；不代表真实模型、企业集成或生产效果已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2325" viewBox="0 0 1600 2325" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">同义输入重复运行，观察结论分布</title><desc id="desc">锁定参数只减少部分波动；位置、截断与运行条件仍需独立探针，稳定性要由逐次输出支持。 同一关键约束置于首、中、尾的受控比较及重复可靠性 图不预设中间位置一定较差，不展示虚构成功率；真实模型未运行时保持 NOT_RUN。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-F03 / 非确定性从哪来，为什么单次 PASS 不构成证据;docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-F03 / 做一次位置敏感性与重复运行实验：约 45 分钟">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-F03&quot;,&quot;pageIds&quot;:[&quot;TD-F03&quot;],&quot;primaryPageIds&quot;:[&quot;TD-F03&quot;],&quot;layout&quot;:&quot;metric&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-F03 / 非确定性从哪来，为什么单次 PASS 不构成证据&quot;,&quot;quote&quot;:&quot;pass^k（连续 k 次全对）衡量稳定性&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-F03 / 做一次位置敏感性与重复运行实验：约 45 分钟&quot;,&quot;quote&quot;:&quot;比较时要区分措辞差异与结论差异&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;config&quot;,&quot;title&quot;:&quot;固定实验配置&quot;},{&quot;id&quot;:&quot;boundary&quot;,&quot;title&quot;:&quot;Token 与 Context 边界&quot;},{&quot;id&quot;:&quot;first&quot;,&quot;title&quot;:&quot;约束放开头&quot;},{&quot;id&quot;:&quot;middle&quot;,&quot;title&quot;:&quot;约束放中间&quot;},{&quot;id&quot;:&quot;last&quot;,&quot;title&quot;:&quot;约束放结尾&quot;},{&quot;id&quot;:&quot;raw&quot;,&quot;title&quot;:&quot;逐次 Raw outputs&quot;},{&quot;id&quot;:&quot;distribution&quot;,&quot;title&quot;:&quot;稳定性与可达性&quot;},{&quot;id&quot;:&quot;gate&quot;,&quot;title&quot;:&quot;风险合同与人工 Gate&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;config&quot;,&quot;to&quot;:&quot;first&quot;,&quot;label&quot;:&quot;锁定非位置变量&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;config&quot;,&quot;to&quot;:&quot;middle&quot;,&quot;label&quot;:&quot;锁定非位置变量&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;config&quot;,&quot;to&quot;:&quot;last&quot;,&quot;label&quot;:&quot;锁定非位置变量&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;boundary&quot;,&quot;to&quot;:&quot;first&quot;,&quot;label&quot;:&quot;同义边界材料&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;boundary&quot;,&quot;to&quot;:&quot;middle&quot;,&quot;label&quot;:&quot;同义边界材料&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;boundary&quot;,&quot;to&quot;:&quot;last&quot;,&quot;label&quot;:&quot;同义边界材料&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;first&quot;,&quot;to&quot;:&quot;raw&quot;,&quot;label&quot;:&quot;全部尝试&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;middle&quot;,&quot;to&quot;:&quot;raw&quot;,&quot;label&quot;:&quot;全部尝试&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;last&quot;,&quot;to&quot;:&quot;raw&quot;,&quot;label&quot;:&quot;全部尝试&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;raw&quot;,&quot;to&quot;:&quot;distribution&quot;,&quot;label&quot;:&quot;按位置与风险分组&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;distribution&quot;,&quot;to&quot;:&quot;gate&quot;,&quot;label&quot;:&quot;分布及一致性缺口&quot;,&quot;kind&quot;:&quot;evidence&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2325" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-F03</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >同义输入重复运行，观察结论分布</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >锁定参数只减少部分波动；位置、截断与运行条件仍需独立探针，稳定性要由逐次输出支持。</text>
+<g id="system-graph" data-region="64,234,1472,1487">
+<rect x="64" y="234" width="1472" height="1487" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >同一关键约束置于首、中、尾的受控比较及重复可靠性</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >实验与指标</text>
+<g transform="translate(123.29999999999995 350) scale(1)" data-graph-scale="1" data-routing="dot">
+<path class="edge edge-control" d="M332 251.5 C332 366.48 151.52 219.97000000000003 80 310 C68.39 324.62 71.75 335.25 80 352 C90.77 373.87 119.87 366.75 129.13 380.86" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e0" data-from="config" data-to="first"/>
+<path class="edge edge-control" d="M402 251.5 C402 289.39 437.32 283.1 464 310 C481.94 328.08000000000004 484.79 334.17999999999995 503 352 C526.53 375.03 557.37 371.9 564.49 396.24" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e1" data-from="config" data-to="middle"/>
+<path class="edge edge-control" d="M472 251.5 C472 344.63 805.63 264.69000000000005 887 310 C908.23 321.82000000000005 904.21 335.45000000000005 922 352 C949.95 378 990.31 368.15 998.51 396.33000000000004" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e2" data-from="config" data-to="last"/>
+<path class="edge edge-data" d="M766 270 C766 322.19000000000005 344.28 285.87 298 310 C276.45 321.23 279.71 334.36 263 352 C248.28 367.54999999999995 228.77 366.94000000000005 222.24 380.63" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e3" data-from="boundary" data-to="first"/>
+<path class="edge edge-data" d="M836 270 C836 322.44000000000005 766.91 278.48 725 310 C715.97 316.78999999999996 672.03 371.80999999999995 658.19 397.23" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e4" data-from="boundary" data-to="middle"/>
+<path class="edge edge-data" d="M906 270 C906 361.96000000000004 1050.6 238.97000000000003 1109 310 C1134.75 341.32000000000005 1096.23 359.90999999999997 1089.1 396.58000000000004" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e5" data-from="boundary" data-to="last"/>
+<path class="edge edge-evidence" d="M132 623 C132 662.32 441.35 696.58 489.68 735.11" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e6" data-from="first" data-to="raw"/>
+<path class="edge edge-evidence" d="M566 605 C566 663.09 566 680.51 566 733.19" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="middle" data-to="raw"/>
+<path class="edge edge-evidence" d="M1000 605 C1000 645.03 689.34 693.6 642.01 734.93" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e8" data-from="last" data-to="raw"/>
+<path class="edge edge-data" d="M496 976 C496 1026.09 496 1041.48 496 1086.28" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e9" data-from="raw" data-to="distribution"/>
+<path class="edge edge-evidence" d="M673 1195.5 C685.89 1195.5 681.15 1179.58 693 1174.5 C774.29 1139.66 810.71 1139.66 892 1174.5 C899.96 1177.91 900.43 1186.22 903.8 1191.3" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e10" data-from="distribution" data-to="gate"/>
+<g id="node-config" class="node node-control" data-region="227,19.5,354,231">
+<rect x="227" y="19.5" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="245" y="36.5" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="252" y="54.5" font-size="15" fill="#945c0b" font-weight="750" class="mono">01</text>
+<text x="249" y="95.5" font-size="28" fill="#945c0b" font-weight="700" >固定实验配置</text>
+<text x="249" y="138.5" font-size="23" fill="#172b45" font-weight="450" >模型、Prompt、</text>
+<text x="249" y="172.5" font-size="23" fill="#172b45" font-weight="450" >temperature、top_p</text>
+<text x="249" y="206.5" font-size="23" fill="#172b45" font-weight="450" >seed 与运行条件如实记录</text>
+</g>
+<g id="node-boundary" class="node node-input" data-region="661,0,354,270">
+<rect x="661" y="0" width="354" height="270" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="679" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="686" y="35" font-size="15" fill="#215cbb" font-weight="750" class="mono">02</text>
+<text x="683" y="76" font-size="28" fill="#215cbb" font-weight="700" >Token 与 Context</text>
+<text x="683" y="115" font-size="28" fill="#215cbb" font-weight="700" >边界</text>
+<text x="683" y="158" font-size="23" fill="#172b45" font-weight="450" >锁 tokenizer，检查实际</text>
+<text x="683" y="192" font-size="23" fill="#172b45" font-weight="450" >token 数</text>
+<text x="683" y="226" font-size="23" fill="#172b45" font-weight="450" >构造刚好不越界与越界输入</text>
+</g>
+<g id="node-first" class="node node-process" data-region="0,392,354,231">
+<rect x="0" y="392" width="354" height="231" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="18" y="409" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="427" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="22" y="468" font-size="28" fill="#344f70" font-weight="700" >约束放开头</text>
+<text x="22" y="511" font-size="23" fill="#172b45" font-weight="450" >语义相同，保持其他材料</text>
+<text x="22" y="545" font-size="23" fill="#172b45" font-weight="450" >一致</text>
+<text x="22" y="579" font-size="23" fill="#172b45" font-weight="450" >按合同重复 k 次</text>
+</g>
+<g id="node-middle" class="node node-process" data-region="434,409,354,197">
+<rect x="434" y="409" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="452" y="426" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="459" y="444" font-size="15" fill="#344f70" font-weight="750" class="mono">04</text>
+<text x="456" y="485" font-size="28" fill="#344f70" font-weight="700" >约束放中间</text>
+<text x="456" y="528" font-size="23" fill="#172b45" font-weight="450" >只改变关键信息位置</text>
+<text x="456" y="562" font-size="23" fill="#172b45" font-weight="450" >按同一合同重复 k 次</text>
+</g>
+<g id="node-last" class="node node-process" data-region="868,409,354,197">
+<rect x="868" y="409" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="886" y="426" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="893" y="444" font-size="15" fill="#344f70" font-weight="750" class="mono">05</text>
+<text x="890" y="485" font-size="28" fill="#344f70" font-weight="700" >约束放结尾</text>
+<text x="890" y="528" font-size="23" fill="#172b45" font-weight="450" >使用相同问题与判定规则</text>
+<text x="890" y="562" font-size="23" fill="#172b45" font-weight="450" >按同一合同重复 k 次</text>
+</g>
+<g id="node-raw" class="node node-data" data-region="391,745,354,231">
+<rect x="391" y="745" width="354" height="231" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="409" y="762" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="416" y="780" font-size="15" fill="#087b76" font-weight="750" class="mono">06</text>
+<text x="413" y="821" font-size="28" fill="#087b76" font-weight="700" >逐次 Raw outputs</text>
+<text x="413" y="864" font-size="23" fill="#172b45" font-weight="450" >每个 case-run 保存完整</text>
+<text x="413" y="898" font-size="23" fill="#172b45" font-weight="450" >输出</text>
+<text x="413" y="932" font-size="23" fill="#172b45" font-weight="450" >区分措辞差异与结论差异</text>
+</g>
+<g id="node-distribution" class="node node-evidence" data-region="319,1098,354,197">
+<rect x="319" y="1098" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="337" y="1115" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="344" y="1133" font-size="15" fill="#7045a4" font-weight="750" class="mono">07</text>
+<text x="341" y="1174" font-size="28" fill="#7045a4" font-weight="700" >稳定性与可达性</text>
+<text x="341" y="1217" font-size="23" fill="#172b45" font-weight="450" >pass^k：k 次全部成功</text>
+<text x="341" y="1251" font-size="23" fill="#172b45" font-weight="450" >pass@k：k 次至少一次成功</text>
+</g>
+<g id="node-gate" class="node node-control" data-region="912,1098,354,197">
+<rect x="912" y="1098" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="930" y="1115" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="937" y="1133" font-size="15" fill="#945c0b" font-weight="750" class="mono">08</text>
+<text x="934" y="1174" font-size="28" fill="#945c0b" font-weight="700" >风险合同与人工 Gate</text>
+<text x="934" y="1217" font-size="23" fill="#172b45" font-weight="450" >任务决定 k、n 与区间方法</text>
+<text x="934" y="1251" font-size="23" fill="#172b45" font-weight="450" >证据不足不能写没有差异</text>
+</g>
+<rect x="80" y="310" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="168.5" y="338" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">锁定非位置变量</text>
+<rect x="503" y="310" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="591.5" y="338" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">锁定非位置变量</text>
+<rect x="922" y="310" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1010.5" y="338" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">锁定非位置变量</text>
+<rect x="298" y="310" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="376" y="338" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">同义边界材料</text>
+<rect x="725" y="310" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="803" y="338" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">同义边界材料</text>
+<rect x="1117.8" y="310" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1195.8" y="338" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">同义边界材料</text>
+<rect x="398.38" y="663" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="454.38" y="691" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">全部尝试</text>
+<rect x="566" y="663" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="622" y="691" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">全部尝试</text>
+<rect x="861.31" y="663" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="917.31" y="691" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">全部尝试</text>
+<rect x="496" y="1016" width="199" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="595.5" y="1044" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">按位置与风险分组</text>
+<rect x="693" y="1106.37" width="199" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="792.5" y="1134.37" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">分布及一致性缺口</text>
+</g>
+</g>
+<text x="64" y="1775" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1775" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1805,470,174">
+<rect x="64" y="1805" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1827" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="106" y="1852" font-size="25" fill="#945c0b" font-weight="700" >temperature=0 的边界</text>
+<text x="88" y="1907" font-size="23" fill="#172b45" font-weight="450" >批处理、路由与上下文仍可变</text>
+<text x="88" y="1942" font-size="23" fill="#172b45" font-weight="450" >托管不可见变量列为已知限制</text>
+</g>
+<g id="detail-1" data-region="565,1805,470,174">
+<rect x="565" y="1805" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1827" width="7" height="30" rx="3" fill="#344f70" stroke="none" />
+<text x="607" y="1852" font-size="25" fill="#344f70" font-weight="700" >重复次数不是口诀</text>
+<text x="589" y="1907" font-size="23" fill="#172b45" font-weight="450" >由风险、稀有失败、区间宽度与成本定</text>
+<text x="589" y="1942" font-size="23" fill="#172b45" font-weight="450" >单次 PASS 不能升级为稳定证据</text>
+</g>
+<g id="detail-2" data-region="1066,1805,470,174">
+<rect x="1066" y="1805" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1827" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="1852" font-size="25" fill="#7045a4" font-weight="700" >比较必须看对问题</text>
+<text x="1090" y="1907" font-size="23" fill="#172b45" font-weight="450" >不可逆动作重视次次成功的 pass^k</text>
+<text x="1090" y="1942" font-size="23" fill="#172b45" font-weight="450" >版本比较分析配对差值，不看区间重叠</text>
+</g>
+<g id="failure-and-output" data-region="64,2011,1472,148">
+<rect x="64" y="2011" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2050" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2095" font-size="23" fill="#ffdce2" font-weight="450" >仅一次运行、配置字段缺失或挑最好输出时，拒绝稳定性结论并保留 UNKNOWN。</text>
+<text x="88" y="2138" font-size="23" fill="#dce9fa" font-weight="450" >交付位置与长度探针、配置快照、raw run ledger 和分布报告。</text>
+</g>
+<text x="64" y="2207" font-size="20" fill="#50647c" font-weight="450" >图不预设中间位置一定较差，不展示虚构成功率；真实模型未运行时保持 NOT_RUN。</text>
+<text x="64" y="2246" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-F03 · 同义输入重复运行，观察结论分布</text>
+<path class="edge edge-data" d="M64 2286 L101 2286" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2292" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2286 L397 2286" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2292" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2286 L693 2286" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2292" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2286 L989 2286" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2292" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2286 L1285 2286" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2292" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

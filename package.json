@@ -37,7 +37,15 @@
     "test": "npm run validate:content && npm run validate:materials && npm run typecheck && npm run test:humanization && npm run test:glossary && npm run test:browser-lab && npm run test:agent-visuals && npm run test:architecture-visuals && npm run build && node --test tests/rendered-html.test.mjs && npm run test:static",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "validate:projection": "node scripts/validate-reference-projection.ts",
-    "test:site": "npm run typecheck && npm run export:static && python3 scripts/validate-material-archives.py --skip-source --static-root dist-github-pages && node --test --test-skip-pattern=\"^static material folders\" tests/static-export.test.mjs tests/browser-lab-contract.test.mjs"
+    "test:site": "npm run typecheck && npm run export:static && python3 scripts/validate-material-archives.py --skip-source --static-root dist-github-pages && node --test --test-skip-pattern=\"^static material folders\" tests/static-export.test.mjs tests/browser-lab-contract.test.mjs",
+    "visuals:build": "node scripts/visuals/prepare.mjs && node scripts/visuals/build.mjs && node scripts/visuals/sync.mjs",
+    "visuals:verify": "node scripts/visuals/verify.mjs && node scripts/visuals/audit.mjs && node scripts/visuals/review-inputs.mjs",
+    "visuals:gallery": "node scripts/visuals/gallery.mjs",
+    "visuals:review": "node scripts/visuals/review.mjs --check",
+    "visuals:approve": "node scripts/visuals/review.mjs --approve",
+    "visuals:promote": "node scripts/visuals/promote.mjs --execute",
+    "test:visual-release": "node --test tests/visual-release-gate.test.mjs tests/visual-typography.test.mjs",
+    "visuals:published": "node scripts/visuals/published.mjs"
   },
   "dependencies": {
     "react": "19.2.6",

@@ -25,6 +25,7 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm run test:site
+      - run: npm run test:visual-release && npm run visuals:published
       - uses: actions/upload-pages-artifact@v3
         if: github.event_name != 'pull_request'
         with:

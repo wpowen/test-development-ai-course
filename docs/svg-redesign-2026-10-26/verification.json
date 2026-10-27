@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "production_unchanged": true,
+  "source_stage_coverage": "7/7",
+  "source_page_coverage": "10/10",
+  "geometry": {
+    "viewBox": [
+      1600,
+      1700
+    ],
+    "textCount": 106,
+    "stageCount": 7,
+    "outside": [],
+    "containerOverflow": [],
+    "textOverlaps": []
+  },
+  "mobile": {
+    "viewport": 390,
+    "document": 390,
+    "imageWidth": 760,
+    "scrollRegionWidth": 324
+  },
+  "pageErrors": [],
+  "notes": [
+    "Chrome rendering and screenshot capture completed.",
+    "Mobile image intentionally stays 760px inside a horizontal scroll region, matching the existing site convention.",
+    "Original and sample visually inspected separately; geometry checks do not establish content acceptance."
+  ]
+}

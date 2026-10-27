@@ -1,111 +1,189 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1200 760" width="1200" height="760">
-  <title id="title">D6 Task→Step→Tool 的质量、延迟与成本树</title>
-  <desc id="desc">平均延迟和总 QPS 会掩盖长循环、重试放大、低 Goodput 与尾部成本。 图中的数值字段需绑定 workload、价格时间和版本；不提供通用 P95/P99 门槛。</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0e3026" flood-opacity=".10"/></filter>
-  <style>
-    .bg{fill:#fbfaf6}.header{fill:url(#ds-header-grad)}.eyebrow{font:700 12px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;fill:#93bd2c}.title{font:800 28px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:white}.subtitle{font:450 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}.source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}.node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}.node-title{font:800 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}.node-detail{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}.edge path{fill:none;stroke:#174a3a;stroke-width:2}.edge text{font:600 9px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}.callout{fill:#fdf1d8;stroke:#e3c07b;stroke-width:1.5}.callout-title{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}.callout-text{font:650 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}.footer{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-  </style>
-  <rect class="bg" width="1200" height="760" rx="24"/>
-  <rect class="header" width="1200" height="92" rx="24"/><rect class="header" y="68" width="1200" height="24"/>
-  <text class="eyebrow" x="34" y="30">D6 · ECONOMICS</text>
-  <text class="title" x="34" y="62">D6 Task→Step→Tool 的质量、延迟与成本树</text>
-  <text class="subtitle" x="1166" y="30" text-anchor="end">平均延迟和总 QPS 会掩盖长循环、重试放大、低 Goodput 与尾部成本。</text>
-  <text class="source" x="34" y="111">来源：S51 · S53 · S73</text>
-  <g class="edge"><path d="M 224 177 C 245 177, 245 177, 258 177" marker-end="url(#ds-arw-forest)"/><text x="245" y="187">施加负载</text></g>
-<g class="edge"><path d="M 456 177 C 477 177, 477 177, 490 177" marker-end="url(#ds-arw-forest)"/><text x="477" y="169">调度</text></g>
-<g class="edge"><path d="M 688 177 C 709 177, 709 177, 722 177" marker-end="url(#ds-arw-forest)"/><text x="709" y="187">工具阶段</text></g>
-<g class="edge"><path d="M 688 177 C 740 464, 330 464, 374 369" marker-end="url(#ds-arw-forest)"/><text x="535" y="265">输出质量</text></g>
-<g class="edge"><path d="M 456 177 C 535 177, 535 369, 606 369" marker-end="url(#ds-arw-forest)"/><text x="535" y="283">排队贡献</text></g>
-<g class="edge"><path d="M 920 177 C 972 464, 562 464, 606 369" marker-end="url(#ds-arw-forest)"/><text x="767" y="265">工具贡献</text></g>
-<g class="edge"><path d="M 688 177 C 767 177, 767 369, 838 369" marker-end="url(#ds-arw-forest)"/><text x="767" y="283">Token 成本</text></g>
-<g class="edge"><path d="M 920 177 C 972 464, 794 464, 838 369" marker-end="url(#ds-arw-forest)"/><text x="883" y="265">重试成本</text></g>
-<g class="edge"><path d="M 572 369 C 624 670, 446 670, 490 572" marker-end="url(#ds-arw-forest)"/><text x="535" y="480.5">联合决定</text></g>
-<g class="edge"><path d="M 804 369 C 856 670, 446 670, 490 572" marker-end="url(#ds-arw-forest)"/><text x="651" y="462.5">超限</text></g>
-<g class="edge"><path d="M 1036 369 C 1088 670, 446 670, 490 572" marker-end="url(#ds-arw-forest)"/><text x="767" y="480.5">超预算</text></g>
-  
-    <g class="node workload">
-      <rect x="34" y="134" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="34" y="134" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="54" y="157">01</text>
-      <text class="node-title" x="54" y="182">Workload</text>
-      <text class="node-detail" x="54" y="204">任务类型 / 风险 / 到达率</text>
-    </g>
-    <g class="node queue">
-      <rect x="266" y="134" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="266" y="134" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="286" y="157">02</text>
-      <text class="node-title" x="286" y="182">Queue</text>
-      <text class="node-detail" x="286" y="204">等待 / 并发 / 隔离</text>
-    </g>
-    <g class="node llm">
-      <rect x="498" y="134" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="498" y="134" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="518" y="157">03</text>
-      <text class="node-title" x="518" y="182">LLM Step</text>
-      <text class="node-detail" x="518" y="204">TTFT / TPOT / Token</text>
-    </g>
-    <g class="node tool">
-      <rect x="730" y="134" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="730" y="134" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="750" y="157">04</text>
-      <text class="node-title" x="750" y="182">Tool Attempt</text>
-      <text class="node-detail" x="750" y="204">延迟 / Retry / Error</text>
-    </g>
-    <g class="node quality">
-      <rect x="382" y="326" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="382" y="326" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="402" y="349">05</text>
-      <text class="node-title" x="402" y="374">Quality / Goodput</text>
-      <text class="node-detail" x="402" y="396">满足质量与时限</text>
-    </g>
-    <g class="node latency">
-      <rect x="614" y="326" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="614" y="326" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="634" y="349">06</text>
-      <text class="node-title" x="634" y="374">延迟尾部</text>
-      <text class="node-detail" x="634" y="396">P95 / P99 / Timeout</text>
-    </g>
-    <g class="node cost">
-      <rect x="846" y="326" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="846" y="326" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="866" y="349">07</text>
-      <text class="node-title" x="866" y="374">成本尾部</text>
-      <text class="node-detail" x="866" y="396">模型 / 工具 / Judge / 人审</text>
-    </g>
-    <g class="node budget">
-      <rect x="498" y="526" width="260" height="92" rx="15" fill="#fdf1d8" stroke="#e0b76a" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="498" y="526" width="5" height="92" rx="2.5" fill="#e0b76a"/>
-      <text class="node-index" x="518" y="549">08</text>
-      <text class="node-title" x="518" y="574">预算门禁 / 停止</text>
-      <text class="node-detail" x="518" y="596">Token / 时间 / 步数 / 金钱</text>
-    </g>
-  <rect class="callout" x="34" y="658" width="1132" height="48" rx="12"/>
-  <text class="callout-title" x="52" y="679">FAIL-CLOSED</text><text class="callout-text" x="170" y="681">增加预算或重试不能当作默认修复；必须联合看质量、尾延迟、成本与副作用。</text>
-  <text class="footer" x="34" y="735">图中的数值字段需绑定 workload、价格时间和版本；不提供通用 P95/P99 门槛。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="3219" viewBox="0 0 1600 3219" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">沿任务树计算延迟与成本</title><desc id="desc">将 Queue、LLM 和每次 Tool 尝试还原到任务；成功率、长尾成本和预算截断共同决定是否值得运行。 只读查询与高风险写任务分 workload，注入超预算循环验证截断 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。</desc><metadata data-source-ref="content/modules/agent-architecture-system.ts#TD-AG-07 / workflow;content/modules/agent-architecture-deep.ts#TD-AG-07 / artifactNote;docs/svg-redesign-2026-10-26/body-sources/material-pages.json#TD-AG-07 / summary">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-AG-07&quot;,&quot;pageIds&quot;:[&quot;TD-AG-07&quot;],&quot;primaryPageIds&quot;:[&quot;TD-AG-07&quot;],&quot;layout&quot;:&quot;flow&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;content/modules/agent-architecture-system.ts&quot;,&quot;locator&quot;:&quot;TD-AG-07 / workflow&quot;,&quot;quote&quot;:&quot;注入超预算循环，验证安全截断和人工升级&quot;},{&quot;path&quot;:&quot;content/modules/agent-architecture-deep.ts&quot;,&quot;locator&quot;:&quot;TD-AG-07 / artifactNote&quot;,&quot;quote&quot;:&quot;单位成功成本 =（模型费 + 工具费 + 人工复核费）/ 成功完成的任务数。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/material-pages.json&quot;,&quot;locator&quot;:&quot;TD-AG-07 / summary&quot;,&quot;quote&quot;:&quot;把 Agent task 拆成 step/tool trace，联合观察延迟、吞吐、Token、Judge 和人工成本，并验证预算会真正截断。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;load&quot;,&quot;title&quot;:&quot;Workload 切片&quot;},{&quot;id&quot;:&quot;task&quot;,&quot;title&quot;:&quot;Task Root&quot;},{&quot;id&quot;:&quot;queue&quot;,&quot;title&quot;:&quot;Queue 等待&quot;},{&quot;id&quot;:&quot;llm&quot;,&quot;title&quot;:&quot;LLM Step&quot;},{&quot;id&quot;:&quot;tool&quot;,&quot;title&quot;:&quot;Tool Attempt&quot;},{&quot;id&quot;:&quot;budget&quot;,&quot;title&quot;:&quot;预算门禁&quot;},{&quot;id&quot;:&quot;tail&quot;,&quot;title&quot;:&quot;延迟与成本尾部&quot;},{&quot;id&quot;:&quot;stop&quot;,&quot;title&quot;:&quot;截断与人工升级&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;load&quot;,&quot;to&quot;:&quot;task&quot;,&quot;label&quot;:&quot;按任务类型发起&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;task&quot;,&quot;to&quot;:&quot;queue&quot;,&quot;label&quot;:&quot;到达与等待&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;queue&quot;,&quot;to&quot;:&quot;llm&quot;,&quot;label&quot;:&quot;出队执行&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;llm&quot;,&quot;to&quot;:&quot;tool&quot;,&quot;label&quot;:&quot;调用与参数&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;tool&quot;,&quot;to&quot;:&quot;llm&quot;,&quot;label&quot;:&quot;返回或受限重试&quot;,&quot;kind&quot;:&quot;feedback&quot;},{&quot;from&quot;:&quot;llm&quot;,&quot;to&quot;:&quot;budget&quot;,&quot;label&quot;:&quot;累计模型消耗&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;tool&quot;,&quot;to&quot;:&quot;budget&quot;,&quot;label&quot;:&quot;累计工具与重试成本&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;budget&quot;,&quot;to&quot;:&quot;stop&quot;,&quot;label&quot;:&quot;任一硬预算超限&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;task&quot;,&quot;to&quot;:&quot;tail&quot;,&quot;label&quot;:&quot;任务成功分母&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;queue&quot;,&quot;to&quot;:&quot;tail&quot;,&quot;label&quot;:&quot;等待延迟&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;llm&quot;,&quot;to&quot;:&quot;tail&quot;,&quot;label&quot;:&quot;生成消耗&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;tool&quot;,&quot;to&quot;:&quot;tail&quot;,&quot;label&quot;:&quot;调用与重试账本&quot;,&quot;kind&quot;:&quot;evidence&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="3219" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-AG-07</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >沿任务树计算延迟与成本</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >将 Queue、LLM 和每次 Tool 尝试还原到任务；成功率、长尾成本和预算截断共同决定是否值得运行。</text>
+<g id="system-graph" data-region="64,234,1472,2381">
+<rect x="64" y="234" width="1472" height="2381" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >只读查询与高风险写任务分 workload，注入超预算循环验证截断</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M451 307 L451 371 L904.5 371 L904.5 273" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M451 307 L451 371 L904.5 371 L904.5 273" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="load" data-to="task"/>
+<path d="M981 273 L981 355 L1052.5 355 Q1057.5 343 1062.5 355 L1374 355 L1374 479 L1361 479 Q1356 467 1351 479 L451 479 L451 505" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M981 273 L981 355 L1052.5 355 Q1057.5 343 1062.5 355 L1374 355 L1374 479 L1361 479 Q1356 467 1351 479 L451 479 L451 505" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="task" data-to="queue"/>
+<path d="M400 702 L400 764 L879 764 L879 702" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M400 702 L400 764 L879 764 L879 702" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e2" data-from="queue" data-to="llm"/>
+<path d="M981 702 L981 764 L1078 764 Q1083 752 1088 764 L1351 764 Q1356 752 1361 764 L1380 764 L1380 1048 L1373 1048 Q1362 1036 1351 1048 L770 1048 Q765 1036 760 1048 L663 1048 L663 1074" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M981 702 L981 764 L1078 764 Q1083 752 1088 764 L1351 764 Q1356 752 1361 764 L1380 764 L1380 1048 L1373 1048 Q1362 1036 1351 1048 L770 1048 Q765 1036 760 1048 L663 1048 L663 1074" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e3" data-from="llm" data-to="tool"/>
+<path d="M765 1074 L765 844 L925 844 Q930 832 935 844 L1078 844 Q1083 832 1088 844 L1351 844 Q1356 832 1361 844 L1386 844 L1386 716 L1361 716 Q1356 704 1351 716 L1088 716 Q1083 704 1078 716 L1032 716 L1032 702" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M765 1074 L765 844 L925 844 Q930 832 935 844 L1078 844 Q1083 832 1088 844 L1351 844 Q1356 832 1361 844 L1386 844 L1386 716 L1361 716 Q1356 704 1351 716 L1088 716 Q1083 704 1078 716 L1032 716 L1032 702" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e4" data-from="tool" data-to="llm"/>
+<path d="M930 702 L930 924 L1078 924 Q1083 912 1088 924 L1362 924 L1362 1411 L502 1411 L502 1507" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M930 702 L930 924 L1078 924 Q1083 912 1088 924 L1362 924 L1362 1411 L502 1411 L502 1507" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e5" data-from="llm" data-to="budget"/>
+<path d="M663 1271 L663 1335 L77 1335 L77 1425 L400 1425 L400 1507" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M663 1271 L663 1335 L77 1335 L77 1425 L400 1425 L400 1507" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e6" data-from="tool" data-to="budget"/>
+<path d="M451 1704 L451 1768 L70 1768 L70 1844 L714 1844 L714 1870" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M451 1704 L451 1768 L70 1768 L70 1844 L714 1844 L714 1870" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e7" data-from="budget" data-to="stop"/>
+<path d="M1057.5 273 L1057.5 419 L1356 419 L1356 1439 L1011.6 1439 L1011.6 1507" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M1057.5 273 L1057.5 419 L1356 419 L1356 1439 L1011.6 1439 L1011.6 1507" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e8" data-from="task" data-to="tail"/>
+<path d="M502 702 L502 764 L84 764 L84 1453 L395 1453 Q400 1441 405 1453 L497 1453 Q502 1441 507 1453 L889.2 1453 L889.2 1507" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M502 702 L502 764 L84 764 L84 1453 L395 1453 Q400 1441 405 1453 L497 1453 Q502 1441 507 1453 L889.2 1453 L889.2 1507" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e9" data-from="queue" data-to="tail"/>
+<path d="M1083 702 L1083 988 L1351 988 Q1356 976 1361 988 L1368 988 L1368 1467 L1072.8 1467 L1072.8 1507" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M1083 702 L1083 988 L1351 988 Q1356 976 1361 988 L1368 988 L1368 1467 L1072.8 1467 L1072.8 1507" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e10" data-from="llm" data-to="tail"/>
+<path d="M765 1271 L765 1335 L1351 1335 Q1359 1323 1367 1335 L1374 1335 L1374 1481 L1077.8 1481 Q1072.8 1469 1067.8 1481 L1016.6 1481 Q1011.6 1469 1006.6 1481 L950.4 1481 L950.4 1507" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M765 1271 L765 1335 L1351 1335 Q1359 1323 1367 1335 L1374 1335 L1374 1481 L1077.8 1481 Q1072.8 1469 1067.8 1481 L1016.6 1481 Q1011.6 1469 1006.6 1481 L950.4 1481 L950.4 1507" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e11" data-from="tool" data-to="tail"/>
+<g id="node-load" class="node node-input" data-region="274,76,354,231">
+<rect x="274" y="76" width="354" height="231" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#215cbb" font-weight="700" >Workload 切片</text>
+<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >任务类型 / Token / 步数 /</text>
+<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >风险</text>
+<text x="296" y="263" font-size="23" fill="#172b45" font-weight="450" >到达率、并发与版本固定</text>
+</g>
+<g id="node-task" class="node node-process" data-region="804,76,354,197">
+<rect x="804" y="76" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#344f70" font-weight="750" class="mono">02</text>
+<text x="826" y="152" font-size="28" fill="#344f70" font-weight="700" >Task Root</text>
+<text x="826" y="195" font-size="23" fill="#172b45" font-weight="450" >每任务关联 Trace</text>
+<text x="826" y="229" font-size="23" fill="#172b45" font-weight="450" >只读与写独立资源配额</text>
+</g>
+<g id="node-queue" class="node node-process" data-region="274,505,354,197">
+<rect x="274" y="505" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="522" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="540" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="296" y="581" font-size="28" fill="#344f70" font-weight="700" >Queue 等待</text>
+<text x="296" y="624" font-size="23" fill="#172b45" font-weight="450" >排队与超时单独记录</text>
+<text x="296" y="658" font-size="23" fill="#172b45" font-weight="450" >不混入模型生成耗时</text>
+</g>
+<g id="node-llm" class="node node-ai" data-region="804,505,354,197">
+<rect x="804" y="505" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="522" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="540" font-size="15" fill="#7045a4" font-weight="750" class="mono">04</text>
+<text x="826" y="581" font-size="28" fill="#7045a4" font-weight="700" >LLM Step</text>
+<text x="826" y="624" font-size="23" fill="#172b45" font-weight="450" >TTFT / TPOT / Token</text>
+<text x="826" y="658" font-size="23" fill="#172b45" font-weight="450" >价格版本与生效时间</text>
+</g>
+<g id="node-tool" class="node node-process" data-region="537,1074,354,197">
+<rect x="537" y="1074" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="555" y="1091" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="1109" font-size="15" fill="#344f70" font-weight="750" class="mono">05</text>
+<text x="559" y="1150" font-size="28" fill="#344f70" font-weight="700" >Tool Attempt</text>
+<text x="559" y="1193" font-size="23" fill="#172b45" font-weight="450" >每次调用与重试 / 幂等</text>
+<text x="559" y="1227" font-size="23" fill="#172b45" font-weight="450" >记录工具费与失败</text>
+</g>
+<g id="node-budget" class="node node-control" data-region="274,1507,354,197">
+<rect x="274" y="1507" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="292" y="1524" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1542" font-size="15" fill="#945c0b" font-weight="750" class="mono">06</text>
+<text x="296" y="1583" font-size="28" fill="#945c0b" font-weight="700" >预算门禁</text>
+<text x="296" y="1626" font-size="23" fill="#172b45" font-weight="450" >Token / 时间 / 步骤 / 金额</text>
+<text x="296" y="1660" font-size="23" fill="#172b45" font-weight="450" >超限真正停止，不只告警</text>
+</g>
+<g id="node-tail" class="node node-evidence" data-region="804,1507,354,197">
+<rect x="804" y="1507" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="1524" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1542" font-size="15" fill="#7045a4" font-weight="750" class="mono">07</text>
+<text x="826" y="1583" font-size="28" fill="#7045a4" font-weight="700" >延迟与成本尾部</text>
+<text x="826" y="1626" font-size="23" fill="#172b45" font-weight="450" >P95 / P99 / goodput</text>
+<text x="826" y="1660" font-size="23" fill="#172b45" font-weight="450" >Judge 与人工复核也计费</text>
+</g>
+<g id="node-stop" class="node node-risk" data-region="537,1870,354,231">
+<rect x="537" y="1870" width="354" height="231" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="555" y="1887" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="1905" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">08</text>
+<text x="559" y="1946" font-size="28" fill="#ad3e4c" font-weight="700" >截断与人工升级</text>
+<text x="559" y="1989" font-size="23" fill="#172b45" font-weight="450" >保留 stop_reason 与原始</text>
+<text x="559" y="2023" font-size="23" fill="#172b45" font-weight="450" >账本</text>
+<text x="559" y="2057" font-size="23" fill="#172b45" font-weight="450" >按类别降级，停止失控循环</text>
+</g>
+<rect x="632.61" y="333" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="362" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  按任务类型</text>
+<text x="716" y="394" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">发起</text>
+<text x="908.5" y="295" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="1162.61" y="333" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="362" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  到达与等待</text>
+<text x="455" y="495" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="643.53" y="742" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="771" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  出队执行</text>
+<text x="883" y="724" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="1162.61" y="742" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="771" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  调用与参数</text>
+<text x="667" y="1064" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="1162.61" y="806" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="835" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  返回或受限</text>
+<text x="1246" y="867" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">重试</text>
+<text x="1036" y="724" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="1151.69" y="902" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="931" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  累计模型消耗</text>
+<text x="506" y="1497" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="95.69" y="1297" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1326" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  累计工具与重</text>
+<text x="190" y="1358" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">试成本</text>
+<text x="404" y="1497" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="106.61" y="1730" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1759" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  任一硬预算</text>
+<text x="190" y="1791" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">超限</text>
+<text x="718" y="1860" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+<rect x="1151.69" y="397" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="426" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  任务成功分母</text>
+<text x="1015.6" y="1497" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e8" stroke="#fff" stroke-width="4" paint-order="stroke">09</text>
+<rect x="117.53" y="742" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="771" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">10  等待延迟</text>
+<text x="893.2" y="1497" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e9" stroke="#fff" stroke-width="4" paint-order="stroke">10</text>
+<rect x="1173.53" y="966" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="995" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">11  生成消耗</text>
+<text x="1076.8" y="1497" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e10" stroke="#fff" stroke-width="4" paint-order="stroke">11</text>
+<rect x="1162.61" y="1297" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1326" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e11">12  调用与重试</text>
+<text x="1246" y="1358" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e11">账本</text>
+<text x="954.4" y="1497" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e11" stroke="#fff" stroke-width="4" paint-order="stroke">12</text>
+</g>
+</g>
+<text x="64" y="2669" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2669" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2699,470,174">
+<rect x="64" y="2699" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2721" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="106" y="2746" font-size="25" fill="#7045a4" font-weight="700" >单位成功成本</text>
+<text x="88" y="2801" font-size="23" fill="#172b45" font-weight="450" >模型费＋工具费＋人工复核费</text>
+<text x="88" y="2836" font-size="23" fill="#172b45" font-weight="450" >除以成功完成的任务数</text>
+</g>
+<g id="detail-1" data-region="565,2699,470,174">
+<rect x="565" y="2699" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2721" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="607" y="2746" font-size="25" fill="#7045a4" font-weight="700" >受控对照</text>
+<text x="589" y="2801" font-size="23" fill="#172b45" font-weight="450" >同预算、同任务集比较变更</text>
+<text x="589" y="2836" font-size="23" fill="#172b45" font-weight="450" >价格、缓存与版本变化要披露</text>
+</g>
+<g id="detail-2" data-region="1066,2699,470,174">
+<rect x="1066" y="2699" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2721" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="1108" y="2746" font-size="25" fill="#ad3e4c" font-weight="700" >故障验真</text>
+<text x="1090" y="2801" font-size="23" fill="#172b45" font-weight="450" >注入长循环并关闭硬预算作反例</text>
+<text x="1090" y="2836" font-size="23" fill="#172b45" font-weight="450" >提高上限不能当作修复</text>
+</g>
+<g id="failure-and-output" data-region="64,2905,1472,148">
+<rect x="64" y="2905" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2944" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2989" font-size="23" fill="#ffdce2" font-weight="450" >预算超限必须截断并留证；平均延迟或总 QPS 不能抵消高危失败。</text>
+<text x="88" y="3032" font-size="23" fill="#dce9fa" font-weight="450" >交付 workload 成本卡、容量报告与预算截断记录。</text>
+</g>
+<text x="64" y="3101" font-size="20" fill="#50647c" font-weight="450" >静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。</text>
+<text x="64" y="3140" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-AG-07 · 沿任务树计算延迟与成本</text>
+<path class="edge edge-data" d="M64 3180 L101 3180" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="3186" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 3180 L397 3180" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="3186" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 3180 L693 3180" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="3186" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 3180 L989 3180" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="3186" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 3180 L1285 3180" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="3186" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

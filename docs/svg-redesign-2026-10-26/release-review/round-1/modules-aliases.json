@@ -1,0 +1,230 @@
+{
+  "reviewer": "main-Codex",
+  "scope": "14 modules + 2 compatibility SVGs",
+  "count": 16,
+  "results": [
+    {
+      "id": "TD-M00",
+      "path": "visuals/modules/TD-M00.svg",
+      "sha256": "6f77d00ec6aa4dc3443efb773621ca4b6a8234b1d482fd4d5ffcfd5e0049b46d",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "body_evidence": "已核对sourceRefs正文及模块生成逻辑：stages/questions/output/pages按module-overviews映射；兼容图按Agent/career正文和相应材料规格核对。"
+    },
+    {
+      "id": "TD-M08",
+      "path": "visuals/modules/TD-M08.svg",
+      "sha256": "fe082ae3c28a156a39a21c02e1b046ff7a2987c150663291b2bae6e17529f776",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "body_evidence": "已核对sourceRefs正文及模块生成逻辑：stages/questions/output/pages按module-overviews映射；兼容图按Agent/career正文和相应材料规格核对。"
+    },
+    {
+      "id": "TD-M01",
+      "path": "visuals/modules/TD-M01.svg",
+      "sha256": "aa7e0b3d8c5efb116c4133940104983146cae731d0fa120de4929a13f2a663b6",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "REWORK",
+      "findings": [
+        {
+          "severity": "P2",
+          "issue": "中文禁则与尾行未处理，出现孤立问号、句号或逗号行首，影响精致度与连续阅读。",
+          "evidence": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M01.png；已逐张实看。示例M02的Fuzz后孤立问号和B区行首逗号、M05生产回灌问号、M07需求侧接入问号。",
+          "suggested_fix": "修正通用wrap禁则与孤字尾行，并按新哈希重新截图目检。"
+        }
+      ],
+      "body_evidence": "已核对sourceRefs正文及模块生成逻辑：stages/questions/output/pages按module-overviews映射；兼容图按Agent/career正文和相应材料规格核对。"
+    },
+    {
+      "id": "TD-M02",
+      "path": "visuals/modules/TD-M02.svg",
+      "sha256": "7eec67a29c7081d90f96c2d6ddac0e03025442d18f2defb2d81429fb1e12d26c",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "REWORK",
+      "findings": [
+        {
+          "severity": "P2",
+          "issue": "中文禁则与尾行未处理，出现孤立问号、句号或逗号行首，影响精致度与连续阅读。",
+          "evidence": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M02.png；已逐张实看。示例M02的Fuzz后孤立问号和B区行首逗号、M05生产回灌问号、M07需求侧接入问号。",
+          "suggested_fix": "修正通用wrap禁则与孤字尾行，并按新哈希重新截图目检。"
+        }
+      ],
+      "body_evidence": "已核对sourceRefs正文及模块生成逻辑：stages/questions/output/pages按module-overviews映射；兼容图按Agent/career正文和相应材料规格核对。"
+    },
+    {
+      "id": "TD-M09",
+      "path": "visuals/modules/TD-M09.svg",
+      "sha256": "7dd3242da662bd44f0439a3954c04cd6296db1251e59937e12f896c6817daf11",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "body_evidence": "已核对sourceRefs正文及模块生成逻辑：stages/questions/output/pages按module-overviews映射；兼容图按Agent/career正文和相应材料规格核对。"
+    },
+    {
+      "id": "TD-M03",
+      "path": "visuals/modules/TD-M03.svg",
+      "sha256": "69080149ac9c8c81b350dcd4bf8eb9408d2c389cc4931689edbffa4d722b0ae5",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "REWORK",
+      "findings": [
+        {
+          "severity": "P2",
+          "issue": "中文禁则与尾行未处理，出现孤立问号、句号或逗号行首，影响精致度与连续阅读。",
+          "evidence": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M03.png；已逐张实看。示例M02的Fuzz后孤立问号和B区行首逗号、M05生产回灌问号、M07需求侧接入问号。",
+          "suggested_fix": "修正通用wrap禁则与孤字尾行，并按新哈希重新截图目检。"
+        }
+      ],
+      "body_evidence": "已核对sourceRefs正文及模块生成逻辑：stages/questions/output/pages按module-overviews映射；兼容图按Agent/career正文和相应材料规格核对。"
+    },
+    {
+      "id": "TD-M04",
+      "path": "visuals/modules/TD-M04.svg",
+      "sha256": "895b24a0d0d981610db25a2fa74698e5867207b8fca00cab97702c86fd6c152e",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "body_evidence": "已核对sourceRefs正文及模块生成逻辑：stages/questions/output/pages按module-overviews映射；兼容图按Agent/career正文和相应材料规格核对。"
+    },
+    {
+      "id": "TD-M05",
+      "path": "visuals/modules/TD-M05.svg",
+      "sha256": "422c39161d807d7d0a361608a437ed69c82f0fed1a1de016192869ec283850a3",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "REWORK",
+      "findings": [
+        {
+          "severity": "P2",
+          "issue": "中文禁则与尾行未处理，出现孤立问号、句号或逗号行首，影响精致度与连续阅读。",
+          "evidence": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M05.png；已逐张实看。示例M02的Fuzz后孤立问号和B区行首逗号、M05生产回灌问号、M07需求侧接入问号。",
+          "suggested_fix": "修正通用wrap禁则与孤字尾行，并按新哈希重新截图目检。"
+        }
+      ],
+      "body_evidence": "已核对sourceRefs正文及模块生成逻辑：stages/questions/output/pages按module-overviews映射；兼容图按Agent/career正文和相应材料规格核对。"
+    },
+    {
+      "id": "TD-M06",
+      "path": "visuals/modules/TD-M06.svg",
+      "sha256": "2756d1f6d58357a15755e4cee5d649c7500554795d406cfbfca332f7e0bcd246",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "REWORK",
+      "findings": [
+        {
+          "severity": "P2",
+          "issue": "中文禁则与尾行未处理，出现孤立问号、句号或逗号行首，影响精致度与连续阅读。",
+          "evidence": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M06.png；已逐张实看。示例M02的Fuzz后孤立问号和B区行首逗号、M05生产回灌问号、M07需求侧接入问号。",
+          "suggested_fix": "修正通用wrap禁则与孤字尾行，并按新哈希重新截图目检。"
+        }
+      ],
+      "body_evidence": "已核对sourceRefs正文及模块生成逻辑：stages/questions/output/pages按module-overviews映射；兼容图按Agent/career正文和相应材料规格核对。"
+    },
+    {
+      "id": "TD-M07",
+      "path": "visuals/modules/TD-M07.svg",
+      "sha256": "19114953a6b16456d518951a3e0bbbad8fa2cc94b28e7e5b199b90b695218d8e",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "REWORK",
+      "findings": [
+        {
+          "severity": "P2",
+          "issue": "中文禁则与尾行未处理，出现孤立问号、句号或逗号行首，影响精致度与连续阅读。",
+          "evidence": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M07.png；已逐张实看。示例M02的Fuzz后孤立问号和B区行首逗号、M05生产回灌问号、M07需求侧接入问号。",
+          "suggested_fix": "修正通用wrap禁则与孤字尾行，并按新哈希重新截图目检。"
+        }
+      ],
+      "body_evidence": "已核对sourceRefs正文及模块生成逻辑：stages/questions/output/pages按module-overviews映射；兼容图按Agent/career正文和相应材料规格核对。"
+    },
+    {
+      "id": "TD-M10",
+      "path": "visuals/modules/TD-M10.svg",
+      "sha256": "5dfe30efbc95a71ca8c867676731d631200be8cc09ac9f307d54501c94c961a1",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "REWORK",
+      "findings": [
+        {
+          "severity": "P2",
+          "issue": "中文禁则与尾行未处理，出现孤立问号、句号或逗号行首，影响精致度与连续阅读。",
+          "evidence": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M10.png；已逐张实看。示例M02的Fuzz后孤立问号和B区行首逗号、M05生产回灌问号、M07需求侧接入问号。",
+          "suggested_fix": "修正通用wrap禁则与孤字尾行，并按新哈希重新截图目检。"
+        }
+      ],
+      "body_evidence": "已核对sourceRefs正文及模块生成逻辑：stages/questions/output/pages按module-overviews映射；兼容图按Agent/career正文和相应材料规格核对。"
+    },
+    {
+      "id": "TD-M11",
+      "path": "visuals/modules/TD-M11.svg",
+      "sha256": "47d578d761a79659144d18d4755f26f0e93c78dfce1db5538a40274a2b8b21d0",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "REWORK",
+      "findings": [
+        {
+          "severity": "P2",
+          "issue": "中文禁则与尾行未处理，出现孤立问号、句号或逗号行首，影响精致度与连续阅读。",
+          "evidence": "output/svg-redesign-2026-10-26/screenshots/visuals__modules__TD-M11.png；已逐张实看。示例M02的Fuzz后孤立问号和B区行首逗号、M05生产回灌问号、M07需求侧接入问号。",
+          "suggested_fix": "修正通用wrap禁则与孤字尾行，并按新哈希重新截图目检。"
+        }
+      ],
+      "body_evidence": "已核对sourceRefs正文及模块生成逻辑：stages/questions/output/pages按module-overviews映射；兼容图按Agent/career正文和相应材料规格核对。"
+    },
+    {
+      "id": "TD-M12",
+      "path": "visuals/modules/TD-M12.svg",
+      "sha256": "cf2aa47196877bef7cd9cf2d0b5845b4d5e98d29c37958989e3a6b80aa2bfae6",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "body_evidence": "已核对sourceRefs正文及模块生成逻辑：stages/questions/output/pages按module-overviews映射；兼容图按Agent/career正文和相应材料规格核对。"
+    },
+    {
+      "id": "TD-M13",
+      "path": "visuals/modules/TD-M13.svg",
+      "sha256": "4fb7b2721215cfde20cd8bf47651ded2f987b5605f4f83de63849e6d489fc4e8",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "body_evidence": "已核对sourceRefs正文及模块生成逻辑：stages/questions/output/pages按module-overviews映射；兼容图按Agent/career正文和相应材料规格核对。"
+    },
+    {
+      "id": "TD-AG-00-compat",
+      "path": "visuals/course/TD-AG-00.svg",
+      "sha256": "cb9b859c3cd89592b4bd167da01cfb9c83dc2fcc67084a2092f433034db928c5",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "REWORK",
+      "findings": [
+        {
+          "severity": "P2",
+          "issue": "D7规则证据和硬阻断共线，D0控制和反馈集中交叉；四环未显式驱动D4执行。",
+          "evidence": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AG-00.png；D7→决定相同落点的红/橙线，中央多条长线；与材料总架构同源。",
+          "suggested_fix": "独立端口和通道，补四环→D4执行边；同步同源材料图。"
+        }
+      ],
+      "body_evidence": "已核对sourceRefs正文及模块生成逻辑：stages/questions/output/pages按module-overviews映射；兼容图按Agent/career正文和相应材料规格核对。"
+    },
+    {
+      "id": "TD-T26-compat",
+      "path": "visuals/course/TD-T26.svg",
+      "sha256": "def3f6e1423cf2e21658f25c0426e6af5c9da82bcc29101164a91a4b6224f67c",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "body_evidence": "已核对sourceRefs正文及模块生成逻辑：stages/questions/output/pages按module-overviews映射；兼容图按Agent/career正文和相应材料规格核对。"
+    }
+  ]
+}

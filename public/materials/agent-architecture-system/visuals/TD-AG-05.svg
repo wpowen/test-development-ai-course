@@ -1,109 +1,155 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1200 760" width="1200" height="760">
-  <title id="title">D4 pass@k、pass^k 与长时程可靠性</title>
-  <desc id="desc">同一任务重复运行，分别观察至少一次成功、每次都成功、区间与时长衰减。 Fixture 展示统计语义；真实阈值、样本量和生产可靠性仍由场景 owner 决定。</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0e3026" flood-opacity=".10"/></filter>
-  <style>
-    .bg{fill:#fbfaf6}.header{fill:url(#ds-header-grad)}.eyebrow{font:700 12px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;fill:#93bd2c}.title{font:800 28px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:white}.subtitle{font:450 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}.source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}.node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}.node-title{font:800 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}.node-detail{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}.edge path{fill:none;stroke:#174a3a;stroke-width:2}.edge text{font:600 9px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}.callout{fill:#fdf1d8;stroke:#e3c07b;stroke-width:1.5}.callout-title{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}.callout-text{font:650 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}.footer{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-  </style>
-  <rect class="bg" width="1200" height="760" rx="24"/>
-  <rect class="header" width="1200" height="92" rx="24"/><rect class="header" y="68" width="1200" height="24"/>
-  <text class="eyebrow" x="34" y="30">D4 · RELIABILITY</text>
-  <text class="title" x="34" y="62">D4 pass@k、pass^k 与长时程可靠性</text>
-  <text class="subtitle" x="1166" y="30" text-anchor="end">同一任务重复运行，分别观察至少一次成功、每次都成功、区间与时长衰减。</text>
-  <text class="source" x="34" y="111">来源：S36 · S38 · S39</text>
-  <g class="edge"><path d="M 224 177 C 245 177, 245 177, 258 177" marker-end="url(#ds-arw-forest)"/><text x="245" y="187">分层采样</text></g>
-<g class="edge"><path d="M 456 177 C 477 177, 477 177, 490 177" marker-end="url(#ds-arw-forest)"/><text x="477" y="169">聚合</text></g>
-<g class="edge"><path d="M 456 177 C 593 177, 593 177, 722 177" marker-end="url(#ds-arw-forest)"/><text x="593" y="187">一致性</text></g>
-<g class="edge"><path d="M 688 177 C 740 464, 446 464, 490 369" marker-end="url(#ds-arw-forest)"/><text x="593" y="265">不确定性</text></g>
-<g class="edge"><path d="M 920 177 C 972 464, 446 464, 490 369" marker-end="url(#ds-arw-forest)"/><text x="709" y="283">不确定性</text></g>
-<g class="edge"><path d="M 688 369 C 709 369, 709 369, 722 369" marker-end="url(#ds-arw-forest)"/><text x="709" y="361">按时长分层</text></g>
-<g class="edge"><path d="M 920 369 C 941 369, 941 369, 954 369" marker-end="url(#ds-arw-forest)"/><text x="941" y="379">门禁</text></g>
-<g class="edge"><path d="M 688 369 C 740 670, 214 670, 258 572" marker-end="url(#ds-arw-forest)"/><text x="477" y="462.5">样本不足</text></g>
-<g class="edge"><path d="M 526 572 C 744 572, 744 369, 954 369" marker-end="url(#ds-arw-forest)"/><text x="744" y="480.5">EVIDENCE-INSUFFICIENT</text></g>
-  
-    <g class="node tasks">
-      <rect x="34" y="134" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="34" y="134" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="54" y="157">01</text>
-      <text class="node-title" x="54" y="182">任务集</text>
-      <text class="node-detail" x="54" y="204">Task / Slice / 版本</text>
-    </g>
-    <g class="node runs">
-      <rect x="266" y="134" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="266" y="134" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="286" y="157">02</text>
-      <text class="node-title" x="286" y="182">重复运行</text>
-      <text class="node-detail" x="286" y="204">状态重置 / Seed / Retry</text>
-    </g>
-    <g class="node at">
-      <rect x="498" y="134" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="498" y="134" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="518" y="157">03</text>
-      <text class="node-title" x="518" y="182">pass@k</text>
-      <text class="node-detail" x="518" y="204">k 次至少一次成功</text>
-    </g>
-    <g class="node all">
-      <rect x="730" y="134" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="730" y="134" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="750" y="157">04</text>
-      <text class="node-title" x="750" y="182">pass^k</text>
-      <text class="node-detail" x="750" y="204">k 次全部成功</text>
-    </g>
-    <g class="node ci">
-      <rect x="498" y="326" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="498" y="326" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="518" y="349">05</text>
-      <text class="node-title" x="518" y="374">置信区间</text>
-      <text class="node-detail" x="518" y="396">paired / clustered</text>
-    </g>
-    <g class="node horizon">
-      <rect x="730" y="326" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="730" y="326" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="750" y="349">06</text>
-      <text class="node-title" x="750" y="374">Horizon</text>
-      <text class="node-detail" x="750" y="396">按任务时长看衰减</text>
-    </g>
-    <g class="node decision">
-      <rect x="962" y="326" width="200" height="86" rx="15" fill="#fdf1d8" stroke="#e0b76a" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="962" y="326" width="5" height="86" rx="2.5" fill="#e0b76a"/>
-      <text class="node-index" x="982" y="349">07</text>
-      <text class="node-title" x="982" y="374">可靠性决定</text>
-      <text class="node-detail" x="982" y="396">PASS / FAIL / 不足</text>
-    </g>
-    <g class="node insufficient">
-      <rect x="266" y="526" width="260" height="92" rx="15" fill="#fbe9e5" stroke="#e3a89f" stroke-width="2" filter="url(#shadow)"/>
-      <rect x="266" y="526" width="5" height="92" rx="2.5" fill="#e3a89f"/>
-      <text class="node-index" x="286" y="549">08</text>
-      <text class="node-title" x="286" y="574">证据不足</text>
-      <text class="node-detail" x="286" y="596">样本量或切片不充分</text>
-    </g>
-  <rect class="callout" x="34" y="658" width="1132" height="48" rx="12"/>
-  <text class="callout-title" x="52" y="679">FAIL-CLOSED</text><text class="callout-text" x="170" y="681">pass@k 不能冒充稳定性；同一任务的重复 run 不能直接当作独立 Bernoulli 样本。</text>
-  <text class="footer" x="34" y="735">Fixture 展示统计语义；真实阈值、样本量和生产可靠性仍由场景 owner 决定。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2286" viewBox="0 0 1600 2286" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">同一台账回答两种可靠性</title><desc id="desc">pass@k 是至少一次成功，pass^k 是全部成功；按任务聚类估计不确定性，样本不足不能放行。 固定版本、温度、状态重置和重试政策，再按任务时长观察 Horizon 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。</desc><metadata data-source-ref="content/modules/agent-architecture-system.ts#TD-AG-05 / workflow;content/modules/agent-architecture-system.ts#TD-AG-05 / repair;docs/svg-redesign-2026-10-26/body-sources/material-pages.json#TD-AG-05 / summary">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-AG-05&quot;,&quot;pageIds&quot;:[&quot;TD-AG-05&quot;],&quot;primaryPageIds&quot;:[&quot;TD-AG-05&quot;],&quot;layout&quot;:&quot;metric&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;content/modules/agent-architecture-system.ts&quot;,&quot;locator&quot;:&quot;TD-AG-05 / workflow&quot;,&quot;quote&quot;:&quot;按 task 聚合 pass@k/pass^k 并计算预声明区间&quot;},{&quot;path&quot;:&quot;content/modules/agent-architecture-system.ts&quot;,&quot;locator&quot;:&quot;TD-AG-05 / repair&quot;,&quot;quote&quot;:&quot;改用 task-clustered/paired 不确定性&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/material-pages.json&quot;,&quot;locator&quot;:&quot;TD-AG-05 / summary&quot;,&quot;quote&quot;:&quot;把一次 PASS 改成重复运行分布，区分至少一次成功和每次都成功，并按任务时长观察 horizon 衰减。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;tasks&quot;,&quot;title&quot;:&quot;任务集&quot;},{&quot;id&quot;:&quot;runs&quot;,&quot;title&quot;:&quot;重复运行&quot;},{&quot;id&quot;:&quot;any&quot;,&quot;title&quot;:&quot;pass@k&quot;},{&quot;id&quot;:&quot;all&quot;,&quot;title&quot;:&quot;pass^k&quot;},{&quot;id&quot;:&quot;ci&quot;,&quot;title&quot;:&quot;置信区间&quot;},{&quot;id&quot;:&quot;horizon&quot;,&quot;title&quot;:&quot;Horizon 时长桶&quot;},{&quot;id&quot;:&quot;card&quot;,&quot;title&quot;:&quot;Metric Card&quot;},{&quot;id&quot;:&quot;decision&quot;,&quot;title&quot;:&quot;统计结论&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;tasks&quot;,&quot;to&quot;:&quot;runs&quot;,&quot;label&quot;:&quot;相同任务重复 k 次&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;runs&quot;,&quot;to&quot;:&quot;any&quot;,&quot;label&quot;:&quot;逐任务聚合&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;runs&quot;,&quot;to&quot;:&quot;all&quot;,&quot;label&quot;:&quot;逐任务聚合&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;any&quot;,&quot;to&quot;:&quot;ci&quot;,&quot;label&quot;:&quot;报告估计对象&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;all&quot;,&quot;to&quot;:&quot;ci&quot;,&quot;label&quot;:&quot;报告一致性&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;runs&quot;,&quot;to&quot;:&quot;horizon&quot;,&quot;label&quot;:&quot;按预期时长分桶&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;ci&quot;,&quot;to&quot;:&quot;decision&quot;,&quot;label&quot;:&quot;区间与样本充分性&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;horizon&quot;,&quot;to&quot;:&quot;decision&quot;,&quot;label&quot;:&quot;逐桶证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;card&quot;,&quot;to&quot;:&quot;decision&quot;,&quot;label&quot;:&quot;预声明统计规则&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;decision&quot;,&quot;to&quot;:&quot;tasks&quot;,&quot;label&quot;:&quot;证据不足则补任务&quot;,&quot;kind&quot;:&quot;feedback&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2286" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-AG-05</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >同一台账回答两种可靠性</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >pass@k 是至少一次成功，pass^k 是全部成功；按任务聚类估计不确定性，样本不足不能放行。</text>
+<g id="system-graph" data-region="64,234,1472,1448">
+<rect x="64" y="234" width="1472" height="1448" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >固定版本、温度、状态重置和重试政策，再按任务时长观察 Horizon</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >实验与指标</text>
+<g transform="translate(164.54999999999995 350) scale(1)" data-graph-scale="1" data-routing="dot">
+<path class="edge edge-data" d="M377.53 115.5 C390.75 115.5 385.45 98.84999999999991 397.53 93.5 C480.45 56.819999999999936 518.2 57.77999999999997 601.53 93.5 C609.49 96.91000000000008 609.97 105.22000000000003 613.33 110.29999999999995" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="tasks" data-to="runs"/>
+<path class="edge edge-data" d="M726.53 213 C726.53 295.6 395.86 269.20000000000005 364.86 341.58000000000004" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="runs" data-to="any"/>
+<path class="edge edge-data" d="M796.53 213 C796.53 271.09000000000003 796.53 288.51 796.53 341.19000000000005" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e2" data-from="runs" data-to="all"/>
+<path class="edge edge-data" d="M362.53 549 C362.53 599.53 545 615.29 571.37 660.79" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e3" data-from="any" data-to="ci"/>
+<path class="edge edge-data" d="M796.53 549 C796.53 585.63 686.48 623.69 665.85 660.59" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e4" data-from="all" data-to="ci"/>
+<path class="edge edge-data" d="M866.53 213 C866.53 254.78999999999996 912.36 240.14 940.53 271 C969.79 303.04999999999995 977.44 312.70000000000005 993.53 353 C1045.56 483.32000000000005 1053.14 525.44 1053.52 660.39" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e5" data-from="runs" data-to="horizon"/>
+<path class="edge edge-evidence" d="M574.53 868 C574.53 965.4 728.11 926.05 740.71 1012.23" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e6" data-from="ci" data-to="decision"/>
+<path class="edge edge-evidence" d="M1053.53 868 C1053.53 985.1700000000001 844.58 908.36 830.3 1012.27" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="horizon" data-to="decision"/>
+<path class="edge edge-control" d="M392.53 1123 C405.58 1123 400.61 1106.8 412.53 1101.5 C489.73 1067.17 519.84 1096.29 600.51 1098.38" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e8" data-from="card" data-to="decision"/>
+<path class="edge edge-feedback" d="M608.53 1147.5 C462.99 1147.5 281.14 755.75 204.53 632 C183.29 597.69 182.41 586.66 165.53 550 C66.17 334.13 -32.12 142.6199999999999 11.11 118.1400000000001" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e9" data-from="decision" data-to="tasks"/>
+<g id="node-tasks" class="node node-input" data-region="23.53,0,354,231">
+<rect x="23.53" y="0" width="354" height="231" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="41.53" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="48.53" y="35" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="45.53" y="76" font-size="28" fill="#215cbb" font-weight="700" >任务集</text>
+<text x="45.53" y="119" font-size="23" fill="#172b45" font-weight="450" >固定 task / slice / 四维</text>
+<text x="45.53" y="153" font-size="23" fill="#172b45" font-weight="450" >版本</text>
+<text x="45.53" y="187" font-size="23" fill="#172b45" font-weight="450" >声明人口与状态重置</text>
+</g>
+<g id="node-runs" class="node node-data" data-region="621.53,17,354,197">
+<rect x="621.53" y="17" width="354" height="197" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="639.53" y="34" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="646.53" y="52" font-size="15" fill="#087b76" font-weight="750" class="mono">02</text>
+<text x="643.53" y="93" font-size="28" fill="#087b76" font-weight="700" >重复运行</text>
+<text x="643.53" y="136" font-size="23" fill="#172b45" font-weight="450" >保留全部 raw run</text>
+<text x="643.53" y="170" font-size="23" fill="#172b45" font-weight="450" >记录失败位置、成本和 k</text>
+</g>
+<g id="node-any" class="node node-process" data-region="185.52999999999997,353,354,197">
+<rect x="185.52999999999997" y="353" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="203.52999999999997" y="370" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="210.52999999999997" y="388" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="207.52999999999997" y="429" font-size="28" fill="#344f70" font-weight="700" >pass@k</text>
+<text x="207.52999999999997" y="472" font-size="23" fill="#172b45" font-weight="450" >任务内 k 次至少一次成功</text>
+<text x="207.52999999999997" y="506" font-size="23" fill="#172b45" font-weight="450" >分母为任务数</text>
+</g>
+<g id="node-all" class="node node-process" data-region="619.53,353,354,197">
+<rect x="619.53" y="353" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="637.53" y="370" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="644.53" y="388" font-size="15" fill="#344f70" font-weight="750" class="mono">04</text>
+<text x="641.53" y="429" font-size="28" fill="#344f70" font-weight="700" >pass^k</text>
+<text x="641.53" y="472" font-size="23" fill="#172b45" font-weight="450" >任务内 k 次全部成功</text>
+<text x="641.53" y="506" font-size="23" fill="#172b45" font-weight="450" >分母为任务数</text>
+</g>
+<g id="node-ci" class="node node-evidence" data-region="442.53,672,354,197">
+<rect x="442.53" y="672" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="460.53" y="689" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="467.53" y="707" font-size="15" fill="#7045a4" font-weight="750" class="mono">05</text>
+<text x="464.53" y="748" font-size="28" fill="#7045a4" font-weight="700" >置信区间</text>
+<text x="464.53" y="791" font-size="23" fill="#172b45" font-weight="450" >按任务聚类或配对分析</text>
+<text x="464.53" y="825" font-size="23" fill="#172b45" font-weight="450" >禁止将 n×k 当独立样本</text>
+</g>
+<g id="node-horizon" class="node node-data" data-region="876.5,672,354,197">
+<rect x="876.5" y="672" width="354" height="197" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="894.5" y="689" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="901.5" y="707" font-size="15" fill="#087b76" font-weight="750" class="mono">06</text>
+<text x="898.5" y="748" font-size="28" fill="#087b76" font-weight="700" >Horizon 时长桶</text>
+<text x="898.5" y="791" font-size="23" fill="#172b45" font-weight="450" >每桶样本量与区间</text>
+<text x="898.5" y="825" font-size="23" fill="#172b45" font-weight="450" >无数据不画衰减测量线</text>
+</g>
+<g id="node-card" class="node node-control" data-region="38.53,991,354,265">
+<rect x="38.53" y="991" width="354" height="265" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="56.53" y="1008" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="63.53" y="1026" font-size="15" fill="#945c0b" font-weight="750" class="mono">07</text>
+<text x="60.53" y="1067" font-size="28" fill="#945c0b" font-weight="700" >Metric Card</text>
+<text x="60.53" y="1110" font-size="23" fill="#172b45" font-weight="450" >口径 / 聚类单位 / 样本量</text>
+<text x="60.53" y="1144" font-size="23" fill="#172b45" font-weight="450" >理由</text>
+<text x="60.53" y="1178" font-size="23" fill="#172b45" font-weight="450" >阈值与失败动作由 owner</text>
+<text x="60.53" y="1212" font-size="23" fill="#172b45" font-weight="450" >配置</text>
+</g>
+<g id="node-decision" class="node node-evidence" data-region="609.53,1025,354,197">
+<rect x="609.53" y="1025" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="627.53" y="1042" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="634.53" y="1060" font-size="15" fill="#7045a4" font-weight="750" class="mono">08</text>
+<text x="631.53" y="1101" font-size="28" fill="#7045a4" font-weight="700" >统计结论</text>
+<text x="631.53" y="1144" font-size="23" fill="#172b45" font-weight="450" >满足 / 未满足 / 证据不足</text>
+<text x="631.53" y="1178" font-size="23" fill="#172b45" font-weight="450" >自主时长与检查点需证据</text>
+</g>
+<rect x="397.53" y="24.40000000000009" width="204" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="499.53" y="52.40000000000009" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">相同任务重复 k 次</text>
+<rect x="618.98" y="271" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="685.98" y="299" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">逐任务聚合</text>
+<rect x="796.53" y="271" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="863.53" y="299" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">逐任务聚合</text>
+<rect x="528.74" y="590" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="606.74" y="618" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">报告估计对象</text>
+<rect x="760.59" y="590" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="827.59" y="618" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">报告一致性</text>
+<rect x="1049.2" y="430.5" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1137.7" y="458.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">按预期时长分桶</text>
+<rect x="672.99" y="909" width="199" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="772.49" y="937" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">区间与样本充分性</text>
+<rect x="1038.2" y="909" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1094.2" y="937" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">逐桶证据</text>
+<rect x="412.53" y="1042.88" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="501.03" y="1070.88" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">预声明统计规则</text>
+<rect x="204.52999999999997" y="590" width="199" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="304.03" y="618" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">证据不足则补任务</text>
+</g>
+</g>
+<text x="64" y="1736" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1736" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1766,470,174">
+<rect x="64" y="1766" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1788" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="106" y="1813" font-size="25" fill="#7045a4" font-weight="700" >实验控制</text>
+<text x="88" y="1868" font-size="23" fill="#172b45" font-weight="450" >固定温度仍需重复运行</text>
+<text x="88" y="1903" font-size="23" fill="#172b45" font-weight="450" >状态重置和重试规则必须入卡</text>
+</g>
+<g id="detail-1" data-region="565,1766,470,174">
+<rect x="565" y="1766" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1788" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="607" y="1813" font-size="25" fill="#ad3e4c" font-weight="700" >常见假绿</text>
+<text x="589" y="1868" font-size="23" fill="#172b45" font-weight="450" >删除失败 run 或逐 run 独立计数</text>
+<text x="589" y="1903" font-size="23" fill="#172b45" font-weight="450" >用重试成功掩盖安全 blocker</text>
+</g>
+<g id="detail-2" data-region="1066,1766,470,174">
+<rect x="1066" y="1766" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1788" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="1108" y="1813" font-size="25" fill="#945c0b" font-weight="700" >承诺边界</text>
+<text x="1090" y="1868" font-size="23" fill="#172b45" font-weight="450" >不从示例 k 外推生产可靠性</text>
+<text x="1090" y="1903" font-size="23" fill="#172b45" font-weight="450" >Horizon 无样本则保持 Unknown</text>
+</g>
+<g id="failure-and-output" data-region="64,1972,1472,148">
+<rect x="64" y="1972" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2011" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2056" font-size="23" fill="#ffdce2" font-weight="450" >聚类单位错误或样本不足时输出证据不足；高危 blocker 仍独立阻断。</text>
+<text x="88" y="2099" font-size="23" fill="#dce9fa" font-weight="450" >交付可靠性 Metric Card、原始台账与时长桶数据。</text>
+</g>
+<text x="64" y="2168" font-size="20" fill="#50647c" font-weight="450" >静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。</text>
+<text x="64" y="2207" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-AG-05 · 同一台账回答两种可靠性</text>
+<path class="edge edge-data" d="M64 2247 L101 2247" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2253" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2247 L397 2247" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2253" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2247 L693 2247" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2253" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2247 L989 2247" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2253" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2247 L1285 2247" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2253" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

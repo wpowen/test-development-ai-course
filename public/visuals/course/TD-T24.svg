@@ -1,130 +1,166 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1160 546" width="1160" height="546">
-  <title id="title">漂移、Waiver 与回滚：质量系统的恢复闭环：flow流程</title>
-  <desc id="desc">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-</style>
-  <rect class="ds-bg" width="1160" height="546" rx="22"/>
-  
-  <rect class="ds-header" x="0" y="0" width="1160" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1160" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">FLOW · 证据流</text>
-  <text class="ds-subtitle" x="1124" y="32" text-anchor="end">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</text>
-  <text class="ds-title" x="36" y="74">漂移、Waiver 与回滚：质量系统的恢复闭环</text>
-  <text class="ds-source" x="36" y="140">flow · 漂移、Waiver 与回滚：质量系统的恢复闭环 的证据链与人工决策边界 · 来源 S07, S23, S24, S70</text>
-  
-    <path d="M 264 220 L 286 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 466 220 L 488 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 668 220 L 690 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 870 220 L 892 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 984 268 V 305 H 176 V 338" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    <path d="M 264 390 L 286 390" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-  
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="172" width="176" height="96" rx="14" fill="#eaf1fa" stroke="#aec6e3"/>
-      
-      <circle cx="106" cy="190" r="11" fill="#ffffff" stroke="#aec6e3" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="193" text-anchor="middle" >01</text>
-      <text class="ds-node-title" x="103" y="220">版本化基线</text>
-      <text class="ds-node-detail" x="103" y="235">输入 / 依据</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="290" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="308" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="193" text-anchor="middle" >02</text>
-      <text class="ds-node-title" x="305" y="220">多信号监测</text>
-      <text class="ds-node-detail" x="305" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="492" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="510" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="510" y="193" text-anchor="middle" >03</text>
-      <text class="ds-node-title" x="507" y="220">漂移诊断树</text>
-      <text class="ds-node-detail" x="507" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="694" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="712" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="712" y="193" text-anchor="middle" >04</text>
-      <text class="ds-node-title" x="709" y="220">版本冻结</text>
-      <text class="ds-node-detail" x="709" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="896" y="172" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a"/>
-      
-      <circle cx="914" cy="190" r="11" fill="#ffffff" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="914" y="193" text-anchor="middle" >05</text>
-      <text class="ds-node-title" x="911" y="220">Waiver/到期 Gate</text>
-      <text class="ds-node-detail" x="911" y="235">门禁 / 裁决</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="342" width="176" height="96" rx="14" fill="#fbe9e5" stroke="#e3a89f"/>
-      
-      <circle cx="106" cy="360" r="11" fill="#ffffff" stroke="#e3a89f" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="363" text-anchor="middle" >06</text>
-      <text class="ds-node-title" x="103" y="390">整包回滚</text>
-      <text class="ds-node-detail" x="103" y="405">安全终态</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-strong)">
-      <rect x="290" y="342" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a" stroke-width="2"/>
-      <rect x="290" y="342" width="6" height="96" rx="3" fill="#93bd2c"/>
-      <circle cx="308" cy="360" r="11" fill="#174a3a" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="363" text-anchor="middle" fill="#ffffff">07</text>
-      <text class="ds-node-title" x="305" y="390">Regression/事故 Closure</text>
-      <text class="ds-node-detail" x="305" y="405">决定 / 输出</text>
-    </g>
-  <circle cx="108" cy="460" r="4" fill="#355f96"/><text class="ds-legend" x="118" y="464">输入 / 依据</text><circle cx="177.4" cy="460" r="4" fill="#c2d9cc"/><text class="ds-legend" x="187.4" y="464">处理 / 变换</text><circle cx="246.8" cy="460" r="4" fill="#6a49a8"/><text class="ds-legend" x="256.8" y="464">独立判断</text><circle cx="297.6" cy="460" r="4" fill="#a96a18"/><text class="ds-legend" x="307.6" y="464">门禁 / 裁决</text><circle cx="367" cy="460" r="4" fill="#b2402f"/><text class="ds-legend" x="377" y="464">安全终态</text>
-  
-  <rect x="28" y="472" width="1104" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="498">证据边界</text>
-  <text class="ds-foot" x="46" y="520">节点是页面语义关系；不代表真实模型、企业集成或生产效果已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2747" viewBox="0 0 1600 2747" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">漂移冻结后做有到期的风险接受</title><desc id="desc">多信号变化先定位来源；临时 waiver 不删失败，到期自动阻断，回滚恢复完整版本包。 引用下降先检查索引与新鲜度，再决定回滚或重建基线 无通用漂移天数或改善比例；监测有效性与真实回滚效果须在目标系统实测。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-T24 / 漂移诊断复盘：Waiver 必须可到期、可回滚;docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-T24 / 漂移诊断复盘：Waiver 必须可到期、可回滚">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-T24&quot;,&quot;pageIds&quot;:[&quot;TD-T24&quot;],&quot;primaryPageIds&quot;:[&quot;TD-T24&quot;],&quot;layout&quot;:&quot;state&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-T24 / 漂移诊断复盘：Waiver 必须可到期、可回滚&quot;,&quot;quote&quot;:&quot;到期未续签自动阻断。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-T24 / 漂移诊断复盘：Waiver 必须可到期、可回滚&quot;,&quot;quote&quot;:&quot;回滚需恢复完整 manifest 与索引/Prompt/模型快照，并重跑事故 regression。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;baseline&quot;,&quot;title&quot;:&quot;版本化基线&quot;},{&quot;id&quot;:&quot;signals&quot;,&quot;title&quot;:&quot;多信号监测&quot;},{&quot;id&quot;:&quot;diagnosis&quot;,&quot;title&quot;:&quot;漂移诊断树&quot;},{&quot;id&quot;:&quot;freeze&quot;,&quot;title&quot;:&quot;版本冻结&quot;},{&quot;id&quot;:&quot;waiver&quot;,&quot;title&quot;:&quot;Waiver/到期 Gate&quot;},{&quot;id&quot;:&quot;rollback&quot;,&quot;title&quot;:&quot;整包回滚&quot;},{&quot;id&quot;:&quot;closure&quot;,&quot;title&quot;:&quot;Regression/事故 Closure&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;baseline&quot;,&quot;to&quot;:&quot;signals&quot;,&quot;label&quot;:&quot;基线对照&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;signals&quot;,&quot;to&quot;:&quot;diagnosis&quot;,&quot;label&quot;:&quot;异常信号&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;diagnosis&quot;,&quot;to&quot;:&quot;freeze&quot;,&quot;label&quot;:&quot;确认变化来源&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;freeze&quot;,&quot;to&quot;:&quot;waiver&quot;,&quot;label&quot;:&quot;具名短期接受&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;freeze&quot;,&quot;to&quot;:&quot;rollback&quot;,&quot;label&quot;:&quot;需恢复已知良好组合&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;waiver&quot;,&quot;to&quot;:&quot;rollback&quot;,&quot;label&quot;:&quot;触发回滚条件&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;rollback&quot;,&quot;to&quot;:&quot;closure&quot;,&quot;label&quot;:&quot;完整恢复后复验&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;waiver&quot;,&quot;to&quot;:&quot;closure&quot;,&quot;label&quot;:&quot;修复后重新验收&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;closure&quot;,&quot;to&quot;:&quot;baseline&quot;,&quot;label&quot;:&quot;明确复基线&quot;,&quot;kind&quot;:&quot;feedback&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2747" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-T24</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >漂移冻结后做有到期的风险接受</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >多信号变化先定位来源；临时 waiver 不删失败，到期自动阻断，回滚恢复完整版本包。</text>
+<g id="system-graph" data-region="64,234,1472,1909">
+<rect x="64" y="234" width="1472" height="1909" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >引用下降先检查索引与新鲜度，再决定回滚或重建基线</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M400 273 L400 335 L930 335 L930 273" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M400 273 L400 335 L930 335 L930 273" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e0" data-from="baseline" data-to="signals"/>
+<path d="M1032 273 L1032 335 L1351 335 Q1356 323 1361 335 L1368 335 L1368 395 L1361 395 Q1356 383 1351 395 L451 395 L451 421" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M1032 273 L1032 335 L1351 335 Q1356 323 1361 335 L1368 335 L1368 395 L1361 395 Q1356 383 1351 395 L451 395 L451 421" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="signals" data-to="diagnosis"/>
+<path d="M451 618 L451 682 L904.5 682 L904.5 618" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M451 618 L451 682 L904.5 682 L904.5 618" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e2" data-from="diagnosis" data-to="freeze"/>
+<path d="M1057.5 618 L1057.5 666 L1351 666 Q1356 654 1361 666 L1374 666 L1374 822 L1367 822 Q1359 810 1351 822 L714 822 L714 848" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M1057.5 618 L1057.5 666 L1351 666 Q1356 654 1361 666 L1374 666 L1374 822 L1367 822 Q1359 810 1351 822 L714 822 L714 848" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e3" data-from="freeze" data-to="waiver"/>
+<path d="M981 618 L981 746 L1362 746 L1362 1283 L935 1283 Q930 1271 925 1283 L502 1283 L502 1337" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M981 618 L981 746 L1362 746 L1362 1283 L935 1283 Q930 1271 925 1283 L502 1283 L502 1337" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e4" data-from="freeze" data-to="rollback"/>
+<path d="M663 1079 L663 1127 L84 1127 L84 1297 L400 1297 L400 1337" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M663 1079 L663 1127 L84 1127 L84 1297 L400 1297 L400 1337" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e5" data-from="waiver" data-to="rollback"/>
+<path d="M451 1534 L451 1671 L981 1671 L981 1607" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M451 1534 L451 1671 L981 1671 L981 1607" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e6" data-from="rollback" data-to="closure"/>
+<path d="M765 1079 L765 1143 L1351 1143 Q1356 1131 1361 1143 L1368 1143 L1368 1311 L1032 1311 L1032 1337" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M765 1079 L765 1143 L1351 1143 Q1356 1131 1361 1143 L1368 1143 L1368 1311 L1032 1311 L1032 1337" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="waiver" data-to="closure"/>
+<path d="M930 1337 L930 1223 L1356 1223 L1356 287 L1037 287 Q1032 275 1027 287 L935 287 Q930 275 925 287 L502 287 L502 273" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M930 1337 L930 1223 L1356 1223 L1356 287 L1037 287 Q1032 275 1027 287 L935 287 Q930 275 925 287 L502 287 L502 273" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e8" data-from="closure" data-to="baseline"/>
+<g id="node-baseline" class="node node-data" data-region="274,76,354,197">
+<rect x="274" y="76" width="354" height="197" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#087b76" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#087b76" font-weight="700" >版本化基线</text>
+<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >冻结各维分布与 manifest</text>
+<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >漂移判断必须有比较起点</text>
+</g>
+<g id="node-signals" class="node node-input" data-region="804,76,354,197">
+<rect x="804" y="76" width="354" height="197" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">02</text>
+<text x="826" y="152" font-size="28" fill="#215cbb" font-weight="700" >多信号监测</text>
+<text x="826" y="195" font-size="23" fill="#172b45" font-weight="450" >数据、质量、性能、成本</text>
+<text x="826" y="229" font-size="23" fill="#172b45" font-weight="450" >区分业务与评测器变化</text>
+</g>
+<g id="node-diagnosis" class="node node-process" data-region="274,421,354,197">
+<rect x="274" y="421" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="438" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="456" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="296" y="497" font-size="28" fill="#344f70" font-weight="700" >漂移诊断树</text>
+<text x="296" y="540" font-size="23" fill="#172b45" font-weight="450" >查首个变化和版本可比性</text>
+<text x="296" y="574" font-size="23" fill="#172b45" font-weight="450" >引用下降先查文档与索引</text>
+</g>
+<g id="node-freeze" class="node node-control" data-region="804,421,354,197">
+<rect x="804" y="421" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="438" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="456" font-size="15" fill="#945c0b" font-weight="750" class="mono">04</text>
+<text x="826" y="497" font-size="28" fill="#945c0b" font-weight="700" >版本冻结</text>
+<text x="826" y="540" font-size="23" fill="#172b45" font-weight="450" >确认漂移后冻结版本</text>
+<text x="826" y="574" font-size="23" fill="#172b45" font-weight="450" >停止叠加未经验证的变更</text>
+</g>
+<g id="node-waiver" class="node node-risk" data-region="537,848,354,231">
+<rect x="537" y="848" width="354" height="231" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="555" y="865" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="883" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">05</text>
+<text x="559" y="924" font-size="28" fill="#ad3e4c" font-weight="700" >Waiver/到期 Gate</text>
+<text x="559" y="967" font-size="23" fill="#172b45" font-weight="450" >owner、范围、补偿控制、</text>
+<text x="559" y="1001" font-size="23" fill="#172b45" font-weight="450" >expiry</text>
+<text x="559" y="1035" font-size="23" fill="#172b45" font-weight="450" >到期未续签自动阻断</text>
+</g>
+<g id="node-rollback" class="node node-process" data-region="274,1337,354,197">
+<rect x="274" y="1337" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="1354" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1372" font-size="15" fill="#344f70" font-weight="750" class="mono">06</text>
+<text x="296" y="1413" font-size="28" fill="#344f70" font-weight="700" >整包回滚</text>
+<text x="296" y="1456" font-size="23" fill="#172b45" font-weight="450" >恢复完整 manifest 与快照</text>
+<text x="296" y="1490" font-size="23" fill="#172b45" font-weight="450" >不能仅把代码退回旧版</text>
+</g>
+<g id="node-closure" class="node node-evidence" data-region="804,1337,354,270">
+<rect x="804" y="1337" width="354" height="270" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="1354" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1372" font-size="15" fill="#7045a4" font-weight="750" class="mono">07</text>
+<text x="826" y="1413" font-size="28" fill="#7045a4" font-weight="700" >Regression/事故</text>
+<text x="826" y="1452" font-size="28" fill="#7045a4" font-weight="700" >Closure</text>
+<text x="826" y="1495" font-size="23" fill="#172b45" font-weight="450" >重跑事故回归并保留恢复</text>
+<text x="826" y="1529" font-size="23" fill="#172b45" font-weight="450" >证据</text>
+<text x="826" y="1563" font-size="23" fill="#172b45" font-weight="450" >回滚或重建基线后关闭</text>
+</g>
+<rect x="643.53" y="313" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="342" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  基线对照</text>
+<text x="934" y="295" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="1173.53" y="313" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="342" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  异常信号</text>
+<text x="455" y="411" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="643.53" y="644" width="144.94" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="673" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  确认变化</text>
+<text x="716" y="705" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">来源</text>
+<text x="908.5" y="640" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="1151.69" y="644" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="673" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  具名短期接受</text>
+<text x="718" y="838" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="1151.69" y="708" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="737" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  需恢复已知良</text>
+<text x="1246" y="769" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">好组合</text>
+<text x="506" y="1327" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="95.69" y="1105" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1134" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  触发回滚条件</text>
+<text x="404" y="1327" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="632.61" y="1633" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1662" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  完整恢复后</text>
+<text x="716" y="1694" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">复验</text>
+<text x="985" y="1629" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="1162.61" y="1105" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1134" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  修复后重新</text>
+<text x="1246" y="1166" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">验收</text>
+<text x="1036" y="1327" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+<rect x="1162.61" y="1201" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1230" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  明确复基线</text>
+<text x="506" y="295" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e8" stroke="#fff" stroke-width="4" paint-order="stroke">09</text>
+</g>
+</g>
+<text x="64" y="2197" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2197" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2227,470,174">
+<rect x="64" y="2227" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2249" width="7" height="30" rx="3" fill="#087b76" stroke="none" />
+<text x="106" y="2274" font-size="25" fill="#087b76" font-weight="700" >怎样避免误判模型退化</text>
+<text x="88" y="2329" font-size="23" fill="#172b45" font-weight="450" >先查 Judge、dataset 与聚合版本</text>
+<text x="88" y="2364" font-size="23" fill="#172b45" font-weight="450" >引用下降查索引构建与新鲜度</text>
+</g>
+<g id="detail-1" data-region="565,2227,470,174">
+<rect x="565" y="2227" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2249" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="607" y="2274" font-size="25" fill="#945c0b" font-weight="700" >怎样写有效 waiver</text>
+<text x="589" y="2329" font-size="23" fill="#172b45" font-weight="450" >理由、owner、切片、补偿、到期</text>
+<text x="589" y="2364" font-size="23" fill="#172b45" font-weight="450" >同时绑定可执行回滚触发器</text>
+</g>
+<g id="detail-2" data-region="1066,2227,470,174">
+<rect x="1066" y="2227" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2249" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="2274" font-size="25" fill="#7045a4" font-weight="700" >怎样确认真的回滚</text>
+<text x="1090" y="2329" font-size="23" fill="#172b45" font-weight="450" >回读 Prompt、索引、模型及代码</text>
+<text x="1090" y="2364" font-size="23" fill="#172b45" font-weight="450" >完整 manifest 对账后重跑事故回归</text>
+</g>
+<g id="failure-and-output" data-region="64,2433,1472,148">
+<rect x="64" y="2433" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2472" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2517" font-size="23" fill="#ffdce2" font-weight="450" >waiver 过期、回滚组件不全或缺版本分母证据时保持阻断，不以继续观察默认放行。</text>
+<text x="88" y="2560" font-size="23" fill="#dce9fa" font-weight="450" >交付漂移诊断、冻结记录、到期台账、整包回滚与回归闭环。</text>
+</g>
+<text x="64" y="2629" font-size="20" fill="#50647c" font-weight="450" >无通用漂移天数或改善比例；监测有效性与真实回滚效果须在目标系统实测。</text>
+<text x="64" y="2668" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-T24 · 漂移冻结后做有到期的风险接受</text>
+<path class="edge edge-data" d="M64 2708 L101 2708" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2714" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2708 L397 2708" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2714" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2708 L693 2708" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2714" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2708 L989 2708" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2714" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2708 L1285 2708" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2714" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

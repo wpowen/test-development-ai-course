@@ -1,130 +1,159 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1160 546" width="1160" height="546">
-  <title id="title">线上可观测性：把 AI 质量、Trace、成本和 SLO 接成一条链：flow流程</title>
-  <desc id="desc">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-</style>
-  <rect class="ds-bg" width="1160" height="546" rx="22"/>
-  
-  <rect class="ds-header" x="0" y="0" width="1160" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1160" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">FLOW · 证据流</text>
-  <text class="ds-subtitle" x="1124" y="32" text-anchor="end">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</text>
-  <text class="ds-title" x="36" y="74">线上可观测性：把 AI 质量、Trace、成本和 SLO 接成一条链</text>
-  <text class="ds-source" x="36" y="140">flow · AI 质量信号闭环 · 来源 S49, S47, S51</text>
-  
-    <path d="M 264 220 L 286 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 466 220 L 488 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 668 220 L 690 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 870 220 L 892 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 984 268 V 305 H 176 V 338" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    <path d="M 264 390 L 286 390" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-  
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="172" width="176" height="96" rx="14" fill="#eaf1fa" stroke="#aec6e3"/>
-      
-      <circle cx="106" cy="190" r="11" fill="#ffffff" stroke="#aec6e3" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="193" text-anchor="middle" >01</text>
-      <text class="ds-node-title" x="103" y="220">用户请求/风险切片</text>
-      <text class="ds-node-detail" x="103" y="235">输入 / 依据</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="290" y="172" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a"/>
-      
-      <circle cx="308" cy="190" r="11" fill="#ffffff" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="193" text-anchor="middle" >02</text>
-      <text class="ds-node-title" x="305" y="220">Gateway 与 Trace</text>
-      <text class="ds-node-detail" x="305" y="235">门禁 / 裁决</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="492" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="510" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="510" y="193" text-anchor="middle" >03</text>
-      <text class="ds-node-title" x="507" y="220">模型/检索/工具 Span</text>
-      <text class="ds-node-detail" x="507" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="694" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="712" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="712" y="193" text-anchor="middle" >04</text>
-      <text class="ds-node-title" x="709" y="220">日志与指标</text>
-      <text class="ds-node-detail" x="709" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="896" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="914" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="914" y="193" text-anchor="middle" >05</text>
-      <text class="ds-node-title" x="911" y="220">质量/成本评测</text>
-      <text class="ds-node-detail" x="911" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="342" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="106" cy="360" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="363" text-anchor="middle" >06</text>
-      <text class="ds-node-title" x="103" y="390">告警与版本冻结</text>
-      <text class="ds-node-detail" x="103" y="405">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-strong)">
-      <rect x="290" y="342" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a" stroke-width="2"/>
-      <rect x="290" y="342" width="6" height="96" rx="3" fill="#93bd2c"/>
-      <circle cx="308" cy="360" r="11" fill="#174a3a" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="363" text-anchor="middle" fill="#ffffff">07</text>
-      <text class="ds-node-title" x="305" y="390">回归集与发布门禁</text>
-      <text class="ds-node-detail" x="305" y="405">决定 / 输出</text>
-    </g>
-  <circle cx="108" cy="460" r="4" fill="#355f96"/><text class="ds-legend" x="118" y="464">输入 / 依据</text><circle cx="177.4" cy="460" r="4" fill="#c2d9cc"/><text class="ds-legend" x="187.4" y="464">处理 / 变换</text><circle cx="246.8" cy="460" r="4" fill="#6a49a8"/><text class="ds-legend" x="256.8" y="464">独立判断</text><circle cx="297.6" cy="460" r="4" fill="#a96a18"/><text class="ds-legend" x="307.6" y="464">门禁 / 裁决</text><circle cx="367" cy="460" r="4" fill="#b2402f"/><text class="ds-legend" x="377" y="464">安全终态</text>
-  
-  <rect x="28" y="472" width="1104" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="498">证据边界</text>
-  <text class="ds-foot" x="46" y="520">节点是页面语义关系；不代表真实模型、企业集成或生产效果已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2506" viewBox="0 0 1600 2506" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">Trace 完整后，质量退化才可归因</title><desc id="desc">同一任务的 span、脱敏日志、质量评分和 fault window 必须相连，告警才能支持版本冻结和回归。 退款正确率下降而 Judge 稳定时，先验证观测链再解释原因 托管模型内部 GPU/KV 与内部判分不能凭外部 Trace 推定正常；未运行线上采样不宣称改善。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-PS11 / 模型调用为什么不该另建一套观测体系;docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-PS11 / 先证明 Trace 完整，再做混沌归因">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-PS11&quot;,&quot;pageIds&quot;:[&quot;TD-PS11&quot;],&quot;primaryPageIds&quot;:[&quot;TD-PS11&quot;],&quot;layout&quot;:&quot;evidence&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-PS11 / 模型调用为什么不该另建一套观测体系&quot;,&quot;quote&quot;:&quot;可观测性的价值来自关联，不来自记录量&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-PS11 / 先证明 Trace 完整，再做混沌归因&quot;,&quot;quote&quot;:&quot;敏感输入不进入默认 telemetry&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;root&quot;,&quot;title&quot;:&quot;用户任务与 Trace 根&quot;},{&quot;id&quot;:&quot;spans&quot;,&quot;title&quot;:&quot;检索 / 模型 / 工具 Span&quot;},{&quot;id&quot;:&quot;telemetry&quot;,&quot;title&quot;:&quot;脱敏日志与指标&quot;},{&quot;id&quot;:&quot;quality&quot;,&quot;title&quot;:&quot;质量与成本评测&quot;},{&quot;id&quot;:&quot;fault&quot;,&quot;title&quot;:&quot;单变量实验窗口&quot;},{&quot;id&quot;:&quot;complete&quot;,&quot;title&quot;:&quot;观测完整性检查&quot;},{&quot;id&quot;:&quot;freeze&quot;,&quot;title&quot;:&quot;告警与版本冻结&quot;},{&quot;id&quot;:&quot;regression&quot;,&quot;title&quot;:&quot;脱敏失败回流&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;root&quot;,&quot;to&quot;:&quot;spans&quot;,&quot;label&quot;:&quot;上下文传播&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;spans&quot;,&quot;to&quot;:&quot;telemetry&quot;,&quot;label&quot;:&quot;关联观测事实&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;spans&quot;,&quot;to&quot;:&quot;quality&quot;,&quot;label&quot;:&quot;任务样本与成本&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;telemetry&quot;,&quot;to&quot;:&quot;complete&quot;,&quot;label&quot;:&quot;日志与版本&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;quality&quot;,&quot;to&quot;:&quot;complete&quot;,&quot;label&quot;:&quot;同切片评分&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;fault&quot;,&quot;to&quot;:&quot;complete&quot;,&quot;label&quot;:&quot;fault window 关联&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;complete&quot;,&quot;to&quot;:&quot;freeze&quot;,&quot;label&quot;:&quot;有证据的异常&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;freeze&quot;,&quot;to&quot;:&quot;regression&quot;,&quot;label&quot;:&quot;确认且脱敏的失败&quot;,&quot;kind&quot;:&quot;feedback&quot;},{&quot;from&quot;:&quot;regression&quot;,&quot;to&quot;:&quot;quality&quot;,&quot;label&quot;:&quot;同口径持续评测&quot;,&quot;kind&quot;:&quot;feedback&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2506" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-PS11</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >Trace 完整后，质量退化才可归因</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >同一任务的 span、脱敏日志、质量评分和 fault window 必须相连，告警才能支持版本冻结和回归。</text>
+<g id="system-graph" data-region="64,234,1472,1632.9745997351629">
+<rect x="64" y="234" width="1472" height="1632.9745997351629" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >退款正确率下降而 Judge 稳定时，先验证观测链再解释原因</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >证据谱系</text>
+<g transform="translate(110.11195377392562 350) scale(0.8426628144938003)" data-graph-scale="0.8426628144938003" data-routing="dot">
+<path class="edge edge-data" d="M415 213 C415 271.0899999999999 415 288.51 415 341.19000000000005" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="root" data-to="spans"/>
+<path class="edge edge-evidence" d="M415 657 C415 683.76 222.05 737.15 183.61 769.21" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e1" data-from="spans" data-to="telemetry"/>
+<path class="edge edge-evidence" d="M503 657 C503 730.78 599.91 718.72 610.13 783.45" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e2" data-from="spans" data-to="quality"/>
+<path class="edge edge-evidence" d="M177 1010 C177 1049.3200000000002 486.35 1083.58 534.68 1122.1100000000001" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e3" data-from="telemetry" data-to="complete"/>
+<path class="edge edge-evidence" d="M611 992 C611 1050.0900000000001 611 1067.51 611 1120.19" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e4" data-from="quality" data-to="complete"/>
+<path class="edge edge-evidence" d="M849 231 C849 577.7 914.82 680.1600000000001 808 1010 C794.63 1051.28 786.86 1062.54 755 1092 C731.09 1114.1100000000001 692.68 1099.6799999999998 683.18 1120.31" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e5" data-from="fault" data-to="complete"/>
+<path class="edge edge-control" d="M787 1264 C800.99 1264 796.98 1247.6399999999999 810 1242.5 C874.49 1217.05 902.43 1214.81 966 1242.5 C974.04 1246 974.41 1254.5 977.75 1259.71" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="complete" data-to="freeze"/>
+<path class="edge edge-feedback" d="M1163 1397 C1163 1447.09 1163 1462.48 1163 1507.28" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e7" data-from="freeze" data-to="regression"/>
+<path class="edge edge-feedback" d="M985 1616.5 C941.66 1616.5 962.9 1555.66 986 1519 C1030.08 1449.04 1074.61 1463.3 1153 1437 C1241.84 1407.2 1300.36 1469.27 1360 1397 C1434.97 1306.16 1436.85 1221.25 1360 1132 C1326.06 1092.58 468.14 1032.25 434 993 C407.92 963.02 392.2 906.6 421.35 895.44" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e8" data-from="regression" data-to="quality"/>
+<g id="node-root" class="node node-input" data-region="238,17,354,197">
+<rect x="238" y="17" width="354" height="197" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="256" y="34" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="263" y="52" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="260" y="93" font-size="28" fill="#215cbb" font-weight="700" >用户任务与 Trace 根</text>
+<text x="260" y="136" font-size="23" fill="#172b45" font-weight="450" >入口记录风险 slice 与版本</text>
+<text x="260" y="170" font-size="23" fill="#172b45" font-weight="450" >传播同一 trace context</text>
+</g>
+<g id="node-spans" class="node node-process" data-region="283,353,354,304">
+<rect x="283" y="353" width="354" height="304" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="301" y="370" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="308" y="388" font-size="15" fill="#344f70" font-weight="750" class="mono">02</text>
+<text x="305" y="429" font-size="28" fill="#344f70" font-weight="700" >检索 / 模型 / 工具</text>
+<text x="305" y="468" font-size="28" fill="#344f70" font-weight="700" >Span</text>
+<text x="305" y="511" font-size="23" fill="#172b45" font-weight="450" >retrieval_ids、参数摘要</text>
+<text x="305" y="545" font-size="23" fill="#172b45" font-weight="450" >与终态</text>
+<text x="305" y="579" font-size="23" fill="#172b45" font-weight="450" >模型、Prompt、知识库、</text>
+<text x="305" y="613" font-size="23" fill="#172b45" font-weight="450" >Scorer 版本</text>
+</g>
+<g id="node-telemetry" class="node node-data" data-region="0,779,354,231">
+<rect x="0" y="779" width="354" height="231" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="18" y="796" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="814" font-size="15" fill="#087b76" font-weight="750" class="mono">03</text>
+<text x="22" y="855" font-size="28" fill="#087b76" font-weight="700" >脱敏日志与指标</text>
+<text x="22" y="898" font-size="23" fill="#172b45" font-weight="450" >token、阶段延迟、attempt</text>
+<text x="22" y="932" font-size="23" fill="#172b45" font-weight="450" >与结果</text>
+<text x="22" y="966" font-size="23" fill="#172b45" font-weight="450" >敏感内容在默认落盘前处理</text>
+</g>
+<g id="node-quality" class="node node-control" data-region="434,796,354,197">
+<rect x="434" y="796" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="452" y="813" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="459" y="831" font-size="15" fill="#945c0b" font-weight="750" class="mono">04</text>
+<text x="456" y="872" font-size="28" fill="#945c0b" font-weight="700" >质量与成本评测</text>
+<text x="456" y="915" font-size="23" fill="#172b45" font-weight="450" >采样切片用同口径评估器</text>
+<text x="456" y="949" font-size="23" fill="#172b45" font-weight="450" >与上线基线和人工判定对照</text>
+</g>
+<g id="node-fault" class="node node-risk" data-region="672,0,354,231">
+<rect x="672" y="0" width="354" height="231" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="690" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="697" y="35" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">05</text>
+<text x="694" y="76" font-size="28" fill="#ad3e4c" font-weight="700" >单变量实验窗口</text>
+<text x="694" y="119" font-size="23" fill="#172b45" font-weight="450" >授权、隔离范围与停止条件</text>
+<text x="694" y="153" font-size="23" fill="#172b45" font-weight="450" >fault event 关联到具体</text>
+<text x="694" y="187" font-size="23" fill="#172b45" font-weight="450" >任务</text>
+</g>
+<g id="node-complete" class="node node-control" data-region="436,1132,354,265">
+<rect x="436" y="1132" width="354" height="265" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="454" y="1149" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="461" y="1167" font-size="15" fill="#945c0b" font-weight="750" class="mono">06</text>
+<text x="458" y="1208" font-size="28" fill="#945c0b" font-weight="700" >观测完整性检查</text>
+<text x="458" y="1251" font-size="23" fill="#172b45" font-weight="450" >gateway 到 terminal 能完</text>
+<text x="458" y="1285" font-size="23" fill="#172b45" font-weight="450" >整拼接</text>
+<text x="458" y="1319" font-size="23" fill="#172b45" font-weight="450" >缺 span 或版本先记</text>
+<text x="458" y="1353" font-size="23" fill="#172b45" font-weight="450" >UNKNOWN</text>
+</g>
+<g id="node-freeze" class="node node-control" data-region="986,1132,354,265">
+<rect x="986" y="1132" width="354" height="265" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="1004" y="1149" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1011" y="1167" font-size="15" fill="#945c0b" font-weight="750" class="mono">07</text>
+<text x="1008" y="1208" font-size="28" fill="#945c0b" font-weight="700" >告警与版本冻结</text>
+<text x="1008" y="1251" font-size="23" fill="#172b45" font-weight="450" >分母、窗口、owner 与动作</text>
+<text x="1008" y="1285" font-size="23" fill="#172b45" font-weight="450" >明确</text>
+<text x="1008" y="1319" font-size="23" fill="#172b45" font-weight="450" >先恢复已知良好完整</text>
+<text x="1008" y="1353" font-size="23" fill="#172b45" font-weight="450" >Manifest</text>
+</g>
+<g id="node-regression" class="node node-evidence" data-region="986,1519,354,197">
+<rect x="986" y="1519" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="1004" y="1536" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1011" y="1554" font-size="15" fill="#7045a4" font-weight="750" class="mono">08</text>
+<text x="1008" y="1595" font-size="28" fill="#7045a4" font-weight="700" >脱敏失败回流</text>
+<text x="1008" y="1638" font-size="23" fill="#172b45" font-weight="450" >保留原始关联与人工判定</text>
+<text x="1008" y="1672" font-size="23" fill="#172b45" font-weight="450" >成为回归集与发布门禁输入</text>
+</g>
+<rect x="415" y="271" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="482" y="299" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">上下文传播</text>
+<rect x="344.67" y="697" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="422.67" y="725" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">关联观测事实</text>
+<rect x="576.07" y="697" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="664.57" y="725" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">任务样本与成本</text>
+<rect x="443.38" y="1050" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="510.38" y="1078" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">日志与版本</text>
+<rect x="611" y="1050" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="678" y="1078" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">同切片评分</text>
+<rect x="868.4" y="697" width="206" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="971.4" y="725" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">fault window 关联</text>
+<rect x="810" y="1180.5700000000002" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="888" y="1208.5700000000002" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">有证据的异常</text>
+<rect x="1163" y="1437" width="199" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1262.5" y="1465" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">确认且脱敏的失败</text>
+<rect x="1416.9" y="1243.5" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1505.4" y="1271.5" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">同口径持续评测</text>
+</g>
+</g>
+<text x="64" y="1920.9745997351629" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1920.9745997351629" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1950.9745997351629,470,209">
+<rect x="64" y="1950.9745997351629" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1972.9745997351629" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="106" y="1997.9745997351629" font-size="25" fill="#945c0b" font-weight="700" >先查能否看全</text>
+<text x="88" y="2052.974599735163" font-size="23" fill="#172b45" font-weight="450" >缺 generation/tool/terminal 不</text>
+<text x="88" y="2087.974599735163" font-size="23" fill="#172b45" font-weight="450" >猜因</text>
+<text x="88" y="2122.974599735163" font-size="23" fill="#172b45" font-weight="450" >校验数据与版本，再判断模型或代码</text>
+</g>
+<g id="detail-1" data-region="565,1950.9745997351629,470,209">
+<rect x="565" y="1950.9745997351629" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1972.9745997351629" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="607" y="1997.9745997351629" font-size="25" fill="#ad3e4c" font-weight="700" >Judge 稳定也要查</text>
+<text x="589" y="2052.974599735163" font-size="23" fill="#172b45" font-weight="450" >按 slice 查索引版本、输入分布与工具</text>
+<text x="589" y="2087.974599735163" font-size="23" fill="#172b45" font-weight="450" >线上正确率不由 Judge 分数单独证明</text>
+</g>
+<g id="detail-2" data-region="1066,1950.9745997351629,470,209">
+<rect x="1066" y="1950.9745997351629" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1972.9745997351629" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="1997.9745997351629" font-size="25" fill="#7045a4" font-weight="700" >告警需要下一动作</text>
+<text x="1090" y="2052.974599735163" font-size="23" fill="#172b45" font-weight="450" >质量与成本加入 SLO 及版本基线</text>
+<text x="1090" y="2087.974599735163" font-size="23" fill="#172b45" font-weight="450" >恢复后同切片复验，失败回流回归</text>
+</g>
+<g id="failure-and-output" data-region="64,2191.974599735163,1472,148">
+<rect x="64" y="2191.974599735163" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2230.974599735163" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2275.974599735163" font-size="23" fill="#ffdce2" font-weight="450" >敏感字段未脱敏先停止落盘；观测断链或托管内部不可见时保持 UNKNOWN。</text>
+<text x="88" y="2318.974599735163" font-size="23" fill="#dce9fa" font-weight="450" >交付 Trace schema、完整性报告、告警 runbook、已知盲区与回流样例。</text>
+</g>
+<text x="64" y="2387.974599735163" font-size="20" fill="#50647c" font-weight="450" >托管模型内部 GPU/KV 与内部判分不能凭外部 Trace 推定正常；未运行线上采样不宣称改善。</text>
+<text x="64" y="2426.974599735163" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-PS11 · Trace 完整后，质量退化才可归因</text>
+<path class="edge edge-data" d="M64 2466.974599735163 L101 2466.974599735163" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2472.974599735163" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2466.974599735163 L397 2466.974599735163" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2472.974599735163" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2466.974599735163 L693 2466.974599735163" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2472.974599735163" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2466.974599735163 L989 2466.974599735163" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2472.974599735163" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2466.974599735163 L1285 2466.974599735163" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2472.974599735163" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

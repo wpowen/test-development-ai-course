@@ -1,109 +1,155 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1200 760" width="1200" height="760">
-  <title id="title">D3 中断、脏状态、接管与恢复</title>
-  <desc id="desc">确认按钮不是控制权；必须证明人能停止、看见状态、回滚、接管并安全交回。 真实用户的确认疲劳与接管成功率仍需目标学习者/从业者实验。</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0e3026" flood-opacity=".10"/></filter>
-  <style>
-    .bg{fill:#fbfaf6}.header{fill:url(#ds-header-grad)}.eyebrow{font:700 12px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;fill:#93bd2c}.title{font:800 28px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:white}.subtitle{font:450 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}.source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}.node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}.node-title{font:800 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}.node-detail{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}.edge path{fill:none;stroke:#174a3a;stroke-width:2}.edge text{font:600 9px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}.callout{fill:#fdf1d8;stroke:#e3c07b;stroke-width:1.5}.callout-title{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}.callout-text{font:650 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}.footer{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-  </style>
-  <rect class="bg" width="1200" height="760" rx="24"/>
-  <rect class="header" width="1200" height="92" rx="24"/><rect class="header" y="68" width="1200" height="24"/>
-  <text class="eyebrow" x="34" y="30">D3 · HUMAN CONTROL</text>
-  <text class="title" x="34" y="62">D3 中断、脏状态、接管与恢复</text>
-  <text class="subtitle" x="1166" y="30" text-anchor="end">确认按钮不是控制权；必须证明人能停止、看见状态、回滚、接管并安全交回。</text>
-  <text class="source" x="34" y="111">来源：S07 · S23 · S65</text>
-  <g class="edge"><path d="M 224 177 C 245 177, 245 177, 258 177" marker-end="url(#ds-arw-forest)"/><text x="245" y="187">stop signal</text></g>
-<g class="edge"><path d="M 456 177 C 477 177, 477 177, 490 177" marker-end="url(#ds-arw-forest)"/><text x="477" y="169">冻结并检查</text></g>
-<g class="edge"><path d="M 688 177 C 709 177, 709 177, 722 177" marker-end="url(#ds-arw-forest)"/><text x="709" y="187">存在副作用</text></g>
-<g class="edge"><path d="M 688 177 C 740 464, 446 464, 490 369" marker-end="url(#ds-arw-forest)"/><text x="593" y="265">状态可解释</text></g>
-<g class="edge"><path d="M 920 177 C 972 464, 446 464, 490 369" marker-end="url(#ds-arw-forest)"/><text x="709" y="283">清理后移交</text></g>
-<g class="edge"><path d="M 688 369 C 709 369, 709 369, 722 369" marker-end="url(#ds-arw-forest)"/><text x="709" y="361">人工决定</text></g>
-<g class="edge"><path d="M 920 369 C 941 369, 941 369, 954 369" marker-end="url(#ds-arw-forest)"/><text x="941" y="379">记录结果</text></g>
-<g class="edge"><path d="M 688 177 C 740 670, 214 670, 258 572" marker-end="url(#ds-arw-forest)"/><text x="477" y="366.5">无法确认</text></g>
-<g class="edge"><path d="M 526 572 C 744 572, 744 369, 954 369" marker-end="url(#ds-arw-forest)"/><text x="744" y="480.5">留下阻断证据</text></g>
-  
-    <g class="node run">
-      <rect x="34" y="134" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="34" y="134" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="54" y="157">01</text>
-      <text class="node-title" x="54" y="182">Agent 运行</text>
-      <text class="node-detail" x="54" y="204">计划 / 状态 / 工具</text>
-    </g>
-    <g class="node interrupt">
-      <rect x="266" y="134" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="266" y="134" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="286" y="157">02</text>
-      <text class="node-title" x="286" y="182">人工中断</text>
-      <text class="node-detail" x="286" y="204">写操作前 / 后</text>
-    </g>
-    <g class="node dirty">
-      <rect x="498" y="134" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="498" y="134" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="518" y="157">03</text>
-      <text class="node-title" x="518" y="182">脏状态检查</text>
-      <text class="node-detail" x="518" y="204">半成品 / 锁 / 队列</text>
-    </g>
-    <g class="node rollback">
-      <rect x="730" y="134" width="190" height="86" rx="15" fill="#fdf1d8" stroke="#e0b76a" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="730" y="134" width="5" height="86" rx="2.5" fill="#e0b76a"/>
-      <text class="node-index" x="750" y="157">04</text>
-      <text class="node-title" x="750" y="182">回滚或补偿</text>
-      <text class="node-detail" x="750" y="204">恢复安全终态</text>
-    </g>
-    <g class="node takeover">
-      <rect x="498" y="326" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="498" y="326" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="518" y="349">05</text>
-      <text class="node-title" x="518" y="374">人工接管</text>
-      <text class="node-detail" x="518" y="396">新 owner / 新上下文</text>
-    </g>
-    <g class="node resume">
-      <rect x="730" y="326" width="190" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="730" y="326" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="750" y="349">06</text>
-      <text class="node-title" x="750" y="374">安全恢复</text>
-      <text class="node-detail" x="750" y="396">交回或转人工终结</text>
-    </g>
-    <g class="node audit">
-      <rect x="962" y="326" width="200" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="962" y="326" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="982" y="349">07</text>
-      <text class="node-title" x="982" y="374">审计证据</text>
-      <text class="node-detail" x="982" y="396">人、时间、决定、状态</text>
-    </g>
-    <g class="node blocked">
-      <rect x="266" y="526" width="260" height="92" rx="15" fill="#fbe9e5" stroke="#e3a89f" stroke-width="2" filter="url(#shadow)"/>
-      <rect x="266" y="526" width="5" height="92" rx="2.5" fill="#e3a89f"/>
-      <text class="node-index" x="286" y="549">08</text>
-      <text class="node-title" x="286" y="574">停止 / BLOCKED</text>
-      <text class="node-detail" x="286" y="596">无法清理状态则不恢复</text>
-    </g>
-  <rect class="callout" x="34" y="658" width="1132" height="48" rx="12"/>
-  <text class="callout-title" x="52" y="679">FAIL-CLOSED</text><text class="callout-text" x="170" y="681">解释文本不等于可控；点击同意也不自动等于有效授权。</text>
-  <text class="footer" x="34" y="735">真实用户的确认疲劳与接管成功率仍需目标学习者/从业者实验。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1978" viewBox="0 0 1600 1978" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">中断后从什么状态恢复</title><desc id="desc">有效接管必须停止旧计划、处理脏状态，并在交回后读取人工修改；确认按钮数量不是控制证据。 写前中断验证零副作用，写后中断验证补偿、接管与状态同步 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。</desc><metadata data-source-ref="content/modules/agent-architecture-system.ts#TD-AG-04 / problem;content/modules/agent-architecture-deep.ts#TD-AG-04 / failureModes;docs/svg-redesign-2026-10-26/body-sources/material-pages.json#TD-AG-04 / summary">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-AG-04&quot;,&quot;pageIds&quot;:[&quot;TD-AG-04&quot;],&quot;primaryPageIds&quot;:[&quot;TD-AG-04&quot;],&quot;layout&quot;:&quot;state&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;content/modules/agent-architecture-system.ts&quot;,&quot;locator&quot;:&quot;TD-AG-04 / problem&quot;,&quot;quote&quot;:&quot;恢复时 Agent 看不到人工修改，继续执行旧计划。&quot;},{&quot;path&quot;:&quot;content/modules/agent-architecture-deep.ts&quot;,&quot;locator&quot;:&quot;TD-AG-04 / failureModes&quot;,&quot;quote&quot;:&quot;必须无任何副作用&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/material-pages.json&quot;,&quot;locator&quot;:&quot;TD-AG-04 / summary&quot;,&quot;quote&quot;:&quot;测试用户在关键步骤中断、接管和交回 Agent 的能力，区分可解释与真正可控。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;run&quot;,&quot;title&quot;:&quot;Agent 运行&quot;},{&quot;id&quot;:&quot;interrupt&quot;,&quot;title&quot;:&quot;人工中断&quot;},{&quot;id&quot;:&quot;clean&quot;,&quot;title&quot;:&quot;写前停止&quot;},{&quot;id&quot;:&quot;dirty&quot;,&quot;title&quot;:&quot;写后脏状态&quot;},{&quot;id&quot;:&quot;rollback&quot;,&quot;title&quot;:&quot;回滚或补偿&quot;},{&quot;id&quot;:&quot;takeover&quot;,&quot;title&quot;:&quot;人工接管&quot;},{&quot;id&quot;:&quot;resume&quot;,&quot;title&quot;:&quot;恢复前同步&quot;},{&quot;id&quot;:&quot;audit&quot;,&quot;title&quot;:&quot;审计 Owner&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;run&quot;,&quot;to&quot;:&quot;interrupt&quot;,&quot;label&quot;:&quot;第 N 步停止&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;interrupt&quot;,&quot;to&quot;:&quot;clean&quot;,&quot;label&quot;:&quot;写入之前&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;interrupt&quot;,&quot;to&quot;:&quot;dirty&quot;,&quot;label&quot;:&quot;写入之后&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;dirty&quot;,&quot;to&quot;:&quot;rollback&quot;,&quot;label&quot;:&quot;可撤销或补偿&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;dirty&quot;,&quot;to&quot;:&quot;takeover&quot;,&quot;label&quot;:&quot;不可撤销需人工&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;rollback&quot;,&quot;to&quot;:&quot;takeover&quot;,&quot;label&quot;:&quot;交付处理后状态&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;takeover&quot;,&quot;to&quot;:&quot;resume&quot;,&quot;label&quot;:&quot;明确交回与新状态&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;resume&quot;,&quot;to&quot;:&quot;run&quot;,&quot;label&quot;:&quot;重新授权后继续&quot;,&quot;kind&quot;:&quot;feedback&quot;},{&quot;from&quot;:&quot;clean&quot;,&quot;to&quot;:&quot;audit&quot;,&quot;label&quot;:&quot;零副作用回执&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;takeover&quot;,&quot;to&quot;:&quot;audit&quot;,&quot;label&quot;:&quot;人工决定&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;resume&quot;,&quot;to&quot;:&quot;audit&quot;,&quot;label&quot;:&quot;新旧状态差异&quot;,&quot;kind&quot;:&quot;evidence&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="1978" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-AG-04</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >中断后从什么状态恢复</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >有效接管必须停止旧计划、处理脏状态，并在交回后读取人工修改；确认按钮数量不是控制证据。</text>
+<g id="system-graph" data-region="64,234,1472,1139.4136730962073">
+<rect x="64" y="234" width="1472" height="1139.4136730962073" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >写前中断验证零副作用，写后中断验证补偿、接管与状态同步</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >状态与终止</text>
+<g transform="translate(109.9097504866395 350) scale(0.8258125405532944)" data-graph-scale="0.8258125405532944" data-routing="dot">
+<path class="edge edge-control" d="M382.93 97.5 C395.82 97.5 391.08 81.57999999999993 402.93 76.5 C460.12 51.99000000000001 485.74 51.99000000000001 542.93 76.5 C550.89 79.91000000000008 551.36 88.22000000000003 554.73 93.29999999999995" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e0" data-from="run" data-to="interrupt"/>
+<path class="edge edge-control" d="M694.93 196 C694.93 290.49 525.49 226.34000000000003 510.93 307.20000000000005" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e1" data-from="interrupt" data-to="clean"/>
+<path class="edge edge-risk" d="M782.93 196 C782.93 212.36 870.95 279.29999999999995 893.64 308.70000000000005" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e2" data-from="interrupt" data-to="dirty"/>
+<path class="edge edge-control" d="M898.93 515 C898.93 565.93 885.27 580.69 883.19 626.1" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e3" data-from="dirty" data-to="rollback"/>
+<path class="edge edge-risk" d="M986.93 515 C986.93 560.41 1351.67 585.48 1402.96 628.03" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e4" data-from="dirty" data-to="takeover"/>
+<path class="edge edge-data" d="M1059.93 735.5 C1072.82 735.5 1068.08 719.5799999999999 1079.93 714.5 C1152.24 683.51 1184.62 683.51 1256.93 714.5 C1264.89 717.9100000000001 1265.36 726.22 1268.73 731.3" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e5" data-from="rollback" data-to="takeover"/>
+<path class="edge edge-control" d="M1408.93 834 C1408.93 860.56 981.57 917.91 913.13 949.4" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="takeover" data-to="resume"/>
+<path class="edge edge-feedback" d="M725.93 1054.5 C351.03 1054.5 59.9 595.63 312.93 319 C380.39 245.25 693.47 352.75 760.93 279 C773.53 265.23 773.76 250.54999999999995 760.93 237 C648.92 118.70000000000005 141.53 314.73 28.93 197 C1.47 168.28999999999996 -13.15 110.84999999999991 16.23 99.48000000000002" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e7" data-from="resume" data-to="run"/>
+<path class="edge edge-evidence" d="M509.93 515 C509.93 657.5 434.12 729.51 529.93 835 C685.17 1005.92 814.1 886.23 1042.93 917 C1079.99 921.98 1355.1 917.1 1402.11 947.46" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e8" data-from="clean" data-to="audit"/>
+<path class="edge edge-evidence" d="M1496.93 834 C1496.93 884.5 1496.93 900.01 1496.93 945.19" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e9" data-from="takeover" data-to="audit"/>
+<path class="edge edge-evidence" d="M1080.93 1054.5 C1093.82 1054.5 1089.08 1038.58 1100.93 1033.5 C1164.66 1006.19 1193.2 1006.19 1256.93 1033.5 C1264.89 1036.91 1265.36 1045.22 1268.73 1050.3" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e10" data-from="resume" data-to="audit"/>
+<g id="node-run" class="node node-input" data-region="28.930000000000007,0,354,197">
+<rect x="28.930000000000007" y="0" width="354" height="197" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="46.93000000000001" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="53.93000000000001" y="35" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="50.93000000000001" y="76" font-size="28" fill="#215cbb" font-weight="700" >Agent 运行</text>
+<text x="50.93000000000001" y="119" font-size="23" fill="#172b45" font-weight="450" >关键写操作前后各设检查点</text>
+<text x="50.93000000000001" y="153" font-size="23" fill="#172b45" font-weight="450" >记录当前计划与授权</text>
+</g>
+<g id="node-interrupt" class="node node-control" data-region="562.93,0,354,197">
+<rect x="562.93" y="0" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="580.93" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="587.93" y="35" font-size="15" fill="#945c0b" font-weight="750" class="mono">02</text>
+<text x="584.93" y="76" font-size="28" fill="#945c0b" font-weight="700" >人工中断</text>
+<text x="584.93" y="119" font-size="23" fill="#172b45" font-weight="450" >消费停止信号</text>
+<text x="584.93" y="153" font-size="23" fill="#172b45" font-weight="450" >冻结旧计划与后续写入</text>
+</g>
+<g id="node-clean" class="node node-evidence" data-region="332.93,319,354,197">
+<rect x="332.93" y="319" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="350.93" y="336" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="357.93" y="354" font-size="15" fill="#7045a4" font-weight="750" class="mono">03</text>
+<text x="354.93" y="395" font-size="28" fill="#7045a4" font-weight="700" >写前停止</text>
+<text x="354.93" y="438" font-size="23" fill="#172b45" font-weight="450" >无业务副作用</text>
+<text x="354.93" y="472" font-size="23" fill="#172b45" font-weight="450" >保存停止回执</text>
+</g>
+<g id="node-dirty" class="node node-risk" data-region="766.93,319,354,197">
+<rect x="766.93" y="319" width="354" height="197" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="784.93" y="336" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="791.93" y="354" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">04</text>
+<text x="788.93" y="395" font-size="28" fill="#ad3e4c" font-weight="700" >写后脏状态</text>
+<text x="788.93" y="438" font-size="23" fill="#172b45" font-weight="450" >记录已发生写入</text>
+<text x="788.93" y="472" font-size="23" fill="#172b45" font-weight="450" >区分可撤与不可逆</text>
+</g>
+<g id="node-rollback" class="node node-control" data-region="705.93,638,354,197">
+<rect x="705.93" y="638" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="723.93" y="655" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="730.93" y="673" font-size="15" fill="#945c0b" font-weight="750" class="mono">05</text>
+<text x="727.93" y="714" font-size="28" fill="#945c0b" font-weight="700" >回滚或补偿</text>
+<text x="727.93" y="757" font-size="23" fill="#172b45" font-weight="450" >能撤销则验证撤销</text>
+<text x="727.93" y="791" font-size="23" fill="#172b45" font-weight="450" >不可回滚必须明确升级</text>
+</g>
+<g id="node-takeover" class="node node-control" data-region="1276.9,638,354,197">
+<rect x="1276.9" y="638" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="1294.9" y="655" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1301.9" y="673" font-size="15" fill="#945c0b" font-weight="750" class="mono">06</text>
+<text x="1298.9" y="714" font-size="28" fill="#945c0b" font-weight="700" >人工接管</text>
+<text x="1298.9" y="757" font-size="23" fill="#172b45" font-weight="450" >完整交出状态与上下文</text>
+<text x="1298.9" y="791" font-size="23" fill="#172b45" font-weight="450" >人工可修改、拒绝或结束</text>
+</g>
+<g id="node-resume" class="node node-process" data-region="726.93,957,354,197">
+<rect x="726.93" y="957" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="744.93" y="974" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="751.93" y="992" font-size="15" fill="#344f70" font-weight="750" class="mono">07</text>
+<text x="748.93" y="1033" font-size="28" fill="#344f70" font-weight="700" >恢复前同步</text>
+<text x="748.93" y="1076" font-size="23" fill="#172b45" font-weight="450" >读取人工修改后的新状态</text>
+<text x="748.93" y="1110" font-size="23" fill="#172b45" font-weight="450" >重新确认计划和权限</text>
+</g>
+<g id="node-audit" class="node node-evidence" data-region="1276.9,957,354,197">
+<rect x="1276.9" y="957" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="1294.9" y="974" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1301.9" y="992" font-size="15" fill="#7045a4" font-weight="750" class="mono">08</text>
+<text x="1298.9" y="1033" font-size="28" fill="#7045a4" font-weight="700" >审计 Owner</text>
+<text x="1298.9" y="1076" font-size="23" fill="#172b45" font-weight="450" >确认人 / 时间 / 状态</text>
+<text x="1298.9" y="1110" font-size="23" fill="#172b45" font-weight="450" >停止、接管和恢复可追溯</text>
+</g>
+<rect x="402.93" y="16.09999999999991" width="140" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="472.93" y="44.09999999999991" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">第 N 步停止</text>
+<rect x="675.69" y="237" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="731.69" y="265" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">写入之前</text>
+<rect x="861.41" y="237" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="917.41" y="265" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">写入之后</text>
+<rect x="895.06" y="556" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="973.06" y="584" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">可撤销或补偿</text>
+<rect x="1306.9" y="556" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1395.4" y="584" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">不可撤销需人工</text>
+<rect x="1079.9" y="649.26" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1168.4" y="677.26" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">交付处理后状态</text>
+<rect x="1259.7" y="875" width="199" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1359.2" y="903" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">明确交回与新状态</text>
+<rect x="219.02999999999997" y="556" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="307.53" y="584" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">重新授权后继续</text>
+<rect x="529.93" y="715.5" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="607.93" y="743.5" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">零副作用回执</text>
+<rect x="1496.9" y="875" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1552.9" y="903" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">人工决定</text>
+<rect x="1100.9" y="971.02" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1178.9" y="999.02" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">新旧状态差异</text>
+</g>
+</g>
+<text x="64" y="1427.4136730962073" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1427.4136730962073" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1457.4136730962073,470,174">
+<rect x="64" y="1457.4136730962073" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1479.4136730962073" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="106" y="1504.4136730962073" font-size="25" fill="#945c0b" font-weight="700" >确认信息四要素</text>
+<text x="88" y="1559.4136730962073" font-size="23" fill="#172b45" font-weight="450" >对象 / 金额 / 影响面 / 不可逆性</text>
+<text x="88" y="1594.4136730962073" font-size="23" fill="#172b45" font-weight="450" >安全默认值与有效拒绝路径</text>
+</g>
+<g id="detail-1" data-region="565,1457.4136730962073,470,174">
+<rect x="565" y="1457.4136730962073" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1479.4136730962073" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="607" y="1504.4136730962073" font-size="25" fill="#ad3e4c" font-weight="700" >故障注入</text>
+<text x="589" y="1559.4136730962073" font-size="23" fill="#172b45" font-weight="450" >接管后人工改状态再交回</text>
+<text x="589" y="1594.4136730962073" font-size="23" fill="#172b45" font-weight="450" >若仍执行缓存旧计划则失败</text>
+</g>
+<g id="detail-2" data-region="1066,1457.4136730962073,470,174">
+<rect x="1066" y="1457.4136730962073" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1479.4136730962073" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="1504.4136730962073" font-size="25" fill="#7045a4" font-weight="700" >观察实际控制</text>
+<text x="1090" y="1559.4136730962073" font-size="23" fill="#172b45" font-weight="450" >中断响应步数 / 脏状态</text>
+<text x="1090" y="1594.4136730962073" font-size="23" fill="#172b45" font-weight="450" >回滚、接管与恢复审计记录</text>
+</g>
+<g id="failure-and-output" data-region="64,1663.4136730962073,1472,148">
+<rect x="64" y="1663.4136730962073" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="1702.4136730962073" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="1747.4136730962073" font-size="23" fill="#ffdce2" font-weight="450" >中断未生效、无法处理脏状态或恢复旧计划时停止；解释文本不能替代工具控制。</text>
+<text x="88" y="1790.4136730962073" font-size="23" fill="#dce9fa" font-weight="450" >交付 human-control-checklist 与写前、写后接管 Trace。</text>
+</g>
+<text x="64" y="1859.4136730962073" font-size="20" fill="#50647c" font-weight="450" >静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。</text>
+<text x="64" y="1898.4136730962073" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-AG-04 · 中断后从什么状态恢复</text>
+<path class="edge edge-data" d="M64 1938.4136730962073 L101 1938.4136730962073" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="1944.4136730962073" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 1938.4136730962073 L397 1938.4136730962073" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="1944.4136730962073" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 1938.4136730962073 L693 1938.4136730962073" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="1944.4136730962073" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 1938.4136730962073 L989 1938.4136730962073" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="1944.4136730962073" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 1938.4136730962073 L1285 1938.4136730962073" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="1944.4136730962073" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

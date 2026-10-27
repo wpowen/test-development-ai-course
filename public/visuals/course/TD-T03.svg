@@ -1,90 +1,198 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 1000" width="1600" height="1000">
-  <title id="title">AI 答案没有标准答案时，怎样判断它到底对不对｜专业关系图</title>
-  <desc id="desc">这张图把合成输入、版本化合同、候选行为、独立 Oracle、红绿报告与人工 Gate 分开；模型、企业集成和生产状态没有被本地 Fixture 代替。 图中区分数据流、控制流、证据流与反馈回路，并显示失败路径、系统边界和责任门禁。</desc>
-  <defs>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173f32" flood-opacity="0.12"/></filter>
-    <marker id="arrow-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7fb8"/></marker>
-<marker id="arrow-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c9852c"/></marker>
-<marker id="arrow-evidence" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#765ca6"/></marker>
-<marker id="arrow-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2c7b61"/></marker>
-  </defs>
-  <rect width="1600" height="1000" rx="32" fill="#f4f7f2"/>
-  <rect x="0" y="0" width="1600" height="146" rx="32" fill="#174f3f"/>
-  <text x="72" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" font-weight="800" fill="#b8dd78">TD-T03 · decision-tree · decision-branch-a</text>
-  <text x="72" y="92" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="30" font-weight="800" fill="#ffffff">AI答案没有标准答案时，怎样判断它到底对不对｜专业关系图</text>
-  <text x="72" y="132" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="600" fill="#d9e9df">这张图把合成输入、版本化合同、候选行为、独立Oracle、红绿报告与人工Gate分开；模型、企业集成和生产状态没有被本地</text>
-  <rect x="54" y="172" width="1492" height="590" rx="26" fill="#fbfdfb" stroke="#c9d6cf" stroke-width="2"/>
-  <text x="82" y="204" font-size="17" font-weight="800" fill="#52665e">系统边界 · 课程方法与可复核工件在边界内；真实企业系统、模型和生产状态在边界外。</text>
-  <path d="M 810 280 C 885 280, 50 490, 125 490" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 285 490 C 360 490, 505 490, 580 490" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 740 490 C 815 490, 960 490, 1035 490" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1195 490 C 1270 490, 50 680, 125 680" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 285 680 C 360 680, 505 680, 580 680" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 740 680 C 815 680, 960 680, 1035 680" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1195 680 C 1270 680, 50 870, 125 870" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 285 870 C 360 870, 50 490, 125 490" fill="none" stroke="#2c7b61" stroke-width="4" stroke-dasharray="14 6" marker-end="url(#arrow-feedback)" opacity="0.92"/>
-  <g filter="url(#shadow)">
-      <rect x="650" y="220" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="650" y="220" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="678" y="248" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">01</text>
-      <text x="678" y="282" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Evalcase</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="125" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="125" y="430" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="153" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">02</text>
-      <text x="153" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">SchemaGate</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="580" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="580" y="430" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="608" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">03</text>
-      <text x="608" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">业务规则Gate</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1035" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1035" y="430" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1063" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">04</text>
-      <text x="1063" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">权限·副作用Gate</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="125" y="620" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="125" y="620" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="153" y="648" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">05</text>
-      <text x="153" y="682" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">语义Judge</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="580" y="620" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="580" y="620" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="608" y="648" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">06</text>
-      <text x="608" y="682" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">人工校准</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1035" y="620" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="1035" y="620" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="1063" y="648" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">07</text>
-      <text x="1063" y="682" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">发布/升级决定</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="125" y="810" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="125" y="810" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="153" y="838" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">08</text>
-      <text x="153" y="872" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">版本化输入</text>
-    </g>
-  <g transform="translate(70 788)">
-    <rect width="710" height="112" rx="20" fill="#fff4ef" stroke="#e5aaa2" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#b84c42">失败路径</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">任一关键输入、权限、Oracle、版本或终态证据缺失时进入</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">FAIL/BLOCKED/UNKNOWN，不静默通过。</text>
-  </g>
-  <g transform="translate(820 788)">
-    <rect width="710" height="112" rx="20" fill="#eef8f2" stroke="#9bc6ac" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#2c7b61">反馈闭环 · Owner Gate</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">失败证据回到最早分叉点，修复后使用同一版本输入重跑并产生新receipt。业务/</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">质量Owner批准判据、风险接受与发布；AI只生成候选和整理证据。</text>
-  </g>
-  <g transform="translate(100 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#4f7fb8" stroke-width="5" stroke-dasharray=""/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">数据流</text></g>
-<g transform="translate(345 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#c9852c" stroke-width="5" stroke-dasharray="10 7"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">控制流</text></g>
-<g transform="translate(590 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#765ca6" stroke-width="5" stroke-dasharray="4 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">证据流</text></g>
-<g transform="translate(835 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#2c7b61" stroke-width="5" stroke-dasharray="14 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">反馈闭环</text></g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2980" viewBox="0 0 1600 2980" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">先挡硬失败，再让校准 Judge 评分</title><desc id="desc">确定性与业务规则先裁决 blocker，语义分只补充开放质量，人工标签同时校准 Judge 并承接高风险分歧。 Schema、业务、权限副作用与语义评分的条件通道 语义评分是有误差的估计；独立模型或高 κ 本身不能证明目标领域安全。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-T03 / 先写失败动作，再写阈值;docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-T03 / 分歧是证据，不是噪声">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-T03&quot;,&quot;pageIds&quot;:[&quot;TD-T03&quot;],&quot;primaryPageIds&quot;:[&quot;TD-T03&quot;],&quot;layout&quot;:&quot;decision&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-T03 / 先写失败动作，再写阈值&quot;,&quot;quote&quot;:&quot;blocker 不参与平均抵消&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-T03 / 分歧是证据，不是噪声&quot;,&quot;quote&quot;:&quot;没有人人基线时，不能把所有人机分歧都算 Judge 错误&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;case&quot;,&quot;title&quot;:&quot;分级 Eval case&quot;},{&quot;id&quot;:&quot;schema&quot;,&quot;title&quot;:&quot;Schema Gate&quot;},{&quot;id&quot;:&quot;rules&quot;,&quot;title&quot;:&quot;业务规则 Gate&quot;},{&quot;id&quot;:&quot;permission&quot;,&quot;title&quot;:&quot;权限 / 副作用 Gate&quot;},{&quot;id&quot;:&quot;judge&quot;,&quot;title&quot;:&quot;经校准的语义 Judge&quot;},{&quot;id&quot;:&quot;human&quot;,&quot;title&quot;:&quot;人工金标与分歧复核&quot;},{&quot;id&quot;:&quot;block&quot;,&quot;title&quot;:&quot;阻断 / 升级&quot;},{&quot;id&quot;:&quot;report&quot;,&quot;title&quot;:&quot;分层判决报告&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;case&quot;,&quot;to&quot;:&quot;schema&quot;,&quot;label&quot;:&quot;结构受检&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;schema&quot;,&quot;to&quot;:&quot;rules&quot;,&quot;label&quot;:&quot;结构通过&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;rules&quot;,&quot;to&quot;:&quot;permission&quot;,&quot;label&quot;:&quot;业务规则通过&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;schema&quot;,&quot;to&quot;:&quot;block&quot;,&quot;label&quot;:&quot;结构失败&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;rules&quot;,&quot;to&quot;:&quot;block&quot;,&quot;label&quot;:&quot;硬规则失败&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;permission&quot;,&quot;to&quot;:&quot;block&quot;,&quot;label&quot;:&quot;越权或高风险升级&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;permission&quot;,&quot;to&quot;:&quot;judge&quot;,&quot;label&quot;:&quot;剩余开放质量&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;human&quot;,&quot;to&quot;:&quot;judge&quot;,&quot;label&quot;:&quot;金标校准并监测漂移&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;judge&quot;,&quot;to&quot;:&quot;human&quot;,&quot;label&quot;:&quot;分歧或不确定样本&quot;,&quot;kind&quot;:&quot;feedback&quot;},{&quot;from&quot;:&quot;judge&quot;,&quot;to&quot;:&quot;report&quot;,&quot;label&quot;:&quot;连续评分&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;block&quot;,&quot;to&quot;:&quot;report&quot;,&quot;label&quot;:&quot;不可抵消的失败&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;human&quot;,&quot;to&quot;:&quot;report&quot;,&quot;label&quot;:&quot;人工裁决与限制&quot;,&quot;kind&quot;:&quot;evidence&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2980" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-T03</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >先挡硬失败，再让校准 Judge 评分</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >确定性与业务规则先裁决 blocker，语义分只补充开放质量，人工标签同时校准 Judge 并承接高风险分歧。</text>
+<g id="system-graph" data-region="64,234,1472,2142">
+<rect x="64" y="234" width="1472" height="2142" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >Schema、业务、权限副作用与语义评分的条件通道</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M451 307 L451 369 L77 369 L77 557 L451 557 L451 583" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M451 307 L451 369 L77 369 L77 557 L451 557 L451 583" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="case" data-to="schema"/>
+<path d="M502 814 L502 862 L904.5 862 L904.5 814" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M502 814 L502 862 L904.5 862 L904.5 814" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e1" data-from="schema" data-to="rules"/>
+<path d="M981 814 L981 862 L1052.5 862 Q1057.5 850 1062.5 862 L1351 862 Q1362 850 1373 862 L1380 862 L1380 1082 L1373 1082 Q1362 1070 1351 1082 L1037 1082 Q1032 1070 1027 1082 L451 1082 L451 1122" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M981 814 L981 862 L1052.5 862 Q1057.5 850 1062.5 862 L1351 862 Q1362 850 1373 862 L1380 862 L1380 1082 L1373 1082 Q1362 1070 1351 1082 L1037 1082 Q1032 1070 1027 1082 L451 1082 L451 1122" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e2" data-from="rules" data-to="permission"/>
+<path d="M400 814 L400 862 L84 862 L84 1527 L374.5 1527 L374.5 1609" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M400 814 L400 862 L84 862 L84 1527 L374.5 1527 L374.5 1609" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e3" data-from="schema" data-to="block"/>
+<path d="M1057.5 814 L1057.5 926 L1362 926 L1362 1541 L527.5 1541 L527.5 1609" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M1057.5 814 L1057.5 926 L1362 926 L1362 1541 L527.5 1541 L527.5 1609" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e4" data-from="rules" data-to="block"/>
+<path d="M400 1387 L400 1451 L77 1451 L77 1555 L369.5 1555 Q374.5 1543 379.5 1555 L451 1555 L451 1609" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M400 1387 L400 1451 L77 1451 L77 1555 L369.5 1555 Q374.5 1543 379.5 1555 L451 1555 L451 1609" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e5" data-from="permission" data-to="block"/>
+<path d="M502 1387 L502 1451 L930 1451 L930 1387" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M502 1387 L502 1451 L930 1451 L930 1387" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="permission" data-to="judge"/>
+<path d="M904.5 307 L904.5 385 L1052.5 385 Q1057.5 373 1062.5 385 L1368 385 L1368 1096 L1361 1096 Q1356 1084 1351 1096 L1037 1096 Q1032 1084 1027 1096 L930 1096 L930 1122" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M904.5 307 L904.5 385 L1052.5 385 Q1057.5 373 1062.5 385 L1368 385 L1368 1096 L1361 1096 Q1356 1084 1351 1096 L1037 1096 Q1032 1084 1027 1096 L930 1096 L930 1122" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="human" data-to="judge"/>
+<path d="M1032 1122 L1032 1006 L1351 1006 Q1359 994 1367 1006 L1374 1006 L1374 321 L1062.5 321 Q1057.5 309 1052.5 321 L981 321 L981 307" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M1032 1122 L1032 1006 L1351 1006 Q1359 994 1367 1006 L1374 1006 L1374 321 L1062.5 321 Q1057.5 309 1052.5 321 L981 321 L981 307" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e8" data-from="judge" data-to="human"/>
+<path d="M1032 1387 L1032 1435 L1351 1435 Q1359 1423 1367 1435 L1386 1435 L1386 1569 L1361 1569 Q1356 1557 1351 1569 L930 1569 L930 1609" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M1032 1387 L1032 1435 L1351 1435 Q1359 1423 1367 1435 L1386 1435 L1386 1569 L1361 1569 Q1356 1557 1351 1569 L930 1569 L930 1609" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e9" data-from="judge" data-to="report"/>
+<path d="M451 1840 L451 1904 L981 1904 L981 1840" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M451 1840 L451 1904 L981 1904 L981 1840" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e10" data-from="block" data-to="report"/>
+<path d="M1057.5 307 L1057.5 481 L1356 481 L1356 1583 L1032 1583 L1032 1609" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M1057.5 307 L1057.5 481 L1356 481 L1356 1583 L1032 1583 L1032 1609" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e11" data-from="human" data-to="report"/>
+<g id="node-case" class="node node-input" data-region="274,76,354,231">
+<rect x="274" y="76" width="354" height="231" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#215cbb" font-weight="700" >分级 Eval case</text>
+<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >输入、风险、允许与禁止</text>
+<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >行为</text>
+<text x="296" y="263" font-size="23" fill="#172b45" font-weight="450" >先明确失败动作与责任人</text>
+</g>
+<g id="node-schema" class="node node-control" data-region="274,583,354,231">
+<rect x="274" y="583" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="292" y="600" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="618" font-size="15" fill="#945c0b" font-weight="750" class="mono">02</text>
+<text x="296" y="659" font-size="28" fill="#945c0b" font-weight="700" >Schema Gate</text>
+<text x="296" y="702" font-size="23" fill="#172b45" font-weight="450" >字段、类型、枚举与引用存</text>
+<text x="296" y="736" font-size="23" fill="#172b45" font-weight="450" >在性</text>
+<text x="296" y="770" font-size="23" fill="#172b45" font-weight="450" >确定答案优先使用代码判定</text>
+</g>
+<g id="node-rules" class="node node-control" data-region="804,583,354,231">
+<rect x="804" y="583" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="600" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="618" font-size="15" fill="#945c0b" font-weight="750" class="mono">03</text>
+<text x="826" y="659" font-size="28" fill="#945c0b" font-weight="700" >业务规则 Gate</text>
+<text x="826" y="702" font-size="23" fill="#172b45" font-weight="450" >金额、状态与领域不变量</text>
+<text x="826" y="736" font-size="23" fill="#172b45" font-weight="450" >违反即 blocker，不能参与</text>
+<text x="826" y="770" font-size="23" fill="#172b45" font-weight="450" >平均</text>
+</g>
+<g id="node-permission" class="node node-control" data-region="274,1122,354,265">
+<rect x="274" y="1122" width="354" height="265" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="292" y="1139" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1157" font-size="15" fill="#945c0b" font-weight="750" class="mono">04</text>
+<text x="296" y="1198" font-size="28" fill="#945c0b" font-weight="700" >权限 / 副作用 Gate</text>
+<text x="296" y="1241" font-size="23" fill="#172b45" font-weight="450" >身份、对象、动作及不可</text>
+<text x="296" y="1275" font-size="23" fill="#172b45" font-weight="450" >逆性</text>
+<text x="296" y="1309" font-size="23" fill="#172b45" font-weight="450" >写前授权和实际副作用可</text>
+<text x="296" y="1343" font-size="23" fill="#172b45" font-weight="450" >核对</text>
+</g>
+<g id="node-judge" class="node node-ai" data-region="804,1122,354,265">
+<rect x="804" y="1122" width="354" height="265" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="1139" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1157" font-size="15" fill="#7045a4" font-weight="750" class="mono">05</text>
+<text x="826" y="1198" font-size="28" fill="#7045a4" font-weight="700" >经校准的语义 Judge</text>
+<text x="826" y="1241" font-size="23" fill="#172b45" font-weight="450" >只判开放式正确、忠实与</text>
+<text x="826" y="1275" font-size="23" fill="#172b45" font-weight="450" >表达</text>
+<text x="826" y="1309" font-size="23" fill="#172b45" font-weight="450" >保存版本、rubric 与 raw</text>
+<text x="826" y="1343" font-size="23" fill="#172b45" font-weight="450" >judgment</text>
+</g>
+<g id="node-human" class="node node-evidence" data-region="804,76,354,231">
+<rect x="804" y="76" width="354" height="231" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#7045a4" font-weight="750" class="mono">06</text>
+<text x="826" y="152" font-size="28" fill="#7045a4" font-weight="700" >人工金标与分歧复核</text>
+<text x="826" y="195" font-size="23" fill="#172b45" font-weight="450" >先测人人分歧，再测人机</text>
+<text x="826" y="229" font-size="23" fill="#172b45" font-weight="450" >分歧</text>
+<text x="826" y="263" font-size="23" fill="#172b45" font-weight="450" >关键错误召回、混淆矩阵与 κ</text>
+</g>
+<g id="node-block" class="node node-risk" data-region="274,1609,354,231">
+<rect x="274" y="1609" width="354" height="231" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="292" y="1626" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1644" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">07</text>
+<text x="296" y="1685" font-size="28" fill="#ad3e4c" font-weight="700" >阻断 / 升级</text>
+<text x="296" y="1728" font-size="23" fill="#172b45" font-weight="450" >硬规则失败直接停止</text>
+<text x="296" y="1762" font-size="23" fill="#172b45" font-weight="450" >高风险、新颖或分歧交给</text>
+<text x="296" y="1796" font-size="23" fill="#172b45" font-weight="450" >人工</text>
+</g>
+<g id="node-report" class="node node-evidence" data-region="804,1609,354,231">
+<rect x="804" y="1609" width="354" height="231" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="1626" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1644" font-size="15" fill="#7045a4" font-weight="750" class="mono">08</text>
+<text x="826" y="1685" font-size="28" fill="#7045a4" font-weight="700" >分层判决报告</text>
+<text x="826" y="1728" font-size="23" fill="#172b45" font-weight="450" >blocker 数独立于连续语</text>
+<text x="826" y="1762" font-size="23" fill="#172b45" font-weight="450" >义分</text>
+<text x="826" y="1796" font-size="23" fill="#172b45" font-weight="450" >未校准自动分只作诊断</text>
+</g>
+<rect x="117.53" y="347" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="376" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  结构受检</text>
+<text x="455" y="573" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="643.53" y="840" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="869" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  结构通过</text>
+<text x="908.5" y="836" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="1151.69" y="840" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="869" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  业务规则通过</text>
+<text x="455" y="1112" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="117.53" y="840" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="869" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  结构失败</text>
+<text x="378.5" y="1599" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="1162.61" y="904" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="933" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  硬规则失败</text>
+<text x="531.5" y="1599" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="95.69" y="1413" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1442" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  越权或高风险</text>
+<text x="190" y="1474" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">升级</text>
+<text x="455" y="1599" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="643.53" y="1413" width="144.94" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1442" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  剩余开放</text>
+<text x="716" y="1474" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">质量</text>
+<text x="934" y="1409" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="1151.69" y="347" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="376" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  金标校准并监</text>
+<text x="1246" y="408" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">测漂移</text>
+<text x="934" y="1112" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+<rect x="1151.69" y="968" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="997" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  分歧或不确定</text>
+<text x="1246" y="1029" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">样本</text>
+<text x="985" y="329" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e8" stroke="#fff" stroke-width="4" paint-order="stroke">09</text>
+<rect x="1173.53" y="1413" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1442" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">10  连续评分</text>
+<text x="934" y="1599" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e9" stroke="#fff" stroke-width="4" paint-order="stroke">10</text>
+<rect x="632.61" y="1866" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1895" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">11  不可抵消的</text>
+<text x="716" y="1927" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">失败</text>
+<text x="985" y="1862" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e10" stroke="#fff" stroke-width="4" paint-order="stroke">11</text>
+<rect x="1162.61" y="443" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="472" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e11">12  人工裁决与</text>
+<text x="1246" y="504" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e11">限制</text>
+<text x="1036" y="1599" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e11" stroke="#fff" stroke-width="4" paint-order="stroke">12</text>
+</g>
+</g>
+<text x="64" y="2430" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2430" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2460,470,174">
+<rect x="64" y="2460" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2482" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="106" y="2507" font-size="25" fill="#ad3e4c" font-weight="700" >高分不能抵消越权</text>
+<text x="88" y="2562" font-size="23" fill="#172b45" font-weight="450" >礼貌答案仍可能触发未授权退款</text>
+<text x="88" y="2597" font-size="23" fill="#172b45" font-weight="450" >业务与权限 blocker 直接阻断</text>
+</g>
+<g id="detail-1" data-region="565,2460,470,174">
+<rect x="565" y="2460" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2482" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="607" y="2507" font-size="25" fill="#945c0b" font-weight="700" >先测量测量系统</text>
+<text x="589" y="2562" font-size="23" fill="#172b45" font-weight="450" >金标、双标与切片错误预注册</text>
+<text x="589" y="2597" font-size="23" fill="#172b45" font-weight="450" >Judge 或 rubric 换版本重新校准</text>
+</g>
+<g id="detail-2" data-region="1066,2460,470,174">
+<rect x="1066" y="2460" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2482" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="2507" font-size="25" fill="#7045a4" font-weight="700" >位置偏置怎样查</text>
+<text x="1090" y="2562" font-size="23" fill="#172b45" font-weight="450" >A/B 与 B/A 双向随机化比较</text>
+<text x="1090" y="2597" font-size="23" fill="#172b45" font-weight="450" >翻转率、关键错与 κ 不套通用阈值</text>
+</g>
+<g id="failure-and-output" data-region="64,2666,1472,148">
+<rect x="64" y="2666" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2705" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2750" font-size="23" fill="#ffdce2" font-weight="450" >Judge 校准证据缺失或关键切片不达合同门槛时停用自动判决，回退人审。</text>
+<text x="88" y="2793" font-size="23" fill="#dce9fa" font-weight="450" >交付 Oracle 分层表、失败动作、Judge Card、人工分歧与校准报告。</text>
+</g>
+<text x="64" y="2862" font-size="20" fill="#50647c" font-weight="450" >语义评分是有误差的估计；独立模型或高 κ 本身不能证明目标领域安全。</text>
+<text x="64" y="2901" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-T03 · 先挡硬失败，再让校准 Judge 评分</text>
+<path class="edge edge-data" d="M64 2941 L101 2941" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2947" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2941 L397 2941" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2947" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2941 L693 2941" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2947" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2941 L989 2941" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2947" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2941 L1285 2941" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2947" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

@@ -1,0 +1,1862 @@
+{
+  "reviewer": "Feynman — 独立内容与视觉复审",
+  "scope": "course-3",
+  "count": 27,
+  "review_round": 2,
+  "reviewed_at_utc": "2026-10-26T17:27:36.625254+00:00",
+  "method": "全部当前截图经view_image实际查看；逐项按fresh inputs/sourceRefs核对实际正文或正文快照，复核首轮缺陷。Chrome几何/路由闭包仅作辅助，未据其PASS替代目检。长图长度本身不作为阻断。只评审隔离candidate，未以public旧图作为待审版本。",
+  "style_reference": "已确认TD-M04：浅底、多色语义卡片、主副标题层级、底部交付/边界区。新rail的外轨、编号端口和跨线桥按实际可追踪性评判；更长不自动阻断，更多线不自动通过。",
+  "style_assessment": "大多数rail图已把控制、证据、反馈分轨，23px正文与18px端口仍可读；较TD-M04疏长但有明确阅读规则。B02与AP07的紧凑曲线版仍保留核心同色交点，形成实际追踪障碍。模块图保持清楚的学习路线和一致层级。",
+  "input_files": [
+    {
+      "path": "docs/svg-redesign-2026-10-26/release-review/course-3-inputs.json",
+      "sha256": "be0180e7e8aab5328aea47d3410a6e374b5aa1e9712e080509d772dfb95a8a13"
+    }
+  ],
+  "summary": {
+    "PASS": 25,
+    "REWORK": 2,
+    "P1": 0,
+    "P2": 2,
+    "P3": 6,
+    "deployment_blockers": [
+      "TD-B02",
+      "TD-AP07"
+    ]
+  },
+  "results": [
+    {
+      "id": "TD-X601",
+      "path": "visuals/course/TD-X601.svg",
+      "sha256": "7da4276901ff02ebc3a28abeb21af53262c1c2759c400451d6c98ff807f18bc2",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-X601.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X601.png",
+      "screenshot_sha256": "6559f49d1134ff637281f6ffccb8be6104a4933493558b069c743dc24b3e2908",
+      "render_input_sha256": "a75b88c4afe41b60835d645bf2876ae642c7cb3c52383290c7ea874f93bcd426",
+      "dimensions": {
+        "width": 1600,
+        "height": 1685
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1685
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-X601 / 架构节点与交付物",
+          "quote": "独立随机抽样供人工复核，不由系统置信度筛选",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-X601 / 完成标准与停止条件",
+          "quote": "最差切片超过预注册 blocker 界时阻断发布；总体平均分折抵次数 = 0",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "已核对伤害模型、合法切片、分母和区间、最坏组 blocker、独立人工复核及具名风险接受；平均分不得抵消严重伤害，fixture 不作公平证明。",
+      "visual_check_summary": "两条独立证据链及红线均可辨；底部回流有少量交点，颜色、条件和终点仍能连续追踪。",
+      "prior_findings": [],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-X601",
+        "title": "AI 对不同人群结果不一致时，怎样评估公平性并保留人工复核"
+      }
+    },
+    {
+      "id": "TD-T20",
+      "path": "visuals/course/TD-T20.svg",
+      "sha256": "4a8553d5c1b8487c597688937f72ff76303f0ffd1283df41a24305339a389ed8",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T20.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T20.png",
+      "screenshot_sha256": "a555195aa86255023b71caea7c86e8af183d241da40234975a97af2d0a658153",
+      "render_input_sha256": "49753aeca0dcd894b3e0b74838483ae3711aeec56173f82ba1831ed32cde7107",
+      "dimensions": {
+        "width": 1600,
+        "height": 2656
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1226
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T20 / CI 里有评测但从不阻断，等于把评测做成了一份日报",
+          "quote": "检查本身出错（评测服务不可用、超时、配置缺失）时必须判为失败，不能判为通过。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T20 / 架构节点与交付物",
+          "quote": "最终由人基于四层结果做发布判断",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "逐一核对 PR/主干/夜间/发布的四层触发、各自产物、Artifact 绑定与失败关闭；不把工具运行成功当门禁有效。",
+      "visual_check_summary": "编号01–04触发和05–08证据分别走轨；桥线说明明确，四层虽分行仍能逐路匹配，原中央穿插阻断已消除。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "四层证据汇聚与触发线混在同一中央走廊，主线难以连续追踪。",
+          "resolved": true,
+          "current_evidence": "触发01–04与汇聚05–08已分轨并编号，实看能逐条匹配；不再挤在中央走廊。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-T20",
+        "title": "AI 质量检查接入 CI：危险失败必须真正阻止合并"
+      }
+    },
+    {
+      "id": "TD-T21",
+      "path": "visuals/course/TD-T21.svg",
+      "sha256": "eb40afad0f10cf9de1e79c428aadf5e160cc36e6c61248e21449c146c10b9fdf",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T21.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T21.png",
+      "screenshot_sha256": "bcf76206a5c821d4cbd68aa024d1f2b92dd5e86508d1669bad7c53a0cb040eae",
+      "render_input_sha256": "9a11dee9aa119ac68bd7e1c963258728639c8aad09e46291f38e0de6ecb2c516",
+      "dimensions": {
+        "width": 1600,
+        "height": 2817
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1387
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T21 / 架构节点与交付物",
+          "quote": "记录应用代码与评测代码的提交号",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T21 / 七要素各自记录什么、记在哪",
+          "quote": "权重版本或别名的实际解析结果",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T21 / 架构节点与交付物",
+          "quote": "记录判分器版本与聚合方式，这是最容易被漏记的一项",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "六类冻结输入均进入 Manifest；版本与 hash、receipt、来源和复跑边界齐全，未把模型名当完整版本。",
+      "visual_check_summary": "六路紫色轨道及端口可按编号配对；Manifest 顶部较密但没有混接或无法辨认的落点。",
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "六路同色证据汇聚的局部弯线不够简洁。",
+          "resolved": true,
+          "current_evidence": "六输入各有编号和独立轨道，旧弯线交叉不再需要猜测连接。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-T21",
+        "title": "一次 AI 评测要记录哪些版本，才能复现历史结果"
+      }
+    },
+    {
+      "id": "TD-T22",
+      "path": "visuals/course/TD-T22.svg",
+      "sha256": "657198cd207199c43452ff4d2b404b679fac51f108f1dc87ec5a7ee4b2f87901",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T22.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T22.png",
+      "screenshot_sha256": "d52e50d9f8de68b850ce8188512a8fc26de31d916b44abac0320074548420889",
+      "render_input_sha256": "72ee8adc698b84f8d518f701775d6c3d6c7d4962f44dcf23d4ead7f228974dd8",
+      "dimensions": {
+        "width": 1600,
+        "height": 2586
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1156
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T22 / Trace-to-Regression 实操：从一条事故到稳定回归",
+          "quote": "故意让检索返回过期文档，确认工具授权 blocker 变红",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T22 / 回灌六步与各自的产出",
+          "quote": "在缺陷版本上跑，确认这条用例会红",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T22 / 架构节点与交付物",
+          "quote": "只有回归用例入库并通过后，事件才允许关闭",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "核对最小原始故障、字段分类/脱敏、保留预期、CI重放与同一故障红绿证据；修复不能篡改Oracle。",
+      "visual_check_summary": "差异、回绿已完整排入行内；分类、故障证据、修复和重放的线路分开，阅读顺序明确。",
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "节点正文出现单字尾行，降低排版精致程度。",
+          "resolved": true,
+          "current_evidence": "当前“差异”“回绿”均完整成词排入行内。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-T22",
+        "title": "把线上出现过的 AI 故障变成自动回归用例"
+      }
+    },
+    {
+      "id": "TD-T23",
+      "path": "visuals/course/TD-T23.svg",
+      "sha256": "26ab112e2d51a34e822c4cffd5139766cf8015df89ccbabb22a059934a6b6aa0",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T23.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T23.png",
+      "screenshot_sha256": "b3a815ac768a776e3187c440c46d0327a5faacc2e487478ac899580fe9e5fe24",
+      "render_input_sha256": "20727778ff17490a918a21bb9021dca9e671cd4cb35457b9ba621f02f35fa6e5",
+      "dimensions": {
+        "width": 1600,
+        "height": 1822
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1822
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T23 / 架构节点与交付物",
+          "quote": "三维各设独立硬阈值，通过后再看 Pareto 前沿",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T23 / 三个维度各自的判据与它们的冲突点",
+          "quote": "三个维度必须在同一份负载上测量，否则数字之间不可比较。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "同一 workload 的质量、延迟、成本独立约束后才做 Pareto 与具名选择；没有虚构实测收益。",
+      "visual_check_summary": "三个门槛与后续决策分区清楚，卡片正文可读，汇入点和失败条件可辨。",
+      "prior_findings": [],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-T23",
+        "title": "质量更好但更慢更贵时，这个 AI 版本到底能不能发"
+      }
+    },
+    {
+      "id": "TD-T24",
+      "path": "visuals/course/TD-T24.svg",
+      "sha256": "90c70af0a1ee637c52492799f727c7e487d8a01843bf147df85b516406c421ea",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T24.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T24.png",
+      "screenshot_sha256": "cdf7ec92f62f77da52a46b2da367c3c939a11b3679d569961ab055a9cf84626d",
+      "render_input_sha256": "1ce9d11c86e78310b12e9d29a19187413f0d61e2a6d60b123eb5e14de0a248ab",
+      "dimensions": {
+        "width": 1600,
+        "height": 2747
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1317
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T24 / 漂移诊断复盘：Waiver 必须可到期、可回滚",
+          "quote": "到期未续签自动阻断。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T24 / 漂移诊断复盘：Waiver 必须可到期、可回滚",
+          "quote": "回滚需恢复完整 manifest 与索引/Prompt/模型快照，并重跑事故 regression。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "核对基线版本、豁免到期、冻结条件、完整Manifest回滚、恢复证据与回归关闭；恢复不是删掉原失败。",
+      "visual_check_summary": "绿色复基线回流走外围，红橙决策线分离；Closure 无原先孤立尾字。",
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "复基线反馈线穿过下层决策线，且 Closure 卡片有单字尾行。",
+          "resolved": true,
+          "current_evidence": "绿色Closure反馈改走外侧；恢复证据不再以单字独占尾行。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-T24",
+        "title": "线上 AI 持续变化：临时放行必须带到期时间和回滚方案"
+      }
+    },
+    {
+      "id": "TD-X805",
+      "path": "visuals/course/TD-X805.svg",
+      "sha256": "8b050e37aca7f7bb8dc59307b27c411d77120120fd839b5391439d4b26089378",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-X805.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-X805.png",
+      "screenshot_sha256": "b611dc4e8a6d432d5e9633fabdb87111069451098b9debf23cc4f3bf4bc29dd4",
+      "render_input_sha256": "35c87346cb7e1a4b1c5ca1961da80671ddace05bcd093af32e7f334dfb8b646d",
+      "dimensions": {
+        "width": 1600,
+        "height": 2917
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1487
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-X805 / 灰度如果没有预设的回滚触发条件，它只是把事故推迟了几小时",
+          "quote": "同一个用户必须稳定落在同一侧",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-X805 / 架构节点与交付物",
+          "quote": "同时监测总体 guardrail 与最坏切片，任一越界即触发",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-X805 / 架构节点与交付物",
+          "quote": "先说清楚要验证什么、能分辨多小的差异，再决定放多少流量、跑多久。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "稳定用户分配、实验准入、护栏、人工证据、具名裁决及下一轮回灌齐全；未以总体收益掩盖风险。",
+      "visual_check_summary": "06/07输入决策及08回流端口能独立追踪；编号、颜色和外轨把实验与反馈区分开。",
+      "prior_findings": [],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-X805",
+        "title": "AI 新版本从离线测试到小流量上线"
+      }
+    },
+    {
+      "id": "TD-B01",
+      "path": "visuals/course/TD-B01.svg",
+      "sha256": "bdb2c27471bcb46a5c9f34eaf8deb986d05d1ed988b34282b63bd7dafdf63d44",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-B01.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-B01.png",
+      "screenshot_sha256": "97ebfe546bf1b458e67fd91891c92d6537c95d925e1890f712f3618f6c630e6b",
+      "render_input_sha256": "92463448fff587186adddc27b910f833ec6b1276951bb74fd1b1f86bac794270",
+      "dimensions": {
+        "width": 1600,
+        "height": 2534
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1104
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B01 / 一个分数是七个组件的函数，报告里通常只写了一个",
+          "quote": "把七个组件全部固定并记录，需要变更时逐个变更并重测。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B01 / 一个分数是七个组件的函数，报告里通常只写了一个",
+          "quote": "模型版本 + harness 版本 + 配置文件哈希 + n + 与抽样结构匹配的区间",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "核对任务、数据、协议、Harness、Scorer、Aggregation、Report七段及元数据绑定、业务距离和逐题证据；分数依赖版本合同。",
+      "visual_check_summary": "核心链连续；任务/协议到报告的07/08元数据长线已移到外轨，业务距离标签不再借位。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "两条直接到报告的长程证据线打断了核心实验流水线。",
+          "resolved": true,
+          "current_evidence": "任务/协议元数据07/08已走外轨，业务距离标签归属清楚，核心七段主线连续。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-B01",
+        "title": "同一个模型在不同榜单分数不同，问题出在哪里"
+      }
+    },
+    {
+      "id": "TD-B02",
+      "path": "visuals/course/TD-B02.svg",
+      "sha256": "5754ee8c2d8098eaeb9c0277132cba0569f4293d61279a8d1646f83d93557a3b",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "REWORK",
+      "findings": [
+        {
+          "severity": "P2",
+          "issue": "采样四分支与审计汇聚仍在集合间同色交叉、贴行，核心职责关系难以连续追踪。",
+          "evidence": "当前A区采样/去重卡下方，通往Regression的蓝色长弧横切其余蓝色分支；Representative与Challenge下方到访问审计上方的走廊内，采样→Sealed Holdout的蓝色回弯穿过Representative→审计及Regression→审计紫线，紫色审计输入又在“重采与版本 / 来源与更新纪律”附近交叉。四种同级角色虽然已文字声明为并列，仍需跨多个无编号/无跨线桥的交点追踪。",
+          "suggested_fix": "把采样输入和审计输出分到两侧独立走廊；四集合可保持2×2，但每个集合分配独立入/出端口，避免蓝色长弧与紫色审计汇聚共用中间窄带。修复后重渲染并复看该区。"
+        }
+      ],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-B02.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-B02.png",
+      "screenshot_sha256": "10356063d89244a733a228d634d9aeb463c7d827efb5c734a522fc457061814b",
+      "render_input_sha256": "8cc90ae94e0f7d00621f9ad684df7b8ed5f42ae04695901afff385fe5484b865",
+      "dimensions": {
+        "width": 1600,
+        "height": 1843
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1843
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B02 / 一份数据集回答不了两个方向相反的问题",
+          "quote": "representative 贴流量、回答够不够好；challenge 贴风险、回答最坏情况能不能接受；regression 贴历史事故、回答有没有退化；sealed holdout 从不用于调优",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B02 / 四种角色的更新纪律与失效方式",
+          "quote": "四行的纪律互相冲突，因此它们必须是四份数据而不是一份数据的四个标签。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "四类数据的代表性、边界风险、历史回归与封存验收职责均与正文一致；回归集只增不改且不用于调优，holdout开封合同不保证无偏。",
+      "visual_check_summary": "节点与正文可读，但采样分流及审计汇聚仍在两排集合间同色交叉、贴行，关键四分支不能顺畅追踪，维持REWORK。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "四种并列数据角色被拆成两层，采样分流与审计汇聚在中间交错。",
+          "resolved": false,
+          "current_evidence": "仅部分改善：四角色已声明并列，但采样蓝线及审计紫线仍交错，见本轮P2。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-B02",
+        "title": "企业 AI 评测集：从真实任务抽样，不照搬公开题库"
+      }
+    },
+    {
+      "id": "TD-B03",
+      "path": "visuals/course/TD-B03.svg",
+      "sha256": "5c12ab006c9eea4d6f7f09be08fffef5dff39a6e0b98393c8b8a18341d7818c8",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-B03.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-B03.png",
+      "screenshot_sha256": "0767d3ecd5ea6121444382bee9aec81c9e721851c8db2b23bd9183ea475c8338",
+      "render_input_sha256": "dff4c9d975e364709e7eef5480172c77ed888e9ae94d4befb0f3b095a52d70fb",
+      "dimensions": {
+        "width": 1600,
+        "height": 2642
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1212
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B03 / 架构节点与交付物",
+          "quote": "先落原始记录，再分流到确定性 Oracle 与 Judge 两条判分路径，最后才聚合。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B03 / 指标的分母决定了它在回答什么",
+          "quote": "pass@k 的分母是任务数、分子是「k 次尝试中至少成功一次」；pass^k 的分子是「k 次全部成功」。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B03 / 完成标准与停止条件",
+          "quote": "同任务多次重复须做聚类修正，不得把采样次数当成独立 n",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "核对逐题ledger、两种Oracle输入、指标分母、pass@k/pass^k、聚类区间与元评估边界；未混淆至少一次成功与连续可靠。",
+      "visual_check_summary": "两路判据与计算器端口可辨；分别定义、可查的孤字尾行已修复。",
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "指标卡片的自动断行割裂定义短语。",
+          "resolved": true,
+          "current_evidence": "分别定义与可查的单字尾行已消除；两种指标口径仍完整。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-B03",
+        "title": "AI 评测分数怎么计算，样本少时结果能信吗"
+      }
+    },
+    {
+      "id": "TD-B04",
+      "path": "visuals/course/TD-B04.svg",
+      "sha256": "87ffa786514166cd8537bc7ec53f4e310be0bc93ecec9a809d5c36796d90fcff",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [
+        {
+          "severity": "P3",
+          "issue": "A/B同级实验臂仍分处不同行，比较布局不够直接。",
+          "evidence": "新图Variant A在上层中部，Variant B在下一层左侧；线路可按编号追踪，但识别对照关系仍依赖文字而非空间对称。原“快照”孤字已修复。",
+          "suggested_fix": "后续可将A/B做成同层对称两列，共享模型和数据控制居上。"
+        }
+      ],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-B04.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-B04.png",
+      "screenshot_sha256": "73447f4cbccf6539b050d86237d2604eff8abc540a0bff982dbd81de757e079d",
+      "render_input_sha256": "9957b787e67a289fb5d54fcd495c8a8aec2a27f72819ecd37b5b6c0cf07d42ae",
+      "dimensions": {
+        "width": 1600,
+        "height": 2827
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1397
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B04 / 五个扰动变量怎么测、往哪个方向偏",
+          "quote": "每一行都是一次「固定模型、只改这一项」的实验。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B04 / 架构节点与交付物",
+          "quote": "单变量实验能告诉你哪个变量有影响，不能告诉你为什么",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B04 / 先量出协议敏感度，再谈模型差异",
+          "quote": "harness 升级后必须重建基线，不能与旧分数直接连成曲线。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "锁定模型和数据，只改变单一Harness因素；A/B共同执行、逐题差分、配对不确定性和结论范围均有正文支持。",
+      "visual_check_summary": "新外轨使A/B输入与证据可追踪，快照已完整；两臂仍在不同行，保留非阻断的对称布局建议。",
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "A/B 并列实验条件在空间上缺少对称性。",
+          "resolved": false,
+          "current_evidence": "部分修复：快照断词已消除；A/B仍不在同一水平层，保留P3。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-B04",
+        "title": "评测分数变了，是模型变了还是测试工具变了"
+      }
+    },
+    {
+      "id": "TD-B05",
+      "path": "visuals/course/TD-B05.svg",
+      "sha256": "b9044db11c2b29a8fe581b8dbd7cf0559088d0de21a7920acfa9c4718611aa10",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [
+        {
+          "severity": "P3",
+          "issue": "历史兼容性长线仍穿过审计输入，局部线路不够利落。",
+          "evidence": "Version Compatibility到可信度分类的橙线仍穿过Candidate到Paired Uncertainty的蓝线并靠近分类紫线；颜色、标签及目标仍可辨，未形成核心关系歧义。",
+          "suggested_fix": "把历史兼容性长线移到外侧独立走廊或缩短接入分类的支线。"
+        }
+      ],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-B05.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-B05.png",
+      "screenshot_sha256": "490510bb3f8b14f03631d918139552cd28f5966c70ac4bacac540239922ddec0",
+      "render_input_sha256": "eecb93fca710cd8ecd2b035754a108ae98d5732cc78d46e9457591149e26fbd7",
+      "dimensions": {
+        "width": 1600,
+        "height": 1867
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1867
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B05 / 三种污染形态的可检出程度差了两个量级",
+          "quote": "四行里没有一行能给出「已排除污染」的结论。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B05 / 架构节点与交付物",
+          "quote": "把每个分数标注为可比 / 有限可比 / 不可比",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B05 / 隐藏测试集挡得住过拟合，挡不住训练污染",
+          "quote": "如果这些题目本来就在模型的预训练语料里出现过，隐藏与否都不影响模型已经见过它们这个事实。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "污染重叠审计、密封canary、配对不确定性、历史版本兼容与可信度分类一致；没有把检测不到重叠写成已证无污染。",
+      "visual_check_summary": "历史兼容橙线仍穿过部分蓝/紫线，但颜色及标签分离、目标明确，属于局部精致度问题。",
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "历史可比性长线穿过两条审计输入线，局部不够利落。",
+          "resolved": false,
+          "current_evidence": "历史兼容性橙线仍穿过审计输入，保留P3而非阻断。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-B05",
+        "title": "公开榜单分数为什么会被数据污染、样本量和版本变化误导"
+      }
+    },
+    {
+      "id": "TD-B06",
+      "path": "visuals/course/TD-B06.svg",
+      "sha256": "6c46d7643e8d6d50f55d71713ef4b44c7af21a40180901b9acf7a00484cba814",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-B06.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-B06.png",
+      "screenshot_sha256": "8095a54abdb86c3abcccd351c62c9c5ad77f595f1c0f10f931a0296411f62d58",
+      "render_input_sha256": "a8de2d0b558cc502aca2ad3f6b99accac30a7424b2dc96979bf823d132d63c52",
+      "dimensions": {
+        "width": 1600,
+        "height": 2695
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1265
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B06 / 六项里哪些能从公共基准搬过来，哪些必须自建",
+          "quote": "同一批任务由熟练员工做一遍",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B06 / 公共 Benchmark 迁移复盘：结构可借鉴，结论不能照搬",
+          "quote": "没有真实数据、标注团队或发布连接时，只能交付设计与 fixture，不得写成生产基准。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-B06 / 架构节点与交付物",
+          "quote": "指定基准维护与发布判断的具名负责人",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "内部业务风险、Dataset、Adapter、Scorer、版本报告与owner维护闭环一致；公开方法只能迁移方法，内部员工基线和独立blocker保留。",
+      "visual_check_summary": "公共方法控制轨已移出内部执行区，报告和09维护反馈分开；旧控制线贯穿问题已修复。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "公共方法控制线贯穿内部输入链，反馈与报告证据再次交叉。",
+          "resolved": true,
+          "current_evidence": "外部公共方法控制与内部执行链已分轨，09反馈也有独立走廊。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-B06",
+        "title": "把公开榜单的方法改造成企业自己的业务评测"
+      }
+    },
+    {
+      "id": "TD-QP01",
+      "path": "visuals/course/TD-QP01.svg",
+      "sha256": "fca008cd6734d98d92832b8cddcf823a4b38bb14b15dd8a284d27206bb9e6a29",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [
+        {
+          "severity": "P3",
+          "issue": "Basis Gate的权限词组仍被拆行。",
+          "evidence": "当前Basis Gate准入正文一行以“有”结尾，下一行从“权限”起；含义能读出，但关键准入词组被割裂。",
+          "suggested_fix": "按批准、冻结、无冲突、有权限等完整条件主动换行。"
+        }
+      ],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-QP01.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-QP01.png",
+      "screenshot_sha256": "50ddb4c4cfd73765c9ac874d14b01d24e8b071040e06748d64a689ac2243a355",
+      "render_input_sha256": "556eb75e4e6c0e00f6e3a9e0b45cc84a2397f0a6fceff07fac3b345fe3ab7526",
+      "dimensions": {
+        "width": 1600,
+        "height": 2635
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1205
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP01 / 架构节点与交付物",
+          "quote": "webhook 只用来触发，事实一律以回读为准。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP01 / 从需求事件到可执行方案的四道关卡",
+          "quote": "BLOCKED，附两处精确 locator",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP01 / 架构节点与交付物",
+          "quote": "由具权限的人在明确范围内批准，批准范围随决定一起留痕",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "需求事件的授权、冻结、冲突、source_ref及正文可访问性均需检查；无正文引用不得由摘要替代，失败不得准入。",
+      "visual_check_summary": "来源和Basis Gate路径清楚，控制与证据分轨；有权限词组仍被跨行切开，留P3排版建议。",
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "关键准入条件的断行不够整齐。",
+          "resolved": false,
+          "current_evidence": "部分改善：不再孤立“限”，但当前“有 / 权限”仍跨行，保留P3。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-QP01",
+        "title": "需求系统更新后，怎样自动生成可审核的测试依据"
+      }
+    },
+    {
+      "id": "TD-QP02",
+      "path": "visuals/course/TD-QP02.svg",
+      "sha256": "bdbb5751c6a54379a93908f6ac60493b2c495c5abae6049093adc618d2ad3e95",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-QP02.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-QP02.png",
+      "screenshot_sha256": "dbd32dcf6372f8febd0d645b2bd0ce6f1b9905797104d7b0b4a9ec86a29dc8dd",
+      "render_input_sha256": "db1f0f017796ed15100dc6af089323c40415396544240ac15ac7af53e62ce535",
+      "dimensions": {
+        "width": 1600,
+        "height": 2867
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1437
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP02 / 旧 SHA 的绿色 Pipeline 不能放行当前 MR",
+          "quote": "证据的 SHA 必须等于当前待发布的 SHA。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP02 / 架构节点与交付物",
+          "quote": "报告缺失、格式异常、suite 数量对不上，一律判失败而不是跳过。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP02 / 证据聚合必须回答的四个问题",
+          "quote": "状态带时间戳与目标 SHA，超期即失效",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "当前HEAD SHA、事件幂等、Artifact摘要、status/TTL和最终Gate fail-closed与正文一致；旧SHA或过期证据不能绿灯。",
+      "visual_check_summary": "01/05/08绑定轨与流水线分离，HEAD和聚合器控制线不再形成旧同色X，最终状态落点清楚。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "HEAD 控制线穿越证据链，且与聚合结论线同色相交。",
+          "resolved": true,
+          "current_evidence": "HEAD绑定及聚合器输出改为独立编号轨，旧同色X已消除。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-QP02",
+        "title": "代码已经更新，为什么测试报告可能还是旧版本的"
+      }
+    },
+    {
+      "id": "TD-QP03",
+      "path": "visuals/course/TD-QP03.svg",
+      "sha256": "29ed23e4cedbffae656bf80f9803a3a40809a881af1cb1b9026985456e0eeb35",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-QP03.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-QP03.png",
+      "screenshot_sha256": "6f0e0395114ed580d0df5536d0f9c8d2f3391bda9a1aa8a9977d75d393409a7c",
+      "render_input_sha256": "d734317c124e3198f1cb0294a553c5931736faa3204871f694df45352fd81644",
+      "dimensions": {
+        "width": 1600,
+        "height": 2851
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1421
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP03 / 临时环境必须配齐的五项",
+          "quote": "超时自动销毁，回收失败要告警",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP03 / 架构节点与交付物",
+          "quote": "按最小权限授予，验证越权读取失败",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP03 / 临时环境必须配齐的五项",
+          "quote": "数据库、队列随环境创建与销毁",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "核对请求、Provisioner、身份/RBAC、Quota、Runner、TTL、Cleanup和Audit；环境串号与回收缺证据不得通过，真实集成保持NOT_RUN。",
+      "visual_check_summary": "生命周期主链、07 TTL与08/09审计外轨可分开阅读；ServiceAccount 不再从词中间断裂。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "环境生命周期、准入和审计线路混用中央走廊。",
+          "resolved": true,
+          "current_evidence": "生命周期、TTL、审计线分开；ServiceAccount完整单词显示。"
+        },
+        {
+          "severity": "P3",
+          "issue": "技术标识符被从单词中间截断。",
+          "resolved": true,
+          "current_evidence": "生命周期、TTL、审计线分开；ServiceAccount完整单词显示。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-QP03",
+        "title": "每个合并请求一套独立测试环境：创建、隔离和自动回收"
+      }
+    },
+    {
+      "id": "TD-QP04",
+      "path": "visuals/course/TD-QP04.svg",
+      "sha256": "464ed176783465c179d7d6d1d38052cb8c69dce20dc4ad00e63eeebf9aec8599",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-QP04.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-QP04.png",
+      "screenshot_sha256": "188eaa1be8c81178e67ac27919b1bca63d22a37151c0406a02fc659a3d16e83f",
+      "render_input_sha256": "3e42402a73d2a4f99cdf2b5e2a5dcd27b8c57a5ef13ac0bc033b463b7f2ccbc1",
+      "dimensions": {
+        "width": 1600,
+        "height": 2791
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1361
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP04 / 重复事件与部分成功需要两本账",
+          "quote": "记录每个动作的独立状态，重放时只补未完成的。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP04 / 重复事件与部分成功需要两本账",
+          "quote": "「记录」与「处理」必须在同一个事务里",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-QP04 / 架构节点与交付物",
+          "quote": "回写各系统状态，超时后以回读核对",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "Inbox去重、状态机、Outbox及处理同事务、适配器副作用幂等/回读、DLQ和补偿闭环一致；没有承诺外部exactly-once，真实集成NOT_RUN。",
+      "visual_check_summary": "04请求、05回执与10补偿为不同通道和端口；原双向共线问题已消除，边方向可逐条确认。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "状态机请求与适配器回执两条相反方向的线完全共线，无法独立阅读。",
+          "resolved": true,
+          "current_evidence": "04橙请求、05绿回执为不同通道，10补偿另走轨道；原相反方向共线已消除。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-QP04",
+        "title": "把需求、代码流水线和测试环境串成一条证据记录"
+      }
+    },
+    {
+      "id": "TD-T25",
+      "path": "visuals/course/TD-T25.svg",
+      "sha256": "b15b6f9c7e17d246ef68bd8b0c7fff4c8d744ab9643a63f925dabc52bda0b1f8",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-T25.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-T25.png",
+      "screenshot_sha256": "adf76e36bd060ff5d5c7d40e06e61e5a47a039820cc0abd376b7f4f731639007",
+      "render_input_sha256": "b3514eb6beb7bd84dc7dc448fe82d1a36e4cda5fcf3b11bd5dda6557550bc045",
+      "dimensions": {
+        "width": 1600,
+        "height": 2669
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1239
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T25 / 一个可复核的 RC 必须包含的六类工件",
+          "quote": "引用的每个文件都在包内且哈希一致",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T25 / Capstone 复盘：用一条追踪链证明交付边界",
+          "quote": "最后在不改 expected 的情况下 repair 回 0。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-T25 / Capstone 复盘：用一条追踪链证明交付边界",
+          "quote": "当前最多是 PASS-FIXTURE release candidate",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "PRD/风险、独立分层Oracle、CI红绿证据、具名owner到Fixture RC链齐全；RC不冒充已部署结果。",
+      "visual_check_summary": "需求追踪08走外围，Oracle→CI不再被长斜线切穿；底部故障和交付区层次清楚。",
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "风险到 RC 的长斜线切过 Oracle→CI 控制线。",
+          "resolved": true,
+          "current_evidence": "08需求追踪改走外围；分层已完整，负责人不再孤立末字成行。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-T25",
+        "title": "AI 版本发布前的质量报告应该写什么"
+      }
+    },
+    {
+      "id": "TD-C01",
+      "path": "visuals/course/TD-C01.svg",
+      "sha256": "69b2305e12bc7939ac179fc0e359bc9d87f280ec3fde0c2aab35b24d188d4abf",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-C01.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-C01.png",
+      "screenshot_sha256": "164844d795e61cbbdcf7fbcc9d3d8e2a323be3376d218a4ef5ebb7c70992af23",
+      "render_input_sha256": "293cac776948230d68c4e0a09f9adafbfaf5fe64442d3d3dc686404cb2166ddf",
+      "dimensions": {
+        "width": 1600,
+        "height": 2544
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1114
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-C01 / 架构节点与交付物",
+          "quote": "在 AI 理解、测试方法、AI 特有能力、工程能力、协作五维上定位差距",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-C01 / 能力迁移最常见的失败，是把「学过」当成「能证明」",
+          "quote": "同样的方法、同样的证据结构，用公开数据或自造场景重做一遍。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-C01 / 架构节点与交付物",
+          "quote": "由他人复评而非自评，复评意见留痕",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "五类能力缺口、90天工件、作品集、独立复评与反馈一致；未把练习证据写成招聘/晋升承诺。",
+      "visual_check_summary": "缺口、任务、证据和06回流路径明确，文字层级与留白适中。",
+      "prior_findings": [],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-C01",
+        "title": "传统测试开发转向 AI 质量岗位，需要补哪些能力和作品"
+      }
+    },
+    {
+      "id": "TD-AP01",
+      "path": "visuals/course/TD-AP01.svg",
+      "sha256": "8dddb7818b82db6044a9d7d3223382c6ec36c2f2456c400e9f0937b198e54c2e",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [
+        {
+          "severity": "P3",
+          "issue": "Oracle邻近区域仍有异色输入交叉，可进一步简化。",
+          "evidence": "压测前提检查的紫色输入与Oracle附近的橙色绑定线仍有局部交叉；当前已分出上下行走廊且标签归属清楚，原P2不再成立。",
+          "suggested_fix": "后续将Oracle与样本分层合并为同层输入，减少局部曲线穿插。"
+        }
+      ],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AP01.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AP01.png",
+      "screenshot_sha256": "57b696f34f22cede1bdd89769af91a8207049652247c8bb9e3dc638bdef374db",
+      "render_input_sha256": "661d61442ce8ae1a3b7fb79c8ce74fc9cb331d5b9984c3180e790faeaccbffe5",
+      "dimensions": {
+        "width": 1600,
+        "height": 1708
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1708
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP01 / AP01 Project lab：从业务样本生成负载契约",
+          "quote": "故障注入缺 Oracle、错误终态和缺 slice 三种 mutation",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP01 / AP01 验收标准",
+          "quote": "缺 Oracle 的样本不能被写入成功率。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP01 / 建 workload 时必须分开建模的六个变量",
+          "quote": "六个变量都要写进版本化 workload 文件并打 hash",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "业务切片、样本分布、Oracle、workload hash合同、压测前提与验收一致；转人工不是成功终态，synthetic证据不升级生产能力。",
+      "visual_check_summary": "workload上行合同与下行验收已分走廊，标签不再落在样本分层线上；Oracle附近仍有少量异色交叉，保留P3。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "workload 的上行绑定与下行验收线挤在同一走廊，标签还落在另一条分层线上。",
+          "resolved": true,
+          "current_evidence": "上行Oracle绑定与下行workload验收已分开，hash合同标签归属正确；余下局部异色交叉降为P3。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-AP01",
+        "title": "Agent 性能测试的第一步：设计一组真实任务"
+      }
+    },
+    {
+      "id": "TD-AP02",
+      "path": "visuals/course/TD-AP02.svg",
+      "sha256": "9b6a2452616b59faad0a05e1c0f1d90d0c7e220ba9a782f421dd56f5a3e7b2c2",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [
+        {
+          "severity": "P3",
+          "issue": "Goodput约束中的“副作用”仍跨行断词。",
+          "evidence": "当前Task Goodput Gate正文一行以“副”结尾，下一行以“作用”开头；旧单字“用”尾行已消除，约束含义仍可读。",
+          "suggested_fix": "把质量、成本、副作用按完整词组换行。"
+        }
+      ],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AP02.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AP02.png",
+      "screenshot_sha256": "3201eedb4924c42681119c9713f2ac21f007ca1a9eee71d12090cec65b58a974",
+      "render_input_sha256": "78e680f4fc4d45db7a8ebc8cf5607aa6faa7e2a1021b207a7e99bf7b55f990a2",
+      "dimensions": {
+        "width": 1600,
+        "height": 1740
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1740
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP02 / 一个端到端时长说明不了任何事，因为它不是各 span 的算术和",
+          "quote": "把并行段相加会重复计数",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP02 / AP02 Project lab：阶段预算驱动的优化决策",
+          "quote": "用 baseline、工具延迟 fault、空 queue span fault 和重试放大 fault 做单变量对照。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP02 / AP02 最终练习：从指标卡做一次决策",
+          "quote": "一次裸 QPS 上升但 good-task 下降",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "任务/步骤/调用指标、关键路径、排队、模型、工具与重试口径及goodput约束一致；并发span不能简单相加，真实运行未知边界保留。",
+      "visual_check_summary": "层级与连接可追踪，副作用已不再以单个用字独占尾行；词组仍可进一步整行排版。",
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "Goodput 卡片正文存在单字尾行。",
+          "resolved": true,
+          "current_evidence": "旧单字“用”尾行已消除；仍有“副 / 作用”断词，作为本轮P3继续建议。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-AP02",
+        "title": "用户等 Agent 太久：把排队、模型、工具和重试耗时拆开"
+      }
+    },
+    {
+      "id": "TD-AP03",
+      "path": "visuals/course/TD-AP03.svg",
+      "sha256": "24854bec89eb757e4067faa9cfed587ddcacc7ada6dc51ccfc32ff3321396f0d",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [
+        {
+          "severity": "P3",
+          "issue": "根分支与独立对账线仍有交叉，树形层次可更简洁。",
+          "evidence": "Task Root的蓝色父子分支在根下方交叉，ledger到审计的紫线仍穿过蓝色归属线；同父关系、颜色和终点足以区分，没有误接证据。",
+          "suggested_fix": "根节点对子span采用分叉总线，ledger与审计移到同一侧。"
+        }
+      ],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AP03.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AP03.png",
+      "screenshot_sha256": "50c337c8ff3cc2fd35291676d8b08ce3dd65ad2783bfcf4c8699a6d08da0b406",
+      "render_input_sha256": "f0d3615946a452e81042f3f427040f2a9ed18e255cc11fb120a367fa2e704226",
+      "dimensions": {
+        "width": 1600,
+        "height": 1723
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1723
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP03 / 架构节点与交付物",
+          "quote": "一个任务一个根，排队、生成、工具尝试各自成子 span，终态作为事件落在根上。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP03 / AP03 Project lab：Trace 闭包与重放审计",
+          "quote": "tool attempt 必须与 ledger 调用数相等",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP03 / AP03 最终练习：修复一条断链 Trace",
+          "quote": "不能通过删除失败 span 让图看起来完整。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "Task Root、队列/模型/工具attempt、terminal事件和独立副作用ledger对账一致；父子关系、终态唯一性和隐私边界均保留。",
+      "visual_check_summary": "根分支及审计交点仍存在，但根节点同父关系和异色对账可辨；保留P3减少交叉建议。",
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "父子归属线与独立对账线发生交叉。",
+          "resolved": false,
+          "current_evidence": "根分支与ledger审计交叉仍存在但可辨，保留P3。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-AP03",
+        "title": "记录 Agent 每一步，定位慢点和最早失败"
+      }
+    },
+    {
+      "id": "TD-AP04",
+      "path": "visuals/course/TD-AP04.svg",
+      "sha256": "4a5677f7066be916ae048a0fa0c52d65d2fdc522de9c9f043f8db51674aaa990",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AP04.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AP04.png",
+      "screenshot_sha256": "7a8c857ff3900178b69769034043ace0a5e6c829452f5ede9328677db1e9689d",
+      "render_input_sha256": "08c39dd8596fbb7def9a3a9cb6191c4fc8641a93132650b6fd061272aa186ebd",
+      "dimensions": {
+        "width": 1600,
+        "height": 3036
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1550
+        },
+        {
+          "top": 2860,
+          "height": 176
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP04 / 架构节点与交付物",
+          "quote": "开环按固定到达率发，闭环等前一个返回再发下一个。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP04 / AP04 验收标准",
+          "quote": "计划样本不能因发压端循环停止而消失。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP04 / AP04 Project lab：open/closed 到达时钟对账",
+          "quote": "先排除压测端 CPU、连接和出口带宽",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "同合同的Closed/Open对照、scheduled/sent时钟、Coordinated Omission、背压/拒绝及fixture观测一致；未把两臂当同时叠加负载。",
+      "visual_check_summary": "01/02合同、03/04实验和05/06时钟各有编号轨道；两臂虽分行但可独立追踪，旧关键穿插已修复。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "对照实验没有形成两条清晰的并列阅读路径。",
+          "resolved": true,
+          "current_evidence": "两臂合同、实验、时钟均有独立编号轨和端口，旧关键路径穿插已消除。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-AP04",
+        "title": "压测工具为什么会在系统变慢时少发请求，造成结果看起来更好"
+      }
+    },
+    {
+      "id": "TD-AP05",
+      "path": "visuals/course/TD-AP05.svg",
+      "sha256": "61f1a7511b7c4e8f847b0987b592268d8e02395e6b296e5447e1311480b41554",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AP05.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AP05.png",
+      "screenshot_sha256": "f7972265470e6ddec6c297337d5ee70edbff91f6e9b30f078ff8747cbf1bfc72",
+      "render_input_sha256": "5bc011c4f65ad20b54f421f69f135916212810b7ad03e1de1731916f5ac27c05",
+      "dimensions": {
+        "width": 1600,
+        "height": 2611
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1181
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP05 / 先理解系统边界与假绿",
+          "quote": "前一稳定阶梯才是当前夹具的可持续点。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP05 / AP05 验收标准",
+          "quote": "最大吞吐不能替代容量。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP05 / AP05 Project lab：SLO 阶梯容量卡",
+          "quote": "随后只改变 queue、batch、缓存或工具中的一个变量",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "首失败前稳定台阶形成容量结论，观测信号仅支持瓶颈候选且需反证复跑；SLO/Oracle与合成负载边界齐全。",
+      "visual_check_summary": "容量04和瓶颈05走不同外轨，首失败下方不再同色交叉；07复跑反馈可辨。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "容量结论与瓶颈归因两条同色证据线在关键失败节点下相交。",
+          "resolved": true,
+          "current_evidence": "04容量与05瓶颈证据不再同色交叉，复跑07独立回流。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-AP05",
+        "title": "Agent 用户越来越多：容量上限和第一个瓶颈在哪里"
+      }
+    },
+    {
+      "id": "TD-AP06",
+      "path": "visuals/course/TD-AP06.svg",
+      "sha256": "cc30125a6affa3d1a864eb820a3f59603d4035472e14bc3c6267faca94c5351d",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AP06.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AP06.png",
+      "screenshot_sha256": "c60a01f11ade5fc0b016fdcfc5926220e15274f914f01e6b58f323eaac686962",
+      "render_input_sha256": "e52284e7b7d49dffaa83b8a4e4009a9fe5349ef51244b54bfb57887b0d5902ae",
+      "dimensions": {
+        "width": 1600,
+        "height": 2942
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1512
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP06 / 跨层重试会把一次抖动放大成事故",
+          "quote": "只有幂等且属于可恢复错误类、并遵守 Retry-After 的调用才允许扣预算重试。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP06 / AP06 Project lab：重试预算与副作用账本",
+          "quote": "未知写结果必须先用业务 key 对账",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP06 / AP06 最终练习：拒绝危险重试",
+          "quote": "任何重复写账本、无幂等键、无 receipt 的路径都必须硬阻断。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "共享预算、有限重试、Retry-After、未知写对账与安全终态一致；不可幂等副作用不能盲重试，预算耗尽必须停止。",
+      "visual_check_summary": "03/04/05三个出口和06预算回扣已分开，条件标签与端口对应，原中央穿插消除。",
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "重试闸门的长程分支与分类线/预算反馈交错，版面可进一步简化。",
+          "resolved": true,
+          "current_evidence": "03重试、04未知写、05安全终态和06预算回扣已分轨。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-AP06",
+        "title": "Agent 超时后的重试风暴：控制请求和副作用放大"
+      }
+    },
+    {
+      "id": "TD-AP07",
+      "path": "visuals/course/TD-AP07.svg",
+      "sha256": "1896b09a07445205b56d3da54910a65d46a5fd499449e9a125a7c2b908675c06",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "REWORK",
+      "findings": [
+        {
+          "severity": "P2",
+          "issue": "趋势→泄漏和快照→平台两条同色证据线仍相交并贴行，平台/泄漏的核心条件归属不清。",
+          "evidence": "当前A区资源与任务趋势、首中尾快照差分的下方，“稳态持续正斜率”对应的趋势→泄漏紫线与“检查有界性”对应的快照→平台紫线相交，并在两候选卡上方近乎共享一段水平走廊；无编号端口或跨线桥。右侧条件改变红线已外移，但未消除这个核心同色交点。",
+          "suggested_fix": "将趋势与快照先接入明确的联合判读区，再以互不交叉的条件出口分别接平台期候选与泄漏候选；或使用独立轨道、端口编号和跨线桥，保持正斜率与有界性标签贴近各自路径。"
+        }
+      ],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AP07.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AP07.png",
+      "screenshot_sha256": "b184e6b2837e8bc095d63fc460cb5046170e0115e64be5ac649bea38e2ce69de",
+      "render_input_sha256": "3e51d0b3be4fc5ebd20a9079dc404aeccff46135135b7606b641ae1474692048",
+      "dimensions": {
+        "width": 1600,
+        "height": 1858
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1858
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP07 / AP07 Project lab：八小时 soak 的慢变量证据",
+          "quote": "上升后平台要结合缓存上限和对象类型判断。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP07 / AP07 验收标准",
+          "quote": "中途变更会使本轮结论失效。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP07 / 完成标准与停止条件",
+          "quote": "区间跨 0 只说明未测出增长，不得单独写成「无泄漏」。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "不变版本/负载、热身稳态恢复窗口、斜率区间、首中尾快照与cleanup联合支持候选；平台不直接判无泄漏，条件改变废弃本轮结论，production soak NOT_RUN。",
+      "visual_check_summary": "条件改变红线已外移；趋势→泄漏和快照→平台的同色紫线仍在核心判读区相交并近乎贴行，维持REWORK。",
+      "prior_findings": [
+        {
+          "severity": "P2",
+          "issue": "平台期与泄漏候选的证据线同色交叉，关键条件贴近交点。",
+          "resolved": false,
+          "current_evidence": "部分修复：红色条件污染线已外移，但核心两条紫色判读线仍相交/贴行，旧P2未闭合。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-AP07",
+        "title": "Agent 连续运行几天后变慢：区分缓存、漂移和资源泄漏"
+      }
+    },
+    {
+      "id": "TD-AP08",
+      "path": "visuals/course/TD-AP08.svg",
+      "sha256": "ca73b3e985676a162974402003211824518f1fd142434af0a0928e2d519b9f79",
+      "visual_inspected": true,
+      "body_checked": true,
+      "verdict": "PASS",
+      "findings": [],
+      "candidate_svg": "output/svg-release-20261026/candidate/public/visuals/course/TD-AP08.svg",
+      "screenshot": "output/svg-redesign-2026-10-26/screenshots/visuals__course__TD-AP08.png",
+      "screenshot_sha256": "341bd4ff82adbb22e3c1d85e1ce3c2950ef6753ec743295171385e412aa0e802",
+      "render_input_sha256": "bc02982c321086b13fbd7ae5ada46376c1bc9875754346aad198231f72cbbb42",
+      "dimensions": {
+        "width": 1600,
+        "height": 2717
+      },
+      "inspection_method": "view_image original；长图使用全宽、120px重叠裁块覆盖全高。",
+      "inspected_regions": [
+        {
+          "top": 0,
+          "height": 1550
+        },
+        {
+          "top": 1430,
+          "height": 1287
+        }
+      ],
+      "inspected_crops_match_current_png": true,
+      "batch_binding_checked": {
+        "candidate_sha": true,
+        "render_input_sha": true
+      },
+      "source_refs_checked": [
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP08 / AP08 Project lab：good-task SLO 到告警动作",
+          "quote": "HTTP 200 但终态错误必须计入失败分母。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP08 / 给一次真实事故补完告警链：约 40 分钟",
+          "quote": "计算三个差值：受影响到告警、告警到响应、响应到止血。",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        },
+        {
+          "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+          "locator": "TD-AP08 / 这一页的验收口径：SLI 定义与闭环率",
+          "quote": "未回流即事故不得关闭",
+          "source_sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8"
+        }
+      ],
+      "body_check_summary": "任务级good-event分母、质量与副作用、误差预算、多窗口告警、事故动作、恢复和回归一致；HTTP200不能自动视为任务成功。",
+      "visual_check_summary": "01–06主链连续，07回归回流在外围；恢复与回归节点、责任动作可读。",
+      "prior_findings": [
+        {
+          "severity": "P3",
+          "issue": "事故回流反馈穿过三段主流程。",
+          "resolved": true,
+          "current_evidence": "07绿色回归反馈已移到外围，01–06主链不再被贯穿。"
+        }
+      ],
+      "body_snapshot": {
+        "path": "docs/svg-redesign-2026-10-26/body-sources/course-3.json",
+        "sha256": "dc88904f97e29a0b3a02eae67e65856d27a91499265b7284275926e1019eb9c8",
+        "id": "TD-AP08",
+        "title": "Agent 上线后的告警、降级和事故复盘"
+      }
+    }
+  ]
+}

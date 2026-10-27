@@ -1,116 +1,153 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1160 744" width="1160" height="744">
-  <title id="title">自愈测试为什么会误修绿：architecture架构</title>
-  <desc id="desc">Agent 的输入、模型、工具、状态、权限与观测面共同构成被测系统</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-</style>
-  <rect class="ds-bg" width="1160" height="744" rx="22"/>
-  
-  <rect class="ds-header" x="0" y="0" width="1160" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1160" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">ARCHITECTURE · 控制流</text>
-  <text class="ds-subtitle" x="1124" y="32" text-anchor="end">Agent 的输入、模型、工具、状态、权限与观测面共同构成被测系统</text>
-  <text class="ds-title" x="36" y="74">自愈测试为什么会误修绿</text>
-  <text class="ds-source" x="36" y="140">architecture · Healer 候选修复的反作弊审查链 · 来源 S01, S21, S22</text>
-  <text x="150" y="160" class="ds-section">系统控制链 · 输入 → 处理 → 判断 → 决定</text>
-  
-    <circle cx="108" cy="199" r="12" fill="#ffffff" stroke="#aec6e3" stroke-width="1.5"/>
-    <text x="108" y="203" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">01</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="170" width="850" height="58" rx="13" fill="#eaf1fa" stroke="#aec6e3" stroke-width="1.4"/>
-      <rect x="150" y="170" width="5" height="58" rx="2.5" fill="#aec6e3"/>
-    </g>
-    <text x="174" y="194" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">Failing test</text>
-    <text x="174" y="215" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">输入 / 依据</text>
-    <path d="M 108 228 V 248" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="281" r="12" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.5"/>
-    <text x="108" y="285" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">02</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="252" width="850" height="58" rx="13" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4"/>
-      <rect x="150" y="252" width="5" height="58" rx="2.5" fill="#c2d9cc"/>
-    </g>
-    <text x="174" y="276" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">Evidence capture</text>
-    <text x="174" y="297" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">处理 / 变换</text>
-    <path d="M 108 310 V 330" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="363" r="12" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.5"/>
-    <text x="108" y="367" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">03</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="334" width="850" height="58" rx="13" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4"/>
-      <rect x="150" y="334" width="5" height="58" rx="2.5" fill="#c2d9cc"/>
-    </g>
-    <text x="174" y="358" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">Healer candidate</text>
-    <text x="174" y="379" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">处理 / 变换</text>
-    <path d="M 108 392 V 412" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="445" r="12" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.5"/>
-    <text x="108" y="449" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">04</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="416" width="850" height="58" rx="13" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4"/>
-      <rect x="150" y="416" width="5" height="58" rx="2.5" fill="#c2d9cc"/>
-    </g>
-    <text x="174" y="440" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">Anti-cheat diff</text>
-    <text x="174" y="461" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">处理 / 变换</text>
-    <path d="M 108 474 V 494" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="527" r="12" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.5"/>
-    <text x="108" y="531" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">05</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="498" width="850" height="58" rx="13" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4"/>
-      <rect x="150" y="498" width="5" height="58" rx="2.5" fill="#c2d9cc"/>
-    </g>
-    <text x="174" y="522" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">Mutation rerun</text>
-    <text x="174" y="543" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">处理 / 变换</text>
-    <path d="M 108 556 V 576" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="609" r="12" fill="#174a3a" stroke="#e0b76a" stroke-width="1.5"/>
-    <text x="108" y="613" text-anchor="middle" fill="#ffffff" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">06</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="580" width="850" height="58" rx="13" fill="#fdf1d8" stroke="#e0b76a" stroke-width="1.4"/>
-      <rect x="150" y="580" width="5" height="58" rx="2.5" fill="#e0b76a"/>
-    </g>
-    <text x="174" y="604" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">Human merge gate</text>
-    <text x="174" y="625" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">决定 / 输出</text>
-    
-  
-  <rect x="28" y="670" width="1104" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="696">证据边界</text>
-  <text class="ds-foot" x="46" y="718">节点是页面语义关系；不代表真实模型、企业集成或生产效果已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2610" viewBox="0 0 1600 2610" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">自愈补丁先分类，再证明业务检测力保留</title><desc id="desc">纯定位器变化可成为候选；业务 Oracle 失败、改期望和跳步骤不能由 healer 修绿。 产品故障直接交人工，候选补丁通过 anti-cheat 与原变异重跑双重门禁 离线补丁门禁不证明真实 healer 误修率；检测力比较按配对变异和批准门槛。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-T19 / 架构、输入契约与可观察证据;docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-T19 / 运行 baseline、故障与修复">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-T19&quot;,&quot;pageIds&quot;:[&quot;TD-T19&quot;],&quot;primaryPageIds&quot;:[&quot;TD-T19&quot;],&quot;layout&quot;:&quot;decision&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-T19 / 架构、输入契约与可观察证据&quot;,&quot;quote&quot;:&quot;制造纯 DOM 改名和业务按钮交换两类失败。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-T19 / 运行 baseline、故障与修复&quot;,&quot;quote&quot;:&quot;locator-only 候选仍须杀死原业务变异&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;fail&quot;,&quot;title&quot;:&quot;失败与 Evidence capture&quot;},{&quot;id&quot;:&quot;classify&quot;,&quot;title&quot;:&quot;失败与补丁分类&quot;},{&quot;id&quot;:&quot;candidate&quot;,&quot;title&quot;:&quot;Healer candidate&quot;},{&quot;id&quot;:&quot;diff&quot;,&quot;title&quot;:&quot;Anti-cheat diff&quot;},{&quot;id&quot;:&quot;mutation&quot;,&quot;title&quot;:&quot;Mutation rerun&quot;},{&quot;id&quot;:&quot;human&quot;,&quot;title&quot;:&quot;Human merge gate&quot;},{&quot;id&quot;:&quot;product&quot;,&quot;title&quot;:&quot;产品缺陷 / 语义不明&quot;},{&quot;id&quot;:&quot;rollback&quot;,&quot;title&quot;:&quot;拒绝并回退补丁&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;fail&quot;,&quot;to&quot;:&quot;classify&quot;,&quot;label&quot;:&quot;证据先于修复&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;classify&quot;,&quot;to&quot;:&quot;candidate&quot;,&quot;label&quot;:&quot;纯非语义表面&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;classify&quot;,&quot;to&quot;:&quot;product&quot;,&quot;label&quot;:&quot;业务改变 / 不确定&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;candidate&quot;,&quot;to&quot;:&quot;diff&quot;,&quot;label&quot;:&quot;补丁与理由&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;diff&quot;,&quot;to&quot;:&quot;rollback&quot;,&quot;label&quot;:&quot;削弱 Oracle / 跳步&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;diff&quot;,&quot;to&quot;:&quot;mutation&quot;,&quot;label&quot;:&quot;范围检查通过&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;mutation&quot;,&quot;to&quot;:&quot;rollback&quot;,&quot;label&quot;:&quot;已知变异不再被杀死&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;mutation&quot;,&quot;to&quot;:&quot;human&quot;,&quot;label&quot;:&quot;检测力保持&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;product&quot;,&quot;to&quot;:&quot;human&quot;,&quot;label&quot;:&quot;人工处理产品回归&quot;,&quot;kind&quot;:&quot;control&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2610" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-T19</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >自愈补丁先分类，再证明业务检测力保留</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >纯定位器变化可成为候选；业务 Oracle 失败、改期望和跳步骤不能由 healer 修绿。</text>
+<g id="system-graph" data-region="64,234,1472,1772">
+<rect x="64" y="234" width="1472" height="1772" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >产品故障直接交人工，候选补丁通过 anti-cheat 与原变异重跑双重门禁</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >判断与分支</text>
+<g transform="translate(156.79999999999995 350) scale(1)" data-graph-scale="1" data-routing="dot">
+<path class="edge edge-data" d="M470 135 C494.76 135 469.59 172.98000000000002 490 187 C547.15 226.25 588.85 226.25 646 187 C662.9 175.3900000000001 648.54 147.3499999999999 657.17 138.04999999999995" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="fail" data-to="classify"/>
+<path class="edge edge-control" d="M798 251.5 C798 356.69000000000005 611.09 288.3299999999999 596.86 380.29999999999995" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e1" data-from="classify" data-to="candidate"/>
+<path class="edge edge-risk" d="M886 251.5 C886 336.73 1016.82 305.9000000000001 1029.08 380.24" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e2" data-from="classify" data-to="product"/>
+<path class="edge edge-data" d="M596 588 C596 638.5 596 654.01 596 699.19" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e3" data-from="candidate" data-to="diff"/>
+<path class="edge edge-risk" d="M596 907 C596 956.68 519.96 906.93 492 948 C481.5 963.43 480.07 975.64 492 990 C575.96 1091.08 778.79 921.58 791.39 1034.2" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e4" data-from="diff" data-to="rollback"/>
+<path class="edge edge-control" d="M684 907 C684 929.32 706.24 926.73 713 948 C718.66 965.79 725.7 976.32 713 990 C674.99 1030.95 238.97 978.02 182.92 1019.93" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e5" data-from="diff" data-to="mutation"/>
+<path class="edge edge-risk" d="M354 1145.5 C367.21 1145.5 361.92 1128.85 374 1123.5 C463.83 1083.76 504.72 1084.81 595 1123.5 C602.96 1126.91 603.43 1135.22 606.8 1140.3" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e6" data-from="mutation" data-to="rollback"/>
+<path class="edge edge-evidence" d="M177 1261 C177 1509.91 715.23 1142.22 732.57 1371.26" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="mutation" data-to="human"/>
+<path class="edge edge-control" d="M1030 588 C1030 887.67 1133.13 998.27 989 1261 C984.19 1269.77 861.38 1346.4 828.85 1374.12" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e8" data-from="product" data-to="human"/>
+<g id="node-fail" class="node node-input" data-region="116,0,354,270">
+<rect x="116" y="0" width="354" height="270" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="134" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="141" y="35" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="138" y="76" font-size="28" fill="#215cbb" font-weight="700" >失败与 Evidence</text>
+<text x="138" y="115" font-size="28" fill="#215cbb" font-weight="700" >capture</text>
+<text x="138" y="158" font-size="23" fill="#172b45" font-weight="450" >原 Trace、DOM、截图与</text>
+<text x="138" y="192" font-size="23" fill="#172b45" font-weight="450" >网络</text>
+<text x="138" y="226" font-size="23" fill="#172b45" font-weight="450" >保留原测试和业务失败</text>
+</g>
+<g id="node-classify" class="node node-control" data-region="666,19.5,354,231">
+<rect x="666" y="19.5" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="684" y="36.5" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="691" y="54.5" font-size="15" fill="#945c0b" font-weight="750" class="mono">02</text>
+<text x="688" y="95.5" font-size="28" fill="#945c0b" font-weight="700" >失败与补丁分类</text>
+<text x="688" y="138.5" font-size="23" fill="#172b45" font-weight="450" >纯 DOM 改名 / 按钮业务</text>
+<text x="688" y="172.5" font-size="23" fill="#172b45" font-weight="450" >交换</text>
+<text x="688" y="206.5" font-size="23" fill="#172b45" font-weight="450" >先查业务动作与独立 Oracle</text>
+</g>
+<g id="node-candidate" class="node node-ai" data-region="419,392,354,197">
+<rect x="419" y="392" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="437" y="409" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="444" y="427" font-size="15" fill="#7045a4" font-weight="750" class="mono">03</text>
+<text x="441" y="468" font-size="28" fill="#7045a4" font-weight="700" >Healer candidate</text>
+<text x="441" y="511" font-size="23" fill="#172b45" font-weight="450" >只提出可审查的定位器补丁</text>
+<text x="441" y="545" font-size="23" fill="#172b45" font-weight="450" >无合并或改业务期望权限</text>
+</g>
+<g id="node-diff" class="node node-control" data-region="464,711,354,197">
+<rect x="464" y="711" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="482" y="728" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="489" y="746" font-size="15" fill="#945c0b" font-weight="750" class="mono">04</text>
+<text x="486" y="787" font-size="28" fill="#945c0b" font-weight="700" >Anti-cheat diff</text>
+<text x="486" y="830" font-size="23" fill="#172b45" font-weight="450" >检查删断言、改期望与跳步</text>
+<text x="486" y="864" font-size="23" fill="#172b45" font-weight="450" >等待与重试增加须审批</text>
+</g>
+<g id="node-mutation" class="node node-evidence" data-region="0,1030,354,231">
+<rect x="0" y="1030" width="354" height="231" rx="14" fill="#f4effb" stroke="none" />
+<rect x="18" y="1047" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="1065" font-size="15" fill="#7045a4" font-weight="750" class="mono">05</text>
+<text x="22" y="1106" font-size="28" fill="#7045a4" font-weight="700" >Mutation rerun</text>
+<text x="22" y="1149" font-size="23" fill="#172b45" font-weight="450" >重跑同一 auto_refunded</text>
+<text x="22" y="1183" font-size="23" fill="#172b45" font-weight="450" >变异</text>
+<text x="22" y="1217" font-size="23" fill="#172b45" font-weight="450" >定位器修复后仍必须失败</text>
+</g>
+<g id="node-human" class="node node-control" data-region="601,1383,354,197">
+<rect x="601" y="1383" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="619" y="1400" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="626" y="1418" font-size="15" fill="#945c0b" font-weight="750" class="mono">06</text>
+<text x="623" y="1459" font-size="28" fill="#945c0b" font-weight="700" >Human merge gate</text>
+<text x="623" y="1502" font-size="23" fill="#172b45" font-weight="450" >核对同一业务动作和证据</text>
+<text x="623" y="1536" font-size="23" fill="#172b45" font-weight="450" >仅显式白名单微调可例外</text>
+</g>
+<g id="node-product" class="node node-risk" data-region="853,392,354,197">
+<rect x="853" y="392" width="354" height="197" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="871" y="409" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="878" y="427" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">07</text>
+<text x="875" y="468" font-size="28" fill="#ad3e4c" font-weight="700" >产品缺陷 / 语义不明</text>
+<text x="875" y="511" font-size="23" fill="#172b45" font-weight="450" >按钮交换或 Oracle 失败</text>
+<text x="875" y="545" font-size="23" fill="#172b45" font-weight="450" >拒绝自动修复并人工诊断</text>
+</g>
+<g id="node-rollback" class="node node-risk" data-region="615,1047,354,197">
+<rect x="615" y="1047" width="354" height="197" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="633" y="1064" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="640" y="1082" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">08</text>
+<text x="637" y="1123" font-size="28" fill="#ad3e4c" font-weight="700" >拒绝并回退补丁</text>
+<text x="637" y="1166" font-size="23" fill="#172b45" font-weight="450" >检测力丢失或变异存活</text>
+<text x="637" y="1200" font-size="23" fill="#172b45" font-weight="450" >恢复原测试与已知失败</text>
+</g>
+<rect x="490" y="145" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="568" y="173" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">证据先于修复</text>
+<rect x="749.18" y="310" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="827.18" y="338" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">纯非语义表面</text>
+<rect x="1015" y="310" width="204" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1117" y="338" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">业务改变 / 不确定</text>
+<rect x="596" y="629" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="663" y="657" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">补丁与理由</text>
+<rect x="492" y="948" width="215" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="599.5" y="976" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">削弱 Oracle / 跳步</text>
+<rect x="720.12" y="948" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="798.12" y="976" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">范围检查通过</text>
+<rect x="374" y="1052.09" width="221" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="484.5" y="1080.09" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">已知变异不再被杀死</text>
+<rect x="722.89" y="1301" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="789.89" y="1329" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">检测力保持</text>
+<rect x="1065.7" y="948" width="199" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1165.2" y="976" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">人工处理产品回归</text>
+</g>
+</g>
+<text x="64" y="2060" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2060" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2090,470,174">
+<rect x="64" y="2090" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2112" width="7" height="30" rx="3" fill="#344f70" stroke="none" />
+<text x="106" y="2137" font-size="25" fill="#344f70" font-weight="700" >用两类失败辨别</text>
+<text x="88" y="2192" font-size="23" fill="#172b45" font-weight="450" >纯 DOM 改名可提候选定位器</text>
+<text x="88" y="2227" font-size="23" fill="#172b45" font-weight="450" >业务按钮交换必须拒绝自愈</text>
+</g>
+<g id="detail-1" data-region="565,2090,470,174">
+<rect x="565" y="2090" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2112" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="607" y="2137" font-size="25" fill="#945c0b" font-weight="700" >三档权限边界</text>
+<text x="589" y="2192" font-size="23" fill="#172b45" font-weight="450" >定位器微调按白名单留证</text>
+<text x="589" y="2227" font-size="23" fill="#172b45" font-weight="450" >等待需审批，业务期望禁止自动改</text>
+</g>
+<g id="detail-2" data-region="1066,2090,470,174">
+<rect x="1066" y="2090" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2112" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="1108" y="2137" font-size="25" fill="#ad3e4c" font-weight="700" >修绿的反证</text>
+<text x="1090" y="2192" font-size="23" fill="#172b45" font-weight="450" >通过率升而 mutation kill 降</text>
+<text x="1090" y="2227" font-size="23" fill="#172b45" font-weight="450" >回退 patch 并保留原始失败</text>
+</g>
+<g id="failure-and-output" data-region="64,2296,1472,148">
+<rect x="64" y="2296" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2335" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2380" font-size="23" fill="#ffdce2" font-weight="450" >删除断言、改 expected、跳步或无限等待立即拒绝；无法证明语义等价交人工。</text>
+<text x="88" y="2423" font-size="23" fill="#dce9fa" font-weight="450" >交付 healer 权限清单、补丁 diff、反作弊结果、变异重跑与合并裁决。</text>
+</g>
+<text x="64" y="2492" font-size="20" fill="#50647c" font-weight="450" >离线补丁门禁不证明真实 healer 误修率；检测力比较按配对变异和批准门槛。</text>
+<text x="64" y="2531" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-T19 · 自愈补丁先分类，再证明业务检测力保留</text>
+<path class="edge edge-data" d="M64 2571 L101 2571" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2577" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2571 L397 2571" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2577" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2571 L693 2571" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2577" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2571 L989 2571" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2577" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2571 L1285 2571" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2577" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

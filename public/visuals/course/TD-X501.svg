@@ -1,90 +1,155 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 1000" width="1600" height="1000">
-  <title id="title">AI 同时看图和文字：重点检查图文矛盾和理解错误｜专业关系图</title>
-  <desc id="desc">任务/模态合同 → 配对 Fixture → 跨模态关系 → 独立 Oracle → 矛盾注入 → 切片指标 → 人工复核；生成候选的模型不拥有 Oracle 或发布决定。 图中区分数据流、控制流、证据流与反馈回路，并显示失败路径、系统边界和责任门禁。</desc>
-  <defs>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173f32" flood-opacity="0.12"/></filter>
-    <marker id="arrow-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7fb8"/></marker>
-<marker id="arrow-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c9852c"/></marker>
-<marker id="arrow-evidence" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#765ca6"/></marker>
-<marker id="arrow-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2c7b61"/></marker>
-  </defs>
-  <rect width="1600" height="1000" rx="32" fill="#f4f7f2"/>
-  <rect x="0" y="0" width="1600" height="146" rx="32" fill="#174f3f"/>
-  <text x="72" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" font-weight="800" fill="#b8dd78">TD-X501 · decision-tree · decision-branch-b</text>
-  <text x="72" y="92" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="30" font-weight="800" fill="#ffffff">AI同时看图和文字：重点检查图文矛盾和理解错误｜专业关系图</text>
-  <text x="72" y="132" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="600" fill="#d9e9df">任务/模态合同→配对Fixture→跨模态关系→独立Oracle→矛盾注入→切片指标→人工复核；生成候选的模型不拥有Oracle或</text>
-  <rect x="54" y="172" width="1492" height="590" rx="26" fill="#fbfdfb" stroke="#c9d6cf" stroke-width="2"/>
-  <text x="82" y="204" font-size="17" font-weight="800" fill="#52665e">系统边界 · 课程方法与可复核工件在边界内；真实企业系统、模型和生产状态在边界外。</text>
-  <path d="M 810 280 C 885 280, 50 490, 125 490" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 285 490 C 360 490, 505 490, 580 490" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 740 490 C 815 490, 960 490, 1035 490" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1195 490 C 1270 490, 50 680, 125 680" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 285 680 C 360 680, 505 680, 580 680" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 740 680 C 815 680, 960 680, 1035 680" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1195 680 C 1270 680, 50 870, 125 870" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 285 870 C 360 870, 50 490, 125 490" fill="none" stroke="#2c7b61" stroke-width="4" stroke-dasharray="14 6" marker-end="url(#arrow-feedback)" opacity="0.92"/>
-  <g filter="url(#shadow)">
-      <rect x="650" y="220" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="650" y="220" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="678" y="248" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">01</text>
-      <text x="678" y="282" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">任务/模态合同</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="125" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="125" y="430" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="153" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">02</text>
-      <text x="153" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">配对Fixture</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="580" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="580" y="430" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="608" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">03</text>
-      <text x="608" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">跨模态关系</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1035" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1035" y="430" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1063" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">04</text>
-      <text x="1063" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">独立Oracle</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="125" y="620" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="125" y="620" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="153" y="648" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">05</text>
-      <text x="153" y="682" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">矛盾注入</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="580" y="620" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="580" y="620" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="608" y="648" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">06</text>
-      <text x="608" y="682" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">切片指标</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1035" y="620" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="1035" y="620" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="1063" y="648" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">07</text>
-      <text x="1063" y="682" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">人工复核</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="125" y="810" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="125" y="810" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="153" y="838" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">08</text>
-      <text x="153" y="872" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">版本化输入</text>
-    </g>
-  <g transform="translate(70 788)">
-    <rect width="710" height="112" rx="20" fill="#fff4ef" stroke="#e5aaa2" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#b84c42">失败路径</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">任一关键输入、权限、Oracle、版本或终态证据缺失时进入</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">FAIL/BLOCKED/UNKNOWN，不静默通过。</text>
-  </g>
-  <g transform="translate(820 788)">
-    <rect width="710" height="112" rx="20" fill="#eef8f2" stroke="#9bc6ac" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#2c7b61">反馈闭环 · Owner Gate</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">失败证据回到最早分叉点，修复后使用同一版本输入重跑并产生新receipt。业务/</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">质量Owner批准判据、风险接受与发布；AI只生成候选和整理证据。</text>
-  </g>
-  <g transform="translate(100 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#4f7fb8" stroke-width="5" stroke-dasharray=""/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">数据流</text></g>
-<g transform="translate(345 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#c9852c" stroke-width="5" stroke-dasharray="10 7"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">控制流</text></g>
-<g transform="translate(590 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#765ca6" stroke-width="5" stroke-dasharray="4 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">证据流</text></g>
-<g transform="translate(835 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#2c7b61" stroke-width="5" stroke-dasharray="14 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">反馈闭环</text></g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2314" viewBox="0 0 1600 2314" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">图文关系用配对对照，而非单模态加总</title><desc id="desc">保持模态各自自洽，只翻转一个跨模态关系，再用受保护 Oracle 判定冲突与处置。 完整输入、关系错配与缺模态三组对照，共享 pair/group 级判据 合成配对 fault 不证明真实设备、音画同步、标注者或生产分布。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-X501 / 多模态的失败不在单个模态里，在模态之间的关系里;docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-X501 / TD-X501 Fault（退出 1）：让目标故障被点名">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-X501&quot;,&quot;pageIds&quot;:[&quot;TD-X501&quot;],&quot;primaryPageIds&quot;:[&quot;TD-X501&quot;],&quot;layout&quot;:&quot;comparison&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-X501 / 多模态的失败不在单个模态里，在模态之间的关系里&quot;,&quot;quote&quot;:&quot;只翻转一个实体、属性、时序或语义关系&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-X501 / TD-X501 Fault（退出 1）：让目标故障被点名&quot;,&quot;quote&quot;:&quot;cross_modal_alignment 与 oracle_independent 必须变红。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;contract&quot;,&quot;title&quot;:&quot;任务 / 模态合同&quot;},{&quot;id&quot;:&quot;natural&quot;,&quot;title&quot;:&quot;一致配对与自然样本&quot;},{&quot;id&quot;:&quot;flip&quot;,&quot;title&quot;:&quot;关系错配变体&quot;},{&quot;id&quot;:&quot;missing&quot;,&quot;title&quot;:&quot;缺模态组合&quot;},{&quot;id&quot;:&quot;relation&quot;,&quot;title&quot;:&quot;跨模态关系被测项&quot;},{&quot;id&quot;:&quot;oracle&quot;,&quot;title&quot;:&quot;独立关系 Oracle&quot;},{&quot;id&quot;:&quot;slices&quot;,&quot;title&quot;:&quot;Pair / group 切片结果&quot;},{&quot;id&quot;:&quot;human&quot;,&quot;title&quot;:&quot;争议与高风险人工复核&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;contract&quot;,&quot;to&quot;:&quot;natural&quot;,&quot;label&quot;:&quot;原始对照&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;contract&quot;,&quot;to&quot;:&quot;flip&quot;,&quot;label&quot;:&quot;批准关系变异&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;contract&quot;,&quot;to&quot;:&quot;missing&quot;,&quot;label&quot;:&quot;声明缺失组合&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;natural&quot;,&quot;to&quot;:&quot;relation&quot;,&quot;label&quot;:&quot;一致输入&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;flip&quot;,&quot;to&quot;:&quot;relation&quot;,&quot;label&quot;:&quot;冲突输入&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;missing&quot;,&quot;to&quot;:&quot;relation&quot;,&quot;label&quot;:&quot;不完整输入&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;oracle&quot;,&quot;to&quot;:&quot;relation&quot;,&quot;label&quot;:&quot;独立判断关系&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;relation&quot;,&quot;to&quot;:&quot;slices&quot;,&quot;label&quot;:&quot;关系与识别分别出分&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;slices&quot;,&quot;to&quot;:&quot;human&quot;,&quot;label&quot;:&quot;争议 / 高风险&quot;,&quot;kind&quot;:&quot;control&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2314" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-X501</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >图文关系用配对对照，而非单模态加总</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >保持模态各自自洽，只翻转一个跨模态关系，再用受保护 Oracle 判定冲突与处置。</text>
+<g id="system-graph" data-region="64,234,1472,1475.9840728100112">
+<rect x="64" y="234" width="1472" height="1475.9840728100112" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >完整输入、关系错配与缺模态三组对照，共享 pair/group 级判据</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >职责与对照</text>
+<g transform="translate(111.9453924914676 350) scale(0.9954493742889646)" data-graph-scale="0.9954493742889646" data-routing="dot">
+<path class="edge edge-data" d="M541 231 C541 270.32000000000005 231.65 304.58000000000004 183.32 343.11" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="contract" data-to="natural"/>
+<path class="edge edge-data" d="M611 231 C611 281.09000000000003 611 296.48 611 341.28" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="contract" data-to="flip"/>
+<path class="edge edge-data" d="M681 231 C681 250.32999999999993 979.95 317.30999999999995 1036 345.57000000000005" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e2" data-from="contract" data-to="missing"/>
+<path class="edge edge-data" d="M177 584 C177 666.45 507.67 638.51 538.68 710.61" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e3" data-from="natural" data-to="relation"/>
+<path class="edge edge-data" d="M611 584 C611 641.26 611 658.43 611 710.36" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e4" data-from="flip" data-to="relation"/>
+<path class="edge edge-data" d="M1045 584 C1045 666.45 714.33 638.51 683.32 710.61" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e5" data-from="missing" data-to="relation"/>
+<path class="edge edge-control" d="M1163 938 C1163 970.4100000000001 616.32 955.74 547.99 925.29" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="oracle" data-to="relation"/>
+<path class="edge edge-evidence" d="M611 919 C611 977.0899999999999 611 994.51 611 1047.19" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="relation" data-to="slices"/>
+<path class="edge edge-control" d="M788 1174.5 C801.21 1174.5 795.92 1157.85 808 1152.5 C873.03 1123.73 902.64 1124.49 968 1152.5 C975.96 1155.91 976.43 1164.22 979.8 1169.3" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e8" data-from="slices" data-to="human"/>
+<g id="node-contract" class="node node-control" data-region="436,0,354,231">
+<rect x="436" y="0" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="454" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="461" y="35" font-size="15" fill="#945c0b" font-weight="750" class="mono">01</text>
+<text x="458" y="76" font-size="28" fill="#945c0b" font-weight="700" >任务 / 模态合同</text>
+<text x="458" y="119" font-size="23" fill="#172b45" font-weight="450" >required / optional /</text>
+<text x="458" y="153" font-size="23" fill="#172b45" font-weight="450" >conditional</text>
+<text x="458" y="187" font-size="23" fill="#172b45" font-weight="450" >冻结 pair_id 与关系 gold</text>
+</g>
+<g id="node-natural" class="node node-input" data-region="0,353,354,231">
+<rect x="0" y="353" width="354" height="231" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="18" y="370" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="388" font-size="15" fill="#215cbb" font-weight="750" class="mono">02</text>
+<text x="22" y="429" font-size="28" fill="#215cbb" font-weight="700" >一致配对与自然样本</text>
+<text x="22" y="472" font-size="23" fill="#172b45" font-weight="450" >同一事件的截图、语音与</text>
+<text x="22" y="506" font-size="23" fill="#172b45" font-weight="450" >文字</text>
+<text x="22" y="540" font-size="23" fill="#172b45" font-weight="450" >保留原始工件与时间轴</text>
+</g>
+<g id="node-flip" class="node node-risk" data-region="434,353,354,231">
+<rect x="434" y="353" width="354" height="231" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="452" y="370" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="459" y="388" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">03</text>
+<text x="456" y="429" font-size="28" fill="#ad3e4c" font-weight="700" >关系错配变体</text>
+<text x="456" y="472" font-size="23" fill="#172b45" font-weight="450" >只翻转实体、属性或时序</text>
+<text x="456" y="506" font-size="23" fill="#172b45" font-weight="450" >之一</text>
+<text x="456" y="540" font-size="23" fill="#172b45" font-weight="450" >各模态内部仍自洽</text>
+</g>
+<g id="node-missing" class="node node-risk" data-region="868,353,354,231">
+<rect x="868" y="353" width="354" height="231" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="886" y="370" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="893" y="388" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">04</text>
+<text x="890" y="429" font-size="28" fill="#ad3e4c" font-weight="700" >缺模态组合</text>
+<text x="890" y="472" font-size="23" fill="#172b45" font-weight="450" >图片失败 / 音频截断 /</text>
+<text x="890" y="506" font-size="23" fill="#172b45" font-weight="450" >OCR 空</text>
+<text x="890" y="540" font-size="23" fill="#172b45" font-weight="450" >关键缺失无降级则阻断</text>
+</g>
+<g id="node-relation" class="node node-process" data-region="436,723,354,197">
+<rect x="436" y="723" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="454" y="740" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="461" y="758" font-size="15" fill="#344f70" font-weight="750" class="mono">05</text>
+<text x="458" y="799" font-size="28" fill="#344f70" font-weight="700" >跨模态关系被测项</text>
+<text x="458" y="842" font-size="23" fill="#172b45" font-weight="450" >检测、定位与处置分别记录</text>
+<text x="458" y="876" font-size="23" fill="#172b45" font-weight="450" >单模态高分不能抵消</text>
+</g>
+<g id="node-oracle" class="node node-control" data-region="986,706,354,231">
+<rect x="986" y="706" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="1004" y="723" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1011" y="741" font-size="15" fill="#945c0b" font-weight="750" class="mono">06</text>
+<text x="1008" y="782" font-size="28" fill="#945c0b" font-weight="700" >独立关系 Oracle</text>
+<text x="1008" y="825" font-size="23" fill="#172b45" font-weight="450" >受保护 gold / 元数据 / 状态</text>
+<text x="1008" y="859" font-size="23" fill="#172b45" font-weight="450" >grader 需 meta-eval 与</text>
+<text x="1008" y="893" font-size="23" fill="#172b45" font-weight="450" >盲化</text>
+</g>
+<g id="node-slices" class="node node-evidence" data-region="434,1059,354,231">
+<rect x="434" y="1059" width="354" height="231" rx="14" fill="#f4effb" stroke="none" />
+<rect x="452" y="1076" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="459" y="1094" font-size="15" fill="#7045a4" font-weight="750" class="mono">07</text>
+<text x="456" y="1135" font-size="28" fill="#7045a4" font-weight="700" >Pair / group 切片结果</text>
+<text x="456" y="1178" font-size="23" fill="#172b45" font-weight="450" >按模态、设备、任务与清</text>
+<text x="456" y="1212" font-size="23" fill="#172b45" font-weight="450" >晰度</text>
+<text x="456" y="1246" font-size="23" fill="#172b45" font-weight="450" >报告配对 flip 与拒答 / 误拒</text>
+</g>
+<g id="node-human" class="node node-process" data-region="988,1076,354,197">
+<rect x="988" y="1076" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="1006" y="1093" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1013" y="1111" font-size="15" fill="#344f70" font-weight="750" class="mono">08</text>
+<text x="1010" y="1152" font-size="28" fill="#344f70" font-weight="700" >争议与高风险人工复核</text>
+<text x="1010" y="1195" font-size="23" fill="#172b45" font-weight="450" >保留冲突样本和裁决理由</text>
+<text x="1010" y="1229" font-size="23" fill="#172b45" font-weight="450" >未解决冲突不生业务结论</text>
+</g>
+<rect x="443.38" y="271" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="499.38" y="299" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">原始对照</text>
+<rect x="611" y="271" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="689" y="299" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">批准关系变异</text>
+<rect x="937.4" y="271" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1015.4" y="299" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">声明缺失组合</text>
+<rect x="433.44" y="624" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="489.44" y="652" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">一致输入</text>
+<rect x="611" y="624" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="667" y="652" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">冲突输入</text>
+<rect x="999.9000000000001" y="624" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1066.9" y="652" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">不完整输入</text>
+<rect x="810" y="911.13" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="888" y="939.13" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">独立判断关系</text>
+<rect x="611" y="977" width="221" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="721.5" y="1005" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">关系与识别分别出分</text>
+<rect x="808" y="1089.21" width="160" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="888" y="1117.21" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">争议 / 高风险</text>
+</g>
+</g>
+<text x="64" y="1763.9840728100112" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1763.9840728100112" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1793.9840728100112,470,174">
+<rect x="64" y="1793.9840728100112" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1815.9840728100112" width="7" height="30" rx="3" fill="#344f70" stroke="none" />
+<text x="106" y="1840.9840728100112" font-size="25" fill="#344f70" font-weight="700" >为什么需要配对</text>
+<text x="88" y="1895.9840728100112" font-size="23" fill="#172b45" font-weight="450" >单次只翻转一个关系</text>
+<text x="88" y="1930.9840728100112" font-size="23" fill="#172b45" font-weight="450" >自然样本与受控反例共同覆盖</text>
+</g>
+<g id="detail-1" data-region="565,1793.9840728100112,470,174">
+<rect x="565" y="1793.9840728100112" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1815.9840728100112" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="607" y="1840.9840728100112" font-size="25" fill="#ad3e4c" font-weight="700" >本页故障收据</text>
+<text x="589" y="1895.9840728100112" font-size="23" fill="#172b45" font-weight="450" >图文矛盾并移除独立 Oracle</text>
+<text x="589" y="1930.9840728100112" font-size="23" fill="#172b45" font-weight="450" >alignment 与 independent 同红</text>
+</g>
+<g id="detail-2" data-region="1066,1793.9840728100112,470,174">
+<rect x="1066" y="1793.9840728100112" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1815.9840728100112" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="1108" y="1840.9840728100112" font-size="25" fill="#945c0b" font-weight="700" >缺失不是脑补许可</text>
+<text x="1090" y="1895.9840728100112" font-size="23" fill="#172b45" font-weight="450" >关键模态缺失要拒答或交接</text>
+<text x="1090" y="1930.9840728100112" font-size="23" fill="#172b45" font-weight="450" >grader 无权改 gold 或自批</text>
+</g>
+<g id="failure-and-output" data-region="64,1999.9840728100112,1472,148">
+<rect x="64" y="1999.9840728100112" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2038.9840728100112" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2083.984072810011" font-size="23" fill="#ffdce2" font-weight="450" >高风险冲突未解决、关键模态缺失或受保护 Oracle 缺失时阻断自动晋级。</text>
+<text x="88" y="2126.984072810011" font-size="23" fill="#dce9fa" font-weight="450" >交付 pair manifest、关系矩阵、冲突与缺失反例及独立复核记录。</text>
+</g>
+<text x="64" y="2195.984072810011" font-size="20" fill="#50647c" font-weight="450" >合成配对 fault 不证明真实设备、音画同步、标注者或生产分布。</text>
+<text x="64" y="2234.984072810011" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-X501 · 图文关系用配对对照，而非单模态加总</text>
+<path class="edge edge-data" d="M64 2274.984072810011 L101 2274.984072810011" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2280.984072810011" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2274.984072810011 L397 2274.984072810011" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2280.984072810011" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2274.984072810011 L693 2274.984072810011" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2280.984072810011" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2274.984072810011 L989 2274.984072810011" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2280.984072810011" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2274.984072810011 L1285 2274.984072810011" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2280.984072810011" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "siteBase": "http://127.0.0.1:4180",
+  "environment": "LOCAL_STATIC",
+  "static_svg_http_hashes": 125,
+  "zip_http_hashes": 2,
+  "gallery_count": 126,
+  "course_filter_count": 87,
+  "gallery_search_and_before_after": "PASS",
+  "galleryMobile": {
+    "viewport": 390,
+    "width": 390
+  },
+  "embedded": [
+    {
+      "id": "TD-M04",
+      "src": "visuals/modules/TD-M04.svg",
+      "width": 1600,
+      "height": 1700,
+      "alt": "测试 Agent、Worker 与 Workflow模块全景：7 个阶段依次为 三层评测模型、工具与权限、安全边界、浏览器 Agent、自愈风险、控制权划分、编排与记忆，每段标注出口工件与控制问题。"
+    },
+    {
+      "id": "TD-T16",
+      "src": "visuals/course/TD-T16.svg?v=e33bac53d461",
+      "width": 1600,
+      "height": 3795,
+      "alt": "动作先对照任务，再过写前授权的交互与权限边界图：动作正确性与执行权限分别验证：工具和参数符合批准任务，仍须通过模型之外的身份、边界、幂等与审批。"
+    },
+    {
+      "id": "TD-T11",
+      "src": "visuals/course/TD-T11.svg?v=f33a842f0541",
+      "width": 1600,
+      "height": 4111,
+      "alt": "真实引用与上下文支撑分别判定的证据关系图：先查引用存在，再核对实际引用片段与 claim；整份 Context 能支持声明也不能抵消引错文档。"
+    },
+    {
+      "id": "TD-X603",
+      "src": "visuals/course/TD-X603.svg?v=80524533c927",
+      "width": 1600,
+      "height": 4062,
+      "alt": "隔离拒绝、纠错与授权删除分三路的状态与恢复边界图：跨用户命中触发拒绝与隔离修复，陈旧内容触发失效与纠错；只有经核验的遗忘请求才授权删除目标副本。"
+    },
+    {
+      "id": "TD-AG-00",
+      "src": "materials/agent-architecture-system/visuals/AG-DIM-ARCHITECTURE.svg",
+      "width": 1600,
+      "height": 4230,
+      "alt": "从退款风险到具名停止动作的分层架构图：总架构先显式画出状态、信任和副作用边界，再把 D0–D7、证据环、护栏和失败回灌连接起来。"
+    },
+    {
+      "id": "TD-C03",
+      "src": "materials/career-evolution/visuals/career-evidence-radar.svg",
+      "width": 1600,
+      "height": 2383,
+      "alt": "五维证据与目标逐项对照的对照与责任边界图：来源雷达只有职级示例等级，没有当前学习者测量；改用五维定性证据矩阵，不画虚构数值轮廓。"
+    },
+    {
+      "id": "TD-B02",
+      "src": "visuals/course/TD-B02.svg?v=5f996f7b4c88",
+      "width": 1600,
+      "height": 2744,
+      "alt": "四类数据各自回答一个问题的对照与责任边界图：真实分布、风险边界、历史退化和封存验收有不同纪律，分角色维护并审计访问。"
+    },
+    {
+      "id": "TD-AP07",
+      "src": "visuals/course/TD-AP07.svg?v=d3217afc4400",
+      "width": 1600,
+      "height": 3073,
+      "alt": "趋势与快照区分缓存和泄漏的证据关系图：固定版本与负载，资源斜率、尾延迟和 cleanup 联合判读；平台期仍需检查缓存上限。"
+    }
+  ],
+  "pageErrors": [],
+  "boundary": "Local static serving and UI readback; no claim of remote deployment or learner acceptance."
+}

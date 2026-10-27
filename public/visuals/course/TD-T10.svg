@@ -1,90 +1,150 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 1000" width="1600" height="1000">
-  <title id="title">知识库里明明有答案，RAG 为什么还是搜不到｜专业关系图</title>
-  <desc id="desc">这张图把合成输入、版本化合同、候选行为、独立 Oracle、红绿报告与人工 Gate 分开；模型、企业集成和生产状态没有被本地 Fixture 代替。 图中区分数据流、控制流、证据流与反馈回路，并显示失败路径、系统边界和责任门禁。</desc>
-  <defs>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173f32" flood-opacity="0.12"/></filter>
-    <marker id="arrow-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7fb8"/></marker>
-<marker id="arrow-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c9852c"/></marker>
-<marker id="arrow-evidence" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#765ca6"/></marker>
-<marker id="arrow-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2c7b61"/></marker>
-  </defs>
-  <rect width="1600" height="1000" rx="32" fill="#f4f7f2"/>
-  <rect x="0" y="0" width="1600" height="146" rx="32" fill="#174f3f"/>
-  <text x="72" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" font-weight="800" fill="#b8dd78">TD-T10 · metric-experiment · metric-paired-a</text>
-  <text x="72" y="92" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="30" font-weight="800" fill="#ffffff">知识库里明明有答案，RAG为什么还是搜不到｜专业关系图</text>
-  <text x="72" y="132" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="600" fill="#d9e9df">这张图把合成输入、版本化合同、候选行为、独立Oracle、红绿报告与人工Gate分开；模型、企业集成和生产状态没有被本地</text>
-  <rect x="54" y="172" width="1492" height="590" rx="26" fill="#fbfdfb" stroke="#c9d6cf" stroke-width="2"/>
-  <text x="82" y="204" font-size="17" font-weight="800" fill="#52665e">系统边界 · 课程方法与可复核工件在边界内；真实企业系统、模型和生产状态在边界外。</text>
-  <path d="M 810 285 C 885 285, 70 490, 145 490" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 305 490 C 380 490, 500 490, 575 490" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 735 490 C 810 490, 930 490, 1005 490" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1165 490 C 1240 490, 70 685, 145 685" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 305 685 C 380 685, 500 685, 575 685" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 735 685 C 810 685, 930 685, 1005 685" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1165 685 C 1240 685, 1360 685, 1435 685" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 1595 685 C 1670 685, 70 490, 145 490" fill="none" stroke="#2c7b61" stroke-width="4" stroke-dasharray="14 6" marker-end="url(#arrow-feedback)" opacity="0.92"/>
-  <g filter="url(#shadow)">
-      <rect x="650" y="225" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="650" y="225" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="678" y="253" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">01</text>
-      <text x="678" y="287" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Queryslices</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="145" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="145" y="430" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="173" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">02</text>
-      <text x="173" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Queryrewrite</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="575" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="575" y="430" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="603" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">03</text>
-      <text x="603" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">ACL/metadatafilter</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1005" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1005" y="430" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1033" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">04</text>
-      <text x="1033" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Retriever</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="145" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="145" y="625" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="173" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">05</text>
-      <text x="173" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Top-kranking</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="575" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="575" y="625" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="603" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">06</text>
-      <text x="603" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Goldcomparison</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1005" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="1005" y="625" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="1033" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">07</text>
-      <text x="1033" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Missreason/owner</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1435" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1435" y="625" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1463" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">08</text>
-      <text x="1463" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">版本化输入</text>
-    </g>
-  <g transform="translate(70 788)">
-    <rect width="710" height="112" rx="20" fill="#fff4ef" stroke="#e5aaa2" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#b84c42">失败路径</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">任一关键输入、权限、Oracle、版本或终态证据缺失时进入</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">FAIL/BLOCKED/UNKNOWN，不静默通过。</text>
-  </g>
-  <g transform="translate(820 788)">
-    <rect width="710" height="112" rx="20" fill="#eef8f2" stroke="#9bc6ac" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#2c7b61">反馈闭环 · Owner Gate</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">失败证据回到最早分叉点，修复后使用同一版本输入重跑并产生新receipt。业务/</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">质量Owner批准判据、风险接受与发布；AI只生成候选和整理证据。</text>
-  </g>
-  <g transform="translate(100 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#4f7fb8" stroke-width="5" stroke-dasharray=""/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">数据流</text></g>
-<g transform="translate(345 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#c9852c" stroke-width="5" stroke-dasharray="10 7"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">控制流</text></g>
-<g transform="translate(590 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#765ca6" stroke-width="5" stroke-dasharray="4 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">证据流</text></g>
-<g transform="translate(835 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#2c7b61" stroke-width="5" stroke-dasharray="14 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">反馈闭环</text></g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2678" viewBox="0 0 1600 2678" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">Gold 在哪一层丢失，就修哪一层</title><desc id="desc">检索和生成独立出分：先找必要证据是否存在、是否召回、如何排序及是否进入最终上下文。 Gold/qrels 约束下的召回、排序、上下文与生成故障分流 fixture mutation 不证明私有语料召回表现；公开基准阈值不可直接迁移。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-T10 / Miss reason 决定修哪一层;docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-T10 / Prompt 只生成候选，Oracle 独立判定">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-T10&quot;,&quot;pageIds&quot;:[&quot;TD-T10&quot;],&quot;primaryPageIds&quot;:[&quot;TD-T10&quot;],&quot;layout&quot;:&quot;decision&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-T10 / Miss reason 决定修哪一层&quot;,&quot;quote&quot;:&quot;相关文档已召回但位次低则检查 ranking；文档在 Context 中仍答错才进入生成层。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-T10 / Prompt 只生成候选，Oracle 独立判定&quot;,&quot;quote&quot;:&quot;`relevant_doc_recalled=false` 触发 FAIL，即使最终答案可能看起来正确&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;gold&quot;,&quot;title&quot;:&quot;查询切片与版本化 qrels&quot;},{&quot;id&quot;:&quot;corpus&quot;,&quot;title&quot;:&quot;语料中有必要证据吗&quot;},{&quot;id&quot;:&quot;retrieval&quot;,&quot;title&quot;:&quot;候选召回与过滤&quot;},{&quot;id&quot;:&quot;ranking&quot;,&quot;title&quot;:&quot;Top-k 排序&quot;},{&quot;id&quot;:&quot;context&quot;,&quot;title&quot;:&quot;最终 Context&quot;},{&quot;id&quot;:&quot;generation&quot;,&quot;title&quot;:&quot;生成与引用核查&quot;},{&quot;id&quot;:&quot;miss&quot;,&quot;title&quot;:&quot;Miss reason 与 Owner&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;gold&quot;,&quot;to&quot;:&quot;corpus&quot;,&quot;label&quot;:&quot;查必要证据&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;corpus&quot;,&quot;to&quot;:&quot;retrieval&quot;,&quot;label&quot;:&quot;存在于当前语料&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;corpus&quot;,&quot;to&quot;:&quot;miss&quot;,&quot;label&quot;:&quot;不存在&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;gold&quot;,&quot;to&quot;:&quot;retrieval&quot;,&quot;label&quot;:&quot;独立 relevant 判断&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;retrieval&quot;,&quot;to&quot;:&quot;ranking&quot;,&quot;label&quot;:&quot;候选已召回&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;retrieval&quot;,&quot;to&quot;:&quot;miss&quot;,&quot;label&quot;:&quot;未召回 / 过滤误伤&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;ranking&quot;,&quot;to&quot;:&quot;context&quot;,&quot;label&quot;:&quot;最终 top-k&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;ranking&quot;,&quot;to&quot;:&quot;miss&quot;,&quot;label&quot;:&quot;排序压出窗口&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;context&quot;,&quot;to&quot;:&quot;generation&quot;,&quot;label&quot;:&quot;上下文充分再测生成&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;context&quot;,&quot;to&quot;:&quot;miss&quot;,&quot;label&quot;:&quot;组装丢失&quot;,&quot;kind&quot;:&quot;risk&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2678" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-T10</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >Gold 在哪一层丢失，就修哪一层</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >检索和生成独立出分：先找必要证据是否存在、是否召回、如何排序及是否进入最终上下文。</text>
+<g id="system-graph" data-region="64,234,1472,1840">
+<rect x="64" y="234" width="1472" height="1840" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >Gold/qrels 约束下的召回、排序、上下文与生成故障分流</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >判断与分支</text>
+<g transform="translate(150.79999999999995 350) scale(1)" data-graph-scale="1" data-routing="dot">
+<path class="edge edge-control" d="M378 235 C378 292.05999999999995 163.59 296.51 135.11 346.5899999999999" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e0" data-from="gold" data-to="corpus"/>
+<path class="edge edge-data" d="M132 589 C132 669.7 217.9 644.16 294 671 C330.35 683.82 454.17 671.3 478.01 700.11" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="corpus" data-to="retrieval"/>
+<path class="edge edge-risk" d="M220 589 C220 746.14 144.78 817 240 942 C309.07 1032.67 372.79 994.9 483 1024 C524.23 1034.8899999999999 661.88 1020.28 686.29 1052.8899999999999" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e2" data-from="corpus" data-to="miss"/>
+<path class="edge edge-control" d="M466 235 C466 339.56999999999994 563.01 585.1700000000001 569.64 699.38" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e3" data-from="gold" data-to="retrieval"/>
+<path class="edge edge-data" d="M703 826.5 C716.52 826.5 711.57 809.82 724 804.5 C778.75 781.07 803.26 781.04 858 804.5 C865.96 807.91 866.43 816.22 869.8 821.3" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e4" data-from="retrieval" data-to="ranking"/>
+<path class="edge edge-risk" d="M482 942 C482 988.78 507.87 999.96 548 1024 C585.43 1046.4299999999998 730.34 1021.45 756.08 1052.9299999999998" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e5" data-from="retrieval" data-to="miss"/>
+<path class="edge edge-data" d="M1010 924 C1010 1019.97 885.43 934.56 802 982 C778.5 995.36 782.68 1012.96 758 1024 C710.42 1045.3 315.78 1013.06 262.05 1053.8" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e6" data-from="ranking" data-to="context"/>
+<path class="edge edge-risk" d="M1098 924 C1098 1004.12 1019.89 988.62 948 1024 C902.39 1046.45 841.08 1014.73 831.33 1052.21" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e7" data-from="ranking" data-to="miss"/>
+<path class="edge edge-control" d="M256 1295 C256 1345.09 256 1360.48 256 1405.28" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e8" data-from="context" data-to="generation"/>
+<path class="edge edge-risk" d="M433 1179.5 C457.76 1179.5 432.59 1217.48 453 1231.5 C494.03 1259.68 523.97 1259.68 565 1231.5 C581.9 1219.8899999999999 567.54 1191.85 576.17 1182.55" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e9" data-from="context" data-to="miss"/>
+<g id="node-gold" class="node node-control" data-region="246,0,354,236">
+<rect x="246" y="0" width="354" height="236" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="264" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="271" y="35" font-size="15" fill="#945c0b" font-weight="750" class="mono">01</text>
+<text x="268" y="76" font-size="28" fill="#945c0b" font-weight="700" >查询切片与版本化</text>
+<text x="268" y="115" font-size="28" fill="#945c0b" font-weight="700" >qrels</text>
+<text x="268" y="158" font-size="23" fill="#172b45" font-weight="450" >绑定 corpus、k 与评测单元</text>
+<text x="268" y="192" font-size="23" fill="#172b45" font-weight="450" >保留争议及 unjudged 状态</text>
+</g>
+<g id="node-corpus" class="node node-data" data-region="0,358,354,231">
+<rect x="0" y="358" width="354" height="231" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="18" y="375" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="393" font-size="15" fill="#087b76" font-weight="750" class="mono">02</text>
+<text x="22" y="434" font-size="28" fill="#087b76" font-weight="700" >语料中有必要证据吗</text>
+<text x="22" y="477" font-size="23" fill="#172b45" font-weight="450" >核对 source 与 chunk</text>
+<text x="22" y="511" font-size="23" fill="#172b45" font-weight="450" >lineage</text>
+<text x="22" y="545" font-size="23" fill="#172b45" font-weight="450" >没有则补语料，不换模型</text>
+</g>
+<g id="node-retrieval" class="node node-process" data-region="350,711,354,231">
+<rect x="350" y="711" width="354" height="231" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="368" y="728" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="375" y="746" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="372" y="787" font-size="28" fill="#344f70" font-weight="700" >候选召回与过滤</text>
+<text x="372" y="830" font-size="23" fill="#172b45" font-weight="450" >raw query / rewrite /</text>
+<text x="372" y="864" font-size="23" fill="#172b45" font-weight="450" >filters</text>
+<text x="372" y="898" font-size="23" fill="#172b45" font-weight="450" >doc_id、score 与索引版本</text>
+</g>
+<g id="node-ranking" class="node node-process" data-region="878,728,354,197">
+<rect x="878" y="728" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="896" y="745" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="903" y="763" font-size="15" fill="#344f70" font-weight="750" class="mono">04</text>
+<text x="900" y="804" font-size="28" fill="#344f70" font-weight="700" >Top-k 排序</text>
+<text x="900" y="847" font-size="23" fill="#172b45" font-weight="450" >已召回但被压到 k 之外？</text>
+<text x="900" y="881" font-size="23" fill="#172b45" font-weight="450" >Recall 与 MRR 不能互替</text>
+</g>
+<g id="node-context" class="node node-data" data-region="79,1064,354,231">
+<rect x="79" y="1064" width="354" height="231" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="97" y="1081" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="104" y="1099" font-size="15" fill="#087b76" font-weight="750" class="mono">05</text>
+<text x="101" y="1140" font-size="28" fill="#087b76" font-weight="700" >最终 Context</text>
+<text x="101" y="1183" font-size="23" fill="#172b45" font-weight="450" >验证相关证据实际进入上</text>
+<text x="101" y="1217" font-size="23" fill="#172b45" font-weight="450" >下文</text>
+<text x="101" y="1251" font-size="23" fill="#172b45" font-weight="450" >检索命中不等于模型已看到</text>
+</g>
+<g id="node-generation" class="node node-ai" data-region="79,1417,354,231">
+<rect x="79" y="1417" width="354" height="231" rx="14" fill="#f4effb" stroke="none" />
+<rect x="97" y="1434" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="104" y="1452" font-size="15" fill="#7045a4" font-weight="750" class="mono">06</text>
+<text x="101" y="1493" font-size="28" fill="#7045a4" font-weight="700" >生成与引用核查</text>
+<text x="101" y="1536" font-size="23" fill="#172b45" font-weight="450" >Context 正确仍答错才到</text>
+<text x="101" y="1570" font-size="23" fill="#172b45" font-weight="450" >此层</text>
+<text x="101" y="1604" font-size="23" fill="#172b45" font-weight="450" >检查利用、忠实度与引用</text>
+</g>
+<g id="node-miss" class="node node-risk" data-region="585,1064,354,231">
+<rect x="585" y="1064" width="354" height="231" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="603" y="1081" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="610" y="1099" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">07</text>
+<text x="607" y="1140" font-size="28" fill="#ad3e4c" font-weight="700" >Miss reason 与 Owner</text>
+<text x="607" y="1183" font-size="23" fill="#172b45" font-weight="450" >语料 / chunk / rewrite /</text>
+<text x="607" y="1217" font-size="23" fill="#172b45" font-weight="450" >ACL</text>
+<text x="607" y="1251" font-size="23" fill="#172b45" font-weight="450" >召回、排序或显式 UNKNOWN</text>
+</g>
+<rect x="324.86" y="276" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="391.86" y="304" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">查必要证据</text>
+<rect x="294" y="629" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="382.5" y="657" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">存在于当前语料</text>
+<rect x="240" y="805.5" width="90" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="285" y="833.5" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">不存在</text>
+<rect x="548.98" y="452.5" width="219" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="658.48" y="480.5" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">独立 relevant 判断</text>
+<rect x="724" y="744.92" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="791" y="772.92" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">候选已召回</text>
+<rect x="548" y="982" width="204" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="650" y="1010" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">未召回 / 过滤误伤</text>
+<rect x="802" y="982" width="136" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="870" y="1010" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">最终 top-k</text>
+<rect x="1065.9" y="982" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1143.9" y="1010" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">排序压出窗口</text>
+<rect x="256" y="1335" width="221" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="366.5" y="1363" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">上下文充分再测生成</text>
+<rect x="453" y="1189.5" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="509" y="1217.5" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">组装丢失</text>
+</g>
+</g>
+<text x="64" y="2128" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2128" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2158,470,174">
+<rect x="64" y="2158" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2180" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="106" y="2205" font-size="25" fill="#7045a4" font-weight="700" >取样点逐段保留</text>
+<text x="88" y="2260" font-size="23" fill="#172b45" font-weight="450" >保存 query、rewrite 与 filters</text>
+<text x="88" y="2295" font-size="23" fill="#172b45" font-weight="450" >候选、位次与最终 Context 分开</text>
+</g>
+<g id="detail-1" data-region="565,2158,470,174">
+<rect x="565" y="2158" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2180" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="607" y="2205" font-size="25" fill="#ad3e4c" font-weight="700" >本页反证</text>
+<text x="589" y="2260" font-size="23" fill="#172b45" font-weight="450" >relevant_doc_recalled=false</text>
+<text x="589" y="2295" font-size="23" fill="#172b45" font-weight="450" >答案碰巧正确也必须检索 FAIL</text>
+</g>
+<g id="detail-2" data-region="1066,2158,470,174">
+<rect x="1066" y="2158" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2180" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="1108" y="2205" font-size="25" fill="#945c0b" font-weight="700" >指标转成工作项</text>
+<text x="1090" y="2260" font-size="23" fill="#172b45" font-weight="450" >Recall 看覆盖，MRR 看首个相关</text>
+<text x="1090" y="2295" font-size="23" fill="#172b45" font-weight="450" >每条 miss 绑定修复层与 Owner</text>
+</g>
+<g id="failure-and-output" data-region="64,2364,1472,148">
+<rect x="64" y="2364" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2403" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2448" font-size="23" fill="#ffdce2" font-weight="450" >无独立 gold 或争议未裁决保持 UNKNOWN；不能用最终答案正确借分给检索。</text>
+<text x="88" y="2491" font-size="23" fill="#dce9fa" font-weight="450" >交付 per-query 检索报告、miss reason 分布与可定位的修复重跑。</text>
+</g>
+<text x="64" y="2560" font-size="20" fill="#50647c" font-weight="450" >fixture mutation 不证明私有语料召回表现；公开基准阈值不可直接迁移。</text>
+<text x="64" y="2599" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-T10 · Gold 在哪一层丢失，就修哪一层</text>
+<path class="edge edge-data" d="M64 2639 L101 2639" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2645" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2639 L397 2639" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2645" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2639 L693 2639" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2645" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2639 L989 2639" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2645" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2639 L1285 2639" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2645" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

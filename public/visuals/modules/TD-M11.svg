@@ -1,93 +1,168 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 1000" width="1600" height="1000">
-  <title id="title">Agent 性能与稳定性工程｜专业关系图</title>
-  <desc id="desc">Task、Step、Model/Tool Attempt 的指标树如何揭示队列、重试与成本放大？ 图中区分数据流、控制流、证据流与反馈回路，并显示失败路径、系统边界和责任门禁。</desc>
-  <defs>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173f32" flood-opacity="0.12"/></filter>
-    <marker id="arrow-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7fb8"/></marker>
-<marker id="arrow-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c9852c"/></marker>
-<marker id="arrow-evidence" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#765ca6"/></marker>
-<marker id="arrow-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2c7b61"/></marker>
-  </defs>
-  <rect width="1600" height="1000" rx="32" fill="#f4f7f2"/>
-  <rect x="0" y="0" width="1600" height="146" rx="32" fill="#174f3f"/>
-  <text x="72" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" font-weight="800" fill="#b8dd78">TD-M11 · metric-system · module-agent-performance</text>
-  <text x="72" y="92" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="30" font-weight="800" fill="#ffffff">Agent性能与稳定性工程｜专业关系图</text>
-  <text x="72" y="132" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="600" fill="#d9e9df">Task、Step、Model/ToolAttempt的指标树如何揭示队列、重试与成本放大？</text>
-  <rect x="54" y="172" width="1492" height="590" rx="26" fill="#fbfdfb" stroke="#c9d6cf" stroke-width="2"/>
-  <text x="82" y="204" font-size="17" font-weight="800" fill="#52665e">系统边界 · 不覆盖模型推理引擎的内部优化；不覆盖 GPU 集群调度与资源编排；容量数据来自 synthet…</text>
-  <path d="M 810 285 C 885 285, 70 490, 145 490" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 305 490 C 380 490, 500 490, 575 490" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 735 490 C 810 490, 930 490, 1005 490" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1165 490 C 1240 490, 70 685, 145 685" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 305 685 C 380 685, 500 685, 575 685" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 735 685 C 810 685, 930 685, 1005 685" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1165 685 C 1240 685, 1360 685, 1435 685" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 1595 685 C 1670 685, 70 490, 145 490" fill="none" stroke="#2c7b61" stroke-width="4" stroke-dasharray="14 6" marker-end="url(#arrow-feedback)" opacity="0.92"/>
-  <g filter="url(#shadow)">
-      <rect x="650" y="225" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="650" y="225" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="678" y="253" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">01</text>
-      <text x="678" y="287" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">定义工作负载→工作负载模型与Oracle证</text>
-<text x="678" y="317" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">据卡</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="145" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="145" y="430" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="173" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">02</text>
-      <text x="173" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">建指标树→性能指标字典</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="575" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="575" y="430" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="603" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">03</text>
-      <text x="603" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">统一Trace语义→TraceSchema与字段治</text>
-<text x="603" y="522" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">理表</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1005" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1005" y="430" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1033" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">04</text>
-      <text x="1033" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">开闭环对照→开闭环对照报告</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="145" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="145" y="625" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="173" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">05</text>
-      <text x="173" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">容量与瓶颈→Synthetic容量曲线与瓶颈</text>
-<text x="173" y="717" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">证据</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="575" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="575" y="625" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="603" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">06</text>
-      <text x="603" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">超时与降级→策略与0/1/0证据</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1005" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="1005" y="625" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="1033" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">07</text>
-      <text x="1033" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">长稳与漂移→长稳趋势与资源差分</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1435" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1435" y="625" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1463" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">08</text>
-      <text x="1463" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">SLO与事故→SLO、告警与事故Runbook</text>
-    </g>
-  <g transform="translate(70 788)">
-    <rect width="710" height="112" rx="20" fill="#fff4ef" stroke="#e5aaa2" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#b84c42">失败路径</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">任一关键输入、权限、Oracle、版本或终态证据缺失时进入</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">FAIL/BLOCKED/UNKNOWN，不静默通过。</text>
-  </g>
-  <g transform="translate(820 788)">
-    <rect width="710" height="112" rx="20" fill="#eef8f2" stroke="#9bc6ac" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#2c7b61">反馈闭环 · Owner Gate</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">失败证据回到最早分叉点，修复后使用同一版本输入重跑并产生新receipt。业务/</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">质量Owner批准判据、风险接受与发布；AI只生成候选和整理证据。</text>
-  </g>
-  <g transform="translate(100 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#4f7fb8" stroke-width="5" stroke-dasharray=""/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">数据流</text></g>
-<g transform="translate(345 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#c9852c" stroke-width="5" stroke-dasharray="10 7"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">控制流</text></g>
-<g transform="translate(590 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#765ca6" stroke-width="5" stroke-dasharray="4 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">证据流</text></g>
-<g transform="translate(835 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#2c7b61" stroke-width="5" stroke-dasharray="14 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">反馈闭环</text></g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2248" viewBox="0 0 1600 2248" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">Agent 性能与稳定性工程｜模块全景</title><desc id="desc">Agent 的性能问题是多步累积的，单步指标看不出来。 本模块学习路径 · 箭头表示学习先后与交付承接 不覆盖模型推理引擎的内部优化；不覆盖 GPU 集群调度与资源编排；容量数据来自 synthetic 负载，未在生产流量下验证。教学路线不证明真实模型或生产效果，未执行环节保持 NOT_RUN。</desc><metadata data-source-ref="content/module-overviews.ts#TD-M11 / stages + logic + boundary">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-M11&quot;,&quot;pageIds&quot;:[&quot;TD-AP01&quot;,&quot;TD-AP02&quot;,&quot;TD-AP03&quot;,&quot;TD-AP04&quot;,&quot;TD-AP05&quot;,&quot;TD-AP06&quot;,&quot;TD-AP07&quot;,&quot;TD-AP08&quot;],&quot;primaryPageIds&quot;:[],&quot;layout&quot;:&quot;flow&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;content/module-overviews.ts&quot;,&quot;locator&quot;:&quot;TD-M11 / stages + logic + boundary&quot;,&quot;quote&quot;:&quot;Agent 的性能问题是多步累积的，单步指标看不出来。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;s1&quot;,&quot;title&quot;:&quot;定义工作负载&quot;},{&quot;id&quot;:&quot;s2&quot;,&quot;title&quot;:&quot;建指标树&quot;},{&quot;id&quot;:&quot;s3&quot;,&quot;title&quot;:&quot;统一 Trace 语义&quot;},{&quot;id&quot;:&quot;s4&quot;,&quot;title&quot;:&quot;开闭环对照&quot;},{&quot;id&quot;:&quot;s5&quot;,&quot;title&quot;:&quot;容量与瓶颈&quot;},{&quot;id&quot;:&quot;s6&quot;,&quot;title&quot;:&quot;超时与降级&quot;},{&quot;id&quot;:&quot;s7&quot;,&quot;title&quot;:&quot;长稳与漂移&quot;},{&quot;id&quot;:&quot;s8&quot;,&quot;title&quot;:&quot;SLO 与事故&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;s1&quot;,&quot;to&quot;:&quot;s2&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s2&quot;,&quot;to&quot;:&quot;s3&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s3&quot;,&quot;to&quot;:&quot;s4&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s4&quot;,&quot;to&quot;:&quot;s5&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s5&quot;,&quot;to&quot;:&quot;s6&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s6&quot;,&quot;to&quot;:&quot;s7&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;s7&quot;,&quot;to&quot;:&quot;s8&quot;,&quot;label&quot;:&quot;学习次序&quot;,&quot;kind&quot;:&quot;data&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2248" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-M11</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >Agent 性能与稳定性工程｜模块全景</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >Agent 的性能问题是多步累积的，单步指标看不出来。</text>
+<g id="system-graph" data-region="64,234,1472,1203.224592220828">
+<rect x="64" y="234" width="1472" height="1203.224592220828" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >本模块学习路径 · 箭头表示学习先后与交付承接</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >流程与交付</text>
+<g transform="translate(222.38393977415308 418.2559598494354) scale(0.8531994981179423)" data-graph-scale="0.8531994981179423">
+<path class="edge edge-data" d="M354.34 136.5 C397.74 136.5 444.33 136.5 488.25 136.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s1" data-to="s2"/>
+<path class="edge edge-data" d="M854.34 136.5 C897.74 136.5 944.33 136.5 988.25 136.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s2" data-to="s3"/>
+<path class="edge edge-data" d="M1177 273.39 C1177 323.69000000000005 1177 380.05999999999995 1177 428.16999999999996" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s3" data-to="s4"/>
+<path class="edge edge-data" d="M999.66 542.5 C956.27 542.5 909.67 542.5 865.76 542.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s4" data-to="s5"/>
+<path class="edge edge-data" d="M499.66 542.5 C456.27 542.5 409.67 542.5 365.76 542.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s5" data-to="s6"/>
+<path class="edge edge-data" d="M243.18 645.47 C277.57 698.98 319.66 764.47 354.88 819.28" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s6" data-to="s7"/>
+<path class="edge edge-data" d="M604.34 931.5 C647.74 931.5 694.33 931.5 738.25 931.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-from="s7" data-to="s8"/>
+<g id="node-s1" class="node node-input" data-region="0,0,354,273">
+<rect x="0" y="0" width="354" height="273" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="18" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="35" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="22" y="76" font-size="28" fill="#215cbb" font-weight="700" >定义工作负载</text>
+<text x="22" y="119" font-size="23" fill="#172b45" font-weight="450" >压的是什么任务、什么</text>
+<text x="22" y="153" font-size="23" fill="#172b45" font-weight="450" >分布？</text>
+<text x="22" y="187" font-size="23" fill="#172b45" font-weight="450" >产物：工作负载模型与</text>
+<text x="22" y="221" font-size="23" fill="#172b45" font-weight="450" >Oracle 证据卡</text>
+<text x="22" y="255" font-size="23" fill="#172b45" font-weight="450" >TD-AP01</text>
+</g>
+<g id="node-s2" class="node node-control" data-region="500,34,354,205">
+<rect x="500" y="34" width="354" height="205" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="518" y="51" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="525" y="69" font-size="15" fill="#945c0b" font-weight="750" class="mono">02</text>
+<text x="522" y="110" font-size="28" fill="#945c0b" font-weight="700" >建指标树</text>
+<text x="522" y="153" font-size="23" fill="#172b45" font-weight="450" >任务级和步骤级怎么对齐？</text>
+<text x="522" y="187" font-size="23" fill="#172b45" font-weight="450" >产物：性能指标字典</text>
+<text x="522" y="221" font-size="23" fill="#172b45" font-weight="450" >TD-AP02</text>
+</g>
+<g id="node-s3" class="node node-ai" data-region="1000,0,354,273">
+<rect x="1000" y="0" width="354" height="273" rx="14" fill="#f4effb" stroke="none" />
+<rect x="1018" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1025" y="35" font-size="15" fill="#7045a4" font-weight="750" class="mono">03</text>
+<text x="1022" y="76" font-size="28" fill="#7045a4" font-weight="700" >统一 Trace 语义</text>
+<text x="1022" y="119" font-size="23" fill="#172b45" font-weight="450" >一次 Tool Attempt 记哪些</text>
+<text x="1022" y="153" font-size="23" fill="#172b45" font-weight="450" >字段？</text>
+<text x="1022" y="187" font-size="23" fill="#172b45" font-weight="450" >产物：Trace Schema 与字</text>
+<text x="1022" y="221" font-size="23" fill="#172b45" font-weight="450" >段治理表</text>
+<text x="1022" y="255" font-size="23" fill="#172b45" font-weight="450" >TD-AP03</text>
+</g>
+<g id="node-s4" class="node node-data" data-region="1000,440,354,205">
+<rect x="1000" y="440" width="354" height="205" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="1018" y="457" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="1025" y="475" font-size="15" fill="#087b76" font-weight="750" class="mono">04</text>
+<text x="1022" y="516" font-size="28" fill="#087b76" font-weight="700" >开闭环对照</text>
+<text x="1022" y="559" font-size="23" fill="#172b45" font-weight="450" >测出来的延迟被低估了吗？</text>
+<text x="1022" y="593" font-size="23" fill="#172b45" font-weight="450" >产物：开闭环对照报告</text>
+<text x="1022" y="627" font-size="23" fill="#172b45" font-weight="450" >TD-AP04</text>
+</g>
+<g id="node-s5" class="node node-evidence" data-region="500,423,354,239">
+<rect x="500" y="423" width="354" height="239" rx="14" fill="#f4effb" stroke="none" />
+<rect x="518" y="440" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="525" y="458" font-size="15" fill="#7045a4" font-weight="750" class="mono">05</text>
+<text x="522" y="499" font-size="28" fill="#7045a4" font-weight="700" >容量与瓶颈</text>
+<text x="522" y="542" font-size="23" fill="#172b45" font-weight="450" >拐点在哪，卡在哪一段？</text>
+<text x="522" y="576" font-size="23" fill="#172b45" font-weight="450" >产物：Synthetic 容量曲线</text>
+<text x="522" y="610" font-size="23" fill="#172b45" font-weight="450" >与瓶颈证据</text>
+<text x="522" y="644" font-size="23" fill="#172b45" font-weight="450" >TD-AP05</text>
+</g>
+<g id="node-s6" class="node node-process" data-region="0,440,354,205">
+<rect x="0" y="440" width="354" height="205" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="18" y="457" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="475" font-size="15" fill="#344f70" font-weight="750" class="mono">06</text>
+<text x="22" y="516" font-size="28" fill="#344f70" font-weight="700" >超时与降级</text>
+<text x="22" y="559" font-size="23" fill="#172b45" font-weight="450" >重试预算会不会放大故障？</text>
+<text x="22" y="593" font-size="23" fill="#172b45" font-weight="450" >产物：策略与 0/1/0 证据</text>
+<text x="22" y="627" font-size="23" fill="#172b45" font-weight="450" >TD-AP06</text>
+</g>
+<g id="node-s7" class="node node-risk" data-region="250,829,354,205">
+<rect x="250" y="829" width="354" height="205" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="268" y="846" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="275" y="864" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">07</text>
+<text x="272" y="905" font-size="28" fill="#ad3e4c" font-weight="700" >长稳与漂移</text>
+<text x="272" y="948" font-size="23" fill="#172b45" font-weight="450" >跑八小时之后还一样吗？</text>
+<text x="272" y="982" font-size="23" fill="#172b45" font-weight="450" >产物：长稳趋势与资源差分</text>
+<text x="272" y="1016" font-size="23" fill="#172b45" font-weight="450" >TD-AP07</text>
+</g>
+<g id="node-s8" class="node node-input" data-region="750,812,354,239">
+<rect x="750" y="812" width="354" height="239" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="768" y="829" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="775" y="847" font-size="15" fill="#215cbb" font-weight="750" class="mono">08</text>
+<text x="772" y="888" font-size="28" fill="#215cbb" font-weight="700" >SLO 与事故</text>
+<text x="772" y="931" font-size="23" fill="#172b45" font-weight="450" >线上退化多久能被发现？</text>
+<text x="772" y="965" font-size="23" fill="#172b45" font-weight="450" >产物：SLO、告警与事故</text>
+<text x="772" y="999" font-size="23" fill="#172b45" font-weight="450" >Runbook</text>
+<text x="772" y="1033" font-size="23" fill="#172b45" font-weight="450" >TD-AP08</text>
+</g>
+<path d="M448.15932 136.5 L450.26 284.5" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="394.58" y="263.5" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="450.26" y="291.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<path d="M921.1000000000001 136.5 L920.26 284.5" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="864.58" y="263.5" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="920.26" y="291.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<rect x="1104.62" y="323.24" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1160.3" y="351.24" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<path d="M946.4287999999998 542.5 L950.43 690.5" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="894.75" y="669.5" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="950.43" y="697.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<path d="M419.36560000000003 542.5 L420.43 690.5" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="364.75" y="669.5" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="420.43" y="697.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<rect x="224.57088000000005" y="694.83184" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="280.25088000000005" y="722.83184" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+<path d="M671.1 931.5 L670.26 1079.5" stroke="#9aabc0" stroke-width="1.2" stroke-dasharray="3 4" fill="none"/>
+<rect x="614.58" y="1058.5" width="111.36" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="670.26" y="1086.5" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label">学习次序</text>
+</g>
+</g>
+<text x="64" y="1491.224592220828" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1491.224592220828" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1521.224592220828,470,314">
+<rect x="64" y="1521.224592220828" width="470" height="314" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1543.224592220828" width="7" height="30" rx="3" fill="#215cbb" stroke="none" />
+<text x="106" y="1568.224592220828" font-size="25" fill="#215cbb" font-weight="700" >为什么先学这一步</text>
+<text x="88" y="1623.224592220828" font-size="23" fill="#172b45" font-weight="450" >一次 Agent 任务包含十几到几十次模</text>
+<text x="88" y="1658.224592220828" font-size="23" fill="#172b45" font-weight="450" >型调用和工具调用，每一步的延迟单看</text>
+<text x="88" y="1693.224592220828" font-size="23" fill="#172b45" font-weight="450" >都正常，加起来用户等了两分钟。</text>
+</g>
+<g id="detail-1" data-region="565,1521.224592220828,470,314">
+<rect x="565" y="1521.224592220828" width="470" height="314" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1543.224592220828" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="607" y="1568.224592220828" font-size="25" fill="#7045a4" font-weight="700" >怎样承接下一步</text>
+<text x="589" y="1623.224592220828" font-size="23" fill="#172b45" font-weight="450" >Trace 语义是这个模块的地基。</text>
+</g>
+<g id="detail-2" data-region="1066,1521.224592220828,470,314">
+<rect x="1066" y="1521.224592220828" width="470" height="314" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1543.224592220828" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="1108" y="1568.224592220828" font-size="25" fill="#945c0b" font-weight="700" >如何判断学会了</text>
+<text x="1090" y="1623.224592220828" font-size="23" fill="#172b45" font-weight="450" >开闭环负载对照单独占一页，因为</text>
+<text x="1090" y="1658.224592220828" font-size="23" fill="#172b45" font-weight="450" >Coordinated Omission 在 Agent 压</text>
+<text x="1090" y="1693.224592220828" font-size="23" fill="#172b45" font-weight="450" >测里特别容易出现：客户端等上一个</text>
+<text x="1090" y="1728.224592220828" font-size="23" fill="#172b45" font-weight="450" >任务结束才发下一个，系统慢下来时</text>
+<text x="1090" y="1763.224592220828" font-size="23" fill="#172b45" font-weight="450" >压力自动减小，测出来的延迟分布比</text>
+<text x="1090" y="1798.224592220828" font-size="23" fill="#172b45" font-weight="450" >真实情况乐观得多。</text>
+</g>
+<g id="failure-and-output" data-region="64,1867.224592220828,1472,183">
+<rect x="64" y="1867.224592220828" width="1472" height="183" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="1906.224592220828" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="1951.224592220828" font-size="23" fill="#ffdce2" font-weight="450" >阶段所需输入、判据或证据缺失时，先返回相应课页补齐；不能把练习执行成功直接当作生产能力证明。</text>
+<text x="88" y="1994.224592220828" font-size="23" fill="#dce9fa" font-weight="450" >带走物：工作负载模型与 Oracle 证据卡；性能指标字典；Trace Schema 与字段治理表；开闭环对照报告；Synthetic 容量曲线</text>
+<text x="88" y="2029.224592220828" font-size="23" fill="#dce9fa" font-weight="450" >与瓶颈证据；策略与 0/1/0 证据；长稳趋势与资源差分；SLO、告警与事故 Runbook。</text>
+</g>
+<text x="64" y="2098.224592220828" font-size="20" fill="#50647c" font-weight="450" >不覆盖模型推理引擎的内部优化；不覆盖 GPU 集群调度与资源编排；容量数据来自 synthetic 负载，未在生产流量下验证。教学路线不证明真实模型</text>
+<text x="64" y="2129.224592220828" font-size="20" fill="#50647c" font-weight="450" >或生产效果，未执行环节保持 NOT_RUN。</text>
+<text x="64" y="2168.224592220828" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-AP01 / TD-AP02 / TD-AP03 / TD-AP04 / TD-AP05 / TD-AP06 / TD-AP07 / TD-AP08 · Agent 性能与稳定性工程｜模块全景</text>
+<path class="edge edge-data" d="M64 2208.224592220828 L101 2208.224592220828" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2214.224592220828" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2208.224592220828 L397 2208.224592220828" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2214.224592220828" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2208.224592220828 L693 2208.224592220828" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2214.224592220828" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2208.224592220828 L989 2208.224592220828" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2214.224592220828" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2208.224592220828 L1285 2208.224592220828" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2214.224592220828" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

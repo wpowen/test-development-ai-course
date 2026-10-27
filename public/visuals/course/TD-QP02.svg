@@ -1,90 +1,165 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 1000" width="1600" height="1000">
-  <title id="title">代码已经更新，为什么测试报告可能还是旧版本的｜专业关系图</title>
-  <desc id="desc">Webhook 触发回读，Pipeline 与 JUnit 只作为当前 SHA 的可验证证据；门禁缺证据即关闭。 图中区分数据流、控制流、证据流与反馈回路，并显示失败路径、系统边界和责任门禁。</desc>
-  <defs>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173f32" flood-opacity="0.12"/></filter>
-    <marker id="arrow-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7fb8"/></marker>
-<marker id="arrow-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c9852c"/></marker>
-<marker id="arrow-evidence" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#765ca6"/></marker>
-<marker id="arrow-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2c7b61"/></marker>
-  </defs>
-  <rect width="1600" height="1000" rx="32" fill="#f4f7f2"/>
-  <rect x="0" y="0" width="1600" height="146" rx="32" fill="#174f3f"/>
-  <text x="72" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" font-weight="800" fill="#b8dd78">TD-QP02 · evidence-lineage · lineage-chain-b</text>
-  <text x="72" y="92" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="30" font-weight="800" fill="#ffffff">代码已经更新，为什么测试报告可能还是旧版本的｜专业关系图</text>
-  <text x="72" y="132" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="600" fill="#d9e9df">Webhook触发回读，Pipeline与JUnit只作为当前SHA的可验证证据；门禁缺证据即关闭。</text>
-  <rect x="54" y="172" width="1492" height="590" rx="26" fill="#fbfdfb" stroke="#c9d6cf" stroke-width="2"/>
-  <text x="82" y="204" font-size="17" font-weight="800" fill="#52665e">系统边界 · 课程方法与可复核工件在边界内；真实企业系统、模型和生产状态在边界外。</text>
-  <path d="M 250 305 C 325 305, 390 305, 465 305" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 625 305 C 700 305, 765 305, 840 305" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 1000 305 C 1075 305, 1140 305, 1215 305" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1375 305 C 1450 305, 15 575, 90 575" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 250 575 C 325 575, 390 575, 465 575" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 625 575 C 700 575, 765 575, 840 575" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1000 575 C 1075 575, 1140 575, 1215 575" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 1375 575 C 1450 575, 390 305, 465 305" fill="none" stroke="#2c7b61" stroke-width="4" stroke-dasharray="14 6" marker-end="url(#arrow-feedback)" opacity="0.92"/>
-  <g filter="url(#shadow)">
-      <rect x="90" y="245" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="90" y="245" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="118" y="273" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">01</text>
-      <text x="118" y="307" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">GitLabMR/当前HEAD</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="465" y="245" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="465" y="245" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="493" y="273" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">02</text>
-      <text x="493" y="307" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">ProjectWebhook/Inbox</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="840" y="245" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="840" y="245" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="868" y="273" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">03</text>
-      <text x="868" y="307" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Pipeline与Jobs</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1215" y="245" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1215" y="245" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1243" y="273" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">04</text>
-      <text x="1243" y="307" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">JUnit/ArtifactStore</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="90" y="515" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="90" y="515" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="118" y="543" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">05</text>
-      <text x="118" y="577" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">确定性聚合器</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="465" y="515" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="465" y="515" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="493" y="543" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">06</text>
-      <text x="493" y="577" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">SHA-boundStatusCheck</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="840" y="515" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="840" y="515" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="868" y="543" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">07</text>
-      <text x="868" y="577" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">MRApproval/ProtectedBranchGate</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1215" y="515" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1215" y="515" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1243" y="543" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">08</text>
-      <text x="1243" y="577" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">版本化输入</text>
-    </g>
-  <g transform="translate(70 788)">
-    <rect width="710" height="112" rx="20" fill="#fff4ef" stroke="#e5aaa2" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#b84c42">失败路径</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">任一关键输入、权限、Oracle、版本或终态证据缺失时进入</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">FAIL/BLOCKED/UNKNOWN，不静默通过。</text>
-  </g>
-  <g transform="translate(820 788)">
-    <rect width="710" height="112" rx="20" fill="#eef8f2" stroke="#9bc6ac" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#2c7b61">反馈闭环 · Owner Gate</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">失败证据回到最早分叉点，修复后使用同一版本输入重跑并产生新receipt。业务/</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">质量Owner批准判据、风险接受与发布；AI只生成候选和整理证据。</text>
-  </g>
-  <g transform="translate(100 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#4f7fb8" stroke-width="5" stroke-dasharray=""/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">数据流</text></g>
-<g transform="translate(345 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#c9852c" stroke-width="5" stroke-dasharray="10 7"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">控制流</text></g>
-<g transform="translate(590 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#765ca6" stroke-width="5" stroke-dasharray="4 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">证据流</text></g>
-<g transform="translate(835 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#2c7b61" stroke-width="5" stroke-dasharray="14 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">反馈闭环</text></g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2867" viewBox="0 0 1600 2867" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">当前 HEAD 与产物证据严格绑定</title><desc id="desc">流水线、作业、报告 digest 和状态检查必须指向当前 SHA，缺失或过期均失败。 旧 SHA 的绿色报告不能满足当前合并请求的保护分支条件 本地报告聚合不证明真实 GitLab 保护分支已生效；远端写回与实际合并约束需独立验收。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-QP02 / 旧 SHA 的绿色 Pipeline 不能放行当前 MR;docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-QP02 / 架构节点与交付物;docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-QP02 / 证据聚合必须回答的四个问题">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-QP02&quot;,&quot;pageIds&quot;:[&quot;TD-QP02&quot;],&quot;primaryPageIds&quot;:[&quot;TD-QP02&quot;],&quot;layout&quot;:&quot;evidence&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-QP02 / 旧 SHA 的绿色 Pipeline 不能放行当前 MR&quot;,&quot;quote&quot;:&quot;证据的 SHA 必须等于当前待发布的 SHA。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-QP02 / 架构节点与交付物&quot;,&quot;quote&quot;:&quot;报告缺失、格式异常、suite 数量对不上，一律判失败而不是跳过。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-QP02 / 证据聚合必须回答的四个问题&quot;,&quot;quote&quot;:&quot;状态带时间戳与目标 SHA，超期即失效&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;head&quot;,&quot;title&quot;:&quot;GitLab MR/当前 HEAD&quot;},{&quot;id&quot;:&quot;inbox&quot;,&quot;title&quot;:&quot;Project Webhook/Inbox&quot;},{&quot;id&quot;:&quot;jobs&quot;,&quot;title&quot;:&quot;Pipeline 与 Jobs&quot;},{&quot;id&quot;:&quot;artifacts&quot;,&quot;title&quot;:&quot;JUnit/Artifact Store&quot;},{&quot;id&quot;:&quot;aggregate&quot;,&quot;title&quot;:&quot;确定性聚合器&quot;},{&quot;id&quot;:&quot;status&quot;,&quot;title&quot;:&quot;SHA-bound Status Check&quot;},{&quot;id&quot;:&quot;gate&quot;,&quot;title&quot;:&quot;MR Approval/Protected Branch Gate&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;head&quot;,&quot;to&quot;:&quot;jobs&quot;,&quot;label&quot;:&quot;绑定待测 SHA&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;inbox&quot;,&quot;to&quot;:&quot;jobs&quot;,&quot;label&quot;:&quot;事件触发关联&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;jobs&quot;,&quot;to&quot;:&quot;artifacts&quot;,&quot;label&quot;:&quot;报告与产物&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;artifacts&quot;,&quot;to&quot;:&quot;aggregate&quot;,&quot;label&quot;:&quot;digest 与完整性&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;head&quot;,&quot;to&quot;:&quot;aggregate&quot;,&quot;label&quot;:&quot;校验当前 SHA&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;aggregate&quot;,&quot;to&quot;:&quot;status&quot;,&quot;label&quot;:&quot;确定性结论&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;status&quot;,&quot;to&quot;:&quot;gate&quot;,&quot;label&quot;:&quot;目标 SHA 状态&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;head&quot;,&quot;to&quot;:&quot;gate&quot;,&quot;label&quot;:&quot;合并时再比对&quot;,&quot;kind&quot;:&quot;control&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2867" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-QP02</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >当前 HEAD 与产物证据严格绑定</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >流水线、作业、报告 digest 和状态检查必须指向当前 SHA，缺失或过期均失败。</text>
+<g id="system-graph" data-region="64,234,1472,1994">
+<rect x="64" y="234" width="1472" height="1994" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >旧 SHA 的绿色报告不能满足当前合并请求的保护分支条件</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M374.5 273 L374.5 360 L70 360 L70 548 L79 548 Q84 536 89 548 L400 548 L400 588" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M374.5 273 L374.5 360 L70 360 L70 548 L79 548 Q84 536 89 548 L400 548 L400 588" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e0" data-from="head" data-to="jobs"/>
+<path d="M981 312 L981 360 L1356 360 L1356 562 L502 562 L502 588" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M981 312 L981 360 L1356 360 L1356 562 L502 562 L502 588" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="inbox" data-to="jobs"/>
+<path d="M451 819 L451 872 L930 872 L930 824" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M451 819 L451 872 L930 872 L930 824" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e2" data-from="jobs" data-to="artifacts"/>
+<path d="M1032 824 L1032 888 L1362 888 L1362 964 L765 964 L765 1004" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M1032 824 L1032 888 L1362 888 L1362 964 L765 964 L765 1004" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e3" data-from="artifacts" data-to="aggregate"/>
+<path d="M451 273 L451 424 L77 424 L77 978 L663 978 L663 1004" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M451 273 L451 424 L77 424 L77 978 L663 978 L663 1004" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e4" data-from="head" data-to="aggregate"/>
+<path d="M714 1201 L714 1249 L89 1249 Q84 1237 79 1249 L70 1249 L70 1309 L79 1309 Q84 1297 89 1309 L451 1309 L451 1349" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M714 1201 L714 1249 L89 1249 Q84 1237 79 1249 L70 1249 L70 1309 L79 1309 Q84 1297 89 1309 L451 1309 L451 1349" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e5" data-from="aggregate" data-to="status"/>
+<path d="M451 1585 L451 1756 L981 1756 L981 1692" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M451 1585 L451 1756 L981 1756 L981 1692" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e6" data-from="status" data-to="gate"/>
+<path d="M527.5 273 L527.5 488 L84 488 L84 1323 L446 1323 Q451 1311 456 1323 L981 1323 L981 1349" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M527.5 273 L527.5 488 L84 488 L84 1323 L446 1323 Q451 1311 456 1323 L981 1323 L981 1349" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e7" data-from="head" data-to="gate"/>
+<g id="node-head" class="node node-input" data-region="274,76,354,197">
+<rect x="274" y="76" width="354" height="197" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#215cbb" font-weight="700" >GitLab MR/当前 HEAD</text>
+<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >当前待合并 SHA 是绑定键</text>
+<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >新提交使旧结果不可复用</text>
+</g>
+<g id="node-inbox" class="node node-process" data-region="804,76,354,236">
+<rect x="804" y="76" width="354" height="236" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#344f70" font-weight="750" class="mono">02</text>
+<text x="826" y="152" font-size="28" fill="#344f70" font-weight="700" >Project Webhook/</text>
+<text x="826" y="191" font-size="28" fill="#344f70" font-weight="700" >Inbox</text>
+<text x="826" y="234" font-size="23" fill="#172b45" font-weight="450" >接收并去重流水线事件</text>
+<text x="826" y="268" font-size="23" fill="#172b45" font-weight="450" >通知不直接等于绿色证据</text>
+</g>
+<g id="node-jobs" class="node node-process" data-region="274,588,354,231">
+<rect x="274" y="588" width="354" height="231" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="605" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="623" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="296" y="664" font-size="28" fill="#344f70" font-weight="700" >Pipeline 与 Jobs</text>
+<text x="296" y="707" font-size="23" fill="#172b45" font-weight="450" >pipeline 和 jobs 关联同一</text>
+<text x="296" y="741" font-size="23" fill="#172b45" font-weight="450" >SHA</text>
+<text x="296" y="775" font-size="23" fill="#172b45" font-weight="450" >必需作业缺失按失败处理</text>
+</g>
+<g id="node-artifacts" class="node node-data" data-region="804,588,354,236">
+<rect x="804" y="588" width="354" height="236" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="822" y="605" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="623" font-size="15" fill="#087b76" font-weight="750" class="mono">04</text>
+<text x="826" y="664" font-size="28" fill="#087b76" font-weight="700" >JUnit/Artifact</text>
+<text x="826" y="703" font-size="28" fill="#087b76" font-weight="700" >Store</text>
+<text x="826" y="746" font-size="23" fill="#172b45" font-weight="450" >保存报告、产物和 digest</text>
+<text x="826" y="780" font-size="23" fill="#172b45" font-weight="450" >来源与内容可核验</text>
+</g>
+<g id="node-aggregate" class="node node-control" data-region="537,1004,354,197">
+<rect x="537" y="1004" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="555" y="1021" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="1039" font-size="15" fill="#945c0b" font-weight="750" class="mono">05</text>
+<text x="559" y="1080" font-size="28" fill="#945c0b" font-weight="700" >确定性聚合器</text>
+<text x="559" y="1123" font-size="23" fill="#172b45" font-weight="450" >报告、格式、suite 数完整</text>
+<text x="559" y="1157" font-size="23" fill="#172b45" font-weight="450" >异常与缺失一律 fail-closed</text>
+</g>
+<g id="node-status" class="node node-evidence" data-region="274,1349,354,236">
+<rect x="274" y="1349" width="354" height="236" rx="14" fill="#f4effb" stroke="none" />
+<rect x="292" y="1366" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1384" font-size="15" fill="#7045a4" font-weight="750" class="mono">06</text>
+<text x="296" y="1425" font-size="28" fill="#7045a4" font-weight="700" >SHA-bound Status</text>
+<text x="296" y="1464" font-size="28" fill="#7045a4" font-weight="700" >Check</text>
+<text x="296" y="1507" font-size="23" fill="#172b45" font-weight="450" >结论只写回对应目标 SHA</text>
+<text x="296" y="1541" font-size="23" fill="#172b45" font-weight="450" >状态有效期与来源可查</text>
+</g>
+<g id="node-gate" class="node node-control" data-region="804,1349,354,343">
+<rect x="804" y="1349" width="354" height="343" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="1366" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1384" font-size="15" fill="#945c0b" font-weight="750" class="mono">07</text>
+<text x="826" y="1425" font-size="28" fill="#945c0b" font-weight="700" >MR Approval/</text>
+<text x="826" y="1464" font-size="28" fill="#945c0b" font-weight="700" >Protected Branch</text>
+<text x="826" y="1503" font-size="28" fill="#945c0b" font-weight="700" >Gate</text>
+<text x="826" y="1546" font-size="23" fill="#172b45" font-weight="450" >状态通过且 SHA 为当前</text>
+<text x="826" y="1580" font-size="23" fill="#172b45" font-weight="450" >HEAD</text>
+<text x="826" y="1614" font-size="23" fill="#172b45" font-weight="450" >保护分支与批准共同约束</text>
+<text x="826" y="1648" font-size="23" fill="#172b45" font-weight="450" >合并</text>
+</g>
+<rect x="93.485" y="338" width="193.03" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="367" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  绑定待测 SHA</text>
+<text x="404" y="578" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="1151.69" y="338" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="367" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  事件触发关联</text>
+<text x="506" y="578" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="632.61" y="850" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="879" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  报告与产物</text>
+<text x="934" y="846" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="1157.78" y="850" width="176.44" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="879" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  digest 与完</text>
+<text x="1246" y="911" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">整性</text>
+<text x="769" y="994" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="93.485" y="402" width="193.03" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="431" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  校验当前 SHA</text>
+<text x="667" y="994" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="106.61" y="1227" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1256" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  确定性结论</text>
+<text x="455" y="1339" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="641.325" y="1718" width="149.35000000000002" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1747" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  目标 SHA</text>
+<text x="716" y="1779" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">状态</text>
+<text x="985" y="1714" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="95.69" y="466" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="495" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  合并时再比对</text>
+<text x="985" y="1339" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+</g>
+</g>
+<text x="64" y="2282" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2282" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2312,470,209">
+<rect x="64" y="2312" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2334" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="106" y="2359" font-size="25" fill="#ad3e4c" font-weight="700" >怎样暴露陈旧绿色</text>
+<text x="88" y="2414" font-size="23" fill="#172b45" font-weight="450" >提交新 SHA 后保留旧绿色报告</text>
+<text x="88" y="2449" font-size="23" fill="#172b45" font-weight="450" >断言旧状态不能放行当前 HEAD</text>
+</g>
+<g id="detail-1" data-region="565,2312,470,209">
+<rect x="565" y="2312" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2334" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="607" y="2359" font-size="25" fill="#7045a4" font-weight="700" >怎样验证证据完整</text>
+<text x="589" y="2414" font-size="23" fill="#172b45" font-weight="450" >查必需 jobs、suite、JUnit 与</text>
+<text x="589" y="2449" font-size="23" fill="#172b45" font-weight="450" >digest</text>
+<text x="589" y="2484" font-size="23" fill="#172b45" font-weight="450" >来源需核验时检查签名和绑定</text>
+</g>
+<g id="detail-2" data-region="1066,2312,470,209">
+<rect x="1066" y="2312" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2334" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="1108" y="2359" font-size="25" fill="#945c0b" font-weight="700" >怎样处理未知状态</text>
+<text x="1090" y="2414" font-size="23" fill="#172b45" font-weight="450" >报告缺失、格式错或状态过期</text>
+<text x="1090" y="2449" font-size="23" fill="#172b45" font-weight="450" >一律失败，重跑后再回读门禁</text>
+</g>
+<g id="failure-and-output" data-region="64,2553,1472,148">
+<rect x="64" y="2553" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2592" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2637" font-size="23" fill="#ffdce2" font-weight="450" >SHA 不符、作业或报告缺失、digest 不匹配或外部状态过期时禁止合并。</text>
+<text x="88" y="2680" font-size="23" fill="#dce9fa" font-weight="450" >交付 SHA 绑定规范、报告台账、确定性聚合、状态写回和保护分支验证记录。</text>
+</g>
+<text x="64" y="2749" font-size="20" fill="#50647c" font-weight="450" >本地报告聚合不证明真实 GitLab 保护分支已生效；远端写回与实际合并约束需独立验收。</text>
+<text x="64" y="2788" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-QP02 · 当前 HEAD 与产物证据严格绑定</text>
+<path class="edge edge-data" d="M64 2828 L101 2828" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2834" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2828 L397 2828" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2834" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2828 L693 2828" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2834" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2828 L989 2828" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2834" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2828 L1285 2828" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2834" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

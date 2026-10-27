@@ -1,116 +1,178 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1160 744" width="1160" height="744">
-  <title id="title">先区分 Agent、Worker 和固定 Workflow：architecture架构</title>
-  <desc id="desc">Agent 的输入、模型、工具、状态、权限与观测面共同构成被测系统</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-</style>
-  <rect class="ds-bg" width="1160" height="744" rx="22"/>
-  
-  <rect class="ds-header" x="0" y="0" width="1160" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1160" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">ARCHITECTURE · 控制流</text>
-  <text class="ds-subtitle" x="1124" y="32" text-anchor="end">Agent 的输入、模型、工具、状态、权限与观测面共同构成被测系统</text>
-  <text class="ds-title" x="36" y="74">先区分 Agent、Worker 和固定 Workflow</text>
-  <text class="ds-source" x="36" y="140">architecture · Agent、Worker、Workflow 控制权分类图 · 来源 S10, S23, S35</text>
-  <text x="150" y="160" class="ds-section">系统控制链 · 输入 → 处理 → 判断 → 决定</text>
-  
-    <circle cx="108" cy="199" r="12" fill="#ffffff" stroke="#aec6e3" stroke-width="1.5"/>
-    <text x="108" y="203" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">01</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="170" width="850" height="58" rx="13" fill="#eaf1fa" stroke="#aec6e3" stroke-width="1.4"/>
-      <rect x="150" y="170" width="5" height="58" rx="2.5" fill="#aec6e3"/>
-    </g>
-    <text x="174" y="194" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">Deterministic router</text>
-    <text x="174" y="215" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">输入 / 依据</text>
-    <path d="M 108 228 V 248" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="281" r="12" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.5"/>
-    <text x="108" y="285" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">02</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="252" width="850" height="58" rx="13" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4"/>
-      <rect x="150" y="252" width="5" height="58" rx="2.5" fill="#c2d9cc"/>
-    </g>
-    <text x="174" y="276" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">Autonomous agent loop</text>
-    <text x="174" y="297" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">处理 / 变换</text>
-    <path d="M 108 310 V 330" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="363" r="12" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.5"/>
-    <text x="108" y="367" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">03</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="334" width="850" height="58" rx="13" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4"/>
-      <rect x="150" y="334" width="5" height="58" rx="2.5" fill="#c2d9cc"/>
-    </g>
-    <text x="174" y="358" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">Async queue</text>
-    <text x="174" y="379" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">处理 / 变换</text>
-    <path d="M 108 392 V 412" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="445" r="12" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.5"/>
-    <text x="108" y="449" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">04</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="416" width="850" height="58" rx="13" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4"/>
-      <rect x="150" y="416" width="5" height="58" rx="2.5" fill="#c2d9cc"/>
-    </g>
-    <text x="174" y="440" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">Worker</text>
-    <text x="174" y="461" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">处理 / 变换</text>
-    <path d="M 108 474 V 494" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="527" r="12" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.5"/>
-    <text x="108" y="531" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">05</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="498" width="850" height="58" rx="13" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4"/>
-      <rect x="150" y="498" width="5" height="58" rx="2.5" fill="#c2d9cc"/>
-    </g>
-    <text x="174" y="522" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">State stores</text>
-    <text x="174" y="543" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">处理 / 变换</text>
-    <path d="M 108 556 V 576" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="609" r="12" fill="#174a3a" stroke="#e0b76a" stroke-width="1.5"/>
-    <text x="108" y="613" text-anchor="middle" fill="#ffffff" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">06</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="580" width="850" height="58" rx="13" fill="#fdf1d8" stroke="#e0b76a" stroke-width="1.4"/>
-      <rect x="150" y="580" width="5" height="58" rx="2.5" fill="#e0b76a"/>
-    </g>
-    <text x="174" y="604" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">Human owner</text>
-    <text x="174" y="625" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">决定 / 输出</text>
-    
-  
-  <rect x="28" y="670" width="1104" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="696">证据边界</text>
-  <text class="ds-foot" x="46" y="718">节点是页面语义关系；不代表真实模型、企业集成或生产效果已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="3130" viewBox="0 0 1600 3130" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">按控制权给 Workflow、Agent、Worker 分型</title><desc id="desc">同一产品可混合三种结构；下一步谁决定、状态在哪和副作用在哪提交决定测法。 组件责任并列比较，只有异步队列到 Worker 是执行依赖 组件合同 fixture 不证明真实运行边界；需用实际 Trace 与代码核对分类。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-W01 / 三类组件的判别与对应测法;docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-W01 / 专业问题、失败成本与决策权">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-W01&quot;,&quot;pageIds&quot;:[&quot;TD-W01&quot;],&quot;primaryPageIds&quot;:[&quot;TD-W01&quot;],&quot;layout&quot;:&quot;comparison&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-W01 / 三类组件的判别与对应测法&quot;,&quot;quote&quot;:&quot;三类的共同要求只有一条：副作用提交点必须明确，且有幂等保护。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-W01 / 专业问题、失败成本与决策权&quot;,&quot;quote&quot;:&quot;Agent 不继承 Worker 或 Workflow 的写权限。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;trace&quot;,&quot;title&quot;:&quot;真实 Trace 与代码边界&quot;},{&quot;id&quot;:&quot;router&quot;,&quot;title&quot;:&quot;Deterministic router&quot;},{&quot;id&quot;:&quot;agent&quot;,&quot;title&quot;:&quot;Autonomous agent loop&quot;},{&quot;id&quot;:&quot;queue&quot;,&quot;title&quot;:&quot;Async queue&quot;},{&quot;id&quot;:&quot;worker&quot;,&quot;title&quot;:&quot;Worker&quot;},{&quot;id&quot;:&quot;state&quot;,&quot;title&quot;:&quot;State stores&quot;},{&quot;id&quot;:&quot;owner&quot;,&quot;title&quot;:&quot;Human owner&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;trace&quot;,&quot;to&quot;:&quot;router&quot;,&quot;label&quot;:&quot;代码决定&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;trace&quot;,&quot;to&quot;:&quot;agent&quot;,&quot;label&quot;:&quot;模型决定&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;trace&quot;,&quot;to&quot;:&quot;queue&quot;,&quot;label&quot;:&quot;异步投递边界&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;queue&quot;,&quot;to&quot;:&quot;worker&quot;,&quot;label&quot;:&quot;消息投递&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;router&quot;,&quot;to&quot;:&quot;state&quot;,&quot;label&quot;:&quot;流程状态读写&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;agent&quot;,&quot;to&quot;:&quot;state&quot;,&quot;label&quot;:&quot;会话与决策状态&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;worker&quot;,&quot;to&quot;:&quot;state&quot;,&quot;label&quot;:&quot;幂等与业务状态&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;router&quot;,&quot;to&quot;:&quot;owner&quot;,&quot;label&quot;:&quot;确定性覆盖证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;agent&quot;,&quot;to&quot;:&quot;owner&quot;,&quot;label&quot;:&quot;自主路径与策略证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;worker&quot;,&quot;to&quot;:&quot;owner&quot;,&quot;label&quot;:&quot;终态与幂等证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;state&quot;,&quot;to&quot;:&quot;owner&quot;,&quot;label&quot;:&quot;共享状态风险&quot;,&quot;kind&quot;:&quot;evidence&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="3130" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-W01</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >按控制权给 Workflow、Agent、Worker 分型</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >同一产品可混合三种结构；下一步谁决定、状态在哪和副作用在哪提交决定测法。</text>
+<g id="system-graph" data-region="64,234,1472,2292">
+<rect x="64" y="234" width="1472" height="2292" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >组件责任并列比较，只有异步队列到 Worker 是执行依赖</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M637.5 341 L637.5 389 L70 389 L70 513 L451 513 L451 553" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M637.5 341 L637.5 389 L70 389 L70 513 L451 513 L451 553" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e0" data-from="trace" data-to="router"/>
+<path d="M790.5 341 L790.5 389 L1374 389 L1374 527 L1367 527 Q1362 515 1357 527 L981 527 L981 553" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M790.5 341 L790.5 389 L1374 389 L1374 527 L1367 527 Q1362 515 1357 527 L981 527 L981 553" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e1" data-from="trace" data-to="agent"/>
+<path d="M714 341 L714 453 L1362 453 L1362 1025 L714 1025 L714 1051" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M714 341 L714 453 L1362 453 L1362 1025 L714 1025 L714 1051" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e2" data-from="trace" data-to="queue"/>
+<path d="M714 1248 L714 1296 L89 1296 Q84 1284 79 1296 L70 1296 L70 1356 L79 1356 Q84 1344 89 1356 L451 1356 L451 1410" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M714 1248 L714 1296 L89 1296 Q84 1284 79 1296 L70 1296 L70 1356 L79 1356 Q84 1344 89 1356 L451 1356 L451 1410" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e3" data-from="queue" data-to="worker"/>
+<path d="M502 784 L502 837 L405 837 Q400 825 395 837 L77 837 L77 1370 L446 1370 Q451 1358 456 1370 L930 1370 L930 1410" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M502 784 L502 837 L405 837 Q400 825 395 837 L77 837 L77 1370 L446 1370 Q451 1358 456 1370 L930 1370 L930 1410" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e4" data-from="router" data-to="state"/>
+<path d="M1032 789 L1032 853 L1368 853 L1368 1384 L1361 1384 Q1356 1372 1351 1384 L1032 1384 L1032 1410" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M1032 789 L1032 853 L1368 853 L1368 1384 L1361 1384 Q1356 1372 1351 1384 L1032 1384 L1032 1410" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e5" data-from="agent" data-to="state"/>
+<path d="M502 1607 L502 1671 L930 1671 L930 1607" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M502 1607 L502 1671 L930 1671 L930 1607" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e6" data-from="worker" data-to="state"/>
+<path d="M400 784 L400 917 L84 917 L84 1747 L622.2 1747 L622.2 1815" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M400 784 L400 917 L84 917 L84 1747 L622.2 1747 L622.2 1815" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="router" data-to="owner"/>
+<path d="M930 789 L930 949 L1356 949 L1356 1761 L744.6 1761 L744.6 1815" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M930 789 L930 949 L1356 949 L1356 1761 L744.6 1761 L744.6 1815" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e8" data-from="agent" data-to="owner"/>
+<path d="M400 1607 L400 1671 L89 1671 Q84 1659 79 1671 L63 1671 L63 1775 L617.2 1775 Q622.2 1763 627.2 1775 L683.4 1775 L683.4 1815" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M400 1607 L400 1671 L89 1671 Q84 1659 79 1671 L63 1671 L63 1775 L617.2 1775 Q622.2 1763 627.2 1775 L683.4 1775 L683.4 1815" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e9" data-from="worker" data-to="owner"/>
+<path d="M1032 1607 L1032 1655 L1362 1655 L1362 1789 L805.8 1789 L805.8 1815" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M1032 1607 L1032 1655 L1362 1655 L1362 1789 L805.8 1789 L805.8 1815" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e10" data-from="state" data-to="owner"/>
+<g id="node-trace" class="node node-input" data-region="537,76,354,265">
+<rect x="537" y="76" width="354" height="265" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="555" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="559" y="152" font-size="28" fill="#215cbb" font-weight="700" >真实 Trace 与代码边界</text>
+<text x="559" y="195" font-size="23" fill="#172b45" font-weight="450" >逐步标路径决定权与终止</text>
+<text x="559" y="229" font-size="23" fill="#172b45" font-weight="450" >条件</text>
+<text x="559" y="263" font-size="23" fill="#172b45" font-weight="450" >不按产品名或是否调模型</text>
+<text x="559" y="297" font-size="23" fill="#172b45" font-weight="450" >分类</text>
+</g>
+<g id="node-router" class="node node-process" data-region="274,553,354,231">
+<rect x="274" y="553" width="354" height="231" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="570" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="588" font-size="15" fill="#344f70" font-weight="750" class="mono">02</text>
+<text x="296" y="629" font-size="28" fill="#344f70" font-weight="700" >Deterministic router</text>
+<text x="296" y="672" font-size="23" fill="#172b45" font-weight="450" >代码固定下一分支</text>
+<text x="296" y="706" font-size="23" fill="#172b45" font-weight="450" >分支覆盖、状态机与非法</text>
+<text x="296" y="740" font-size="23" fill="#172b45" font-weight="450" >转移</text>
+</g>
+<g id="node-agent" class="node node-ai" data-region="804,553,354,236">
+<rect x="804" y="553" width="354" height="236" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="570" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="588" font-size="15" fill="#7045a4" font-weight="750" class="mono">03</text>
+<text x="826" y="629" font-size="28" fill="#7045a4" font-weight="700" >Autonomous agent</text>
+<text x="826" y="668" font-size="28" fill="#7045a4" font-weight="700" >loop</text>
+<text x="826" y="711" font-size="23" fill="#172b45" font-weight="450" >模型在运行时决定下一步</text>
+<text x="826" y="745" font-size="23" fill="#172b45" font-weight="450" >不变量、攻击集与重复运行</text>
+</g>
+<g id="node-queue" class="node node-data" data-region="537,1051,354,197">
+<rect x="537" y="1051" width="354" height="197" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="555" y="1068" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="1086" font-size="15" fill="#087b76" font-weight="750" class="mono">04</text>
+<text x="559" y="1127" font-size="28" fill="#087b76" font-weight="700" >Async queue</text>
+<text x="559" y="1170" font-size="23" fill="#172b45" font-weight="450" >入口接收不等于任务完成</text>
+<text x="559" y="1204" font-size="23" fill="#172b45" font-weight="450" >重复投递、超时与死信</text>
+</g>
+<g id="node-worker" class="node node-process" data-region="274,1410,354,197">
+<rect x="274" y="1410" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="1427" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1445" font-size="15" fill="#344f70" font-weight="750" class="mono">05</text>
+<text x="296" y="1486" font-size="28" fill="#344f70" font-weight="700" >Worker</text>
+<text x="296" y="1529" font-size="23" fill="#172b45" font-weight="450" >按消息执行后台任务</text>
+<text x="296" y="1563" font-size="23" fill="#172b45" font-weight="450" >提交点、重试与幂等明确</text>
+</g>
+<g id="node-state" class="node node-data" data-region="804,1410,354,197">
+<rect x="804" y="1410" width="354" height="197" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="822" y="1427" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1445" font-size="15" fill="#087b76" font-weight="750" class="mono">06</text>
+<text x="826" y="1486" font-size="28" fill="#087b76" font-weight="700" >State stores</text>
+<text x="826" y="1529" font-size="23" fill="#172b45" font-weight="450" >共享状态是跨结构故障通道</text>
+<text x="826" y="1563" font-size="23" fill="#172b45" font-weight="450" >标明读写 owner 与隔离清理</text>
+</g>
+<g id="node-owner" class="node node-control" data-region="537,1815,354,197">
+<rect x="537" y="1815" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="555" y="1832" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="1850" font-size="15" fill="#945c0b" font-weight="750" class="mono">07</text>
+<text x="559" y="1891" font-size="28" fill="#945c0b" font-weight="700" >Human owner</text>
+<text x="559" y="1934" font-size="23" fill="#172b45" font-weight="450" >按组件拆身份与最小权限</text>
+<text x="559" y="1968" font-size="23" fill="#172b45" font-weight="450" >三类分别报告，不合并总分</text>
+</g>
+<rect x="117.53" y="367" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="396" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  代码决定</text>
+<text x="455" y="543" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="1173.53" y="367" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="396" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  模型决定</text>
+<text x="985" y="543" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="1151.69" y="431" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="460" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  异步投递边界</text>
+<text x="718" y="1041" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="117.53" y="1274" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1303" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  消息投递</text>
+<text x="455" y="1400" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="95.69" y="815" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="844" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  流程状态读写</text>
+<text x="934" y="1400" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="1162.61" y="815" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="844" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  会话与决策</text>
+<text x="1246" y="876" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">状态</text>
+<text x="1036" y="1400" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="632.61" y="1633" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1662" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  幂等与业务</text>
+<text x="716" y="1694" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">状态</text>
+<text x="934" y="1629" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="106.61" y="879" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="908" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  确定性覆盖</text>
+<text x="190" y="940" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">证据</text>
+<text x="626.2" y="1805" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+<rect x="1151.69" y="911" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="940" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  自主路径与策</text>
+<text x="1246" y="972" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">略证据</text>
+<text x="748.6" y="1805" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e8" stroke="#fff" stroke-width="4" paint-order="stroke">09</text>
+<rect x="106.61" y="1633" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1662" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">10  终态与幂等</text>
+<text x="190" y="1694" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">证据</text>
+<text x="687.4" y="1805" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e9" stroke="#fff" stroke-width="4" paint-order="stroke">10</text>
+<rect x="1151.69" y="1633" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1662" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">11  共享状态风险</text>
+<text x="809.8" y="1805" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e10" stroke="#fff" stroke-width="4" paint-order="stroke">11</text>
+</g>
+</g>
+<text x="64" y="2580" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2580" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2610,470,174">
+<rect x="64" y="2610" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2632" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="106" y="2657" font-size="25" fill="#945c0b" font-weight="700" >问四个具体问题</text>
+<text x="88" y="2712" font-size="23" fill="#172b45" font-weight="450" >路径谁定、状态谁存</text>
+<text x="88" y="2747" font-size="23" fill="#172b45" font-weight="450" >副作用何时提交、怎样终止</text>
+</g>
+<g id="detail-1" data-region="565,2610,470,174">
+<rect x="565" y="2610" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2632" width="7" height="30" rx="3" fill="#344f70" stroke="none" />
+<text x="607" y="2657" font-size="25" fill="#344f70" font-weight="700" >退款产品拆开看</text>
+<text x="589" y="2712" font-size="23" fill="#172b45" font-weight="450" >固定入口与自主查政策分开测</text>
+<text x="589" y="2747" font-size="23" fill="#172b45" font-weight="450" >审批 Worker 另测重复投递</text>
+</g>
+<g id="detail-2" data-region="1066,2610,470,174">
+<rect x="1066" y="2610" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2632" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="1108" y="2657" font-size="25" fill="#ad3e4c" font-weight="700" >边界不清先取证</text>
+<text x="1090" y="2712" font-size="23" fill="#172b45" font-weight="450" >Agent 不继承 Worker 写权限</text>
+<text x="1090" y="2747" font-size="23" fill="#172b45" font-weight="450" >Trace 不明则先停止跨组件扩权</text>
+</g>
+<g id="failure-and-output" data-region="64,2816,1472,148">
+<rect x="64" y="2816" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2855" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2900" font-size="23" fill="#ffdce2" font-weight="450" >未分类单元或跨结构合并总分时退回；边界模糊按更严格方案并记录 Owner。</text>
+<text x="88" y="2943" font-size="23" fill="#dce9fa" font-weight="450" >交付带控制权、状态与副作用标记的组件图，以及分类测法和责任清单。</text>
+</g>
+<text x="64" y="3012" font-size="20" fill="#50647c" font-weight="450" >组件合同 fixture 不证明真实运行边界；需用实际 Trace 与代码核对分类。</text>
+<text x="64" y="3051" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-W01 · 按控制权给 Workflow、Agent、Worker 分型</text>
+<path class="edge edge-data" d="M64 3091 L101 3091" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="3097" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 3091 L397 3091" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="3097" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 3091 L693 3091" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="3097" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 3091 L989 3091" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="3097" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 3091 L1285 3091" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="3097" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

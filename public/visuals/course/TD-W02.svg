@@ -1,90 +1,265 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 1000" width="1600" height="1000">
-  <title id="title">AI 长流程为什么会丢状态、重复执行或一直不结束｜专业关系图</title>
-  <desc id="desc">每次投递从 checkpoint 与身份校验开始，幂等 Worker 只提交一次副作用；handoff 不扩权，预算守卫必须留下 stop reason 或转交人工。 图中区分数据流、控制流、证据流与反馈回路，并显示失败路径、系统边界和责任门禁。</desc>
-  <defs>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173f32" flood-opacity="0.12"/></filter>
-    <marker id="arrow-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7fb8"/></marker>
-<marker id="arrow-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c9852c"/></marker>
-<marker id="arrow-evidence" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#765ca6"/></marker>
-<marker id="arrow-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2c7b61"/></marker>
-  </defs>
-  <rect width="1600" height="1000" rx="32" fill="#f4f7f2"/>
-  <rect x="0" y="0" width="1600" height="146" rx="32" fill="#174f3f"/>
-  <text x="72" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" font-weight="800" fill="#b8dd78">TD-W02 · state-machine · state-timeline-a</text>
-  <text x="72" y="92" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="30" font-weight="800" fill="#ffffff">AI长流程为什么会丢状态、重复执行或一直不结束｜专业关系图</text>
-  <text x="72" y="132" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="600" fill="#d9e9df">每次投递从checkpoint与身份校验开始，幂等Worker只提交一次副作用；handoff不扩权，预算守卫必须留下stopreason或转</text>
-  <rect x="54" y="172" width="1492" height="590" rx="26" fill="#fbfdfb" stroke="#c9d6cf" stroke-width="2"/>
-  <text x="82" y="204" font-size="17" font-weight="800" fill="#52665e">系统边界 · 课程方法与可复核工件在边界内；真实企业系统、模型和生产状态在边界外。</text>
-  <path d="M 250 305 C 325 305, 390 305, 465 305" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 625 305 C 700 305, 765 305, 840 305" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 1000 305 C 1075 305, 1140 305, 1215 305" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1375 305 C 1450 305, 15 575, 90 575" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 250 575 C 325 575, 390 575, 465 575" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 625 575 C 700 575, 765 575, 840 575" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1000 575 C 1075 575, 1140 575, 1215 575" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 1375 575 C 1450 575, 390 305, 465 305" fill="none" stroke="#2c7b61" stroke-width="4" stroke-dasharray="14 6" marker-end="url(#arrow-feedback)" opacity="0.92"/>
-  <g filter="url(#shadow)">
-      <rect x="90" y="245" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="90" y="245" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="118" y="273" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">01</text>
-      <text x="118" y="307" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Workflowstate</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="465" y="245" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="465" y="245" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="493" y="273" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">02</text>
-      <text x="493" y="307" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Checkpoint</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="840" y="245" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="840" y="245" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="868" y="273" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">03</text>
-      <text x="868" y="307" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Queuedelivery</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1215" y="245" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1215" y="245" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1243" y="273" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">04</text>
-      <text x="1243" y="307" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Idempotentworker</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="90" y="515" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="90" y="515" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="118" y="543" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">05</text>
-      <text x="118" y="577" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Budgetguard</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="465" y="515" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="465" y="515" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="493" y="543" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">06</text>
-      <text x="493" y="577" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Humanhandoff</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="840" y="515" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="840" y="515" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="868" y="543" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">07</text>
-      <text x="868" y="577" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">版本化输入</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1215" y="515" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1215" y="515" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1243" y="543" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">08</text>
-      <text x="1243" y="577" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">风险/失败</text>
-    </g>
-  <g transform="translate(70 788)">
-    <rect width="710" height="112" rx="20" fill="#fff4ef" stroke="#e5aaa2" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#b84c42">失败路径</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">任一关键输入、权限、Oracle、版本或终态证据缺失时进入</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">FAIL/BLOCKED/UNKNOWN，不静默通过。</text>
-  </g>
-  <g transform="translate(820 788)">
-    <rect width="710" height="112" rx="20" fill="#eef8f2" stroke="#9bc6ac" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#2c7b61">反馈闭环 · Owner Gate</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">失败证据回到最早分叉点，修复后使用同一版本输入重跑并产生新receipt。业务/</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">质量Owner批准判据、风险接受与发布；AI只生成候选和整理证据。</text>
-  </g>
-  <g transform="translate(100 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#4f7fb8" stroke-width="5" stroke-dasharray=""/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">数据流</text></g>
-<g transform="translate(345 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#c9852c" stroke-width="5" stroke-dasharray="10 7"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">控制流</text></g>
-<g transform="translate(590 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#765ca6" stroke-width="5" stroke-dasharray="4 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">证据流</text></g>
-<g transform="translate(835 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#2c7b61" stroke-width="5" stroke-dasharray="14 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">反馈闭环</text></g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="3959" viewBox="0 0 1600 3959" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">动作已提交，长流程仍可能需要恢复</title><desc id="desc">幂等收据证明某次动作已提交；任务是否结束另看当前状态，未结束则核对 checkpoint、当前权限与剩余预算再继续。 重复 msg-42 跳过已提交写入，恢复后续步骤；任务终态、预算停止与交接分开 离线重放不证明真实队列事务、跨服务一致性、人工 SLA 或生产恢复。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-W02 / W02 完整跟做：可恢复状态机的故障回放;docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-W02 / W02 交付演练：故障恢复要有人能接手;docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-W02 / W02 交付演练：故障恢复要有人能接手;docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-W02 / W02 最终检查：恢复结论必须可交接">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-W02&quot;,&quot;pageIds&quot;:[&quot;TD-W02&quot;],&quot;primaryPageIds&quot;:[&quot;TD-W02&quot;],&quot;layout&quot;:&quot;state&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-W02 / W02 完整跟做：可恢复状态机的故障回放&quot;,&quot;quote&quot;:&quot;正确结果是第二次只读幂等账本并恢复 checkpoint，业务写入总数仍为 1&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-W02 / W02 交付演练：故障恢复要有人能接手&quot;,&quot;quote&quot;:&quot;先读取最后 checkpoint，再核对 idempotency receipt 和当前 scope&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-W02 / W02 交付演练：故障恢复要有人能接手&quot;,&quot;quote&quot;:&quot;第三种应触发有预算的 handoff，不得绕过审批自动完成&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-W02 / W02 最终检查：恢复结论必须可交接&quot;,&quot;quote&quot;:&quot;避免把 stopped、failed 和 completed 混成一个成功字段&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;state&quot;,&quot;title&quot;:&quot;当前 Workflow state&quot;},{&quot;id&quot;:&quot;checkpoint&quot;,&quot;title&quot;:&quot;Checkpoint&quot;},{&quot;id&quot;:&quot;delivery&quot;,&quot;title&quot;:&quot;Queue delivery&quot;},{&quot;id&quot;:&quot;ledger&quot;,&quot;title&quot;:&quot;动作幂等账本&quot;},{&quot;id&quot;:&quot;resume&quot;,&quot;title&quot;:&quot;恢复与任务状态判定&quot;},{&quot;id&quot;:&quot;budget&quot;,&quot;title&quot;:&quot;剩余预算守卫&quot;},{&quot;id&quot;:&quot;worker&quot;,&quot;title&quot;:&quot;幂等 Worker 执行&quot;},{&quot;id&quot;:&quot;completed&quot;,&quot;title&quot;:&quot;已核实任务终态&quot;},{&quot;id&quot;:&quot;stopped&quot;,&quot;title&quot;:&quot;stopped / 暂停&quot;},{&quot;id&quot;:&quot;handoff&quot;,&quot;title&quot;:&quot;有预算的人工交接&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;state&quot;,&quot;to&quot;:&quot;checkpoint&quot;,&quot;label&quot;:&quot;持久化最后安全状态&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;state&quot;,&quot;to&quot;:&quot;delivery&quot;,&quot;label&quot;:&quot;未终结：投递下一合法步骤&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;delivery&quot;,&quot;to&quot;:&quot;resume&quot;,&quot;label&quot;:&quot;新投递与重投均先判定恢复&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;checkpoint&quot;,&quot;to&quot;:&quot;resume&quot;,&quot;label&quot;:&quot;安全位置及完整性证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;ledger&quot;,&quot;to&quot;:&quot;resume&quot;,&quot;label&quot;:&quot;当前动作已提交与否&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;state&quot;,&quot;to&quot;:&quot;resume&quot;,&quot;label&quot;:&quot;当前任务状态、owner 与权限&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;resume&quot;,&quot;to&quot;:&quot;completed&quot;,&quot;label&quot;:&quot;任务级 completed 已核实&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;resume&quot;,&quot;to&quot;:&quot;stopped&quot;,&quot;label&quot;:&quot;检查点损坏、权限失效或已停止&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;resume&quot;,&quot;to&quot;:&quot;budget&quot;,&quot;label&quot;:&quot;任务未结束：继续或待人工交接&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;budget&quot;,&quot;to&quot;:&quot;worker&quot;,&quot;label&quot;:&quot;新动作且权限、幂等和预算通过&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;budget&quot;,&quot;to&quot;:&quot;state&quot;,&quot;label&quot;:&quot;动作已提交：跳过写并恢复后续状态&quot;,&quot;kind&quot;:&quot;feedback&quot;},{&quot;from&quot;:&quot;budget&quot;,&quot;to&quot;:&quot;stopped&quot;,&quot;label&quot;:&quot;任一步数/时间/成本上限触发&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;budget&quot;,&quot;to&quot;:&quot;handoff&quot;,&quot;label&quot;:&quot;余量允许且审批超时等需交接&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;worker&quot;,&quot;to&quot;:&quot;ledger&quot;,&quot;label&quot;:&quot;新动作提交及唯一收据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;worker&quot;,&quot;to&quot;:&quot;delivery&quot;,&quot;label&quot;:&quot;写后确认前崩溃：等待重投&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;worker&quot;,&quot;to&quot;:&quot;state&quot;,&quot;label&quot;:&quot;正常确认后推进合法状态&quot;,&quot;kind&quot;:&quot;feedback&quot;},{&quot;from&quot;:&quot;handoff&quot;,&quot;to&quot;:&quot;state&quot;,&quot;label&quot;:&quot;有效交接：持久化 owner/scope&quot;,&quot;kind&quot;:&quot;feedback&quot;},{&quot;from&quot;:&quot;handoff&quot;,&quot;to&quot;:&quot;stopped&quot;,&quot;label&quot;:&quot;目标错误、不可用或意图扩权&quot;,&quot;kind&quot;:&quot;risk&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="3959" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-W02</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >动作已提交，长流程仍可能需要恢复</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >幂等收据证明某次动作已提交；任务是否结束另看当前状态，未结束则核对 checkpoint、当前权限与剩余预算再继续。</text>
+<g id="system-graph" data-region="64,234,1472,3121">
+<rect x="64" y="234" width="1472" height="3121" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >重复 msg-42 跳过已提交写入，恢复后续步骤；任务终态、预算停止与交接分开</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M472.8571428571429 341 L472.8571428571429 447 L930 447 L930 273" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M472.8571428571429 341 L472.8571428571429 447 L930 447 L930 273" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="state" data-to="checkpoint"/>
+<path d="M341.7142857142857 341 L341.7142857142857 447 L89 447 Q84 435 79 447 L70 447 L70 619 L79 619 Q84 607 89 619 L451 619 L451 645" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M341.7142857142857 341 L341.7142857142857 447 L89 447 Q84 435 79 447 L70 447 L70 619 L79 619 Q84 607 89 619 L451 619 L451 645" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="state" data-to="delivery"/>
+<path d="M400 842 L400 1002 L89 1002 Q80.5 990 72 1002 L61 1002 Q56 990 51 1002 L42 1002 L42 1206 L51 1206 Q56 1194 61 1206 L72 1206 Q80.5 1194 89 1206 L359.2 1206 L359.2 1274" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M400 842 L400 1002 L89 1002 Q80.5 990 72 1002 L61 1002 Q56 990 51 1002 L42 1002 L42 1206 L51 1206 Q56 1194 61 1206 L72 1206 Q80.5 1194 89 1206 L359.2 1206 L359.2 1274" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e2" data-from="delivery" data-to="resume"/>
+<path d="M1032 273 L1032 447 L1362 447 L1362 1220 L986 1220 Q981 1208 976 1220 L481.6 1220 L481.6 1274" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M1032 273 L1032 447 L1362 447 L1362 1220 L986 1220 Q981 1208 976 1220 L481.6 1220 L481.6 1274" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e3" data-from="checkpoint" data-to="resume"/>
+<path d="M930 910 L930 1002 L1351 1002 Q1362 990 1373 1002 L1380 1002 L1380 1234 L1361 1234 Q1356 1222 1351 1234 L986 1234 Q981 1222 976 1234 L542.8 1234 L542.8 1274" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M930 910 L930 1002 L1351 1002 Q1362 990 1373 1002 L1380 1002 L1380 1234 L1361 1234 Q1356 1222 1351 1234 L986 1234 Q981 1222 976 1234 L542.8 1234 L542.8 1274" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e4" data-from="ledger" data-to="resume"/>
+<path d="M385.42857142857144 341 L385.42857142857144 543 L77 543 L77 1248 L354.2 1248 Q359.2 1236 364.2 1248 L420.4 1248 L420.4 1274" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M385.42857142857144 341 L385.42857142857144 543 L77 543 L77 1248 L354.2 1248 Q359.2 1236 364.2 1248 L420.4 1248 L420.4 1274" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e5" data-from="state" data-to="resume"/>
+<path d="M374.5 1539 L374.5 1603 L89 1603 Q84 1591 79 1603 L70 1603 L70 2508 L451 2508 L451 2576" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M374.5 1539 L374.5 1603 L89 1603 Q84 1591 79 1603 L70 1603 L70 2508 L451 2508 L451 2576" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="resume" data-to="completed"/>
+<path d="M451 1539 L451 1699 L89 1699 Q84 1687 79 1699 L63 1699 L63 2522 L446 2522 Q451 2510 456 2522 L904.5 2522 L904.5 2576" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M451 1539 L451 1699 L89 1699 Q84 1687 79 1699 L63 1699 L63 2522 L446 2522 Q451 2510 456 2522 L904.5 2522 L904.5 2576" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e7" data-from="resume" data-to="stopped"/>
+<path d="M527.5 1539 L527.5 1619 L889.2 1619 L889.2 1505" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M527.5 1539 L527.5 1619 L889.2 1619 L889.2 1505" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e8" data-from="resume" data-to="budget"/>
+<path d="M950.4 1505 L950.4 1619 L1006.6 1619 Q1011.6 1607 1016.6 1619 L1067.8 1619 Q1072.8 1607 1077.8 1619 L1351 1619 Q1356 1607 1361 1619 L1386 1619 L1386 2063 L1379 2063 Q1374 2051 1369 2063 L935 2063 Q930 2051 925 2063 L547.8 2063 Q542.8 2051 537.8 2063 L481.6 2063 L481.6 2103" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M950.4 1505 L950.4 1619 L1006.6 1619 Q1011.6 1607 1016.6 1619 L1067.8 1619 Q1072.8 1607 1077.8 1619 L1351 1619 Q1356 1607 1361 1619 L1386 1619 L1386 2063 L1379 2063 Q1374 2051 1369 2063 L935 2063 Q930 2051 925 2063 L547.8 2063 Q542.8 2051 537.8 2063 L481.6 2063 L481.6 2103" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e9" data-from="budget" data-to="worker"/>
+<path d="M981 1274 L981 1114 L1351 1114 Q1356 1102 1361 1114 L1368 1114 L1368 355 L1037 355 Q1032 343 1027 355 L935 355 Q930 343 925 355 L565.2857142857142 355 Q560.2857142857142 343 555.2857142857142 355 L516.5714285714286 355 L516.5714285714286 341" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M981 1274 L981 1114 L1351 1114 Q1356 1102 1361 1114 L1368 1114 L1368 355 L1037 355 Q1032 343 1027 355 L935 355 Q930 343 925 355 L565.2857142857142 355 Q560.2857142857142 343 555.2857142857142 355 L516.5714285714286 355 L516.5714285714286 341" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e10" data-from="budget" data-to="state"/>
+<path d="M1011.6 1505 L1011.6 1731 L1067.8 1731 Q1072.8 1719 1077.8 1731 L1351 1731 Q1356 1719 1361 1731 L1374 1731 L1374 2536 L1367 2536 Q1362 2524 1357 2536 L981 2536 L981 2576" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M1011.6 1505 L1011.6 1731 L1067.8 1731 Q1072.8 1719 1077.8 1731 L1351 1731 Q1356 1719 1361 1731 L1374 1731 L1374 2536 L1367 2536 Q1362 2524 1357 2536 L981 2536 L981 2576" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e11" data-from="budget" data-to="stopped"/>
+<path d="M1072.8 1505 L1072.8 1827 L1351 1827 Q1356 1815 1361 1827 L1369 1827 Q1374 1815 1379 1827 L1392 1827 L1392 2077 L1379 2077 Q1374 2065 1369 2077 L1032 2077 L1032 2103" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M1072.8 1505 L1072.8 1827 L1351 1827 Q1356 1815 1361 1827 L1369 1827 Q1374 1815 1379 1827 L1392 1827 L1392 2077 L1379 2077 Q1374 2065 1369 2077 L1032 2077 L1032 2103" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e12" data-from="budget" data-to="handoff"/>
+<path d="M542.8 2103 L542.8 1795 L89 1795 Q84 1783 79 1795 L75 1795 Q70 1783 65 1795 L56 1795 L56 924 L72 924 Q80.5 912 89 924 L395 924 Q400 912 405 924 L497 924 Q502 912 507 924 L925 924 Q930 912 935 924 L1032 924 L1032 910" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M542.8 2103 L542.8 1795 L89 1795 Q84 1783 79 1795 L75 1795 Q70 1783 65 1795 L56 1795 L56 924 L72 924 Q80.5 912 89 924 L395 924 Q400 912 405 924 L497 924 Q502 912 507 924 L925 924 Q930 912 935 924 L1032 924 L1032 910" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e13" data-from="worker" data-to="ledger"/>
+<path d="M359.2 2103 L359.2 1891 L89 1891 Q84 1879 79 1891 L75 1891 Q66.5 1879 58 1891 L49 1891 L49 938 L72 938 Q80.5 926 89 938 L395 938 Q400 926 405 938 L502 938 L502 842" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M359.2 2103 L359.2 1891 L89 1891 Q84 1879 79 1891 L75 1891 Q66.5 1879 58 1891 L49 1891 L49 938 L72 938 Q80.5 926 89 938 L395 938 Q400 926 405 938 L502 938 L502 842" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e14" data-from="worker" data-to="delivery"/>
+<path d="M420.4 2103 L420.4 1987 L364.2 1987 Q359.2 1975 354.2 1987 L84 1987 L84 369 L336.7142857142857 369 Q341.7142857142857 357 346.7142857142857 369 L380.42857142857144 369 Q385.42857142857144 357 390.42857142857144 369 L429.1428571428571 369 L429.1428571428571 341" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M420.4 2103 L420.4 1987 L364.2 1987 Q359.2 1975 354.2 1987 L84 1987 L84 369 L336.7142857142857 369 Q341.7142857142857 357 346.7142857142857 369 L380.42857142857144 369 Q385.42857142857144 357 390.42857142857144 369 L429.1428571428571 369 L429.1428571428571 341" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e15" data-from="worker" data-to="state"/>
+<path d="M930 2103 L930 1939 L1356 1939 L1356 383 L1037 383 Q1032 371 1027 383 L935 383 Q930 371 925 383 L560.2857142857142 383 L560.2857142857142 341" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M930 2103 L930 1939 L1356 1939 L1356 383 L1037 383 Q1032 371 1027 383 L935 383 Q930 371 925 383 L560.2857142857142 383 L560.2857142857142 341" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e16" data-from="handoff" data-to="state"/>
+<path d="M981 2368 L981 2432 L1362 2432 L1362 2550 L1057.5 2550 L1057.5 2576" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M981 2368 L981 2432 L1362 2432 L1362 2550 L1057.5 2550 L1057.5 2576" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e17" data-from="handoff" data-to="stopped"/>
+<g id="node-state" class="node node-input" data-region="274,76,354,265">
+<rect x="274" y="76" width="354" height="265" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#215cbb" font-weight="700" >当前 Workflow state</text>
+<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >task_id / state_version</text>
+<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >/ owner</text>
+<text x="296" y="263" font-size="23" fill="#172b45" font-weight="450" >合法任务状态与当前 scope</text>
+<text x="296" y="297" font-size="23" fill="#172b45" font-weight="450" >可读回</text>
+</g>
+<g id="node-checkpoint" class="node node-data" data-region="804,76,354,197">
+<rect x="804" y="76" width="354" height="197" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#087b76" font-weight="750" class="mono">02</text>
+<text x="826" y="152" font-size="28" fill="#087b76" font-weight="700" >Checkpoint</text>
+<text x="826" y="195" font-size="23" fill="#172b45" font-weight="450" >最后安全位置、版本与 hash</text>
+<text x="826" y="229" font-size="23" fill="#172b45" font-weight="450" >损坏则停止并请求人工重建</text>
+</g>
+<g id="node-delivery" class="node node-process" data-region="274,645,354,197">
+<rect x="274" y="645" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="662" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="680" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="296" y="721" font-size="28" fill="#344f70" font-weight="700" >Queue delivery</text>
+<text x="296" y="764" font-size="23" fill="#172b45" font-weight="450" >同一 msg-42 可重复投递</text>
+<text x="296" y="798" font-size="23" fill="#172b45" font-weight="450" >写后确认前崩溃会触发重投</text>
+</g>
+<g id="node-ledger" class="node node-evidence" data-region="804,645,354,265">
+<rect x="804" y="645" width="354" height="265" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="662" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="680" font-size="15" fill="#7045a4" font-weight="750" class="mono">04</text>
+<text x="826" y="721" font-size="28" fill="#7045a4" font-weight="700" >动作幂等账本</text>
+<text x="826" y="764" font-size="23" fill="#172b45" font-weight="450" >动作提交结果与唯一</text>
+<text x="826" y="798" font-size="23" fill="#172b45" font-weight="450" >receipt</text>
+<text x="826" y="832" font-size="23" fill="#172b45" font-weight="450" >动作已提交不等于整个任务</text>
+<text x="826" y="866" font-size="23" fill="#172b45" font-weight="450" >完成</text>
+</g>
+<g id="node-resume" class="node node-control" data-region="274,1274,354,265">
+<rect x="274" y="1274" width="354" height="265" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="292" y="1291" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1309" font-size="15" fill="#945c0b" font-weight="750" class="mono">05</text>
+<text x="296" y="1350" font-size="28" fill="#945c0b" font-weight="700" >恢复与任务状态判定</text>
+<text x="296" y="1393" font-size="23" fill="#172b45" font-weight="450" >先读检查点、收据与当前</text>
+<text x="296" y="1427" font-size="23" fill="#172b45" font-weight="450" >scope</text>
+<text x="296" y="1461" font-size="23" fill="#172b45" font-weight="450" >区分任务已终结与仅动作已</text>
+<text x="296" y="1495" font-size="23" fill="#172b45" font-weight="450" >提交</text>
+</g>
+<g id="node-budget" class="node node-control" data-region="804,1274,354,231">
+<rect x="804" y="1274" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="1291" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1309" font-size="15" fill="#945c0b" font-weight="750" class="mono">06</text>
+<text x="826" y="1350" font-size="28" fill="#945c0b" font-weight="700" >剩余预算守卫</text>
+<text x="826" y="1393" font-size="23" fill="#172b45" font-weight="450" >继续或交接前核对步数、时</text>
+<text x="826" y="1427" font-size="23" fill="#172b45" font-weight="450" >间、成本</text>
+<text x="826" y="1461" font-size="23" fill="#172b45" font-weight="450" >Token 与剩余额度逐次留痕</text>
+</g>
+<g id="node-worker" class="node node-process" data-region="274,2103,354,265">
+<rect x="274" y="2103" width="354" height="265" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="2120" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="2138" font-size="15" fill="#344f70" font-weight="750" class="mono">07</text>
+<text x="296" y="2179" font-size="28" fill="#344f70" font-weight="700" >幂等 Worker 执行</text>
+<text x="296" y="2222" font-size="23" fill="#172b45" font-weight="450" >只执行获准、预算内的未提</text>
+<text x="296" y="2256" font-size="23" fill="#172b45" font-weight="450" >交动作</text>
+<text x="296" y="2290" font-size="23" fill="#172b45" font-weight="450" >已提交动作跳过，不再次写</text>
+<text x="296" y="2324" font-size="23" fill="#172b45" font-weight="450" >审计</text>
+</g>
+<g id="node-completed" class="node node-evidence" data-region="274,2576,354,265">
+<rect x="274" y="2576" width="354" height="265" rx="14" fill="#f4effb" stroke="none" />
+<rect x="292" y="2593" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="2611" font-size="15" fill="#7045a4" font-weight="750" class="mono">08</text>
+<text x="296" y="2652" font-size="28" fill="#7045a4" font-weight="700" >已核实任务终态</text>
+<text x="296" y="2695" font-size="23" fill="#172b45" font-weight="450" >当前任务状态确已</text>
+<text x="296" y="2729" font-size="23" fill="#172b45" font-weight="450" >completed</text>
+<text x="296" y="2763" font-size="23" fill="#172b45" font-weight="450" >不能仅凭一个动作 receipt</text>
+<text x="296" y="2797" font-size="23" fill="#172b45" font-weight="450" >返回</text>
+</g>
+<g id="node-stopped" class="node node-risk" data-region="804,2576,354,265">
+<rect x="804" y="2576" width="354" height="265" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="822" y="2593" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="2611" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">09</text>
+<text x="826" y="2652" font-size="28" fill="#ad3e4c" font-weight="700" >stopped / 暂停</text>
+<text x="826" y="2695" font-size="23" fill="#172b45" font-weight="450" >stop_reason、预算类型与</text>
+<text x="826" y="2729" font-size="23" fill="#172b45" font-weight="450" >owner</text>
+<text x="826" y="2763" font-size="23" fill="#172b45" font-weight="450" >检查点损坏或控制缺失安全</text>
+<text x="826" y="2797" font-size="23" fill="#172b45" font-weight="450" >停止</text>
+</g>
+<g id="node-handoff" class="node node-control" data-region="804,2103,354,265">
+<rect x="804" y="2103" width="354" height="265" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="2120" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="2138" font-size="15" fill="#945c0b" font-weight="750" class="mono">10</text>
+<text x="826" y="2179" font-size="28" fill="#945c0b" font-weight="700" >有预算的人工交接</text>
+<text x="826" y="2222" font-size="23" fill="#172b45" font-weight="450" >task_id / state_version</text>
+<text x="826" y="2256" font-size="23" fill="#172b45" font-weight="450" >/ scope</text>
+<text x="826" y="2290" font-size="23" fill="#172b45" font-weight="450" >remaining_budget /</text>
+<text x="826" y="2324" font-size="23" fill="#172b45" font-weight="450" >stop_reason</text>
+</g>
+<rect x="632.61" y="409" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="438" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  持久化最后</text>
+<text x="716" y="470" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">安全状态</text>
+<text x="934" y="295" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="95.69" y="409" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="438" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  未终结：投递</text>
+<text x="190" y="470" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">下一合法步骤</text>
+<text x="455" y="635" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="95.69" y="964" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="993" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  新投递与重投</text>
+<text x="190" y="1025" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">均先判定恢复</text>
+<text x="363.2" y="1264" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="1151.69" y="409" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="438" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  安全位置及完</text>
+<text x="1246" y="470" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">整性证据</text>
+<text x="485.6" y="1264" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="1151.69" y="964" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="993" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  当前动作已提</text>
+<text x="1246" y="1025" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">交与否</text>
+<text x="546.8" y="1264" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="93.38" y="505" width="193.24" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="534" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  当前任务状</text>
+<text x="190" y="566" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">态、owner 与权限</text>
+<text x="424.4" y="1264" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="93.38" y="1565" width="193.24" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1594" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  任务级</text>
+<text x="190" y="1626" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">completed 已核实</text>
+<text x="455" y="2566" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="94.64" y="1661" width="190.72" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1690" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  检查点损坏、</text>
+<text x="190" y="1722" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">权限失效或已停止</text>
+<text x="908.5" y="2566" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+<rect x="642.48" y="1565" width="147.04" height="108" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1594" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  任务未结</text>
+<text x="716" y="1626" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">束：继续或待</text>
+<text x="716" y="1658" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">人工交接</text>
+<text x="893.2" y="1527" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e8" stroke="#fff" stroke-width="4" paint-order="stroke">09</text>
+<rect x="1161.56" y="1565" width="168.88" height="108" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1594" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">10  新动作且权</text>
+<text x="1246" y="1626" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">限、幂等和预算</text>
+<text x="1246" y="1658" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">通过</text>
+<text x="485.6" y="2093" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e9" stroke="#fff" stroke-width="4" paint-order="stroke">10</text>
+<rect x="1150.64" y="1060" width="190.72" height="108" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1089" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">11  动作已提交：</text>
+<text x="1246" y="1121" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">跳过写并恢复后续</text>
+<text x="1246" y="1153" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">状态</text>
+<text x="520.5714285714286" y="363" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e10" stroke="#fff" stroke-width="4" paint-order="stroke">11</text>
+<rect x="1155.47" y="1693" width="181.06" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1722" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e11">12  任一步数/时</text>
+<text x="1246" y="1754" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e11">间/成本上限触发</text>
+<text x="985" y="2566" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e11" stroke="#fff" stroke-width="4" paint-order="stroke">12</text>
+<rect x="1151.69" y="1789" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1818" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e12">13  余量允许且审</text>
+<text x="1246" y="1850" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e12">批超时等需交接</text>
+<text x="1036" y="2093" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e12" stroke="#fff" stroke-width="4" paint-order="stroke">13</text>
+<rect x="95.69" y="1757" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1786" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e13">14  新动作提交及</text>
+<text x="190" y="1818" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e13">唯一收据</text>
+<text x="1036" y="932" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e13" stroke="#fff" stroke-width="4" paint-order="stroke">14</text>
+<rect x="95.69" y="1853" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1882" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e14">15  写后确认前崩</text>
+<text x="190" y="1914" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e14">溃：等待重投</text>
+<text x="506" y="864" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e14" stroke="#fff" stroke-width="4" paint-order="stroke">15</text>
+<rect x="95.69" y="1949" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1978" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e15">16  正常确认后推</text>
+<text x="190" y="2010" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e15">进合法状态</text>
+<text x="433.1428571428571" y="363" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e15" stroke="#fff" stroke-width="4" paint-order="stroke">16</text>
+<rect x="1162.61" y="1885" width="166.78" height="108" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1914" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e16">17  有效交接：</text>
+<text x="1246" y="1946" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e16">持久化 owner/</text>
+<text x="1246" y="1978" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e16">scope</text>
+<text x="564.2857142857142" y="363" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e16" stroke="#fff" stroke-width="4" paint-order="stroke">17</text>
+<rect x="1151.69" y="2394" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="2423" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e17">18  目标错误、不</text>
+<text x="1246" y="2455" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e17">可用或意图扩权</text>
+<text x="1061.5" y="2566" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e17" stroke="#fff" stroke-width="4" paint-order="stroke">18</text>
+</g>
+</g>
+<text x="64" y="3409" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="3409" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,3439,470,174">
+<rect x="64" y="3439" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="3461" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="106" y="3486" font-size="25" fill="#ad3e4c" font-weight="700" >故障选准窗口</text>
+<text x="88" y="3541" font-size="23" fill="#172b45" font-weight="450" >写审计后、确认消息前崩溃再重投</text>
+<text x="88" y="3576" font-size="23" fill="#172b45" font-weight="450" >查已提交收据，跳过写并恢复后续</text>
+</g>
+<g id="detail-1" data-region="565,3439,470,174">
+<rect x="565" y="3439" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="3461" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="607" y="3486" font-size="25" fill="#945c0b" font-weight="700" >任务终结不能借证据</text>
+<text x="589" y="3541" font-size="23" fill="#172b45" font-weight="450" >单步写入收据不证明流程 completed</text>
+<text x="589" y="3576" font-size="23" fill="#172b45" font-weight="450" >未结束恢复与交接都先过当前预算</text>
+</g>
+<g id="detail-2" data-region="1066,3439,470,174">
+<rect x="1066" y="3439" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="3461" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="3486" font-size="25" fill="#7045a4" font-weight="700" >三类出口分开交接</text>
+<text x="1090" y="3541" font-size="23" fill="#172b45" font-weight="450" >completed、stopped、handoff 分栏</text>
+<text x="1090" y="3576" font-size="23" fill="#172b45" font-weight="450" >每个出口保留权限、原因和责任人</text>
+</g>
+<g id="failure-and-output" data-region="64,3645,1472,148">
+<rect x="64" y="3645" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="3684" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="3729" font-size="23" fill="#ffdce2" font-weight="450" >重复写、无法定位 checkpoint、预算失守或交接扩权即阻断；动作已提交不得误报整个任务完成。</text>
+<text x="88" y="3772" font-size="23" fill="#dce9fa" font-weight="450" >交付动作与任务两层收据、恢复时间线、预算停止及可接手的 Handoff 证据。</text>
+</g>
+<text x="64" y="3841" font-size="20" fill="#50647c" font-weight="450" >离线重放不证明真实队列事务、跨服务一致性、人工 SLA 或生产恢复。</text>
+<text x="64" y="3880" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-W02 · 动作已提交，长流程仍可能需要恢复</text>
+<path class="edge edge-data" d="M64 3920 L101 3920" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="3926" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 3920 L397 3920" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="3926" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 3920 L693 3920" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="3926" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 3920 L989 3920" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="3926" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 3920 L1285 3920" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="3926" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

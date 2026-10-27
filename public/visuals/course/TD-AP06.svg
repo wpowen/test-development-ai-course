@@ -1,120 +1,165 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1160 546" width="1160" height="546">
-  <title id="title">约束超时与重试：压力下安全降级：flow流程</title>
-  <desc id="desc">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-</style>
-  <rect class="ds-bg" width="1160" height="546" rx="22"/>
-  
-  <rect class="ds-header" x="0" y="0" width="1160" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1160" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">FLOW · 证据流</text>
-  <text class="ds-subtitle" x="1124" y="32" text-anchor="end">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</text>
-  <text class="ds-title" x="36" y="74">约束超时与重试：压力下安全降级</text>
-  <text class="ds-source" x="36" y="140">flow · TD-AP06 证据链 · 来源 S48, S57, S67, S75</text>
-  
-    <path d="M 264 220 L 286 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 466 220 L 488 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 668 220 L 690 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 870 220 L 892 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 984 268 V 305 H 176 V 338" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-  
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="172" width="176" height="96" rx="14" fill="#eaf1fa" stroke="#aec6e3"/>
-      
-      <circle cx="106" cy="190" r="11" fill="#ffffff" stroke="#aec6e3" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="193" text-anchor="middle" >01</text>
-      <text class="ds-node-title" x="103" y="220">Ingress deadline</text>
-      <text class="ds-node-detail" x="103" y="235">输入 / 依据</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="290" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="308" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="193" text-anchor="middle" >02</text>
-      <text class="ds-node-title" x="305" y="220">Agent task budget</text>
-      <text class="ds-node-detail" x="305" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="492" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="510" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="510" y="193" text-anchor="middle" >03</text>
-      <text class="ds-node-title" x="507" y="220">Model SDK retry</text>
-      <text class="ds-node-detail" x="507" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="694" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="712" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="712" y="193" text-anchor="middle" >04</text>
-      <text class="ds-node-title" x="709" y="220">Tool retry/breaker</text>
-      <text class="ds-node-detail" x="709" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="896" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="914" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="914" y="193" text-anchor="middle" >05</text>
-      <text class="ds-node-title" x="911" y="220">Read-only/Human degrade</text>
-      <text class="ds-node-detail" x="911" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-strong)">
-      <rect x="88" y="342" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a" stroke-width="2"/>
-      <rect x="88" y="342" width="6" height="96" rx="3" fill="#93bd2c"/>
-      <circle cx="106" cy="360" r="11" fill="#174a3a" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="363" text-anchor="middle" fill="#ffffff">06</text>
-      <text class="ds-node-title" x="103" y="390">Gate + reconciliation</text>
-      <text class="ds-node-detail" x="103" y="405">决定 / 输出</text>
-    </g>
-  <circle cx="108" cy="460" r="4" fill="#355f96"/><text class="ds-legend" x="118" y="464">输入 / 依据</text><circle cx="177.4" cy="460" r="4" fill="#c2d9cc"/><text class="ds-legend" x="187.4" y="464">处理 / 变换</text><circle cx="246.8" cy="460" r="4" fill="#6a49a8"/><text class="ds-legend" x="256.8" y="464">独立判断</text><circle cx="297.6" cy="460" r="4" fill="#a96a18"/><text class="ds-legend" x="307.6" y="464">门禁 / 裁决</text><circle cx="367" cy="460" r="4" fill="#b2402f"/><text class="ds-legend" x="377" y="464">安全终态</text>
-  
-  <rect x="28" y="472" width="1104" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="498">证据边界</text>
-  <text class="ds-foot" x="46" y="520">节点是页面语义关系；不代表真实模型、企业集成或生产效果已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2942" viewBox="0 0 1600 2942" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">重试前先判预算与写入语义</title><desc id="desc">所有层共用任务预算；写结果未知先对账，只有幂等且可恢复的调用才允许重试。 错误类型、绝对 deadline 与副作用账本共同裁决下一步 本地策略夹具不证明真实依赖幂等或补偿语义；provider/model、integration、production 均 NOT_RUN。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-AP06 / 跨层重试会把一次抖动放大成事故;docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-AP06 / AP06 Project lab：重试预算与副作用账本;docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-AP06 / AP06 最终练习：拒绝危险重试">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-AP06&quot;,&quot;pageIds&quot;:[&quot;TD-AP06&quot;],&quot;primaryPageIds&quot;:[&quot;TD-AP06&quot;],&quot;layout&quot;:&quot;decision&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-AP06 / 跨层重试会把一次抖动放大成事故&quot;,&quot;quote&quot;:&quot;只有幂等且属于可恢复错误类、并遵守 Retry-After 的调用才允许扣预算重试。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-AP06 / AP06 Project lab：重试预算与副作用账本&quot;,&quot;quote&quot;:&quot;未知写结果必须先用业务 key 对账&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-AP06 / AP06 最终练习：拒绝危险重试&quot;,&quot;quote&quot;:&quot;任何重复写账本、无幂等键、无 receipt 的路径都必须硬阻断。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;failure&quot;,&quot;title&quot;:&quot;调用失败或超时&quot;},{&quot;id&quot;:&quot;budget&quot;,&quot;title&quot;:&quot;任务级总预算&quot;},{&quot;id&quot;:&quot;semantic&quot;,&quot;title&quot;:&quot;重试语义闸门&quot;},{&quot;id&quot;:&quot;retry&quot;,&quot;title&quot;:&quot;预算内有限重试&quot;},{&quot;id&quot;:&quot;reconcile&quot;,&quot;title&quot;:&quot;按业务 key 对账&quot;},{&quot;id&quot;:&quot;degrade&quot;,&quot;title&quot;:&quot;声明的安全终态&quot;},{&quot;id&quot;:&quot;block&quot;,&quot;title&quot;:&quot;副作用硬阻断&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;failure&quot;,&quot;to&quot;:&quot;semantic&quot;,&quot;label&quot;:&quot;分类&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;budget&quot;,&quot;to&quot;:&quot;semantic&quot;,&quot;label&quot;:&quot;剩余时间与次数&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;semantic&quot;,&quot;to&quot;:&quot;retry&quot;,&quot;label&quot;:&quot;幂等且可恢复、有预算&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;semantic&quot;,&quot;to&quot;:&quot;reconcile&quot;,&quot;label&quot;:&quot;写结果未知&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;semantic&quot;,&quot;to&quot;:&quot;degrade&quot;,&quot;label&quot;:&quot;不允许或预算耗尽&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;retry&quot;,&quot;to&quot;:&quot;budget&quot;,&quot;label&quot;:&quot;消耗共享预算&quot;,&quot;kind&quot;:&quot;feedback&quot;},{&quot;from&quot;:&quot;reconcile&quot;,&quot;to&quot;:&quot;block&quot;,&quot;label&quot;:&quot;发现重复或无审计写&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;reconcile&quot;,&quot;to&quot;:&quot;degrade&quot;,&quot;label&quot;:&quot;对账后安全结束&quot;,&quot;kind&quot;:&quot;control&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2942" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-AP06</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >重试前先判预算与写入语义</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >所有层共用任务预算；写结果未知先对账，只有幂等且可恢复的调用才允许重试。</text>
+<g id="system-graph" data-region="64,234,1472,2104">
+<rect x="64" y="234" width="1472" height="2104" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >错误类型、绝对 deadline 与副作用账本共同裁决下一步</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M451 307 L451 369 L70 369 L70 461 L663 461 L663 501" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M451 307 L451 369 L70 369 L70 461 L663 461 L663 501" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="failure" data-to="semantic"/>
+<path d="M1032 307 L1032 385 L1356 385 L1356 475 L765 475 L765 501" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M1032 307 L1032 385 L1356 385 L1356 475 L765 475 L765 501" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e1" data-from="budget" data-to="semantic"/>
+<path d="M637.5 732 L637.5 796 L82 796 Q77 784 72 796 L63 796 L63 1032 L79 1032 Q84 1020 89 1032 L400 1032 L400 1072" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M637.5 732 L637.5 796 L82 796 Q77 784 72 796 L63 796 L63 1032 L79 1032 Q84 1020 89 1032 L400 1032 L400 1072" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e2" data-from="semantic" data-to="retry"/>
+<path d="M790.5 732 L790.5 780 L1362 780 L1362 1046 L981 1046 L981 1072" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M790.5 732 L790.5 780 L1362 780 L1362 1046 L981 1046 L981 1072" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e3" data-from="semantic" data-to="reconcile"/>
+<path d="M714 732 L714 892 L84 892 L84 1539 L400 1539 L400 1593" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M714 732 L714 892 L84 892 L84 1539 L400 1539 L400 1593" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e4" data-from="semantic" data-to="degrade"/>
+<path d="M502 1072 L502 972 L77 972 L77 321 L446 321 Q451 309 456 321 L930 321 L930 307" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M502 1072 L502 972 L77 972 L77 321 L446 321 Q451 309 456 321 L930 321 L930 307" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e5" data-from="retry" data-to="budget"/>
+<path d="M1032 1303 L1032 1367 L1356 1367 L1356 1553 L981 1553 L981 1593" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M1032 1303 L1032 1367 L1356 1367 L1356 1553 L981 1553 L981 1593" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e6" data-from="reconcile" data-to="block"/>
+<path d="M930 1303 L930 1463 L1351 1463 Q1356 1451 1361 1463 L1368 1463 L1368 1567 L986 1567 Q981 1555 976 1567 L502 1567 L502 1593" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M930 1303 L930 1463 L1351 1463 Q1356 1451 1361 1463 L1368 1463 L1368 1567 L986 1567 Q981 1555 976 1567 L502 1567 L502 1593" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e7" data-from="reconcile" data-to="degrade"/>
+<g id="node-failure" class="node node-input" data-region="274,76,354,231">
+<rect x="274" y="76" width="354" height="231" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#215cbb" font-weight="700" >调用失败或超时</text>
+<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >保留错误类别与物理</text>
+<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >attempt</text>
+<text x="296" y="263" font-size="23" fill="#172b45" font-weight="450" >识别只读或写工具</text>
+</g>
+<g id="node-budget" class="node node-control" data-region="804,76,354,231">
+<rect x="804" y="76" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#945c0b" font-weight="750" class="mono">02</text>
+<text x="826" y="152" font-size="28" fill="#945c0b" font-weight="700" >任务级总预算</text>
+<text x="826" y="195" font-size="23" fill="#172b45" font-weight="450" >传播绝对 deadline</text>
+<text x="826" y="229" font-size="23" fill="#172b45" font-weight="450" >SDK、网关、Agent、tool</text>
+<text x="826" y="263" font-size="23" fill="#172b45" font-weight="450" >共用</text>
+</g>
+<g id="node-semantic" class="node node-control" data-region="537,501,354,231">
+<rect x="537" y="501" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="555" y="518" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="536" font-size="15" fill="#945c0b" font-weight="750" class="mono">03</text>
+<text x="559" y="577" font-size="28" fill="#945c0b" font-weight="700" >重试语义闸门</text>
+<text x="559" y="620" font-size="23" fill="#172b45" font-weight="450" >幂等、可恢复、遵守 Retry-</text>
+<text x="559" y="654" font-size="23" fill="#172b45" font-weight="450" >After</text>
+<text x="559" y="688" font-size="23" fill="#172b45" font-weight="450" >未知写结果不直接再次写入</text>
+</g>
+<g id="node-retry" class="node node-process" data-region="274,1072,354,231">
+<rect x="274" y="1072" width="354" height="231" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="1089" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1107" font-size="15" fill="#344f70" font-weight="750" class="mono">04</text>
+<text x="296" y="1148" font-size="28" fill="#344f70" font-weight="700" >预算内有限重试</text>
+<text x="296" y="1191" font-size="23" fill="#172b45" font-weight="450" >每次尝试扣同一总预算</text>
+<text x="296" y="1225" font-size="23" fill="#172b45" font-weight="450" >退避与 jitter 仍受</text>
+<text x="296" y="1259" font-size="23" fill="#172b45" font-weight="450" >deadline 限制</text>
+</g>
+<g id="node-reconcile" class="node node-evidence" data-region="804,1072,354,231">
+<rect x="804" y="1072" width="354" height="231" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="1089" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1107" font-size="15" fill="#7045a4" font-weight="750" class="mono">05</text>
+<text x="826" y="1148" font-size="28" fill="#7045a4" font-weight="700" >按业务 key 对账</text>
+<text x="826" y="1191" font-size="23" fill="#172b45" font-weight="450" >比对幂等键、receipt 与</text>
+<text x="826" y="1225" font-size="23" fill="#172b45" font-weight="450" >账本</text>
+<text x="826" y="1259" font-size="23" fill="#172b45" font-weight="450" >先确认上次写是否已经生效</text>
+</g>
+<g id="node-degrade" class="node node-process" data-region="274,1593,354,197">
+<rect x="274" y="1593" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="1610" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1628" font-size="15" fill="#344f70" font-weight="750" class="mono">06</text>
+<text x="296" y="1669" font-size="28" fill="#344f70" font-weight="700" >声明的安全终态</text>
+<text x="296" y="1712" font-size="23" fill="#172b45" font-weight="450" >只读、转人工或明确拒绝</text>
+<text x="296" y="1746" font-size="23" fill="#172b45" font-weight="450" >保存终态 owner 与质量下限</text>
+</g>
+<g id="node-block" class="node node-risk" data-region="804,1593,354,231">
+<rect x="804" y="1593" width="354" height="231" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="822" y="1610" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1628" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">07</text>
+<text x="826" y="1669" font-size="28" fill="#ad3e4c" font-weight="700" >副作用硬阻断</text>
+<text x="826" y="1712" font-size="23" fill="#172b45" font-weight="450" >重复退款、扣款或无审计</text>
+<text x="826" y="1746" font-size="23" fill="#172b45" font-weight="450" >写入</text>
+<text x="826" y="1780" font-size="23" fill="#172b45" font-weight="450" >暂停写工具并保留原始证据</text>
+</g>
+<rect x="139.37" y="347" width="101.26" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="376" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  分类</text>
+<text x="667" y="491" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="1162.61" y="347" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="376" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  剩余时间与</text>
+<text x="1246" y="408" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">次数</text>
+<text x="769" y="491" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="106.61" y="758" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="787" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  幂等且可恢</text>
+<text x="190" y="819" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">复、有预算</text>
+<text x="404" y="1062" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="1162.61" y="758" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="787" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  写结果未知</text>
+<text x="985" y="1062" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="95.69" y="854" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="883" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  不允许或预算</text>
+<text x="190" y="915" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">耗尽</text>
+<text x="404" y="1583" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="95.69" y="950" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="979" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  消耗共享预算</text>
+<text x="934" y="329" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="1151.69" y="1329" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1358" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  发现重复或无</text>
+<text x="1246" y="1390" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">审计写</text>
+<text x="985" y="1583" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="1162.61" y="1425" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1454" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  对账后安全</text>
+<text x="1246" y="1486" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">结束</text>
+<text x="506" y="1583" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+</g>
+</g>
+<text x="64" y="2392" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2392" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2422,470,174">
+<rect x="64" y="2422" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2444" width="7" height="30" rx="3" fill="#087b76" stroke="none" />
+<text x="106" y="2469" font-size="25" fill="#087b76" font-weight="700" >先算最坏放大</text>
+<text x="88" y="2524" font-size="23" fill="#172b45" font-weight="450" >列出四层 attempt 与超时</text>
+<text x="88" y="2559" font-size="23" fill="#172b45" font-weight="450" >次数相乘，再核对总 deadline</text>
+</g>
+<g id="detail-1" data-region="565,2422,470,174">
+<rect x="565" y="2422" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2444" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="607" y="2469" font-size="25" fill="#ad3e4c" font-weight="700" >分别注入什么错误</text>
+<text x="589" y="2524" font-size="23" fill="#172b45" font-weight="450" >429、网络超时、未知写结果</text>
+<text x="589" y="2559" font-size="23" fill="#172b45" font-weight="450" >再测试降级失败，不盲重放写入</text>
+</g>
+<g id="detail-2" data-region="1066,2422,470,174">
+<rect x="1066" y="2422" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2444" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="2469" font-size="25" fill="#7045a4" font-weight="700" >拿什么证明修复</text>
+<text x="1090" y="2524" font-size="23" fill="#172b45" font-weight="450" >attempt ledger 与 deadline 时间线</text>
+<text x="1090" y="2559" font-size="23" fill="#172b45" font-weight="450" >账本零重复，合法降级可回读</text>
+</g>
+<g id="failure-and-output" data-region="64,2628,1472,148">
+<rect x="64" y="2628" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2667" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2712" font-size="23" fill="#ffdce2" font-weight="450" >无幂等保护、receipt 缺失或发现重复副作用时阻断；加长外层 timeout 不算修复。</text>
+<text x="88" y="2755" font-size="23" fill="#dce9fa" font-weight="450" >交付预算表、降级矩阵、幂等与对账证据、repair 对照及回滚说明。</text>
+</g>
+<text x="64" y="2824" font-size="20" fill="#50647c" font-weight="450" >本地策略夹具不证明真实依赖幂等或补偿语义；provider/model、integration、production 均 NOT_RUN。</text>
+<text x="64" y="2863" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-AP06 · 重试前先判预算与写入语义</text>
+<path class="edge edge-data" d="M64 2903 L101 2903" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2909" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2903 L397 2903" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2909" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2903 L693 2903" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2909" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2903 L989 2903" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2909" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2903 L1285 2903" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2909" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

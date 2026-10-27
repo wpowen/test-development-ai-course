@@ -1,90 +1,156 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 1000" width="1600" height="1000">
-  <title id="title">AI 评测分数怎么计算，样本少时结果能信吗｜专业关系图</title>
-  <desc id="desc">这张图分开版本化输入、运行系统、独立 Oracle、报告、Waiver/回滚和人工 Gate；离线 Fixture 不能替代模型、企业集成、从业者评审或生产运行。 图中区分数据流、控制流、证据流与反馈回路，并显示失败路径、系统边界和责任门禁。</desc>
-  <defs>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173f32" flood-opacity="0.12"/></filter>
-    <marker id="arrow-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7fb8"/></marker>
-<marker id="arrow-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c9852c"/></marker>
-<marker id="arrow-evidence" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#765ca6"/></marker>
-<marker id="arrow-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2c7b61"/></marker>
-  </defs>
-  <rect width="1600" height="1000" rx="32" fill="#f4f7f2"/>
-  <rect x="0" y="0" width="1600" height="146" rx="32" fill="#174f3f"/>
-  <text x="72" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" font-weight="800" fill="#b8dd78">TD-B03 · metric-experiment · metric-paired-a</text>
-  <text x="72" y="92" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="30" font-weight="800" fill="#ffffff">AI评测分数怎么计算，样本少时结果能信吗｜专业关系图</text>
-  <text x="72" y="132" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="600" fill="#d9e9df">这张图分开版本化输入、运行系统、独立Oracle、报告、Waiver/回滚和人工Gate；离线Fixture不能替代模型、企业集成、从业</text>
-  <rect x="54" y="172" width="1492" height="590" rx="26" fill="#fbfdfb" stroke="#c9d6cf" stroke-width="2"/>
-  <text x="82" y="204" font-size="17" font-weight="800" fill="#52665e">系统边界 · 课程方法与可复核工件在边界内；真实企业系统、模型和生产状态在边界外。</text>
-  <path d="M 810 285 C 885 285, 70 490, 145 490" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 305 490 C 380 490, 500 490, 575 490" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 735 490 C 810 490, 930 490, 1005 490" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1165 490 C 1240 490, 70 685, 145 685" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 305 685 C 380 685, 500 685, 575 685" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 735 685 C 810 685, 930 685, 1005 685" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1165 685 C 1240 685, 1360 685, 1435 685" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 1595 685 C 1670 685, 70 490, 145 490" fill="none" stroke="#2c7b61" stroke-width="4" stroke-dasharray="14 6" marker-end="url(#arrow-feedback)" opacity="0.92"/>
-  <g filter="url(#shadow)">
-      <rect x="650" y="225" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="650" y="225" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="678" y="253" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">01</text>
-      <text x="678" y="287" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">逐题多次Runs</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="145" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="145" y="430" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="173" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">02</text>
-      <text x="173" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">RawLedger</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="575" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="575" y="430" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="603" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">03</text>
-      <text x="603" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">确定性Oracle</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1005" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1005" y="430" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1033" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">04</text>
-      <text x="1033" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Judge/校准</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="145" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="145" y="625" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="173" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">05</text>
-      <text x="173" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">MetricCalculator</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="575" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="575" y="625" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="603" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">06</text>
-      <text x="603" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Slice/Confidence</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1005" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="1005" y="625" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="1033" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">07</text>
-      <text x="1033" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">DecisionGate</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1435" y="625" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1435" y="625" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1463" y="653" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">08</text>
-      <text x="1463" y="687" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">版本化输入</text>
-    </g>
-  <g transform="translate(70 788)">
-    <rect width="710" height="112" rx="20" fill="#fff4ef" stroke="#e5aaa2" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#b84c42">失败路径</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">任一关键输入、权限、Oracle、版本或终态证据缺失时进入</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">FAIL/BLOCKED/UNKNOWN，不静默通过。</text>
-  </g>
-  <g transform="translate(820 788)">
-    <rect width="710" height="112" rx="20" fill="#eef8f2" stroke="#9bc6ac" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#2c7b61">反馈闭环 · Owner Gate</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">失败证据回到最早分叉点，修复后使用同一版本输入重跑并产生新receipt。业务/</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">质量Owner批准判据、风险接受与发布；AI只生成候选和整理证据。</text>
-  </g>
-  <g transform="translate(100 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#4f7fb8" stroke-width="5" stroke-dasharray=""/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">数据流</text></g>
-<g transform="translate(345 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#c9852c" stroke-width="5" stroke-dasharray="10 7"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">控制流</text></g>
-<g transform="translate(590 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#765ca6" stroke-width="5" stroke-dasharray="4 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">证据流</text></g>
-<g transform="translate(835 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#2c7b61" stroke-width="5" stroke-dasharray="14 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">反馈闭环</text></g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2642" viewBox="0 0 1600 2642" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">原始逐题账本分流判分再聚合</title><desc id="desc">至少一次成功与连续全部成功是不同问题；分母、重复结构和 Oracle 必须可回查。 确定性判据与经校准 Judge 分流，保留各自不确定性 本图定义指标而不报告测量值；Judge 不确定性不能靠更多重复或通用校准阈值消除。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-B03 / 架构节点与交付物;docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-B03 / 指标的分母决定了它在回答什么;docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-B03 / 完成标准与停止条件">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-B03&quot;,&quot;pageIds&quot;:[&quot;TD-B03&quot;],&quot;primaryPageIds&quot;:[&quot;TD-B03&quot;],&quot;layout&quot;:&quot;metric&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-B03 / 架构节点与交付物&quot;,&quot;quote&quot;:&quot;先落原始记录，再分流到确定性 Oracle 与 Judge 两条判分路径，最后才聚合。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-B03 / 指标的分母决定了它在回答什么&quot;,&quot;quote&quot;:&quot;pass@k 的分母是任务数、分子是「k 次尝试中至少成功一次」；pass^k 的分子是「k 次全部成功」。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-B03 / 完成标准与停止条件&quot;,&quot;quote&quot;:&quot;同任务多次重复须做聚类修正，不得把采样次数当成独立 n&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;runs&quot;,&quot;title&quot;:&quot;逐题多次 Runs&quot;},{&quot;id&quot;:&quot;raw&quot;,&quot;title&quot;:&quot;Raw Ledger&quot;},{&quot;id&quot;:&quot;deterministic&quot;,&quot;title&quot;:&quot;确定性 Oracle&quot;},{&quot;id&quot;:&quot;judge&quot;,&quot;title&quot;:&quot;Judge/校准&quot;},{&quot;id&quot;:&quot;calculator&quot;,&quot;title&quot;:&quot;Metric Calculator&quot;},{&quot;id&quot;:&quot;uncertainty&quot;,&quot;title&quot;:&quot;Slice/Confidence&quot;},{&quot;id&quot;:&quot;gate&quot;,&quot;title&quot;:&quot;Decision Gate&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;runs&quot;,&quot;to&quot;:&quot;raw&quot;,&quot;label&quot;:&quot;每题每次落账&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;raw&quot;,&quot;to&quot;:&quot;deterministic&quot;,&quot;label&quot;:&quot;可断言输出&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;raw&quot;,&quot;to&quot;:&quot;judge&quot;,&quot;label&quot;:&quot;开放式输出&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;deterministic&quot;,&quot;to&quot;:&quot;calculator&quot;,&quot;label&quot;:&quot;确定性结果分栏&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;judge&quot;,&quot;to&quot;:&quot;calculator&quot;,&quot;label&quot;:&quot;Judge 结果分栏&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;calculator&quot;,&quot;to&quot;:&quot;uncertainty&quot;,&quot;label&quot;:&quot;分母与逐题结果&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;uncertainty&quot;,&quot;to&quot;:&quot;gate&quot;,&quot;label&quot;:&quot;切片区间&quot;,&quot;kind&quot;:&quot;control&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2642" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-B03</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >原始逐题账本分流判分再聚合</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >至少一次成功与连续全部成功是不同问题；分母、重复结构和 Oracle 必须可回查。</text>
+<g id="system-graph" data-region="64,234,1472,1804">
+<rect x="64" y="234" width="1472" height="1804" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >确定性判据与经校准 Judge 分流，保留各自不确定性</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M451 273 L451 371 L904.5 371 L904.5 307" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M451 273 L451 371 L904.5 371 L904.5 307" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="runs" data-to="raw"/>
+<path d="M981 307 L981 355 L1052.5 355 Q1057.5 343 1062.5 355 L1356 355 L1356 479 L451 479 L451 519" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M981 307 L981 355 L1052.5 355 Q1057.5 343 1062.5 355 L1356 355 L1356 479 L451 479 L451 519" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="raw" data-to="deterministic"/>
+<path d="M1057.5 307 L1057.5 419 L1362 419 L1362 493 L981 493 L981 519" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M1057.5 307 L1057.5 419 L1362 419 L1362 493 L981 493 L981 519" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e2" data-from="raw" data-to="judge"/>
+<path d="M451 716 L451 780 L84 780 L84 856 L400 856 L400 896" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M451 716 L451 780 L84 780 L84 856 L400 856 L400 896" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e3" data-from="deterministic" data-to="calculator"/>
+<path d="M981 716 L981 780 L1368 780 L1368 870 L502 870 L502 896" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M981 716 L981 780 L1368 780 L1368 870 L502 870 L502 896" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e4" data-from="judge" data-to="calculator"/>
+<path d="M451 1161 L451 1225 L930 1225 L930 1093" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M451 1161 L451 1225 L930 1225 L930 1093" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e5" data-from="calculator" data-to="uncertainty"/>
+<path d="M1032 1093 L1032 1209 L1356 1209 L1356 1301 L714 1301 L714 1327" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M1032 1093 L1032 1209 L1356 1209 L1356 1301 L714 1301 L714 1327" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="uncertainty" data-to="gate"/>
+<g id="node-runs" class="node node-input" data-region="274,76,354,197">
+<rect x="274" y="76" width="354" height="197" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#215cbb" font-weight="700" >逐题多次 Runs</text>
+<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >每题按声明的 k 重复</text>
+<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >保留每一次完整结果</text>
+</g>
+<g id="node-raw" class="node node-data" data-region="804,76,354,231">
+<rect x="804" y="76" width="354" height="231" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#087b76" font-weight="750" class="mono">02</text>
+<text x="826" y="152" font-size="28" fill="#087b76" font-weight="700" >Raw Ledger</text>
+<text x="826" y="195" font-size="23" fill="#172b45" font-weight="450" >逐题逐次原始记录落盘</text>
+<text x="826" y="229" font-size="23" fill="#172b45" font-weight="450" >失败、排除项与环境状态</text>
+<text x="826" y="263" font-size="23" fill="#172b45" font-weight="450" >可查</text>
+</g>
+<g id="node-deterministic" class="node node-control" data-region="274,519,354,197">
+<rect x="274" y="519" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="292" y="536" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="554" font-size="15" fill="#945c0b" font-weight="750" class="mono">03</text>
+<text x="296" y="595" font-size="28" fill="#945c0b" font-weight="700" >确定性 Oracle</text>
+<text x="296" y="638" font-size="23" fill="#172b45" font-weight="450" >可断言部分使用明确判据</text>
+<text x="296" y="672" font-size="23" fill="#172b45" font-weight="450" >与 Judge 判分分别记录</text>
+</g>
+<g id="node-judge" class="node node-ai" data-region="804,519,354,197">
+<rect x="804" y="519" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="536" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="554" font-size="15" fill="#7045a4" font-weight="750" class="mono">04</text>
+<text x="826" y="595" font-size="28" fill="#7045a4" font-weight="700" >Judge/校准</text>
+<text x="826" y="638" font-size="23" fill="#172b45" font-weight="450" >按 Oracle 强度分级</text>
+<text x="826" y="672" font-size="23" fill="#172b45" font-weight="450" >开放式评分保留 meta-eval</text>
+</g>
+<g id="node-calculator" class="node node-process" data-region="274,896,354,265">
+<rect x="274" y="896" width="354" height="265" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="913" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="931" font-size="15" fill="#344f70" font-weight="750" class="mono">05</text>
+<text x="296" y="972" font-size="28" fill="#344f70" font-weight="700" >Metric Calculator</text>
+<text x="296" y="1015" font-size="23" fill="#172b45" font-weight="450" >分别算 accuracy 与</text>
+<text x="296" y="1049" font-size="23" fill="#172b45" font-weight="450" >resolved</text>
+<text x="296" y="1083" font-size="23" fill="#172b45" font-weight="450" >pass@k 与 pass^k 分别</text>
+<text x="296" y="1117" font-size="23" fill="#172b45" font-weight="450" >定义</text>
+</g>
+<g id="node-uncertainty" class="node node-evidence" data-region="804,896,354,197">
+<rect x="804" y="896" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="913" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="931" font-size="15" fill="#7045a4" font-weight="750" class="mono">06</text>
+<text x="826" y="972" font-size="28" fill="#7045a4" font-weight="700" >Slice/Confidence</text>
+<text x="826" y="1015" font-size="23" fill="#172b45" font-weight="450" >逐切片报告分母与区间</text>
+<text x="826" y="1049" font-size="23" fill="#172b45" font-weight="450" >同任务重复不当独立样本</text>
+</g>
+<g id="node-gate" class="node node-control" data-region="537,1327,354,197">
+<rect x="537" y="1327" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="555" y="1344" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="1362" font-size="15" fill="#945c0b" font-weight="750" class="mono">07</text>
+<text x="559" y="1403" font-size="28" fill="#945c0b" font-weight="700" >Decision Gate</text>
+<text x="559" y="1446" font-size="23" fill="#172b45" font-weight="450" >按预注册判据判断</text>
+<text x="559" y="1480" font-size="23" fill="#172b45" font-weight="450" >样本不足保持证据不足</text>
+</g>
+<rect x="643.53" y="333" width="144.94" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="362" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  每题每次</text>
+<text x="716" y="394" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">落账</text>
+<text x="908.5" y="329" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="1162.61" y="333" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="362" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  可断言输出</text>
+<text x="455" y="509" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="1162.61" y="397" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="426" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  开放式输出</text>
+<text x="985" y="509" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="106.61" y="742" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="771" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  确定性结果</text>
+<text x="190" y="803" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">分栏</text>
+<text x="404" y="886" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="1160.615" y="742" width="170.77" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="771" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  Judge 结果</text>
+<text x="1246" y="803" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">分栏</text>
+<text x="506" y="886" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="632.61" y="1187" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1216" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  分母与逐题</text>
+<text x="716" y="1248" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">结果</text>
+<text x="934" y="1115" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="1173.53" y="1187" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1216" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  切片区间</text>
+<text x="718" y="1317" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+</g>
+</g>
+<text x="64" y="2092" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2092" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2122,470,174">
+<rect x="64" y="2122" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2144" width="7" height="30" rx="3" fill="#087b76" stroke="none" />
+<text x="106" y="2169" font-size="25" fill="#087b76" font-weight="700" >怎样区别两个 k 指标</text>
+<text x="88" y="2224" font-size="23" fill="#172b45" font-weight="450" >pass@k 看至少一次成功</text>
+<text x="88" y="2259" font-size="23" fill="#172b45" font-weight="450" >pass^k 看连续全部成功</text>
+</g>
+<g id="detail-1" data-region="565,2122,470,174">
+<rect x="565" y="2122" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2144" width="7" height="30" rx="3" fill="#344f70" stroke="none" />
+<text x="607" y="2169" font-size="25" fill="#344f70" font-weight="700" >怎样处理重复与排除项</text>
+<text x="589" y="2224" font-size="23" fill="#172b45" font-weight="450" >写清 eligible 与环境失败排除</text>
+<text x="589" y="2259" font-size="23" fill="#172b45" font-weight="450" >按任务聚类，不把重复数当 n</text>
+</g>
+<g id="detail-2" data-region="1066,2122,470,174">
+<rect x="1066" y="2122" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2144" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="1108" y="2169" font-size="25" fill="#945c0b" font-weight="700" >怎样约束 Judge 使用</text>
+<text x="1090" y="2224" font-size="23" fill="#172b45" font-weight="450" >确定性结果与 Judge 不混平均</text>
+<text x="1090" y="2259" font-size="23" fill="#172b45" font-weight="450" >高风险先满足 Oracle 校准合同</text>
+</g>
+<g id="failure-and-output" data-region="64,2328,1472,148">
+<rect x="64" y="2328" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2367" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2412" font-size="23" fill="#ffdce2" font-weight="450" >分母不明、两类判分混合平均或把重复运行当独立 n 时停止发布统计结论。</text>
+<text x="88" y="2455" font-size="23" fill="#dce9fa" font-weight="450" >交付逐题账本、各指标分母表、Oracle 卡、切片区间与决定。</text>
+</g>
+<text x="64" y="2524" font-size="20" fill="#50647c" font-weight="450" >本图定义指标而不报告测量值；Judge 不确定性不能靠更多重复或通用校准阈值消除。</text>
+<text x="64" y="2563" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-B03 · 原始逐题账本分流判分再聚合</text>
+<path class="edge edge-data" d="M64 2603 L101 2603" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2609" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2603 L397 2603" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2609" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2603 L693 2603" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2609" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2603 L989 2603" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2609" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2603 L1285 2603" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2609" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

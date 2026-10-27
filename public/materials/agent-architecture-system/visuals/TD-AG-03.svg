@@ -1,117 +1,183 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1200 760" width="1200" height="760">
-  <title id="title">D2 Handoff、上下文隔离与级联熔断</title>
-  <desc id="desc">每次 Agent A → Agent B 的交接都必须传递事实、责任、权限与停止条件。 本图只证明编排合同可教学与 fixture 可重放，不证明真实多 Agent 平台已验证。</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0e3026" flood-opacity=".10"/></filter>
-  <style>
-    .bg{fill:#fbfaf6}.header{fill:url(#ds-header-grad)}.eyebrow{font:700 12px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;fill:#93bd2c}.title{font:800 28px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:white}.subtitle{font:450 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}.source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}.node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}.node-title{font:800 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}.node-detail{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}.edge path{fill:none;stroke:#174a3a;stroke-width:2}.edge text{font:600 9px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}.callout{fill:#fdf1d8;stroke:#e3c07b;stroke-width:1.5}.callout-title{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}.callout-text{font:650 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}.footer{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-  </style>
-  <rect class="bg" width="1200" height="760" rx="24"/>
-  <rect class="header" width="1200" height="92" rx="24"/><rect class="header" y="68" width="1200" height="24"/>
-  <text class="eyebrow" x="34" y="30">D2 · ORCHESTRATION</text>
-  <text class="title" x="34" y="62">D2 Handoff、上下文隔离与级联熔断</text>
-  <text class="subtitle" x="1166" y="30" text-anchor="end">每次 Agent A → Agent B 的交接都必须传递事实、责任、权限与停止条件。</text>
-  <text class="source" x="34" y="111">来源：S35 · S48 · S74</text>
-  <g class="edge"><path d="M 222 175 C 242 175, 242 175, 254 175" marker-end="url(#ds-arw-forest)"/><text x="242" y="185">结构化交接</text></g>
-<g class="edge"><path d="M 472 175 C 492 175, 492 175, 504 175" marker-end="url(#ds-arw-forest)"/><text x="492" y="167">最小上下文</text></g>
-<g class="edge"><path d="M 722 175 C 742 175, 742 175, 754 175" marker-end="url(#ds-arw-forest)"/><text x="742" y="185">授权执行</text></g>
-<g class="edge"><path d="M 950 175 C 970 175, 970 175, 982 175" marker-end="url(#ds-arw-forest)"/><text x="970" y="167">返回</text></g>
-<g class="edge"><path d="M 1166 175 C 1218 270, -18 270, 26 175" marker-end="url(#ds-arw-forest)"/><text x="600" y="185">受控反馈</text></g>
-<g class="edge"><path d="M 722 369 C 742 369, 742 175, 754 175" marker-end="url(#ds-arw-forest)"/><text x="742" y="264">注入异常</text></g>
-<g class="edge"><path d="M 950 175 C 1002 464, 710 464, 754 369" marker-end="url(#ds-arw-forest)"/><text x="856" y="282">超时/循环</text></g>
-<g class="edge"><path d="M 972 369 C 981 369, 981 369, 982 369" marker-end="url(#ds-arw-forest)"/><text x="981" y="361">告警与责任</text></g>
-<g class="edge"><path d="M 972 369 C 1024 670, 584 670, 628 572" marker-end="url(#ds-arw-forest)"/><text x="804" y="480.5">预算耗尽</text></g>
-<g class="edge"><path d="M 1166 369 C 1218 670, 584 670, 628 572" marker-end="url(#ds-arw-forest)"/><text x="901" y="462.5">决定停止</text></g>
-  
-    <g class="node a">
-      <rect x="34" y="132" width="188" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="34" y="132" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="54" y="155">01</text>
-      <text class="node-title" x="54" y="180">Agent A</text>
-      <text class="node-detail" x="54" y="202">来源、事实、owner</text>
-    </g>
-    <g class="node handoff">
-      <rect x="262" y="132" width="210" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="262" y="132" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="282" y="155">02</text>
-      <text class="node-title" x="282" y="180">Handoff Schema</text>
-      <text class="node-detail" x="282" y="202">必传字段 / 语义约束</text>
-    </g>
-    <g class="node isolate">
-      <rect x="512" y="132" width="210" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="512" y="132" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="532" y="155">03</text>
-      <text class="node-title" x="532" y="180">上下文隔离</text>
-      <text class="node-detail" x="532" y="202">最小可见 / 秘密隔离</text>
-    </g>
-    <g class="node b">
-      <rect x="762" y="132" width="188" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="762" y="132" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="782" y="155">04</text>
-      <text class="node-title" x="782" y="180">Agent B</text>
-      <text class="node-detail" x="782" y="202">受限任务 / 工具</text>
-    </g>
-    <g class="node result">
-      <rect x="990" y="132" width="176" height="86" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="990" y="132" width="5" height="86" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="1010" y="155">05</text>
-      <text class="node-title" x="1010" y="180">返回合同</text>
-      <text class="node-detail" x="1010" y="202">结果 / Unknown / Error</text>
-    </g>
-    <g class="node fault">
-      <rect x="512" y="326" width="210" height="86" rx="15" fill="#fbe9e5" stroke="#e3a89f" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="512" y="326" width="5" height="86" rx="2.5" fill="#e3a89f"/>
-      <text class="node-index" x="532" y="349">06</text>
-      <text class="node-title" x="532" y="374">故障注入</text>
-      <text class="node-detail" x="532" y="396">超时 / 空结果 / 污染</text>
-    </g>
-    <g class="node breaker">
-      <rect x="762" y="326" width="210" height="86" rx="15" fill="#fbe9e5" stroke="#e3a89f" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="762" y="326" width="5" height="86" rx="2.5" fill="#e3a89f"/>
-      <text class="node-index" x="782" y="349">07</text>
-      <text class="node-title" x="782" y="374">三重熔断</text>
-      <text class="node-detail" x="782" y="396">步数 / 时间 / 成本</text>
-    </g>
-    <g class="node owner">
-      <rect x="990" y="326" width="176" height="86" rx="15" fill="#fdf1d8" stroke="#e0b76a" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="990" y="326" width="5" height="86" rx="2.5" fill="#e0b76a"/>
-      <text class="node-index" x="1010" y="349">08</text>
-      <text class="node-title" x="1010" y="374">Owner</text>
-      <text class="node-detail" x="1010" y="396">停止 / 降级 / 修复</text>
-    </g>
-    <g class="node blocked">
-      <rect x="636" y="526" width="260" height="92" rx="15" fill="#fbe9e5" stroke="#e3a89f" stroke-width="2" filter="url(#shadow)"/>
-      <rect x="636" y="526" width="5" height="92" rx="2.5" fill="#e3a89f"/>
-      <text class="node-index" x="656" y="549">09</text>
-      <text class="node-title" x="656" y="574">BLOCKED 安全终态</text>
-      <text class="node-detail" x="656" y="596">不无限重试，不带病交接</text>
-    </g>
-  <rect class="callout" x="34" y="658" width="1132" height="48" rx="12"/>
-  <text class="callout-title" x="52" y="679">FAIL-CLOSED</text><text class="callout-text" x="170" y="681">增加重试次数不是可靠性修复；字段丢失、权限扩张和重复副作用都要有独立 Oracle。</text>
-  <text class="footer" x="34" y="735">本图只证明编排合同可教学与 fixture 可重放，不证明真实多 Agent 平台已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2766" viewBox="0 0 1600 2766" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">把交接语义变成契约</title><desc id="desc">“客户声称已验证”不等于“身份已验证”；逐边验证字段、事实和权限，失败交由预算熔断收口。 三跳链路埋入五个事实，注入空结果与超时，检查停止原因和重复副作用 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。</desc><metadata data-source-ref="content/modules/agent-architecture-deep.ts#TD-AG-03 / dimensions;content/modules/agent-architecture-system.ts#TD-AG-03 / workflow;docs/svg-redesign-2026-10-26/body-sources/material-pages.json#TD-AG-03 / summary">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-AG-03&quot;,&quot;pageIds&quot;:[&quot;TD-AG-03&quot;],&quot;primaryPageIds&quot;:[&quot;TD-AG-03&quot;],&quot;layout&quot;:&quot;sequence&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;content/modules/agent-architecture-deep.ts&quot;,&quot;locator&quot;:&quot;TD-AG-03 / dimensions&quot;,&quot;quote&quot;:&quot;权限不随委托扩大&quot;},{&quot;path&quot;:&quot;content/modules/agent-architecture-system.ts&quot;,&quot;locator&quot;:&quot;TD-AG-03 / workflow&quot;,&quot;quote&quot;:&quot;埋入 5 个事实并做多跳信息衰减检查&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/material-pages.json&quot;,&quot;locator&quot;:&quot;TD-AG-03 / summary&quot;,&quot;quote&quot;:&quot;为多 Agent handoff 建立 schema、上下文隔离和三重熔断，防止信息衰减和下游失败拖垮全局。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;a&quot;,&quot;title&quot;:&quot;Agent A&quot;},{&quot;id&quot;:&quot;handoff&quot;,&quot;title&quot;:&quot;Handoff 契约&quot;},{&quot;id&quot;:&quot;isolation&quot;,&quot;title&quot;:&quot;上下文隔离&quot;},{&quot;id&quot;:&quot;b&quot;,&quot;title&quot;:&quot;Agent B&quot;},{&quot;id&quot;:&quot;fault&quot;,&quot;title&quot;:&quot;故障注入&quot;},{&quot;id&quot;:&quot;breaker&quot;,&quot;title&quot;:&quot;三重熔断&quot;},{&quot;id&quot;:&quot;facts&quot;,&quot;title&quot;:&quot;事实与副作用核对&quot;},{&quot;id&quot;:&quot;owner&quot;,&quot;title&quot;:&quot;Owner 仲裁&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;a&quot;,&quot;to&quot;:&quot;handoff&quot;,&quot;label&quot;:&quot;结构化交接&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;handoff&quot;,&quot;to&quot;:&quot;isolation&quot;,&quot;label&quot;:&quot;按字段与权限过滤&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;isolation&quot;,&quot;to&quot;:&quot;b&quot;,&quot;label&quot;:&quot;最小上下文&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;fault&quot;,&quot;to&quot;:&quot;handoff&quot;,&quot;label&quot;:&quot;语义失真注入&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;fault&quot;,&quot;to&quot;:&quot;b&quot;,&quot;label&quot;:&quot;空结果或超时&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;b&quot;,&quot;to&quot;:&quot;breaker&quot;,&quot;label&quot;:&quot;重试消耗预算&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;breaker&quot;,&quot;to&quot;:&quot;owner&quot;,&quot;label&quot;:&quot;超限停止与升级&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;a&quot;,&quot;to&quot;:&quot;facts&quot;,&quot;label&quot;:&quot;源头事实锚点&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;b&quot;,&quot;to&quot;:&quot;facts&quot;,&quot;label&quot;:&quot;终点与逐跳观测&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;facts&quot;,&quot;to&quot;:&quot;owner&quot;,&quot;label&quot;:&quot;丢失或重复副作用&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;owner&quot;,&quot;to&quot;:&quot;handoff&quot;,&quot;label&quot;:&quot;修复语义及职责&quot;,&quot;kind&quot;:&quot;feedback&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2766" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-AG-03</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >把交接语义变成契约</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >“客户声称已验证”不等于“身份已验证”；逐边验证字段、事实和权限，失败交由预算熔断收口。</text>
+<g id="system-graph" data-region="64,234,1472,1928">
+<rect x="64" y="234" width="1472" height="1928" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >三跳链路埋入五个事实，注入空结果与超时，检查停止原因和重复副作用</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M502 273 L502 383 L889.2 383 L889.2 307" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M502 273 L502 383 L889.2 383 L889.2 307" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="a" data-to="handoff"/>
+<path d="M950.4 307 L950.4 399 L1351 399 Q1356 387 1361 399 L1368 399 L1368 475 L1361 475 Q1356 463 1351 475 L451 475 L451 501" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M950.4 307 L950.4 399 L1351 399 Q1356 387 1361 399 L1368 399 L1368 475 L1361 475 Q1356 463 1351 475 L451 475 L451 501" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e1" data-from="handoff" data-to="isolation"/>
+<path d="M451 698 L451 760 L889.2 760 L889.2 698" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M451 698 L451 760 L889.2 760 L889.2 698" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e2" data-from="isolation" data-to="b"/>
+<path d="M400 942 L400 760 L77 760 L77 321 L395 321 Q400 309 405 321 L497 321 Q502 309 507 321 L884.2 321 Q889.2 309 894.2 321 L945.4 321 Q950.4 309 955.4 321 L1011.6 321 L1011.6 307" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M400 942 L400 760 L77 760 L77 321 L395 321 Q400 309 405 321 L497 321 Q502 309 507 321 L884.2 321 Q889.2 309 894.2 321 L945.4 321 Q950.4 309 955.4 321 L1011.6 321 L1011.6 307" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e3" data-from="fault" data-to="handoff"/>
+<path d="M502 942 L502 824 L405 824 Q400 812 395 824 L89 824 Q84 812 79 824 L70 824 L70 712 L79 712 Q84 700 89 712 L446 712 Q451 700 456 712 L884.2 712 Q889.2 700 894.2 712 L950.4 712 L950.4 698" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M502 942 L502 824 L405 824 Q400 812 395 824 L89 824 Q84 812 79 824 L70 824 L70 712 L79 712 Q84 700 89 712 L446 712 Q451 700 456 712 L884.2 712 Q889.2 700 894.2 712 L950.4 712 L950.4 698" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e4" data-from="fault" data-to="b"/>
+<path d="M1072.8 698 L1072.8 760 L1351 760 Q1356 748 1361 760 L1374 760 L1374 916 L1367 916 Q1359 904 1351 916 L981 916 L981 942" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M1072.8 698 L1072.8 760 L1351 760 Q1356 748 1361 760 L1374 760 L1374 916 L1367 916 Q1359 904 1351 916 L981 916 L981 942" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e5" data-from="b" data-to="breaker"/>
+<path d="M981 1139 L981 1203 L1351 1203 Q1356 1191 1361 1203 L1368 1203 L1368 1375 L1037 1375 Q1032 1363 1027 1375 L930 1375 L930 1429" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M981 1139 L981 1203 L1351 1203 Q1356 1191 1361 1203 L1368 1203 L1368 1375 L1037 1375 Q1032 1363 1027 1375 L930 1375 L930 1429" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="breaker" data-to="owner"/>
+<path d="M400 273 L400 383 L84 383 L84 1389 L400 1389 L400 1429" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M400 273 L400 383 L84 383 L84 1389 L400 1389 L400 1429" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="a" data-to="facts"/>
+<path d="M1011.6 698 L1011.6 840 L1362 840 L1362 1403 L1037 1403 Q1032 1391 1027 1403 L935 1403 Q930 1391 925 1403 L502 1403 L502 1429" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M1011.6 698 L1011.6 840 L1362 840 L1362 1403 L1037 1403 Q1032 1391 1027 1403 L935 1403 Q930 1391 925 1403 L502 1403 L502 1429" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e8" data-from="b" data-to="facts"/>
+<path d="M451 1626 L451 1690 L981 1690 L981 1626" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M451 1626 L451 1690 L981 1690 L981 1626" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e9" data-from="facts" data-to="owner"/>
+<path d="M1032 1429 L1032 1299 L1356 1299 L1356 335 L1072.8 335 L1072.8 307" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M1032 1429 L1032 1299 L1356 1299 L1356 335 L1072.8 335 L1072.8 307" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e10" data-from="owner" data-to="handoff"/>
+<g id="node-a" class="node node-input" data-region="274,76,354,197">
+<rect x="274" y="76" width="354" height="197" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#215cbb" font-weight="700" >Agent A</text>
+<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >来源事实 / 待办责任</text>
+<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >身份主张保留证据状态</text>
+</g>
+<g id="node-handoff" class="node node-control" data-region="804,76,354,231">
+<rect x="804" y="76" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#945c0b" font-weight="750" class="mono">02</text>
+<text x="826" y="152" font-size="28" fill="#945c0b" font-weight="700" >Handoff 契约</text>
+<text x="826" y="195" font-size="23" fill="#172b45" font-weight="450" >Schema / 必传字段</text>
+<text x="826" y="229" font-size="23" fill="#172b45" font-weight="450" >semantic_constraints 与</text>
+<text x="826" y="263" font-size="23" fill="#172b45" font-weight="450" >owner</text>
+</g>
+<g id="node-isolation" class="node node-control" data-region="274,501,354,197">
+<rect x="274" y="501" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="292" y="518" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="536" font-size="15" fill="#945c0b" font-weight="750" class="mono">03</text>
+<text x="296" y="577" font-size="28" fill="#945c0b" font-weight="700" >上下文隔离</text>
+<text x="296" y="620" font-size="23" fill="#172b45" font-weight="450" >只传必要事实与权限</text>
+<text x="296" y="654" font-size="23" fill="#172b45" font-weight="450" >返回结果不污染主上下文</text>
+</g>
+<g id="node-b" class="node node-ai" data-region="804,501,354,197">
+<rect x="804" y="501" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="518" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="536" font-size="15" fill="#7045a4" font-weight="750" class="mono">04</text>
+<text x="826" y="577" font-size="28" fill="#7045a4" font-weight="700" >Agent B</text>
+<text x="826" y="620" font-size="23" fill="#172b45" font-weight="450" >按契约消费事实</text>
+<text x="826" y="654" font-size="23" fill="#172b45" font-weight="450" >权限不随委托扩大</text>
+</g>
+<g id="node-fault" class="node node-risk" data-region="274,942,354,197">
+<rect x="274" y="942" width="354" height="197" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="292" y="959" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="977" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">05</text>
+<text x="296" y="1018" font-size="28" fill="#ad3e4c" font-weight="700" >故障注入</text>
+<text x="296" y="1061" font-size="23" fill="#172b45" font-weight="450" >错误 / 超时 / 空结果</text>
+<text x="296" y="1095" font-size="23" fill="#172b45" font-weight="450" >压缩失真与终止信号丢失</text>
+</g>
+<g id="node-breaker" class="node node-control" data-region="804,942,354,197">
+<rect x="804" y="942" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="959" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="977" font-size="15" fill="#945c0b" font-weight="750" class="mono">06</text>
+<text x="826" y="1018" font-size="28" fill="#945c0b" font-weight="700" >三重熔断</text>
+<text x="826" y="1061" font-size="23" fill="#172b45" font-weight="450" >步数 / 时间 / 成本逐项验证</text>
+<text x="826" y="1095" font-size="23" fill="#172b45" font-weight="450" >保留 stop_reason</text>
+</g>
+<g id="node-facts" class="node node-evidence" data-region="274,1429,354,197">
+<rect x="274" y="1429" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="292" y="1446" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1464" font-size="15" fill="#7045a4" font-weight="750" class="mono">07</text>
+<text x="296" y="1505" font-size="28" fill="#7045a4" font-weight="700" >事实与副作用核对</text>
+<text x="296" y="1548" font-size="23" fill="#172b45" font-weight="450" >源头 5 个事实逐跳对账</text>
+<text x="296" y="1582" font-size="23" fill="#172b45" font-weight="450" >幂等键拦重复写入</text>
+</g>
+<g id="node-owner" class="node node-evidence" data-region="804,1429,354,197">
+<rect x="804" y="1429" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="1446" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1464" font-size="15" fill="#7045a4" font-weight="750" class="mono">08</text>
+<text x="826" y="1505" font-size="28" fill="#7045a4" font-weight="700" >Owner 仲裁</text>
+<text x="826" y="1548" font-size="23" fill="#172b45" font-weight="450" >职责真空或重叠需裁决</text>
+<text x="826" y="1582" font-size="23" fill="#172b45" font-weight="450" >修契约并保留失败收据</text>
+</g>
+<rect x="632.61" y="361" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="390" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  结构化交接</text>
+<text x="893.2" y="329" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="1151.69" y="361" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="390" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  按字段与权限</text>
+<text x="1246" y="422" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">过滤</text>
+<text x="455" y="491" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="632.61" y="738" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="767" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  最小上下文</text>
+<text x="893.2" y="720" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="95.69" y="738" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="767" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  语义失真注入</text>
+<text x="1015.6" y="329" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="95.69" y="802" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="831" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  空结果或超时</text>
+<text x="954.4" y="720" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="1151.69" y="738" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="767" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  重试消耗预算</text>
+<text x="985" y="932" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="1162.61" y="1165" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1194" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  超限停止与</text>
+<text x="1246" y="1226" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">升级</text>
+<text x="934" y="1419" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="95.69" y="361" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="390" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  源头事实锚点</text>
+<text x="404" y="1419" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+<rect x="1162.61" y="802" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="831" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  终点与逐跳</text>
+<text x="1246" y="863" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">观测</text>
+<text x="506" y="1419" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e8" stroke="#fff" stroke-width="4" paint-order="stroke">09</text>
+<rect x="632.61" y="1652" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1681" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">10  丢失或重复</text>
+<text x="716" y="1713" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">副作用</text>
+<text x="985" y="1648" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e9" stroke="#fff" stroke-width="4" paint-order="stroke">10</text>
+<rect x="1162.61" y="1261" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1290" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">11  修复语义及</text>
+<text x="1246" y="1322" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">职责</text>
+<text x="1076.8" y="329" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e10" stroke="#fff" stroke-width="4" paint-order="stroke">11</text>
+</g>
+</g>
+<text x="64" y="2216" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2216" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2246,470,174">
+<rect x="64" y="2246" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2268" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="106" y="2293" font-size="25" fill="#ad3e4c" font-weight="700" >契约不是只验 JSON</text>
+<text x="88" y="2348" font-size="23" fill="#172b45" font-weight="450" >客户声称已验证不能变为 true</text>
+<text x="88" y="2383" font-size="23" fill="#172b45" font-weight="450" >职责真空意味着任务静默丢失</text>
+</g>
+<g id="detail-1" data-region="565,2246,470,174">
+<rect x="565" y="2246" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2268" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="607" y="2293" font-size="25" fill="#7045a4" font-weight="700" >逐跳核对</text>
+<text x="589" y="2348" font-size="23" fill="#172b45" font-weight="450" >订单号 / 金额 / 状态等事实</text>
+<text x="589" y="2383" font-size="23" fill="#172b45" font-weight="450" >三跳检查存活，不填示例成功数</text>
+</g>
+<g id="detail-2" data-region="1066,2246,470,174">
+<rect x="1066" y="2246" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2268" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="1108" y="2293" font-size="25" fill="#945c0b" font-weight="700" >熔断验真</text>
+<text x="1090" y="2348" font-size="23" fill="#172b45" font-weight="450" >每类预算各注入一次超限</text>
+<text x="1090" y="2383" font-size="23" fill="#172b45" font-weight="450" >配置存在不等于控制会触发</text>
+</g>
+<g id="failure-and-output" data-region="64,2452,1472,148">
+<rect x="64" y="2452" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2491" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2536" font-size="23" fill="#ffdce2" font-weight="450" >上下文泄漏、职责真空或无限重试均阻断；熔断后由 Owner 处理，不能靠加重试求绿。</text>
+<text x="88" y="2579" font-size="23" fill="#dce9fa" font-weight="450" >交付逐边 handoff-contract、事实链路与熔断报告。</text>
+</g>
+<text x="64" y="2648" font-size="20" fill="#50647c" font-weight="450" >静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。</text>
+<text x="64" y="2687" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-AG-03 · 把交接语义变成契约</text>
+<path class="edge edge-data" d="M64 2727 L101 2727" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2733" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2727 L397 2727" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2733" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2727 L693 2727" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2733" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2727 L989 2727" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2733" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2727 L1285 2727" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2733" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

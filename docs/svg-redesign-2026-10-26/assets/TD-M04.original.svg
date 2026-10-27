@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <title id="title">测试 Agent、Worker 与 Workflow｜专业关系图</title>
+  <desc id="desc">Agent 的轨迹、工具、权限、Handoff、Memory 与人工接管如何形成控制平面？ 图中区分数据流、控制流、证据流与反馈回路，并显示失败路径、系统边界和责任门禁。</desc>
+  <defs>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173f32" flood-opacity="0.12"/></filter>
+    <marker id="arrow-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7fb8"/></marker>
+<marker id="arrow-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c9852c"/></marker>
+<marker id="arrow-evidence" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#765ca6"/></marker>
+<marker id="arrow-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2c7b61"/></marker>
+  </defs>
+  <rect width="1600" height="1000" rx="32" fill="#f4f7f2"/>
+  <rect x="0" y="0" width="1600" height="146" rx="32" fill="#174f3f"/>
+  <text x="72" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" font-weight="800" fill="#b8dd78">TD-M04 · control-plane · module-agent-control-plane</text>
+  <text x="72" y="92" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="30" font-weight="800" fill="#ffffff">测试Agent、Worker与Workflow｜专业关系图</text>
+  <text x="72" y="132" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="600" fill="#d9e9df">Agent的轨迹、工具、权限、Handoff、Memory与人工接管如何形成控制平面？</text>
+  <rect x="54" y="172" width="1492" height="590" rx="26" fill="#fbfdfb" stroke="#c9d6cf" stroke-width="2"/>
+  <text x="82" y="204" font-size="17" font-weight="800" fill="#52665e">系统边界 · 不覆盖 Agent 的性能与容量，那在 TD-M11；不覆盖 D0–D7 完整架构分域，那在 …</text>
+  <path d="M 810 480 C 885 480, 1095 480, 1170 480" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
+<path d="M 1330 480 C 1405 480, 899.2146969665414 671.5487132046674, 974.2146969665414 671.5487132046674" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
+<path d="M 1134.2146969665414 671.5487132046674 C 1209.2146969665414 671.5487132046674, 459.2891143427165 718.8573384845467, 534.2891143427165 718.8573384845467" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
+<path d="M 694.2891143427165 718.8573384845467 C 769.2891143427165 718.8573384845467, 106.49618869074209 586.3015160838017, 181.4961886907421 586.3015160838017" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
+<path d="M 341.4961886907421 586.3015160838017 C 416.4961886907421 586.3015160838017, 106.49618869074203 373.69848391619826, 181.49618869074203 373.69848391619826" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
+<path d="M 341.49618869074203 373.69848391619826 C 416.49618869074203 373.69848391619826, 459.2891143427164 241.14266151545323, 534.2891143427164 241.14266151545323" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
+<path d="M 694.2891143427164 241.14266151545323 C 769.2891143427164 241.14266151545323, 899.2146969665414 288.45128679533263, 974.2146969665414 288.45128679533263" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
+<path d="M 1134.2146969665414 288.45128679533263 C 1209.2146969665414 288.45128679533263, 1095 480, 1170 480" fill="none" stroke="#2c7b61" stroke-width="4" stroke-dasharray="14 6" marker-end="url(#arrow-feedback)" opacity="0.92"/>
+  <g filter="url(#shadow)">
+      <rect x="650" y="420" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
+      <rect x="650" y="420" width="12" height="120" rx="6" fill="#4f7fb8"/>
+      <text x="678" y="448" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">01</text>
+      <text x="678" y="482" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">三层评测模型→三层评测模型与证据映射</text>
+    </g>
+<g filter="url(#shadow)">
+      <rect x="1170" y="420" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
+      <rect x="1170" y="420" width="12" height="120" rx="6" fill="#2c7b61"/>
+      <text x="1198" y="448" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">02</text>
+      <text x="1198" y="482" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">工具与权限→工具策略与故障注入集</text>
+    </g>
+<g filter="url(#shadow)">
+      <rect x="974.2146969665414" y="611.5487132046674" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
+      <rect x="974.2146969665414" y="611.5487132046674" width="12" height="120" rx="6" fill="#765ca6"/>
+      <text x="1002.2146969665414" y="639.5487132046674" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">03</text>
+      <text x="1002.2146969665414" y="673.5487132046674" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">安全边界→攻击集与红队报告</text>
+    </g>
+<g filter="url(#shadow)">
+      <rect x="534.2891143427165" y="658.8573384845467" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
+      <rect x="534.2891143427165" y="658.8573384845467" width="12" height="120" rx="6" fill="#c9852c"/>
+      <text x="562.2891143427165" y="686.8573384845467" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">04</text>
+      <text x="562.2891143427165" y="720.8573384845467" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">浏览器Agent→生成测试包与审查记录</text>
+    </g>
+<g filter="url(#shadow)">
+      <rect x="181.4961886907421" y="526.3015160838017" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
+      <rect x="181.4961886907421" y="526.3015160838017" width="12" height="120" rx="6" fill="#4f7fb8"/>
+      <text x="209.4961886907421" y="554.3015160838017" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">05</text>
+      <text x="209.4961886907421" y="588.3015160838017" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">自愈风险→反作弊检查与审计报告</text>
+    </g>
+<g filter="url(#shadow)">
+      <rect x="181.49618869074203" y="313.69848391619826" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
+      <rect x="181.49618869074203" y="313.69848391619826" width="12" height="120" rx="6" fill="#2c7b61"/>
+      <text x="209.49618869074203" y="341.69848391619826" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">06</text>
+      <text x="209.49618869074203" y="375.69848391619826" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">控制权划分→控制权对照图与状态模型</text>
+    </g>
+<g filter="url(#shadow)">
+      <rect x="534.2891143427164" y="181.14266151545323" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
+      <rect x="534.2891143427164" y="181.14266151545323" width="12" height="120" rx="6" fill="#765ca6"/>
+      <text x="562.2891143427164" y="209.14266151545323" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">07</text>
+      <text x="562.2891143427164" y="243.14266151545323" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">编排与记忆→同预算实验、记忆门禁与路由</text>
+<text x="562.2891143427164" y="273.14266151545326" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">矩阵</text>
+    </g>
+<g filter="url(#shadow)">
+      <rect x="974.2146969665414" y="228.45128679533266" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
+      <rect x="974.2146969665414" y="228.45128679533266" width="12" height="120" rx="6" fill="#c9852c"/>
+      <text x="1002.2146969665414" y="256.45128679533263" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">08</text>
+      <text x="1002.2146969665414" y="290.45128679533263" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Basis/版本</text>
+    </g>
+  <g transform="translate(70 788)">
+    <rect width="710" height="112" rx="20" fill="#fff4ef" stroke="#e5aaa2" stroke-width="2"/>
+    <text x="24" y="32" font-size="18" font-weight="900" fill="#b84c42">失败路径</text>
+    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">任一关键输入、权限、Oracle、版本或终态证据缺失时进入</text>
+<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">FAIL/BLOCKED/UNKNOWN，不静默通过。</text>
+  </g>
+  <g transform="translate(820 788)">
+    <rect width="710" height="112" rx="20" fill="#eef8f2" stroke="#9bc6ac" stroke-width="2"/>
+    <text x="24" y="32" font-size="18" font-weight="900" fill="#2c7b61">反馈闭环 · Owner Gate</text>
+    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">失败证据回到最早分叉点，修复后使用同一版本输入重跑并产生新receipt。业务/</text>
+<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">质量Owner批准判据、风险接受与发布；AI只生成候选和整理证据。</text>
+  </g>
+  <g transform="translate(100 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#4f7fb8" stroke-width="5" stroke-dasharray=""/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">数据流</text></g>
+<g transform="translate(345 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#c9852c" stroke-width="5" stroke-dasharray="10 7"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">控制流</text></g>
+<g transform="translate(590 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#765ca6" stroke-width="5" stroke-dasharray="4 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">证据流</text></g>
+<g transform="translate(835 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#2c7b61" stroke-width="5" stroke-dasharray="14 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">反馈闭环</text></g>
+</svg>

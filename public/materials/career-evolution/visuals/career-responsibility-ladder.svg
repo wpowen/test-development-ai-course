@@ -1,79 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1240 860" width="1240" height="860">
-<title id="title">四态责任阶梯：用证据范围替代固定年限</title>
-<desc id="desc">四级台阶从指导下完成、独立范围负责、系统与跨团队杠杆到战略治理与培养；旁边的组织职级适配器将公司级别标记为 INTERNAL-UNKNOWN。 SOURCE-EXAMPLE · 组织职级 / 年限 / 权重均为 INTERNAL-UNKNOWN · 本图不证明晋升、就业或真实学习效果</desc>
-
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/></marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/></marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/></marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#85908a"/></marker>
-  </defs>
-<style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66}
-
-.cc-title{font:800 18px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#1c2924}
-.cc-label{font:800 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#85908a}
-.cc-value{font:500 12.5px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66}
-.cc-note{font:500 11px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66}
-</style>
-<rect class="ds-bg" width="1240" height="860" rx="22"/>
-
-  <rect class="ds-header" x="0" y="0" width="1240" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1240" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">CAREER · 责任阶梯</text>
-  <text class="ds-subtitle" x="1204" y="32" text-anchor="end">把 P5-P9 的有用成长方向适配为可迁移的四类责任状态，并保留组织职级映射入口。</text>
-  <text class="ds-title" x="36" y="74">四态责任阶梯：用证据范围替代固定年限</text>
-  <text class="ds-source" x="36" y="140">source · AI测试工程师发展.md:L552-L857</text>
-<g data-source-ref="AI测试工程师发展.md:L552-L857"><rect x="40" y="146" width="1160" height="512" rx="18" fill="#f3f1e9" stroke="#d9ded9" stroke-width="1.2"/>
-<g filter="url(#ds-soft)"><rect x="70" y="520" width="230" height="106" rx="14" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.5"/></g>
-<text x="92" y="552" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="14" font-weight="800" fill="#1c2924">1 指导下完成</text>
-<text x="92" y="578" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66">有方法、有复核的单项任务</text>
-<g filter="url(#ds-soft)"><rect x="340" y="432" width="230" height="194" rx="14" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.5"/></g>
-<text x="362" y="464" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="14" font-weight="800" fill="#1c2924">2 独立范围负责</text>
-<text x="362" y="490" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66">工件 · 风险 · Oracle · 交接</text>
-<text x="362" y="516" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11" font-weight="600" fill="#85908a">失败代价可控且可归因</text>
-<g filter="url(#ds-strong)"><rect x="610" y="332" width="250" height="294" rx="14" fill="#edf5f0" stroke="#174a3a" stroke-width="2"/></g>
-<text x="632" y="364" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="14.5" font-weight="800" fill="#1c2924">3 系统与跨团队杠杆</text>
-<text x="632" y="392" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66">平台 · 标准 · 复用控制</text>
-<text x="632" y="418" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11" font-weight="600" fill="#85908a">消费者跨团队、收益可验证</text>
-<g filter="url(#ds-strong)"><rect x="900" y="204" width="250" height="422" rx="14" fill="#fdf1d8" stroke="#e0b76a" stroke-width="1.8"/></g>
-<text x="922" y="236" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="14.5" font-weight="800" fill="#1c2924">4 战略治理与培养</text>
-<text x="922" y="264" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66">风险政策 · 决定权 · 导师制</text>
-<text x="922" y="290" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11" font-weight="600" fill="#85908a">治理反馈改变组织系统</text>
-<path d="M300 570 C320 570 320 530 334 530" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-<path d="M570 520 C590 520 590 470 604 470" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-<path d="M860 420 C880 420 880 400 894 400" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-<g filter="url(#ds-soft)"><rect x="70" y="176" width="500" height="76" rx="12" fill="#fbe9e5" stroke="#e3a89f" stroke-width="1.2"/></g>
-<text x="92" y="208" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="12" font-weight="800" fill="#1c2924" text-anchor="start">P5–P9 / 年限 / 晋升周期 → organization_level_adapter</text>
-<text x="92" y="234" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11" font-weight="800" fill="#b2402f" text-anchor="start">owner、内部规则与生效版本未提供：INTERNAL-UNKNOWN</text></g>
-<text x="40" y="764" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11px" font-weight="500" fill="#5f6c66">来源中的 P5-P9 年限不作通用门槛；只有责任范围、决定权、失败代价和可复核证据可以跨组织迁移。</text>
-
-  <rect x="28" y="786" width="1184" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="812">证据边界</text>
-  <text class="ds-foot" x="46" y="834">SOURCE-EXAMPLE · 组织职级 / 年限 / 权重均为 INTERNAL-UNKNOWN · 本图不证明晋升、就业或真实学习效果</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1723" viewBox="0 0 1600 1723" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">责任范围用工件与决定权证明</title><desc id="desc">四态描述可承担的责任范围；更广的工作量不自动授予裁决权，组织 band 与年限另需内部适配。 退款 fixture 从跟做、独立设计到跨团队复用和治理带教的证据阶梯 静态设计与 fixture 不证明个人能力、职级、晋升、就业或薪资；真实学习与组织效果 NOT_RUN，组织映射 INTERNAL-UNKNOWN。</desc><metadata data-source-ref="content/modules/career-evolution.ts#TD-C02 / workedExample;content/modules/career-evolution-deep.ts#TD-C02 / mechanism;docs/svg-redesign-2026-10-26/body-sources/material-pages.json#TD-C02 / summary">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;career-responsibility-ladder&quot;,&quot;pageIds&quot;:[&quot;TD-C02&quot;,&quot;TD-C04&quot;],&quot;primaryPageIds&quot;:[&quot;TD-C02&quot;],&quot;layout&quot;:&quot;layers&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;content/modules/career-evolution.ts&quot;,&quot;locator&quot;:&quot;TD-C02 / workedExample&quot;,&quot;quote&quot;:&quot;自己补一条权限切片、写 Oracle、注入坏版本并让它变红&quot;},{&quot;path&quot;:&quot;content/modules/career-evolution-deep.ts&quot;,&quot;locator&quot;:&quot;TD-C02 / mechanism&quot;,&quot;quote&quot;:&quot;同一个人可以在接口测试上处于裁决状态，在 Agent 质量上处于跟做状态。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/material-pages.json&quot;,&quot;locator&quot;:&quot;TD-C02 / summary&quot;,&quot;quote&quot;:&quot;把职业成长从年限和头衔改写为四种可观察的责任状态，并为每个状态绑定决策权、工件、故障和复评者。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;guided&quot;,&quot;title&quot;:&quot;指导下完成&quot;},{&quot;id&quot;:&quot;independent&quot;,&quot;title&quot;:&quot;独立范围负责&quot;},{&quot;id&quot;:&quot;system&quot;,&quot;title&quot;:&quot;系统与跨团队杠杆&quot;},{&quot;id&quot;:&quot;strategy&quot;,&quot;title&quot;:&quot;战略治理与培养&quot;},{&quot;id&quot;:&quot;rights&quot;,&quot;title&quot;:&quot;决定权与失败代价&quot;},{&quot;id&quot;:&quot;review&quot;,&quot;title&quot;:&quot;独立 Reviewer&quot;},{&quot;id&quot;:&quot;organization&quot;,&quot;title&quot;:&quot;组织职级适配&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;guided&quot;,&quot;to&quot;:&quot;independent&quot;,&quot;label&quot;:&quot;新增独立设计与反证工件&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;independent&quot;,&quot;to&quot;:&quot;system&quot;,&quot;label&quot;:&quot;新增跨团队复用证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;system&quot;,&quot;to&quot;:&quot;strategy&quot;,&quot;label&quot;:&quot;新增规则与培养证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;rights&quot;,&quot;to&quot;:&quot;review&quot;,&quot;label&quot;:&quot;按授权范围核验&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;guided&quot;,&quot;to&quot;:&quot;review&quot;,&quot;label&quot;:&quot;跟做工件&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;independent&quot;,&quot;to&quot;:&quot;review&quot;,&quot;label&quot;:&quot;独立负责工件&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;system&quot;,&quot;to&quot;:&quot;review&quot;,&quot;label&quot;:&quot;复用工件&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;strategy&quot;,&quot;to&quot;:&quot;review&quot;,&quot;label&quot;:&quot;治理工件&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;review&quot;,&quot;to&quot;:&quot;organization&quot;,&quot;label&quot;:&quot;仅提供责任证据&quot;,&quot;kind&quot;:&quot;evidence&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="1723" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  career-responsibility-ladder</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >责任范围用工件与决定权证明</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >四态描述可承担的责任范围；更广的工作量不自动授予裁决权，组织 band 与年限另需内部适配。</text>
+<g id="responsibility-ladder" data-region="64,234,1472,850">
+<rect x="64" y="234" width="1472" height="850" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="279" font-size="27" fill="#172b45" font-weight="700" >责任范围逐级扩大，决定权必须另有明确授权</text>
+<text x="88" y="317" font-size="21" fill="#50647c" font-weight="450" >成长方向示意 · 不按年限、课程数量或 P5–P9 直接授予职级</text>
+<g id="responsibility-0" class="node" data-region="88,364,1424,122">
+<rect x="88" y="364" width="1424" height="122" rx="14" fill="#edf3ff" stroke="none" />
+<text x="110" y="407" font-size="29" fill="#215cbb" font-weight="700" >01  指导下完成</text>
+<text x="110" y="451" font-size="22" fill="#172b45" font-weight="450" >guided-execution · 执行记录、缺陷单与解释</text>
+</g>
+<g id="responsibility-1" class="node" data-region="208,507,1304,122">
+<rect x="208" y="507" width="1304" height="122" rx="14" fill="#eff4fa" stroke="none" />
+<text x="230" y="550" font-size="29" fill="#344f70" font-weight="700" >02  独立范围负责</text>
+<text x="230" y="594" font-size="22" fill="#172b45" font-weight="450" >independent-scoped-ownership · 风险切片 / Oracle / 坏版本打红</text>
+</g>
+<g id="responsibility-2" class="node" data-region="328,650,1184,122">
+<rect x="328" y="650" width="1184" height="122" rx="14" fill="#f4effb" stroke="none" />
+<text x="350" y="693" font-size="29" fill="#7045a4" font-weight="700" >03  系统与跨团队杠杆</text>
+<text x="350" y="737" font-size="22" fill="#172b45" font-weight="450" >system-cross-team-leverage · 可复用控制与真实消费者</text>
+</g>
+<g id="responsibility-3" class="node" data-region="448,793,1064,122">
+<rect x="448" y="793" width="1064" height="122" rx="14" fill="#e9f7f4" stroke="none" />
+<text x="470" y="836" font-size="29" fill="#087b76" font-weight="700" >04  战略治理与培养</text>
+<text x="470" y="880" font-size="22" fill="#172b45" font-weight="450" >strategy-governance-mentoring · 标准、评审机制与培养证据</text>
+</g>
+<text x="88" y="1003" font-size="23" fill="#50647c" font-weight="450" >工件、故障反证、真实消费者与独立 Reviewer 支持责任主张；组织映射须补内部 policy 与具名 Owner，缺失时 INTERNAL-</text>
+<text x="88" y="1038" font-size="23" fill="#50647c" font-weight="450" >UNKNOWN。</text>
+</g>
+<text x="64" y="1138" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1138" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1168,470,209">
+<rect x="64" y="1168" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1190" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="106" y="1215" font-size="25" fill="#7045a4" font-weight="700" >按能力域分别判断</text>
+<text x="88" y="1270" font-size="23" fill="#172b45" font-weight="450" >接口域可独立，Agent域仍需指导</text>
+<text x="88" y="1305" font-size="23" fill="#172b45" font-weight="450" >不能用单一总级别覆盖差异</text>
+</g>
+<g id="detail-1" data-region="565,1168,470,209">
+<rect x="565" y="1168" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1190" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="607" y="1215" font-size="25" fill="#945c0b" font-weight="700" >越权不是成长</text>
+<text x="589" y="1270" font-size="23" fill="#172b45" font-weight="450" >会改脚本不等于可批资金风险</text>
+<text x="589" y="1305" font-size="23" fill="#172b45" font-weight="450" >发布裁决须具名授权</text>
+</g>
+<g id="detail-2" data-region="1066,1168,470,209">
+<rect x="1066" y="1168" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1190" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="1108" y="1215" font-size="25" fill="#ad3e4c" font-weight="700" >组织适配边界</text>
+<text x="1090" y="1270" font-size="23" fill="#172b45" font-weight="450" >无内部 policy 保持 INTERNAL-</text>
+<text x="1090" y="1305" font-size="23" fill="#172b45" font-weight="450" >UNKNOWN</text>
+<text x="1090" y="1340" font-size="23" fill="#172b45" font-weight="450" >年限与课程完成数都不能定级</text>
+</g>
+<g id="failure-and-output" data-region="64,1409,1472,148">
+<rect x="64" y="1409" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="1448" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="1493" font-size="23" fill="#ffdce2" font-weight="450" >只凭年限、证书或工具熟练度升级责任状态时，撤回主张，补工件与他人复核。</text>
+<text x="88" y="1536" font-size="23" fill="#dce9fa" font-weight="450" >交付分能力域的责任地图、决定权与复评证据梯。</text>
+</g>
+<text x="64" y="1605" font-size="20" fill="#50647c" font-weight="450" >静态设计与 fixture 不证明个人能力、职级、晋升、就业或薪资；真实学习与组织效果 NOT_RUN，组织映射 INTERNAL-UNKNOWN。</text>
+<text x="64" y="1644" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-C02 · 责任范围用工件与决定权证明</text>
+<path class="edge edge-data" d="M64 1684 L101 1684" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="1690" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 1684 L397 1684" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="1690" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 1684 L693 1684" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="1690" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 1684 L989 1684" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="1690" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 1684 L1285 1684" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="1690" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

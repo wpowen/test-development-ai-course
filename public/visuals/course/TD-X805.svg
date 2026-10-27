@@ -1,90 +1,157 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 1000" width="1600" height="1000">
-  <title id="title">AI 新版本从离线测试到小流量上线｜专业关系图</title>
-  <desc id="desc">假设/MDE → 稳定分流 → 离线门禁 → 小流量 Canary → Guardrail/最坏切片 → 人工抽样 → 扩量/回滚；生成候选的模型不拥有 Oracle 或发布决定。 图中区分数据流、控制流、证据流与反馈回路，并显示失败路径、系统边界和责任门禁。</desc>
-  <defs>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173f32" flood-opacity="0.12"/></filter>
-    <marker id="arrow-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7fb8"/></marker>
-<marker id="arrow-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c9852c"/></marker>
-<marker id="arrow-evidence" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#765ca6"/></marker>
-<marker id="arrow-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2c7b61"/></marker>
-  </defs>
-  <rect width="1600" height="1000" rx="32" fill="#f4f7f2"/>
-  <rect x="0" y="0" width="1600" height="146" rx="32" fill="#174f3f"/>
-  <text x="72" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" font-weight="800" fill="#b8dd78">TD-X805 · decision-tree · decision-branch-b</text>
-  <text x="72" y="92" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="30" font-weight="800" fill="#ffffff">AI新版本从离线测试到小流量上线｜专业关系图</text>
-  <text x="72" y="132" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="600" fill="#d9e9df">假设/MDE→稳定分流→离线门禁→小流量Canary→Guardrail/最坏切片→人工抽样→扩量/回滚；生成候选的模型不拥有</text>
-  <rect x="54" y="172" width="1492" height="590" rx="26" fill="#fbfdfb" stroke="#c9d6cf" stroke-width="2"/>
-  <text x="82" y="204" font-size="17" font-weight="800" fill="#52665e">系统边界 · 课程方法与可复核工件在边界内；真实企业系统、模型和生产状态在边界外。</text>
-  <path d="M 810 280 C 885 280, 50 490, 125 490" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 285 490 C 360 490, 505 490, 580 490" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 740 490 C 815 490, 960 490, 1035 490" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1195 490 C 1270 490, 50 680, 125 680" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 285 680 C 360 680, 505 680, 580 680" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 740 680 C 815 680, 960 680, 1035 680" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1195 680 C 1270 680, 50 870, 125 870" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 285 870 C 360 870, 50 490, 125 490" fill="none" stroke="#2c7b61" stroke-width="4" stroke-dasharray="14 6" marker-end="url(#arrow-feedback)" opacity="0.92"/>
-  <g filter="url(#shadow)">
-      <rect x="650" y="220" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="650" y="220" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="678" y="248" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">01</text>
-      <text x="678" y="282" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">假设/MDE</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="125" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="125" y="430" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="153" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">02</text>
-      <text x="153" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">稳定分流</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="580" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="580" y="430" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="608" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">03</text>
-      <text x="608" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">离线门禁</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1035" y="430" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1035" y="430" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1063" y="458" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">04</text>
-      <text x="1063" y="492" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">小流量Canary</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="125" y="620" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="125" y="620" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="153" y="648" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">05</text>
-      <text x="153" y="682" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Guardrail/最坏切片</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="580" y="620" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="580" y="620" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="608" y="648" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">06</text>
-      <text x="608" y="682" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">人工抽样</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1035" y="620" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="1035" y="620" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="1063" y="648" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">07</text>
-      <text x="1063" y="682" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">扩量/回滚</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="125" y="810" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="125" y="810" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="153" y="838" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">08</text>
-      <text x="153" y="872" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">版本化输入</text>
-    </g>
-  <g transform="translate(70 788)">
-    <rect width="710" height="112" rx="20" fill="#fff4ef" stroke="#e5aaa2" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#b84c42">失败路径</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">任一关键输入、权限、Oracle、版本或终态证据缺失时进入</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">FAIL/BLOCKED/UNKNOWN，不静默通过。</text>
-  </g>
-  <g transform="translate(820 788)">
-    <rect width="710" height="112" rx="20" fill="#eef8f2" stroke="#9bc6ac" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#2c7b61">反馈闭环 · Owner Gate</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">失败证据回到最早分叉点，修复后使用同一版本输入重跑并产生新receipt。业务/</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">质量Owner批准判据、风险接受与发布；AI只生成候选和整理证据。</text>
-  </g>
-  <g transform="translate(100 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#4f7fb8" stroke-width="5" stroke-dasharray=""/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">数据流</text></g>
-<g transform="translate(345 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#c9852c" stroke-width="5" stroke-dasharray="10 7"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">控制流</text></g>
-<g transform="translate(590 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#765ca6" stroke-width="5" stroke-dasharray="4 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">证据流</text></g>
-<g transform="translate(835 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#2c7b61" stroke-width="5" stroke-dasharray="14 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">反馈闭环</text></g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2917" viewBox="0 0 1600 2917" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">稳定分流下用护栏裁决扩量</title><desc id="desc">先定义假设和可检测差异，离线门禁与回滚演练过关后才接入小流量。 同一用户稳定在同一组，自动护栏与人工抽样共同约束出口 图中不预设通用灰度比例；离线成功不证明线上护栏、回滚或低频问题已被验证。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-X805 / 灰度如果没有预设的回滚触发条件，它只是把事故推迟了几小时;docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-X805 / 架构节点与交付物;docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-X805 / 架构节点与交付物">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-X805&quot;,&quot;pageIds&quot;:[&quot;TD-X805&quot;],&quot;primaryPageIds&quot;:[&quot;TD-X805&quot;],&quot;layout&quot;:&quot;decision&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-X805 / 灰度如果没有预设的回滚触发条件，它只是把事故推迟了几小时&quot;,&quot;quote&quot;:&quot;同一个用户必须稳定落在同一侧&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-X805 / 架构节点与交付物&quot;,&quot;quote&quot;:&quot;同时监测总体 guardrail 与最坏切片，任一越界即触发&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-X805 / 架构节点与交付物&quot;,&quot;quote&quot;:&quot;先说清楚要验证什么、能分辨多小的差异，再决定放多少流量、跑多久。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;hypothesis&quot;,&quot;title&quot;:&quot;假设/MDE&quot;},{&quot;id&quot;:&quot;routing&quot;,&quot;title&quot;:&quot;稳定分流&quot;},{&quot;id&quot;:&quot;offline&quot;,&quot;title&quot;:&quot;离线门禁&quot;},{&quot;id&quot;:&quot;canary&quot;,&quot;title&quot;:&quot;小流量 Canary&quot;},{&quot;id&quot;:&quot;guardrail&quot;,&quot;title&quot;:&quot;Guardrail/最坏切片&quot;},{&quot;id&quot;:&quot;review&quot;,&quot;title&quot;:&quot;人工抽样&quot;},{&quot;id&quot;:&quot;decision&quot;,&quot;title&quot;:&quot;扩量/回滚&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;hypothesis&quot;,&quot;to&quot;:&quot;routing&quot;,&quot;label&quot;:&quot;实验分组设计&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;routing&quot;,&quot;to&quot;:&quot;canary&quot;,&quot;label&quot;:&quot;稳定用户分组&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;offline&quot;,&quot;to&quot;:&quot;canary&quot;,&quot;label&quot;:&quot;准入证据&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;canary&quot;,&quot;to&quot;:&quot;guardrail&quot;,&quot;label&quot;:&quot;分组指标与切片&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;canary&quot;,&quot;to&quot;:&quot;review&quot;,&quot;label&quot;:&quot;代表性抽样&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;guardrail&quot;,&quot;to&quot;:&quot;decision&quot;,&quot;label&quot;:&quot;预设护栏裁决&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;review&quot;,&quot;to&quot;:&quot;decision&quot;,&quot;label&quot;:&quot;人工复核结果&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;decision&quot;,&quot;to&quot;:&quot;canary&quot;,&quot;label&quot;:&quot;满足条件后下一阶梯&quot;,&quot;kind&quot;:&quot;feedback&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2917" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-X805</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >稳定分流下用护栏裁决扩量</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >先定义假设和可检测差异，离线门禁与回滚演练过关后才接入小流量。</text>
+<g id="system-graph" data-region="64,234,1472,2079">
+<rect x="64" y="234" width="1472" height="2079" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >同一用户稳定在同一组，自动护栏与人工抽样共同约束出口</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M451 273 L451 337 L930 337 L930 273" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M451 273 L451 337 L930 337 L930 273" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e0" data-from="hypothesis" data-to="routing"/>
+<path d="M1032 273 L1032 321 L1356 321 L1356 730 L765 730 L765 770" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M1032 273 L1032 321 L1356 321 L1356 730 L765 730 L765 770" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e1" data-from="routing" data-to="canary"/>
+<path d="M714 622 L714 670 L1362 670 L1362 744 L770 744 Q765 732 760 744 L663 744 L663 770" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M714 622 L714 670 L1362 670 L1362 744 L770 744 Q765 732 760 744 L663 744 L663 770" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e2" data-from="offline" data-to="canary"/>
+<path d="M637.5 967 L637.5 1045 L77 1045 L77 1121 L451 1121 L451 1161" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M637.5 967 L637.5 1045 L77 1045 L77 1121 L451 1121 L451 1161" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e3" data-from="canary" data-to="guardrail"/>
+<path d="M790.5 967 L790.5 1029 L1368 1029 L1368 1135 L981 1135 L981 1161" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M790.5 967 L790.5 1029 L1368 1029 L1368 1135 L981 1135 L981 1161" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e4" data-from="canary" data-to="review"/>
+<path d="M451 1358 L451 1406 L89 1406 Q84 1394 79 1406 L70 1406 L70 1562 L637.5 1562 L637.5 1602" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M451 1358 L451 1406 L89 1406 Q84 1394 79 1406 L70 1406 L70 1562 L637.5 1562 L637.5 1602" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e5" data-from="guardrail" data-to="decision"/>
+<path d="M981 1358 L981 1406 L1356 1406 L1356 1576 L790.5 1576 L790.5 1602" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M981 1358 L981 1406 L1356 1406 L1356 1576 L790.5 1576 L790.5 1602" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e6" data-from="review" data-to="decision"/>
+<path d="M714 1602 L714 1486 L84 1486 L84 981 L632.5 981 Q637.5 969 642.5 981 L714 981 L714 967" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M714 1602 L714 1486 L84 1486 L84 981 L632.5 981 Q637.5 969 642.5 981 L714 981 L714 967" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e7" data-from="decision" data-to="canary"/>
+<g id="node-hypothesis" class="node node-input" data-region="274,76,354,197">
+<rect x="274" y="76" width="354" height="197" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#215cbb" font-weight="700" >假设/MDE</text>
+<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >先定要验证的差异</text>
+<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >据此设计样本与观察时长</text>
+</g>
+<g id="node-routing" class="node node-control" data-region="804,76,354,197">
+<rect x="804" y="76" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#945c0b" font-weight="750" class="mono">02</text>
+<text x="826" y="152" font-size="28" fill="#945c0b" font-weight="700" >稳定分流</text>
+<text x="826" y="195" font-size="23" fill="#172b45" font-weight="450" >同一用户稳定落同一侧</text>
+<text x="826" y="229" font-size="23" fill="#172b45" font-weight="450" >先验证分流一致性</text>
+</g>
+<g id="node-offline" class="node node-control" data-region="537,425,354,197">
+<rect x="537" y="425" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="555" y="442" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="460" font-size="15" fill="#945c0b" font-weight="750" class="mono">03</text>
+<text x="559" y="501" font-size="28" fill="#945c0b" font-weight="700" >离线门禁</text>
+<text x="559" y="544" font-size="23" fill="#172b45" font-weight="450" >离线 blocker 先清除</text>
+<text x="559" y="578" font-size="23" fill="#172b45" font-weight="450" >回滚路径已经演练</text>
+</g>
+<g id="node-canary" class="node node-process" data-region="537,770,354,197">
+<rect x="537" y="770" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="555" y="787" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="805" font-size="15" fill="#344f70" font-weight="750" class="mono">04</text>
+<text x="559" y="846" font-size="28" fill="#344f70" font-weight="700" >小流量 Canary</text>
+<text x="559" y="889" font-size="23" fill="#172b45" font-weight="450" >保留分组和版本映射</text>
+<text x="559" y="923" font-size="23" fill="#172b45" font-weight="450" >观察真实交互的异常形态</text>
+</g>
+<g id="node-guardrail" class="node node-risk" data-region="274,1161,354,197">
+<rect x="274" y="1161" width="354" height="197" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="292" y="1178" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1196" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">05</text>
+<text x="296" y="1237" font-size="28" fill="#ad3e4c" font-weight="700" >Guardrail/最坏切片</text>
+<text x="296" y="1280" font-size="23" fill="#172b45" font-weight="450" >总体与最差组同时观测</text>
+<text x="296" y="1314" font-size="23" fill="#172b45" font-weight="450" >任一越界触发预置条件</text>
+</g>
+<g id="node-review" class="node node-evidence" data-region="804,1161,354,197">
+<rect x="804" y="1161" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="1178" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1196" font-size="15" fill="#7045a4" font-weight="750" class="mono">06</text>
+<text x="826" y="1237" font-size="28" fill="#7045a4" font-weight="700" >人工抽样</text>
+<text x="826" y="1280" font-size="23" fill="#172b45" font-weight="450" >灰度流量代表性复核</text>
+<text x="826" y="1314" font-size="23" fill="#172b45" font-weight="450" >补足自动指标的观察盲区</text>
+</g>
+<g id="node-decision" class="node node-control" data-region="537,1602,354,197">
+<rect x="537" y="1602" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="555" y="1619" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="1637" font-size="15" fill="#945c0b" font-weight="750" class="mono">07</text>
+<text x="559" y="1678" font-size="28" fill="#945c0b" font-weight="700" >扩量/回滚</text>
+<text x="559" y="1721" font-size="23" fill="#172b45" font-weight="450" >按实验前写定的条件执行</text>
+<text x="559" y="1755" font-size="23" fill="#172b45" font-weight="450" >保留执行和恢复记录</text>
+</g>
+<rect x="643.53" y="299" width="144.94" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="328" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  实验分组</text>
+<text x="716" y="360" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">设计</text>
+<text x="934" y="295" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="1151.69" y="299" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="328" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  稳定用户分组</text>
+<text x="769" y="760" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="1173.53" y="648" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="677" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  准入证据</text>
+<text x="667" y="760" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="106.61" y="1007" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1036" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  分组指标与</text>
+<text x="190" y="1068" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">切片</text>
+<text x="455" y="1151" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="1162.61" y="1007" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1036" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  代表性抽样</text>
+<text x="985" y="1151" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="95.69" y="1384" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1413" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  预设护栏裁决</text>
+<text x="641.5" y="1592" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="1151.69" y="1384" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1413" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  人工复核结果</text>
+<text x="794.5" y="1592" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="95.69" y="1448" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1477" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  满足条件后下</text>
+<text x="190" y="1509" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">一阶梯</text>
+<text x="718" y="989" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+</g>
+</g>
+<text x="64" y="2367" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2367" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2397,470,174">
+<rect x="64" y="2397" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2419" width="7" height="30" rx="3" fill="#087b76" stroke="none" />
+<text x="106" y="2444" font-size="25" fill="#087b76" font-weight="700" >怎样验证流量有分辨力</text>
+<text x="88" y="2499" font-size="23" fill="#172b45" font-weight="450" >先声明假设与最小可检测效应</text>
+<text x="88" y="2534" font-size="23" fill="#172b45" font-weight="450" >再确定样本、时长和切片覆盖</text>
+</g>
+<g id="detail-1" data-region="565,2397,470,174">
+<rect x="565" y="2397" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2419" width="7" height="30" rx="3" fill="#344f70" stroke="none" />
+<text x="607" y="2444" font-size="25" fill="#344f70" font-weight="700" >怎样验证分流稳定</text>
+<text x="589" y="2499" font-size="23" fill="#172b45" font-weight="450" >按用户身份检查分组一致性</text>
+<text x="589" y="2534" font-size="23" fill="#172b45" font-weight="450" >排查请求随机分流造成的跳组</text>
+</g>
+<g id="detail-2" data-region="1066,2397,470,174">
+<rect x="1066" y="2397" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2419" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="1108" y="2444" font-size="25" fill="#945c0b" font-weight="700" >怎样让回滚真正发生</text>
+<text x="1090" y="2499" font-size="23" fill="#172b45" font-weight="450" >实验前固定触发器和恢复路径</text>
+<text x="1090" y="2534" font-size="23" fill="#172b45" font-weight="450" >护栏越界按条件执行并保存回执</text>
+</g>
+<g id="failure-and-output" data-region="64,2603,1472,148">
+<rect x="64" y="2603" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2642" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2687" font-size="23" fill="#ffdce2" font-weight="450" >离线 blocker、分流不稳定、最坏组越界或无可执行回滚条件时禁止扩量。</text>
+<text x="88" y="2730" font-size="23" fill="#dce9fa" font-weight="450" >交付实验合同、分流验证、护栏与人工样本、扩量或回滚记录。</text>
+</g>
+<text x="64" y="2799" font-size="20" fill="#50647c" font-weight="450" >图中不预设通用灰度比例；离线成功不证明线上护栏、回滚或低频问题已被验证。</text>
+<text x="64" y="2838" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-X805 · 稳定分流下用护栏裁决扩量</text>
+<path class="edge edge-data" d="M64 2878 L101 2878" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2884" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2878 L397 2878" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2884" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2878 L693 2878" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2884" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2878 L989 2878" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2884" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2878 L1285 2878" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2884" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

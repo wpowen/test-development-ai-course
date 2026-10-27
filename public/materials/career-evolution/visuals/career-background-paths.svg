@@ -1,84 +1,158 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1240 860" width="1240" height="860">
-<title id="title">三种起点到同一责任证据的任务入口</title>
-<desc id="desc">三类背景的任务入口从测试、开发和零基础出发，先做缺口诊断和不同先修，再汇合到同一个可运行项目与责任证据。 SOURCE-EXAMPLE · 组织职级 / 年限 / 权重均为 INTERNAL-UNKNOWN · 本图不证明晋升、就业或真实学习效果</desc>
-
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/></marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/></marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/></marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#85908a"/></marker>
-  </defs>
-<style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66}
-
-.cc-title{font:800 18px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#1c2924}
-.cc-label{font:800 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#85908a}
-.cc-value{font:500 12.5px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66}
-.cc-note{font:500 11px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66}
-</style>
-<rect class="ds-bg" width="1240" height="860" rx="22"/>
-
-  <rect class="ds-header" x="0" y="0" width="1240" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1240" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">CAREER · 背景路径</text>
-  <text class="ds-subtitle" x="1204" y="32" text-anchor="end">保留测试背景、开发背景和零基础的差异化路径，但删除固定几个月即可达标的无依据承诺。</text>
-  <text class="ds-title" x="36" y="74">三种起点到同一责任证据的任务入口</text>
-  <text class="ds-source" x="36" y="140">source · AI测试工程师发展.md:L1256-L1288</text>
-<g data-source-ref="AI测试工程师发展.md:L1256-L1288"><rect x="40" y="146" width="1160" height="512" rx="18" fill="#f3f1e9" stroke="#d9ded9" stroke-width="1.2"/>
-<g filter="url(#ds-soft)"><rect x="76" y="170" width="210" height="78" rx="12" fill="#eaf1fa" stroke="#355f96" stroke-width="1.4"/></g>
-<text x="102" y="202" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="14" font-weight="800" fill="#1c2924" text-anchor="start">测试背景</text>
-<text x="102" y="226" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66" text-anchor="start">补 AI 原理与 Eval</text>
-<g filter="url(#ds-soft)"><rect x="76" y="312" width="210" height="78" rx="12" fill="#edf5f0" stroke="#174a3a" stroke-width="1.4"/></g>
-<text x="102" y="344" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="14" font-weight="800" fill="#1c2924" text-anchor="start">开发背景</text>
-<text x="102" y="368" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66" text-anchor="start">补测试方法与 Oracle</text>
-<g filter="url(#ds-soft)"><rect x="76" y="454" width="210" height="78" rx="12" fill="#fdf1d8" stroke="#a96a18" stroke-width="1.4"/></g>
-<text x="102" y="486" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="14" font-weight="800" fill="#1c2924" text-anchor="start">零基础</text>
-<text x="102" y="510" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66" text-anchor="start">补编程、测试与 AI 基础</text>
-<g filter="url(#ds-strong)"><rect x="400" y="265" width="240" height="180" rx="16" fill="#fff" stroke="#174a3a" stroke-width="1.6"/></g>
-<text x="428" y="300" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="14" font-weight="800" fill="#174a3a" text-anchor="start">缺口诊断</text>
-<text x="428" y="332" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66" text-anchor="start">先修页面组合</text>
-<text x="428" y="356" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66" text-anchor="start">一项固定输入练习</text>
-<text x="428" y="380" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66" text-anchor="start">故障检测与修复</text>
-<text x="428" y="412" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11" font-weight="800" fill="#b2402f" text-anchor="start">时长：Unknown</text>
-<g filter="url(#ds-strong)"><rect x="760" y="265" width="320" height="180" rx="16" fill="#fff" stroke="#174a3a" stroke-width="1.6"/></g>
-<text x="788" y="300" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="14" font-weight="800" fill="#174a3a" text-anchor="start">共同完成条件</text>
-<text x="788" y="332" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66" text-anchor="start">可运行项目 + 独立 Oracle</text>
-<text x="788" y="356" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66" text-anchor="start">红 / 绿收据 + 迁移卡</text>
-<text x="788" y="380" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66" text-anchor="start">真实 consumer + reviewer</text>
-<text x="788" y="412" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11" font-weight="800" fill="#b2402f" text-anchor="start">责任证据，不是 P5 承诺</text>
-<path d="M286 209 C340 209 340 300 394 300" fill="none" stroke="#355f96" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-<path d="M286 351 L394 351" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-<path d="M286 493 C340 493 340 410 394 410" fill="none" stroke="#a96a18" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-<path d="M640 355 L754 355" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-<text x="398" y="500" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11" font-weight="600" fill="#5f6c66" text-anchor="start">起点不同 → 先修顺序不同；出口标准相同 → 可审计的工作证据</text></g>
-<text x="40" y="764" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11px" font-weight="500" fill="#5f6c66">起点只改变先修顺序，不改变完成条件；学习时长为 Unknown，不能从来源示例外推到个人。</text>
-
-  <rect x="28" y="786" width="1184" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="812">证据边界</text>
-  <text class="ds-foot" x="46" y="834">SOURCE-EXAMPLE · 组织职级 / 年限 / 权重均为 INTERNAL-UNKNOWN · 本图不证明晋升、就业或真实学习效果</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2696" viewBox="0 0 1600 2696" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">不同起点汇入同一完成条件</title><desc id="desc">测试、开发与零基础只改变先修顺序；都须交付同一可复核项目、故障证据和责任边界，不能按月份保证达标。 先诊断已有证据，再选最小先修；资源有检查日期、限制和 fallback 静态设计与 fixture 不证明个人能力、职级、晋升、就业或薪资；真实学习与组织效果 NOT_RUN，组织映射 INTERNAL-UNKNOWN。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/career-development-original.md#4 / 不同背景的学习路径图;content/modules/career-evolution.ts#TD-R01 / action;docs/svg-redesign-2026-10-26/body-sources/material-pages.json#TD-R01 / summary">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;career-background-paths&quot;,&quot;pageIds&quot;:[&quot;TD-R01&quot;,&quot;TD-C03&quot;],&quot;primaryPageIds&quot;:[&quot;TD-R01&quot;],&quot;layout&quot;:&quot;flow&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/career-development-original.md&quot;,&quot;locator&quot;:&quot;4 / 不同背景的学习路径图&quot;,&quot;quote&quot;:&quot;学习: 测试理论&quot;},{&quot;path&quot;:&quot;content/modules/career-evolution.ts&quot;,&quot;locator&quot;:&quot;TD-R01 / action&quot;,&quot;quote&quot;:&quot;purpose、limits、fallback、exit_artifact&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/material-pages.json&quot;,&quot;locator&quot;:&quot;TD-R01 / summary&quot;,&quot;quote&quot;:&quot;把书籍、课程、平台、框架和论文整理成带版本、检查日期、用途、限制与替代路径的资源索引。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;test&quot;,&quot;title&quot;:&quot;测试背景&quot;},{&quot;id&quot;:&quot;dev&quot;,&quot;title&quot;:&quot;开发背景&quot;},{&quot;id&quot;:&quot;new&quot;,&quot;title&quot;:&quot;零基础&quot;},{&quot;id&quot;:&quot;gap&quot;,&quot;title&quot;:&quot;缺口诊断与先修&quot;},{&quot;id&quot;:&quot;resource&quot;,&quot;title&quot;:&quot;版本化资源入口&quot;},{&quot;id&quot;:&quot;project&quot;,&quot;title&quot;:&quot;共同可运行项目&quot;},{&quot;id&quot;:&quot;review&quot;,&quot;title&quot;:&quot;责任证据与复评&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;test&quot;,&quot;to&quot;:&quot;gap&quot;,&quot;label&quot;:&quot;先确认已有证据&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;dev&quot;,&quot;to&quot;:&quot;gap&quot;,&quot;label&quot;:&quot;先确认已有证据&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;new&quot;,&quot;to&quot;:&quot;gap&quot;,&quot;label&quot;:&quot;诊断基础先修&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;gap&quot;,&quot;to&quot;:&quot;resource&quot;,&quot;label&quot;:&quot;按缺口路由&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;resource&quot;,&quot;to&quot;:&quot;project&quot;,&quot;label&quot;:&quot;资源绑定出口工件&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;project&quot;,&quot;to&quot;:&quot;review&quot;,&quot;label&quot;:&quot;独立复评与收据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;review&quot;,&quot;to&quot;:&quot;gap&quot;,&quot;label&quot;:&quot;未满足则补下件工件&quot;,&quot;kind&quot;:&quot;feedback&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2696" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  career-background-paths</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >不同起点汇入同一完成条件</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >测试、开发与零基础只改变先修顺序；都须交付同一可复核项目、故障证据和责任边界，不能按月份保证达标。</text>
+<g id="system-graph" data-region="64,234,1472,1858">
+<rect x="64" y="234" width="1472" height="1858" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >先诊断已有证据，再选最小先修；资源有检查日期、限制和 fallback</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M451 273 L451 371 L84 371 L84 764 L374.5 764 L374.5 818" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M451 273 L451 371 L84 371 L84 764 L374.5 764 L374.5 818" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="test" data-to="gap"/>
+<path d="M981 307 L981 371 L1356 371 L1356 778 L527.5 778 L527.5 818" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M981 307 L981 371 L1356 371 L1356 778 L527.5 778 L527.5 818" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="dev" data-to="gap"/>
+<path d="M714 656 L714 704 L77 704 L77 792 L369.5 792 Q374.5 780 379.5 792 L451 792 L451 818" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M714 656 L714 704 L77 704 L77 792 L369.5 792 Q374.5 780 379.5 792 L451 792 L451 818" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e2" data-from="new" data-to="gap"/>
+<path d="M400 1049 L400 1111 L930 1111 L930 1049" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M400 1049 L400 1111 L930 1111 L930 1049" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e3" data-from="gap" data-to="resource"/>
+<path d="M1032 1049 L1032 1127 L1362 1127 L1362 1299 L986 1299 Q981 1287 976 1299 L451 1299 L451 1325" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M1032 1049 L1032 1127 L1362 1127 L1362 1299 L986 1299 Q981 1287 976 1299 L451 1299 L451 1325" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e4" data-from="resource" data-to="project"/>
+<path d="M451 1556 L451 1620 L981 1620 L981 1522" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M451 1556 L451 1620 L981 1620 L981 1522" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e5" data-from="project" data-to="review"/>
+<path d="M981 1325 L981 1223 L1368 1223 L1368 1063 L1037 1063 Q1032 1051 1027 1063 L935 1063 Q930 1051 925 1063 L502 1063 L502 1049" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M981 1325 L981 1223 L1368 1223 L1368 1063 L1037 1063 Q1032 1051 1027 1063 L935 1063 Q930 1051 925 1063 L502 1063 L502 1049" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e6" data-from="review" data-to="gap"/>
+<g id="node-test" class="node node-input" data-region="274,76,354,197">
+<rect x="274" y="76" width="354" height="197" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#215cbb" font-weight="700" >测试背景</text>
+<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >已有测试方法需证据确认</text>
+<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >补 AI 任务与评测、自动化</text>
+</g>
+<g id="node-dev" class="node node-input" data-region="804,76,354,231">
+<rect x="804" y="76" width="354" height="231" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">02</text>
+<text x="826" y="152" font-size="28" fill="#215cbb" font-weight="700" >开发背景</text>
+<text x="826" y="195" font-size="23" fill="#172b45" font-weight="450" >已有编程需证据确认</text>
+<text x="826" y="229" font-size="23" fill="#172b45" font-weight="450" >补测试理论、Oracle 与 AI</text>
+<text x="826" y="263" font-size="23" fill="#172b45" font-weight="450" >风险</text>
+</g>
+<g id="node-new" class="node node-input" data-region="537,459,354,197">
+<rect x="537" y="459" width="354" height="197" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="555" y="476" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="494" font-size="15" fill="#215cbb" font-weight="750" class="mono">03</text>
+<text x="559" y="535" font-size="28" fill="#215cbb" font-weight="700" >零基础</text>
+<text x="559" y="578" font-size="23" fill="#172b45" font-weight="450" >先补 Python 与测试基础</text>
+<text x="559" y="612" font-size="23" fill="#172b45" font-weight="450" >再学 AI 行为与测量</text>
+</g>
+<g id="node-gap" class="node node-process" data-region="274,818,354,231">
+<rect x="274" y="818" width="354" height="231" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="835" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="853" font-size="15" fill="#344f70" font-weight="750" class="mono">04</text>
+<text x="296" y="894" font-size="28" fill="#344f70" font-weight="700" >缺口诊断与先修</text>
+<text x="296" y="937" font-size="23" fill="#172b45" font-weight="450" >claim / evidence_ref /</text>
+<text x="296" y="971" font-size="23" fill="#172b45" font-weight="450" >UNKNOWN</text>
+<text x="296" y="1005" font-size="23" fill="#172b45" font-weight="450" >按背景选择最小任务与资源</text>
+</g>
+<g id="node-resource" class="node node-data" data-region="804,818,354,231">
+<rect x="804" y="818" width="354" height="231" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="822" y="835" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="853" font-size="15" fill="#087b76" font-weight="750" class="mono">05</text>
+<text x="826" y="894" font-size="28" fill="#087b76" font-weight="700" >版本化资源入口</text>
+<text x="826" y="937" font-size="23" fill="#172b45" font-weight="450" >purpose / checked_at /</text>
+<text x="826" y="971" font-size="23" fill="#172b45" font-weight="450" >limits</text>
+<text x="826" y="1005" font-size="23" fill="#172b45" font-weight="450" >失效时 fallback 到替代路径</text>
+</g>
+<g id="node-project" class="node node-process" data-region="274,1325,354,231">
+<rect x="274" y="1325" width="354" height="231" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="1342" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1360" font-size="15" fill="#344f70" font-weight="750" class="mono">06</text>
+<text x="296" y="1401" font-size="28" fill="#344f70" font-weight="700" >共同可运行项目</text>
+<text x="296" y="1444" font-size="23" fill="#172b45" font-weight="450" >需求 / 独立 Oracle /</text>
+<text x="296" y="1478" font-size="23" fill="#172b45" font-weight="450" >runner</text>
+<text x="296" y="1512" font-size="23" fill="#172b45" font-weight="450" >baseline → fault → repair</text>
+</g>
+<g id="node-review" class="node node-evidence" data-region="804,1325,354,197">
+<rect x="804" y="1325" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="1342" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1360" font-size="15" fill="#7045a4" font-weight="750" class="mono">07</text>
+<text x="826" y="1401" font-size="28" fill="#7045a4" font-weight="700" >责任证据与复评</text>
+<text x="826" y="1444" font-size="23" fill="#172b45" font-weight="450" >工件、失败成本与 reviewer</text>
+<text x="826" y="1478" font-size="23" fill="#172b45" font-weight="450" >说明能决定什么及何时升级</text>
+</g>
+<rect x="106.61" y="333" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="362" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  先确认已有</text>
+<text x="190" y="394" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">证据</text>
+<text x="378.5" y="808" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="1162.61" y="333" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="362" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  先确认已有</text>
+<text x="1246" y="394" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">证据</text>
+<text x="531.5" y="808" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="95.69" y="682" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="711" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  诊断基础先修</text>
+<text x="455" y="808" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="632.61" y="1089" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1118" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  按缺口路由</text>
+<text x="934" y="1071" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="1151.69" y="1089" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1118" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  资源绑定出口</text>
+<text x="1246" y="1150" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">工件</text>
+<text x="455" y="1315" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="632.61" y="1582" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1611" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  独立复评与</text>
+<text x="716" y="1643" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">收据</text>
+<text x="985" y="1544" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="1151.69" y="1185" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1214" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  未满足则补下</text>
+<text x="1246" y="1246" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">件工件</text>
+<text x="506" y="1071" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+</g>
+</g>
+<text x="64" y="2146" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2146" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2176,470,174">
+<rect x="64" y="2176" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2198" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="106" y="2223" font-size="25" fill="#7045a4" font-weight="700" >起点不等于能力结论</text>
+<text x="88" y="2278" font-size="23" fill="#172b45" font-weight="450" >开发经历不自动等于测试设计</text>
+<text x="88" y="2313" font-size="23" fill="#172b45" font-weight="450" >测试经历不自动等于 AI Eval</text>
+</g>
+<g id="detail-1" data-region="565,2176,470,174">
+<rect x="565" y="2176" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2198" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="607" y="2223" font-size="25" fill="#945c0b" font-weight="700" >共用完成定义</text>
+<text x="589" y="2278" font-size="23" fill="#172b45" font-weight="450" >可打开工件 / 独立判断 / 故障反证</text>
+<text x="589" y="2313" font-size="23" fill="#172b45" font-weight="450" >责任范围和复评人不能省略</text>
+</g>
+<g id="detail-2" data-region="1066,2176,470,174">
+<rect x="1066" y="2176" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2198" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="2223" font-size="25" fill="#7045a4" font-weight="700" >时长边界</text>
+<text x="1090" y="2278" font-size="23" fill="#172b45" font-weight="450" >原文月份示例不外推到个人</text>
+<text x="1090" y="2313" font-size="23" fill="#172b45" font-weight="450" >实际学习时长 Unknown，非就业保证</text>
+</g>
+<g id="failure-and-output" data-region="64,2382,1472,148">
+<rect x="64" y="2382" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2421" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2466" font-size="23" fill="#ffdce2" font-weight="450" >把学习月数当作P5达标依据，或使用无日期、无 fallback 的必学资源时停止结论。</text>
+<text x="88" y="2509" font-size="23" fill="#dce9fa" font-weight="450" >交付按背景分路的先修、资源与共同项目出口图。</text>
+</g>
+<text x="64" y="2578" font-size="20" fill="#50647c" font-weight="450" >静态设计与 fixture 不证明个人能力、职级、晋升、就业或薪资；真实学习与组织效果 NOT_RUN，组织映射 INTERNAL-UNKNOWN。</text>
+<text x="64" y="2617" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-R01 · 不同起点汇入同一完成条件</text>
+<path class="edge edge-data" d="M64 2657 L101 2657" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2663" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2657 L397 2657" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2663" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2657 L693 2657" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2663" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2657 L989 2657" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2663" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2657 L1285 2657" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2663" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

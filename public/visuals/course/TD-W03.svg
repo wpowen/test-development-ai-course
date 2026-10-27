@@ -1,116 +1,167 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1160 744" width="1160" height="744">
-  <title id="title">单 Agent 与多 Agent 的公平对照：architecture架构</title>
-  <desc id="desc">Agent 的输入、模型、工具、状态、权限与观测面共同构成被测系统</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-</style>
-  <rect class="ds-bg" width="1160" height="744" rx="22"/>
-  
-  <rect class="ds-header" x="0" y="0" width="1160" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1160" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">ARCHITECTURE · 控制流</text>
-  <text class="ds-subtitle" x="1124" y="32" text-anchor="end">Agent 的输入、模型、工具、状态、权限与观测面共同构成被测系统</text>
-  <text class="ds-title" x="36" y="74">单 Agent 与多 Agent 的公平对照</text>
-  <text class="ds-source" x="36" y="140">architecture · 单 Agent 与多 Agent 的同预算对照链 · 来源 S10, S24, S35</text>
-  <text x="150" y="160" class="ds-section">系统控制链 · 输入 → 处理 → 判断 → 决定</text>
-  
-    <circle cx="108" cy="199" r="12" fill="#ffffff" stroke="#aec6e3" stroke-width="1.5"/>
-    <text x="108" y="203" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">01</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="170" width="850" height="58" rx="13" fill="#eaf1fa" stroke="#aec6e3" stroke-width="1.4"/>
-      <rect x="150" y="170" width="5" height="58" rx="2.5" fill="#aec6e3"/>
-    </g>
-    <text x="174" y="194" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">Frozen task set</text>
-    <text x="174" y="215" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">输入 / 依据</text>
-    <path d="M 108 228 V 248" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="281" r="12" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.5"/>
-    <text x="108" y="285" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">02</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="252" width="850" height="58" rx="13" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4"/>
-      <rect x="150" y="252" width="5" height="58" rx="2.5" fill="#c2d9cc"/>
-    </g>
-    <text x="174" y="276" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">Single-agent arm</text>
-    <text x="174" y="297" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">处理 / 变换</text>
-    <path d="M 108 310 V 330" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="363" r="12" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.5"/>
-    <text x="108" y="367" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">03</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="334" width="850" height="58" rx="13" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4"/>
-      <rect x="150" y="334" width="5" height="58" rx="2.5" fill="#c2d9cc"/>
-    </g>
-    <text x="174" y="358" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">Multi-agent arm</text>
-    <text x="174" y="379" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">处理 / 变换</text>
-    <path d="M 108 392 V 412" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="445" r="12" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.5"/>
-    <text x="108" y="449" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">04</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="416" width="850" height="58" rx="13" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4"/>
-      <rect x="150" y="416" width="5" height="58" rx="2.5" fill="#c2d9cc"/>
-    </g>
-    <text x="174" y="440" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">Shared budget</text>
-    <text x="174" y="461" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">处理 / 变换</text>
-    <path d="M 108 474 V 494" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="527" r="12" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.5"/>
-    <text x="108" y="531" text-anchor="middle" fill="#85908a" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">05</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="498" width="850" height="58" rx="13" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4"/>
-      <rect x="150" y="498" width="5" height="58" rx="2.5" fill="#c2d9cc"/>
-    </g>
-    <text x="174" y="522" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">Repeated trials</text>
-    <text x="174" y="543" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">处理 / 变换</text>
-    <path d="M 108 556 V 576" stroke="#174a3a" stroke-width="2" fill="none" marker-end="url(#ds-arw-forest)"/>
-    <circle cx="108" cy="609" r="12" fill="#174a3a" stroke="#e0b76a" stroke-width="1.5"/>
-    <text x="108" y="613" text-anchor="middle" fill="#ffffff" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10" font-weight="800">06</text>
-    <g filter="url(#ds-soft)">
-      <rect x="150" y="580" width="850" height="58" rx="13" fill="#fdf1d8" stroke="#e0b76a" stroke-width="1.4"/>
-      <rect x="150" y="580" width="5" height="58" rx="2.5" fill="#e0b76a"/>
-    </g>
-    <text x="174" y="604" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="14" font-weight="800" fill="#1c2924">Architecture decision</text>
-    <text x="174" y="625" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="10.5" font-weight="600" fill="#5f6c66">决定 / 输出</text>
-    
-  
-  <rect x="28" y="670" width="1104" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="696">证据边界</text>
-  <text class="ds-foot" x="46" y="718">节点是页面语义关系；不代表真实模型、企业集成或生产效果已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2393" viewBox="0 0 1600 2393" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">单 Agent 与多 Agent 在同预算下比较</title><desc id="desc">相同任务、权限与总预算下重复运行，才能把架构收益和资源投入区分开。 两条实验臂并列，共享预算控制，配对差值与协作代价一起支撑架构选择 离线合同不证明真实多 Agent 收益；教学任务量不是正式统计样本量依据。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-W03 / 架构节点与交付物;docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-W03 / 运行 baseline、故障与修复">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-W03&quot;,&quot;pageIds&quot;:[&quot;TD-W03&quot;],&quot;primaryPageIds&quot;:[&quot;TD-W03&quot;],&quot;layout&quot;:&quot;metric&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-W03 / 架构节点与交付物&quot;,&quot;quote&quot;:&quot;两条实验臂共享冻结任务集与预算，各自重复运行，最后由人做架构决策。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-W03 / 运行 baseline、故障与修复&quot;,&quot;quote&quot;:&quot;任一预算、工具或干预不一致即 confounded&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;tasks&quot;,&quot;title&quot;:&quot;Frozen task set&quot;},{&quot;id&quot;:&quot;budget&quot;,&quot;title&quot;:&quot;Shared budget&quot;},{&quot;id&quot;:&quot;single&quot;,&quot;title&quot;:&quot;Single-agent arm&quot;},{&quot;id&quot;:&quot;multi&quot;,&quot;title&quot;:&quot;Multi-agent arm&quot;},{&quot;id&quot;:&quot;trials&quot;,&quot;title&quot;:&quot;Repeated trials&quot;},{&quot;id&quot;:&quot;cost&quot;,&quot;title&quot;:&quot;协作与单位成功成本&quot;},{&quot;id&quot;:&quot;invalid&quot;,&quot;title&quot;:&quot;Confounded / UNKNOWN&quot;},{&quot;id&quot;:&quot;decision&quot;,&quot;title&quot;:&quot;Architecture decision&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;tasks&quot;,&quot;to&quot;:&quot;single&quot;,&quot;label&quot;:&quot;相同任务与工具&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;tasks&quot;,&quot;to&quot;:&quot;multi&quot;,&quot;label&quot;:&quot;相同任务与工具&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;budget&quot;,&quot;to&quot;:&quot;single&quot;,&quot;label&quot;:&quot;相同资源上限&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;budget&quot;,&quot;to&quot;:&quot;multi&quot;,&quot;label&quot;:&quot;相同资源上限&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;single&quot;,&quot;to&quot;:&quot;trials&quot;,&quot;label&quot;:&quot;原始重复结果&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;multi&quot;,&quot;to&quot;:&quot;trials&quot;,&quot;label&quot;:&quot;同任务配对结果&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;single&quot;,&quot;to&quot;:&quot;cost&quot;,&quot;label&quot;:&quot;消耗与耗时&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;multi&quot;,&quot;to&quot;:&quot;cost&quot;,&quot;label&quot;:&quot;消耗与协作故障&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;budget&quot;,&quot;to&quot;:&quot;invalid&quot;,&quot;label&quot;:&quot;实际预算不对齐&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;trials&quot;,&quot;to&quot;:&quot;invalid&quot;,&quot;label&quot;:&quot;证据不足&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;trials&quot;,&quot;to&quot;:&quot;decision&quot;,&quot;label&quot;:&quot;配对差值区间&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;cost&quot;,&quot;to&quot;:&quot;decision&quot;,&quot;label&quot;:&quot;代价与可维护性&quot;,&quot;kind&quot;:&quot;evidence&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2393" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-W03</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >单 Agent 与多 Agent 在同预算下比较</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >相同任务、权限与总预算下重复运行，才能把架构收益和资源投入区分开。</text>
+<g id="system-graph" data-region="64,234,1472,1555">
+<rect x="64" y="234" width="1472" height="1555" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >两条实验臂并列，共享预算控制，配对差值与协作代价一起支撑架构选择</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >实验与指标</text>
+<g transform="translate(207.29999999999995 350) scale(1)" data-graph-scale="1" data-routing="dot">
+<path class="edge edge-data" d="M223 231 C223 295.28 122.66 219.6400000000001 84 271 C72.77 285.9100000000001 77.52 295.49 84 313 C93.77 339.41999999999996 122.2 337.5799999999999 130 357.34000000000003" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="tasks" data-to="single"/>
+<path class="edge edge-data" d="M311 231 C311 267.51 282.23 285.28999999999996 306 313 C341.24 354.07000000000005 534.07 303.28 562.5 341.89" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="tasks" data-to="multi"/>
+<path class="edge edge-control" d="M630 231 C630 281.3499999999999 565.03 241.80999999999995 524 271 C504.2 285.0899999999999 509.83 300.49 489 313 C387.88 373.71000000000004 231.16 255.47000000000003 220.57 357.34000000000003" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e2" data-from="budget" data-to="single"/>
+<path class="edge edge-control" d="M700 231 C700 267.71000000000004 705.21 279.5799999999999 690 313 C682.11 330.3499999999999 663.93 330.26 656.88 341.61" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e3" data-from="budget" data-to="multi"/>
+<path class="edge edge-evidence" d="M132 566 C132 598.63 97.57 593.13 87 624 C80.95 641.66 78.11 649.59 87 666 C113.21 714.36 186.88 684.82 197.67 727.31" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e4" data-from="single" data-to="trials"/>
+<path class="edge edge-evidence" d="M566 584 C566 628.18 512.15 600.1 475 624 C451.44 639.16 451.07 650.1 428 666 C373.42 703.62 296.95 672.7 287.89 727.33" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e5" data-from="multi" data-to="trials"/>
+<path class="edge edge-data" d="M220 566 C220 579.19 272.81 659.02 284 666 C346.61 705.06 602.72 636.26 630.54 694.56" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e6" data-from="single" data-to="cost"/>
+<path class="edge edge-data" d="M654 584 C654 623.63 668.66 631.99 689 666 C698.22 681.42 712.81 683.23 718.56 694.5" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e7" data-from="multi" data-to="cost"/>
+<path class="edge edge-risk" d="M770 231 C770 277.6300000000001 840.71 232.49 867 271 C1042.43 527.96 988.59 681.34 875 971 C856.86 1017.26 843.56 1031.01 799 1053 C759.7 1072.4 430.82 1049.62 379.67 1083.19" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e8" data-from="budget" data-to="invalid"/>
+<path class="edge edge-risk" d="M199 936 C199 1067.6399999999999 445.38 963.95 460.29 1081.35" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e9" data-from="trials" data-to="invalid"/>
+<path class="edge edge-evidence" d="M287 936 C287 1065.69 450.6 958.0799999999999 569 1011 C600.06 1024.88 601.71 1039.65 633 1053 C701.99 1082.44 796.04 1021.06 806.11 1081.28" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e10" data-from="trials" data-to="decision"/>
+<path class="edge edge-evidence" d="M633 971 C633 1046.8899999999999 731.4 976.52 799 1011 C845.18 1034.55 887.97 1036.68 894.22 1081.1100000000001" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e11" data-from="cost" data-to="decision"/>
+<g id="node-tasks" class="node node-input" data-region="91,0,354,231">
+<rect x="91" y="0" width="354" height="231" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="109" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="116" y="35" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="113" y="76" font-size="28" fill="#215cbb" font-weight="700" >Frozen task set</text>
+<text x="113" y="119" font-size="23" fill="#172b45" font-weight="450" >任务、模型、工具和成功</text>
+<text x="113" y="153" font-size="23" fill="#172b45" font-weight="450" >Oracle 固定</text>
+<text x="113" y="187" font-size="23" fill="#172b45" font-weight="450" >按复杂度与风险划分切片</text>
+</g>
+<g id="node-budget" class="node node-control" data-region="525,0,354,231">
+<rect x="525" y="0" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="543" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="550" y="35" font-size="15" fill="#945c0b" font-weight="750" class="mono">02</text>
+<text x="547" y="76" font-size="28" fill="#945c0b" font-weight="700" >Shared budget</text>
+<text x="547" y="119" font-size="23" fill="#172b45" font-weight="450" >总 Token、时间、调用与</text>
+<text x="547" y="153" font-size="23" fill="#172b45" font-weight="450" >重试</text>
+<text x="547" y="187" font-size="23" fill="#172b45" font-weight="450" >人工干预与调优投入可比</text>
+</g>
+<g id="node-single" class="node node-process" data-region="0,370,354,197">
+<rect x="0" y="370" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="18" y="387" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="405" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="22" y="446" font-size="28" fill="#344f70" font-weight="700" >Single-agent arm</text>
+<text x="22" y="489" font-size="23" fill="#172b45" font-weight="450" >单 Agent 获得相同总资源</text>
+<text x="22" y="523" font-size="23" fill="#172b45" font-weight="450" >保存轨迹与全部消耗</text>
+</g>
+<g id="node-multi" class="node node-ai" data-region="434,353,354,231">
+<rect x="434" y="353" width="354" height="231" rx="14" fill="#f4effb" stroke="none" />
+<rect x="452" y="370" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="459" y="388" font-size="15" fill="#7045a4" font-weight="750" class="mono">04</text>
+<text x="456" y="429" font-size="28" fill="#7045a4" font-weight="700" >Multi-agent arm</text>
+<text x="456" y="472" font-size="23" fill="#172b45" font-weight="450" >planner / generator /</text>
+<text x="456" y="506" font-size="23" fill="#172b45" font-weight="450" >reviewer</text>
+<text x="456" y="540" font-size="23" fill="#172b45" font-weight="450" >角色增加不隐式增加权限</text>
+</g>
+<g id="node-trials" class="node node-evidence" data-region="67,740,354,197">
+<rect x="67" y="740" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="85" y="757" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="92" y="775" font-size="15" fill="#7045a4" font-weight="750" class="mono">05</text>
+<text x="89" y="816" font-size="28" fill="#7045a4" font-weight="700" >Repeated trials</text>
+<text x="89" y="859" font-size="23" fill="#172b45" font-weight="450" >相同 case_id 与重复次数</text>
+<text x="89" y="893" font-size="23" fill="#172b45" font-weight="450" >逐任务配对差值与不确定性</text>
+</g>
+<g id="node-cost" class="node node-evidence" data-region="501,706,354,265">
+<rect x="501" y="706" width="354" height="265" rx="14" fill="#f4effb" stroke="none" />
+<rect x="519" y="723" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="526" y="741" font-size="15" fill="#7045a4" font-weight="750" class="mono">06</text>
+<text x="523" y="782" font-size="28" fill="#7045a4" font-weight="700" >协作与单位成功成本</text>
+<text x="523" y="825" font-size="23" fill="#172b45" font-weight="450" >重复工作、信息丢失、互相</text>
+<text x="523" y="859" font-size="23" fill="#172b45" font-weight="450" >等待</text>
+<text x="523" y="893" font-size="23" fill="#172b45" font-weight="450" >并列 blocker、p95 与总</text>
+<text x="523" y="927" font-size="23" fill="#172b45" font-weight="450" >费用</text>
+</g>
+<g id="node-invalid" class="node node-risk" data-region="241,1093,354,270">
+<rect x="241" y="1093" width="354" height="270" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="259" y="1110" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="266" y="1128" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">07</text>
+<text x="263" y="1169" font-size="28" fill="#ad3e4c" font-weight="700" >Confounded /</text>
+<text x="263" y="1208" font-size="28" fill="#ad3e4c" font-weight="700" >UNKNOWN</text>
+<text x="263" y="1251" font-size="23" fill="#172b45" font-weight="450" >预算、工具或人工干预不</text>
+<text x="263" y="1285" font-size="23" fill="#172b45" font-weight="450" >一致</text>
+<text x="263" y="1319" font-size="23" fill="#172b45" font-weight="450" >差异不可判定时不宣布优胜</text>
+</g>
+<g id="node-decision" class="node node-control" data-region="675,1093,354,270">
+<rect x="675" y="1093" width="354" height="270" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="693" y="1110" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="700" y="1128" font-size="15" fill="#945c0b" font-weight="750" class="mono">08</text>
+<text x="697" y="1169" font-size="28" fill="#945c0b" font-weight="700" >Architecture</text>
+<text x="697" y="1208" font-size="28" fill="#945c0b" font-weight="700" >decision</text>
+<text x="697" y="1251" font-size="23" fill="#172b45" font-weight="450" >收益仅在哪些切片值得复</text>
+<text x="697" y="1285" font-size="23" fill="#172b45" font-weight="450" >杂化</text>
+<text x="697" y="1319" font-size="23" fill="#172b45" font-weight="450" >无收益任务可退回单 Agent</text>
+</g>
+<rect x="84" y="271" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="172.5" y="299" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">相同任务与工具</text>
+<rect x="306" y="271" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="394.5" y="299" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">相同任务与工具</text>
+<rect x="524" y="271" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="602" y="299" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">相同资源上限</text>
+<rect x="700.77" y="271" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="778.77" y="299" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">相同资源上限</text>
+<rect x="87" y="624" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="165" y="652" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">原始重复结果</text>
+<rect x="475" y="624" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="563.5" y="652" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">同任务配对结果</text>
+<rect x="284" y="624" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="351" y="652" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">消耗与耗时</text>
+<rect x="689" y="624" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="777.5" y="652" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">消耗与协作故障</text>
+<rect x="977.9000000000001" y="624" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="1066.4" y="652" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">实际预算不对齐</text>
+<rect x="447.03" y="1011" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="503.03" y="1039" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">证据不足</text>
+<rect x="633" y="1011" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="711" y="1039" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">配对差值区间</text>
+<rect x="880.69" y="1011" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="969.19" y="1039" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e11">代价与可维护性</text>
+</g>
+</g>
+<text x="64" y="1843" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1843" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1873,470,174">
+<rect x="64" y="1873" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1895" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="106" y="1920" font-size="25" fill="#945c0b" font-weight="700" >公平性先于结果</text>
+<text x="88" y="1975" font-size="23" fill="#172b45" font-weight="450" >工具、重试与人工救场同额度</text>
+<text x="88" y="2010" font-size="23" fill="#172b45" font-weight="450" >多角色不自动获得额外 scope</text>
+</g>
+<g id="detail-1" data-region="565,1873,470,174">
+<rect x="565" y="1873" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1895" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="607" y="1920" font-size="25" fill="#ad3e4c" font-weight="700" >故障怎样点名</text>
+<text x="589" y="1975" font-size="23" fill="#172b45" font-weight="450" >任一预算或工具差异即混杂</text>
+<text x="589" y="2010" font-size="23" fill="#172b45" font-weight="450" >reviewer 重复输出列协作失败</text>
+</g>
+<g id="detail-2" data-region="1066,1873,470,174">
+<rect x="1066" y="1873" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1895" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="1920" font-size="25" fill="#7045a4" font-weight="700" >架构结论有范围</text>
+<text x="1090" y="1975" font-size="23" fill="#172b45" font-weight="450" >看配对差值，不比边际 CI 重叠</text>
+<text x="1090" y="2010" font-size="23" fill="#172b45" font-weight="450" >仅证据支持的复杂切片启用编排</text>
+</g>
+<g id="failure-and-output" data-region="64,2079,1472,148">
+<rect x="64" y="2079" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2118" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2163" font-size="23" fill="#ffdce2" font-weight="450" >预算、工具或干预不一致时实验不可用于架构归因；噪声内差异保持 UNKNOWN。</text>
+<text x="88" y="2206" font-size="23" fill="#dce9fa" font-weight="450" >交付锁定项 Manifest、重复运行记录、协作代价台账与按切片架构决定。</text>
+</g>
+<text x="64" y="2275" font-size="20" fill="#50647c" font-weight="450" >离线合同不证明真实多 Agent 收益；教学任务量不是正式统计样本量依据。</text>
+<text x="64" y="2314" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-W03 · 单 Agent 与多 Agent 在同预算下比较</text>
+<path class="edge edge-data" d="M64 2354 L101 2354" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2360" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2354 L397 2354" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2360" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2354 L693 2354" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2360" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2354 L989 2354" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2360" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2354 L1285 2354" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2360" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

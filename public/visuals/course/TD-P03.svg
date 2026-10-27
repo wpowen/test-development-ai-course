@@ -1,130 +1,171 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1160 546" width="1160" height="546">
-  <title id="title">解析技术文档：把组件、接口、状态与失败恢复变成可测试契约：flow流程</title>
-  <desc id="desc">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-</style>
-  <rect class="ds-bg" width="1160" height="546" rx="22"/>
-  
-  <rect class="ds-header" x="0" y="0" width="1160" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1160" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">FLOW · 证据流</text>
-  <text class="ds-subtitle" x="1124" y="32" text-anchor="end">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</text>
-  <text class="ds-title" x="36" y="74">解析技术文档：把组件、接口、状态与失败恢复变成可测试契约</text>
-  <text class="ds-source" x="36" y="140">flow · 需求到发布证据的可执行链 · 来源 S41, S42, S81, S82</text>
-  
-    <path d="M 264 220 L 286 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 466 220 L 488 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 668 220 L 690 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 870 220 L 892 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 984 268 V 305 H 176 V 338" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    <path d="M 264 390 L 286 390" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-  
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="172" width="176" height="96" rx="14" fill="#eaf1fa" stroke="#aec6e3"/>
-      
-      <circle cx="106" cy="190" r="11" fill="#ffffff" stroke="#aec6e3" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="193" text-anchor="middle" >01</text>
-      <text class="ds-node-title" x="103" y="220">PRD/技术方案</text>
-      <text class="ds-node-detail" x="103" y="235">输入 / 依据</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="290" y="172" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a"/>
-      
-      <circle cx="308" cy="190" r="11" fill="#ffffff" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="193" text-anchor="middle" >02</text>
-      <text class="ds-node-title" x="305" y="220">Basis Gate</text>
-      <text class="ds-node-detail" x="305" y="235">门禁 / 裁决</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="492" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="510" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="510" y="193" text-anchor="middle" >03</text>
-      <text class="ds-node-title" x="507" y="220">需求契约</text>
-      <text class="ds-node-detail" x="507" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="694" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="712" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="712" y="193" text-anchor="middle" >04</text>
-      <text class="ds-node-title" x="709" y="220">风险与 TestPackage</text>
-      <text class="ds-node-detail" x="709" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="896" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="914" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="914" y="193" text-anchor="middle" >05</text>
-      <text class="ds-node-title" x="911" y="220">自动化执行</text>
-      <text class="ds-node-detail" x="911" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="342" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="106" cy="360" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="363" text-anchor="middle" >06</text>
-      <text class="ds-node-title" x="103" y="390">Run Manifest</text>
-      <text class="ds-node-detail" x="103" y="405">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-strong)">
-      <rect x="290" y="342" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a" stroke-width="2"/>
-      <rect x="290" y="342" width="6" height="96" rx="3" fill="#93bd2c"/>
-      <circle cx="308" cy="360" r="11" fill="#174a3a" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="363" text-anchor="middle" fill="#ffffff">07</text>
-      <text class="ds-node-title" x="305" y="390">发布证据</text>
-      <text class="ds-node-detail" x="305" y="405">决定 / 输出</text>
-    </g>
-  <circle cx="108" cy="460" r="4" fill="#355f96"/><text class="ds-legend" x="118" y="464">输入 / 依据</text><circle cx="177.4" cy="460" r="4" fill="#c2d9cc"/><text class="ds-legend" x="187.4" y="464">处理 / 变换</text><circle cx="246.8" cy="460" r="4" fill="#6a49a8"/><text class="ds-legend" x="256.8" y="464">独立判断</text><circle cx="297.6" cy="460" r="4" fill="#a96a18"/><text class="ds-legend" x="307.6" y="464">门禁 / 裁决</text><circle cx="367" cy="460" r="4" fill="#b2402f"/><text class="ds-legend" x="377" y="464">安全终态</text>
-  
-  <rect x="28" y="472" width="1104" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="498">证据边界</text>
-  <text class="ds-foot" x="46" y="520">节点是页面语义关系；不代表真实模型、企业集成或生产效果已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2833" viewBox="0 0 1600 2833" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">ACK 丢失后，退款只能发生一次</title><desc id="desc">技术评审要追问消息重投、幂等身份与恢复终态，并把每一步接到可观察证据。 订单服务、退款 Worker、支付依赖与 ACK 丢失的故障链 此图表达正文中的故障演练设计，不声称已在真实支付服务执行。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-P03 / P03 工作示例：技术文档要把失败恢复画出来;docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-P03 / 阶段契约：S3 回答「结果如何发生、在哪里观察」">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-P03&quot;,&quot;pageIds&quot;:[&quot;TD-P03&quot;],&quot;primaryPageIds&quot;:[&quot;TD-P03&quot;],&quot;layout&quot;:&quot;sequence&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-P03 / P03 工作示例：技术文档要把失败恢复画出来&quot;,&quot;quote&quot;:&quot;worker 第一次处理成功但 ACK 丢失，第二次投递必须不再产生第二次退款&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-P03 / 阶段契约：S3 回答「结果如何发生、在哪里观察」&quot;,&quot;quote&quot;:&quot;有异步、无 safe terminal&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;order&quot;,&quot;title&quot;:&quot;订单服务受理&quot;},{&quot;id&quot;:&quot;event&quot;,&quot;title&quot;:&quot;退款事件投递&quot;},{&quot;id&quot;:&quot;worker&quot;,&quot;title&quot;:&quot;退款 Worker&quot;},{&quot;id&quot;:&quot;payment&quot;,&quot;title&quot;:&quot;支付网关&quot;},{&quot;id&quot;:&quot;redelivery&quot;,&quot;title&quot;:&quot;ACK 丢失与重投&quot;},{&quot;id&quot;:&quot;terminal&quot;,&quot;title&quot;:&quot;终态与恢复责任&quot;},{&quot;id&quot;:&quot;evidence&quot;,&quot;title&quot;:&quot;跨服务观察点&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;order&quot;,&quot;to&quot;:&quot;event&quot;,&quot;label&quot;:&quot;发布事件&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;event&quot;,&quot;to&quot;:&quot;worker&quot;,&quot;label&quot;:&quot;消费&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;worker&quot;,&quot;to&quot;:&quot;payment&quot;,&quot;label&quot;:&quot;退款调用&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;payment&quot;,&quot;to&quot;:&quot;worker&quot;,&quot;label&quot;:&quot;回执或超时&quot;,&quot;kind&quot;:&quot;feedback&quot;},{&quot;from&quot;:&quot;worker&quot;,&quot;to&quot;:&quot;redelivery&quot;,&quot;label&quot;:&quot;成功但 ACK 丢失&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;redelivery&quot;,&quot;to&quot;:&quot;worker&quot;,&quot;label&quot;:&quot;同身份重投；去重&quot;,&quot;kind&quot;:&quot;feedback&quot;},{&quot;from&quot;:&quot;worker&quot;,&quot;to&quot;:&quot;terminal&quot;,&quot;label&quot;:&quot;按批准策略终结&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;order&quot;,&quot;to&quot;:&quot;evidence&quot;,&quot;label&quot;:&quot;状态与 trace&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;worker&quot;,&quot;to&quot;:&quot;evidence&quot;,&quot;label&quot;:&quot;幂等与审计&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;payment&quot;,&quot;to&quot;:&quot;evidence&quot;,&quot;label&quot;:&quot;账本结果&quot;,&quot;kind&quot;:&quot;evidence&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2833" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-P03</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >ACK 丢失后，退款只能发生一次</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >技术评审要追问消息重投、幂等身份与恢复终态，并把每一步接到可观察证据。</text>
+<g id="system-graph" data-region="64,234,1472,1960">
+<rect x="64" y="234" width="1472" height="1960" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >订单服务、退款 Worker、支付依赖与 ACK 丢失的故障链</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M502 273 L502 321 L930 321 L930 273" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M502 273 L502 321 L930 321 L930 273" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="order" data-to="event"/>
+<path d="M1032 273 L1032 321 L1362 321 L1362 381 L451 381 L451 407" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M1032 273 L1032 321 L1362 321 L1362 381 L451 381 L451 407" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="event" data-to="worker"/>
+<path d="M472.8571428571429 604 L472.8571428571429 666 L511.57142857142856 666 Q516.5714285714286 654 521.5714285714286 666 L555.2857142857142 666 Q560.2857142857142 654 565.2857142857142 666 L904.5 666 L904.5 604" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M472.8571428571429 604 L472.8571428571429 666 L511.57142857142856 666 Q516.5714285714286 654 521.5714285714286 666 L555.2857142857142 666 Q560.2857142857142 654 565.2857142857142 666 L904.5 666 L904.5 604" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e2" data-from="worker" data-to="payment"/>
+<path d="M981 604 L981 730 L565.2857142857142 730 Q560.2857142857142 718 555.2857142857142 730 L516.5714285714286 730 L516.5714285714286 604" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M981 604 L981 730 L565.2857142857142 730 Q560.2857142857142 718 555.2857142857142 730 L516.5714285714286 730 L516.5714285714286 604" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e3" data-from="payment" data-to="worker"/>
+<path d="M341.7142857142857 604 L341.7142857142857 682 L89 682 Q84 670 79 682 L70 682 L70 1014 L79 1014 Q84 1002 89 1014 L400 1014 L400 1054" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M341.7142857142857 604 L341.7142857142857 682 L89 682 Q84 670 79 682 L70 682 L70 1014 L79 1014 Q84 1002 89 1014 L400 1014 L400 1054" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e4" data-from="worker" data-to="redelivery"/>
+<path d="M502 1054 L502 778 L434.1428571428571 778 Q429.1428571428571 766 424.1428571428571 778 L89 778 Q84 766 79 778 L63 778 L63 618 L79 618 Q84 606 89 618 L336.7142857142857 618 Q341.7142857142857 606 346.7142857142857 618 L385.42857142857144 618 L385.42857142857144 604" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M502 1054 L502 778 L434.1428571428571 778 Q429.1428571428571 766 424.1428571428571 778 L89 778 Q84 766 79 778 L63 778 L63 618 L79 618 Q84 606 89 618 L336.7142857142857 618 Q341.7142857142857 606 346.7142857142857 618 L385.42857142857144 618 L385.42857142857144 604" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e5" data-from="redelivery" data-to="worker"/>
+<path d="M560.2857142857142 604 L560.2857142857142 874 L507 874 Q502 862 497 874 L434.1428571428571 874 Q429.1428571428571 862 424.1428571428571 874 L89 874 Q84 862 79 874 L75 874 Q70 862 65 874 L56 874 L56 1028 L72 1028 Q80.5 1016 89 1028 L395 1028 Q400 1016 405 1028 L497 1028 Q502 1016 507 1028 L981 1028 L981 1054" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M560.2857142857142 604 L560.2857142857142 874 L507 874 Q502 862 497 874 L434.1428571428571 874 Q429.1428571428571 862 424.1428571428571 874 L89 874 Q84 862 79 874 L75 874 Q70 862 65 874 L56 874 L56 1028 L72 1028 Q80.5 1016 89 1028 L395 1028 Q400 1016 405 1028 L497 1028 Q502 1016 507 1028 L981 1028 L981 1054" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="worker" data-to="terminal"/>
+<path d="M400 273 L400 321 L84 321 L84 1363 L637.5 1363 L637.5 1449" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M400 273 L400 321 L84 321 L84 1363 L637.5 1363 L637.5 1449" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="order" data-to="evidence"/>
+<path d="M429.1428571428571 604 L429.1428571428571 954 L77 954 L77 1377 L632.5 1377 Q637.5 1365 642.5 1377 L714 1377 L714 1449" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M429.1428571428571 604 L429.1428571428571 954 L77 954 L77 1377 L632.5 1377 Q637.5 1365 642.5 1377 L714 1377 L714 1449" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e8" data-from="worker" data-to="evidence"/>
+<path d="M1057.5 604 L1057.5 666 L1356 666 L1356 1391 L790.5 1391 L790.5 1449" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M1057.5 604 L1057.5 666 L1356 666 L1356 1391 L790.5 1391 L790.5 1449" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e9" data-from="payment" data-to="evidence"/>
+<g id="node-order" class="node node-input" data-region="274,76,354,197">
+<rect x="274" y="76" width="354" height="197" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#215cbb" font-weight="700" >订单服务受理</text>
+<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >POST /cancel</text>
+<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >写入 CANCEL_PENDING</text>
+</g>
+<g id="node-event" class="node node-data" data-region="804,76,354,197">
+<rect x="804" y="76" width="354" height="197" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#087b76" font-weight="750" class="mono">02</text>
+<text x="826" y="152" font-size="28" fill="#087b76" font-weight="700" >退款事件投递</text>
+<text x="826" y="195" font-size="23" fill="#172b45" font-weight="450" >refund.requested</text>
+<text x="826" y="229" font-size="23" fill="#172b45" font-weight="450" >传递 trace_id 与幂等身份</text>
+</g>
+<g id="node-worker" class="node node-process" data-region="274,407,354,197">
+<rect x="274" y="407" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="424" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="442" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="296" y="483" font-size="28" fill="#344f70" font-weight="700" >退款 Worker</text>
+<text x="296" y="526" font-size="23" fill="#172b45" font-weight="450" >按 dedupe key 处理</text>
+<text x="296" y="560" font-size="23" fill="#172b45" font-weight="450" >重复事件不得重复副作用</text>
+</g>
+<g id="node-payment" class="node node-process" data-region="804,407,354,197">
+<rect x="804" y="407" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="822" y="424" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="442" font-size="15" fill="#344f70" font-weight="750" class="mono">04</text>
+<text x="826" y="483" font-size="28" fill="#344f70" font-weight="700" >支付网关</text>
+<text x="826" y="526" font-size="23" fill="#172b45" font-weight="450" >返回支付结果或超时</text>
+<text x="826" y="560" font-size="23" fill="#172b45" font-weight="450" >结果与原请求可关联</text>
+</g>
+<g id="node-redelivery" class="node node-risk" data-region="274,1054,354,197">
+<rect x="274" y="1054" width="354" height="197" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="292" y="1071" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1089" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">05</text>
+<text x="296" y="1130" font-size="28" fill="#ad3e4c" font-weight="700" >ACK 丢失与重投</text>
+<text x="296" y="1173" font-size="23" fill="#172b45" font-weight="450" >首次成功后 ACK 丢失</text>
+<text x="296" y="1207" font-size="23" fill="#172b45" font-weight="450" >同一消息再次送达 Worker</text>
+</g>
+<g id="node-terminal" class="node node-control" data-region="804,1054,354,265">
+<rect x="804" y="1054" width="354" height="265" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="1071" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1089" font-size="15" fill="#945c0b" font-weight="750" class="mono">06</text>
+<text x="826" y="1130" font-size="28" fill="#945c0b" font-weight="700" >终态与恢复责任</text>
+<text x="826" y="1173" font-size="23" fill="#172b45" font-weight="450" >成功终态或已定义 safe</text>
+<text x="826" y="1207" font-size="23" fill="#172b45" font-weight="450" >terminal</text>
+<text x="826" y="1241" font-size="23" fill="#172b45" font-weight="450" >耗尽后死信、补偿或人工</text>
+<text x="826" y="1275" font-size="23" fill="#172b45" font-weight="450" >恢复</text>
+</g>
+<g id="node-evidence" class="node node-evidence" data-region="537,1449,354,231">
+<rect x="537" y="1449" width="354" height="231" rx="14" fill="#f4effb" stroke="none" />
+<rect x="555" y="1466" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="1484" font-size="15" fill="#7045a4" font-weight="750" class="mono">07</text>
+<text x="559" y="1525" font-size="28" fill="#7045a4" font-weight="700" >跨服务观察点</text>
+<text x="559" y="1568" font-size="23" fill="#172b45" font-weight="450" >trace / event / audit</text>
+<text x="559" y="1602" font-size="23" fill="#172b45" font-weight="450" >账本、refund_count 与最</text>
+<text x="559" y="1636" font-size="23" fill="#172b45" font-weight="450" >终状态</text>
+</g>
+<rect x="643.53" y="299" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="328" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  发布事件</text>
+<text x="934" y="295" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="1195.37" y="299" width="101.26" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="328" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  消费</text>
+<text x="455" y="397" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="643.53" y="644" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="673" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  退款调用</text>
+<text x="908.5" y="626" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="632.61" y="708" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="737" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  回执或超时</text>
+<text x="520.5714285714286" y="626" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="104.40499999999999" y="644" width="171.19000000000003" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="673" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  成功但 ACK</text>
+<text x="190" y="705" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">丢失</text>
+<text x="404" y="1044" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="95.69" y="740" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="769" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  同身份重投；</text>
+<text x="190" y="801" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">去重</text>
+<text x="389.42857142857144" y="626" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="106.61" y="836" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="865" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  按批准策略</text>
+<text x="190" y="897" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">终结</text>
+<text x="985" y="1044" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="94.42999999999998" y="299" width="191.14000000000004" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="328" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  状态与 trace</text>
+<text x="641.5" y="1439" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+<rect x="106.61" y="932" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="961" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  幂等与审计</text>
+<text x="718" y="1439" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e8" stroke="#fff" stroke-width="4" paint-order="stroke">09</text>
+<rect x="1173.53" y="644" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="673" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">10  账本结果</text>
+<text x="794.5" y="1439" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e9" stroke="#fff" stroke-width="4" paint-order="stroke">10</text>
+</g>
+</g>
+<text x="64" y="2248" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2248" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2278,470,209">
+<rect x="64" y="2278" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2300" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="106" y="2325" font-size="25" fill="#945c0b" font-weight="700" >评审必须追问</text>
+<text x="88" y="2380" font-size="23" fill="#172b45" font-weight="450" >重试次数、退避、死信和幂等身份</text>
+<text x="88" y="2415" font-size="23" fill="#172b45" font-weight="450" >每条失败路径都有终态与恢复 owner</text>
+</g>
+<g id="detail-1" data-region="565,2278,470,209">
+<rect x="565" y="2278" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2300" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="607" y="2325" font-size="25" fill="#ad3e4c" font-weight="700" >一次故障演练</text>
+<text x="589" y="2380" font-size="23" fill="#172b45" font-weight="450" >先成功处理，再阻断 ACK 并重投</text>
+<text x="589" y="2415" font-size="23" fill="#172b45" font-weight="450" >核对 refund_count 不产生第二次</text>
+<text x="589" y="2450" font-size="23" fill="#172b45" font-weight="450" >退款</text>
+</g>
+<g id="detail-2" data-region="1066,2278,470,209">
+<rect x="1066" y="2278" width="470" height="209" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2300" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="2325" font-size="25" fill="#7045a4" font-weight="700" >缺口要能关闭</text>
+<text x="1090" y="2380" font-size="23" fill="#172b45" font-weight="450" >矩阵绑定 requirement、风险与来源</text>
+<text x="1090" y="2415" font-size="23" fill="#172b45" font-weight="450" >close_with 提供状态机或审计样例</text>
+</g>
+<g id="failure-and-output" data-region="64,2519,1472,148">
+<rect x="64" y="2519" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2558" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2603" font-size="23" fill="#ffdce2" font-weight="450" >关键路径无幂等身份、safe terminal 或观察点时 BLOCKED，不能只检查 HTTP 200。</text>
+<text x="88" y="2646" font-size="23" fill="#dce9fa" font-weight="450" >交付技术契约、需求—技术矩阵、故障步骤与具名关闭证据。</text>
+</g>
+<text x="64" y="2715" font-size="20" fill="#50647c" font-weight="450" >此图表达正文中的故障演练设计，不声称已在真实支付服务执行。</text>
+<text x="64" y="2754" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-P03 · ACK 丢失后，退款只能发生一次</text>
+<path class="edge edge-data" d="M64 2794 L101 2794" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2800" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2794 L397 2794" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2800" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2794 L693 2794" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2800" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2794 L989 2794" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2800" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2794 L1285 2794" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2800" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

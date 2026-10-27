@@ -1,90 +1,178 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 1000" width="1600" height="1000">
-  <title id="title">把需求、代码流水线和测试环境串成一条证据记录｜专业关系图</title>
-  <desc id="desc">事件网关负责可信入站，编排器负责状态与副作用，适配器负责回写；通知只是脱敏消费者。 图中区分数据流、控制流、证据流与反馈回路，并显示失败路径、系统边界和责任门禁。</desc>
-  <defs>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#173f32" flood-opacity="0.12"/></filter>
-    <marker id="arrow-data" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#4f7fb8"/></marker>
-<marker id="arrow-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c9852c"/></marker>
-<marker id="arrow-evidence" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#765ca6"/></marker>
-<marker id="arrow-feedback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2c7b61"/></marker>
-  </defs>
-  <rect width="1600" height="1000" rx="32" fill="#f4f7f2"/>
-  <rect x="0" y="0" width="1600" height="146" rx="32" fill="#174f3f"/>
-  <text x="72" y="48" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="18" font-weight="800" fill="#b8dd78">TD-QP04 · state-machine · state-timeline-b</text>
-  <text x="72" y="92" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="30" font-weight="800" fill="#ffffff">把需求、代码流水线和测试环境串成一条证据记录｜专业关系图</text>
-  <text x="72" y="132" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="600" fill="#d9e9df">事件网关负责可信入站，编排器负责状态与副作用，适配器负责回写；通知只是脱敏消费者。</text>
-  <rect x="54" y="172" width="1492" height="590" rx="26" fill="#fbfdfb" stroke="#c9d6cf" stroke-width="2"/>
-  <text x="82" y="204" font-size="17" font-weight="800" fill="#52665e">系统边界 · 课程方法与可复核工件在边界内；真实企业系统、模型和生产状态在边界外。</text>
-  <path d="M 250 305 C 325 305, 390 305, 465 305" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 625 305 C 700 305, 765 305, 840 305" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 1000 305 C 1075 305, 1140 305, 1215 305" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1375 305 C 1450 305, 15 575, 90 575" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 250 575 C 325 575, 390 575, 465 575" fill="none" stroke="#c9852c" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#arrow-control)" opacity="0.92"/>
-<path d="M 625 575 C 700 575, 765 575, 840 575" fill="none" stroke="#765ca6" stroke-width="4" stroke-dasharray="4 6" marker-end="url(#arrow-evidence)" opacity="0.92"/>
-<path d="M 1000 575 C 1075 575, 1140 575, 1215 575" fill="none" stroke="#4f7fb8" stroke-width="4" stroke-dasharray="" marker-end="url(#arrow-data)" opacity="0.92"/>
-<path d="M 1375 575 C 1450 575, 390 305, 465 305" fill="none" stroke="#2c7b61" stroke-width="4" stroke-dasharray="14 6" marker-end="url(#arrow-feedback)" opacity="0.92"/>
-  <g filter="url(#shadow)">
-      <rect x="90" y="245" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="90" y="245" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="118" y="273" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">01</text>
-      <text x="118" y="307" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Jira/GitLab/K8s上游事件</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="465" y="245" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="465" y="245" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="493" y="273" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">02</text>
-      <text x="493" y="307" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">EventGateway/验签去重</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="840" y="245" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="840" y="245" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="868" y="273" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">03</text>
-      <text x="868" y="307" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Inbox/Outbox/DLQ</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1215" y="245" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1215" y="245" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1243" y="273" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">04</text>
-      <text x="1243" y="307" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">QualityOrchestrator/状态机</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="90" y="515" width="320" height="120" rx="22" fill="#ffffff" stroke="#4f7fb8" stroke-width="3"/>
-      <rect x="90" y="515" width="12" height="120" rx="6" fill="#4f7fb8"/>
-      <text x="118" y="543" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#4f7fb8">05</text>
-      <text x="118" y="577" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Jira/GitLab/K8s适配器</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="465" y="515" width="320" height="120" rx="22" fill="#ffffff" stroke="#2c7b61" stroke-width="3"/>
-      <rect x="465" y="515" width="12" height="120" rx="6" fill="#2c7b61"/>
-      <text x="493" y="543" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#2c7b61">06</text>
-      <text x="493" y="577" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Artifact/脱敏通知</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="840" y="515" width="320" height="120" rx="22" fill="#ffffff" stroke="#765ca6" stroke-width="3"/>
-      <rect x="840" y="515" width="12" height="120" rx="6" fill="#765ca6"/>
-      <text x="868" y="543" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#765ca6">07</text>
-      <text x="868" y="577" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">Reconciliation/Trace/审计Sink</text>
-    </g>
-<g filter="url(#shadow)">
-      <rect x="1215" y="515" width="320" height="120" rx="22" fill="#ffffff" stroke="#c9852c" stroke-width="3"/>
-      <rect x="1215" y="515" width="12" height="120" rx="6" fill="#c9852c"/>
-      <text x="1243" y="543" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="16" font-weight="800" fill="#c9852c">08</text>
-      <text x="1243" y="577" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="22" font-weight="700" fill="#13261f">版本化输入</text>
-    </g>
-  <g transform="translate(70 788)">
-    <rect width="710" height="112" rx="20" fill="#fff4ef" stroke="#e5aaa2" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#b84c42">失败路径</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">任一关键输入、权限、Oracle、版本或终态证据缺失时进入</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">FAIL/BLOCKED/UNKNOWN，不静默通过。</text>
-  </g>
-  <g transform="translate(820 788)">
-    <rect width="710" height="112" rx="20" fill="#eef8f2" stroke="#9bc6ac" stroke-width="2"/>
-    <text x="24" y="32" font-size="18" font-weight="900" fill="#2c7b61">反馈闭环 · Owner Gate</text>
-    <text x="24" y="62" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">失败证据回到最早分叉点，修复后使用同一版本输入重跑并产生新receipt。业务/</text>
-<text x="24" y="87" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC',sans-serif" font-size="17" font-weight="650" fill="#13261f">质量Owner批准判据、风险接受与发布；AI只生成候选和整理证据。</text>
-  </g>
-  <g transform="translate(100 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#4f7fb8" stroke-width="5" stroke-dasharray=""/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">数据流</text></g>
-<g transform="translate(345 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#c9852c" stroke-width="5" stroke-dasharray="10 7"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">控制流</text></g>
-<g transform="translate(590 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#765ca6" stroke-width="5" stroke-dasharray="4 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">证据流</text></g>
-<g transform="translate(835 936)"><line x1="0" y1="0" x2="56" y2="0" stroke="#2c7b61" stroke-width="5" stroke-dasharray="14 6"/><text x="70" y="7" font-size="20" font-weight="700" fill="#52665e">反馈闭环</text></g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2791" viewBox="0 0 1600 2791" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">事件账与动作账支撑局部重放</title><desc id="desc">统一信封识别重复，动作独立记账处理部分成功，周期回读兜底状态不一致。 事件投递与业务副作用分别核验，失败只补未完成动作 夹具事件重放不证明真实上游投递、事务边界或远端副作用；各适配器需真实集成验收。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-QP04 / 重复事件与部分成功需要两本账;docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-QP04 / 重复事件与部分成功需要两本账;docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-QP04 / 架构节点与交付物">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-QP04&quot;,&quot;pageIds&quot;:[&quot;TD-QP04&quot;],&quot;primaryPageIds&quot;:[&quot;TD-QP04&quot;],&quot;layout&quot;:&quot;sequence&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-QP04 / 重复事件与部分成功需要两本账&quot;,&quot;quote&quot;:&quot;记录每个动作的独立状态，重放时只补未完成的。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-QP04 / 重复事件与部分成功需要两本账&quot;,&quot;quote&quot;:&quot;「记录」与「处理」必须在同一个事务里&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-QP04 / 架构节点与交付物&quot;,&quot;quote&quot;:&quot;回写各系统状态，超时后以回读核对&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;upstream&quot;,&quot;title&quot;:&quot;Jira/GitLab/K8s 上游事件&quot;},{&quot;id&quot;:&quot;gateway&quot;,&quot;title&quot;:&quot;Event Gateway/验签去重&quot;},{&quot;id&quot;:&quot;queues&quot;,&quot;title&quot;:&quot;Inbox/Outbox/DLQ&quot;},{&quot;id&quot;:&quot;state&quot;,&quot;title&quot;:&quot;Quality Orchestrator/状态机&quot;},{&quot;id&quot;:&quot;adapters&quot;,&quot;title&quot;:&quot;Jira/GitLab/K8s 适配器&quot;},{&quot;id&quot;:&quot;artifacts&quot;,&quot;title&quot;:&quot;Artifact/脱敏通知&quot;},{&quot;id&quot;:&quot;reconcile&quot;,&quot;title&quot;:&quot;Reconciliation/Trace/审计 Sink&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;upstream&quot;,&quot;to&quot;:&quot;gateway&quot;,&quot;label&quot;:&quot;统一事件信封&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;gateway&quot;,&quot;to&quot;:&quot;queues&quot;,&quot;label&quot;:&quot;验签去重后入站&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;queues&quot;,&quot;to&quot;:&quot;state&quot;,&quot;label&quot;:&quot;待处理事件&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;state&quot;,&quot;to&quot;:&quot;adapters&quot;,&quot;label&quot;:&quot;未完成动作&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;adapters&quot;,&quot;to&quot;:&quot;state&quot;,&quot;label&quot;:&quot;回执或回读结果&quot;,&quot;kind&quot;:&quot;feedback&quot;},{&quot;from&quot;:&quot;state&quot;,&quot;to&quot;:&quot;artifacts&quot;,&quot;label&quot;:&quot;审计及出站通知&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;adapters&quot;,&quot;to&quot;:&quot;reconcile&quot;,&quot;label&quot;:&quot;远端状态与回执&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;queues&quot;,&quot;to&quot;:&quot;reconcile&quot;,&quot;label&quot;:&quot;投递和死信记录&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;artifacts&quot;,&quot;to&quot;:&quot;reconcile&quot;,&quot;label&quot;:&quot;工件和通知审计&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;reconcile&quot;,&quot;to&quot;:&quot;state&quot;,&quot;label&quot;:&quot;差异驱动局部补偿&quot;,&quot;kind&quot;:&quot;feedback&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2791" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-QP04</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >事件账与动作账支撑局部重放</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >统一信封识别重复，动作独立记账处理部分成功，周期回读兜底状态不一致。</text>
+<g id="system-graph" data-region="64,234,1472,1953">
+<rect x="64" y="234" width="1472" height="1953" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >事件投递与业务副作用分别核验，失败只补未完成动作</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M451 346 L451 410 L930 410 L930 312" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M451 346 L451 410 L930 410 L930 312" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="upstream" data-to="gateway"/>
+<path d="M1032 312 L1032 410 L1362 410 L1362 486 L714 486 L714 512" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M1032 312 L1032 410 L1362 410 L1362 486 L714 486 L714 512" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e1" data-from="gateway" data-to="queues"/>
+<path d="M663 709 L663 757 L84 757 L84 849 L451 849 L451 875" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M663 709 L663 757 L84 757 L84 849 L451 849 L451 875" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e2" data-from="queues" data-to="state"/>
+<path d="M420.4 1111 L420.4 1173 L476.6 1173 Q481.6 1161 486.6 1173 L904.5 1173 L904.5 1111" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M420.4 1111 L420.4 1173 L476.6 1173 Q481.6 1161 486.6 1173 L904.5 1173 L904.5 1111" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e3" data-from="state" data-to="adapters"/>
+<path d="M981 1111 L981 1253 L481.6 1253 L481.6 1111" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M981 1111 L981 1253 L481.6 1253 L481.6 1111" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e4" data-from="adapters" data-to="state"/>
+<path d="M359.2 1111 L359.2 1189 L77 1189 L77 1361 L451 1361 L451 1415" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M359.2 1111 L359.2 1189 L77 1189 L77 1361 L451 1361 L451 1415" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e5" data-from="state" data-to="artifacts"/>
+<path d="M1057.5 1111 L1057.5 1189 L1362 1189 L1362 1375 L1057.5 1375 L1057.5 1415" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M1057.5 1111 L1057.5 1189 L1362 1189 L1362 1375 L1057.5 1375 L1057.5 1415" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e6" data-from="adapters" data-to="reconcile"/>
+<path d="M765 709 L765 773 L1356 773 L1356 1389 L1062.5 1389 Q1057.5 1377 1052.5 1389 L981 1389 L981 1415" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M765 709 L765 773 L1356 773 L1356 1389 L1062.5 1389 Q1057.5 1377 1052.5 1389 L981 1389 L981 1415" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="queues" data-to="reconcile"/>
+<path d="M451 1612 L451 1715 L981 1715 L981 1651" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M451 1612 L451 1715 L981 1715 L981 1651" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e8" data-from="artifacts" data-to="reconcile"/>
+<path d="M904.5 1415 L904.5 1285 L1351 1285 Q1356 1273 1361 1285 L1368 1285 L1368 1125 L1361 1125 Q1356 1113 1351 1125 L1062.5 1125 Q1057.5 1113 1052.5 1125 L986 1125 Q981 1113 976 1125 L909.5 1125 Q904.5 1113 899.5 1125 L542.8 1125 L542.8 1111" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M904.5 1415 L904.5 1285 L1351 1285 Q1356 1273 1361 1285 L1368 1285 L1368 1125 L1361 1125 Q1356 1113 1351 1125 L1062.5 1125 Q1057.5 1113 1052.5 1125 L986 1125 Q981 1113 976 1125 L909.5 1125 Q904.5 1113 899.5 1125 L542.8 1125 L542.8 1111" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e9" data-from="reconcile" data-to="state"/>
+<g id="node-upstream" class="node node-input" data-region="274,76,354,270">
+<rect x="274" y="76" width="354" height="270" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#215cbb" font-weight="700" >Jira/GitLab/K8s 上</text>
+<text x="296" y="191" font-size="28" fill="#215cbb" font-weight="700" >游事件</text>
+<text x="296" y="234" font-size="23" fill="#172b45" font-weight="450" >来源、类型、id、时间、关</text>
+<text x="296" y="268" font-size="23" fill="#172b45" font-weight="450" >联 id</text>
+<text x="296" y="302" font-size="23" fill="#172b45" font-weight="450" >三类系统使用统一信封</text>
+</g>
+<g id="node-gateway" class="node node-control" data-region="804,76,354,236">
+<rect x="804" y="76" width="354" height="236" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#945c0b" font-weight="750" class="mono">02</text>
+<text x="826" y="152" font-size="28" fill="#945c0b" font-weight="700" >Event Gateway/验签</text>
+<text x="826" y="191" font-size="28" fill="#945c0b" font-weight="700" >去重</text>
+<text x="826" y="234" font-size="23" fill="#172b45" font-weight="450" >核验签名与稳定事件 id</text>
+<text x="826" y="268" font-size="23" fill="#172b45" font-weight="450" >重复不触发重复副作用</text>
+</g>
+<g id="node-queues" class="node node-data" data-region="537,512,354,197">
+<rect x="537" y="512" width="354" height="197" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="555" y="529" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="547" font-size="15" fill="#087b76" font-weight="750" class="mono">03</text>
+<text x="559" y="588" font-size="28" fill="#087b76" font-weight="700" >Inbox/Outbox/DLQ</text>
+<text x="559" y="631" font-size="23" fill="#172b45" font-weight="450" >入站与出站分离留账</text>
+<text x="559" y="665" font-size="23" fill="#172b45" font-weight="450" >重试耗尽入死信并告警</text>
+</g>
+<g id="node-state" class="node node-control" data-region="274,875,354,236">
+<rect x="274" y="875" width="354" height="236" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="292" y="892" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="910" font-size="15" fill="#945c0b" font-weight="750" class="mono">04</text>
+<text x="296" y="951" font-size="28" fill="#945c0b" font-weight="700" >Quality</text>
+<text x="296" y="990" font-size="28" fill="#945c0b" font-weight="700" >Orchestrator/状态机</text>
+<text x="296" y="1033" font-size="23" fill="#172b45" font-weight="450" >显式记录每个动作独立状态</text>
+<text x="296" y="1067" font-size="23" fill="#172b45" font-weight="450" >重放只补未完成动作</text>
+</g>
+<g id="node-adapters" class="node node-process" data-region="804,875,354,236">
+<rect x="804" y="875" width="354" height="236" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="822" y="892" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="910" font-size="15" fill="#344f70" font-weight="750" class="mono">05</text>
+<text x="826" y="951" font-size="28" fill="#344f70" font-weight="700" >Jira/GitLab/K8s 适</text>
+<text x="826" y="990" font-size="28" fill="#344f70" font-weight="700" >配器</text>
+<text x="826" y="1033" font-size="23" fill="#172b45" font-weight="450" >执行回写，超时后回读</text>
+<text x="826" y="1067" font-size="23" fill="#172b45" font-weight="450" >不能把超时等同于未执行</text>
+</g>
+<g id="node-artifacts" class="node node-evidence" data-region="274,1415,354,197">
+<rect x="274" y="1415" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="292" y="1432" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1450" font-size="15" fill="#7045a4" font-weight="750" class="mono">06</text>
+<text x="296" y="1491" font-size="28" fill="#7045a4" font-weight="700" >Artifact/脱敏通知</text>
+<text x="296" y="1534" font-size="23" fill="#172b45" font-weight="450" >保留工件并发送脱敏内容</text>
+<text x="296" y="1568" font-size="23" fill="#172b45" font-weight="450" >通知与审计记录一起留存</text>
+</g>
+<g id="node-reconcile" class="node node-evidence" data-region="804,1415,354,236">
+<rect x="804" y="1415" width="354" height="236" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="1432" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1450" font-size="15" fill="#7045a4" font-weight="750" class="mono">07</text>
+<text x="826" y="1491" font-size="28" fill="#7045a4" font-weight="700" >Reconciliation/</text>
+<text x="826" y="1530" font-size="28" fill="#7045a4" font-weight="700" >Trace/审计 Sink</text>
+<text x="826" y="1573" font-size="23" fill="#172b45" font-weight="450" >周期回读各系统状态</text>
+<text x="826" y="1607" font-size="23" fill="#172b45" font-weight="450" >关联 Trace 修复账实不一致</text>
+</g>
+<rect x="643.53" y="372" width="144.94" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="401" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  统一事件</text>
+<text x="716" y="433" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">信封</text>
+<text x="934" y="334" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="1162.61" y="372" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="401" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  验签去重后</text>
+<text x="1246" y="433" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">入站</text>
+<text x="718" y="502" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="106.61" y="735" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="764" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  待处理事件</text>
+<text x="455" y="865" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="632.61" y="1151" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1180" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  未完成动作</text>
+<text x="908.5" y="1133" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="632.61" y="1215" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1244" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  回执或回读</text>
+<text x="716" y="1276" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">结果</text>
+<text x="485.6" y="1133" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="106.61" y="1151" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1180" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  审计及出站</text>
+<text x="190" y="1212" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">通知</text>
+<text x="455" y="1405" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="1162.61" y="1151" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1180" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  远端状态与</text>
+<text x="1246" y="1212" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">回执</text>
+<text x="1061.5" y="1405" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="1162.61" y="735" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="764" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  投递和死信</text>
+<text x="1246" y="796" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">记录</text>
+<text x="985" y="1405" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+<rect x="632.61" y="1677" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1706" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  工件和通知</text>
+<text x="716" y="1738" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">审计</text>
+<text x="985" y="1673" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e8" stroke="#fff" stroke-width="4" paint-order="stroke">09</text>
+<rect x="1151.69" y="1247" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1276" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">10  差异驱动局部</text>
+<text x="1246" y="1308" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">补偿</text>
+<text x="546.8" y="1133" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e9" stroke="#fff" stroke-width="4" paint-order="stroke">10</text>
+</g>
+</g>
+<text x="64" y="2241" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2241" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2271,470,174">
+<rect x="64" y="2271" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2293" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="106" y="2318" font-size="25" fill="#945c0b" font-weight="700" >怎样验证幂等不靠运气</text>
+<text x="88" y="2373" font-size="23" fill="#172b45" font-weight="450" >重复投递同一事件检查副作用</text>
+<text x="88" y="2408" font-size="23" fill="#172b45" font-weight="450" >记录与处理必须在同一事务</text>
+</g>
+<g id="detail-1" data-region="565,2271,470,174">
+<rect x="565" y="2271" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2293" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="607" y="2318" font-size="25" fill="#ad3e4c" font-weight="700" >怎样验证部分成功恢复</text>
+<text x="589" y="2373" font-size="23" fill="#172b45" font-weight="450" >动作中途失败后重新投递</text>
+<text x="589" y="2408" font-size="23" fill="#172b45" font-weight="450" >只补失败项，不重复成功动作</text>
+</g>
+<g id="detail-2" data-region="1066,2271,470,174">
+<rect x="1066" y="2271" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2293" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="2318" font-size="25" fill="#7045a4" font-weight="700" >怎样查丢失与状态分歧</text>
+<text x="1090" y="2373" font-size="23" fill="#172b45" font-weight="450" >乱序、重试耗尽与脱敏分别验证</text>
+<text x="1090" y="2408" font-size="23" fill="#172b45" font-weight="450" >回读对账、死信告警都保留回执</text>
+</g>
+<g id="failure-and-output" data-region="64,2477,1472,148">
+<rect x="64" y="2477" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2516" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2561" font-size="23" fill="#ffdce2" font-weight="450" >重复副作用、未完成动作被吞、死信无告警或敏感载荷外传时停止继续消费并保留账本。</text>
+<text x="88" y="2604" font-size="23" fill="#dce9fa" font-weight="450" >交付统一信封、事件和动作账、局部重放、脱敏通知与周期对账报告。</text>
+</g>
+<text x="64" y="2673" font-size="20" fill="#50647c" font-weight="450" >夹具事件重放不证明真实上游投递、事务边界或远端副作用；各适配器需真实集成验收。</text>
+<text x="64" y="2712" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-QP04 · 事件账与动作账支撑局部重放</text>
+<path class="edge edge-data" d="M64 2752 L101 2752" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2758" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2752 L397 2752" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2758" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2752 L693 2752" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2758" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2752 L989 2752" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2758" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2752 L1285 2752" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2758" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

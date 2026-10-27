@@ -1,68 +1,119 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1240 920" width="1240" height="920">
-<title id="title">四证据环：从离线 fixture 到在线持续评估</title>
-<desc id="desc">四个独立证据环说明离线 fixture、受控沙箱、影子或灰度、在线持续评估各自的输入、entry、exit、hard block、owner 与 rollback。时长、样本量、流量比例与阈值全部参数化；当前课程只证明 fixture，后三环均为 NOT_RUN，不代表已运行。</desc>
-
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/></marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/></marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/></marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#85908a"/></marker>
-  </defs>
-<style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;fill:#5f6c66}
-</style>
-<rect class="ds-bg" width="1240" height="920" rx="22"/>
-
-  <rect class="ds-header" x="0" y="0" width="1240" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1240" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">AGENT · 四证据环</text>
-  <text class="ds-subtitle" x="1204" y="32" text-anchor="end">每次升级都要新的输入、风险、统计、owner 和回滚；fixture 成功不能自动越级。</text>
-  <text class="ds-title" x="36" y="74">四证据环：不同环境提供不同成熟度的证明</text>
-  <text class="ds-source" x="36" y="140">source · AI agent测试架构.txt:L496-L524</text>
-<g data-source-ref="AI agent测试架构.txt:L496-L524">
-<g filter="url(#ds-soft)"><rect x="54" y="160" width="250" height="470" rx="16" fill="#edf5f0" stroke="#174a3a" stroke-width="1.5"/></g><rect x="54" y="160" width="6" height="470" rx="3" fill="#174a3a"/><text x="78" y="190" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="15" font-weight="800" fill="#1c2924">环 1 · 离线 fixture</text><text x="78" y="210" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" font-weight="800" letter-spacing=".1em" fill="#174a3a">RING 01</text><text x="78" y="238" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">input</text><text x="78" y="254" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">冻结 case / schema / mutation</text><text x="78" y="278" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">entry</text><text x="78" y="294" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">版本与 Oracle 可追</text><text x="78" y="318" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">method</text><text x="78" y="334" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">确定性规则 + 红绿循环</text><text x="78" y="358" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">exit</text><text x="78" y="374" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">预期退出码 + hash receipt</text><rect x="74" y="398" width="210" height="44" rx="9" fill="#fbe9e5" stroke="#b2402f" stroke-width="1.2"/><text x="86" y="415" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#b2402f">hard block</text><text x="86" y="431" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11" font-weight="700" fill="#1c2924">Oracle / lineage 缺失</text><text x="78" y="456" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">owner</text><text x="78" y="472" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">课程 / 测试资产 owner</text><text x="78" y="492" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">rollback</text><text x="78" y="508" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">撤销候选资产</text><rect x="74" y="530" width="210" height="62" rx="10" fill="#ffffff" stroke="#174a3a" stroke-width="1.2"/><text x="86" y="550" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11" font-weight="700" fill="#5f6c66">当前课程成熟度</text><text x="86" y="572" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11" font-weight="800" fill="#174a3a">PASS-FIXTURE only</text>
-<g filter="url(#ds-soft)"><rect x="348" y="160" width="250" height="470" rx="16" fill="#eaf1fa" stroke="#355f96" stroke-width="1.5"/></g><rect x="348" y="160" width="6" height="470" rx="3" fill="#355f96"/><text x="372" y="190" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="15" font-weight="800" fill="#1c2924">环 2 · 受控沙箱</text><text x="372" y="210" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" font-weight="800" letter-spacing=".1em" fill="#355f96">RING 02</text><text x="372" y="238" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">input</text><text x="372" y="254" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">真实接口的隔离副本</text><text x="372" y="278" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">entry</text><text x="372" y="294" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">权限、复位、脱敏、预算</text><text x="372" y="318" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">method</text><text x="372" y="334" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">轨迹回放与故障注入</text><text x="372" y="358" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">exit</text><text x="372" y="374" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">可重复集成结果与归因</text><rect x="368" y="398" width="210" height="44" rx="9" fill="#fbe9e5" stroke="#b2402f" stroke-width="1.2"/><text x="380" y="415" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#b2402f">hard block</text><text x="380" y="431" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11" font-weight="700" fill="#1c2924">副作用不可控</text><text x="372" y="456" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">owner</text><text x="372" y="472" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">集成环境 owner</text><text x="372" y="492" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">rollback</text><text x="372" y="508" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">恢复沙箱快照</text><rect x="368" y="530" width="210" height="62" rx="10" fill="#ffffff" stroke="#355f96" stroke-width="1.2"/><text x="380" y="550" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11" font-weight="700" fill="#5f6c66">当前状态</text><text x="380" y="572" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11" font-weight="800" fill="#355f96">NOT_RUN</text>
-<g filter="url(#ds-soft)"><rect x="642" y="160" width="250" height="470" rx="16" fill="#fdf1d8" stroke="#a96a18" stroke-width="1.5"/></g><rect x="642" y="160" width="6" height="470" rx="3" fill="#a96a18"/><text x="666" y="190" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="15" font-weight="800" fill="#1c2924">环 3 · 影子 / 灰度</text><text x="666" y="210" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" font-weight="800" letter-spacing=".1em" fill="#a96a18">RING 03</text><text x="666" y="238" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">input</text><text x="666" y="254" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">真实 workload，动作不生效</text><text x="666" y="278" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">entry</text><text x="666" y="294" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">配对版本与流量策略</text><text x="666" y="318" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">method</text><text x="666" y="334" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">切片对比、人工抽检</text><text x="666" y="358" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">exit</text><text x="666" y="374" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">统计区间与已知失败</text><rect x="662" y="398" width="210" height="44" rx="9" fill="#fbe9e5" stroke="#b2402f" stroke-width="1.2"/><text x="674" y="415" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#b2402f">hard block</text><text x="674" y="431" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11" font-weight="700" fill="#1c2924">真实动作未隔离</text><text x="666" y="456" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">owner</text><text x="666" y="472" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">发布 / 业务 owner</text><text x="666" y="492" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">rollback</text><text x="666" y="508" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">停止灰度并回旧版</text><rect x="662" y="530" width="210" height="62" rx="10" fill="#ffffff" stroke="#a96a18" stroke-width="1.2"/><text x="674" y="550" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11" font-weight="700" fill="#5f6c66">当前状态</text><text x="674" y="572" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11" font-weight="800" fill="#a96a18">NOT_RUN</text>
-<g filter="url(#ds-soft)"><rect x="936" y="160" width="250" height="470" rx="16" fill="#f0ecfb" stroke="#6a49a8" stroke-width="1.5"/></g><rect x="936" y="160" width="6" height="470" rx="3" fill="#6a49a8"/><text x="960" y="190" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="15" font-weight="800" fill="#1c2924">环 4 · 在线持续</text><text x="960" y="210" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10" font-weight="800" letter-spacing=".1em" fill="#6a49a8">RING 04</text><text x="960" y="238" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">input</text><text x="960" y="254" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">线上 Trace 与高危事件</text><text x="960" y="278" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">entry</text><text x="960" y="294" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">SLO / 采样 / 隐私 policy</text><text x="960" y="318" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">method</text><text x="960" y="334" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">漂移、回归、事故回灌</text><text x="960" y="358" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">exit</text><text x="960" y="374" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">持续，不是一次性通过</text><rect x="956" y="398" width="210" height="44" rx="9" fill="#fbe9e5" stroke="#b2402f" stroke-width="1.2"/><text x="968" y="415" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#b2402f">hard block</text><text x="968" y="431" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11" font-weight="700" fill="#1c2924">护栏或审计失效</text><text x="960" y="456" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">owner</text><text x="960" y="472" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">运行 / 风险 owner</text><text x="960" y="492" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" letter-spacing=".08em" fill="#85908a">rollback</text><text x="960" y="508" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="600" fill="#1c2924">Kill Switch + 回滚</text><rect x="956" y="530" width="210" height="62" rx="10" fill="#ffffff" stroke="#6a49a8" stroke-width="1.2"/><text x="968" y="550" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11" font-weight="700" fill="#5f6c66">当前状态</text><text x="968" y="572" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11" font-weight="800" fill="#6a49a8">NOT_RUN</text>
-<path d="M 310 194 L 342 194" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-<path d="M 604 194 L 636 194" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-<path d="M 898 194 L 930 194" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-<g filter="url(#ds-strong)"><rect x="220" y="648" width="800" height="100" rx="16" fill="#fdf1d8" stroke="#e0b76a" stroke-width="1.5"/></g>
-<rect x="220" y="648" width="6" height="100" rx="3" fill="#a96a18"/>
-<text x="246" y="676" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="14" font-weight="800" fill="#1c2924">参数化门禁与失败回路</text>
-<text x="246" y="700" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66">每环的时长、样本量、流量比例与阈值必须来自 Metric Card 的 parameter + population + uncertainty + owner。</text>
-<text x="246" y="722" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="500" fill="#5f6c66">任一 exit 不满足：本环保持 FAIL / BLOCKED / EVIDENCE-INSUFFICIENT，不得升级；执行 rollback 并把失败样例回灌环 1。</text>
-<text x="246" y="742" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10.5" font-weight="700" fill="#a96a18">本图移除来源中的固定分钟、天数和采样比例；它们只是来源示例，不是通用 policy。</text>
-<path d="M1061 630 L1061 788 L179 788 L179 630" fill="none" stroke="#b2402f" stroke-width="2" stroke-dasharray="7 5" stroke-linejoin="round" marker-end="url(#ds-arw-red)"/>
-<text x="620" y="778" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif" font-size="11.5" font-weight="700" fill="#b2402f">任一 exit 失败 → rollback → 回灌环 1</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1989" viewBox="0 0 1600 1989" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">四环各有独立的证据出口</title><desc id="desc">四环按输入与副作用边界区分证据强度；exit 合格只允许申请下一个环，不能替代该环真实运行。 四列比较 entry、exit、owner、hard block 与 rollback，不预设时长和流量比例 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。</desc><metadata data-source-ref="content/modules/agent-architecture-deep.ts#TD-AG-09 / artifactNote;docs/svg-redesign-2026-10-26/body-sources/agent-architecture-original.txt#五 / 环3影子模式;docs/svg-redesign-2026-10-26/body-sources/material-pages.json#TD-AG-09 / summary">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;AG-DIM-FOUR-RINGS&quot;,&quot;pageIds&quot;:[&quot;TD-AG-09&quot;],&quot;primaryPageIds&quot;:[&quot;TD-AG-09&quot;],&quot;layout&quot;:&quot;comparison&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;content/modules/agent-architecture-deep.ts&quot;,&quot;locator&quot;:&quot;TD-AG-09 / artifactNote&quot;,&quot;quote&quot;:&quot;每个环必须声明五件事：population、统计方法、owner、hard block、rollback。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/agent-architecture-original.txt&quot;,&quot;locator&quot;:&quot;五 / 环3影子模式&quot;,&quot;quote&quot;:&quot;不返回给用户、不执行任何动作&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/material-pages.json&quot;,&quot;locator&quot;:&quot;TD-AG-09 / summary&quot;,&quot;quote&quot;:&quot;将离线 CI、沙箱回放、影子灰度和在线持续评估串成证据成熟度链，再执行硬红线、统计门禁和风险接受。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;contract&quot;,&quot;title&quot;:&quot;每环输入合同&quot;},{&quot;id&quot;:&quot;r1&quot;,&quot;title&quot;:&quot;环1 离线 fixture&quot;},{&quot;id&quot;:&quot;r2&quot;,&quot;title&quot;:&quot;环2 受控沙箱&quot;},{&quot;id&quot;:&quot;r3&quot;,&quot;title&quot;:&quot;环3 影子 / 灰度&quot;},{&quot;id&quot;:&quot;r4&quot;,&quot;title&quot;:&quot;环4 在线持续&quot;},{&quot;id&quot;:&quot;gate&quot;,&quot;title&quot;:&quot;参数化门禁&quot;},{&quot;id&quot;:&quot;rollback&quot;,&quot;title&quot;:&quot;rollback 与隔离&quot;},{&quot;id&quot;:&quot;feedback&quot;,&quot;title&quot;:&quot;失败回灌 fixture&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;contract&quot;,&quot;to&quot;:&quot;r1&quot;,&quot;label&quot;:&quot;环1 entry&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;contract&quot;,&quot;to&quot;:&quot;r2&quot;,&quot;label&quot;:&quot;环2 entry&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;contract&quot;,&quot;to&quot;:&quot;r3&quot;,&quot;label&quot;:&quot;环3 entry&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;contract&quot;,&quot;to&quot;:&quot;r4&quot;,&quot;label&quot;:&quot;环4 entry&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;r1&quot;,&quot;to&quot;:&quot;gate&quot;,&quot;label&quot;:&quot;离线 exit 证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;r2&quot;,&quot;to&quot;:&quot;gate&quot;,&quot;label&quot;:&quot;沙箱 exit 证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;r3&quot;,&quot;to&quot;:&quot;gate&quot;,&quot;label&quot;:&quot;真实分布证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;r4&quot;,&quot;to&quot;:&quot;gate&quot;,&quot;label&quot;:&quot;在线持续证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;gate&quot;,&quot;to&quot;:&quot;rollback&quot;,&quot;label&quot;:&quot;exit 不满足或 blocker&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;rollback&quot;,&quot;to&quot;:&quot;feedback&quot;,&quot;label&quot;:&quot;归因与保留失败&quot;,&quot;kind&quot;:&quot;feedback&quot;},{&quot;from&quot;:&quot;feedback&quot;,&quot;to&quot;:&quot;r1&quot;,&quot;label&quot;:&quot;生成回归 fixture&quot;,&quot;kind&quot;:&quot;feedback&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="1989" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  AG-DIM-FOUR-RINGS</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >四环各有独立的证据出口</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >四环按输入与副作用边界区分证据强度；exit 合格只允许申请下一个环，不能替代该环真实运行。</text>
+<g id="four-rings" data-region="64,234,1472,1151">
+<rect x="64" y="234" width="1472" height="1151" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="280" font-size="28" fill="#172b45" font-weight="700" >四环证据比较：每列独立验收，成熟度不能合并</text>
+<text x="88" y="322" font-size="23" fill="#50647c" font-weight="450" >共同输入：population / 版本 / 统计方法 / entry / exit / 具名 owner / hard block / rollback</text>
+<g id="ring-0" class="node" data-region="88,384,338,609">
+<rect x="88" y="384" width="338" height="609" rx="14" fill="#edf3ff" stroke="none" />
+<text x="108" y="431" font-size="28" fill="#215cbb" font-weight="700" >01 离线 fixture</text>
+<text x="108" y="499" font-size="23" fill="#172b45" font-weight="450" >输入：固定案例与独立</text>
+<text x="108" y="534" font-size="23" fill="#172b45" font-weight="450" >Oracle</text>
+<text x="108" y="586" font-size="23" fill="#172b45" font-weight="450" >执行：离线 CI 注入与回放</text>
+<text x="108" y="638" font-size="23" fill="#172b45" font-weight="450" >出口：坏版本被确定性拦下</text>
+<text x="108" y="690" font-size="23" fill="#172b45" font-weight="450" >责任：本环 owner 待具名</text>
+<text x="108" y="742" font-size="23" fill="#172b45" font-weight="450" >硬阻断：漏检已知故障</text>
+<text x="108" y="794" font-size="23" fill="#172b45" font-weight="450" >回滚：保留失败，修夹具</text>
 </g>
-
-  <rect x="28" y="846" width="1184" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="872">证据边界</text>
-  <text class="ds-foot" x="46" y="894">四证据环是测试与成熟度模型，不代表后三环已接入真实系统；真实模型、集成、从业者与生产效果均 NOT_RUN。</text>
+<path class="edge edge-evidence" d="M257 999 L257 1040" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<g id="ring-1" class="node" data-region="450,384,338,609">
+<rect x="450" y="384" width="338" height="609" rx="14" fill="#e9f7f4" stroke="none" />
+<text x="470" y="431" font-size="28" fill="#087b76" font-weight="700" >02 受控沙箱</text>
+<text x="470" y="499" font-size="23" fill="#172b45" font-weight="450" >输入：隔离工具与状态</text>
+<text x="470" y="551" font-size="23" fill="#172b45" font-weight="450" >执行：受控回放与重复运行</text>
+<text x="470" y="603" font-size="23" fill="#172b45" font-weight="450" >出口：副作用、恢复与重</text>
+<text x="470" y="638" font-size="23" fill="#172b45" font-weight="450" >复证据</text>
+<text x="470" y="690" font-size="23" fill="#172b45" font-weight="450" >责任：本环 owner 待具名</text>
+<text x="470" y="742" font-size="23" fill="#172b45" font-weight="450" >硬阻断：隔离或副作用失守</text>
+<text x="470" y="794" font-size="23" fill="#172b45" font-weight="450" >回滚：停运行，恢复沙箱</text>
+<text x="470" y="829" font-size="23" fill="#172b45" font-weight="450" >状态</text>
+</g>
+<path class="edge edge-evidence" d="M619 999 L619 1040" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<g id="ring-2" class="node" data-region="812,384,338,609">
+<rect x="812" y="384" width="338" height="609" rx="14" fill="#f4effb" stroke="none" />
+<text x="832" y="431" font-size="28" fill="#7045a4" font-weight="700" >03 影子 / 灰度</text>
+<text x="832" y="499" font-size="23" fill="#172b45" font-weight="450" >输入：获准的真实分布</text>
+<text x="832" y="551" font-size="23" fill="#172b45" font-weight="450" >影子：结果不生效、不执</text>
+<text x="832" y="586" font-size="23" fill="#172b45" font-weight="450" >行动作</text>
+<text x="832" y="638" font-size="23" fill="#172b45" font-weight="450" >灰度：另审生效范围与回滚</text>
+<text x="832" y="690" font-size="23" fill="#172b45" font-weight="450" >出口：分布对比 Trace、评</text>
+<text x="832" y="725" font-size="23" fill="#172b45" font-weight="450" >分与隔离证据</text>
+<text x="832" y="777" font-size="23" fill="#172b45" font-weight="450" >责任：业务与发布 owner</text>
+<text x="832" y="812" font-size="23" fill="#172b45" font-weight="450" >待具名</text>
+<text x="832" y="864" font-size="23" fill="#172b45" font-weight="450" >硬阻断：未经批准生效</text>
+<text x="832" y="916" font-size="23" fill="#172b45" font-weight="450" >回滚：撤回灰度并保留证据</text>
+</g>
+<path class="edge edge-evidence" d="M981 999 L981 1040" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<g id="ring-3" class="node" data-region="1174,384,338,609">
+<rect x="1174" y="384" width="338" height="609" rx="14" fill="#fff5e5" stroke="none" />
+<text x="1194" y="431" font-size="28" fill="#945c0b" font-weight="700" >04 在线持续</text>
+<text x="1194" y="499" font-size="23" fill="#172b45" font-weight="450" >输入：批准范围内线上任务</text>
+<text x="1194" y="551" font-size="23" fill="#172b45" font-weight="450" >执行：风险采样与高危捕获</text>
+<text x="1194" y="603" font-size="23" fill="#172b45" font-weight="450" >出口：告警处置与漂移证据</text>
+<text x="1194" y="655" font-size="23" fill="#172b45" font-weight="450" >责任：值班与风险 owner</text>
+<text x="1194" y="690" font-size="23" fill="#172b45" font-weight="450" >待具名</text>
+<text x="1194" y="742" font-size="23" fill="#172b45" font-weight="450" >硬阻断：安全与业务红线</text>
+<text x="1194" y="794" font-size="23" fill="#172b45" font-weight="450" >回滚：隔离、停止并留存</text>
+<text x="1194" y="829" font-size="23" fill="#172b45" font-weight="450" >收据</text>
+</g>
+<path class="edge edge-evidence" d="M1343 999 L1343 1040" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<g id="ring-exit" data-region="88,1059,1424,126">
+<rect x="88" y="1059" width="1424" height="126" rx="14" fill="#edf3ff" stroke="none" />
+<text x="112" y="1100" font-size="27" fill="#215cbb" font-weight="700" >逐环参数化门禁</text>
+<text x="112" y="1141" font-size="24" fill="#172b45" font-weight="450" >硬政策 + 统计证据 + 具名风险接受；exit 合格只允许申请下一环，不能代替下一环真实运行。</text>
+</g>
+<path class="edge edge-risk" d="M800 1192 L800 1228" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<g id="ring-rollback" data-region="88,1245,1424,108">
+<rect x="88" y="1245" width="1424" height="108" rx="14" fill="#fff0f0" stroke="none" />
+<text x="112" y="1285" font-size="25" fill="#ad3e4c" font-weight="700" >任一环失败 → 停止升级 / rollback → 保留失败 → 更新离线回归 fixture</text>
+<text x="112" y="1328" font-size="23" fill="#50647c" font-weight="450" >当前课程的本地模拟收据不代表真实沙箱、影子或线上验证；未运行环保持 NOT_RUN。</text>
+</g>
+</g>
+<text x="64" y="1439" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="1439" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,1469,470,174">
+<rect x="64" y="1469" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="1491" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="106" y="1516" font-size="25" fill="#7045a4" font-weight="700" >entry：进入前</text>
+<text x="88" y="1571" font-size="23" fill="#172b45" font-weight="450" >每环声明真实输入与权限</text>
+<text x="88" y="1606" font-size="23" fill="#172b45" font-weight="450" >owner / 统计方法 / hard block</text>
+</g>
+<g id="detail-1" data-region="565,1469,470,174">
+<rect x="565" y="1469" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="1491" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="607" y="1516" font-size="25" fill="#945c0b" font-weight="700" >exit：离开前</text>
+<text x="589" y="1571" font-size="23" fill="#172b45" font-weight="450" >新证据支持有限范围升级</text>
+<text x="589" y="1606" font-size="23" fill="#172b45" font-weight="450" >缺采样、回滚或隔离不得升级</text>
+</g>
+<g id="detail-2" data-region="1066,1469,470,174">
+<rect x="1066" y="1469" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="1491" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="1516" font-size="25" fill="#7045a4" font-weight="700" >当前证据状态</text>
+<text x="1090" y="1571" font-size="23" fill="#172b45" font-weight="450" >课程可有环1/2本地模拟收据</text>
+<text x="1090" y="1606" font-size="23" fill="#172b45" font-weight="450" >真实沙箱、影子及在线 NOT_RUN</text>
+</g>
+<g id="failure-and-output" data-region="64,1675,1472,148">
+<rect x="64" y="1675" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="1714" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="1759" font-size="23" fill="#ffdce2" font-weight="450" >任一环失败即阻断升级，rollback 保留失败环与 owner；不套用固定分钟、天数或流量比例。</text>
+<text x="88" y="1802" font-size="23" fill="#dce9fa" font-weight="450" >交付带 entry、exit、rollback 的四环计划与逐环证据状态。</text>
+</g>
+<text x="64" y="1871" font-size="20" fill="#50647c" font-weight="450" >静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。</text>
+<text x="64" y="1910" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-AG-09 · 四环各有独立的证据出口</text>
+<path class="edge edge-data" d="M64 1950 L101 1950" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="1956" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 1950 L397 1950" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="1956" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 1950 L693 1950" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="1956" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 1950 L989 1950" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="1956" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 1950 L1285 1950" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="1956" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

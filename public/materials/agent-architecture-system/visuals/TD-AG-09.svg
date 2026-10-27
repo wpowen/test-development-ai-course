@@ -1,111 +1,194 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1200 760" width="1200" height="760">
-  <title id="title">四证据环与三段式质量门禁</title>
-  <desc id="desc">证据从离线 CI 升级到沙箱、影子和在线；每一环都需要新的输入、责任和回滚。 当前课程只运行离线/沙箱式 fixture；影子与在线环保持 NOT_RUN。</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0e3026" flood-opacity=".10"/></filter>
-  <style>
-    .bg{fill:#fbfaf6}.header{fill:url(#ds-header-grad)}.eyebrow{font:700 12px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;fill:#93bd2c}.title{font:800 28px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:white}.subtitle{font:450 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}.source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}.node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}.node-title{font:800 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}.node-detail{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}.edge path{fill:none;stroke:#174a3a;stroke-width:2}.edge text{font:600 9px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}.callout{fill:#fdf1d8;stroke:#e3c07b;stroke-width:1.5}.callout-title{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}.callout-text{font:650 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}.footer{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-  </style>
-  <rect class="bg" width="1200" height="760" rx="24"/>
-  <rect class="header" width="1200" height="92" rx="24"/><rect class="header" y="68" width="1200" height="24"/>
-  <text class="eyebrow" x="34" y="30">FOUR EVIDENCE RINGS</text>
-  <text class="title" x="34" y="62">四证据环与三段式质量门禁</text>
-  <text class="subtitle" x="1166" y="30" text-anchor="end">证据从离线 CI 升级到沙箱、影子和在线；每一环都需要新的输入、责任和回滚。</text>
-  <text class="source" x="34" y="111">来源：S07 · S24 · S65</text>
-  <g class="edge"><path d="M 244 172 C 264 172, 264 172, 276 172" marker-end="url(#ds-arw-forest)"/><text x="264" y="182">entry/exit</text></g>
-<g class="edge"><path d="M 494 172 C 514 172, 514 172, 526 172" marker-end="url(#ds-arw-forest)"/><text x="514" y="164">真实集成</text></g>
-<g class="edge"><path d="M 744 172 C 764 172, 764 172, 776 172" marker-end="url(#ds-arw-forest)"/><text x="764" y="182">受控升级</text></g>
-<g class="edge"><path d="M 244 172 C 264 172, 264 384, 276 384" marker-end="url(#ds-arw-forest)"/><text x="264" y="270">提交级阻断</text></g>
-<g class="edge"><path d="M 494 172 C 546 482, 232 482, 276 384" marker-end="url(#ds-arw-forest)"/><text x="389" y="288">副作用阻断</text></g>
-<g class="edge"><path d="M 744 172 C 796 482, 482 482, 526 384" marker-end="url(#ds-arw-forest)"/><text x="639" y="270">配对比较</text></g>
-<g class="edge"><path d="M 994 172 C 1046 482, 482 482, 526 384" marker-end="url(#ds-arw-forest)"/><text x="764" y="288">线上切片</text></g>
-<g class="edge"><path d="M 494 384 C 546 692, 432 692, 476 594" marker-end="url(#ds-arw-forest)"/><text x="489" y="481">任一红线</text></g>
-<g class="edge"><path d="M 744 384 C 764 384, 764 384, 776 384" marker-end="url(#ds-arw-forest)"/><text x="764" y="394">证据充分后</text></g>
-<g class="edge"><path d="M 744 384 C 796 692, 432 692, 476 594" marker-end="url(#ds-arw-forest)"/><text x="614" y="481">证据不足</text></g>
-<g class="edge"><path d="M 994 384 C 1046 692, 432 692, 476 594" marker-end="url(#ds-arw-forest)"/><text x="739" y="499">拒绝或过期</text></g>
-  
-    <g class="node ci">
-      <rect x="34" y="126" width="210" height="92" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="34" y="126" width="5" height="92" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="54" y="149">01</text>
-      <text class="node-title" x="54" y="174">离线 CI</text>
-      <text class="node-detail" x="54" y="196">确定性规则 / 小型 Eval</text>
-    </g>
-    <g class="node sandbox">
-      <rect x="284" y="126" width="210" height="92" rx="15" fill="#fdf1d8" stroke="#e0b76a" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="284" y="126" width="5" height="92" rx="2.5" fill="#e0b76a"/>
-      <text class="node-index" x="304" y="149">02</text>
-      <text class="node-title" x="304" y="174">沙箱回放</text>
-      <text class="node-detail" x="304" y="196">轨迹 / 故障注入 / 无副作用</text>
-    </g>
-    <g class="node shadow">
-      <rect x="534" y="126" width="210" height="92" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="534" y="126" width="5" height="92" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="554" y="149">03</text>
-      <text class="node-title" x="554" y="174">影子 / 灰度</text>
-      <text class="node-detail" x="554" y="196">真实流量但不生效</text>
-    </g>
-    <g class="node online">
-      <rect x="784" y="126" width="210" height="92" rx="15" fill="#edf5f0" stroke="#c2d9cc" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="784" y="126" width="5" height="92" rx="2.5" fill="#c2d9cc"/>
-      <text class="node-index" x="804" y="149">04</text>
-      <text class="node-title" x="804" y="174">在线持续</text>
-      <text class="node-detail" x="804" y="196">采样 / 高危全量 / 漂移</text>
-    </g>
-    <g class="node hard">
-      <rect x="284" y="338" width="210" height="92" rx="15" fill="#fdf1d8" stroke="#e0b76a" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="284" y="338" width="5" height="92" rx="2.5" fill="#e0b76a"/>
-      <text class="node-index" x="304" y="361">05</text>
-      <text class="node-title" x="304" y="386">硬红线</text>
-      <text class="node-detail" x="304" y="408">安全 / 业务 / D0 失效</text>
-    </g>
-    <g class="node stat">
-      <rect x="534" y="338" width="210" height="92" rx="15" fill="#fdf1d8" stroke="#e0b76a" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="534" y="338" width="5" height="92" rx="2.5" fill="#e0b76a"/>
-      <text class="node-index" x="554" y="361">06</text>
-      <text class="node-title" x="554" y="386">统计门禁</text>
-      <text class="node-detail" x="554" y="408">区间 / Slice / 样本量</text>
-    </g>
-    <g class="node risk">
-      <rect x="784" y="338" width="210" height="92" rx="15" fill="#fdf1d8" stroke="#e0b76a" stroke-width="1.4" filter="url(#shadow)"/>
-      <rect x="784" y="338" width="5" height="92" rx="2.5" fill="#e0b76a"/>
-      <text class="node-index" x="804" y="361">07</text>
-      <text class="node-title" x="804" y="386">风险接受</text>
-      <text class="node-detail" x="804" y="408">Owner / Expiry / 补偿 / 回滚</text>
-    </g>
-    <g class="node blocked">
-      <rect x="484" y="548" width="260" height="92" rx="15" fill="#fbe9e5" stroke="#e3a89f" stroke-width="2" filter="url(#shadow)"/>
-      <rect x="484" y="548" width="5" height="92" rx="2.5" fill="#e3a89f"/>
-      <text class="node-index" x="504" y="571">08</text>
-      <text class="node-title" x="504" y="596">BLOCKED / NOT_RUN</text>
-      <text class="node-detail" x="504" y="618">缺一环证据不得升级</text>
-    </g>
-  <rect class="callout" x="34" y="658" width="1132" height="48" rx="12"/>
-  <text class="callout-title" x="52" y="679">FAIL-CLOSED</text><text class="callout-text" x="170" y="681">离线 0/1/0 不能写成线上 PASS；不得用总分抵消安全 blocker。</text>
-  <text class="footer" x="34" y="735">当前课程只运行离线/沙箱式 fixture；影子与在线环保持 NOT_RUN。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="3038" viewBox="0 0 1600 3038" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">四环证据进入三段决策</title><desc id="desc">证据环说明结论来自何种输入；硬红线、统计门禁和具名风险接受说明如何决定下一步。 本地模拟的环1/2收据不能升级为真实环2、影子或在线运行证据 静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。</desc><metadata data-source-ref="content/modules/agent-architecture-system.ts#TD-AG-09 / scenario;content/modules/agent-architecture-deep.ts#TD-AG-09 / thesis;content/modules/agent-architecture-deep.ts#TD-AG-08 / voice.takeNote;public/materials/agent-architecture-system/docs/11-three-stage-gate.md#11.5 / 三段之间的关系">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-AG-09&quot;,&quot;pageIds&quot;:[&quot;TD-AG-09&quot;],&quot;primaryPageIds&quot;:[],&quot;layout&quot;:&quot;decision&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;content/modules/agent-architecture-system.ts&quot;,&quot;locator&quot;:&quot;TD-AG-09 / scenario&quot;,&quot;quote&quot;:&quot;环 1 与环 2 可生成 receipt；环 3/4 明确 provider/integration NOT_RUN&quot;},{&quot;path&quot;:&quot;content/modules/agent-architecture-deep.ts&quot;,&quot;locator&quot;:&quot;TD-AG-09 / thesis&quot;,&quot;quote&quot;:&quot;流水线永远不输出「可以发布」，它输出「证据齐了，请决定」。&quot;},{&quot;path&quot;:&quot;content/modules/agent-architecture-deep.ts&quot;,&quot;locator&quot;:&quot;TD-AG-08 / voice.takeNote&quot;,&quot;quote&quot;:&quot;没有护栏覆盖的失败模式不能被「接受」&quot;},{&quot;path&quot;:&quot;public/materials/agent-architecture-system/docs/11-three-stage-gate.md&quot;,&quot;locator&quot;:&quot;11.5 / 三段之间的关系&quot;,&quot;quote&quot;:&quot;第二段 EVIDENCE-INSUFFICIENT → 可以进入第三段，但必须作为已知失败模式列出&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;offline&quot;,&quot;title&quot;:&quot;离线 CI&quot;},{&quot;id&quot;:&quot;sandbox&quot;,&quot;title&quot;:&quot;沙箱回放&quot;},{&quot;id&quot;:&quot;shadow&quot;,&quot;title&quot;:&quot;影子 / 灰度&quot;},{&quot;id&quot;:&quot;online&quot;,&quot;title&quot;:&quot;在线持续&quot;},{&quot;id&quot;:&quot;hard&quot;,&quot;title&quot;:&quot;硬红线&quot;},{&quot;id&quot;:&quot;stats&quot;,&quot;title&quot;:&quot;统计门禁&quot;},{&quot;id&quot;:&quot;risk&quot;,&quot;title&quot;:&quot;风险接受前核护栏&quot;},{&quot;id&quot;:&quot;stop&quot;,&quot;title&quot;:&quot;阻断与失败回灌&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;offline&quot;,&quot;to&quot;:&quot;hard&quot;,&quot;label&quot;:&quot;离线证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;sandbox&quot;,&quot;to&quot;:&quot;hard&quot;,&quot;label&quot;:&quot;受控回放证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;shadow&quot;,&quot;to&quot;:&quot;hard&quot;,&quot;label&quot;:&quot;隔离与业务证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;online&quot;,&quot;to&quot;:&quot;hard&quot;,&quot;label&quot;:&quot;漂移与事故证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;hard&quot;,&quot;to&quot;:&quot;stats&quot;,&quot;label&quot;:&quot;红线通过后&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;hard&quot;,&quot;to&quot;:&quot;stop&quot;,&quot;label&quot;:&quot;任一 blocker 或 D0 失效&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;stats&quot;,&quot;to&quot;:&quot;risk&quot;,&quot;label&quot;:&quot;证据充分且满足合同&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;stats&quot;,&quot;to&quot;:&quot;stop&quot;,&quot;label&quot;:&quot;统计 FAIL，阻断修复&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;stats&quot;,&quot;to&quot;:&quot;risk&quot;,&quot;label&quot;:&quot;证据不足，仅作有限具名决定&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;risk&quot;,&quot;to&quot;:&quot;stop&quot;,&quot;label&quot;:&quot;无护栏覆盖，强制拒绝接受&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;risk&quot;,&quot;to&quot;:&quot;stop&quot;,&quot;label&quot;:&quot;不接受或到期回滚&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;stop&quot;,&quot;to&quot;:&quot;offline&quot;,&quot;label&quot;:&quot;失败生成回归案例&quot;,&quot;kind&quot;:&quot;feedback&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="3038" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-AG-09</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >四环证据进入三段决策</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >证据环说明结论来自何种输入；硬红线、统计门禁和具名风险接受说明如何决定下一步。</text>
+<g id="system-graph" data-region="64,234,1472,2200">
+<rect x="64" y="234" width="1472" height="2200" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >本地模拟的环1/2收据不能升级为真实环2、影子或在线运行证据</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M400 273 L400 335 L84 335 L84 744 L359.2 744 L359.2 812" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M400 273 L400 335 L84 335 L84 744 L359.2 744 L359.2 812" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e0" data-from="offline" data-to="hard"/>
+<path d="M981 273 L981 335 L1362 335 L1362 758 L481.6 758 L481.6 812" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M981 273 L981 335 L1362 335 L1362 758 L481.6 758 L481.6 812" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e1" data-from="sandbox" data-to="hard"/>
+<path d="M451 604 L451 668 L77 668 L77 772 L354.2 772 Q359.2 760 364.2 772 L420.4 772 L420.4 812" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M451 604 L451 668 L77 668 L77 772 L354.2 772 Q359.2 760 364.2 772 L420.4 772 L420.4 812" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e2" data-from="shadow" data-to="hard"/>
+<path d="M981 604 L981 668 L1351 668 Q1356 656 1361 668 L1368 668 L1368 786 L1361 786 Q1356 774 1351 786 L542.8 786 L542.8 812" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M981 604 L981 668 L1351 668 Q1356 656 1361 668 L1368 668 L1368 786 L1361 786 Q1356 774 1351 786 L542.8 786 L542.8 812" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e3" data-from="online" data-to="hard"/>
+<path d="M400 1043 L400 1091 L497 1091 Q502 1079 507 1091 L889.2 1091 L889.2 1009" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M400 1043 L400 1091 L497 1091 Q502 1079 507 1091 L889.2 1091 L889.2 1009" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e4" data-from="hard" data-to="stats"/>
+<path d="M502 1043 L502 1107 L70 1107 L70 1471 L904.5 1471 L904.5 1539" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M502 1043 L502 1107 L70 1107 L70 1471 L904.5 1471 L904.5 1539" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e5" data-from="hard" data-to="stop"/>
+<path d="M950.4 1009 L950.4 1107 L1006.6 1107 Q1011.6 1095 1016.6 1107 L1067.8 1107 Q1072.8 1095 1077.8 1107 L1351 1107 Q1356 1095 1361 1107 L1374 1107 L1374 1485 L986 1485 Q981 1473 976 1485 L909.5 1485 Q904.5 1473 899.5 1485 L400 1485 L400 1539" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M950.4 1009 L950.4 1107 L1006.6 1107 Q1011.6 1095 1016.6 1107 L1067.8 1107 Q1072.8 1095 1077.8 1107 L1351 1107 Q1356 1095 1361 1107 L1374 1107 L1374 1485 L986 1485 Q981 1473 976 1485 L909.5 1485 Q904.5 1473 899.5 1485 L400 1485 L400 1539" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="stats" data-to="risk"/>
+<path d="M1072.8 1009 L1072.8 1203 L1351 1203 Q1356 1191 1361 1203 L1380 1203 L1380 1499 L1057.5 1499 L1057.5 1539" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M1072.8 1009 L1072.8 1203 L1351 1203 Q1356 1191 1361 1203 L1380 1203 L1380 1499 L1057.5 1499 L1057.5 1539" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e7" data-from="stats" data-to="stop"/>
+<path d="M1011.6 1009 L1011.6 1299 L1351 1299 Q1356 1287 1361 1299 L1369 1299 Q1374 1287 1379 1299 L1386 1299 L1386 1513 L1062.5 1513 Q1057.5 1501 1052.5 1513 L986 1513 Q981 1501 976 1513 L909.5 1513 Q904.5 1501 899.5 1513 L502 1513 L502 1539" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M1011.6 1009 L1011.6 1299 L1351 1299 Q1356 1287 1361 1299 L1369 1299 Q1374 1287 1379 1299 L1386 1299 L1386 1513 L1062.5 1513 Q1057.5 1501 1052.5 1513 L986 1513 Q981 1501 976 1513 L909.5 1513 Q904.5 1501 899.5 1513 L502 1513 L502 1539" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e8" data-from="stats" data-to="risk"/>
+<path d="M400 1770 L400 1850 L497 1850 Q502 1838 507 1850 L930 1850 L930 1736" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M400 1770 L400 1850 L497 1850 Q502 1838 507 1850 L930 1850 L930 1736" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e9" data-from="risk" data-to="stop"/>
+<path d="M502 1770 L502 1962 L1032 1962 L1032 1736" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M502 1770 L502 1962 L1032 1962 L1032 1736" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e10" data-from="risk" data-to="stop"/>
+<path d="M981 1539 L981 1395 L1356 1395 L1356 287 L986 287 Q981 275 976 287 L502 287 L502 273" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M981 1539 L981 1395 L1356 1395 L1356 287 L986 287 Q981 275 976 287 L502 287 L502 273" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e11" data-from="stop" data-to="offline"/>
+<g id="node-offline" class="node node-input" data-region="274,76,354,197">
+<rect x="274" y="76" width="354" height="197" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#215cbb" font-weight="700" >离线 CI</text>
+<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >提交触发 / 确定性 fixture</text>
+<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >硬门禁验证已知坏版本</text>
+</g>
+<g id="node-sandbox" class="node node-data" data-region="804,76,354,197">
+<rect x="804" y="76" width="354" height="197" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#087b76" font-weight="750" class="mono">02</text>
+<text x="826" y="152" font-size="28" fill="#087b76" font-weight="700" >沙箱回放</text>
+<text x="826" y="195" font-size="23" fill="#172b45" font-weight="450" >受控工具与状态重置</text>
+<text x="826" y="229" font-size="23" fill="#172b45" font-weight="450" >本地模拟不等于真实集成</text>
+</g>
+<g id="node-shadow" class="node node-data" data-region="274,407,354,197">
+<rect x="274" y="407" width="354" height="197" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="292" y="424" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="442" font-size="15" fill="#087b76" font-weight="750" class="mono">03</text>
+<text x="296" y="483" font-size="28" fill="#087b76" font-weight="700" >影子 / 灰度</text>
+<text x="296" y="526" font-size="23" fill="#172b45" font-weight="450" >影子结果不返回且不执行</text>
+<text x="296" y="560" font-size="23" fill="#172b45" font-weight="450" >真实流量与隔离待验证</text>
+</g>
+<g id="node-online" class="node node-data" data-region="804,407,354,197">
+<rect x="804" y="407" width="354" height="197" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="822" y="424" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="442" font-size="15" fill="#087b76" font-weight="750" class="mono">04</text>
+<text x="826" y="483" font-size="28" fill="#087b76" font-weight="700" >在线持续</text>
+<text x="826" y="526" font-size="23" fill="#172b45" font-weight="450" >按风险采样与高危捕获</text>
+<text x="826" y="560" font-size="23" fill="#172b45" font-weight="450" >监测漂移 / 告警与回滚</text>
+</g>
+<g id="node-hard" class="node node-control" data-region="274,812,354,231">
+<rect x="274" y="812" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="292" y="829" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="847" font-size="15" fill="#945c0b" font-weight="750" class="mono">05</text>
+<text x="296" y="888" font-size="28" fill="#945c0b" font-weight="700" >硬红线</text>
+<text x="296" y="931" font-size="23" fill="#172b45" font-weight="450" >D0 有效性 / 安全 / 业务</text>
+<text x="296" y="965" font-size="23" fill="#172b45" font-weight="450" >规则</text>
+<text x="296" y="999" font-size="23" fill="#172b45" font-weight="450" >任一高危 blocker 即阻断</text>
+</g>
+<g id="node-stats" class="node node-control" data-region="804,812,354,197">
+<rect x="804" y="812" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="829" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="847" font-size="15" fill="#945c0b" font-weight="750" class="mono">06</text>
+<text x="826" y="888" font-size="28" fill="#945c0b" font-weight="700" >统计门禁</text>
+<text x="826" y="931" font-size="23" fill="#172b45" font-weight="450" >聚类区间 / 切片 / 暴露量</text>
+<text x="826" y="965" font-size="23" fill="#172b45" font-weight="450" >满足 / 未满足 / 证据不足</text>
+</g>
+<g id="node-risk" class="node node-control" data-region="274,1539,354,231">
+<rect x="274" y="1539" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="292" y="1556" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1574" font-size="15" fill="#945c0b" font-weight="750" class="mono">07</text>
+<text x="296" y="1615" font-size="28" fill="#945c0b" font-weight="700" >风险接受前核护栏</text>
+<text x="296" y="1658" font-size="23" fill="#172b45" font-weight="450" >无护栏覆盖不得接受</text>
+<text x="296" y="1692" font-size="23" fill="#172b45" font-weight="450" >不足仍列风险，不改为 PASS</text>
+<text x="296" y="1726" font-size="23" fill="#172b45" font-weight="450" >具名 owner 限定范围与期限</text>
+</g>
+<g id="node-stop" class="node node-risk" data-region="804,1539,354,197">
+<rect x="804" y="1539" width="354" height="197" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="822" y="1556" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1574" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">08</text>
+<text x="826" y="1615" font-size="28" fill="#ad3e4c" font-weight="700" >阻断与失败回灌</text>
+<text x="826" y="1658" font-size="23" fill="#172b45" font-weight="450" >保留失败环与 receipt</text>
+<text x="826" y="1692" font-size="23" fill="#172b45" font-weight="450" >回滚并补新证据</text>
+</g>
+<rect x="117.53" y="313" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="342" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  离线证据</text>
+<text x="363.2" y="802" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="1151.69" y="313" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="342" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  受控回放证据</text>
+<text x="485.6" y="802" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="106.61" y="630" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="659" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  隔离与业务</text>
+<text x="190" y="691" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">证据</text>
+<text x="424.4" y="802" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="1162.61" y="630" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="659" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  漂移与事故</text>
+<text x="1246" y="691" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">证据</text>
+<text x="546.8" y="802" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="632.61" y="1069" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1098" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  红线通过后</text>
+<text x="893.2" y="1031" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="95.68999999999998" y="1069" width="188.62000000000003" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1098" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  任一 blocker</text>
+<text x="190" y="1130" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">或 D0 失效</text>
+<text x="908.5" y="1529" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="1151.69" y="1069" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1098" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  证据充分且满</text>
+<text x="1246" y="1130" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">足合同</text>
+<text x="404" y="1529" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="1156.835" y="1165" width="178.33" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1194" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  统计 FAIL，</text>
+<text x="1246" y="1226" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">阻断修复</text>
+<text x="1061.5" y="1529" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+<rect x="1151.69" y="1261" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1290" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  证据不足，仅</text>
+<text x="1246" y="1322" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">作有限具名决定</text>
+<text x="506" y="1529" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e8" stroke="#fff" stroke-width="4" paint-order="stroke">09</text>
+<rect x="642.48" y="1796" width="147.04" height="108" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1825" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">10  无护栏覆</text>
+<text x="716" y="1857" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">盖，强制拒绝</text>
+<text x="716" y="1889" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">接受</text>
+<text x="934" y="1758" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e9" stroke="#fff" stroke-width="4" paint-order="stroke">10</text>
+<rect x="632.61" y="1924" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1953" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">11  不接受或到</text>
+<text x="716" y="1985" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e10">期回滚</text>
+<text x="1036" y="1758" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e10" stroke="#fff" stroke-width="4" paint-order="stroke">11</text>
+<rect x="1151.69" y="1357" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1386" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e11">12  失败生成回归</text>
+<text x="1246" y="1418" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e11">案例</text>
+<text x="506" y="295" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e11" stroke="#fff" stroke-width="4" paint-order="stroke">12</text>
+</g>
+</g>
+<text x="64" y="2488" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2488" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2518,470,174">
+<rect x="64" y="2518" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2540" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="106" y="2565" font-size="25" fill="#7045a4" font-weight="700" >每环独立合同</text>
+<text x="88" y="2620" font-size="23" fill="#172b45" font-weight="450" >entry / exit / hard block</text>
+<text x="88" y="2655" font-size="23" fill="#172b45" font-weight="450" >population / owner / rollback</text>
+</g>
+<g id="detail-1" data-region="565,2518,470,174">
+<rect x="565" y="2518" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2540" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="607" y="2565" font-size="25" fill="#7045a4" font-weight="700" >状态忠实报告</text>
+<text x="589" y="2620" font-size="23" fill="#172b45" font-weight="450" >环1/2可有本地模拟 receipt</text>
+<text x="589" y="2655" font-size="23" fill="#172b45" font-weight="450" >真实集成及环3/4 NOT_RUN</text>
+</g>
+<g id="detail-2" data-region="1066,2518,470,174">
+<rect x="1066" y="2518" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2540" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="1108" y="2565" font-size="25" fill="#945c0b" font-weight="700" >不自动批准发布</text>
+<text x="1090" y="2620" font-size="23" fill="#172b45" font-weight="450" >无护栏不得接受；硬红线不可豁免</text>
+<text x="1090" y="2655" font-size="23" fill="#172b45" font-weight="450" >不足可具名限范围，仍不是 PASS</text>
+</g>
+<g id="failure-and-output" data-region="64,2724,1472,148">
+<rect x="64" y="2724" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2763" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2808" font-size="23" fill="#ffdce2" font-weight="450" >硬红线或 D0 失效直接阻断；无护栏覆盖不得接受。证据不足可具名限范围决定，但仍非 PASS，不自动升级或发布。</text>
+<text x="88" y="2851" font-size="23" fill="#dce9fa" font-weight="450" >交付 four-ring-release-plan 与三段门禁收据。</text>
+</g>
+<text x="64" y="2920" font-size="20" fill="#50647c" font-weight="450" >静态设计与离线 fixture 仅证明控制形状；真实模型、集成、从业者复核及生产有效性均 NOT_RUN。</text>
+<text x="64" y="2959" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-AG-09 · 四环证据进入三段决策</text>
+<path class="edge edge-data" d="M64 2999 L101 2999" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="3005" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2999 L397 2999" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="3005" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2999 L693 2999" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="3005" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2999 L989 2999" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="3005" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2999 L1285 2999" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="3005" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

@@ -1,130 +1,179 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1160 546" width="1160" height="546">
-  <title id="title">OpenAPI Schema 与属性测试：让坏请求和破坏性变更变红：flow流程</title>
-  <desc id="desc">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-</style>
-  <rect class="ds-bg" width="1160" height="546" rx="22"/>
-  
-  <rect class="ds-header" x="0" y="0" width="1160" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1160" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">FLOW · 证据流</text>
-  <text class="ds-subtitle" x="1124" y="32" text-anchor="end">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</text>
-  <text class="ds-title" x="36" y="74">OpenAPI Schema 与属性测试：让坏请求和破坏性变更变红</text>
-  <text class="ds-source" x="36" y="140">flow · 规范到最小失败请求 · 来源 S44, S61, S43</text>
-  
-    <path d="M 264 220 L 286 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 466 220 L 488 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 668 220 L 690 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 870 220 L 892 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 984 268 V 305 H 176 V 338" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    <path d="M 264 390 L 286 390" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-  
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="172" width="176" height="96" rx="14" fill="#eaf1fa" stroke="#aec6e3"/>
-      
-      <circle cx="106" cy="190" r="11" fill="#ffffff" stroke="#aec6e3" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="193" text-anchor="middle" >01</text>
-      <text class="ds-node-title" x="103" y="220">OpenAPI 版本</text>
-      <text class="ds-node-detail" x="103" y="235">输入 / 依据</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="290" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="308" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="193" text-anchor="middle" >02</text>
-      <text class="ds-node-title" x="305" y="220">例生成器</text>
-      <text class="ds-node-detail" x="305" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="492" y="172" width="176" height="96" rx="14" fill="#f0ecfb" stroke="#c9b8ea"/>
-      
-      <circle cx="510" cy="190" r="11" fill="#ffffff" stroke="#c9b8ea" stroke-width="1.4"/>
-       <text class="ds-node-index" x="510" y="193" text-anchor="middle" >03</text>
-      <text class="ds-node-title" x="507" y="220">Schema 校验器</text>
-      <text class="ds-node-detail" x="507" y="235">独立判断</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="694" y="172" width="176" height="96" rx="14" fill="#f0ecfb" stroke="#c9b8ea"/>
-      
-      <circle cx="712" cy="190" r="11" fill="#ffffff" stroke="#c9b8ea" stroke-width="1.4"/>
-       <text class="ds-node-index" x="712" y="193" text-anchor="middle" >04</text>
-      <text class="ds-node-title" x="709" y="220">业务属性 Oracle</text>
-      <text class="ds-node-detail" x="709" y="235">独立判断</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="896" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="914" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="914" y="193" text-anchor="middle" >05</text>
-      <text class="ds-node-title" x="911" y="220">被测 API</text>
-      <text class="ds-node-detail" x="911" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="342" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="106" cy="360" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="363" text-anchor="middle" >06</text>
-      <text class="ds-node-title" x="103" y="390">Mutation 控制器</text>
-      <text class="ds-node-detail" x="103" y="405">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-strong)">
-      <rect x="290" y="342" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a" stroke-width="2"/>
-      <rect x="290" y="342" width="6" height="96" rx="3" fill="#93bd2c"/>
-      <circle cx="308" cy="360" r="11" fill="#174a3a" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="363" text-anchor="middle" fill="#ffffff">07</text>
-      <text class="ds-node-title" x="305" y="390">报告与门禁</text>
-      <text class="ds-node-detail" x="305" y="405">决定 / 输出</text>
-    </g>
-  <circle cx="108" cy="460" r="4" fill="#355f96"/><text class="ds-legend" x="118" y="464">输入 / 依据</text><circle cx="177.4" cy="460" r="4" fill="#c2d9cc"/><text class="ds-legend" x="187.4" y="464">处理 / 变换</text><circle cx="246.8" cy="460" r="4" fill="#6a49a8"/><text class="ds-legend" x="256.8" y="464">独立判断</text><circle cx="297.6" cy="460" r="4" fill="#a96a18"/><text class="ds-legend" x="307.6" y="464">门禁 / 裁决</text><circle cx="367" cy="460" r="4" fill="#b2402f"/><text class="ds-legend" x="377" y="464">安全终态</text>
-  
-  <rect x="28" y="472" width="1104" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="498">证据边界</text>
-  <text class="ds-foot" x="46" y="520">节点是页面语义关系；不代表真实模型、企业集成或生产效果已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2824" viewBox="0 0 1600 2824" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">结构与业务属性各有一条判据链</title><desc id="desc">格式合法与金额、币种、权限正确分别判定；负向请求、属性反例和变异共同验证检测力。 支付意图在 Schema 与业务 Oracle 下接受独立检查 图不声称随机生成已穷尽输入空间；外部依赖不可重复时保持 UNKNOWN。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-PS02 / 架构节点与交付物;docs/svg-redesign-2026-10-26/body-sources/course-1.json#TD-PS02 / 带走四类变异与一组业务属性">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-PS02&quot;,&quot;pageIds&quot;:[&quot;TD-PS02&quot;],&quot;primaryPageIds&quot;:[&quot;TD-PS02&quot;],&quot;layout&quot;:&quot;comparison&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-PS02 / 架构节点与交付物&quot;,&quot;quote&quot;:&quot;Schema 校验器负责结构，业务属性 Oracle 负责语义&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-1.json&quot;,&quot;locator&quot;:&quot;TD-PS02 / 带走四类变异与一组业务属性&quot;,&quot;quote&quot;:&quot;属性测试保存最小反例与 seed&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;spec&quot;,&quot;title&quot;:&quot;OpenAPI 固定版本&quot;},{&quot;id&quot;:&quot;generator&quot;,&quot;title&quot;:&quot;正反例生成器&quot;},{&quot;id&quot;:&quot;api&quot;,&quot;title&quot;:&quot;被测支付意图 API&quot;},{&quot;id&quot;:&quot;schema&quot;,&quot;title&quot;:&quot;结构校验器&quot;},{&quot;id&quot;:&quot;property&quot;,&quot;title&quot;:&quot;业务属性 Oracle&quot;},{&quot;id&quot;:&quot;mutation&quot;,&quot;title&quot;:&quot;Mutation 控制器&quot;},{&quot;id&quot;:&quot;shrink&quot;,&quot;title&quot;:&quot;最小反例与 seed&quot;},{&quot;id&quot;:&quot;report&quot;,&quot;title&quot;:&quot;分状态报告&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;spec&quot;,&quot;to&quot;:&quot;generator&quot;,&quot;label&quot;:&quot;声明约束&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;generator&quot;,&quot;to&quot;:&quot;api&quot;,&quot;label&quot;:&quot;正反例输入&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;spec&quot;,&quot;to&quot;:&quot;schema&quot;,&quot;label&quot;:&quot;结构依据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;api&quot;,&quot;to&quot;:&quot;schema&quot;,&quot;label&quot;:&quot;请求/响应结构&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;api&quot;,&quot;to&quot;:&quot;property&quot;,&quot;label&quot;:&quot;实际业务结果&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;mutation&quot;,&quot;to&quot;:&quot;api&quot;,&quot;label&quot;:&quot;故意破坏约束&quot;,&quot;kind&quot;:&quot;risk&quot;},{&quot;from&quot;:&quot;schema&quot;,&quot;to&quot;:&quot;report&quot;,&quot;label&quot;:&quot;PASS_SCHEMA&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;property&quot;,&quot;to&quot;:&quot;report&quot;,&quot;label&quot;:&quot;PASS_SEMANTIC&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;property&quot;,&quot;to&quot;:&quot;shrink&quot;,&quot;label&quot;:&quot;发现反例&quot;,&quot;kind&quot;:&quot;feedback&quot;},{&quot;from&quot;:&quot;shrink&quot;,&quot;to&quot;:&quot;generator&quot;,&quot;label&quot;:&quot;固定最小输入重放&quot;,&quot;kind&quot;:&quot;feedback&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2824" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-PS02</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >结构与业务属性各有一条判据链</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >格式合法与金额、币种、权限正确分别判定；负向请求、属性反例和变异共同验证检测力。</text>
+<g id="system-graph" data-region="64,234,1472,1986">
+<rect x="64" y="234" width="1472" height="1986" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >支付意图在 Schema 与业务 Oracle 下接受独立检查</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M400 307 L400 355 L70 355 L70 479 L79 479 Q84 467 89 479 L451 479 L451 519" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M400 307 L400 355 L70 355 L70 479 L79 479 Q84 467 89 479 L451 479 L451 519" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="spec" data-to="generator"/>
+<path d="M502 750 L502 812 L904.5 812 L904.5 750" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M502 750 L502 812 L904.5 812 L904.5 750" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="generator" data-to="api"/>
+<path d="M502 307 L502 419 L84 419 L84 968 L400 968 L400 1022" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M502 307 L502 419 L84 419 L84 968 L400 968 L400 1022" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e2" data-from="spec" data-to="schema"/>
+<path d="M981 750 L981 828 L1052.5 828 Q1057.5 816 1062.5 828 L1356 828 L1356 982 L502 982 L502 1022" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M981 750 L981 828 L1052.5 828 Q1057.5 816 1062.5 828 L1356 828 L1356 982 L502 982 L502 1022" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e3" data-from="api" data-to="schema"/>
+<path d="M1057.5 750 L1057.5 908 L1362 908 L1362 996 L981 996 L981 1022" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-data" d="M1057.5 750 L1057.5 908 L1362 908 L1362 996 L981 996 L981 1022" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e4" data-from="api" data-to="property"/>
+<path d="M981 273 L981 355 L1368 355 L1368 493 L981 493 L981 519" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M981 273 L981 355 L1368 355 L1368 493 L981 493 L981 519" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e5" data-from="mutation" data-to="api"/>
+<path d="M451 1219 L451 1283 L70 1283 L70 1455 L395 1455 Q400 1443 405 1455 L930 1455 L930 1509" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M451 1219 L451 1283 L70 1283 L70 1455 L395 1455 Q400 1443 405 1455 L930 1455 L930 1509" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e6" data-from="schema" data-to="report"/>
+<path d="M1032 1219 L1032 1283 L1368 1283 L1368 1469 L1032 1469 L1032 1509" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M1032 1219 L1032 1283 L1368 1283 L1368 1469 L1032 1469 L1032 1509" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="property" data-to="report"/>
+<path d="M930 1219 L930 1363 L1374 1363 L1374 1483 L1037 1483 Q1032 1471 1027 1483 L935 1483 Q930 1471 925 1483 L502 1483 L502 1509" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M930 1219 L930 1363 L1374 1363 L1374 1483 L1037 1483 Q1032 1471 1027 1483 L935 1483 Q930 1471 925 1483 L502 1483 L502 1509" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e8" data-from="property" data-to="shrink"/>
+<path d="M400 1509 L400 1379 L77 1379 L77 764 L400 764 L400 750" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-feedback" d="M400 1509 L400 1379 L77 1379 L77 764 L400 764 L400 750" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" data-edge-id="e9" data-from="shrink" data-to="generator"/>
+<g id="node-spec" class="node node-input" data-region="274,76,354,231">
+<rect x="274" y="76" width="354" height="231" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#215cbb" font-weight="700" >OpenAPI 固定版本</text>
+<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >required / type / enum /</text>
+<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >边界</text>
+<text x="296" y="263" font-size="23" fill="#172b45" font-weight="450" >Schema 变更触发重新评测</text>
+</g>
+<g id="node-generator" class="node node-process" data-region="274,519,354,231">
+<rect x="274" y="519" width="354" height="231" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="536" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="554" font-size="15" fill="#344f70" font-weight="750" class="mono">02</text>
+<text x="296" y="595" font-size="28" fill="#344f70" font-weight="700" >正反例生成器</text>
+<text x="296" y="638" font-size="23" fill="#172b45" font-weight="450" >缺字段、错类型、越界和额</text>
+<text x="296" y="672" font-size="23" fill="#172b45" font-weight="450" >外字段</text>
+<text x="296" y="706" font-size="23" fill="#172b45" font-weight="450" >固定 seed，覆盖业务边界</text>
+</g>
+<g id="node-api" class="node node-process" data-region="804,519,354,231">
+<rect x="804" y="519" width="354" height="231" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="822" y="536" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="554" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="826" y="595" font-size="28" fill="#344f70" font-weight="700" >被测支付意图 API</text>
+<text x="826" y="638" font-size="23" fill="#172b45" font-weight="450" >amount / currency /</text>
+<text x="826" y="672" font-size="23" fill="#172b45" font-weight="450" >merchant</text>
+<text x="826" y="706" font-size="23" fill="#172b45" font-weight="450" >按固定配置执行请求</text>
+</g>
+<g id="node-schema" class="node node-control" data-region="274,1022,354,197">
+<rect x="274" y="1022" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="292" y="1039" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1057" font-size="15" fill="#945c0b" font-weight="750" class="mono">04</text>
+<text x="296" y="1098" font-size="28" fill="#945c0b" font-weight="700" >结构校验器</text>
+<text x="296" y="1141" font-size="23" fill="#172b45" font-weight="450" >输出 PASS_SCHEMA</text>
+<text x="296" y="1175" font-size="23" fill="#172b45" font-weight="450" >负向请求必须明确拒绝</text>
+</g>
+<g id="node-property" class="node node-control" data-region="804,1022,354,197">
+<rect x="804" y="1022" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="1039" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1057" font-size="15" fill="#945c0b" font-weight="750" class="mono">05</text>
+<text x="826" y="1098" font-size="28" fill="#945c0b" font-weight="700" >业务属性 Oracle</text>
+<text x="826" y="1141" font-size="23" fill="#172b45" font-weight="450" >金额与商户币种规则</text>
+<text x="826" y="1175" font-size="23" fill="#172b45" font-weight="450" >过期意图不可再次确认</text>
+</g>
+<g id="node-mutation" class="node node-risk" data-region="804,76,354,197">
+<rect x="804" y="76" width="354" height="197" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">06</text>
+<text x="826" y="152" font-size="28" fill="#ad3e4c" font-weight="700" >Mutation 控制器</text>
+<text x="826" y="195" font-size="23" fill="#172b45" font-weight="450" >删 required、放宽金额范围</text>
+<text x="826" y="229" font-size="23" fill="#172b45" font-weight="450" >变异至少使目标检查变红</text>
+</g>
+<g id="node-shrink" class="node node-evidence" data-region="274,1509,354,197">
+<rect x="274" y="1509" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="292" y="1526" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1544" font-size="15" fill="#7045a4" font-weight="750" class="mono">07</text>
+<text x="296" y="1585" font-size="28" fill="#7045a4" font-weight="700" >最小反例与 seed</text>
+<text x="296" y="1628" font-size="23" fill="#172b45" font-weight="450" >收缩请求、数据与单一变异</text>
+<text x="296" y="1662" font-size="23" fill="#172b45" font-weight="450" >保留可复现失败</text>
+</g>
+<g id="node-report" class="node node-evidence" data-region="804,1509,354,197">
+<rect x="804" y="1509" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="1526" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1544" font-size="15" fill="#7045a4" font-weight="750" class="mono">08</text>
+<text x="826" y="1585" font-size="28" fill="#7045a4" font-weight="700" >分状态报告</text>
+<text x="826" y="1628" font-size="23" fill="#172b45" font-weight="450" >结构与语义分别出分</text>
+<text x="826" y="1662" font-size="23" fill="#172b45" font-weight="450" >不合并为单一通过率</text>
+</g>
+<rect x="117.53" y="333" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="362" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  声明约束</text>
+<text x="455" y="509" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="632.61" y="790" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="819" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  正反例输入</text>
+<text x="908.5" y="772" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="117.53" y="397" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="426" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  结构依据</text>
+<text x="404" y="1012" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="1167.44" y="790" width="157.12" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="819" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  请求/响应</text>
+<text x="1246" y="851" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">结构</text>
+<text x="506" y="1012" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="1151.69" y="886" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="915" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  实际业务结果</text>
+<text x="985" y="1012" font-size="18" fill="#215cbb" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="1151.69" y="333" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="362" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  故意破坏约束</text>
+<text x="985" y="509" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="105.03499999999998" y="1245" width="169.93000000000004" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1274" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07</text>
+<text x="190" y="1306" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">PASS_SCHEMA</text>
+<text x="934" y="1499" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="1150.6399999999999" y="1245" width="190.72000000000006" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1274" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08</text>
+<text x="1246" y="1306" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">PASS_SEMANTIC</text>
+<text x="1036" y="1499" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+<rect x="1173.53" y="1341" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1370" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  发现反例</text>
+<text x="506" y="1499" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e8" stroke="#fff" stroke-width="4" paint-order="stroke">09</text>
+<rect x="95.69" y="1341" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1370" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">10  固定最小输入</text>
+<text x="190" y="1402" font-size="21" fill="#087b76" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">重放</text>
+<text x="404" y="772" font-size="18" fill="#087b76" font-weight="750" class="edge-end-label" data-edge-id="e9" stroke="#fff" stroke-width="4" paint-order="stroke">10</text>
+</g>
+</g>
+<text x="64" y="2274" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2274" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2304,470,174">
+<rect x="64" y="2304" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2326" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="106" y="2351" font-size="25" fill="#ad3e4c" font-weight="700" >坏请求主动发送</text>
+<text x="88" y="2406" font-size="23" fill="#172b45" font-weight="450" >缺必填、错类型、非法枚举与多余字段</text>
+<text x="88" y="2441" font-size="23" fill="#172b45" font-weight="450" >验证校验生效，不能假设必然拒绝</text>
+</g>
+<g id="detail-1" data-region="565,2304,470,174">
+<rect x="565" y="2304" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2326" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="607" y="2351" font-size="25" fill="#945c0b" font-weight="700" >属性由业务提炼</text>
+<text x="589" y="2406" font-size="23" fill="#172b45" font-weight="450" >金额守恒、币种匹配与访问归属</text>
+<text x="589" y="2441" font-size="23" fill="#172b45" font-weight="450" >合法枚举值也可能是错误业务状态</text>
+</g>
+<g id="detail-2" data-region="1066,2304,470,174">
+<rect x="1066" y="2304" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2326" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="2351" font-size="25" fill="#7045a4" font-weight="700" >失败怎样沉淀</text>
+<text x="1090" y="2406" font-size="23" fill="#172b45" font-weight="450" >固定规范、seed 与最小反例</text>
+<text x="1090" y="2441" font-size="23" fill="#172b45" font-weight="450" >变异检测结构和属性两条链的盲区</text>
+</g>
+<g id="failure-and-output" data-region="64,2510,1472,148">
+<rect x="64" y="2510" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2549" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2594" font-size="23" fill="#ffdce2" font-weight="450" >金额或状态不变量违反、破坏性变更漏检时阻断；结构 PASS 不能覆盖语义失败。</text>
+<text x="88" y="2637" font-size="23" fill="#dce9fa" font-weight="450" >交付四类变异、业务属性、最小重放输入和双状态报告。</text>
+</g>
+<text x="64" y="2706" font-size="20" fill="#50647c" font-weight="450" >图不声称随机生成已穷尽输入空间；外部依赖不可重复时保持 UNKNOWN。</text>
+<text x="64" y="2745" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-PS02 · 结构与业务属性各有一条判据链</text>
+<path class="edge edge-data" d="M64 2785 L101 2785" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2791" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2785 L397 2785" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2791" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2785 L693 2785" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2791" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2785 L989 2785" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2791" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2785 L1285 2785" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2791" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

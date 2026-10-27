@@ -1,130 +1,155 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1160 546" width="1160" height="546">
-  <title id="title">AI Serving 负载与容量：从 Token 分布到 SLO 拐点：flow流程</title>
-  <desc id="desc">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-</style>
-  <rect class="ds-bg" width="1160" height="546" rx="22"/>
-  
-  <rect class="ds-header" x="0" y="0" width="1160" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1160" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">FLOW · 证据流</text>
-  <text class="ds-subtitle" x="1124" y="32" text-anchor="end">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</text>
-  <text class="ds-title" x="36" y="74">AI Serving 负载与容量：从 Token 分布到 SLO 拐点</text>
-  <text class="ds-source" x="36" y="140">flow · AI Serving 负载与容量：从 Token 分布到 SLO 拐点 证据链 · 来源 S51, S52, S53</text>
-  
-    <path d="M 264 220 L 286 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 466 220 L 488 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 668 220 L 690 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 870 220 L 892 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 984 268 V 305 H 176 V 338" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    <path d="M 264 390 L 286 390" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-  
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="172" width="176" height="96" rx="14" fill="#eaf1fa" stroke="#aec6e3"/>
-      
-      <circle cx="106" cy="190" r="11" fill="#ffffff" stroke="#aec6e3" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="193" text-anchor="middle" >01</text>
-      <text class="ds-node-title" x="103" y="220">Workload 分布</text>
-      <text class="ds-node-detail" x="103" y="235">输入 / 依据</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="290" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="308" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="193" text-anchor="middle" >02</text>
-      <text class="ds-node-title" x="305" y="220">Open/Closed 生成器</text>
-      <text class="ds-node-detail" x="305" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="492" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="510" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="510" y="193" text-anchor="middle" >03</text>
-      <text class="ds-node-title" x="507" y="220">Serving Queue</text>
-      <text class="ds-node-detail" x="507" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="694" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="712" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="712" y="193" text-anchor="middle" >04</text>
-      <text class="ds-node-title" x="709" y="220">Token 执行</text>
-      <text class="ds-node-detail" x="709" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="896" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="914" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="914" y="193" text-anchor="middle" >05</text>
-      <text class="ds-node-title" x="911" y="220">SLO/质量</text>
-      <text class="ds-node-detail" x="911" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="342" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="106" cy="360" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="363" text-anchor="middle" >06</text>
-      <text class="ds-node-title" x="103" y="390">Goodput 拐点</text>
-      <text class="ds-node-detail" x="103" y="405">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-strong)">
-      <rect x="290" y="342" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a" stroke-width="2"/>
-      <rect x="290" y="342" width="6" height="96" rx="3" fill="#93bd2c"/>
-      <circle cx="308" cy="360" r="11" fill="#174a3a" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="363" text-anchor="middle" fill="#ffffff">07</text>
-      <text class="ds-node-title" x="305" y="390">停止/恢复</text>
-      <text class="ds-node-detail" x="305" y="405">决定 / 输出</text>
-    </g>
-  <circle cx="108" cy="460" r="4" fill="#355f96"/><text class="ds-legend" x="118" y="464">输入 / 依据</text><circle cx="177.4" cy="460" r="4" fill="#c2d9cc"/><text class="ds-legend" x="187.4" y="464">处理 / 变换</text><circle cx="246.8" cy="460" r="4" fill="#6a49a8"/><text class="ds-legend" x="256.8" y="464">独立判断</text><circle cx="297.6" cy="460" r="4" fill="#a96a18"/><text class="ds-legend" x="307.6" y="464">门禁 / 裁决</text><circle cx="367" cy="460" r="4" fill="#b2402f"/><text class="ds-legend" x="377" y="464">安全终态</text>
-  
-  <rect x="28" y="472" width="1104" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="498">证据边界</text>
-  <text class="ds-foot" x="46" y="520">节点是页面语义关系；不代表真实模型、企业集成或生产效果已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2712" viewBox="0 0 1600 2712" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">同一负载双模式加压与到达守恒</title><desc id="desc">开环定位外部到达增加时的失守点，闭环诊断单用户上限；每一级先核账再看容量。 不画虚构容量数值，展示两种实验、四类结果和停止恢复条件 合成负载与虚拟时间只验证门禁；没有真实 GPU、缓存、容量或生产 SLA 数据。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-A04 / 用到达守恒寻找 fixture 容量拐点;docs/svg-redesign-2026-10-26/body-sources/course-2.json#TD-A04 / 重放 0 → 1 → 0">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-A04&quot;,&quot;pageIds&quot;:[&quot;TD-A04&quot;],&quot;primaryPageIds&quot;:[&quot;TD-A04&quot;],&quot;layout&quot;:&quot;metric&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-A04 / 用到达守恒寻找 fixture 容量拐点&quot;,&quot;quote&quot;:&quot;计划到达数=完成+失败+dropped+仍排队&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-2.json&quot;,&quot;locator&quot;:&quot;TD-A04 / 重放 0 → 1 → 0&quot;,&quot;quote&quot;:&quot;删除 dropped arrivals 并只报告已完成请求，使容量看似提高；守恒 Oracle 必须阻断。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;workload&quot;,&quot;title&quot;:&quot;Workload 分布&quot;},{&quot;id&quot;:&quot;open&quot;,&quot;title&quot;:&quot;Open-loop 生成器&quot;},{&quot;id&quot;:&quot;closed&quot;,&quot;title&quot;:&quot;Closed-loop 生成器&quot;},{&quot;id&quot;:&quot;system&quot;,&quot;title&quot;:&quot;Serving Queue 与 Token 执行&quot;},{&quot;id&quot;:&quot;ledger&quot;,&quot;title&quot;:&quot;每级到达守恒&quot;},{&quot;id&quot;:&quot;slo&quot;,&quot;title&quot;:&quot;SLO 与质量判定&quot;},{&quot;id&quot;:&quot;knee&quot;,&quot;title&quot;:&quot;Goodput 拐点&quot;},{&quot;id&quot;:&quot;recovery&quot;,&quot;title&quot;:&quot;停止与恢复验证&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;workload&quot;,&quot;to&quot;:&quot;open&quot;,&quot;label&quot;:&quot;相同请求分布&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;workload&quot;,&quot;to&quot;:&quot;closed&quot;,&quot;label&quot;:&quot;相同请求分布&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;open&quot;,&quot;to&quot;:&quot;system&quot;,&quot;label&quot;:&quot;固定外部到达&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;closed&quot;,&quot;to&quot;:&quot;system&quot;,&quot;label&quot;:&quot;固定并发&quot;,&quot;kind&quot;:&quot;data&quot;},{&quot;from&quot;:&quot;system&quot;,&quot;to&quot;:&quot;ledger&quot;,&quot;label&quot;:&quot;所有请求结局&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;system&quot;,&quot;to&quot;:&quot;slo&quot;,&quot;label&quot;:&quot;阶段与质量事件&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;ledger&quot;,&quot;to&quot;:&quot;knee&quot;,&quot;label&quot;:&quot;守恒通过后&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;slo&quot;,&quot;to&quot;:&quot;knee&quot;,&quot;label&quot;:&quot;有效产出判据&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;knee&quot;,&quot;to&quot;:&quot;recovery&quot;,&quot;label&quot;:&quot;失守 / 恢复窗口&quot;,&quot;kind&quot;:&quot;control&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2712" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-A04</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >同一负载双模式加压与到达守恒</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >开环定位外部到达增加时的失守点，闭环诊断单用户上限；每一级先核账再看容量。</text>
+<g id="system-graph" data-region="64,234,1472,1874">
+<rect x="64" y="234" width="1472" height="1874" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >不画虚构容量数值，展示两种实验、四类结果和停止恢复条件</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >实验与指标</text>
+<g transform="translate(256.29999999999995 350) scale(1)" data-graph-scale="1" data-routing="dot">
+<path class="edge edge-data" d="M510 265 C510 297.04999999999995 476.35 286.75 450 305 C402.2 338.1099999999999 344.52 326.53 336.86 375.26" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e0" data-from="workload" data-to="open"/>
+<path class="edge edge-data" d="M598 265 C598 358.79999999999995 755.54 309.69000000000005 769.07 391.21000000000004" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e1" data-from="workload" data-to="closed"/>
+<path class="edge edge-data" d="M336 618 C336 682.82 420.73 672.63 430.99 728.36" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e2" data-from="open" data-to="system"/>
+<path class="edge edge-data" d="M770 600 C770 614.1800000000001 571.7 701.52 528.32 731.71" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" data-edge-id="e3" data-from="closed" data-to="system"/>
+<path class="edge edge-evidence" d="M432 975 C432 1003.45 223.47 1055.3 183.56 1088.23" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e4" data-from="system" data-to="ledger"/>
+<path class="edge edge-evidence" d="M520 975 C520 1044.6599999999999 600.98 1040.88 610.16 1102.22" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e5" data-from="system" data-to="slo"/>
+<path class="edge edge-control" d="M177 1329 C177 1391.05 226.22 1399.87 232.37 1455.27" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="ledger" data-to="knee"/>
+<path class="edge edge-control" d="M611 1311 C611 1380.18 351.85 1392.58 323.51 1455.54" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e7" data-from="slo" data-to="knee"/>
+<path class="edge edge-control" d="M454 1565.5 C467.2 1565.5 462.81 1549.55 475 1544.5 C549.73 1513.55 583.03 1511.78 657 1544.5 C665.12 1548.09 665.39 1556.79 668.7 1562.11" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e8" data-from="knee" data-to="recovery"/>
+<g id="node-workload" class="node node-input" data-region="378,0,354,265">
+<rect x="378" y="0" width="354" height="265" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="396" y="17" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="403" y="35" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="400" y="76" font-size="28" fill="#215cbb" font-weight="700" >Workload 分布</text>
+<text x="400" y="119" font-size="23" fill="#172b45" font-weight="450" >Token 长度、缓存与场景</text>
+<text x="400" y="153" font-size="23" fill="#172b45" font-weight="450" >固定</text>
+<text x="400" y="187" font-size="23" fill="#172b45" font-weight="450" >workload hash 绑定本轮</text>
+<text x="400" y="221" font-size="23" fill="#172b45" font-weight="450" >输入</text>
+</g>
+<g id="node-open" class="node node-process" data-region="159,387,354,231">
+<rect x="159" y="387" width="354" height="231" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="177" y="404" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="184" y="422" font-size="15" fill="#344f70" font-weight="750" class="mono">02</text>
+<text x="181" y="463" font-size="28" fill="#344f70" font-weight="700" >Open-loop 生成器</text>
+<text x="181" y="506" font-size="23" fill="#172b45" font-weight="450" >固定计划到达率逐级增加</text>
+<text x="181" y="540" font-size="23" fill="#172b45" font-weight="450" >慢响应不能让发送器自行</text>
+<text x="181" y="574" font-size="23" fill="#172b45" font-weight="450" >减压</text>
+</g>
+<g id="node-closed" class="node node-process" data-region="593,404,354,197">
+<rect x="593" y="404" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="611" y="421" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="618" y="439" font-size="15" fill="#344f70" font-weight="750" class="mono">03</text>
+<text x="615" y="480" font-size="28" fill="#344f70" font-weight="700" >Closed-loop 生成器</text>
+<text x="615" y="523" font-size="23" fill="#172b45" font-weight="450" >固定并发循环请求</text>
+<text x="615" y="557" font-size="23" fill="#172b45" font-weight="450" >用于单用户与瓶颈诊断</text>
+</g>
+<g id="node-system" class="node node-process" data-region="300,740,354,236">
+<rect x="300" y="740" width="354" height="236" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="318" y="757" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="325" y="775" font-size="15" fill="#344f70" font-weight="750" class="mono">04</text>
+<text x="322" y="816" font-size="28" fill="#344f70" font-weight="700" >Serving Queue 与</text>
+<text x="322" y="855" font-size="28" fill="#344f70" font-weight="700" >Token 执行</text>
+<text x="322" y="898" font-size="23" fill="#172b45" font-weight="450" >观测排队、执行与资源信号</text>
+<text x="322" y="932" font-size="23" fill="#172b45" font-weight="450" >核对发送器自身能力</text>
+</g>
+<g id="node-ledger" class="node node-evidence" data-region="0,1098,354,231">
+<rect x="0" y="1098" width="354" height="231" rx="14" fill="#f4effb" stroke="none" />
+<rect x="18" y="1115" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="25" y="1133" font-size="15" fill="#7045a4" font-weight="750" class="mono">05</text>
+<text x="22" y="1174" font-size="28" fill="#7045a4" font-weight="700" >每级到达守恒</text>
+<text x="22" y="1217" font-size="23" fill="#172b45" font-weight="450" >计划=完成+失败+dropped+</text>
+<text x="22" y="1251" font-size="23" fill="#172b45" font-weight="450" >排队</text>
+<text x="22" y="1285" font-size="23" fill="#172b45" font-weight="450" >排空前保留未完成项</text>
+</g>
+<g id="node-slo" class="node node-control" data-region="434,1115,354,197">
+<rect x="434" y="1115" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="452" y="1132" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="459" y="1150" font-size="15" fill="#945c0b" font-weight="750" class="mono">06</text>
+<text x="456" y="1191" font-size="28" fill="#945c0b" font-weight="700" >SLO 与质量判定</text>
+<text x="456" y="1234" font-size="23" fill="#172b45" font-weight="450" >TTFT / TPOT / 成本与质量</text>
+<text x="456" y="1268" font-size="23" fill="#172b45" font-weight="450" >每档分别看风险切片</text>
+</g>
+<g id="node-knee" class="node node-evidence" data-region="101,1468,354,197">
+<rect x="101" y="1468" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="119" y="1485" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="126" y="1503" font-size="15" fill="#7045a4" font-weight="750" class="mono">07</text>
+<text x="123" y="1544" font-size="28" fill="#7045a4" font-weight="700" >Goodput 拐点</text>
+<text x="123" y="1587" font-size="23" fill="#172b45" font-weight="450" >相邻档比较有效产出与违约</text>
+<text x="123" y="1621" font-size="23" fill="#172b45" font-weight="450" >最大吞吐不直接作容量</text>
+</g>
+<g id="node-recovery" class="node node-control" data-region="677,1451,354,231">
+<rect x="677" y="1451" width="354" height="231" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="695" y="1468" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="702" y="1486" font-size="15" fill="#945c0b" font-weight="750" class="mono">08</text>
+<text x="699" y="1527" font-size="28" fill="#945c0b" font-weight="700" >停止与恢复验证</text>
+<text x="699" y="1570" font-size="23" fill="#172b45" font-weight="450" >首个 SLO 破坏时停止</text>
+<text x="699" y="1604" font-size="23" fill="#172b45" font-weight="450" >保存排空、恢复和安全余量</text>
+<text x="699" y="1638" font-size="23" fill="#172b45" font-weight="450" >依据</text>
+</g>
+<rect x="450" y="305" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="528" y="333" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">相同请求分布</text>
+<rect x="728.43" y="305" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="806.43" y="333" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">相同请求分布</text>
+<rect x="413.64" y="658" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="491.64" y="686" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">固定外部到达</text>
+<rect x="667.39" y="658" width="112" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="723.39" y="686" font-size="21" fill="#215cbb" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">固定并发</text>
+<rect x="356.65" y="1016" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="434.65" y="1044" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">所有请求结局</text>
+<rect x="581.57" y="1016" width="177" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="670.07" y="1044" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">阶段与质量事件</text>
+<rect x="213.29000000000002" y="1369" width="134" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="280.29" y="1397" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">守恒通过后</text>
+<rect x="525.31" y="1369" width="156" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="603.31" y="1397" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">有效产出判据</text>
+<rect x="475" y="1478.62" width="182" height="42" rx="6" fill="#fff" stroke="none" />
+<text x="566" y="1506.62" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">失守 / 恢复窗口</text>
+</g>
+</g>
+<text x="64" y="2162" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2162" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2192,470,174">
+<rect x="64" y="2192" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2214" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="106" y="2239" font-size="25" fill="#945c0b" font-weight="700" >逐级只改什么</text>
+<text x="88" y="2294" font-size="23" fill="#172b45" font-weight="450" >每级只改到达率</text>
+<text x="88" y="2329" font-size="23" fill="#172b45" font-weight="450" >Token、缓存与质量口径不变</text>
+</g>
+<g id="detail-1" data-region="565,2192,470,174">
+<rect x="565" y="2192" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2214" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="607" y="2239" font-size="25" fill="#ad3e4c" font-weight="700" >本页命名故障</text>
+<text x="589" y="2294" font-size="23" fill="#172b45" font-weight="450" >删除 dropped，只报完成数</text>
+<text x="589" y="2329" font-size="23" fill="#172b45" font-weight="450" >守恒不成立即阻断拐点结论</text>
+</g>
+<g id="detail-2" data-region="1066,2192,470,174">
+<rect x="1066" y="2192" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2214" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="2239" font-size="25" fill="#7045a4" font-weight="700" >余量如何有依据</text>
+<text x="1090" y="2294" font-size="23" fill="#172b45" font-weight="450" >记录首个 SLO 失守与恢复窗口</text>
+<text x="1090" y="2329" font-size="23" fill="#172b45" font-weight="450" >安全余量只属于该版本与负载</text>
+</g>
+<g id="failure-and-output" data-region="64,2398,1472,148">
+<rect x="64" y="2398" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2437" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2482" font-size="23" fill="#ffdce2" font-weight="450" >守恒不闭合先修生成器或账本；队列无法排空须记录恢复失败。</text>
+<text x="88" y="2525" font-size="23" fill="#dce9fa" font-weight="450" >交付 workload Manifest、到达守恒表、阶梯实验与停止恢复记录。</text>
+</g>
+<text x="64" y="2594" font-size="20" fill="#50647c" font-weight="450" >合成负载与虚拟时间只验证门禁；没有真实 GPU、缓存、容量或生产 SLA 数据。</text>
+<text x="64" y="2633" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-A04 · 同一负载双模式加压与到达守恒</text>
+<path class="edge edge-data" d="M64 2673 L101 2673" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2679" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2673 L397 2673" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2679" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2673 L693 2673" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2679" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2673 L989 2673" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2679" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2673 L1285 2673" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2679" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

@@ -1,120 +1,163 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1160 546" width="1160" height="546">
-  <title id="title">运行长稳测试：识别资源泄漏与漂移：flow流程</title>
-  <desc id="desc">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-</style>
-  <rect class="ds-bg" width="1160" height="546" rx="22"/>
-  
-  <rect class="ds-header" x="0" y="0" width="1160" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1160" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">FLOW · 证据流</text>
-  <text class="ds-subtitle" x="1124" y="32" text-anchor="end">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</text>
-  <text class="ds-title" x="36" y="74">运行长稳测试：识别资源泄漏与漂移</text>
-  <text class="ds-source" x="36" y="140">flow · TD-AP07 证据链 · 来源 S51, S67, S68, S75</text>
-  
-    <path d="M 264 220 L 286 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 466 220 L 488 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 668 220 L 690 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 870 220 L 892 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 984 268 V 305 H 176 V 338" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-  
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="172" width="176" height="96" rx="14" fill="#eaf1fa" stroke="#aec6e3"/>
-      
-      <circle cx="106" cy="190" r="11" fill="#ffffff" stroke="#aec6e3" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="193" text-anchor="middle" >01</text>
-      <text class="ds-node-title" x="103" y="220">固定长期 workload</text>
-      <text class="ds-node-detail" x="103" y="235">输入 / 依据</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="290" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="308" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="193" text-anchor="middle" >02</text>
-      <text class="ds-node-title" x="305" y="220">Process/GPU/Cache sampler</text>
-      <text class="ds-node-detail" x="305" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="492" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="510" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="510" y="193" text-anchor="middle" >03</text>
-      <text class="ds-node-title" x="507" y="220">Task Trace</text>
-      <text class="ds-node-detail" x="507" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="694" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="712" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="712" y="193" text-anchor="middle" >04</text>
-      <text class="ds-node-title" x="709" y="220">Periodic snapshots</text>
-      <text class="ds-node-detail" x="709" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="896" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="914" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="914" y="193" text-anchor="middle" >05</text>
-      <text class="ds-node-title" x="911" y="220">Cleanup/Reconciliation</text>
-      <text class="ds-node-detail" x="911" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-strong)">
-      <rect x="88" y="342" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a" stroke-width="2"/>
-      <rect x="88" y="342" width="6" height="96" rx="3" fill="#93bd2c"/>
-      <circle cx="106" cy="360" r="11" fill="#174a3a" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="363" text-anchor="middle" fill="#ffffff">06</text>
-      <text class="ds-node-title" x="103" y="390">Slope + latency gate</text>
-      <text class="ds-node-detail" x="103" y="405">决定 / 输出</text>
-    </g>
-  <circle cx="108" cy="460" r="4" fill="#355f96"/><text class="ds-legend" x="118" y="464">输入 / 依据</text><circle cx="177.4" cy="460" r="4" fill="#c2d9cc"/><text class="ds-legend" x="187.4" y="464">处理 / 变换</text><circle cx="246.8" cy="460" r="4" fill="#6a49a8"/><text class="ds-legend" x="256.8" y="464">独立判断</text><circle cx="297.6" cy="460" r="4" fill="#a96a18"/><text class="ds-legend" x="307.6" y="464">门禁 / 裁决</text><circle cx="367" cy="460" r="4" fill="#b2402f"/><text class="ds-legend" x="377" y="464">安全终态</text>
-  
-  <rect x="28" y="472" width="1104" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="498">证据边界</text>
-  <text class="ds-foot" x="46" y="520">节点是页面语义关系；不代表真实模型、企业集成或生产效果已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="3073" viewBox="0 0 1600 3073" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">趋势与快照区分缓存和泄漏</title><desc id="desc">固定版本与负载，资源斜率、尾延迟和 cleanup 联合判读；平台期仍需检查缓存上限。 用不变条件下的慢变量和快照差分支持泄漏候选 本地图示合成 slope，不宣称真实泄漏；新运行时重定 GC、缓存和斜率合同，production soak NOT_RUN。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-AP07 / AP07 Project lab：八小时 soak 的慢变量证据;docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-AP07 / AP07 验收标准;docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-AP07 / 完成标准与停止条件">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-AP07&quot;,&quot;pageIds&quot;:[&quot;TD-AP07&quot;],&quot;primaryPageIds&quot;:[&quot;TD-AP07&quot;],&quot;layout&quot;:&quot;evidence&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-AP07 / AP07 Project lab：八小时 soak 的慢变量证据&quot;,&quot;quote&quot;:&quot;上升后平台要结合缓存上限和对象类型判断。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-AP07 / AP07 验收标准&quot;,&quot;quote&quot;:&quot;中途变更会使本轮结论失效。&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-AP07 / 完成标准与停止条件&quot;,&quot;quote&quot;:&quot;区间跨 0 只说明未测出增长，不得单独写成「无泄漏」。&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;contract&quot;,&quot;title&quot;:&quot;长稳不变条件&quot;},{&quot;id&quot;:&quot;trend&quot;,&quot;title&quot;:&quot;资源与任务趋势&quot;},{&quot;id&quot;:&quot;snapshots&quot;,&quot;title&quot;:&quot;首中尾快照差分&quot;},{&quot;id&quot;:&quot;cleanup&quot;,&quot;title&quot;:&quot;Cleanup receipts&quot;},{&quot;id&quot;:&quot;plateau&quot;,&quot;title&quot;:&quot;平台期候选&quot;},{&quot;id&quot;:&quot;leak&quot;,&quot;title&quot;:&quot;泄漏候选&quot;},{&quot;id&quot;:&quot;invalid&quot;,&quot;title&quot;:&quot;实验污染&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;contract&quot;,&quot;to&quot;:&quot;trend&quot;,&quot;label&quot;:&quot;固定条件持续采样&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;contract&quot;,&quot;to&quot;:&quot;snapshots&quot;,&quot;label&quot;:&quot;分窗口快照&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;contract&quot;,&quot;to&quot;:&quot;cleanup&quot;,&quot;label&quot;:&quot;固定回收观察&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;trend&quot;,&quot;to&quot;:&quot;plateau&quot;,&quot;label&quot;:&quot;观察到趋稳&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;snapshots&quot;,&quot;to&quot;:&quot;plateau&quot;,&quot;label&quot;:&quot;检查有界性&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;trend&quot;,&quot;to&quot;:&quot;leak&quot;,&quot;label&quot;:&quot;稳态持续正斜率&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;snapshots&quot;,&quot;to&quot;:&quot;leak&quot;,&quot;label&quot;:&quot;增长对象证据&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;cleanup&quot;,&quot;to&quot;:&quot;leak&quot;,&quot;label&quot;:&quot;回收失败线索&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;contract&quot;,&quot;to&quot;:&quot;invalid&quot;,&quot;label&quot;:&quot;条件中途改变&quot;,&quot;kind&quot;:&quot;risk&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="3073" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-AP07</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >趋势与快照区分缓存和泄漏</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >固定版本与负载，资源斜率、尾延迟和 cleanup 联合判读；平台期仍需检查缓存上限。</text>
+<g id="system-graph" data-region="64,234,1472,2235">
+<rect x="64" y="234" width="1472" height="2235" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >用不变条件下的慢变量和快照差分支持泄漏候选</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M622.2 307 L622.2 371 L70 371 L70 543 L451 543 L451 583" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M622.2 307 L622.2 371 L70 371 L70 543 L451 543 L451 583" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e0" data-from="contract" data-to="trend"/>
+<path d="M805.8 307 L805.8 355 L1380 355 L1380 557 L1367 557 Q1359 545 1351 557 L981 557 L981 583" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M805.8 307 L805.8 355 L1380 355 L1380 557 L1367 557 Q1359 545 1351 557 L981 557 L981 583" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e1" data-from="contract" data-to="snapshots"/>
+<path d="M683.4 307 L683.4 419 L739.6 419 Q744.6 407 749.6 419 L1362 419 L1362 1018 L714 1018 L714 1044" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M683.4 307 L683.4 419 L739.6 419 Q744.6 407 749.6 419 L1362 419 L1362 1018 L714 1018 L714 1044" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e2" data-from="contract" data-to="cleanup"/>
+<path d="M400 814 L400 862 L84 862 L84 1349 L400 1349 L400 1431" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M400 814 L400 862 L84 862 L84 1349 L400 1349 L400 1431" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e3" data-from="trend" data-to="plateau"/>
+<path d="M930 780 L930 862 L1027 862 Q1032 850 1037 862 L1351 862 Q1356 850 1361 862 L1368 862 L1368 1363 L1361 1363 Q1356 1351 1351 1363 L502 1363 L502 1431" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M930 780 L930 862 L1027 862 Q1032 850 1037 862 L1351 862 Q1356 850 1361 862 L1368 862 L1368 1363 L1361 1363 Q1356 1351 1351 1363 L502 1363 L502 1431" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e4" data-from="snapshots" data-to="plateau"/>
+<path d="M502 814 L502 942 L77 942 L77 1377 L395 1377 Q400 1365 405 1377 L497 1377 Q502 1365 507 1377 L904.5 1377 L904.5 1431" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M502 814 L502 942 L77 942 L77 1377 L395 1377 Q400 1365 405 1377 L497 1377 Q502 1365 507 1377 L904.5 1377 L904.5 1431" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e5" data-from="trend" data-to="leak"/>
+<path d="M1032 780 L1032 926 L1351 926 Q1359 914 1367 926 L1374 926 L1374 1391 L1361 1391 Q1356 1379 1351 1391 L1057.5 1391 L1057.5 1431" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M1032 780 L1032 926 L1351 926 Q1359 914 1367 926 L1374 926 L1374 1391 L1361 1391 Q1356 1379 1351 1391 L1057.5 1391 L1057.5 1431" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e6" data-from="snapshots" data-to="leak"/>
+<path d="M714 1241 L714 1289 L1351 1289 Q1362 1277 1373 1289 L1380 1289 L1380 1405 L1361 1405 Q1356 1393 1351 1405 L1062.5 1405 Q1057.5 1393 1052.5 1405 L981 1405 L981 1431" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M714 1241 L714 1289 L1351 1289 Q1362 1277 1373 1289 L1380 1289 L1380 1405 L1361 1405 Q1356 1393 1351 1405 L1062.5 1405 Q1057.5 1393 1052.5 1405 L981 1405 L981 1431" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="cleanup" data-to="leak"/>
+<path d="M744.6 307 L744.6 483 L1356 483 L1356 1672 L714 1672 L714 1758" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-risk" d="M744.6 307 L744.6 483 L1356 483 L1356 1672 L714 1672 L714 1758" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" data-edge-id="e8" data-from="contract" data-to="invalid"/>
+<g id="node-contract" class="node node-input" data-region="537,76,354,231">
+<rect x="537" y="76" width="354" height="231" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="555" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="559" y="152" font-size="28" fill="#215cbb" font-weight="700" >长稳不变条件</text>
+<text x="559" y="195" font-size="23" fill="#172b45" font-weight="450" >固定版本、workload 与资源</text>
+<text x="559" y="229" font-size="23" fill="#172b45" font-weight="450" >预注册热身、稳态、恢复</text>
+<text x="559" y="263" font-size="23" fill="#172b45" font-weight="450" >窗口</text>
+</g>
+<g id="node-trend" class="node node-data" data-region="274,583,354,231">
+<rect x="274" y="583" width="354" height="231" rx="14" fill="#e9f7f4" stroke="none" />
+<rect x="292" y="600" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="618" font-size="15" fill="#087b76" font-weight="750" class="mono">02</text>
+<text x="296" y="659" font-size="28" fill="#087b76" font-weight="700" >资源与任务趋势</text>
+<text x="296" y="702" font-size="23" fill="#172b45" font-weight="450" >内存、连接、句柄、临时</text>
+<text x="296" y="736" font-size="23" fill="#172b45" font-weight="450" >文件</text>
+<text x="296" y="770" font-size="23" fill="#172b45" font-weight="450" >对齐尾延迟、GC 与任务数</text>
+</g>
+<g id="node-snapshots" class="node node-evidence" data-region="804,583,354,197">
+<rect x="804" y="583" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="600" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="618" font-size="15" fill="#7045a4" font-weight="750" class="mono">03</text>
+<text x="826" y="659" font-size="28" fill="#7045a4" font-weight="700" >首中尾快照差分</text>
+<text x="826" y="702" font-size="23" fill="#172b45" font-weight="450" >按对象与资源增长排序</text>
+<text x="826" y="736" font-size="23" fill="#172b45" font-weight="450" >区分有界增长与持续累积</text>
+</g>
+<g id="node-cleanup" class="node node-evidence" data-region="537,1044,354,197">
+<rect x="537" y="1044" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="555" y="1061" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="1079" font-size="15" fill="#7045a4" font-weight="750" class="mono">04</text>
+<text x="559" y="1120" font-size="28" fill="#7045a4" font-weight="700" >Cleanup receipts</text>
+<text x="559" y="1163" font-size="23" fill="#172b45" font-weight="450" >按资源类型核对清理结果</text>
+<text x="559" y="1197" font-size="23" fill="#172b45" font-weight="450" >回收失败先查 owner 与范围</text>
+</g>
+<g id="node-plateau" class="node node-process" data-region="274,1431,354,197">
+<rect x="274" y="1431" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="292" y="1448" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1466" font-size="15" fill="#344f70" font-weight="750" class="mono">05</text>
+<text x="296" y="1507" font-size="28" fill="#344f70" font-weight="700" >平台期候选</text>
+<text x="296" y="1550" font-size="23" fill="#172b45" font-weight="450" >上升后趋稳不直接判泄漏</text>
+<text x="296" y="1584" font-size="23" fill="#172b45" font-weight="450" >核对缓存上限与淘汰机制</text>
+</g>
+<g id="node-leak" class="node node-risk" data-region="804,1431,354,197">
+<rect x="804" y="1431" width="354" height="197" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="822" y="1448" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1466" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">06</text>
+<text x="826" y="1507" font-size="28" fill="#ad3e4c" font-weight="700" >泄漏候选</text>
+<text x="826" y="1550" font-size="23" fill="#172b45" font-weight="450" >稳态持续增长且差分扩大</text>
+<text x="826" y="1584" font-size="23" fill="#172b45" font-weight="450" >保留最小复现并同负载复测</text>
+</g>
+<g id="node-invalid" class="node node-risk" data-region="537,1758,354,197">
+<rect x="537" y="1758" width="354" height="197" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="555" y="1775" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="1793" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">07</text>
+<text x="559" y="1834" font-size="28" fill="#ad3e4c" font-weight="700" >实验污染</text>
+<text x="559" y="1877" font-size="23" fill="#172b45" font-weight="450" >中途部署、重启或扩缩容</text>
+<text x="559" y="1911" font-size="23" fill="#172b45" font-weight="450" >记录时刻并废弃本轮结论</text>
+</g>
+<rect x="95.69" y="333" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="362" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  固定条件持续</text>
+<text x="190" y="394" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">采样</text>
+<text x="455" y="573" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="1162.61" y="333" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="362" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  分窗口快照</text>
+<text x="985" y="573" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="1151.69" y="397" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="426" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  固定回收观察</text>
+<text x="718" y="1034" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="106.61" y="840" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="869" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  观察到趋稳</text>
+<text x="404" y="1421" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="1162.61" y="840" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="869" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  检查有界性</text>
+<text x="506" y="1421" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="106.61" y="904" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="933" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  稳态持续正</text>
+<text x="190" y="965" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">斜率</text>
+<text x="908.5" y="1421" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="1151.69" y="904" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="933" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  增长对象证据</text>
+<text x="1061.5" y="1421" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="1151.69" y="1267" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="1296" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  回收失败线索</text>
+<text x="985" y="1421" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+<rect x="1151.69" y="461" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="490" font-size="21" fill="#ad3e4c" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  条件中途改变</text>
+<text x="718" y="1748" font-size="18" fill="#ad3e4c" font-weight="750" class="edge-end-label" data-edge-id="e8" stroke="#fff" stroke-width="4" paint-order="stroke">09</text>
+</g>
+</g>
+<text x="64" y="2523" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2523" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2553,470,174">
+<rect x="64" y="2553" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2575" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="106" y="2600" font-size="25" fill="#945c0b" font-weight="700" >怎样设计有效窗口</text>
+<text x="88" y="2655" font-size="23" fill="#172b45" font-weight="450" >负载按 SLO 拐点合同分数设置</text>
+<text x="88" y="2690" font-size="23" fill="#172b45" font-weight="450" >热身后拟合斜率并保留区间</text>
+</g>
+<g id="detail-1" data-region="565,2553,470,174">
+<rect x="565" y="2553" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2575" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="607" y="2600" font-size="25" fill="#ad3e4c" font-weight="700" >怎样避免重启假绿</text>
+<text x="589" y="2655" font-size="23" fill="#172b45" font-weight="450" >不以周期重启掩盖资源累积</text>
+<text x="589" y="2690" font-size="23" fill="#172b45" font-weight="450" >只重启恢复不算根因修复</text>
+</g>
+<g id="detail-2" data-region="1066,2553,470,174">
+<rect x="1066" y="2553" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2575" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="2600" font-size="25" fill="#7045a4" font-weight="700" >怎样交付复验</text>
+<text x="1090" y="2655" font-size="23" fill="#172b45" font-weight="450" >趋势、差分、cleanup 与停止记录</text>
+<text x="1090" y="2690" font-size="23" fill="#172b45" font-weight="450" >每个候选附复现和回归观测</text>
+</g>
+<g id="failure-and-output" data-region="64,2759,1472,148">
+<rect x="64" y="2759" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2798" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2843" font-size="23" fill="#ffdce2" font-weight="450" >观测窗口不足保持证据不足；区间跨零只能说明未测出增长，中途变更必须重跑。</text>
+<text x="88" y="2886" font-size="23" fill="#dce9fa" font-weight="450" >交付长稳趋势、快照排序、泄漏候选、停止记录与环境不变性声明。</text>
+</g>
+<text x="64" y="2955" font-size="20" fill="#50647c" font-weight="450" >本地图示合成 slope，不宣称真实泄漏；新运行时重定 GC、缓存和斜率合同，production soak NOT_RUN。</text>
+<text x="64" y="2994" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-AP07 · 趋势与快照区分缓存和泄漏</text>
+<path class="edge edge-data" d="M64 3034 L101 3034" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="3040" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 3034 L397 3034" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="3040" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 3034 L693 3034" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="3040" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 3034 L989 3034" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="3040" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 3034 L1285 3034" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="3040" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>

@@ -1,130 +1,172 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1160 546" width="1160" height="546">
-  <title id="title">Kubernetes 临时测试环境：隔离、回收与审计：flow流程</title>
-  <desc id="desc">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</desc>
-  
-    <linearGradient id="ds-header-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0e3026"/>
-      <stop offset="1" stop-color="#174a3a"/>
-    </linearGradient>
-  
-  <defs>
-    <filter id="ds-soft" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0e3026" flood-opacity="0.08"/>
-    </filter>
-    <filter id="ds-strong" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#0e3026" flood-opacity="0.13"/>
-    </filter>
-    <marker id="ds-arw-forest" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#174a3a"/>
-    </marker>
-    <marker id="ds-arw-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#a96a18"/>
-    </marker>
-    <marker id="ds-arw-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#b2402f"/>
-    </marker>
-    <marker id="ds-arw-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#85908a"/>
-    </marker>
-  </defs>
-  <style>
-    .ds-bg{fill:#fbfaf6}
-    .ds-header{fill:url(#ds-header-grad)}
-    .ds-eyebrow{font:700 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.16em;fill:#93bd2c}
-    .ds-title{font:800 26px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#ffffff}
-    .ds-subtitle{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#d9e8e0}
-    .ds-source{font:500 10.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#9db7ab}
-    .ds-section{font:800 11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;fill:#174a3a}
-    .ds-foot{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-footbadge{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;fill:#a96a18}
-    .ds-node rect{stroke-width:1.4}
-    .ds-node-title{font:800 13.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#1c2924}
-    .ds-node-detail{font:500 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-    .ds-node-index{font:800 10px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;fill:#85908a}
-    .ds-edge{fill:none;stroke:#174a3a;stroke-width:2}
-    .ds-edge-label{font:600 9.5px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66;paint-order:stroke;stroke:#fbfaf6;stroke-width:4px}
-    .ds-legend{font:500 10px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;fill:#5f6c66}
-</style>
-  <rect class="ds-bg" width="1160" height="546" rx="22"/>
-  
-  <rect class="ds-header" x="0" y="0" width="1160" height="118" rx="22"/>
-  <rect class="ds-header" x="0" y="96" width="1160" height="22"/>
-  <text class="ds-eyebrow" x="36" y="32">FLOW · 证据流</text>
-  <text class="ds-subtitle" x="1124" y="32" text-anchor="end">输入沿证据链经过变换、独立判断与门禁，最终形成可复核决定</text>
-  <text class="ds-title" x="36" y="74">Kubernetes 临时测试环境：隔离、回收与审计</text>
-  <text class="ds-source" x="36" y="140">flow · 临时测试环境的隔离与回收链 · 来源 S98, S99, S100, S101</text>
-  
-    <path d="M 264 220 L 286 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 466 220 L 488 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 668 220 L 690 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 870 220 L 892 220" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-    <path d="M 984 268 V 305 H 176 V 338" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    <path d="M 264 390 L 286 390" fill="none" stroke="#174a3a" stroke-width="2" marker-end="url(#ds-arw-forest)"/>
-    
-  
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="172" width="176" height="96" rx="14" fill="#eaf1fa" stroke="#aec6e3"/>
-      
-      <circle cx="106" cy="190" r="11" fill="#ffffff" stroke="#aec6e3" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="193" text-anchor="middle" >01</text>
-      <text class="ds-node-title" x="103" y="220">MR/Run 请求</text>
-      <text class="ds-node-detail" x="103" y="235">输入 / 依据</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="290" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="308" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="193" text-anchor="middle" >02</text>
-      <text class="ds-node-title" x="305" y="220">Namespace Provisioner</text>
-      <text class="ds-node-detail" x="305" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="492" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="510" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="510" y="193" text-anchor="middle" >03</text>
-      <text class="ds-node-title" x="507" y="220">Namespace/RBAC/ServiceAcc…</text>
-      <text class="ds-node-detail" x="507" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="694" y="172" width="176" height="96" rx="14" fill="#f0ecfb" stroke="#c9b8ea"/>
-      
-      <circle cx="712" cy="190" r="11" fill="#ffffff" stroke="#c9b8ea" stroke-width="1.4"/>
-       <text class="ds-node-index" x="712" y="193" text-anchor="middle" >04</text>
-      <text class="ds-node-title" x="709" y="220">Quota/NetworkPolicy</text>
-      <text class="ds-node-detail" x="709" y="235">独立判断</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="896" y="172" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="914" cy="190" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="914" y="193" text-anchor="middle" >05</text>
-      <text class="ds-node-title" x="911" y="220">Test Job/Runner</text>
-      <text class="ds-node-detail" x="911" y="235">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-soft)">
-      <rect x="88" y="342" width="176" height="96" rx="14" fill="#edf5f0" stroke="#c2d9cc"/>
-      
-      <circle cx="106" cy="360" r="11" fill="#ffffff" stroke="#c2d9cc" stroke-width="1.4"/>
-       <text class="ds-node-index" x="106" y="363" text-anchor="middle" >06</text>
-      <text class="ds-node-title" x="103" y="390">TTL/Stop/Cleanup Worker</text>
-      <text class="ds-node-detail" x="103" y="405">处理 / 变换</text>
-    </g>
-    <g class="ds-node" filter="url(#ds-strong)">
-      <rect x="290" y="342" width="176" height="96" rx="14" fill="#fdf1d8" stroke="#e0b76a" stroke-width="2"/>
-      <rect x="290" y="342" width="6" height="96" rx="3" fill="#93bd2c"/>
-      <circle cx="308" cy="360" r="11" fill="#174a3a" stroke="#e0b76a" stroke-width="1.4"/>
-       <text class="ds-node-index" x="308" y="363" text-anchor="middle" fill="#ffffff">07</text>
-      <text class="ds-node-title" x="305" y="390">K8s Audit/平台审计</text>
-      <text class="ds-node-detail" x="305" y="405">决定 / 输出</text>
-    </g>
-  <circle cx="108" cy="460" r="4" fill="#355f96"/><text class="ds-legend" x="118" y="464">输入 / 依据</text><circle cx="177.4" cy="460" r="4" fill="#c2d9cc"/><text class="ds-legend" x="187.4" y="464">处理 / 变换</text><circle cx="246.8" cy="460" r="4" fill="#6a49a8"/><text class="ds-legend" x="256.8" y="464">独立判断</text><circle cx="297.6" cy="460" r="4" fill="#a96a18"/><text class="ds-legend" x="307.6" y="464">门禁 / 裁决</text><circle cx="367" cy="460" r="4" fill="#b2402f"/><text class="ds-legend" x="377" y="464">安全终态</text>
-  
-  <rect x="28" y="472" width="1104" height="46" rx="12" fill="#fdf1d8" stroke="#e3c07b" stroke-width="1.2"/>
-  <text class="ds-footbadge" x="46" y="498">证据边界</text>
-  <text class="ds-foot" x="46" y="520">节点是页面语义关系；不代表真实模型、企业集成或生产效果已验证。</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2851" viewBox="0 0 1600 2851" role="img" aria-labelledby="title desc" data-redraw-version="2">
+<title id="title">临时环境从申请到回收都要有证据</title><desc id="desc">独立 namespace 还须配齐权限、资源网络边界和回收确认，删除请求不等于资源消失。 一条运行生命周期由创建、约束、执行、回收和审计组成 配置存在不代表隔离已生效；真实集群越权、网络、配额及回收实验必须分别运行。</desc><metadata data-source-ref="docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-QP03 / 临时环境必须配齐的五项;docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-QP03 / 架构节点与交付物;docs/svg-redesign-2026-10-26/body-sources/course-3.json#TD-QP03 / 临时环境必须配齐的五项">{&quot;version&quot;:&quot;2.0.0&quot;,&quot;id&quot;:&quot;TD-QP03&quot;,&quot;pageIds&quot;:[&quot;TD-QP03&quot;],&quot;primaryPageIds&quot;:[&quot;TD-QP03&quot;],&quot;layout&quot;:&quot;state&quot;,&quot;sourceRefs&quot;:[{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-QP03 / 临时环境必须配齐的五项&quot;,&quot;quote&quot;:&quot;超时自动销毁，回收失败要告警&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-QP03 / 架构节点与交付物&quot;,&quot;quote&quot;:&quot;按最小权限授予，验证越权读取失败&quot;},{&quot;path&quot;:&quot;docs/svg-redesign-2026-10-26/body-sources/course-3.json&quot;,&quot;locator&quot;:&quot;TD-QP03 / 临时环境必须配齐的五项&quot;,&quot;quote&quot;:&quot;数据库、队列随环境创建与销毁&quot;}],&quot;supplementalSources&quot;:[],&quot;nodes&quot;:[{&quot;id&quot;:&quot;request&quot;,&quot;title&quot;:&quot;MR/Run 请求&quot;},{&quot;id&quot;:&quot;provision&quot;,&quot;title&quot;:&quot;Namespace Provisioner&quot;},{&quot;id&quot;:&quot;identity&quot;,&quot;title&quot;:&quot;Namespace/RBAC/ServiceAccount&quot;},{&quot;id&quot;:&quot;policy&quot;,&quot;title&quot;:&quot;Quota/NetworkPolicy&quot;},{&quot;id&quot;:&quot;runner&quot;,&quot;title&quot;:&quot;Test Job/Runner&quot;},{&quot;id&quot;:&quot;cleanup&quot;,&quot;title&quot;:&quot;TTL/Stop/Cleanup Worker&quot;},{&quot;id&quot;:&quot;audit&quot;,&quot;title&quot;:&quot;K8s Audit/平台审计&quot;}],&quot;edges&quot;:[{&quot;from&quot;:&quot;request&quot;,&quot;to&quot;:&quot;provision&quot;,&quot;label&quot;:&quot;运行申请&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;provision&quot;,&quot;to&quot;:&quot;identity&quot;,&quot;label&quot;:&quot;建立运行身份&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;provision&quot;,&quot;to&quot;:&quot;policy&quot;,&quot;label&quot;:&quot;施加资源网络限制&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;identity&quot;,&quot;to&quot;:&quot;runner&quot;,&quot;label&quot;:&quot;最小权限准入&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;policy&quot;,&quot;to&quot;:&quot;runner&quot;,&quot;label&quot;:&quot;配额与隔离准入&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;runner&quot;,&quot;to&quot;:&quot;cleanup&quot;,&quot;label&quot;:&quot;结束或取消&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;request&quot;,&quot;to&quot;:&quot;cleanup&quot;,&quot;label&quot;:&quot;TTL 到期或停止&quot;,&quot;kind&quot;:&quot;control&quot;},{&quot;from&quot;:&quot;provision&quot;,&quot;to&quot;:&quot;audit&quot;,&quot;label&quot;:&quot;创建记录&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;identity&quot;,&quot;to&quot;:&quot;audit&quot;,&quot;label&quot;:&quot;越权验证&quot;,&quot;kind&quot;:&quot;evidence&quot;},{&quot;from&quot;:&quot;cleanup&quot;,&quot;to&quot;:&quot;audit&quot;,&quot;label&quot;:&quot;回收结果与残留&quot;,&quot;kind&quot;:&quot;evidence&quot;}]}</metadata>
+<style>text{font-family:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif}.mono{font-family:'SFMono-Regular',Consolas,monospace;letter-spacing:.25px}</style><defs><marker id="arr-data" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#215cbb"/></marker><marker id="arr-control" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#945c0b"/></marker><marker id="arr-evidence" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#7045a4"/></marker><marker id="arr-feedback" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#087b76"/></marker><marker id="arr-risk" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto"><path d="M0 0L12 6L0 12L3 6Z" fill="#ad3e4c"/></marker></defs>
+<rect width="1600" height="2851" fill="#f4f7fb"/><rect width="10" height="174" fill="#215cbb"/>
+<text x="64" y="53" font-size="18" fill="#215cbb" font-weight="750" class="mono">QUALITY ENGINEERING  /  TD-QP03</text>
+<text x="64" y="112" font-size="40" fill="#172b45" font-weight="750" >临时环境从申请到回收都要有证据</text>
+<text x="64" y="170" font-size="24" fill="#50647c" font-weight="450" >独立 namespace 还须配齐权限、资源网络边界和回收确认，删除请求不等于资源消失。</text>
+<g id="system-graph" data-region="64,234,1472,2013">
+<rect x="64" y="234" width="1472" height="2013" rx="14" fill="#fff" stroke="#d9e2ed" />
+<text x="88" y="276" font-size="20" fill="#215cbb" font-weight="800" class="mono">A</text>
+<text x="122" y="276" font-size="25" fill="#172b45" font-weight="700" >一条运行生命周期由创建、约束、执行、回收和审计组成</text>
+<text x="88" y="311" font-size="18" fill="#50647c" font-weight="550" >同号为同一连线；跨线桥表示穿越，不表示连接</text>
+<g transform="translate(88 340)" data-graph-scale="1" data-routing="outer-rails">
+<path d="M502 273 L502 394 L889.2 394 L889.2 346" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M502 273 L502 394 L889.2 394 L889.2 346" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e0" data-from="request" data-to="provision"/>
+<path d="M950.4 346 L950.4 394 L1006.6 394 Q1011.6 382 1016.6 394 L1067.8 394 Q1072.8 382 1077.8 394 L1362 394 L1362 614 L451 614 L451 654" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M950.4 346 L950.4 394 L1006.6 394 Q1011.6 382 1016.6 394 L1067.8 394 Q1072.8 382 1077.8 394 L1362 394 L1362 614 L451 614 L451 654" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e1" data-from="provision" data-to="identity"/>
+<path d="M1011.6 346 L1011.6 474 L1067.8 474 Q1072.8 462 1077.8 474 L1368 474 L1368 628 L1361 628 Q1356 616 1351 628 L981 628 L981 654" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M1011.6 346 L1011.6 474 L1067.8 474 Q1072.8 462 1077.8 474 L1368 474 L1368 628 L1361 628 Q1356 616 1351 628 L981 628 L981 654" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e2" data-from="provision" data-to="policy"/>
+<path d="M400 890 L400 938 L89 938 Q84 926 79 938 L70 938 L70 1062 L79 1062 Q84 1050 89 1062 L663 1062 L663 1102" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M400 890 L400 938 L89 938 Q84 926 79 938 L70 938 L70 1062 L79 1062 Q84 1050 89 1062 L663 1062 L663 1102" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e3" data-from="identity" data-to="runner"/>
+<path d="M981 851 L981 954 L1351 954 Q1356 942 1361 954 L1374 954 L1374 1076 L1361 1076 Q1356 1064 1351 1076 L765 1076 L765 1102" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M981 851 L981 954 L1351 954 Q1356 942 1361 954 L1374 954 L1374 1076 L1361 1076 Q1356 1064 1351 1076 L765 1076 L765 1102" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e4" data-from="policy" data-to="runner"/>
+<path d="M714 1299 L714 1347 L89 1347 Q80.5 1335 72 1347 L63 1347 L63 1407 L72 1407 Q80.5 1395 89 1407 L502 1407 L502 1475" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M714 1299 L714 1347 L89 1347 Q80.5 1335 72 1347 L63 1347 L63 1407 L72 1407 Q80.5 1395 89 1407 L502 1407 L502 1475" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e5" data-from="runner" data-to="cleanup"/>
+<path d="M400 273 L400 410 L84 410 L84 1421 L400 1421 L400 1475" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-control" d="M400 273 L400 410 L84 410 L84 1421 L400 1421 L400 1475" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" data-edge-id="e6" data-from="request" data-to="cleanup"/>
+<path d="M1072.8 346 L1072.8 554 L1356 554 L1356 1435 L1032 1435 L1032 1475" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M1072.8 346 L1072.8 554 L1356 554 L1356 1435 L1032 1435 L1032 1475" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e7" data-from="provision" data-to="audit"/>
+<path d="M502 890 L502 1002 L77 1002 L77 1449 L395 1449 Q400 1437 405 1449 L497 1449 Q502 1437 507 1449 L930 1449 L930 1475" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M502 890 L502 1002 L77 1002 L77 1449 L395 1449 Q400 1437 405 1449 L497 1449 Q502 1437 507 1449 L930 1449 L930 1475" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e8" data-from="identity" data-to="audit"/>
+<path d="M451 1711 L451 1775 L981 1775 L981 1672" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+<path class="edge edge-evidence" d="M451 1711 L451 1775 L981 1775 L981 1672" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" data-edge-id="e9" data-from="cleanup" data-to="audit"/>
+<g id="node-request" class="node node-input" data-region="274,76,354,197">
+<rect x="274" y="76" width="354" height="197" rx="14" fill="#edf3ff" stroke="none" />
+<rect x="292" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="111" font-size="15" fill="#215cbb" font-weight="750" class="mono">01</text>
+<text x="296" y="152" font-size="28" fill="#215cbb" font-weight="700" >MR/Run 请求</text>
+<text x="296" y="195" font-size="23" fill="#172b45" font-weight="450" >记录来源、用途和运行标识</text>
+<text x="296" y="229" font-size="23" fill="#172b45" font-weight="450" >回收和审计都按该标识关联</text>
+</g>
+<g id="node-provision" class="node node-process" data-region="804,76,354,270">
+<rect x="804" y="76" width="354" height="270" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="822" y="93" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="111" font-size="15" fill="#344f70" font-weight="750" class="mono">02</text>
+<text x="826" y="152" font-size="28" fill="#344f70" font-weight="700" >Namespace</text>
+<text x="826" y="191" font-size="28" fill="#344f70" font-weight="700" >Provisioner</text>
+<text x="826" y="234" font-size="23" fill="#172b45" font-weight="450" >每次运行创建独立</text>
+<text x="826" y="268" font-size="23" fill="#172b45" font-weight="450" >namespace</text>
+<text x="826" y="302" font-size="23" fill="#172b45" font-weight="450" >数据库和队列也需可复位</text>
+</g>
+<g id="node-identity" class="node node-control" data-region="274,654,354,236">
+<rect x="274" y="654" width="354" height="236" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="292" y="671" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="689" font-size="15" fill="#945c0b" font-weight="750" class="mono">03</text>
+<text x="296" y="730" font-size="28" fill="#945c0b" font-weight="700" >Namespace/RBAC/</text>
+<text x="296" y="769" font-size="28" fill="#945c0b" font-weight="700" >ServiceAccount</text>
+<text x="296" y="812" font-size="23" fill="#172b45" font-weight="450" >运行身份采用最小权限</text>
+<text x="296" y="846" font-size="23" fill="#172b45" font-weight="450" >实际验证越权读取失败</text>
+</g>
+<g id="node-policy" class="node node-control" data-region="804,654,354,197">
+<rect x="804" y="654" width="354" height="197" rx="14" fill="#fff5e5" stroke="none" />
+<rect x="822" y="671" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="689" font-size="15" fill="#945c0b" font-weight="750" class="mono">04</text>
+<text x="826" y="730" font-size="28" fill="#945c0b" font-weight="700" >Quota/NetworkPolicy</text>
+<text x="826" y="773" font-size="23" fill="#172b45" font-weight="450" >限制资源与网络出入</text>
+<text x="826" y="807" font-size="23" fill="#172b45" font-weight="450" >实际验证不能访问生产依赖</text>
+</g>
+<g id="node-runner" class="node node-process" data-region="537,1102,354,197">
+<rect x="537" y="1102" width="354" height="197" rx="14" fill="#eff4fa" stroke="none" />
+<rect x="555" y="1119" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="562" y="1137" font-size="15" fill="#344f70" font-weight="750" class="mono">05</text>
+<text x="559" y="1178" font-size="28" fill="#344f70" font-weight="700" >Test Job/Runner</text>
+<text x="559" y="1221" font-size="23" fill="#172b45" font-weight="450" >在限定环境内运行测试</text>
+<text x="559" y="1255" font-size="23" fill="#172b45" font-weight="450" >产物写到受控路径</text>
+</g>
+<g id="node-cleanup" class="node node-risk" data-region="274,1475,354,236">
+<rect x="274" y="1475" width="354" height="236" rx="14" fill="#fff0f0" stroke="none" />
+<rect x="292" y="1492" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="299" y="1510" font-size="15" fill="#ad3e4c" font-weight="750" class="mono">06</text>
+<text x="296" y="1551" font-size="28" fill="#ad3e4c" font-weight="700" >TTL/Stop/Cleanup</text>
+<text x="296" y="1590" font-size="28" fill="#ad3e4c" font-weight="700" >Worker</text>
+<text x="296" y="1633" font-size="23" fill="#172b45" font-weight="450" >到期、取消后强制回收</text>
+<text x="296" y="1667" font-size="23" fill="#172b45" font-weight="450" >失败必须告警并继续追踪</text>
+</g>
+<g id="node-audit" class="node node-evidence" data-region="804,1475,354,197">
+<rect x="804" y="1475" width="354" height="197" rx="14" fill="#f4effb" stroke="none" />
+<rect x="822" y="1492" width="36" height="25" rx="7" fill="#fff" stroke="none" />
+<text x="829" y="1510" font-size="15" fill="#7045a4" font-weight="750" class="mono">07</text>
+<text x="826" y="1551" font-size="28" fill="#7045a4" font-weight="700" >K8s Audit/平台审计</text>
+<text x="826" y="1594" font-size="23" fill="#172b45" font-weight="450" >关联创建、越权与回收日志</text>
+<text x="826" y="1628" font-size="23" fill="#172b45" font-weight="450" >回读核对残留资源</text>
+</g>
+<rect x="643.53" y="372" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="401" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e0">01  运行申请</text>
+<text x="893.2" y="368" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e0" stroke="#fff" stroke-width="4" paint-order="stroke">01</text>
+<rect x="1151.69" y="372" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="401" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e1">02  建立运行身份</text>
+<text x="455" y="644" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e1" stroke="#fff" stroke-width="4" paint-order="stroke">02</text>
+<rect x="1151.69" y="436" width="188.62" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="465" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">03  施加资源网络</text>
+<text x="1246" y="497" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e2">限制</text>
+<text x="985" y="644" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e2" stroke="#fff" stroke-width="4" paint-order="stroke">03</text>
+<rect x="95.69" y="916" width="188.62" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="945" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e3">04  最小权限准入</text>
+<text x="667" y="1092" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e3" stroke="#fff" stroke-width="4" paint-order="stroke">04</text>
+<rect x="1162.61" y="916" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="945" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">05  配额与隔离</text>
+<text x="1246" y="977" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e4">准入</text>
+<text x="769" y="1092" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e4" stroke="#fff" stroke-width="4" paint-order="stroke">05</text>
+<rect x="106.61" y="1325" width="166.78" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1354" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e5">06  结束或取消</text>
+<text x="506" y="1465" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e5" stroke="#fff" stroke-width="4" paint-order="stroke">06</text>
+<rect x="104.405" y="372" width="171.19" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="401" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">07  TTL 到期或</text>
+<text x="190" y="433" font-size="21" fill="#945c0b" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e6">停止</text>
+<text x="404" y="1465" font-size="18" fill="#945c0b" font-weight="750" class="edge-end-label" data-edge-id="e6" stroke="#fff" stroke-width="4" paint-order="stroke">07</text>
+<rect x="1173.53" y="532" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="1246" y="561" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e7">08  创建记录</text>
+<text x="1036" y="1465" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e7" stroke="#fff" stroke-width="4" paint-order="stroke">08</text>
+<rect x="117.53" y="980" width="144.94" height="44" rx="6" fill="#fff" stroke="none" />
+<text x="190" y="1009" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e8">09  越权验证</text>
+<text x="934" y="1465" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e8" stroke="#fff" stroke-width="4" paint-order="stroke">09</text>
+<rect x="632.61" y="1737" width="166.78" height="76" rx="6" fill="#fff" stroke="none" />
+<text x="716" y="1766" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">10  回收结果与</text>
+<text x="716" y="1798" font-size="21" fill="#7045a4" font-weight="600" text-anchor="middle" class="edge-label" data-edge-id="e9">残留</text>
+<text x="985" y="1694" font-size="18" fill="#7045a4" font-weight="750" class="edge-end-label" data-edge-id="e9" stroke="#fff" stroke-width="4" paint-order="stroke">10</text>
+</g>
+</g>
+<text x="64" y="2301" font-size="21" fill="#215cbb" font-weight="800" class="mono">B</text>
+<text x="98" y="2301" font-size="27" fill="#172b45" font-weight="700" >把图中的关系落到可执行检查</text>
+<g id="detail-0" data-region="64,2331,470,174">
+<rect x="64" y="2331" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="84" y="2353" width="7" height="30" rx="3" fill="#ad3e4c" stroke="none" />
+<text x="106" y="2378" font-size="25" fill="#ad3e4c" font-weight="700" >怎样验证是真隔离</text>
+<text x="88" y="2433" font-size="23" fill="#172b45" font-weight="450" >并行运行检查数据互不干扰</text>
+<text x="88" y="2468" font-size="23" fill="#172b45" font-weight="450" >验证依赖可复位与越权拒绝</text>
+</g>
+<g id="detail-1" data-region="565,2331,470,174">
+<rect x="565" y="2331" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="585" y="2353" width="7" height="30" rx="3" fill="#945c0b" stroke="none" />
+<text x="607" y="2378" font-size="25" fill="#945c0b" font-weight="700" >怎样验证安全边界</text>
+<text x="589" y="2433" font-size="23" fill="#172b45" font-weight="450" >构造配额超限与生产网络访问</text>
+<text x="589" y="2468" font-size="23" fill="#172b45" font-weight="450" >保留实际拒绝和策略记录</text>
+</g>
+<g id="detail-2" data-region="1066,2331,470,174">
+<rect x="1066" y="2331" width="470" height="174" rx="14" fill="#fff" stroke="#d9e2ed" />
+<rect x="1086" y="2353" width="7" height="30" rx="3" fill="#7045a4" stroke="none" />
+<text x="1108" y="2378" font-size="25" fill="#7045a4" font-weight="700" >怎样证明环境已回收</text>
+<text x="1090" y="2433" font-size="23" fill="#172b45" font-weight="450" >到期和取消分别触发 cleanup</text>
+<text x="1090" y="2468" font-size="23" fill="#172b45" font-weight="450" >回读资源残留，失败必须告警</text>
+</g>
+<g id="failure-and-output" data-region="64,2537,1472,148">
+<rect x="64" y="2537" width="1472" height="148" rx="14" fill="#172e4c" stroke="none" />
+<text x="88" y="2576" font-size="25" fill="#fff" font-weight="700" >C  故障后的动作与本页交付</text>
+<text x="88" y="2621" font-size="23" fill="#ffdce2" font-weight="450" >越权读取、访问生产依赖、资源失控或回收失败未被发现时停止该环境准入。</text>
+<text x="88" y="2664" font-size="23" fill="#dce9fa" font-weight="450" >交付创建与最小权限策略、配额网络验证、运行产物和可对账回收日志。</text>
+</g>
+<text x="64" y="2733" font-size="20" fill="#50647c" font-weight="450" >配置存在不代表隔离已生效；真实集群越权、网络、配额及回收实验必须分别运行。</text>
+<text x="64" y="2772" font-size="18" fill="#50647c" font-weight="450" >对应课程：TD-QP03 · 临时环境从申请到回收都要有证据</text>
+<path class="edge edge-data" d="M64 2812 L101 2812" fill="none" stroke="#215cbb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-data)" />
+<text x="120" y="2818" font-size="18" fill="#50647c" font-weight="550" >数据</text>
+<path class="edge edge-control" d="M360 2812 L397 2812" fill="none" stroke="#945c0b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6" marker-end="url(#arr-control)" />
+<text x="416" y="2818" font-size="18" fill="#50647c" font-weight="550" >控制 / 授权</text>
+<path class="edge edge-evidence" d="M656 2812 L693 2812" fill="none" stroke="#7045a4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-evidence)" />
+<text x="712" y="2818" font-size="18" fill="#50647c" font-weight="550" >证据</text>
+<path class="edge edge-feedback" d="M952 2812 L989 2812" fill="none" stroke="#087b76" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 5" marker-end="url(#arr-feedback)" />
+<text x="1008" y="2818" font-size="18" fill="#50647c" font-weight="550" >反馈</text>
+<path class="edge edge-risk" d="M1248 2812 L1285 2812" fill="none" stroke="#ad3e4c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"  marker-end="url(#arr-risk)" />
+<text x="1304" y="2818" font-size="18" fill="#50647c" font-weight="550" >风险 / 阻断</text>
 </svg>
