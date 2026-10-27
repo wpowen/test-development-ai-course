@@ -257,7 +257,8 @@ test('concurrent promotion lock refuses a second writer', async t => {
 test('successful temp promotion backs up and copies exactly 133 files, leaving real formal unchanged', async t => {
   const f = await fixture(t);
   const realRoot = fileURLToPath(new URL('../', import.meta.url));
-  const realBaseline = await readJSON(resolve(realRoot, 'output/svg-release-20261026/formal-baseline.json'));
+  // Guard real files using the committed inventory; CI has no local release workspace.
+  const realBaseline = (await readJSON(resolve(realRoot, 'docs/svg-redesign-2026-10-26/published-release.json'))).file_hashes;
   const realBefore = await formalHashes({projectRoot: realRoot, baseline: realBaseline});
   await write(resolve(f.projectRoot, 'public/unrelated.txt'), 'keep');
   await approveRelease(f.options);
